@@ -44,7 +44,6 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER */
 .masthead {
   background: var(--paper2);
   border-bottom: 2px solid var(--amber2);
@@ -94,16 +93,13 @@ body {
   line-height: 1.7;
 }
 
-/* MAIN */
 main {
   max-width: 980px;
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
 }
 
-.section {
-  margin-bottom: 3.5rem;
-}
+.section { margin-bottom: 3.5rem; }
 
 .section-header {
   display: flex;
@@ -128,21 +124,16 @@ main {
   background: var(--rule);
 }
 
-/* CARDS */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
 }
 
-.grid.featured {
-  grid-template-columns: 1fr;
-}
+.grid.featured { grid-template-columns: 1fr; }
 
 @media (min-width: 640px) {
-  .grid.featured {
-    grid-template-columns: 1.4fr 1fr;
-  }
+  .grid.featured { grid-template-columns: 1.4fr 1fr; }
 }
 
 .card {
@@ -176,9 +167,7 @@ main {
   border-color: rgba(0,0,0,.18);
 }
 
-.card:hover::before {
-  opacity: 1;
-}
+.card:hover::before { opacity: 1; }
 
 .card-icon {
   width: 36px;
@@ -246,7 +235,6 @@ main {
   color: var(--ink2);
 }
 
-/* FEATURED CARD (hoofdtool) */
 .card.main-tool {
   background: var(--amber-light);
   border-color: var(--amber2);
@@ -254,17 +242,9 @@ main {
 }
 
 .card.main-tool::before { background: var(--amber2); }
+.card.main-tool .card-icon { background: rgba(184,128,60,.15); }
+.card.main-tool .badge { background: rgba(184,128,60,.18); color: var(--amber); }
 
-.card.main-tool .card-icon {
-  background: rgba(184,128,60,.15);
-}
-
-.card.main-tool .badge {
-  background: rgba(184,128,60,.18);
-  color: var(--amber);
-}
-
-/* FOOTER */
 footer {
   background: white;
   border-top: 1px solid var(--rule);
@@ -272,18 +252,7 @@ footer {
   text-align: center;
 }
 
-.footer-inner {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.footer-logo {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--ink2);
-  margin-bottom: 1rem;
-}
+.footer-inner { max-width: 680px; margin: 0 auto; }
 
 .footer-text {
   font-family: var(--sans);
@@ -292,10 +261,7 @@ footer {
   color: var(--ink3);
 }
 
-.footer-text strong {
-  color: var(--ink2);
-  font-weight: 500;
-}
+.footer-text strong { color: var(--ink2); font-weight: 500; }
 
 .footer-sources {
   margin-top: 1.25rem;
@@ -307,9 +273,7 @@ footer {
   line-height: 1.9;
 }
 
-.footer-sources em {
-  font-style: italic;
-}
+.footer-sources em { font-style: italic; }
 </style>
 </head>
 <body>
@@ -326,7 +290,6 @@ footer {
 
 <main>
 
-  <!-- HOOFDTOOL -->
   <div class="section">
     <div class="section-header">
       <span class="section-title">Centraal arsenaal</span>
@@ -336,7 +299,7 @@ footer {
       <a class="card main-tool" href="to-arsenaal.html" style="--accent:#b8803c;">
         <div class="card-icon">⚙</div>
         <h2>TO Arsenaal</h2>
-        <div class="meta">364 oefeningen · sessie-bouwer · filters op fase, niveau & energie</div>
+        <div class="meta">364 oefeningen · sessie-bouwer · filters op fase, niveau &amp; energie</div>
         <p>Het centrale gereedschap. Oefeningen uit de volledige Theatre of the Oppressed-traditie — van kennismaking tot forum, van lichaam tot beeld. Met sessiebouwer en energieboog.</p>
         <div class="card-footer">
           <span class="badge">Hoofdtool</span>
@@ -350,14 +313,13 @@ footer {
         <div class="meta">Boals eigen categorisering · alle oefeningen uit het boek</div>
         <p>De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen nummering en introductieteksten. Dicht bij de bron.</p>
         <div class="card-footer">
-          <span class="badge" style="--badge-bg:#FAECE7; --badge-color:#8b1a1a;">Boal</span>
+          <span class="badge">Boal</span>
           <span class="arrow">→</span>
         </div>
       </a>
     </div>
   </div>
 
-  <!-- REGENBOOG VAN HET VERLANGEN -->
   <div class="section">
     <div class="section-header">
       <span class="section-title">Regenboog van het Verlangen</span>
@@ -390,7 +352,6 @@ footer {
     </div>
   </div>
 
-  <!-- AANVULLENDE METHODIEKEN -->
   <div class="section">
     <div class="section-header">
       <span class="section-title">Aanvullende methodieken</span>
@@ -411,11 +372,11 @@ footer {
 
       <a class="card" href="impro.html" style="--accent:#7a2a4f; --icon-bg:#FBEAF0; --badge-bg:#FBEAF0; --badge-color:#7a2a4f;">
         <div class="card-icon">🎲</div>
-        <h2>Viola Spolin</h2>
-        <div class="meta">Improvisatiespelen · theatertraditie</div>
+        <h2>Impro</h2>
+        <div class="meta">Improvisatiespelen · Viola Spolin</div>
         <p>Oefeningen uit Spolin's improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Complementair aan de TO-methodes.</p>
         <div class="card-footer">
-          <span class="badge">Spolin</span>
+          <span class="badge">Impro</span>
           <span class="arrow">→</span>
         </div>
       </a>
