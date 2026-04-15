@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feldenkrais — Bewustzijn door Beweging</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --blue:#185FA5;--blue2:#2e7abf;--blue3:#b5d4f4;--blue4:#e6f1fb;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#fdf5e8;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:12px 0 4px;transition:color .15s}
+.back-link:hover{color:var(--blue2)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue2)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--blue2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue2)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge-tijd{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--paper3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue2)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--paper3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue2);transform:scale(1.4)}
+.sp-dot.done{background:var(--paper4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:12px;color:var(--blue2);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--paper3)}
+
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.85;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 16px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue3);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue2);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* TO-verbinding */
+.card-to{margin:0 26px 22px;padding:12px 15px;background:var(--amber4);border-left:3px solid var(--amber3);border-radius:0 7px 7px 0}
+.to-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;display:block}
+.to-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue2);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.85;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--sans);font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink2);cursor:pointer;transition:all .12s}
+.vt-btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Gebruik-instructie */
+.gebruik-note{background:var(--paper2);border:1px solid var(--paper3);border-radius:8px;padding:10px 14px;margin-bottom:20px;font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.6}
+.gebruik-note strong{color:var(--ink2)}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<div class="masthead">
+  <div class="app-name">Feldenkrais — <em>Bewustzijn door Beweging</em></div>
+  <div class="app-sub">Moshe Feldenkrais · Awareness Through Movement (1972) · somatische opvoeding</div>
+  <div class="context-note">Twaalf lessen in lichamelijk zelfonderzoek. Feldenkrais stelde dat we handelen in overeenstemming met ons zelfbeeld — en dat zelfbeeld zit in het lichaam, niet alleen in het hoofd. Wie zijn bewegingspatronen kan waarnemen, kan ze veranderen. Dat is ook wat Theatre of the Oppressed wil.</div>
+</div>
+
+<div class="gebruik-note">
+  <strong>Hoe deze lessen te gebruiken:</strong> Feldenkrais-lessen vragen rust en aandacht. Doe ze liggend of zittend. Beweeg <em>langzamer</em> dan je denkt te moeten. Kleiner is beter. Pijn is een signaal om te stoppen. De les is de verkenning — niet het resultaat.
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div class="view-toggle">
+  <button class="vt-btn on" id="vt-step" onclick="setView('step')">Per stap</button>
+  <button class="vt-btn" id="vt-all" onclick="setView('all')">Alle stappen</button>
+</div>
+
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> lessen &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> stappen
+</div>
+
+</div>
+
+<script>
+const T = [
+
+{n:1, title:"Bodyscan — de beginsituatie",
+ cat:"Bodyscan", catBg:"#e6f1fb", catFg:"#0C447C",
+ stripe:"#185FA5", tijd:"8–12 min",
+ note:"De nulmeting. Vóór elke Feldenkrais-les — en ideaal aan het begin van elke sessie. Niet om te corrigeren, maar om te weten waar je staat.",
+ stages:[
+  {t:"Aankomst op de vloer",
+   body:"Iedereen ligt op de rug. Ogen dicht. Armen langs het lijf, benen gestrekt en ontspannen. Niemand zegt iets. Laat de stilte even landen."},
+  {t:"Merk op hoe de rug de vloer raakt",
+   body:"Joker begeleidt rustig: 'Merk op hoe je rug de vloer raakt. Welke delen raken volledig — welke zweven?' Geen antwoord nodig. Alleen waarnemen."},
+  {t:"Reis langs het lichaam",
+   body:"Ga van hoofd naar voeten: nekwervels, schouderbladen, onderrug, bekken, kuiten, hielen. Elk lichaamsdeel alleen maar opmerken — niet aanpassen, niet bewegen."},
+  {t:"Adem en terugkeer",
+   body:"Drie rustige ademhalingen. Open dan langzaam de ogen. Draai op één zij en kom rustig omhoog. Sta op. Loop een paar stappen. Voel het verschil met voor de les."}
+ ],
+ tip:"Nooit zeggen wat mensen zouden moeten voelen. Alleen vragen om te merken wat er is. De bodyscan is een nulmeting — geen correctie.",
+ to:"Boal noemde het gemechaniseerde lichaam het vertrekpunt van zijn werk. De bodyscan maakt dat mechanisme zichtbaar — zonder oordeel, alleen door waarneming."},
+
+{n:2, title:"De bekkenklok",
+ cat:"Differentiatie", catBg:"#e1f5ee", catFg:"#085041",
+ stripe:"#1D9E75", tijd:"15–20 min",
+ note:"Eén van de bekendste Feldenkrais-lessen. Het bekken is het centrum van de beweging — wie het leert voelen, ontdekt de basis van elke theatrale aanwezigheid.",
+ stages:[
+  {t:"Beginpositie",
+   body:"Lig op de rug, knieën gebogen, voeten plat op de vloer op heupbreedte. Stel je een klok voor op de achterkant van je bekken: 12 uur richting de lenden, 6 uur richting het staartbeen, 3 uur rechts, 9 uur links."},
+  {t:"De eerste beweging",
+   body:"Duw héél langzaam en héél klein op 12 uur — de lenden komen microscopisch van de vloer. Dan naar 6 uur — het staartbeen drukt licht in de vloer. Zes keer herhalen. Zo klein mogelijk."},
+  {t:"De hele klok",
+   body:"Reis langzaam langs de klok: 12, 3, 6, 9 en terug. Laat de beweging zo klein zijn dat je nauwelijks kunt zien dat er iets beweegt. Drie ronden, dan de andere kant op."},
+  {t:"Rust en integratie",
+   body:"Stop. Leg de benen plat neer. Voel hoe de rug nu de vloer raakt — is er iets veranderd? Sta langzaam op. Loop. Wat is er anders in het lopen?"}
+ ],
+ tip:"Kleiner is beter. Wie groot beweegt, leert niets nieuws — wie micro-beweegt, ontdekt het zenuwstelsel. Zeg dat expliciet voordat de les begint.",
+ to:"Het bekken draagt de sociale positie. Wie laag in status staat, heeft een ander bekken dan wie hoog staat. Na deze les herkennen deelnemers dat direct in Forum-personages."},
+
+{n:3, title:"Ogen leiden het lichaam",
+ cat:"Differentiatie", catBg:"#e1f5ee", catFg:"#085041",
+ stripe:"#1D9E75", tijd:"15–20 min",
+ note:"De ogen zijn niet geïsoleerd — ze organiseren de hele ruggengraat. Deze les maakt zichtbaar hoe aandacht en beweging onlosmakelijk verbonden zijn.",
+ stages:[
+  {t:"Beginpositie",
+   body:"Zit comfortabel op een stoel of op de vloer met een rechte rug. Kijk recht voor je naar een punt op de muur. Mond licht open, kaken ontspannen."},
+  {t:"Alleen de ogen",
+   body:"Beweeg alleen de ogen naar rechts — zo ver als comfortabel, zonder het hoofd mee te nemen. Terug naar het midden. Vijf keer. Merk op hoe ver je kunt zien."},
+  {t:"Ogen en hoofd samen",
+   body:"Nu: beweeg de ogen naar rechts én laat het hoofd dit keer mee draaien. Hoe ver kom je nu? Terug naar het midden. Vijf keer. Vergelijk de twee bewegingen."},
+  {t:"Verbeelding en integratie",
+   body:"Sluit de ogen. Beweeg ze langzaam naar rechts in de verbeelding — voel hoe de nek subtiel meebeweegt. Open de ogen. Draai nu naar links. Wat is er veranderd?"}
+ ],
+ tip:"De ogen zijn de koplopers van de beweging. Wie dit begrijpt, begrijpt ook waarom oogcontact op het toneel zoveel zegt — en waarom het vermijden ervan onderdrukking toont.",
+ to:"Wie de ogen niet durft te bewegen, durft de wereld niet te kijken. Na deze les zien deelnemers hoe oogcontact macht en angst uitdrukt in Forum-scènes."},
+
+{n:4, title:"Flexoren en extensoren",
+ cat:"Differentiatie", catBg:"#e1f5ee", catFg:"#085041",
+ stripe:"#1D9E75", tijd:"15–20 min",
+ note:"Opkrullen en strekken zijn de twee grondtonen van elk menselijk gebaar. Wie ze bewust kent in het lichaam, kan ze herkennen en spelen op het toneel.",
+ stages:[
+  {t:"Adem en bewustzijn",
+   body:"Lig op de rug. Leg één hand op de buik. Adem in — voel hoe de buik rijst. Adem uit — voel hoe de buik daalt. Vijf ademhalingen, alleen waarnemen."},
+  {t:"Opkrullen",
+   body:"Trek langzaam de knieën naar de borst. Laat het hoofd lichtjes optillen. Het lichaam krult op als een embryo. Héél zacht, héél langzaam. Adem niet in — laat de adem komen zoals hij wil."},
+  {t:"Strekken",
+   body:"Strek dan langzaam alles uit — armen boven het hoofd, benen lang, tenen weg. Het lichaam rekt zich volledig. Even vasthouden. Dan opkrullen."},
+  {t:"De herhaling",
+   body:"Wissel tien keer: opkrullen, strekken. Altijd op de adem. Rust daarna volledig. Sta op. Hoe staat het lichaam nu? Welke grondtoon is er meer?"}
+ ],
+ tip:"Dit zijn de twee grondtonen van elk menselijk gebaar. Wie dit in het lichaam kent, herkent het ook in Forum-personages — de protagonist die in zichzelf terugkrult, de antagonist die zich uitstrekt.",
+ to:"Boal zei dat onderdrukking het lichaam opkrult. Bevrijding strekt het uit. Deze les laat deelnemers dat voelen — niet als metafoor, maar als lichamelijke werkelijkheid."},
+
+{n:5, title:"Differentiatie van schouders",
+ cat:"Differentiatie", catBg:"#e1f5ee", catFg:"#085041",
+ stripe:"#1D9E75", tijd:"15–20 min",
+ note:"Schouders dragen spanning — sociaal, emotioneel, fysiek. Deze les leert hoe ze onafhankelijk van hoofd en nek kunnen bewegen.",
+ stages:[
+  {t:"Beginpositie",
+   body:"Zit op een stoel, handen losjes op de knieën. Laat de schouders zakken. Voel waar ze normaal hangen — hoog, laag, naar voren?"},
+  {t:"Afwisselend",
+   body:"Laat de linkerschouder langzaam omhoog gaan — alleen de schouder, het hoofd beweegt niet mee. Laat zakken. Dan de rechterschouder. Afwisselend, alsof ze wippen. Tien keer."},
+  {t:"Gecombineerde beweging",
+   body:"Laat nu de linkerschouder omhoog gaan terwijl het hoofd naar rechts draait. Heel klein. Heel langzaam. Dan linkerschouder omlaag, hoofd terug. Herhaal aan de andere kant."},
+  {t:"Rust en vergelijking",
+   body:"Stop. Voel hoe de nek en schouders aanvoelen. Draai het hoofd rustig links en rechts. Wat is er veranderd? Sta op. Loop. Voelen de schouders anders?"}
+ ],
+ tip:"Gecombineerde bewegingen die verrassend voelen zijn altijd het teken dat er iets nieuws geleerd wordt. Moedig die verrassing aan — dat gevoel is het leren zelf.",
+ to:"Opgekropen schouders zijn het lichaamsteken van sociale druk. Na deze les herkennen deelnemers dat patroon direct in zichzelf en in Forum-personages."},
+
+{n:6, title:"Het adem-lichaam",
+ cat:"Bodyscan", catBg:"#e6f1fb", catFg:"#0C447C",
+ stripe:"#185FA5", tijd:"15–20 min",
+ note:"Adem is de brug tussen lichaam en stem. Deze les verkent de dimensies van ademhaling — borst, buik, zijkanten, rug — als voorbereiding op aanwezigheid en stem.",
+ stages:[
+  {t:"Beginpositie",
+   body:"Lig op de rug. Leg één hand op de borst, één hand op de buik. Voel hoe beide handen bewegen — of niet bewegen — bij een normale ademhaling."},
+  {t:"Buikadem",
+   body:"Adem zo dat alleen de buikhand beweegt en de borsthand stil blijft. Vijf ademhalingen. Niet forceren — uitnodigen."},
+  {t:"Borstadem",
+   body:"Nu alleen de borsthand. De buikhand blijft stil. Vijf ademhalingen. Dan beide tegelijk — buik en borst bewegen samen."},
+  {t:"Paradoxale adem en rust",
+   body:"Paradoxale adem: de buik intrekt bij inademing, uitzet bij uitademing. Vreemd, maar mogelijk. Vijf keer. Dan: laat de adem volledig vrij. Leg de handen neer. Hoe ademt het lichaam nu vanzelf?"}
+ ],
+ tip:"Er is geen correcte manier van ademen. De verkenning zelf is de les — niet het resultaat. Wie dit durft te zeggen als Joker, geeft de groep toestemming om te verkennen.",
+ to:"Stem en aanwezigheid beginnen bij de adem. Een protagonist die zijn adem inhoudt, houdt ook zijn woord in. Na deze les is dat zichtbaar — en bespreekbaar."},
+
+{n:7, title:"Zelfbeeld en houding",
+ cat:"Zelfbeeld", catBg:"#faeeda", catFg:"#633806",
+ stripe:"#854F0B", tijd:"20–25 min",
+ note:"Feldenkrais' kernstelling: 'We handelen in overeenstemming met ons zelfbeeld.' Dit zelfbeeld zit in het lichaam — in hoe we staan, lopen en ademen.",
+ stages:[
+  {t:"Neutrale waarneming",
+   body:"Sta neutraal. Joker vraagt: 'Hoe sta jij nu? Welke lichaamsdelen zijn je bewust aanwezig?' Merk alleen op — geen correctie, geen oordeel. Dertig seconden."},
+  {t:"Bodyscan staand",
+   body:"Ga liggen. Voel de bodyscan. Sta dan langzaam opnieuw op. Is er iets veranderd? Hoe staat het lichaam nu?"},
+  {t:"Zekerheid en onzekerheid",
+   body:"Denk aan een moment waarop je je erg zeker voelde. Laat dat beeld in je lichaam landen — alleen de interne gewaarwording, niet de houding corrigeren. Voel wat er verandert. Dan een moment van onzekerheid. Dan terug naar zekerheid."},
+  {t:"Integratie",
+   body:"Loop door de ruimte. Laat het zelfgevoel leiden — niet de houding. Wat doet het lichaam vanzelf als het zich zeker voelt? Wat als het zich klein voelt?"}
+ ],
+ tip:"Dit is de directe brug van Feldenkrais naar Theatre of the Oppressed. Benoem die verbinding na de les — hoe het lichaam de sociale positie draagt, zichtbaar voor iedereen.",
+ to:"Boal: het lichaam van de onderdrukten draagt de onderdrukking zichtbaar. Feldenkrais: het zelfbeeld stuurt het lichaam. Twee kanten van dezelfde waarheid."},
+
+{n:8, title:"Lopen verkennen",
+ cat:"Zelfbeeld", catBg:"#faeeda", catFg:"#633806",
+ stripe:"#854F0B", tijd:"12–18 min",
+ note:"Het looppatroon is een autobiografie. Wie bewust kan waarnemen hoe hij loopt, ziet ook hoe Forum-personages lopen — en wat dat zegt over hun positie.",
+ stages:[
+  {t:"Normaal lopen",
+   body:"Loop normaal door de ruimte. Merk op: hoe raken de voeten de vloer? Hiel eerst, of anders? Hoe bewegen de armen? Kijkt het hoofd naar voren of naar de grond?"},
+  {t:"Variaties verkennen",
+   body:"Loop tien stappen op de buitenkant van de voeten. Dan de binnenkant. Dan op de hielen. Dan op de ballen van de voeten. Terug naar normaal — wat voelt er anders?"},
+  {t:"Gewicht en ruimte",
+   body:"Loop alsof je vijf kilo zwaarder bent. Voel wat dat doet met de rug, de schouders, de blik. Dan vijf kilo lichter. Wat verandert er in de wereld om je heen?"},
+  {t:"Terugkeer en observatie",
+   body:"Normaal lopen. Welk deel van de voet raakt de vloer nu eerst? Is de stap anders? Ga zitten. Noteer (mentaal) wat je hebt ontdekt."}
+ ],
+ tip:"Het looppatroon is direct materiaal voor Forum-dramaturgie. Wie na deze les een Forum-scène bekijkt, ziet de machtsverhoudingen in hoe de personages lopen.",
+ to:"Elke protagonist heeft een looppatroon dat zijn positie verraadt. Na deze les worden deelnemers scherper kijkers — én scherpere spelers."},
+
+{n:9, title:"Ruggengraat als golf",
+ cat:"Differentiatie", catBg:"#e1f5ee", catFg:"#085041",
+ stripe:"#1D9E75", tijd:"15–20 min",
+ note:"De wervelkolom is geen stijve stok — het is een keten van 33 wervels. Wie die keten segment voor segment leert voelen, leert ook segment voor segment spelen.",
+ stages:[
+  {t:"Beginpositie",
+   body:"Sta met de voeten op heupbreedte. Armen losjes langs het lijf. Voel de grond onder de voeten. Voel hoe het gewicht verdeeld is — voor, achter, links, rechts."},
+  {t:"Het hoofd laten zakken",
+   body:"Laat alleen het hoofd langzaam zakken — de nek volgt, dan de borstkas, dan de buik. Ga zo ver als comfortabel. Kijk naar de grond. Laat de armen hangen."},
+  {t:"Terugkomen",
+   body:"Begin van onderaf omhoog: bekken, lenden, borstwervel voor borstwervel, halswervels, hoofd als laatste. Zo langzaam mogelijk — golf voor golf."},
+  {t:"Herhaling en integratie",
+   body:"Drie keer herhalen. Dan: strek de rug recht. Laat hem daarna opnieuw golf-voor-golf zakken. Voel welke schakels soepel bewegen — en welke als één blok."}
+ ],
+ tip:"De meeste mensen bewegen de wervelkolom als één eenheid. Wie hem segment voor segment leert voelen, leert ook segment voor segment spelen — dat is de basis van theatrale differentiatie.",
+ to:"Een rigide ruggengraat is een rigide personage. Na deze les herkennen deelnemers de stijfheid in Forum-personages — en begrijpen ze waar die vandaan komt."},
+
+{n:10, title:"Imaginaire beweging",
+ cat:"Verbeelding", catBg:"#eeedfe", catFg:"#26215C",
+ stripe:"#534AB7", tijd:"15–20 min",
+ note:"Bewegen in de verbeelding heeft meetbaar effect op het lichaam. Moderne neurowetenschappen bevestigen wat Feldenkrais intuïtief wist: mentale beweging activeert dezelfde zenuwbanen als fysieke beweging.",
+ stages:[
+  {t:"De basismeting",
+   body:"Lig op de rug. Strek de rechterarm langzaam boven het hoofd zo ver als comfortabel. Merk hoever je komt. Breng de arm terug."},
+  {t:"Mentale beweging",
+   body:"Sluit de ogen. Stel je voor dat de rechterarm strekt — tien keer, langzaam, precies zoals voorheen. Voel de beweging van binnenuit. Neem de tijd. Geen haast."},
+  {t:"De vergelijking",
+   body:"Strek de rechterarm opnieuw fysiek. Hoever ga je nu? Vergelijk met de eerste keer. Wat is er veranderd — zonder te oefenen?"},
+  {t:"De linkerkant",
+   body:"Herhaal met de linkerarm — maar strek hem nu alleen fysiek, zonder mentale voorbereiding. Vergelijk de twee zijden. Wat zegt het verschil?"}
+ ],
+ tip:"Dit is wetenschappelijk onderbouwd: mentale beweging activeert dezelfde zenuwbanen als fysieke beweging. Dat is ook waarom innerlijke monoloog in theater werkt — en waarom repetitie in de verbeelding het spel verandert.",
+ to:"Innerlijke monoloog, visualisatie van interventies vóór het Forum — dit zijn allemaal vormen van imaginaire beweging. Na deze les begrijpen deelnemers waarom mentaal repeteren werkt."},
+
+{n:11, title:"Ruimtelijke verhoudingen",
+ cat:"Zelfbeeld", catBg:"#faeeda", catFg:"#633806",
+ stripe:"#854F0B", tijd:"15–20 min",
+ note:"Theatrale aanwezigheid is voor een groot deel ruimtelijke aanwezigheid — hoeveel ruimte een lichaam neemt en geeft. Deze les maakt dat bewust zonder het te benoemen.",
+ stages:[
+  {t:"Zitten en waarnemen",
+   body:"Zit op een stoel. Leg de handen op de knieën. Sluit de ogen. Merk op: hoe ver zijn de knieën van elkaar? Hoe ver de handen van de schouders? Hoe ver is het plafond?"},
+  {t:"Verbeelding van ruimte",
+   body:"Stel je voor dat de ruimte tussen knieën en schouders groter wordt — alsof het lichaam uitzet. Adem mee. Niet bewegen — alleen voorstellen. Voel wat er verandert."},
+  {t:"Openstaan en opnieuw waarnemen",
+   body:"Open de ogen. Merk of iets veranderd is in hoe het lichaam aanvoelt. Sta rustig op. Hoe staat het lichaam in de ruimte? Hoeveel ruimte neemt het in?"},
+  {t:"Lopen met bewustzijn",
+   body:"Loop door de ruimte. Hoeveel ruimte mag er zijn? Voel het verschil tussen 'ik neem ruimte' en 'ik krim samen'. Wanneer doe je welke?"}
+ ],
+ tip:"Vraag na afloop: in welke situaties neem je meer ruimte? In welke minder? Dat is de brug naar de machtsverhoudingen in Forum-scènes.",
+ to:"Wie in een Forum-scène interventie pleegt, moet ruimte durven nemen — letterlijk en figuurlijk. Na deze les is dat geen metafoor meer."},
+
+{n:12, title:"Onbewuste lichaamsdelen",
+ cat:"Bodyscan", catBg:"#e6f1fb", catFg:"#0C447C",
+ stripe:"#185FA5", tijd:"15–20 min",
+ note:"Elk lichaamsdeel heeft een plek in de hersenen — een 'cortexkaartje'. Maar sommige kaartjes zijn groter dan andere. Deze les herschrijft de kaart subtiel.",
+ stages:[
+  {t:"Bodyscan met aandacht voor vaagheid",
+   body:"Lig op de rug. Bodyscan van hoofd tot voeten. Welke lichaamsdelen voel je duidelijk? Welke zijn vaag of nauwelijks aanwezig? Noteer mentaal."},
+  {t:"Differentiatie van kleine delen",
+   body:"Beweeg alleen de teentjes — elk afzonderlijk als mogelijk. Dan de enkels cirkelen. Dan de knieën buigen en strekken. Wat is helder, wat is wazig? Welke bewegingen zijn vreemd?"},
+  {t:"De hand als gids",
+   body:"Leg een hand op een lichaamsdeel dat vaag aanvoelde. Voel de warmte van de hand. Adem naar dat lichaamsdeel. Blijft de aandacht er bij?"},
+  {t:"Integratie",
+   body:"Sta rustig op. Loop. Zijn de eerder vage plekken nu meer aanwezig? Voel je het lichaam als één geheel — of nog steeds als losse delen?"}
+ ],
+ tip:"Feldenkrais noemde dit het cortexkaartje. Elk lichaamsdeel heeft een plek in de hersenen. De oefening herschrijft die kaart subtiel — meer bewustzijn betekent meer keuze in beweging.",
+ to:"Een speler die zijn voeten niet voelt, staat niet op het toneel — hij zweeft erboven. Grounding begint bij bewustzijn van de vloer. Na deze les staat de groep anders."},
+
+{n:13, title:"Feldenkrais en de gemechaniseerde speler",
+ cat:"TO-verbinding", catBg:"#fde8e0", catFg:"#5c1e10",
+ stripe:"#8b1a1a", tijd:"15–20 min",
+ note:"Boal en Feldenkrais zagen hetzelfde probleem vanuit twee kanten. Boal: het lichaam is gemechaniseerd door sociale onderdrukking. Feldenkrais: het lichaam is gemechaniseerd door aangeleerde gewoonte. Beiden boden hetzelfde antwoord: bewustzijn als eerste stap naar vrijheid.",
+ stages:[
+  {t:"De twee perspectieven",
+   body:"Joker legt uit: Boal begon met de stelling dat onderdrukking het lichaam mechaniseert — we bewegen, spreken en ademen volgens patronen die we niet hebben gekozen. Feldenkrais zei hetzelfde over gewoonte: we bewegen op de automatische piloot, zonder te weten hoe of waarom."},
+  {t:"De gemeenschappelijke kern",
+   body:"Beide zagen bewustzijn als de sleutel. Niet wilskracht, niet discipline — maar aandacht. Wie zijn bewegingspatroon kan waarnemen, kan het veranderen. Wie zijn onderdrukking kan waarnemen, kan ertegen handelen. Praxis en bewustzijn door beweging zijn verwante begrippen."},
+  {t:"De Feldenkrais-les als de-mechanisering",
+   body:"Feldenkrais-lessen doen wat Boal ook wil: het lichaam uit de automatische piloot halen. Langzame beweging, micro-differentiatie, verbeelding — dit zijn allen instrumenten om de gewoonte te onderbreken en nieuwe keuzes zichtbaar te maken."},
+  {t:"Reflectie en verbinding",
+   body:"Vraag aan de groep: welke bewegingspatronen herken je in je eigen leven als sociaal bepaald? In je looppatroon, je ademhaling, hoe je ruimte neemt of vermijdt? Dat is het Forum-materiaal dat Feldenkrais blootlegt."}
+ ],
+ tip:"Dit is de conceptuele les — niet een bewegingsles. Ze werkt het best ná een of meerdere Feldenkrais-lessen, wanneer deelnemers al lichamelijke ervaringen hebben om op te reflecteren.",
+ to:"Freire beschrijft de kist. Boal bedacht het gereedschap. Feldenkrais sleutelt het instrument bij. Drie lagen van hetzelfde project: het lichaam bevrijden van wat het niet heeft gekozen."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+function setView(v) {
+  view = v;
+  document.getElementById('vt-step').classList.toggle('on', v === 'step');
+  document.getElementById('vt-all').classList.toggle('on', v === 'all');
+  render();
+}
+
+function render() {
+  const t = T[cur];
+
+  document.getElementById('pills').innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})">${x.n}</button>`
+  ).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = view === 'step' ? renderStep(t) : renderAll(t);
+
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Les ${t.n} van ${T.length}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-cat" style="background:${t.catBg};color:${t.catFg}">${t.cat}</span>
+            <span class="badge-tijd">${t.tijd}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Jokertip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-to">
+        <span class="to-lbl">Verbinding met TO</span>
+        <div class="to-txt">${t.to}</div>
+      </div>
+    </div>`;
+}
+
+function renderStep(t) {
+  const s = t.stages[curStage];
+  const dots = t.stages.map((_, i) =>
+    `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" onclick="goStage(${i})"></button>`
+  ).join('');
+
+  return `
+    <div class="stages-head">
+      <span class="stages-lbl">Stap ${curStage + 1} van ${t.stages.length}</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="stage-progress">${dots}</div>
+        <div class="stage-nav">
+          <button class="sn-btn" onclick="prevStage()" ${curStage === 0 ? 'disabled' : ''}>&#8593;</button>
+          <button class="sn-btn" onclick="nextStage()" ${curStage === t.stages.length - 1 ? 'disabled' : ''}>&#8595;</button>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-num-lbl">Stap ${curStage + 1}</div>
+      <div class="stage-title">${s.t}</div>
+      <div class="stage-text">${s.body}</div>
+    </div>
+    <div style="height:20px"></div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div>${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; curStage = 0; render(); }
+function goStage(i) { curStage = i; render(); }
+function nextStage() { if (curStage < T[cur].stages.length - 1) { curStage++; render(); } }
+function prevStage() { if (curStage > 0) { curStage--; render(); } }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; curStage = 0; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; curStage = 0; render(); } };
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { if (cur < T.length - 1) { cur++; curStage = 0; render(); } }
+  if (e.key === 'ArrowLeft')  { if (cur > 0) { cur--; curStage = 0; render(); } }
+  if (e.key === 'ArrowDown')  { nextStage(); }
+  if (e.key === 'ArrowUp')    { prevStage(); }
+});
+
+render();
+</script>
+</body>
+</html>
