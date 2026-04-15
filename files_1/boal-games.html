@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games for Actors and Non-Actors — Augusto Boal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
+  :root{--ink:#1a1208;--paper:#f5f0e8;--paper-dark:#ede5d0;--accent:#8b1a1a;--gold:#b8860b;--gold-light:#d4a843;--muted:#6b5d4f;--border:#c8b89a;--cat-I:#2c5f2e;--cat-II:#1a3a5c;--cat-III:#5c2c5f;--cat-IV:#5c3d1a;--cat-V:#1a4a3a;--cat-IT:#8b1a1a;--cat-RE:#3a3a1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+  header{background:var(--ink);color:var(--paper);padding:2rem 2rem 1.5rem;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 80px);}
+  .header-inner{position:relative;max-width:900px;margin:0 auto;}
+  .header-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.5rem;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.15;color:var(--paper);margin-bottom:.4rem;}
+  header h1 em{font-style:italic;color:var(--gold-light);}
+  .header-sub{font-size:.85rem;color:#a89880;font-style:italic;}
+  .header-divider{width:3rem;height:1px;background:var(--gold);margin:1rem 0 .8rem;}
+  .header-intro{font-size:.82rem;color:#c4b49a;max-width:600px;line-height:1.6;}
+  .cat-nav{background:var(--paper-dark);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.1);}
+  .cat-nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;}
+  .cat-nav-inner::-webkit-scrollbar{display:none;}
+  .cat-btn{flex:0 0 auto;padding:.8rem 1.2rem;border:none;background:none;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:.4rem;}
+  .cat-btn:hover{color:var(--ink);}
+  .cat-btn.active{color:var(--ink);border-bottom-color:var(--accent);}
+  .cat-btn .roman{font-style:italic;font-size:.85em;}
+  .main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem;}
+  .category-section{display:none;}.category-section.active{display:block;}
+  .category-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+  .category-numeral{font-family:'Playfair Display',serif;font-style:italic;font-size:3.5rem;color:var(--border);line-height:1;margin-bottom:-.5rem;}
+  .category-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;line-height:1.2;margin-bottom:.6rem;}
+  .category-intro{font-size:.9rem;line-height:1.75;color:#3a2e22;max-width:720px;background:var(--paper-dark);padding:1rem 1.2rem;border-left:3px solid var(--gold);border-radius:0 4px 4px 0;}
+  .series-group{margin-bottom:2.5rem;}
+  .series-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:.8rem;}
+  .series-label::after{content:'';flex:1;height:1px;background:var(--border);opacity:.4;}
+  .exercises-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;}
+  .exercise-card{background:white;border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:all .2s;}
+  .exercise-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.1);transform:translateY(-2px);}
+  .exercise-card.expanded{grid-column:1/-1;cursor:default;transform:none;box-shadow:0 4px 24px rgba(0,0,0,.12);}
+  .card-header{padding:1rem 1.1rem .8rem;border-bottom:1px solid #f0e8d8;display:flex;gap:.8rem;align-items:flex-start;}
+  .card-number{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;color:var(--border);line-height:1;flex:0 0 auto;min-width:1.8rem;}
+  .card-title-area{flex:1;}
+  .card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:.2rem;}
+  .card-aka{font-size:.72rem;color:var(--muted);font-style:italic;}
+  .card-expand-hint{font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;opacity:.7;}
+  .exercise-card.expanded .card-expand-hint{display:none;}
+  .card-meta{padding:.6rem 1.1rem;display:flex;gap:.5rem;flex-wrap:wrap;background:#faf7f2;border-bottom:1px solid #f0e8d8;}
+  .meta-tag{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px;background:var(--paper-dark);color:var(--muted);border:1px solid var(--border);}
+  .meta-tag.groep{background:#e8f0e8;color:#2c5f2e;border-color:#b8d4b8;}
+  .meta-tag.koppels{background:#e8eef5;color:#1a3a5c;border-color:#b8ccdc;}
+  .meta-tag.solo{background:#f5ece8;color:#5c2c1a;border-color:#dcb8b8;}
+  .card-body{padding:1rem 1.1rem;display:none;}
+  .exercise-card.expanded .card-body{display:block;}
+  .card-teaser{padding:.7rem 1.1rem 1rem;font-size:.85rem;color:var(--muted);line-height:1.6;font-style:italic;}
+  .exercise-card.expanded .card-teaser{display:none;}
+  .body-section{margin-bottom:1rem;}
+  .body-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+  .body-text{font-size:.88rem;line-height:1.75;color:#2a2016;}
+  .body-text p{margin-bottom:.7rem;}.body-text p:last-child{margin-bottom:0;}
+  .variation-block{margin-top:.8rem;padding:.7rem .9rem;background:var(--paper-dark);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;}
+  .variation-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+  .variation-text{font-size:.83rem;line-height:1.7;color:#3a2e22;font-style:italic;}
+  .boal-note{margin-top:.8rem;padding:.6rem .9rem;background:#fef9f0;border:1px solid #e8d8b0;border-radius:3px;font-size:.8rem;color:#5c4a2a;font-style:italic;line-height:1.6;}
+  .boal-note::before{content:"✦ ";color:var(--gold);}
+  .close-btn{display:block;margin-top:1.2rem;padding:.5rem 1rem;background:none;border:1px solid var(--border);border-radius:3px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.75rem;color:var(--muted);letter-spacing:.08em;transition:all .2s;}
+  .close-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .page-footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);margin-top:3rem;}
+  [data-cat="I"] .category-numeral{color:#b8d4b8;}[data-cat="I"] .category-title{color:var(--cat-I);}[data-cat="I"] .exercise-card:hover,[data-cat="I"] .exercise-card.expanded{border-color:var(--cat-I);}
+  [data-cat="II"] .category-numeral{color:#b8c8dc;}[data-cat="II"] .category-title{color:var(--cat-II);}[data-cat="II"] .exercise-card:hover,[data-cat="II"] .exercise-card.expanded{border-color:var(--cat-II);}
+  [data-cat="III"] .category-numeral{color:#d4b8dc;}[data-cat="III"] .category-title{color:var(--cat-III);}[data-cat="III"] .exercise-card:hover,[data-cat="III"] .exercise-card.expanded{border-color:var(--cat-III);}
+  [data-cat="IV"] .category-numeral{color:#dcc8b0;}[data-cat="IV"] .category-title{color:var(--cat-IV);}[data-cat="IV"] .exercise-card:hover,[data-cat="IV"] .exercise-card.expanded{border-color:var(--cat-IV);}
+  [data-cat="V"] .category-numeral{color:#b0d0c8;}[data-cat="V"] .category-title{color:var(--cat-V);}[data-cat="V"] .exercise-card:hover,[data-cat="V"] .exercise-card.expanded{border-color:var(--cat-V);}
+  [data-cat="IT"] .category-numeral{color:#dcb8b8;}[data-cat="IT"] .category-title{color:var(--cat-IT);}[data-cat="IT"] .exercise-card:hover,[data-cat="IT"] .exercise-card.expanded{border-color:var(--cat-IT);}
+  [data-cat="RE"] .category-numeral{color:#cccca0;}[data-cat="RE"] .category-title{color:var(--cat-RE);}[data-cat="RE"] .exercise-card:hover,[data-cat="RE"] .exercise-card.expanded{border-color:var(--cat-RE);}
+  @media(max-width:600px){.exercises-grid{grid-template-columns:1fr;}header,.main{padding:1.5rem 1rem;}}
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <div class="header-label">Het Arsenaal — Augusto Boal</div>
+  <h1>Games for Actors<br>and <em>Non-Actors</em></h1>
+  <div class="header-sub">Tweede editie · Routledge · 2002 · Vertaling: Adrian Jackson</div>
+  <div class="header-divider"></div>
+  <div class="header-intro">Het arsenaal van Theatre of the Oppressed. Vijf categorieën van spelen en oefeningen — aangevuld met Beeldtheater en Repetitieoefeningen — elk gericht op de-specialisatie van het lichaam en herstel van de zintuiglijke waarneming.</div>
+</div></header>
+
+<nav class="cat-nav"><div class="cat-nav-inner">
+  <button class="cat-btn active" onclick="showCat('I',this)"><span class="roman">I</span> Voelen wat we aanraken</button>
+  <button class="cat-btn" onclick="showCat('II',this)"><span class="roman">II</span> Luisteren naar wat we horen</button>
+  <button class="cat-btn" onclick="showCat('III',this)"><span class="roman">III</span> Meerdere zintuigen activeren</button>
+  <button class="cat-btn" onclick="showCat('IV',this)"><span class="roman">IV</span> Zien wat we bekijken</button>
+  <button class="cat-btn" onclick="showCat('V',this)"><span class="roman">V</span> Geheugen van de zintuigen</button>
+  <button class="cat-btn" onclick="showCat('IT',this)">Beeldtheater</button>
+  <button class="cat-btn" onclick="showCat('RE',this)">Repetitieoefeningen</button>
+</div></nav>
+
+<main class="main">
+
+<!-- ══════════ CATEGORIE I ══════════ -->
+<section class="category-section active" id="cat-I" data-cat="I">
+  <div class="category-header">
+    <div class="category-numeral">I</div>
+    <div class="category-title">Voelen wat we aanraken<br><small style="font-size:.55em;font-weight:400;color:#6b5d4f;">(Herstructurering van Spierrelaties)</small></div>
+    <div class="category-intro">Deze oefeningen gaan over tastgevoeligheid. Onze lichamen raken voortdurend lucht, kleding en andere lichamen aan — maar we voelen nauwelijks wat we aanraken. Deze reeks helpt het lichaam te de-mechaniseren: elk gewricht, elke spier, elk deel afzonderlijk bewust maken. "Het naderen van de dood verstijft het lichaam, te beginnen bij de gewrichten." Deze oefeningen werken dat tegen.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Eerste reeks · Algemene oefeningen</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Kruis en de Cirkel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span><span class="meta-tag">zittend of staand</span></div>
+        <div class="card-teaser">Theoretisch de makkelijkste oefening — in de praktijk bijna onmogelijk door psychologische mechanisaties.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Deelnemers beschrijven een cirkel met hun rechterhand — groot of klein, naar keuze. Iedereen doet het makkelijk. Stop. Maak een kruis met de linkerhand. Nog makkelijker. Stop. Nu: beide tegelijk. Bijna onmogelijk. In een groep van dertig lukt het soms één persoon; vrijwel nooit twee. Drie is het record.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie</div>
+            <div class="variation-text">Beschrijf een cirkel met de rechtervoet (zittend is makkelijker). Na een minuut: vergeet de voet — maar laat hem doorgaan. Dan: schrijf je voornaam in de lucht met de rechterhand, tegelijk. De voet volgt de hand en begint ook de naam te schrijven.</div>
+          </div>
+          <div class="boal-note">Waarom is dit zo moeilijk? Pure psychologische mechanisatie — er is geen enkel fysiek obstakel. Met oefening lukt het wel.</div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Colombiaanse Hypnose</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span><span class="meta-tag groep">ook in groep</span></div>
+        <div class="card-teaser">Een van de basisoefeningen van Theatre of the Oppressed — volg de hand als een gehypnotiseerde.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Eén speler houdt haar hand met de palm naar voren, vingers omhoog, 20 tot 40 centimeter van het gezicht van de ander, die als gehypnotiseerd is en zijn gezicht steeds op dezelfde afstand van de hand moet houden — haargrens op vingertophoogte, kin op handpalmbasis.</p>
+              <p>De hypnotiseur beweegt de hand in alle richtingen — omhoog, omlaag, zijwaarts, voor- en achterwaarts, diagonaal. De partner moet zijn lichaam in alle richtingen verdraaien om de afstand constant te houden. De hand mag nooit stoppen of te snel bewegen. Na een paar minuten wisselen de rollen.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — twee handen</div>
+            <div class="variation-text">Eén speler leidt twee partners tegelijk, één met elke hand. De twee geleide spelers mogen elkaar niet aanraken — elk lichaam vindt zijn eigen evenwicht.</div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — handen én voeten</div>
+            <div class="variation-text">Vier spelers, één voor elke hand en voet van de leider. De leider kan dansen, rollen, springen. De volgers volgen het aangewezen lichaamsdeel.</div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — elk lichaamsdeel</div>
+            <div class="variation-text">Eén speler staat in het midden van een kring en beweegt langzaam. Vrijwilligers stappen naar voren en laten zich hypnotiseren door een willekeurig lichaamsdeel — oor, neus, rug, voet. Een voor een sluit iedereen aan tot de hele groep door een deel van iemands lichaam wordt geleid.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">3</div>
+          <div class="card-title-area">
+            <div class="card-title">Minimaal Oppervlaktecontact</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span><span class="meta-tag koppels">ook koppels</span><span class="meta-tag groep">ook groep</span></div>
+        <div class="card-teaser">Vind zo veel mogelijk manieren om met zo weinig mogelijk lichaamsoppervlak de vloer te raken.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke speler onderzoekt welke houdingen zo weinig mogelijk lichaamsoppervlak in contact brengen met de vloer — variërend en alle mogelijkheden verkennen: voeten en handen, één voet en één hand, alleen billen, borst, rug. Op enig moment tijdens de oefening moet elk lichaamsdeel de vloer hebben aangeraakt.</p>
+              <p>Overgangen tussen houdingen moeten zeer langzaam gaan, zodat alle betrokken spieren worden geactiveerd en de speler bewust wordt van wat er gebeurt. Voel de zwaartekracht die naar de grond trekt.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">In koppels</div>
+            <div class="variation-text">Elke speler moet in contact zijn met het lichaam van de partner en er tegenaan leunen, terwijl beiden minimaal contact houden met de vloer. De twee lichamen bewegen langzaam en voortdurend, steeds nieuwe houdingen vindend in één lange, continue stroom. Communicatie uitsluitend via spieren of ogen — nooit via woorden. Praten verstoort de oefening.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Tegen Elkaar Duwen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span></div>
+        <div class="card-teaser">Gebruik al je kracht — maar verlies niet. Precies wat de Joker doet tijdens een Forumtheatersessie.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>(a)</strong> Twee partners staan tegenover elkaar. Armen altijd in contact, beiden bewegen in hetzelfde langzame ritme, elk proberend het gezicht van de ander te raken. Armen mogen over elkaar schuiven — altijd in contact, nooit kracht opleggen. Elke beweging die de partner aanbiedt moet worden aanvaard; de enige verdediging is wegdraaien, nooit blokkeren.</p>
+              <p><strong>(b)</strong> Partners staan tegenover elkaar, handen op elkaars schouders, een denkbeeldige lijn tussen hen op de grond. Beiden duwen met alle kracht. Zodra iemand voelt dat de ander zwakker wordt en gaat verliezen, geeft ze toe om de lijn niet te overschrijden. Als de ander zijn kracht vergroot, doet de eerste hetzelfde — samen gebruiken ze alle kracht die ze hebben. Dit is precies de maieutische handeling van de Joker: niet te snel meegeven, maar de ingreep van de toeschouwer alle ruimte geven zich te ontplooien.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — wip</div>
+            <div class="variation-text">Zittend op de grond, benen gespreid en licht gebogen, zolen tegen de voeten van de partner. Pak elkaars armen vast. Eerst staat de één op terwijl de ander trekt — als zij neergaat begint de tweede op te staan, zodat op een gegeven moment beiden halverwege zijn — als twee kinderen op een echte wip.</div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — rug aan rug</div>
+            <div class="variation-text">Rug aan rug, tegen elkaar leunend. Geleidelijk, zonder rugcontact te verbreken, naar de grond zakken tot zittend. Dan zonder handen weer omhoog. Kan ook dansend: intuïtief aanvoelen wat de ander wil doen zonder rugcontact te verbreken.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">5</div>
+          <div class="card-title-area">
+            <div class="card-title">Joe Egg</div>
+            <div class="card-aka">ook wel: vertrouwenskring</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span><span class="meta-tag">vertrouwen</span></div>
+        <div class="card-teaser">De klassieke vertrouwensoefening waarbij één persoon zich laat opvangen door de kring.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Iedereen vormt een kring op een armslengte afstand, rechtop staand. Ze leunen naar het midden zonder te buigen in de taille, zonder de hielen van de grond te tillen — zoals de Toren van Pisa. Dan naar buiten leunen (zonder de tenen te tillen). Meerdere malen herhalen. Daarna cirkels: naar links, naar buiten, naar rechts, naar het midden.</p>
+              <p>Een vrijwilliger gaat naar het midden. De kring sluit, schouder aan schouder. De persoon in het midden sluit de ogen en leunt in elke richting, zichzelf latend vallen. De kring vangt op en stuurt zacht terug naar het midden, vanwaar de persoon meteen in een andere richting valt. Op elk moment moeten minstens drie mensen de persoon in het midden ondersteunen.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — met drie personen</div>
+            <div class="variation-text">Slechts drie personen: één tussen twee anderen, voor en achter. De middelste laat zich voor- of achterwaarts vallen. De voeten mogen het midden niet verlaten. De vangers stoppen de val zacht en duwen terug.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">6</div>
+          <div class="card-title-area">
+            <div class="card-title">De Knopenkring</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Verstrengel de kring — en probeer daarna geruisloos los te raken zonder handen los te laten.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>Voorbereiding — elastische kring:</strong> Sluit handen en beweeg uit elkaar tot alleen de vingertoppen raken; lichamen zo ver mogelijk weg. Dan het omgekeerde: naar het midden samenklonteren op zo min mogelijk ruimte. Kan gecombineerd worden met stem: bij uit elkaar gaan klanken van verlangen naar aanraking; bij samen zijn klanken van verlangen naar afstand.</p>
+              <p><strong>Het spel:</strong> Kring vormen en handen vasthouden — de greep mag gedurende de hele oefening nooit veranderen of loslaten. Eén persoon beweegt naar voren en trekt de buren mee, klimt over of onder de handen van mensen tegenover, en legt zo een knoop. Dan een tweede, dan een derde, tot iedereen zo verstrengeld is dat niemand meer kan bewegen. Dan: zeer langzaam, zonder geweld, in stilte, zonder handen los te laten, probeert iedereen de keten te ontwarren en terug te keren naar de beginpositie.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie</div>
+            <div class="variation-text">Hetzelfde met gesloten ogen — nog langzamer om botsingen te vermijden.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">7</div>
+          <div class="card-title-area">
+            <div class="card-title">De Speler als 'Subject'</div>
+            <div class="card-aka">de Griekse oefening</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">De protagonist beweegt — de groep draagt, ondersteunt, vult in. Effect: alsof de protagonist gewichtsloos is.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Eén speler in het midden, minstens zeven of acht anderen eromheen. Zij begint een beweging en iedereen gebruikt zijn lichaam om die beweging te helpen voltooien. Als ze een voet optilt, plaatst iemand zijn lichaam onder die voet. Ze strekt een ledemaat, leunt, doet wat ze wil — de groep helpt inventief door zich in de relevante ruimte te voegen.</p>
+              <p>De protagonist moet altijd langzaam genoeg bewegen zodat de anderen tijd hebben haar bedoelingen te ontdekken — die niet uitgesproken mogen worden. Het allerbelangrijkste: vermijd het manipuleren van de protagonist. Zij bepaalt haar bewegingen, de anderen bewegen haar niet.</p>
+            </div>
+          </div>
+          <div class="boal-note">Pas op — ooit in Italië zei ik 'Stop' en lieten de deelnemers de protagonist op de grond vallen. Dat was een vergissing. Een ernstige vergissing.</div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">11</div>
+          <div class="card-title-area">
+            <div class="card-title">Een Ballon als Verlengstuk van het Lichaam</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span><span class="meta-tag">materiaal: ballonnen</span></div>
+        <div class="card-teaser">Houd de ballon in de lucht met elk lichaamsdeel — en ervaar je eigen lichaam als een zwevende ballon.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De workshopleider gooit ballonnen in de lucht. De spelers moeten ze in de lucht houden met elk lichaamsdeel — niet alleen handen — alsof hun lichaam deel uitmaakt van de ballonnen die ze aanraken. De spelers zouden hun eigen lichaam als ballonnen moeten ervaren: opgeblazen, zwevend door de lucht naast de echte ballonnen. Het effect kan ontspannend zijn.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">15</div>
+          <div class="card-title-area">
+            <div class="card-title">Beweging met Overdreven Voorbedachtheid</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span></div>
+        <div class="card-teaser">Denk elke beweging bewust van tevoren — alsof de simpelste stap een complexe circusact is.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Spelers bewegen hun lichamen met overdreven voorbedachtheid — ze verwoorden mentaal van tevoren alles wat ze gaan doen. In alle richtingen, op meerdere niveaus, op tafels, stoelen, de grond, trappen. Nooit stilstaan. Alle overgangen zacht uitvoeren, denkend aan het lichaam en zijn spierstructuren. Elke beweging vooraf plannen en uitstippelen, alle gemechaniseerde beweging vermijden — zelfs de eenvoudigste stap moet uitgevoerd worden alsof het een hoog-complexe circusacrobatiek is.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Tweede reeks · Loopvormen</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Slowmotion</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">De winnaar is degene die als laatste aankomt. Elke stap zo groot en zo langzaam als mogelijk.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De winnaar is degene die als laatste aankomt. Eenmaal begonnen mogen de spelers nooit stoppen met bewegen en elke beweging moet zo langzaam mogelijk zijn. Elke 'loper' zet de grootst mogelijke stap, bij elke pas. De bewegende voet moet boven kniehoogte passeren. Het lichaam moet volledig uitstrekken — elke centimeter voorwaarts activeert een nieuwe spierstructuur. Beide voeten mogen nooit tegelijk op de grond zijn: zodra de rechtervoet landt, moet de linker opstijgen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Op een Rechte Hoek</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span></div>
+        <div class="card-teaser">Lopen op de billen, met gestrekte benen en armen — heen en terug.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Spelers zitten op de grond, armen horizontaal gestrekt voor hen, benen gestrekt, rug recht. Iedereen begint te lopen met de billen — rechterbil, dan linkerbal, alsof het voeten zijn. De rug vormt een rechte hoek met armen en benen. Na een afstand afgelegd te hebben, teruglopen in omgekeerde richting. Een ontspannen wandeling, geen wedstrijd.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Gekruiste Benen</div>
+            <div class="card-aka">ook wel: driebenige race</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span></div>
+        <div class="card-teaser">Twee lichamen, drie benen — coördinatie zonder woorden.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>In koppels van ongeveer gelijke bouw, naast elkaar staand. De spelers houden elkaar om de taille vast en verweven de binnenbenen — het rechterbeen van A gekruist onder het linkerbeen van B. Ze lopen, rennen en navigeren hindernissen met hun drie beschikbare benen, uitsluitend communicerend via lichamelijk contact.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Derde reeks · Massages</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Rollende Tapijt</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Eén persoon rolt langzaam over de lichamen van de liggende groep.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Alle spelers behalve één liggen op hun rug op de grond, dicht naast elkaar, gezichten omhoog. De overblijvende speler legt zich met het gezicht naar beneden over de lichamen van zijn collega's aan één kant van de rij en laat zich langzaam langs hen rollen, gedragen door de golvende beweging van hun lichamen. De 'tapijt'-spelers moeten hun bewegingen coördineren om de roller soepel van het ene eind naar het andere te dragen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Vierde reeks · Integratieve spelen</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">18</div>
+          <div class="card-title-area">
+            <div class="card-title">Goedendag</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span><span class="meta-tag">kennismaking</span></div>
+        <div class="card-teaser">Bijzonder nuttig bij de start van een Forumtheatersessie met veel mensen die elkaar niet kennen.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Iedereen moet een hand schudden met een onbekende en daarbij zijn eigen naam zeggen. Pas loslaten als er een andere hand gegrepen is — waaraan de speler opnieuw zijn naam zegt. Dit gaat door totdat iedereen iedereen ontmoet heeft.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie</div>
+            <div class="variation-text">Als de groep klein is: in het tweede deel van het spel zegt elke speler de naam van de ander in plaats van de eigen naam.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">19</div>
+          <div class="card-title-area">
+            <div class="card-title">Cadavre Exquis</div>
+            <div class="card-aka">ook wel: gevolgen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Het surrealistische spel van de dadaïsten — als tekening én als verteld verhaal.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>Als tekening:</strong> Elke deelnemer tekent iets in het bovenste deel van een vel papier en vouwt het dicht, waarbij slechts een paar lijnen zichtbaar blijven. De volgende tekent iets dat aansluit op die lijnen, vouwt dicht — enzovoort tot het vel vol is. Dan ontvouwen en onthullen.</p>
+              <p><strong>Als verteld verhaal:</strong> Eén speler begint een verhaal, dat een tweede vervolgt, dan een derde, enzovoort tot de hele groep heeft bijgedragen. Het verhaal kan worden opgenomen zodat iedereen het resultaat kan terugluisteren. "Hoe onschuldig zulke spelen ook lijken, ze kunnen de verbeelding sterk stimuleren."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Vijfde reeks · Zwaartekracht</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Horizontale Reeks</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo / koppels</span></div>
+        <div class="card-teaser">Systematisch de zwaartekracht onderzoeken — van nek tot bekken — langzaam en zonder geweld.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Zonder de rest van het lichaam te bewegen strekt de speler nek en hoofd naar voren op één horizontale lijn. Een partner kan helpen door de neus aan te raken en meteen de vinger weg te trekken — de neus probeert te volgen. Dan naar achteren op hetzelfde horizontale vlak. Dan de nek naar links buigen (partner raakt het oor aan). Dan rechts. Dan cirkelende nekbewegingen, ogen gefixeerd op een punt.</p>
+              <p>Stappen 6–10: dezelfde oefeningen voor de borstkas — het hele borstbeen optillen en bewegen. Stappen 11–15: hetzelfde voor het bekken. Stappen 16–19: 'poppetjes'-oefeningen — een partner houdt de kraag van de jas vast en het hoofd hangt los als een marionet, alleen reagerend op de zwaartekracht.</p>
+            </div>
+          </div>
+          <div class="boal-note">Zorg ervoor de reeks af te sluiten met de positieve, zwaartekrachtoverwinnnende afsluiting — anders voelen spelers dat ze nooit meer kunnen bewegen.</div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATEGORIE II ══════════ -->
+<section class="category-section" id="cat-II" data-cat="II">
+  <div class="category-header">
+    <div class="category-numeral">II</div>
+    <div class="category-title">Luisteren naar wat we horen</div>
+    <div class="category-intro">"In deze reeks moeten de spelers begrijpen dat het belangrijk is innerlijke ritmes te vinden, en niet te proberen portretten of — erger nog — karikaturen van mensen te maken." Deze oefeningen gaan over ritme, melodie, klank en ademhalingsritme — en helpen ontdekken dat het hele lichaam denkt, niet alleen het brein.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Eerste reeks · Ritme</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Een Ronde van Ritme en Beweging</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Één voor één gaat iemand naar het midden met een beweging en geluid — de groep imiteert precies.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Spelers vormen een kring. Eén gaat naar het midden en maakt een beweging naar eigen keuze, hoe vreemd of ongewoon ook, vergezeld van een zelfverzonnen klank en ritme. Alle anderen imiteren zo nauwkeurig mogelijk — bewegingen en klanken — in haar tempo.</p>
+              <p>Terwijl ze haar beweging en klank blijft maken, benadert de leider iemand in de kring en daagt diegene uit haar plek in te nemen. Die persoon gaat langzaam naar het midden en verandert de beweging, het ritme en de klank naar eigen inzicht. Iedereen volgt de nieuwe leider. En zo verder. De persoon in het midden mag elk ritme kiezen zolang het niets is wat ze in het dagelijks leven doen. Geen angst voor het belachelijke.</p>
+            </div>
+          </div>
+          <div class="boal-note">In het proberen de manier van bewegen van iemand anders na te doen beginnen we onze eigen mechanisaties ongedaan te maken. We maken geen karikatuur — we proberen het uiterlijk exact te kopiëren om het innerlijk beter te begrijpen.</div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">3</div>
+          <div class="card-title-area">
+            <div class="card-title">Ritmes Wisselen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Met stemmen, handen en voeten een gezamenlijk ritme opbouwen — dan langzaam transformeren naar iets nieuws.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Met stemmen, handen en voeten stellen alle spelers gezamenlijk een ritme in. Na een paar minuten veranderen ze het langzaam, totdat een nieuw ritme ontstaat — enzovoort, gedurende enkele minuten.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — verenigen / verspreiden</div>
+            <div class="variation-text">Elke speler doet alleen zijn eigen ritme totdat de Joker 'Verenigen!' roept — iedereen smelt samen tot één ritme. Na een tijdje: 'Verspreiden!' — het ritme valt uiteen. Dan weer verenigen. Enzovoort.</div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — affiniteitsgroepen</div>
+            <div class="variation-text">Bij een signaal pakt elke speler een eigen ritme en beweging. Dan beweegt iedereen naar degenen met de grootste ritmische verwantschap. Geleidelijk homogeniseren de meest verwante spelers hun ritme totdat vrijwel de hele groep hetzelfde ritme en dezelfde beweging heeft.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">De Ritmemachine</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Stuk voor stuk voegen deelnemers een lichaamsdeel toe aan een gezamenlijke machine — die versnelt en vertraagt.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Een speler gaat naar het midden en stelt zich voor een bewegend onderdeel te zijn van een complexe machine. Ze begint een mechanische, ritmische beweging met haar lichaam en vocaliseert een bijbehorende klank. Een tweede voegt haar lichaam als nieuw onderdeel toe. Een derde sluit aan. Uiteindelijk zijn alle deelnemers geïntegreerd in één gesynchroniseerde, veelvuldige machine.</p>
+              <p>Als iedereen deel uitmaakt van de machine, vraagt de Joker de eerste speler te versnellen — iedereen moet volgen, want de machine is één geheel. Als de machine bijna ontploft, vraagt de Joker de eerste te vertragen, geleidelijk, totdat de hele groep in eigen tempo gezamenlijk eindigt.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — liefde en haat</div>
+            <div class="variation-text">Dezelfde oefening: eerst een liefdesmachine, dan een haasmachine. Alleen bewegingen en klanken, geen woorden. Het gaat om innerlijke ritmes, niet om uitwendige clichégedragingen.</div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — thematisch</div>
+            <div class="variation-text">De machine van het thema waaraan je werkt: bureaucratie, autoritarisme, seksisme, racisme. "Het is buitengewoon hoe de ideologie van een groep, haar politieke standpunt, zich kan openbaren in een ritme van klank en beweging."</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">5</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Peruaanse Balspel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Speel een denkbeeldige bal met heel je lichaam — dan wissel je van bal, en weer, en weer. Vind daarna jouw eigen terug.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke deelnemer beeldt zich een bal in naar eigen keuze — voetbal, tennisbal, pingpongbal, strandbal. Ze spelen ermee in een herhalend ritme, waarbij het hele lichaam betrokken is en de stem de klank van de bal reproduceert. Na een paar minuten roept de Joker: 'Zoek een partner.'</p>
+              <p>Partners observeren elkaars bal nauwkeurig. Op 'Wissel!' nemen ze elkaars bal over — bewegingen en klanken zo exact mogelijk. Daarna opnieuw een partner zoeken en wisselen. Dit meerdere malen. Tot slot: 'Zoek je eigen bal terug!' — deelnemers moeten de persoon vinden die hun oorspronkelijke bal heeft, terwijl ze nog steeds met de huidige bal spelen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Tweede reeks · Melodie &nbsp;|&nbsp; Derde reeks · Klanken en geluiden</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Klank en Beweging</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Beweging en klank als ondeelbaar geheel — de één ontstaat uit de ander.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke speler maakt een beweging en produceert tegelijkertijd een klank die daarmee samenhangt — niet als illustratie van de beweging, maar voortkomend erúit. De beweging en de klank moeten aanvoelen als één ondeelbare handeling. Geleidelijk luisteren de spelers naar elkaar en laten ze hun klanken en bewegingen beïnvloeden door die van de anderen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Vierde reeks · Het ritme van de ademhaling (1–19)</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1–19</div>
+          <div class="card-title-area">
+            <div class="card-title">Ademhalingsoefeningen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo / groep</span></div>
+        <div class="card-teaser">Een reeks van negentien ademhalingsoefeningen — liggend, staand, tegen een muur, in groep.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Reeks</div>
+            <div class="body-text">
+              <p><strong>1.</strong> Op de rug liggen, volledig ontspannen — de natuurlijke ademhaling waarnemen. <strong>2.</strong> Leunend tegen een muur — de rug voelen ademen. <strong>3.</strong> Rechtop staan. <strong>4.</strong> Langzaam inademen. <strong>5.</strong> Explosie — plotselinge krachtige uitademing. <strong>6.</strong> Langzaam inademen terwijl de armen omhooggaan. <strong>7.</strong> De snelkookpan — adem vasthouden en inwendige druk opbouwen. <strong>8.</strong> Zo snel mogelijk inademen. <strong>9.</strong> Zo langzaam mogelijk inademen.</p>
+              <p><strong>10.</strong> Diep inademen door de mond. <strong>11.</strong> Inademen met grote helderheid en veel energie. <strong>12.</strong> Twee groepen — de één ademt in terwijl de ander uitademt, afwisselend. <strong>13.</strong> Uitademen, staand in een kring. <strong>14.</strong> Eén speler doet alsof hij de stop uit iemands lichaam trekt. <strong>15.</strong> A, E, I, O, U — elke klinker op één adem.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATEGORIE III ══════════ -->
+<section class="category-section" id="cat-III" data-cat="III">
+  <div class="category-header">
+    <div class="category-numeral">III</div>
+    <div class="category-title">Meerdere zintuigen activeren</div>
+    <div class="category-intro">"Van alle zintuigen is het zicht de grote monopolist. Omdat we zien, storen we ons er niet aan de buitenwereld via de andere zintuigen waar te nemen, die slapend blijven of atrofiëren." In de blindenreeks ontzeggen deelnemers zichzelf vrijwillig het zicht om alle andere zintuigen te versterken. In de ruimtereeks verkennen ze de ruimtelijke dimensies van de zaal.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">De Blindenreeks</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Focuspunt, de Omhelzing en de Handdruk</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span><span class="meta-tag koppels">ook koppels</span></div>
+        <div class="card-teaser">Ogen dicht — loop naar je gekozen punt. Omhels iemand — los — loop terug — vind dezelfde persoon.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>Deel 1:</strong> Elke deelnemer richt zijn blik op een vast punt — een raam, een vlek op de muur, een radiator. Dan ogen sluiten en langzaam naar het gekozen punt lopen. Bij botsing met anderen de richting corrigeren. Dan ogen openen en oriënteren. Ben je dichtbij je doel?</p>
+              <p><strong>Deel 2:</strong> Koppels vormen en omarmen. Midden in de omhelzing ogen sluiten, loslaten, een bepaald aantal stappen achteruit lopen. Dan teruglopen en dezelfde persoon opnieuw omarmen.</p>
+              <p><strong>Deel 3 (moeilijkst):</strong> In koppels handen schudden. Ogen sluiten. Loslaten. Achteruit lopen. Terugkomen en proberen dezelfde hand opnieuw te schudden — niet zomaar een willekeurige hand.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Geluiden</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span></div>
+        <div class="card-teaser">Volg het geluid van jouw gids door een ruimte vol andere geluiden.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Koppels: één blind, één gids. De gids maakt een dierachtig geluid en de partner luistert. Dan sluiten alle blinden hun ogen en beginnen alle gidsen tegelijk hun klanken te maken. De blinde partner moet zijn specifieke gids volgen door een ruimte vol andere geluiden. De gids verplaatst zich regelmatig. Als de blinde 'goed' is, moet de gids verder weg gaan. De oefening gaat over de selectieve werking van het oor.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">3</div>
+          <div class="card-title-area">
+            <div class="card-title">De Denkbeeldige Reis</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span></div>
+        <div class="card-teaser">Een blinde wordt geleid door een denkbeeldig landschap — spreken verboden, alleen lichamelijk contact.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>In koppels. De blinde partner wordt geleid door een reeks echte of denkbeeldige obstakels die de gids verzint — alsof ze zich midden in een bos bevinden, in een grote stad, in een krater op de maan, in een supermarkt. Spreken is verboden — alle informatie via lichamelijk contact. De gids maakt dezelfde bewegingen als de blinde en stelt zich zijn eigen verhaal voor.</p>
+              <p>Na een paar minuten stopt de oefening. De blinde vertelt rustig aan de gids waar ze dacht te zijn; de gids vertelt zijn verhaal. Ze vergelijken.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">De Glazen Cobra</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">De cobra valt uiteen — en moet zichzelf blind terugvinden.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Iedereen staat in een kring (of rijen), handen op de schouders van de persoon voor hen. Met gesloten ogen tasten ze het achterhoofd, de nek en de schouders van degene voor hen af. Dit is de glazen cobra in één stuk.</p>
+              <p>Op een teken van de Joker breekt de cobra uiteen en beweegt iedereen door de ruimte, nog steeds met gesloten ogen. Na een paar minuten moeten ze, op een signaal, de persoon terugvinden die vóór hen stond en de cobra opnieuw samenstellen.</p>
+            </div>
+          </div>
+          <div class="boal-note">In de legende van de Chileense Araucano-indianen viel deze glazen cobra in duizend stukken toen hun volk door de Spanjaarden werd binnengevallen; maar op een dag zullen de stukken elkaar terugvinden en veranderen in een stalen cobra die de indringers verdrijft. De cobra in de legende zijn de mensen.</div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">6</div>
+          <div class="card-title-area">
+            <div class="card-title">De Magneet — Positief en Negatief</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Eerst vermijden we aanraking; dan zoeken we die. En tot slot: voel het gezicht van de persoon naast je.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>Negatief:</strong> Deelnemers dwalen met gesloten ogen. Zodra iemand een ander aanraakt, wijken beiden onmiddellijk terug. Oriënteren in de ruimte terwijl aanraken vermeden wordt.</p>
+              <p><strong>Positief:</strong> De Joker kondigt aan dat de magnetische energie positief is geworden. Nu, zodra iemand een ander aanraakt, blijven ze een paar tellen aan elkaar vastgeplakt — maar mogen niet stoppen met bewegen. Aanraken met handen is te vermijden — andere lichaamsdelen hebben de voorkeur.</p>
+              <p><strong>Afsluiting:</strong> Iedereen stopt. Elke deelnemer zoekt met zijn handen één gezicht en 'vertaalt' de tastindrukken naar een voorgesteld beeld van dat gezicht. Dan ogen open en vergelijken.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">De Ruimtereeks</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1–7</div>
+          <div class="card-title-area">
+            <div class="card-title">De Ruimte Vullen en Structureren</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Laat geen lege plek in de ruimte — en reageer op de opdrachten van de Joker.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Reeks</div>
+            <div class="body-text">
+              <p><strong>1.</strong> Loop door de ruimte en vul die volledig — geen lege plekken. <strong>2.</strong> In plaats van 'Stop' roept de Joker een getal — zoveel mensen bevriezen. <strong>3.</strong> De Joker noemt een getal en een meetkundige figuur — zoveel mensen vormen die figuur. <strong>4.</strong> De Joker roept een getal en een lichaamsdeel — zoveel mensen moeten dat lichaamsdeel op de grond hebben als ze bevriezen. <strong>5.</strong> De Joker noemt een kleur en een kledingstuk — alle mensen met die combinatie stoppen. <strong>6.</strong> Deelnemers lopen langzaam. <strong>7.</strong> Deelnemers raken elkaar aan — improviseer contact bij het passeren.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATEGORIE IV ══════════ -->
+<section class="category-section" id="cat-IV" data-cat="IV">
+  <div class="category-header">
+    <div class="category-numeral">IV</div>
+    <div class="category-title">Zien wat we bekijken</div>
+    <div class="category-intro">Drie voorbereidende reeksen ontwikkelen het observatievermogen via 'visuele dialogen' — spiegels, boetseren en marionettenspel. In Beeldtheater zou het gebruik van gesproken woorden de beeldentaal storen. "Soms vinden mensen de stilte die deze oefeningen vereisen moeilijk — maar hoe meer de deelnemers zich concentreren, hoe meer ze de fascinatie van dit werk ontdekken."</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">De Spiegelreeks (1–12)</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">De Gewone Spiegel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels / rijen</span></div>
+        <div class="card-teaser">Twee rijen tegenover elkaar — één is het beeld, de ander het subject. Zo perfect dat je het verschil niet ziet.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Twee rijen tegenover elkaar, elke persoon recht in de ogen kijkend van degene tegenover hem. Rij A zijn de 'subjecten'; rij B de 'beelden'. Het subject maakt een reeks bewegingen en gelaatsuitdrukkingen; het beeld kopieert, tot in het kleinste detail.</p>
+              <p>Het subject mag zijn beeld niet tegenwerken — het is geen wedstrijd. Het doel is perfecte synchronisatie zodat een buitenstaander niet kan zien wie leidt en wie volgt. Alle bewegingen langzaam en elk vloeiend voortkomend uit het vorige.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2–3</div>
+          <div class="card-title-area">
+            <div class="card-title">Rollen Wisselen → Beiden Tegelijk</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels / rijen</span></div>
+        <div class="card-teaser">Wisselen zonder pauze — dan zijn beiden tegelijk subject én beeld.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>2. Rollen omdraaien:</strong> De Joker geeft het signaal en op dat exacte moment worden subjecten beelden en omgekeerd. Dit moet zonder onderbreking van de continuïteit. Idealiter wordt de beweging die op het moment van omwisseling plaatsvindt voortgezet en voltooid zonder enige hapering.</p>
+              <p><strong>3. Gelijktijdig:</strong> Beiden zijn tegelijk 'beeld' en 'subject'. Elke partner heeft het recht elke beweging te maken, en tegelijk de plicht de bewegingen van de partner te reproduceren. Geen van beiden mag de ander tiranniseren. "Deze kwaliteiten van vrijheid en sympathie zijn essentieel."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">9</div>
+          <div class="card-title-area">
+            <div class="card-title">De Vervormende Spiegel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span></div>
+        <div class="card-teaser">Het beeld vervormt de beweging — vergroot, verkleint, transformeert.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Als de gewone spiegel, maar nu reproduceert het 'beeld' de bewegingen van het subject niet getrouw — het vervormt ze, alsof door een lachspiegel. Kleine bewegingen worden groot; grote worden klein; zijwaartse bewegingen worden verticaal; een zacht gebaar wordt agressief. Het subject beweegt vrij en het beeld transformeert alles wat het waarneemt.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">De Boetserenreeks</div>
+    <div class="exercises-grid">
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1–2</div>
+          <div class="card-title-area">
+            <div class="card-title">De Beeldhouwer en het Model</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span><span class="meta-tag groep">ook groep</span></div>
+        <div class="card-teaser">Vorm de ander als klei — met aanraken, of zonder aanraken.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p><strong>1. Met aanraken:</strong> De beeldhouwer raakt het model fysiek aan en brengt het lichaam in de gewenste positie. Het model volgt de lichamelijke suggesties passief, als klei.</p>
+              <p><strong>2. Zonder aanraken:</strong> De beeldhouwer mag het model niet aanraken. In plaats daarvan plaatst de beeldhouwer zijn eigen lichaam in de gewenste positie en het model reproduceert dit, de beeldhouwer nauwkeurig bestuderend. Later werken meerdere beeldhouwers tegelijk in de ruimte zodat meerdere modellen meerdere beeldhouwers tegelijk kunnen bestuderen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Beeldspelen (selectie)</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Beeld Voltooien</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels</span><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Eén persoon bevriest — de ander vult de relatie aan. Dan wissel, wissel, wissel.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Twee spelers schudden handen. Op een signaal bevriezen ze — een beeld ontstaat. Eén speler ontspant, kijkt naar de bevroren partner en positioneert zichzelf in een nieuw beeld dat de relatie aanvult — maar met een volledig andere verhouding. Dan ontspant de eerste speler, observeert en maakt een nieuw beeld als reactie. Voortdurend de relatie veranderend die het bevroren beeld impliceert.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">3</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Grote Machtsspel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span><span class="meta-tag">materiaal: stoelen</span></div>
+        <div class="card-teaser">Zes stoelen in de ruimte. Wie heeft de meeste macht — en waarom?</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Zes stoelen worden willekeurig in de ruimte geplaatst. Een vrijwilliger betreedt de ruimte en positioneert zichzelf ten opzichte van de stoelen op een manier die zijn personage maximale macht verleent. Anderen observeren. Dan treedt een volgende vrijwilliger in en past het beeld aan — eigen positie en de stoelen — totdat de nieuwe configuratie hem maximale macht geeft. Bespreking: wat geeft het gevoel van macht? Hoogte? Centraliteit? De blik? Afstand?</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Volg de Meester</div>
+            <div class="card-aka">maskers en rituelen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Iedereen neemt het levende masker van een leider over — dan lost de leider op in de groep.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Eén speler wordt de 'meester' en beweegt door de ruimte met een heel eigen manier van lopen, gebaren en uitdrukken — een 'levend masker'. Alle anderen volgen hem en nemen dit masker geleidelijk volledig over: de gang, het gebaar, de uitdrukking, de innerlijke houding. Als de hele groep het masker heeft aangenomen, lost de meester op in de groep. Dan verschijnt spontaan een nieuwe meester.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATEGORIE V ══════════ -->
+<section class="category-section" id="cat-V" data-cat="V">
+  <div class="category-header">
+    <div class="category-numeral">V</div>
+    <div class="category-title">Het Geheugen van de Zintuigen</div>
+    <div class="category-intro">"Als ik mijn hand stoot, voel ik de impact. Als ik me herinner dat ik gisteren mijn hand heb gestoten, kan ik in mezelf een analoge gewaarwording wekken." Deze reeks helpt geheugen, emotie en verbeelding opnieuw te verbinden — of je nu een scène repeteert of een toekomstige handeling voorbereidt. De zintuigen hebben een geheugen — hier proberen we dat te wekken.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Geheugen, emotie en verbeelding opnieuw verbinden</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Geheugen: Gisteren Herinneren</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span></div>
+        <div class="card-teaser">Sluit de ogen — en herbeleef gisteren in detail, met elk zintuig.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De spelers zitten rustig op stoelen, volledig ontspannen. Ze bewegen elk lichaamsdeel langzaam achtereenvolgens, zich uitsluitend op dat deel concentrerend. Ogen gesloten.</p>
+              <p>De Joker begeleidt hen: herinner je alles wat er gisteren avond is gebeurd vóór het slapengaan. Elk detail vergezeld van lichamelijke gewaarwordingen — smaak, geur, tastgevoel, vormen, kleuren, contouren, geluiden. Om het makkelijker te maken herhaalt de speler de relevante lichaamsbeweging: bij herinnering aan iets gegeten bewegen mond en tong; bij herinnering aan een douche beweegt de huid die in contact was met het water.</p>
+              <p>De Joker vervolgt naar die ochtend: hoe werd je wakker? Wat waren de geluiden? Het eerste gezicht — beschrijf het in detail. De ruimte, het ontbijt, het vervoer, de aankomst hier.</p>
+              <p>Dan: ogen open. Vergelijk.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Geheugen en Emotie: Een Dag uit het Verleden Herinneren</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels (copiloot)</span></div>
+        <div class="card-teaser">Vertel een dag uit het verleden aan een copiloot — die luistert én ervaart mee.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke deelnemer heeft een copiloot nodig. Ze vertellen een dag uit het verleden — vorige week of twintig jaar geleden — waarop iets heel belangrijks is gebeurd dat vandaag nog steeds emotie oproept. De copiloot luistert terwijl hij tegelijk hetzelfde voorval in zijn eigen verbeelding schept. De copiloot helpt de verteller geheugen aan gewaarwordingen te koppelen door vragen te stellen over zintuiglijke details.</p>
+              <p>"De copiloot is geen voyeur; hij moet de oefening gebruiken om hetzelfde voorval in zijn eigen verbeelding te creëren, met dezelfde details, dezelfde emotie, dezelfde gewaarwordingen — die uiteraard anders zullen zijn, want het zijn zijn eigen."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Een Echte Onderdrukking Herinneren</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag koppels">koppels (copiloot)</span></div>
+        <div class="card-teaser">Herinner een echte onderdrukking — en verken in de verbeelding hoe je die doorbreekt.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Dezelfde oefening als nr. 2. Deze keer mag de copiloot alleen mogelijke handelingen voorstellen die eventueel tot het doorbreken van de beschreven onderdrukking kunnen leiden. Het is aan de protagonist zelf om de onderdrukking — in haar verbeelding — te doorbreken, zelfs als ze de suggesties van de copiloot volgt. Dit bereidt voor op de volgende oefening.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">5</div>
+          <div class="card-title-area">
+            <div class="card-title">Repetitie op het Podium van de Verbeelding</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Alles wat in de verbeelding gespeeld is — nu fysiek opvoeren op de echte speelvloer.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Alles wat in de verbeelding gespeeld is moet onmiddellijk op het podium worden gespeeld. De andere spelers helpen; de protagonist en de copiloot spelen regisseur. Probeer fysiek alles te spelen wat in de verbeelding gespeeld werd — dezelfde voorwerpen, dezelfde zinnen, dezelfde handelingen.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">6</div>
+          <div class="card-title-area">
+            <div class="card-title">Extrapolatie</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">individueel</span></div>
+        <div class="card-teaser">Van verbeelding naar werkelijkheid — oplossingen gevonden in de verbeelding toepassen in het echte leven.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>"Het theater, de fictie, eindigt met de vorige oefening, maar het echte doel, de uiteindelijke doelstelling, is om in het echte leven oplossingen toe te passen die in de verbeelding zijn gevonden en op het podium zijn gerepeteerd. Dit hebben we al meerdere malen gedaan. Zonder spijt."</p>
+              <p>Dit is de bekroning van de reeks Geheugen van de Zintuigen — geen oefening op zichzelf, maar een gezindheid: breng wat in de fictie is gerepeteerd naar de werkelijke wereld.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BEELDTHEATER ══════════ -->
+<section class="category-section" id="cat-IT" data-cat="IT">
+  <div class="category-header">
+    <div class="category-numeral" style="font-size:2.2rem;">Beeld</div>
+    <div class="category-title">Beeldtheater</div>
+    <div class="category-intro">"Woorden zijn als vrachtwagens: ze dragen de lading die je erop legt." Toen Boal werkte met deelnemers uit verschillende regio's van Latijns-Amerika, die verschillende talen spraken, begon hij hen te vragen beelden te maken. "Maak een beeld van je gezin, van je baas, van je herinneringen, je verlangens, je land." Beeldtheater is een sinaletische methode — betekenaar en betekenis zijn hetzelfde. De betekenis van een beeld is het beeld zelf.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Beeldtechnieken: modellen en dynamiseringen</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1a</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Beeld van het Woord: Een Onderwerp Uitbeelden met je Lichaam</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Maak een beeld van een woord — dan dynamiseer je het in drie stappen naar een sociaal panorama.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Het Model</div>
+            <div class="body-text">
+              <p><strong>Eerste methode:</strong> Vijf of meer vrijwilligers drukken een gekozen thema visueel uit. Iedereen werkt zonder te zien wat de anderen doen. Een voor een komen ze naar het midden en gebruiken alleen hun lichaam om hun idee van het thema uit te drukken — een stilstaande pose. Geen uitleg nodig. Na alle individuele beelden vraagt de Joker of iemand anders een ander beeld heeft. Anderen komen naar voren.</p>
+              <p><strong>Tweede methode (kleine groepen):</strong> Op een signaal beelden alle deelnemers gelijktijdig het onderwerp uit met hun lichamen, waarna ze (in hun pose blijvend) rondkijken naar wat iedereen doet.</p>
+            </div>
+          </div>
+          <div class="body-section">
+            <div class="body-label">De Dynamisering (drie fasen)</div>
+            <div class="body-text">
+              <p><strong>Eerste dynamisering:</strong> Alle beelden worden gelijktijdig gepresenteerd. Wat een subjectieve visie was wordt een 'objectieve', meervoudige visie — niet wat elk individu denkt, maar een sociale visie van hoe dit thema deze gemeenschap raakt.</p>
+              <p><strong>Tweede dynamisering:</strong> De deelnemers brengen relaties aan tussen de beelden van anderen. Niet langer meerdere standpunten, maar een enkele, globale, organische visie.</p>
+              <p><strong>Derde dynamisering:</strong> Als deelnemers alleen 'gevolgen' hebben getoond en geen 'oorzaken', vraagt de Joker alle slachtoffers hun onderdrukker te worden. Dan terug. Dit openbaart ideologie: "bij het tonen van de eigen onderdrukking gebruiken deelnemers echte beelden; bij het tonen van de 'vijand' neigen ze naar subjectieve beelden."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Het Overgangsbeeld</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Echt beeld → ideaal beeld → overgangsbeelden: hoe kom je van hier naar daar?</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De protagonist boetseert een 'echt beeld' — de feitelijke situatie van onderdrukking zoals hij die nu ervaart. Dan een 'ideaal beeld' — de situatie zoals hij die zou willen. Daarna een reeks 'overgangsbeelden' — elk één stap tussen het echte en het ideale beeld. Deze overgangsbeelden onthullen welke concrete handelingen mogelijk zouden zijn. De Joker kan de groep vragen de overgangsbeelden te bezielen tot scènes.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Meervoudig Beeld van Geluk</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Toon je beeld van geluk — dan vraagt de Joker: wie stond jou in de weg?</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De Joker vraagt de deelnemers een beeld van hun geluk te boetseren — niet een abstract beeld van geluk in het algemeen, maar hun eigen geluk: wat zouden ze doen, met wie, op welke plek, als ze gelukkig waren? Na de beelden vraagt de Joker: "Wie of wat verhindert dit geluk?" Deelnemers boetseren het obstakel. De twee beelden samen — geluk en obstakel — onthullen de structuur van hun specifieke onderdrukking.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">7</div>
+          <div class="card-title-area">
+            <div class="card-title">Ritueel</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Ontdek het ritueel achter een gewone dagelijkse handeling.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Deelnemers kiezen een alledaagse handeling — je baas begroeten, klanten bedienen, een familiediner. Ze voeren deze handeling uit alsof het een heilig ritueel is — de formaliteit, de hiërarchie en de symbolische betekenis overdrijvend. Door het gewone te ritualiseren worden de onderliggende machtsstructuren en sociale codes zichtbaar. Na de uitvoering bespreekt de groep wat er zichtbaar werd.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Nieuwe Beeldtheater-technieken: De Smeris in het Hoofd</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Dissociatie — Gedachte, Woord, Daad</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo / groep</span></div>
+        <div class="card-teaser">Zeg iets anders dan je doet — denk iets anders dan je zegt. Onthul de interne censuur.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Drie gelijktijdige kanalen: wat de speler denkt (hardop als innerlijke monoloog), wat hij tegen anderen zegt (het sociale, publieke zelf), en wat hij daadwerkelijk doet (de fysieke handeling). In het eerste deel zijn deze drie congruent. Dan introduceert de Joker dissociatie — de innerlijke gedachte spreekt het gesproken woord tegen; de daad spreekt beide tegen. Dit onthult de 'smeris in het hoofd' — de geïnternaliseerde onderdrukker die ons onze eigen verlangens en waarheden laat censureren.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">5</div>
+          <div class="card-title-area">
+            <div class="card-title">De Drie Wensen</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo / groep</span></div>
+        <div class="card-teaser">Als je drie wensen mocht doen — waarvoor? Beeldend uitgedrukt, daarna bevraagd.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke deelnemer maakt drie beelden: zijn drie wensen voor zijn eigen leven. Dan moeten ze deze beelden rangschikken — welke wens is het dringendst? Welke zou je kiezen als je er maar één mocht hebben? De groep observeert en kan obstakels aanwijzen die ze in de beelden zien. De Joker vraagt: wat verhindert dat deze wensen werkelijkheid worden? Wie heeft er baat bij dat ze niet worden gerealiseerd?</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ REPETITIEOEFENINGEN ══════════ -->
+<section class="category-section" id="cat-RE" data-cat="RE">
+  <div class="category-header">
+    <div class="category-numeral" style="font-size:1.8rem;">Repetitie</div>
+    <div class="category-title">Repetitieoefeningen voor elk soort voorstelling</div>
+    <div class="category-intro">Deze oefeningen zijn bruikbaar voor spelers die aan een tekst of zelfgemaakt theater werken, maar zijn bijzonder nuttig bij het voorbereiden of repeteren van Forumtheatermodellen. Ze ontwikkelen het vermogen personage, motivatie, emotie en de complexiteit van scènes vanuit meerdere invalshoeken te begrijpen.</div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Oefeningen met of zonder tekst</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Improvisatie</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">De klassieke improvisatie — maar met aandacht voor wil, tegenwil en kwalitatieve verandering.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Improviseer een scène vanuit een paar basisgegevens. Deelnemers moeten geloven in en accepteren wat anderen ook inbrengen — het is verboden een uitvinding te verwerpen. Om te voorkomen dat de improvisatie in emotionele stilstand raakt moeten spelers hun 'motoren' inschakelen: een dominante wil (voortkomend uit een strijd tussen minstens één wil en één tegenwil) die een intern, subjectief conflict kan produceren.</p>
+              <p>Deze dominante wil moet botsen met de dominante willen van anderen, waardoor een extern, objectief conflict ontstaat. En dit conflictsysteem moet zowel kwantitatief als kwalitatief evolueren. "Louter kwantitatieve variatie is veel minder theatraal dan dezelfde variatie vergezeld van een echte kwalitatieve verandering."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">4</div>
+          <div class="card-title-area">
+            <div class="card-title">Verander het Verhaal</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Speel wat er NIET is gebeurd — alle mogelijkheden die het stuk bevat maar niet toont.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>"Een stuk vertelt een verhaal — wat er gebeurt. Maar een stuk bevat ook de ontkenning van wat er gebeurt: wat er níet gebeurt." Repeteer de scènes van wat niet is gebeurd: hoe zou het huwelijk van Hamlet en Ophelia zijn verlopen? Hoe zou Othello Desdemona hebben vergeven? "Het is altijd goed voor de speler te weten wat had kunnen gebeuren."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Spelen van emotionele dynamisering</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">De Onderdrukking Doorbreken</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Herbeleef een echte onderdrukking — in drie fasen: exact, dan anders, dan van rol wisselen.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>De speler probeert een moment te herinneren waarop hij het object was van een krachtige onderdrukking. De oefening verloopt in drie fasen:</p>
+              <p><strong>Fase 1:</strong> Reproduceer het voorval precies zoals het is gebeurd, zonder iets toe te voegen of weg te laten. Toon al het verzet dat werd geblokkeerd.</p>
+              <p><strong>Fase 2:</strong> De protagonist accepteert de onderdrukking niet. Speel de scène opnieuw en de protagonist houdt stand. "We worden onderdrukt omdat we de neiging hebben toe te geven, onderdrukking te accepteren, in ruil voor het verlengen van ons leven." Hier doen we dat niet.</p>
+              <p><strong>Fase 3:</strong> De spelers wisselen van rol en spelen hun tegenpool — de onderdrukte speelt de onderdrukker en vice versa. "De jonge joodse man in zijn rol van onderdrukker was beter dan allen die de rol eerder hadden gespeeld, want hij kende zijn onderdrukker veel beter dan spelers die dit soort onderdrukking nooit hadden ondergaan."</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Emotionele opwarmingsoefeningen</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">1</div>
+          <div class="card-title-area">
+            <div class="card-title">Abstracte Emotie</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo</span><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Geef een emotie vorm — zonder gezichten te trekken of een herkenbaar personage te spelen.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Elke speler kiest een emotie — liefde, haat, angst, vreugde, verdriet — en drukt die uit via beweging en ritme, zonder gezichten te trekken, zonder herkenbare menselijke personages te tonen. De uitdrukking moet abstract en innerlijk zijn, alsof het ritme en de vorm van de emotie zelf getoond wordt, niet een illustratie ervan. De speler moet het 'innerlijke ritme' van de emotie vinden.</p>
+            </div>
+          </div>
+          <div class="variation-block">
+            <div class="variation-label">Variatie — met dieren</div>
+            <div class="variation-text">Dezelfde oefening maar de speler wordt een abstract dier dat de emotie uitdrukt — niet een letterlijke hond of kat, maar het ritmische wezen van een dier dat die emotie voelt.</div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="series-group">
+    <div class="series-label">Oefeningen ter voorbereiding van Forumtheater (selectie)</div>
+    <div class="exercises-grid">
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">2</div>
+          <div class="card-title-area">
+            <div class="card-title">Stop! Denk na!</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Bevries de scène op elk moment — en analyseer wat het personage ziet, voelt en denkt.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Een scène wordt gerepeteerd of geïmproviseerd. Op elk moment roept de regisseur of Joker 'Stop!' Alle spelers bevriezen. Dan vraagt de regisseur aan één speler: wat zie je nu? Wat voel je? Wat wil je? Wat denk je? De speler antwoordt als zijn personage, in dat exacte bevroren moment. Dan 'Verder' — de scène gaat door. Deze oefening laat spelers elk moment volledig bewonen in plaats van te haasten naar het einde van de scène.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">6</div>
+          <div class="card-title-area">
+            <div class="card-title">Analytische Repetitie van Emotie</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag solo">solo / groep</span></div>
+        <div class="card-teaser">Speel de scène met elke emotie — ook degenen die niet voor de hand liggen.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Een scène wordt meerdere malen gerepeteerd, elke keer met een andere dominante emotie die de handeling van het personage bepaalt — zelfs emoties die voor dat moment verkeerd of tegendraads lijken. Het personage spreekt dezelfde regels maar voelt liefde, dan haat, dan angst, dan vreugde, dan verdriet. Dit onthult hoe de emotie van het personage eigenlijk een keuze is, en toont welke emotionele lezing het meest theatraal of meest waarachtig is.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">28</div>
+          <div class="card-title-area">
+            <div class="card-title">Rashomon</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Dezelfde scène verteld vanuit elk personage — vier versies van dezelfde waarheid.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Vernoemd naar de film van Kurosawa. Een scène wordt eerst neutraal gespeeld. Dan krijgt elk personage in de scène de gelegenheid zijn versie van wat er is gebeurd te vertellen — vanuit zijn eigen perspectief, met zijn eigen emotionele waarheid. De andere spelers spelen de scène opnieuw volgens het verslag van elke verteller, dat de anderen volledig kan tegenspreken. Deze oefening onthult hoe elke persoon hetzelfde voorval anders ervaart, en hoe onderdrukking voor de onderdrukker vaak onzichtbaar is.</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+      <div class="exercise-card" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="card-number">8</div>
+          <div class="card-title-area">
+            <div class="card-title">Tegenovergestelde Omstandigheden</div>
+            <div class="card-expand-hint">↓ klik voor beschrijving</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="meta-tag groep">groep</span></div>
+        <div class="card-teaser">Speel de scène onder omgekeerde omstandigheden — en kijk wat er verandert.</div>
+        <div class="card-body">
+          <div class="body-section">
+            <div class="body-label">Beschrijving</div>
+            <div class="body-text">
+              <p>Een scène wordt normaal gespeeld. Dan opnieuw met één of meer omstandigheden omgekeerd — het machtige personage wordt machteloos; de openbare ruimte wordt privé; de formele vergadering wordt intiem; de wanhopige situatie wordt comfortabel. Dezelfde tekst, tegenovergestelde omstandigheden. Wat verandert er? Wat onthult dit over welke elementen van de scène werkelijk essentieel zijn voor het conflict?</p>
+            </div>
+          </div>
+          <button class="close-btn" onclick="closeCard(event,this)">↑ sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  Augusto Boal — <em>Games for Actors and Non-Actors</em>, Tweede editie, 2002 · Routledge · Vertaling: Adrian Jackson<br>
+  Deze digitale weergave is bedoeld als werkinstrument voor Jokers en is gebaseerd op directe tekst uit het boek.
+</footer>
+
+<script>
+  function showCat(id, btn) {
+    document.querySelectorAll('.category-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('cat-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function toggleCard(card) {
+    if (card.classList.contains('expanded')) return;
+    card.closest('.exercises-grid').querySelectorAll('.exercise-card.expanded').forEach(c => c.classList.remove('expanded'));
+    card.classList.add('expanded');
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+  function closeCard(event, btn) {
+    event.stopPropagation();
+    btn.closest('.exercise-card').classList.remove('expanded');
+  }
+</script>
+</body>
+</html>

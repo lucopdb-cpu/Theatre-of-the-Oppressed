@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regenboog van het Verlangen — Introspectieve Technieken</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#fdf5e8;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--amber)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--amber3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--amber2);color:var(--amber)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-power{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--paper3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--paper3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--amber);transform:scale(1.4)}
+.sp-dot.done{background:var(--paper4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:12px;color:var(--amber);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--paper3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--amber3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--amber4);border-left:3px solid var(--amber2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--paper3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--amber)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--amber3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--sans);font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink2);cursor:pointer;transition:all .12s}
+.vt-btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--amber4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--amber3)}
+.acc-trigger.open .acc-sn{background:var(--amber);color:#fff;border-color:var(--amber2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-subs{display:flex;flex-direction:column;gap:8px}
+.acc-sub{display:flex;gap:10px;align-items:flex-start}
+.acc-sub-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--amber3)}
+.acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="masthead">
+  <div class="app-name">Regenboog van het Verlangen — <em>Introspectieve Technieken</em></div>
+  <div class="app-sub">Augusto Boal · The Rainbow of Desire · Routledge 1995 · p. 118–173</div>
+  <div class="context-note">Negen technieken om geïnternaliseerde onderdrukking zichtbaar te maken. Niet de agent op straat — maar de agent in het hoofd. Gebruik intuïtief; niet elke stap hoeft te worden uitgevoerd.</div>
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div class="view-toggle">
+  <button class="vt-btn on" id="vt-step" onclick="setView('step')">Per stap</button>
+  <button class="vt-btn" id="vt-all" onclick="setView('all')">Alle stappen</button>
+</div>
+
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> technieken &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> stappen
+</div>
+
+</div>
+
+<script>
+const T = [
+{n:1, title:"The image of the antagonist", page:"p. 118",
+ power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
+ stripe:"#b8803c",
+ note:"Alleen van toepassing op de studie van een relatie tussen twee personen. Concentreer alle interrelaties op het hoofdconflict: protagonist versus antagonist.",
+ stages:[
+  {t:"Beeld van zichzelf",
+   body:"Deelnemers staan in een cirkel naar buiten, denken aan een concrete sociale angst — een confrontatie met een echte persoon. Ze vertalen die angst in een lichamelijk beeld in aanwezigheid van hun antagonist. Alle beelden worden tegelijk getoond."},
+  {t:"Vorming van beeldfamilies",
+   body:"Deelnemers bewegen naar beelden die lijken op het hunne. Zo ontstaan drie tot vijf 'families' — elk een synthese van de angsten van de groep op dat moment."},
+  {t:"Keuze van beelden",
+   body:"De groep kiest uit elke familie het ene beeld dat de anderen het meest bevat. Subjectief, geleid door de sensibiliteit van de groep."},
+  {t:"Dynamisatie",
+   subs:["Beelden plaatsen zich voor de groep — observaties, commentaar beperkt tot feiten.","Elk beeld voegt een herhalende beweging toe die de angst amplifi­ceert: ritme, langzaam of snel.","Elk beeld voegt een zin toe — de gedachte van dat karakter op dat moment. Eerste ronde simultaan, daarna één voor één.","Elke protagonist metamorfoseert langzaam naar het beeld van haar antagonist.","Elk antagonist-beeld verwerft zijn eigen ritme en zijn eigen frase."]},
+  {t:"Identificatie of herkenning",
+   body:"De joker vraagt wie in de groep zich identificeert met of een van de antagonist-beelden herkent. Die persoon vervangt de acteur. De protagonist keert terug naar haar eigen beeld."},
+  {t:"Improvisaties in twee modi",
+   body:"De koppels staan tegenover elkaar. Vier instructies: 'Beeld!', 'Ritme!', 'Zin!', 'Actie!' — simultaan in normal mode en softly softly mode."},
+  {t:"Tweede improvisatie",
+   body:"De joker onderbreekt en vraagt andere deelnemers de antagonisten te vervangen met nieuwe vormen van onderdrukking. Een derde en vierde ronde is mogelijk zolang deelnemers andere karakteristieken herkennen."},
+  {t:"Uitwisseling van ideeën",
+   body:"De joker leidt de discussie — een recap van alles wat de deelnemers hebben gevoeld. De taak is te zien wat er is, niet te interpreteren."}
+ ],
+ tip:"Geen techniek hoeft te eindigen wanneer alle stappen zijn uitgevoerd, en niet alle stappen hoeven uitgevoerd te worden. De techniek past zich aan aan de persoon, niet andersom."},
+
+{n:2, title:"The analytical image", page:"p. 125",
+ power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
+ stripe:"#b8803c",
+ note:"De meest intense en complexe techniek. Gebruik haar niet als de protagonist er niet werkelijk klaar voor is. Meest effectief bij situaties met slechts twee personages, of als de protagonist niet begrijpt wat er gebeurt of wat ze wil.",
+ stages:[
+  {t:"Improvisatie",
+   body:"Een normale improvisatie. De protagonist kiest de acteurs en instrueert hen over de essentiële elementen van hun personages."},
+  {t:"Vorming van beelden",
+   body:"Aan het einde van de improvisatie maken de spect-actoren beelden van wat zij hebben ervaren — eerst van de protagonist (kwetsbaarheden zichtbaar), dan van de antagonist (wapens onthullen). Beelden mogen metaforisch, expressionistisch, surrealistisch zijn — ze moeten reëel, waar, gevoeld zijn."},
+  {t:"Vorming van koppels",
+   body:"Elk beeld zoekt zijn complement in de andere groep. De koppels worden op gevoel gevormd, niet op logica — meer vanuit het hart dan vanuit het verstand."},
+  {t:"Herimprovisaties",
+   body:"Elk koppel speelt de scène opnieuw vanuit hun beeldpositie. De beelden fungeren als filter: alle informatie wordt bezien en vervormd door het beeld. De stem moet ook die van het masker zijn."},
+  {t:"De protagonist neemt de beelden over",
+   body:"De protagonist belichaamt elk beeld van zichzelf, één voor één."},
+  {t:"Protagonist versus alle antagonist-beelden",
+   body:"De protagonist pits zichzelf tegen alle beelden van de antagonist simultaan."},
+  {t:"Antagonist versus alle protagonist-beelden",
+   body:"De antagonist confronteert alle beelden van de protagonist tegelijk."},
+  {t:"Verdere improvisatie",
+   body:"Een nieuwe ronde met de nieuwe inzichten die zijn ontstaan."},
+  {t:"Uitwisseling van ideeën",
+   body:"De joker coördineert de bespreking zonder te interpreteren of de waarheid te zoeken. In theater zijn zelfs leugens waar."}
+ ],
+ tip:"De beelden hoeven niet 'waar' te zijn — het enige dat telt is dat ze weergeven wat de deelnemer oprecht voelde tijdens het kijken."},
+
+{n:3, title:"The circuit of rituals and masks", page:"p. 133",
+ power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
+ stripe:"#854F0B",
+ note:"Vier tot vijf scenes is het ideale aantal — minder maakt de techniek minder effectief, meer maakt het verwarrend. Elke scene wordt in een andere ruimte in de zaal 'geplaatst'.",
+ stages:[
+  {t:"Geritualiseerde improvisaties",
+   body:"De protagonist construeert vier of vijf verschillende scenes uit het dagelijks leven, elk in een andere ruimte. Ze speelt zichzelf en instrueert de andere acteurs. Elke scene bevat een ander masker van de protagonist. Na elke scene vraagt de joker de groep: wat was het meest opvallende masker?"},
+  {t:"Versterking van het masker",
+   body:"De joker maakt een lijst van de maskers per scene. De protagonist herhaalt de volgorde en vergroot in elke scene haar meest opvallende kenmerken uit: waar ze tolerant was, wordt ze nog toleranter; waar ze intolerant was, duwt ze dat tot het extreme."},
+  {t:"Conflict van maskers en rituelen",
+   body:"De joker vraagt de protagonist één scene opnieuw te spelen met het uitvergroot masker, en dat masker vervolgens mee te nemen naar de andere scenes — waar het waarschijnlijk ongepast of ongewoon zal zijn. Welke maskers werken contraproductief? Welke werken onverwacht goed?"}
+ ],
+ tip:"Deze techniek toont dat één persoon meerdere is. We transformeren onszelf voortdurend om ons aan te passen aan rituelen die ons beperken. Om dat te veranderen, moeten we het eerst theatraal, esthetisch kunnen zien."},
+
+{n:4, title:"The image of chaos", page:"p. 135",
+ power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
+ stripe:"#854F0B",
+ note:"Nauw verwant aan het Circuit van Rituelen en Maskers. Werkt het beste direct na 'The image of the hour'. Hier zien we de protagonist op verschillende momenten van de dag, met wisselende aandacht, energie en helderheid.",
+ stages:[
+  {t:"Vorming van beelden",
+   body:"De protagonist toont vijf (of meer) beelden van zichzelf in vijf verschillende situaties van de dag — elk met een ander gedrag, andere richting, andere energievorm. Elke situatie wordt onmiddellijk gespeeld door andere acteurs, terwijl de protagonist naar de volgende scene gaat. Alle vijf scenes worden tegelijk geïmproviseerd in softly softly mode."},
+  {t:"De fair",
+   body:"De protagonist wandelt tussen de tegelijk geïmproviseerde scenes. Na elke ronde geeft de protagonist instructies om het gedrag bij te sturen — om zijn beeld tussen de verschillende scenes te harmoniseren. In de laatste ronde kan hij ook de acteur-protagonisten vervangen in een lightning forum."},
+  {t:"Bespreking",
+   body:"De bespreking richt zich op wat er tijdens de rounds is gebeurd, en in het bijzonder op de mate van betrokkenheid van de protagonist bij elk van de scenes — waar was de energie het grootst?"}
+ ],
+ tip:"De protagonist probeert de dispariteit te zien en te corrigeren wat naar zijn mening aanpassing behoeft. Gebruik bij verwarring de softly softly mode."},
+
+{n:5, title:"The image of the 'cops in the head' and their antibodies", page:"p. 136",
+ power:"Power over → Power to", powerBg:"#e8e0f8", powerFg:"#26215C",
+ stripe:"#534AB7",
+ note:"Meest toepasselijk op scenes waar de protagonist iets wil doen maar het — om redenen die hij misschien zelf niet begrijpt — toch nalaat. Niet de concrete cop op straat, maar de cop in het hoofd.",
+ stages:[
+  {t:"Improvisatie",
+   body:"De protagonist improviseert de originele scene met de acteurs die hij nodig heeft."},
+  {t:"Vorming van beelden",
+   body:"De joker vraagt de protagonist beelden te boetseren van de 'cops' die aanwezig waren in zijn herinnering of verbeelding tijdens de improvisatie. Concrete mensen, echte bekenden — niet abstracties zoals 'de familie' maar de vader, de moeder, de tante, de priester. De protagonist heeft het recht beelden te accepteren of weigeren: een cop moet een precieze herinnering aan een concrete persoon oproepen."},
+  {t:"Opstelling van de constellatie",
+   body:"De protagonist rangschikt de beelden in een constellatie, met zichzelf in het centrum. Hoe ver staat elk beeld? Staat het naar hem toe of van hem af? Staan ze hoog of laag? Zien de cops elkaar? Zijn er conflicten of zijn ze verenigd?"},
+  {t:"In-formatie van de beelden",
+   body:"De protagonist benadert elk beeld en vertelt het, langzaam en zacht, iets dat verwijst naar hun gedeeld verleden. Elke 'conversatie' begint met 'Weet je nog dat...' en sluit met 'En dat is waarom...'. De acteur in het beeld reageert niet — hij blijft als een wassenbeeldenmuseum. De protagonist projecteert zijn herinneringen en emoties op hem."},
+  {t:"Herimprovisatie met de beelden",
+   body:"De scene wordt herimproviseerd. De cops mogen bewegen en spreken in surrealistische stijl — maar kunnen niet zelf bewegen. Alleen de protagonist kan ze verplaatsen. De cops hebben een ingebouwde neiging om naar hun beginpositie terug te keren. Twee niveaus tegelijk: realistisch (protagonist en antagonist) en surrealistisch (protagonist en cops)."},
+  {t:"Lightning forum",
+   body:"De joker organiseert een lightning forum — deelnemers lijnden op en vervangen de protagonist één voor één, maximaal één minuut. De protagonist observeert en ziet een scala van meer of minder succesvolle oplossingen."},
+  {t:"Creatie van antilichamen",
+   body:"De protagonist toont hoe elke cop kan worden onschadelijk gemaakt. Zodra iemand de aanpak begrijpt, vervangt hij de protagonist bij die cop — zodat de protagonist naar de volgende kan gaan. Elke cop krijgt zo zijn antilichaam."},
+  {t:"De fair",
+   body:"Alle koppels (cop + antilichaam) improviseren tegelijk in fair mode. De protagonist wandelt rond en observeert. De joker stimuleert de spanning. De bewegingen van de protagonist zijn een 'schrift' dat door de groep wordt gelezen."},
+  {t:"Bespreking",
+   body:"De joker en de hele groep wisselen ideeën uit — zonder te proberen consensus te bereiken of argumenten te winnen. Het is even belangrijk dat de protagonist zichzelf verwondert te midden van alle bewondering."}
+ ],
+ tip:"De cop is niet noodzakelijk een beeld met een geweer. Hij kan ook verleidelijk verschijnen. We definiëren als 'cop' alles wat aanwezig is in ons hoofd op een moment van handelen, dat ons verplicht te doen wat we niet willen — of verhindert te doen wat we wel willen."},
+
+{n:6, title:"The image of the 'cops in the heads' of the spectators", page:"p. 150",
+ power:"Power over / Power with", powerBg:"#e8e0f8", powerFg:"#26215C",
+ stripe:"#534AB7",
+ note:"Identiek aan techniek 5, met één fundamenteel verschil: de spect-actoren construeren vanaf het begin beelden van hun eigen cops in the head — niet die van de protagonist.",
+ stages:[
+  {t:"Zelfde opzet als techniek 5",
+   body:"Volg dezelfde negen stappen als techniek 5 (The image of the cops in the head), maar met dit verschil: de spect-actoren interveniëren van het begin af aan en construeren beelden van hun éigen cops in the head."},
+  {t:"Resonantie als poort",
+   body:"De projecties worden gemaakt door identificatie, herkenning of resonantie. De protagonist herkent de beelden van andere deelnemers bijna altijd als zijn eigen beelden — simpelweg omdat sympathie bijna altijd ontstaat."},
+  {t:"Van persoonlijk naar collectief",
+   body:"Wat leek op een persoonlijk probleem onthult zich als een collectief patroon. De geïnternaliseerde macht is niet alleen persoonlijk — ze heeft haar hoofdkwartier buiten."}
+ ],
+ tip:"Bijna zonder uitzondering erkent de protagonist de beelden die door andere deelnemers worden getoond als zijn eigen beelden. De cops in ons hoofd hebben hun hoofdkwartier buiten."},
+
+{n:7, title:"The image of the rainbow of desire", page:"p. 150",
+ power:"Power over → Power to", powerBg:"#e1f5ee", powerFg:"#085041",
+ stripe:"#1D9E75",
+ note:"Geen sensatie, emotie of verlangen bestaat in pure staat. Wat aan de oppervlakte verschijnt is slechts de 'dominante' kracht. De volgorde is niet onveranderlijk; niet elke stap hoeft te worden uitgevoerd.",
+ stages:[
+  {t:"Improvisatie",
+   body:"De techniek opent met een improvisatie 'gescript' en 'geregisseerd' door de protagonist. Zo hebben we een persoon-persoonlijkheid die de rol van protagonist leeft en persoon-personnages die de antagonisten tot leven brengen."},
+  {t:"De regenboog",
+   body:"De joker vraagt de protagonist beelden te creëren van haar verlangens, gemoedstoestanden, liefdes en haten, angsten en moed — alle krachten die ze voelt op dat moment. De protagonist toont met haar eigen lichaam. Anderen die zich identificeren of waarbij sterke resonantie is, reproduceren het beeld. De protagonist kan beelden accepteren of weigeren — het doel is karakteristieken van de protagonist te onthullen, niet haar cops in the head."},
+  {t:"De korte monologen, de vertrouwelijkheden",
+   body:"De beelden gaan aan de zijlijn staan. De protagonist houdt voor elk beeld een korte vertrouwelijke monoloog, beginnend met 'Ik ben zo, omdat...' of 'Dat is niet hoe ik zou willen zijn, maar ik herken het, omdat...' De acteur-beelden gebruiken deze informatie voor de improvisaties die volgen."},
+  {t:"Het deel neemt het geheel over",
+   body:"De antagonist keert terug. De protagonist stuurt de beelden één voor één op de antagonist af — elk voor circa één minuut — alsof dat ene beeld op eigen kracht de gehele protagonist is. De antagonist reageert alsof hij te maken heeft met steeds wisselende personages."},
+  {t:"De hele regenboog",
+   body:"De protagonist stuurt alle beelden tegelijk de vloer op en stelt ze op in een constellatie ten opzichte van de antagonist in het centrum. De antagonist confronteert alle beelden als waren ze één persoon. Variatie: de protagonist kan twee constellaties maken — de regenboog zoals ze die waarneemt (status quo) en de regenboog zoals ze die zou willen (ideaal)."},
+  {t:"Wil versus verlangen",
+   body:"De protagonist beweegt van beeld naar beeld en gaat met elk een één-op-één dialoog aan. Begin: 'Ik zou meer zo willen zijn, omdat...' of 'Ik zou liever minder zo zijn, omdat...' De verlangens zijn amoral krachten — wat de protagonist ook vraagt, ze worden altijd sterker in deze fase. De keuzes en volgorde zijn zelf een 'schrift' dat de groep leest."},
+  {t:"De protagonist neemt de plaats in van de antagonist",
+   body:"Nadat de protagonist elk verlangen heeft 'opgeladen', gaat ze aan de kant van de antagonist staan. Ze ziet nu hoe haar regenboog eruitziet vanuit het perspectief van de antagonist — hoe haar woorden en acties worden ontvangen."},
+  {t:"De agora van verlangens",
+   body:"De joker vraagt de protagonist het speelveld te verlaten. De beelden beginnen de agora van verlangens: elk verlangen zoekt eerst zijn complement — het meest tegenstrijdige verlangen — om mee te strijden. Minstens drie rondes van paarvorming. De protagonist circuleert vrij en observeert de alternatieven en oplossingen."},
+  {t:"Herimprovisatie",
+   body:"De verlangens verdwijnen en de originele scene wordt opnieuw gespeeld. De protagonist wordt geïnstrueerd haar wil te laten zegevieren. De uitkomst kan anders zijn — maar hoeft dat niet."},
+  {t:"Bespreking",
+   body:"Alle acteurs vertellen wat ze voelden of opmerkten vanuit de scene. De andere deelnemers zeggen wat ze hebben gezien. De joker coördineert — signaleert de originaliteiten en esthetische aspecten (de signifiers) — zonder te interpreteren."}
+ ],
+ tip:"De regenboog werkt als een prisma: zoals in wit licht alle kleuren verborgen liggen, liggen aan het gedrag van mensen meerdere verlangens ten grondslag. Welke verlangens we te zien krijgen hangt af van welke situatie zich voordoet."},
+
+{n:8, title:"The screen-image", page:"p. 167",
+ power:"Power over → Power to", powerBg:"#e1f5ee", powerFg:"#085041",
+ stripe:"#1D9E75",
+ note:"Bijzonder aanbevolen voor de studie van relaties tussen twee personen. Resultaten zijn nog beter als beiden aanwezig zijn. Het screen-image is tegelijk een filter, een scherm en een schild.",
+ stages:[
+  {t:"Improvisatie",
+   body:"Een normale improvisatie. De protagonist kiest één deelnemer als antagonist. Eén of meer spect-actoren worden gekozen als 'getuigen', wier taak het is alles te noteren wat er plaatsvindt."},
+  {t:"Vorming van screen-images",
+   body:"Met behulp van een spect-actor beeldhouwt elk van de twee acteurs voor zijn tegenovergestelde partner zijn geprojecteerde image van die ander. Zo staat vóór de protagonist zijn image zoals geprojecteerd door de antagonist, en vice versa — geen van beiden kan de ander zien. Dit is precies wat er in het echte leven gebeurt."},
+  {t:"Improvisatie met de screen-images",
+   body:"De acteurs herimproviseren: telkens als één van hen iets wil zeggen, moet hij het image vragen dat de ander op hem heeft geprojecteerd om te zeggen wat hij wil zeggen. 'Vertel hem dat...' Het screen-image zegt dan luidop wat er gevraagd is — maar behoudt zijn eigen image-kenmerken en filtert zo het betoog. Zelfs de stem moet die van het masker zijn."},
+  {t:"De beelden worden autonoom",
+   body:"De joker geeft een signaal aan de screen-images om autonoom te worden. Protagonist en antagonist stappen terug en observeren. Alles wat de screen-images zeggen of doen moet worden meegenomen wanneer de acteurs terugkeren."},
+  {t:"Protagonist en antagonist keren terug",
+   body:"De joker signaleert beiden om hun posities in te nemen achter hun screen-images. Eerst echoën ze de maskers — lichamelijk en vocaal. Dan vraagt de joker de images zich terug te trekken: voor het eerst staan protagonist en antagonist echt tegenover elkaar. De scene gaat door totdat de schade door de screen-images is hersteld — als dat ooit mogelijk is."},
+  {t:"Het rotating image (optioneel)",
+   body:"Drie deelnemers nemen achtereenvolgens de plaats in van de protagonist, elk biedend een 'advies'. Drie nieuwe beelden van de antagonist worden aangeboden. Vier rotaties: P vs. Ai · Ai vs. P · Pi vs. A · A vs. Pi. Daarna: uitwisseling van ideeën door getuigen en deelnemers."}
+ ],
+ tip:"In vroege edities van Games for Actors and Non-Actors werd de titel 'Screen Image' door een vertaalfout toegeschreven aan een techniek die eigenlijk 'Projected Image' had moeten heten. (Noot vertaler A.J.)"},
+
+{n:9, title:"Contradictory images of the same people in the same story", page:"p. 171",
+ power:"Power over — multiperspectiviteit", powerBg:"#e6f1fb", powerFg:"#0C447C",
+ stripe:"#185FA5",
+ note:"Wanneer we in dialoog zijn met een andere persoon, zelfs van aangesicht tot aangesicht, wordt onze dialoog bewoond door andere mensen — levend of dood. Elk van deze mensen is altijd dubbel. De fase vóór de improvisatie is extreem belangrijk.",
+ stages:[
+  {t:"Sensitisering van de antagonist-acteur",
+   body:"Niet noodzakelijk als het koppel een gedeelde ervaring bestudeert. Maar als de protagonist de enige is die de situatie doorleeft: geef de antagonist-acteur voldoende tijd om alles te begrijpen — niet alleen de scene te begrijpen, maar hem te beleven. De acteur kan en moet vragen stellen. Pas als hij zich intensief en volledig gesensitiseerd voelt, kan de improvisatie beginnen."},
+  {t:"Improvisatie",
+   body:"Een normale improvisatie."},
+  {t:"De beelden",
+   body:"De joker vraagt de twee acteurs tegenstrijdige beelden te creëren van elke persoon aanwezig in de dialoog, of die werd vermeld of niet. De joker noemt één voor één de namen van deze mensen. De twee acteurs — zonder elkaar te observeren — beeldhouwen de images van deze mensen, waarbij ze de gehele toneelruimte gebruiken. Alle images worden geplaatst in dezelfde ruimte, zonder opdeling. Wanneer de dubbele constellatie klaar is, maakt de joker observaties en nodigt deelnemers uit zich vrij uit te spreken over alles wat ze hebben gezien: gelijkenissen en verschillen, afstanden, gezichtsuitdrukkingen. De tegenstellingen moeten absoluut worden gerespecteerd."}
+ ],
+ tip:"Zie ook Rashomon — een image/repetitietechniek die vergelijkbare gebieden verkent. We denken dat we dezelfde dingen zeggen over dezelfde mensen, maar in werkelijkheid zeggen we verschillende dingen over verschillende mensen."}
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step'; // 'step' or 'all'
+
+function setView(v) {
+  view = v;
+  document.getElementById('vt-step').classList.toggle('on', v === 'step');
+  document.getElementById('vt-all').classList.toggle('on', v === 'all');
+  render();
+}
+
+function render() {
+  const t = T[cur];
+
+  // Pills
+  document.getElementById('pills').innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})">${x.n}</button>`
+  ).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+
+  // Nav buttons
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  // Card
+  const stagesHtml = view === 'step' ? renderStep(t) : renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Techniek ${t.n} van 9 &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-page">${t.page}</span>
+            <span class="badge-power" style="background:${t.powerBg};color:${t.powerFg}">${t.power}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+    </div>`;
+}
+
+function renderStep(t) {
+  const s = t.stages[curStage];
+  const dots = t.stages.map((_, i) =>
+    `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" onclick="goStage(${i})"></button>`
+  ).join('');
+  const bodyHtml = s.subs
+    ? `<div class="substeps">${s.subs.map((sub, i) =>
+        `<div class="substep"><div class="substep-nr">${i+1}</div><div class="substep-txt">${sub}</div></div>`
+      ).join('')}</div>`
+    : `<div class="stage-text">${s.body}</div>`;
+
+  return `
+    <div class="stages-head">
+      <span class="stages-lbl">Stage ${curStage + 1} van ${t.stages.length}</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="stage-progress">${dots}</div>
+        <div class="stage-nav">
+          <button class="sn-btn" onclick="prevStage()" ${curStage === 0 ? 'disabled' : ''}>&#8593;</button>
+          <button class="sn-btn" onclick="nextStage()" ${curStage === t.stages.length - 1 ? 'disabled' : ''}>&#8595;</button>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-num-lbl">Stage ${curStage + 1}</div>
+      <div class="stage-title">${s.t}</div>
+      ${bodyHtml}
+    </div>
+    <div style="height:20px"></div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => {
+    const bodyHtml = s.subs
+      ? `<div class="acc-subs">${s.subs.map((sub, j) =>
+          `<div class="acc-sub"><div class="acc-sub-nr">${j+1}</div><div class="acc-sub-txt">${sub}</div></div>`
+        ).join('')}</div>`
+      : `<div class="acc-text">${s.body}</div>`;
+    return `
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-sn">${i+1}</div>
+          <div class="acc-title">${s.t}</div>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">${bodyHtml}</div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stages</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; curStage = 0; render(); }
+function goStage(i) { curStage = i; render(); }
+function nextStage() { if (curStage < T[cur].stages.length - 1) { curStage++; render(); } }
+function prevStage() { if (curStage > 0) { curStage--; render(); } }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; curStage = 0; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; curStage = 0; render(); } };
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { if (cur < T.length - 1) { cur++; curStage = 0; render(); } }
+  if (e.key === 'ArrowLeft')  { if (cur > 0) { cur--; curStage = 0; render(); } }
+  if (e.key === 'ArrowDown')  { nextStage(); }
+  if (e.key === 'ArrowUp')    { prevStage(); }
+});
+
+render();
+</script>
+</body>
+</html>
