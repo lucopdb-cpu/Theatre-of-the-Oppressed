@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playback Theatre — De kern-technieken van Jonathan Fox</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1418;--ink2:#524a50;--ink3:#9a909a;
+  --paper:#faf6f7;--paper2:#f2e8ec;--paper3:#e8d8df;--paper4:#d8bfc9;
+  --rose:#993556;--rose2:#b8465f;--rose3:#e8b8c5;--rose4:#fbe8ee;
+  --rose5:#6d1f37;
+  --rule:rgba(26,20,24,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--rose)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--rose3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--rose);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--rose2);color:var(--rose)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,20,24,.05),0 3px 12px rgba(26,20,24,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.card-name em{font-style:italic;color:var(--rose);font-weight:400}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-form{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-type{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Meta bar: duration, group, phase */
+.meta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--paper3)}
+.meta-item{font-family:var(--sans);font-size:10px;color:var(--ink2);display:inline-flex;align-items:center;gap:4px;background:var(--paper2);padding:3px 9px;border-radius:12px;border:1px solid var(--paper3)}
+.meta-item strong{color:var(--ink);font-weight:500}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--paper3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--rose)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--paper3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--rose);transform:scale(1.4)}
+.sp-dot.done{background:var(--paper4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:12px;color:var(--rose);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--paper3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--rose2);background:var(--rose4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--rose3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--rose4);border-left:3px solid var(--rose2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Source footer in card */
+.card-source{margin:0 26px 20px;padding:10px 14px;background:var(--paper2);border-radius:7px;font-family:var(--sans);font-size:10px;color:var(--ink3);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-source strong{color:var(--ink2);font-weight:500}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--rose4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--rose2);background:var(--rose4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--rose3)}
+.acc-trigger.open .acc-sn{background:var(--rose);color:#fff;border-color:var(--rose2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-subs{display:flex;flex-direction:column;gap:8px}
+.acc-sub{display:flex;gap:10px;align-items:flex-start}
+.acc-sub-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--rose2);background:var(--rose4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--rose3)}
+.acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--rose2);color:var(--rose)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--sans);font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink2);cursor:pointer;transition:all .12s}
+.vt-btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Intro panel */
+.intro-panel{background:#fff;border:1px solid var(--paper4);border-radius:16px;padding:22px 26px;margin-bottom:22px;box-shadow:0 1px 2px rgba(26,20,24,.05),0 3px 12px rgba(26,20,24,.04)}
+.intro-panel h3{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em}
+.intro-panel p{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.7;color:var(--ink2);margin-bottom:10px}
+.intro-panel p:last-child{margin-bottom:0}
+.intro-panel em{color:var(--rose);font-style:italic}
+.intro-panel .pullquote{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink);border-left:3px solid var(--rose2);padding:6px 0 6px 16px;margin:14px 0;line-height:1.55}
+.intro-panel .attrib{font-family:var(--sans);font-size:10px;letter-spacing:.05em;color:var(--ink3);text-transform:uppercase;margin-top:-4px;margin-bottom:12px;padding-left:19px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:12px 0 4px;transition:color .15s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--ink3)'">← Arsenaal van de Joker</a>
+
+<div class="masthead">
+  <div class="app-name">Playback Theatre — <em>De kern-technieken</em></div>
+  <div class="app-sub">Jonathan Fox &amp; Jo Salas · New Paltz NY · 1975 – heden · Centre for Playback Theatre</div>
+  <div class="context-note">Negen vormen waaruit een Playback-voorstelling is opgebouwd — van de kortste non-narratieve sculpture tot de volledige scène. Fox onderscheidt drie domeinen die de speler moet beheersen: kunst, sociaal, ritueel. De vormen zijn het vaartuig; het ritueel is de rivier.</div>
+</div>
+
+<div class="intro-panel">
+  <h3>Het ritueel als drager</h3>
+  <p>Playback Theatre is <em>niet primair</em> improvisatietheater, therapie of educatie — het is een ritueel waarin iemand in het publiek een moment uit zijn leven vertelt, en een groep spelers dat direct terugspeelt. Fox's grondbeginsel: geen verhaal is te klein, geen verhaal te groot. Van het banale ontwaken 's morgens tot het twintig jaar lang bewaarde geheim van politiek geweld — het ritueel houdt ze allebei.</p>
+  <p class="pullquote">Thus a good playback actor and leader must be skilled in a triad of roles — as an artist, a host, and a shaman.</p>
+  <p class="attrib">Jonathan Fox, A Ritual for Our Time (1999)</p>
+  <p>De negen vormen hieronder zijn <em>niet</em> improvisatie-oefeningen in generieke zin. Ze zijn dramaturgische werktuigen, elk met een eigen functie in de arc van een voorstelling: van de lichte opwarming (Fluid Sculpture) tot de volle scène vanuit de vertellersstoel. De joker-conductor kiest welke vorm bij welk verhaal past.</p>
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div class="view-toggle">
+  <button class="vt-btn on" id="vt-step" onclick="setView('step')">Per stap</button>
+  <button class="vt-btn" id="vt-all" onclick="setView('all')">Alle stappen</button>
+</div>
+
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> vormen &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> stappen
+</div>
+
+</div>
+
+<script>
+const T = [
+{n:1, title:"Fluid Sculpture",
+ page:"non-narrative short form",
+ type:"Opwarming", typeBg:"#fbe8ee", typeFg:"#6d1f37",
+ stripe:"#e8b8c5",
+ duration:"3–5 min", group:"3–5 spelers", phase:"Warming-up fase",
+ note:"De 'default' vorm waarmee een Playback-voorstelling opent. Spelers staan in lijn naast elkaar. De conductor vraagt aan iemand in het publiek: 'Welk gevoel draag je mee vanavond?' of iets even eenvoudigs. Na het korte antwoord begint de muziek — en de spelers komen één voor één naar voren.",
+ stages:[
+  {t:"Het aanbod van de verteller",
+   body:"De conductor nodigt de teller uit vanuit zijn stoel in het publiek. Eén gevoel, één moment, één woord. 'Ik was vandaag teleurgesteld.' 'Ik ben opgelucht.' 'Het voelt als zand tussen mijn vingers.' De conductor herhaalt de kernwoorden — dat is het moment waarop de muzikant inzet."},
+  {t:"De eerste speler stapt naar voren",
+   body:"Eén speler stapt naar de speelruimte met een herhalende beweging en een geluid. Kort, simpel, ritmisch. De beweging is geen illustratie van het gevoel maar een belichaming ervan — een aspect, een facet, een kleur. De speler blijft dit herhalen zonder stil te vallen."},
+  {t:"De sculptuur groeit",
+   body:"Eén voor één voegen de andere spelers zich erbij — elk met een eigen beweging en geluid dat voortbouwt op wat er al is. Ze voegen zich toe, weerleggen niet. De sculptuur ontwikkelt zich organisch: een levend, bewegend ensemble. Stemmen mogen woorden worden, maar hoeven niet."},
+  {t:"Einde: de eerste bevriest",
+   body:"De vorm heeft een vast einde: wanneer de eerste speler bevriest, volgen de anderen. Muziek stopt. Stilte. De conductor draait zich naar de teller: 'Klopt dit?' De teller antwoordt vaak non-verbaal — een knik, een glimlach, stilte."}
+ ],
+ tip:"De val-kuil is te lang doorgaan. Een goede fluid duurt 60–90 seconden. Meer is uitputtend voor publiek én spelers. Let ook op: spelers moeten vanuit het perspectief van de verteller werken — niet vanuit hun eigen associaties. Het is geen verhaal, het is een resonantie.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:2, title:"Pairs",
+ page:"non-narrative short form",
+ type:"Opwarming", typeBg:"#fbe8ee", typeFg:"#6d1f37",
+ stripe:"#e8b8c5",
+ duration:"5–8 min", group:"2 of 4 spelers", phase:"Warming-up fase",
+ note:"De vorm voor ambivalentie. Twee tegenstrijdige gevoelens tegelijk gedragen door één persoon — zichtbaar gemaakt door twee spelers. In Fox' oorspronkelijke versie staan de spelers rug aan rug; in de klassieke Centre-versie staan twee paren naast elkaar, beide gericht op het publiek.",
+ stages:[
+  {t:"De verteller benoemt twee gevoelens",
+   body:"De conductor vraagt: 'Was er een moment vandaag waarin je twee gevoelens tegelijk had?' De teller benoemt ze: 'Trots én beschaamd.' 'Opgelucht én schuldig.' De conductor doubelt — hij herhaalt ze, maakt ze sterk, zorgt dat spelers en publiek ze horen."},
+  {t:"De spelers nemen positie",
+   body:"Twee spelers (of twee paren). In de klassieke configuratie: beiden gericht op het publiek, de een iets naar voren, de ander iets naar achteren — maar beiden zichtbaar. Alternatief: rug aan rug, zodat telkens één gevoel zichtbaar is en het andere verborgen."},
+  {t:"Gevoel A",
+   body:"De voorste (of zichtbare) speler belichaamt gevoel A — met beweging, klank en eventueel taal. Kort, expressief, in één adem. De andere speler blijft stil."},
+  {t:"Wisseling — gevoel B",
+   body:"Door een draaiing of verschuiving neemt de andere speler het over: gevoel B, even expressief, even volledig. De twee gevoelens bestaan nooit tegelijk. Het is precies die afwisseling die de innerlijke verdeeldheid zichtbaar maakt."},
+  {t:"Afsluiting",
+   body:"Na twee of drie wisselingen bevriezen beide spelers in hun laatste positie. Muziek stopt. Conductor draait zich naar de teller: 'Herken je dit?' Geen correctie-vraag — een bevestigingsvraag."}
+ ],
+ tip:"Pairs werkt alleen als de twee gevoelens écht tegenstrijdig zijn, niet complementair. 'Blij én dankbaar' is géén pair — dat is een enkel gevoel in twee woorden. 'Blij én verdrietig' is een pair. De conductor moet scherp doorvragen voor hij de vorm start.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:3, title:"Tableau",
+ page:"narrative short form",
+ type:"Kort verhaal", typeBg:"#f5e3e8", typeFg:"#6d1f37",
+ stripe:"#d8a0b3",
+ duration:"5–8 min", group:"3–5 spelers", phase:"Warming-up fase",
+ note:"De eerste narratieve vorm. De teller vertelt een kort verhaal vanuit zijn stoel in het publiek. De conductor hervertelt het in ongeveer vijf korte zinnen, doorgaans in de tegenwoordige tijd en in 'verhaal-taal'. Na elke zin vormen de spelers een stilstaand beeld — muziek doorheen.",
+ stages:[
+  {t:"De teller vertelt vanuit het publiek",
+   body:"Geen uitgebreid interview — een kort, helder verhaal. 'Vanmorgen belde mijn moeder. Ze had slecht nieuws. Ik wist meteen wat het was. Ik kon niet huilen. Ik ben gaan lopen.'"},
+  {t:"De conductor hervertelt in vijf zinnen",
+   body:"De conductor luistert als dramaturg. Hij kiest (of condenseert) de vijf kernzinnen — in tegenwoordige tijd, met mythische toon. 'Een vrouw krijgt een telefoontje. Haar moeder spreekt. Het nieuws is slecht. Haar lichaam kan niet huilen. Ze loopt de straat op.'"},
+  {t:"Zin één — het eerste beeld",
+   body:"Muziek start. Conductor spreekt zin één. Spelers bewegen tot een stilstaand beeld — een tableau dat de essentie van die zin draagt. Niet letterlijk, maar beeldend. Ze houden het beeld vast, enkele seconden, muziek speelt."},
+  {t:"Zinnen twee tot vijf",
+   body:"Conductor spreekt de volgende zin. Spelers bewegen — soms lopen ze door het beeld heen, soms lost het vorige op — en vormen het volgende tableau. Zo ontstaan vijf opeenvolgende stilstaande beelden, verbonden door muziek en beweging."},
+  {t:"Het laatste beeld en de blik",
+   body:"Het vijfde tableau blijft iets langer staan. Muziek vervaagt. Spelers draaien hun blik naar de teller — de acknowledgement. Conductor: 'Was dit jouw verhaal?'"}
+ ],
+ tip:"Het tempo van de zinnen bepaalt alles. Spreek ze niet te snel achter elkaar — geef elk tableau lucht. De spelers hebben tijd nodig om van beeld naar beeld te bewegen. Een goede Tableau voelt als bladeren door een fotoalbum van iemands leven.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:4, title:"3-Sentence Story",
+ page:"narrative short form",
+ type:"Kort verhaal", typeBg:"#f5e3e8", typeFg:"#6d1f37",
+ stripe:"#d8a0b3",
+ duration:"4–6 min", group:"3 spelers", phase:"Warming-up fase",
+ note:"De conductor nodigt de teller uit zijn verhaal in precies drie zinnen te vertellen (of condenseert ze zelf na het horen). Drie spelers staan naast elkaar, gericht op het publiek. Elke speler belichaamt één zin — elk met stem, lichaam, ruimte, doek.",
+ stages:[
+  {t:"De drie zinnen",
+   body:"Conductor: 'Vertel je verhaal in drie zinnen. Begin, midden, einde.' De teller probeert — de conductor kan condenseren of hermuleren waar nodig. De drie zinnen worden hardop benoemd zodat spelers én publiek ze horen."},
+  {t:"De opstelling",
+   body:"Drie spelers staan naast elkaar, gericht op het publiek. Ze horen alle drie de zinnen, maar weten dat elk een eigen zin gaat belichamen: speler 1 (uiterst links vanuit publiek) = zin 1, speler 2 = zin 2, speler 3 = zin 3."},
+  {t:"Zin één — speler één",
+   body:"Muziek start. Conductor spreekt zin één. Speler één gebruikt stem, lichaam, beweging, doek, ruimte — om de essentie van die zin te belichamen. Hij kan elke karakter in het verhaal spelen. Hij eindigt in een bevroren houding."},
+  {t:"Zin twee — speler twee",
+   body:"Speler twee belichaamt zin twee. Hij mag interactie hebben met de bevroren speler één — maar die reageert niet. Speler één is een standbeeld in het verhaal geworden. Speler twee eindigt eveneens in een bevroren beeld."},
+  {t:"Zin drie — speler drie",
+   body:"Speler drie belichaamt zin drie, mogelijk in interactie met de twee bevroren eerdere spelers. Na zijn beweging bevriest ook hij. Drie spelers, drie bevroren beelden, één doorgaande tijdlijn. Muziek vervaagt. Blik naar de teller."}
+ ],
+ tip:"De vorm vraagt van spelers dat ze vanuit totale absence naar totale aanwezigheid kunnen schakelen — en terug. Wanneer speler twee actief is, moeten speler één en drie volledig bevroren zijn. Geen getwijfel, geen bijspelend mimespel op de achtergrond.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:5, title:"3-Part Story",
+ page:"narrative short form",
+ type:"Kort verhaal", typeBg:"#f5e3e8", typeFg:"#6d1f37",
+ stripe:"#d8a0b3",
+ duration:"5–8 min", group:"3 spelers", phase:"Warming-up fase",
+ note:"De variant op 3-Sentence Story. In plaats van de teller (of conductor) te vragen drie zinnen te formuleren, kiezen de drie spelers zélf hun drie kernelementen uit het verhaal. Dit vraagt meer van de spelers — ze moeten als dramaturgen luisteren.",
+ stages:[
+  {t:"De teller vertelt vrij",
+   body:"De conductor stelt geen structuur op. De teller vertelt zijn verhaal in de omvang waarin hij dat wil — binnen redelijke grenzen. De conductor bewaakt de lengte maar vraagt niet om condensatie."},
+  {t:"De spelers luisteren als dramaturgen",
+   body:"Tijdens het vertellen luisteren de drie spelers ieder voor zich naar wat voor hen de kern van het verhaal is. Welk moment, welk beeld, welk gevoel — welke drie elementen samen de essentie dragen. Ze mogen geen overleg voeren."},
+  {t:"Stilte na de vertelling",
+   body:"Als de teller klaar is, volgt een korte stilte. De spelers nemen positie. De conductor zegt: 'Let's watch.' Muziek start. Niemand weet welke drie elementen zijn gekozen — ook de spelers onderling niet."},
+  {t:"Drie opeenvolgende belichamingen",
+   body:"Een speler stapt naar voren en belichaamt zijn gekozen element — met beweging, stem, ruimte, doek. Hij bevriest. De volgende speler doet hetzelfde met zijn element. Dan de derde. Drie fragmenten die samen, door hun volgorde en compositie, iets over het geheel zeggen wat de teller nog niet wist."},
+  {t:"De blik naar de teller",
+   body:"De drie bevroren beelden blijven even staan. Muziek vervaagt. Spelers draaien hun hoofd naar de teller. Conductor: 'Was dit je verhaal?'"}
+ ],
+ tip:"Deze vorm is riskanter dan 3-Sentence Story — de spelers kunnen de kern mislezen. Maar als het lukt, onthult het vaak een laag die de teller zelf niet benoemde. Gebruik deze vorm met ervaren spelers; begin met 3-Sentence tot het ensemble ingespeeld is.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:6, title:"Narrative V",
+ page:"narrative short form",
+ type:"Kort verhaal", typeBg:"#f5e3e8", typeFg:"#6d1f37",
+ stripe:"#d8a0b3",
+ duration:"5–8 min", group:"3–5 spelers", phase:"Warming-up fase",
+ note:"Een vorm die storytelling-traditie en beweging combineert. De spelers staan in een V-formatie — één voor, de anderen achter in een waaier. De voorste speler vertelt het verhaal van de teller in de derde persoon, met gebaren maar zonder te enacteren. De anderen echoën.",
+ stages:[
+  {t:"De teller vertelt zijn verhaal",
+   body:"Kort verhaal vanuit het publiek. De conductor luistert actief. Na het vertellen zegt hij niets — laat de stilte vallen."},
+  {t:"De spelers nemen de V",
+   body:"De spelers bewegen naar een V-formatie: één speler staat iets voor de anderen, gericht op het publiek. De anderen staan schuin achter hem, in een waaier. Ze kijken niet naar de voorste — ze kijken naar de grond, of naar het publiek. De voorste speler bepaalt zelf of hij de verteller wordt."},
+  {t:"De voorste vertelt in derde persoon",
+   body:"Muziek start. De voorste speler hervertelt het verhaal van de teller — in de derde persoon, met ritme en poëzie. Hij gebruikt gebaren om het te accentueren, maar enacteert de scene niet. 'Ze liep de kamer binnen. Ze wist niet wat haar moeder zou zeggen. Ze wachtte af.'"},
+  {t:"De echo's",
+   body:"De andere spelers — zonder naar de verteller te kijken — echoën zijn gebaren. Ze herhalen kernwoorden of klanken op momenten die hen treffen. Soms synchroon, soms net na elkaar. Ze vormen een klankbord, een koor, een lichaamsweerspiegeling. Ze mogen zachtjes eigen geluiden toevoegen."},
+  {t:"Einde en blik",
+   body:"De verteller stopt in stilte. De echo's vervagen. Muziek stopt. Alle spelers draaien zich naar de teller — de acknowledgement."}
+ ],
+ tip:"Narrative V is een vorm voor verhalen waarin taal zelf essentieel is — poëtische verhalen, herinneringsverhalen, verhalen die om eerbied vragen. De voorste speler draagt veel — oefen deze vorm apart voordat je hem in performance zet.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:7, title:"Chorus",
+ page:"narrative short form / scene-element",
+ type:"Ensemble", typeBg:"#eed4de", typeFg:"#6d1f37",
+ stripe:"#b8465f",
+ duration:"5–10 min", group:"3+ spelers", phase:"Warming-up of in lange scène",
+ note:"Een kluwen van twee of meer spelers bewegen en spreken samen als één entiteit. Eén speler doet een aanbod — beweging, klank, fragment van taal — dat onmiddellijk wordt geaccepteerd en ontwikkeld door de anderen. Tot er een nieuw aanbod komt. De chorus kan een heel verhaal dragen, of binnen een scène een personage zijn.",
+ stages:[
+  {t:"Het aanbod van de teller",
+   body:"De teller vertelt. Conductor luistert en besluit: deze vraagt om een chorus — omdat het over een collectief gevoel gaat, een familiesysteem, een sfeer, iets dat geen individueel gezicht heeft."},
+  {t:"De kluwen vormt zich",
+   body:"Spelers bewegen dicht bij elkaar — schouders raken elkaar, lichamen overlappen. Ze staan niet op een lijn maar in een klomp. Vanuit deze kluwen zullen ze als één organisme bewegen."},
+  {t:"Het eerste aanbod",
+   body:"Eén speler begint. Een beweging, een klank, een paar woorden. 'Ik weet het niet meer.' Of een gebaar dat iets zoekt. Of een neurie. Één aanbod — geen overleg."},
+  {t:"Directe acceptatie",
+   body:"De andere spelers nemen dit onmiddellijk over. Niet kopiëren — amplificeren, variëren, verdiepen. Als iemand 'Ik weet het niet meer' fluistert, wordt het bij de een een schreeuw, bij de ander een rustig statement, bij een derde een lichamelijke aarzeling. Er is geen regisseur."},
+  {t:"Aanbod wisselt",
+   body:"Op een natuurlijk moment doet een andere speler een nieuw aanbod. De chorus schakelt. Dit gebeurt meerdere keren — het verhaal beweegt als een golf. Een speler kan even uit de kluwen stappen om een ander personage te zijn, en er weer in smelten."},
+  {t:"Het stilt",
+   body:"Zonder instructie stilt het koor organisch. Laatste klanken dempen. Stilte. Blik naar de teller."}
+ ],
+ tip:"De chorus faalt als iemand probeert te regisseren. Het vraagt van spelers dat ze hun individuele creatieve impulsen durven opgeven voor het collectief. Oefen de reflex van directe acceptatie eerst in workshop-setting voordat je het in performance inzet.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010)"},
+
+{n:8, title:"Scene — <em>de lange vorm</em>",
+ page:"narrative long form",
+ type:"Volle scène", typeBg:"#e0c4d0", typeFg:"#6d1f37",
+ stripe:"#993556",
+ duration:"15–25 min", group:"4–5 spelers + verteller", phase:"Hart van de voorstelling",
+ note:"Het hart van elke Playback-voorstelling. De teller verlaat het publiek en neemt plaats in de teller's stoel op het podium, naast de conductor. Van daaruit wordt het verhaal in vijf stappen volledig teruggespeeld. Dit is de vorm waarvoor alle andere vormen een voorbereiding zijn.",
+ stages:[
+  {t:"1. De uitnodiging en het interview",
+   body:"De conductor nodigt een teller uit vanuit het publiek: 'Wie heeft er een verhaal vanavond?' De teller neemt plaats in de stoel. De conductor interviewt — open, warm, aandachtig. Hij vraagt naar feiten ('Wanneer?', 'Waar?'), naar personages ('Wie was erbij?', 'Een woord voor deze persoon?'), naar essentie ('Wat was je gevoel?'). Fox: de conductor heeft drie taken — efficiënt feiten eliciteren, het materiaal speelbaar maken, de teller inschatten."},
+  {t:"2. De casting",
+   body:"Tijdens het interview kiest de teller — met hulp van de conductor — een speler om zichzelf te spelen, en spelers voor de andere personages. Als een personage wordt genoemd, staat de gekozen speler op. Dit is een ritueel moment — stil, bevestigend. 'Dit is mijn moeder.' Speler staat op."},
+  {t:"3. De overdracht naar de spelers",
+   body:"Wanneer de conductor voelt dat er genoeg is, zegt hij: 'Let's watch.' Dit is de klassieke overgangsformule die overal ter wereld wordt gebruikt. De teller wendt zich naar het podium. De muzikant begint. De spelers staan op — ze hebben niet overlegd."},
+  {t:"4. De enactment",
+   body:"De spelers enacteren het verhaal. Niet naturalistisch maar beeldend — met doek, met ruimte, met metafoor, met muziek. Ze mogen afwijken van de letter van het verhaal als ze de geest raken. Ze mogen structurele keuzes maken — scènes verschuiven, een chorus invoegen, een moment uitrekken. De conductor onderbreekt nooit tijdens de enactment."},
+  {t:"5. De afsluiting — de blik",
+   body:"Het laatste beeld bevriest. De spelers draaien hun hoofd — traag, bewust — naar de teller. Dit is <em>de acknowledgement</em>. Geen woorden. Stilte. Daarna wendt de conductor zich naar de teller: 'Was dit jouw verhaal?' De teller antwoordt kort — meestal ja, soms met een correctie (die dan wordt teruggespeeld). Conductor bedankt de teller en stuurt haar terug naar haar plaats in het publiek."}
+ ],
+ tip:"De vijf stappen zijn niet optioneel. De val-kuil voor beginnende conductors is stap 5 overslaan — snel naar de volgende teller willen gaan. Juist de blik en de vraag 'Was dit je verhaal?' dragen het rituele gewicht. Zonder die stap valt het ritueel uit elkaar en blijft alleen improvisatietheater over.",
+ source:"Jonathan Fox, A Ritual for Our Time (1999) &middot; Drama in Therapy Vol II (1981)"},
+
+{n:9, title:"Collage Story",
+ page:"narrative long form",
+ type:"Volle scène", typeBg:"#e0c4d0", typeFg:"#6d1f37",
+ stripe:"#993556",
+ duration:"15–20 min", group:"4–6 spelers + verteller", phase:"Alternatief voor complexe verhalen",
+ note:"Een lange vorm die Fox beschrijft als bijzonder geschikt voor verhalen met een breed sociaal panorama. Vergelijkbaar met wat Europese gezelschappen 'free form' noemen. De teller kiest alleen zijn eigen speler — niet de andere personages. De spelers staan in een rij achter in de ruimte en stappen één voor één naar voren met een moment of beeld. De volgorde is niet chronologisch.",
+ stages:[
+  {t:"De teller in de stoel",
+   body:"Zoals bij de klassieke scène: teller komt naar voren, interview, casting — maar alleen de teller's speler wordt gekozen. De andere personages worden niet toegewezen. De spelers luisteren vrij."},
+  {t:"De formatie",
+   body:"Wanneer de conductor 'Let's watch' zegt, gaan alle spelers achter in de speelruimte staan — op een lijn, gericht op het publiek. De teller's speler staat ertussen. Muziek start."},
+  {t:"Eén speler stapt naar voren",
+   body:"Een speler — op zijn eigen moment — stapt naar voren en enacteert een moment of beeld uit het verhaal. Kort: enkele seconden tot een halve minuut. Anderen mogen erbij komen om dat moment te vervolledigen — of niet. De speler keert terug naar de lijn."},
+  {t:"Een andere speler, een ander moment",
+   body:"Een volgende speler stapt naar voren met een ander moment — niet noodzakelijk het volgende in chronologie. Het kan vroeger zijn, later, parallel. Het kan een zijlijn zijn, een gedachte, een beeld uit de maatschappelijke context. Weer keert hij terug naar de lijn."},
+  {t:"Het patroon groeit",
+   body:"Zo bouwt zich een collage op — verschillende momenten uit het verhaal, in hun eigen dynamiek, met gaten en overlappingen. Het geheel vertelt het verhaal niet lineair maar atmosferisch. De muzikant verbindt de fragmenten."},
+  {t:"Afsluiting",
+   body:"Op een natuurlijk moment — vaak aangegeven door een muzikaal motief — komen de spelers tot stilstand. Laatste beeld. Blik naar de teller. 'Was dit jouw verhaal?'"}
+ ],
+ tip:"Deze vorm vraagt rijpe spelers. Omdat er geen toegewezen rollen zijn, moet elk een scherp gevoel hebben voor wat het verhaal nog nodig heeft. Gebruik hem voor verhalen die te complex zijn voor een lineaire scène — verhalen over cultuur, systemen, periodes van een leven.",
+ source:"Centre for Playback Theatre — Playback Theatre Forms (2010) &middot; Hudson River Playback variant"}
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step'; // 'step' or 'all'
+
+function setView(v) {
+  view = v;
+  document.getElementById('vt-step').classList.toggle('on', v === 'step');
+  document.getElementById('vt-all').classList.toggle('on', v === 'all');
+  render();
+}
+
+function render() {
+  const t = T[cur];
+
+  // Pills
+  document.getElementById('pills').innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})">${x.n}</button>`
+  ).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+
+  // Nav buttons
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  // Card
+  const stagesHtml = view === 'step' ? renderStep(t) : renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Vorm ${t.n} van 9 &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-form">${t.page}</span>
+            <span class="badge-type" style="background:${t.typeBg};color:${t.typeFg}">${t.type}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Duur</strong> ${t.duration}</span>
+          <span class="meta-item"><strong>Groep</strong> ${t.group}</span>
+          <span class="meta-item"><strong>Fase</strong> ${t.phase}</span>
+        </div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-source">
+        <span><strong>Bron</strong> · ${t.source}</span>
+      </div>
+    </div>`;
+}
+
+function renderStep(t) {
+  const s = t.stages[curStage];
+  const dots = t.stages.map((_, i) =>
+    `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" onclick="goStage(${i})"></button>`
+  ).join('');
+  const bodyHtml = s.subs
+    ? `<div class="substeps">${s.subs.map((sub, i) =>
+        `<div class="substep"><div class="substep-nr">${i+1}</div><div class="substep-txt">${sub}</div></div>`
+      ).join('')}</div>`
+    : `<div class="stage-text">${s.body}</div>`;
+
+  return `
+    <div class="stages-head">
+      <span class="stages-lbl">Stap ${curStage + 1} van ${t.stages.length}</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="stage-progress">${dots}</div>
+        <div class="stage-nav">
+          <button class="sn-btn" onclick="prevStage()" ${curStage === 0 ? 'disabled' : ''}>&#8593;</button>
+          <button class="sn-btn" onclick="nextStage()" ${curStage === t.stages.length - 1 ? 'disabled' : ''}>&#8595;</button>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-num-lbl">Stap ${curStage + 1}</div>
+      <div class="stage-title">${s.t}</div>
+      ${bodyHtml}
+    </div>
+    <div style="height:20px"></div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => {
+    const bodyHtml = s.subs
+      ? `<div class="acc-subs">${s.subs.map((sub, j) =>
+          `<div class="acc-sub"><div class="acc-sub-nr">${j+1}</div><div class="acc-sub-txt">${sub}</div></div>`
+        ).join('')}</div>`
+      : `<div class="acc-text">${s.body}</div>`;
+    return `
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-sn">${i+1}</div>
+          <div class="acc-title">${s.t}</div>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">${bodyHtml}</div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; curStage = 0; render(); }
+function goStage(i) { curStage = i; render(); }
+function nextStage() { if (curStage < T[cur].stages.length - 1) { curStage++; render(); } }
+function prevStage() { if (curStage > 0) { curStage--; render(); } }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; curStage = 0; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; curStage = 0; render(); } };
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { if (cur < T.length - 1) { cur++; curStage = 0; render(); } }
+  if (e.key === 'ArrowLeft')  { if (cur > 0) { cur--; curStage = 0; render(); } }
+  if (e.key === 'ArrowDown')  { nextStage(); }
+  if (e.key === 'ArrowUp')    { prevStage(); }
+});
+
+render();
+</script>
+</body>
+</html>
