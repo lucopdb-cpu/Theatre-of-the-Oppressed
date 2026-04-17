@@ -189,10 +189,18 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 .sb-item{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:4px;border:1px solid var(--paper3);background:var(--paper)}
 .sb-nr{font-family:var(--mono);font-size:10px;font-weight:500;width:18px;height:18px;border-radius:4px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--ink3)}
-.sb-handle{color:var(--ink3);font-size:11px;cursor:grab;flex-shrink:0;padding:2px 1px;line-height:1.4;margin-top:1px}
+.sb-handle{color:var(--ink3);font-size:11px;cursor:grab;flex-shrink:0;padding:2px 1px;line-height:1.4;margin-top:1px;user-select:none}
+.sb-handle:active{cursor:grabbing}
+.sb-controls{display:flex;flex-direction:column;gap:1px;margin-right:4px;flex-shrink:0}
+.sb-arrow{width:16px;height:14px;border-radius:3px;border:none;background:var(--paper2);color:var(--ink3);cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center;transition:all .12s;line-height:1;font-weight:bold}
+.sb-arrow:hover{background:var(--paper4);color:var(--ink)}
+.sb-arrow:disabled{opacity:0.3;cursor:not-allowed}
+.sb-arrow:disabled:hover{background:var(--paper2);color:var(--ink3)}
 .sb-info{flex:1;min-width:0}
 .sb-name{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sb-sub{font-size:11px;color:var(--ink3);font-family:var(--sans);display:flex;gap:6px;flex-wrap:wrap}
+.sb-item.dragging{opacity:0.5;transform:rotate(2deg)}
+.sb-item.drag-over{border-color:var(--amber);background:var(--amber4)}
 .sb-rm{width:20px;height:20px;border-radius:4px;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;line-height:1}
 .sb-rm:hover{background:#fde8e0;color:#5c1e10}
 
@@ -215,34 +223,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .card-add-btn:hover{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
 .card-add-btn.in-sessie{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
 .card-add-btn.in-sessie:hover{background:#fde8e0;border-color:#e8c0b0;color:#5c1e10}
-/* ═══ SESSIE-BOUWER ═══ */
-.sb-toggle{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:12px 16px;background:var(--paper2);border:1px solid var(--paper4);border-radius:10px;cursor:pointer;transition:background .15s;user-select:none}
-.sb-toggle:hover{background:var(--paper3)}
-.sb-toggle-left{display:flex;align-items:center;gap:10px}
-.sb-toggle-title{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink)}
-.sb-toggle-count{font-family:var(--mono);font-size:11px;background:var(--amber);color:#fff;border-radius:20px;padding:2px 9px;font-weight:500}
-.sb-toggle-duur{font-family:var(--mono);font-size:11px;color:var(--ink3)}
-.sb-toggle-icon{font-size:14px;color:var(--ink3);transition:transform .2s}
-.sb-toggle-icon.open{transform:rotate(180deg)}
-.sb-panel{display:none;margin-top:4px;background:#fff;border:1px solid var(--paper4);border-radius:12px;overflow:hidden}
-.sb-panel.open{display:block}
-.sb-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--paper3)}
-.sb-meta-cell{padding:10px 16px}
-.sb-meta-cell:not(:last-child){border-right:1px solid var(--paper3)}
-.sb-meta-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
-.sb-meta-val{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--ink)}
-.sb-meta-sub{font-size:11px;color:var(--ink3);font-family:var(--sans)}
-.sb-arc{display:flex;gap:3px;padding:8px 16px;border-bottom:1px solid var(--paper3);align-items:center;min-height:28px}
-.sb-arc-seg{height:8px;border-radius:4px;opacity:.75;min-width:4px}
-.sb-list{padding:8px;min-height:60px}
-.sb-empty{padding:20px 16px;text-align:center;font-family:var(--body);font-style:italic;color:var(--ink3);font-size:13px}
-.sb-item{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:4px;border:1px solid var(--paper3);background:var(--paper)}
-.sb-nr{font-family:var(--mono);font-size:10px;font-weight:500;width:18px;height:18px;border-radius:4px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--ink3)}
-.sb-info{flex:1;min-width:0}
-.sb-name{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sb-sub{font-size:11px;color:var(--ink3);font-family:var(--sans);display:flex;gap:6px;flex-wrap:wrap}
-.sb-rm{width:20px;height:20px;border-radius:4px;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;line-height:1}
-.sb-rm:hover{background:#fde8e0;color:#5c1e10}
+
 .sb-actions{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
 .sb-btn{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .12s}
 .sb-btn:hover{background:var(--paper3)}
@@ -886,11 +867,18 @@ function renderSessie() {
   sessie.forEach(function(s, i) {
     var el = document.createElement('div');
     el.className = 'sb-item';
+    el.draggable = true;
+    el.dataset.index = i;
     var faseKleur = faseKleuren[s.fase] || '#888';
     var engKleur = engKleuren[s.eng] || '#888';
     var engPijl = s.eng === 'hoog' ? '↑' : s.eng === 'laag' ? '↓' : '→';
     el.innerHTML =
       '<div class="sb-nr">' + (i+1) + '</div>' +
+      '<div class="sb-handle" title="Sleep om te verplaatsen">⋮⋮</div>' +
+      '<div class="sb-controls">' +
+        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', -1)" title="Omhoog" ' + (i === 0 ? 'disabled' : '') + '>▲</button>' +
+        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', 1)" title="Omlaag" ' + (i === sessie.length-1 ? 'disabled' : '') + '>▼</button>' +
+      '</div>' +
       '<div class="sb-info">' +
         '<div class="sb-name">' + s.naam + '</div>' +
         '<div class="sb-sub">' +
@@ -900,8 +888,74 @@ function renderSessie() {
         '</div>' +
       '</div>' +
       '<button class="sb-rm" onclick="removeNaam(\'' + s.naam.replace(/'/g,"\\'") + '\')" title="Verwijderen">×</button>';
+    
+    // Drag event listeners
+    el.addEventListener('dragstart', handleDragStart);
+    el.addEventListener('dragover', handleDragOver);
+    el.addEventListener('dragleave', handleDragLeave);
+    el.addEventListener('drop', handleDrop);
+    el.addEventListener('dragend', handleDragEnd);
+    
     list.appendChild(el);
   });
+}
+
+// ── SESSIE HERORDENING ────────────────────────────────────
+function moveSessieItem(index, direction) {
+  var newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= sessie.length) return;
+  
+  var item = sessie.splice(index, 1)[0];
+  sessie.splice(newIndex, 0, item);
+  saveSessie();
+  renderSessie();
+}
+
+// Drag & Drop state
+var draggedElement = null;
+
+function handleDragStart(e) {
+  draggedElement = this;
+  this.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.outerHTML);
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  this.classList.add('drag-over');
+  return false;
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('drag-over');
+}
+
+function handleDrop(e) {
+  if (e.stopPropagation) e.stopPropagation();
+  
+  if (draggedElement !== this) {
+    var draggedIndex = parseInt(draggedElement.dataset.index);
+    var targetIndex = parseInt(this.dataset.index);
+    
+    // Move item in array
+    var item = sessie.splice(draggedIndex, 1)[0];
+    sessie.splice(targetIndex, 0, item);
+    
+    saveSessie();
+    renderSessie();
+  }
+  
+  return false;
+}
+
+function handleDragEnd(e) {
+  var items = document.querySelectorAll('.sb-item');
+  items.forEach(function(item) {
+    item.classList.remove('dragging', 'drag-over');
+  });
+  draggedElement = null;
 }
 
 function renderKaartKnop() {
