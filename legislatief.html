@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legislatief Theater — Van Forum naar Wet</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#1a3a5c;--blue2:#2c4a6b;--blue3:#7891b3;--blue4:#dde7f2;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="app-name">Legislatief <em>Theater</em></div>
+  <div class="app-sub">Van Forum naar Wet · Boal · TONYC · The People Act</div>
+  <div class="context-note">
+    De theatrale route naar wetgeving en beleidsverandering. Ontwikkeld door Augusto Boal tijdens zijn mandaat als raadslid in Rio de Janeiro (1993–1996), door Theatre of the Oppressed NYC vertaald naar de Amerikaanse context (2013–heden), en door Katy Rubin tot Europese praktijk uitgebouwd — met een IOPD-award-winnende samenwerking in Greater Manchester. Een methode waarin kiezers spect-actoren worden van het wetgevingsproces.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Fundament">Fundament</div>
+    <div class="tpill" data-cat="Voorbereiding">Voorbereiding</div>
+    <div class="tpill" data-cat="Proces">Proces</div>
+    <div class="tpill" data-cat="Structuur">Structuur</div>
+    <div class="tpill" data-cat="Praktijk">Praktijk</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">13</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>Legislatief Theater</strong> — methode van <em>Augusto Boal</em> (1931–2009), uitgebouwd door <em>Theatre of the Oppressed NYC</em> (2013–heden) en <em>Katy Rubin</em> via <em>The People Act</em> (UK, 2020–heden)<br>
+  Bronnen: Boal, <em>Legislative Theatre: Using Performance to Make Politics</em> (Routledge, 1998) · LeoNimm, Morgan &amp; Rubin, <em>The Wildcard Workbook</em> (TONYC, 2022) · The People Act case studies · tonyc.nyc · thepeopleact.org
+</div>
+
+</div>
+
+<script>
+const T = [
+
+{n:1, title:"Wat is Legislatief Theater?",
+ cat:"Fundament", catBg:"#e6eef7", catFg:"#1a3a5c",
+ stripe:"#1a3a5c",
+ note:"De methode waarin Forum Theater niet stopt bij het repeteren van een oplossing, maar doorgaat tot concrete voorstellen voor wet, beleid of praktijk. Ontwikkeld door Augusto Boal tijdens zijn mandaat als raadslid in Rio de Janeiro (1993–1996).",
+ stages:[
+  {t:"De kern",
+   body:"Een gemeenschap maakt een voorstelling gebaseerd op een geleefde ervaring van onrecht. Het publiek — toeschouwers, advocates én beleidsmakers in één zaal — speelt alternatieven uit op de scène, formuleert daaruit beleidsvoorstellen, debatteert en stemt. De aanwezige beleidsmakers verbinden zich publiekelijk aan concrete vervolgstappen."},
+  {t:"Niet alleen wetten",
+   body:"Het werkboek van TONYC is duidelijk: het gaat niet alleen over wetgeving. Regels, praktijken en ongeschreven normen die mensenlevens raken staan allemaal op tafel: HR-richtlijnen in een bedrijf, trainingen voor transportpersoneel, handhavingsprotocollen. Alles wat bestaat als regel kan worden gecreëerd, afgeschaft of alsnog afgedwongen."},
+  {t:"Transitieve democratie",
+   body:"Boal noemt dit 'transitieve democratie' — niet de directe democratie van het oude Athene, niet de gedelegeerde democratie van het parlement, maar een tussenvorm waarin kiezers geen passieve toeschouwers zijn maar spect-actoren in het wetgevingsproces. De kiezer en de gekozene ontmoeten elkaar in een creatieve, open ruimte."},
+  {t:"Een vaste drieslag — #WatchActVote",
+   body:"TONYC vatte de methode in 2013 in een slogan: Watch (kijk naar de voorstelling), Act (speel alternatieven uit), Vote (stem op beleidsvoorstellen). Dat is inmiddels de internationale standaard, doorgevoerd door Katy Rubin in haar werk in de UK sinds 2020."}
+ ],
+ tip:"Benoem LT niet als 'Forum Theater plus een politicus in de zaal'. Het is een andere methode met andere voorbereiding, andere scène-eisen en een andere groepssamenstelling. Wie dit onderscheid vervaagt, belooft beleidsimpact die de vorm niet kan waarmaken."},
+
+{n:2, title:"Rio 1993–1996 — geboorte van de methode",
+ cat:"Fundament", catBg:"#e6eef7", catFg:"#1a3a5c",
+ stripe:"#1a3a5c",
+ note:"Boal werd in 1992 gekozen tot Vereador (gemeenteraadslid) voor de Partido dos Trabalhadores in Rio de Janeiro. Hij wilde de baan eigenlijk niet, zei hij zelf — maar eenmaal erin besloot hij er theater van te maken.",
+ stages:[
+  {t:"Het toeval van de verkiezing",
+   body:"Boal beschrijft zijn verkiezing als een toevalstreffer. Hij was kandidaat gesteld om de lijst van de Werkerspartij te versterken, niet om werkelijk in de raad te komen. Toen het toch gebeurde, stond hij voor de keuze: een gewoon raadslid worden, of zijn mandaat gebruiken om de methode van Theatre of the Oppressed het parlement binnen te brengen."},
+  {t:"De staf als troep",
+   body:"Boal gebruikte de helft van zijn ambtelijke toelage voor het inhuren van Jokers — niet beleidsmedewerkers maar theater-facilitators. Die Jokers werkten met gemeenschapsgroepen in Rio, ontwikkelden Forum Theater-voorstellingen over huisvesting, gezondheid, onderwijs, en vertaalden de interventies naar wetsvoorstellen die Boal in de raad kon indienen."},
+  {t:"De Chamber als podium",
+   body:"Het proces werkte in beide richtingen. Gemeenschapsgroepen brachten hun theater naar de Chamber; Boal bracht de thema's van de Chamber terug naar de gemeenschap. Hij noemde het zelf 'de Kamer in de straten'. Dertien van de wetsvoorstellen die uit dit proces kwamen werden ook daadwerkelijk aangenomen."},
+  {t:"Het boek als verslag",
+   body:"Legislative Theatre: Using Performance to Make Politics verscheen in 1998 bij Routledge, vertaald door Adrian Jackson. Boal noemde het nadrukkelijk een 'bèta-versie' — een onaf experiment waarvan hij hoopte dat anderen het zouden voortzetten. Dat is letterlijk wat TONYC en Rubin twee decennia later deden."}
+ ],
+ tip:"Boal verloor de volgende verkiezingen. Dat detail hoort bij het verhaal. LT overleeft niet automatisch in een politieke context — het vraagt bondgenoten binnen het apparaat die de methode blijven dragen ook als de oprichter weg is. In Rio viel het experiment stil; in NYC en Manchester werd het geïnstitutionaliseerd omdat TONYC en Rubin infrastructuur bouwden."},
+
+{n:3, title:"Verschil met Forum Theater",
+ cat:"Fundament", catBg:"#e6eef7", catFg:"#1a3a5c",
+ stripe:"#1a3a5c",
+ note:"LT is geen uitbreiding van Forum Theater, het is een verdieping in een specifieke richting. De vorm en de voorbereiding zijn fundamenteel anders, ook al delen ze de opbouw van scène en spect-actor.",
+ stages:[
+  {t:"Forum eindigt op het conflictpunt",
+   body:"In Forum Theater eindigt de voorstelling op het moment dat de protagonist vastloopt. Het publiek oefent alternatieven uit tegen de antagonist: wat had de protagonist anders kunnen doen, zeggen, voelen? De focus ligt op individuele agency binnen een gegeven situatie."},
+  {t:"LT kijkt voorbij de antagonist",
+   body:"In LT zoomt de scène juist uit. Niet de vraag 'wat kan de protagonist doen' is centraal, maar 'welke regel blokkeerde de gatekeeper'. De antagonist is zelf vaak ook gevangen in het systeem — een verpleegkundige die een protocol volgt, een uitkeringsambtenaar met handen gebonden. Het werkboek vraagt expliciet: wie zijn de supervisors, de decision makers die we niet zien?"},
+  {t:"Andere scène-eisen",
+   body:"Een LT-voorstelling heeft bureaucratische structuur nodig in de scène zelf. Power chains moeten zichtbaar zijn: frontline-staf die rapporteert aan een leidinggevende, regels die van bovenaf worden opgelegd. Scènes waarin de antagonist alleen een 'slechte persoon' is werken niet — er moet een systeem zichtbaar zijn om te kunnen veranderen."},
+  {t:"Andere publieke samenstelling",
+   body:"Forum werkt met een gemeenschapspubliek. LT vereist drie groepen in één zaal: mensen met geleefde ervaring, advocates en organizers die het thema al bewerken, en beleidsmakers die werkelijk iets kunnen veranderen. Zonder die drie groepen wordt LT een symbolische oefening zonder beleidsimpact."}
+ ],
+ tip:"Een troep die gewend is aan Forum moet expliciet overschakelen naar LT-denken. Het werkboek waarschuwt: als het team van acteurs het systeemperspectief niet omarmt, blijven scènes op het interpersoonlijke niveau hangen en biedt de avond geen grond voor beleidsvoorstellen — alleen voor sympathie."},
+
+{n:4, title:"Wanneer is een voorstelling rijp voor LT?",
+ cat:"Voorbereiding", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Niet elke Forum-voorstelling leent zich voor de LT-vorm. Het werkboek geeft een concrete checklist die de troep samen met de joker kan doorlopen aan het einde van de repetitieperiode.",
+ stages:[
+  {t:"Volgen de antagonisten regels?",
+   body:"Eerste check: volgen de gatekeepers in het verhaal bewust of onbewust een regel, protocol of beleid? Niet alleen 'slecht gedrag' maar een systeem dat hen toelaat of dwingt zo te handelen? Als het antwoord ja is, is er materiaal voor LT."},
+  {t:"Worden ook de protagonisten begrensd door regels?",
+   body:"Tweede check: is de protagonist niet alleen persoonlijk gedwarsboomd, maar ingeklemd tussen regels — geen papieren, geen toegangsrecht, de verkeerde status, het verkeerde adres? Als de obstakels structureel zijn, is LT de juiste vorm."},
+  {t:"Kunnen we de power chain in beeld brengen?",
+   body:"Derde check: wie staat er boven de antagonist? Wie maakt de regel waaraan de antagonist zich houdt? Welke krachten werken op de antagonist? Als de troep die bovenlaag kan benoemen (of het ontbreken ervan kan laten zien als probleem op zich), is de scène rijp voor LT."},
+  {t:"Consent van de troep",
+   body:"Vierde check, misschien de belangrijkste: wil de troep zelf LT doen? Lokale politiek kan intimideren, frustreren, of voelen als verspilde tijd. Voor sommigen is het opwindend, voor anderen pijnlijk. Het werkboek is expliciet: zonder instemming van iedereen in de troep start het proces niet."}
+ ],
+ tip:"Als de troep drie van de vier vragen kan beantwoorden, is de voorstelling klaar voor LT. Twijfelt de troep bij de laatste — de consent-vraag — wacht dan. Een gedwongen LT-voorstelling levert een broze avond op."},
+
+{n:5, title:"Research en coalitie",
+ cat:"Voorbereiding", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"LT is groepswerk in drie richtingen tegelijk: inhoudelijk onderzoek in de troep, coalitieopbouw naar advocates en beleidsmakers, en logistieke voorbereiding op een avond die uit drie publieken bestaat. Onderschat geen van drieën.",
+ stages:[
+  {t:"Collectief research door de troep",
+   body:"De troep onderzoekt samen de bureaucratie van de instelling waar de scène zich afspeelt. Internet, gesprekken met medewerkers, contact met decision makers. Bij elke repetitie worden vragen geformuleerd: hoe en waarom gebeurt dit? Als de informatie niet vindbaar is, is dat gebrek aan transparantie zelf een beleidsprobleem en kan in de scène verschijnen."},
+  {t:"Social justice experts als partners",
+   body:"Nodig advocates en organizers uit voor de repetities — niet pas voor de voorstelling. Een jurist die het thema kent kan de troep helpen de juridische werkelijkheid te zien achter de persoonlijke ervaring. Een bestaande campagne rond het thema kan de LT-voorstelling verankeren in een grotere beweging."},
+  {t:"Drie publieken uitnodigen",
+   body:"De zaal moet op de avond zelf uit drie groepen bestaan. Mensen met geleefde ervaring van wat op de scène gebeurt — zij leveren de interventies met gezag. Organizers en advocacy-groepen die het thema al bewerken — zij vertalen ideeën naar campagnedruk. Beleidsmakers die concreet kunnen veranderen — raadsleden, ambtenaren, directieleden. Eén van drie ontbreekt? Dan wordt het geen LT."},
+  {t:"Follow-up plan vóór de show",
+   body:"Het werkboek waarschuwt: ideeën verdampen zonder plan. Maak vóór de voorstelling afspraken over wat er daarna gebeurt met de gekozen proposals. Beleidsgesprekken met aanwezige beslissers? Aansluiting bij bestaande campagnes? Social media-druk? Een workshop participatieve democratie? Zonder follow-up-plan geen blijvende impact."}
+ ],
+ tip:"De zwakke plek in bijna elk LT-project is de coalitievorming. Jokers zijn goed in het werken met de troep, maar de coalitie met advocates en beleidsmakers vraagt ander werk: campaigning, netwerkwerk, geduld over maanden. Overweeg een co-joker of partnerorganisatie die specifiek dit deel trekt."},
+
+{n:6, title:"WATCH — de voorstelling",
+ cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
+ stripe:"#0F6E56",
+ note:"De eerste beweging van de drieslag. Het publiek kijkt naar een Forum-voorstelling gebouwd uit geleefde ervaring, maar met expliciete bureaucratische lagen. De scène eindigt op het conflictpunt — zoals bij Forum — maar bevat meer dan alleen een interpersoonlijk drama.",
+ stages:[
+  {t:"De protagonist met geleefde ervaring",
+   body:"De voorstelling gaat over een hoofdpersoon die ergens recht op heeft of iets nodig heeft, en die dat niet krijgt door de manier waarop het systeem is ingericht. De acteurs spelen vanuit eigen ervaring — niet vanuit research alleen. Het werkboek citeert Freire: degenen die de onderdrukking ervaren moeten centraal staan in het veranderen ervan."},
+  {t:"Gatekeepers met hun eigen druk",
+   body:"De antagonisten zijn vaak 'frontline' — verpleegkundigen, uitkeringsambtenaren, conducteurs. Ze worden niet gespeeld als eenvoudige boosdoeners. Op de scène wordt voelbaar dat ook zij onder druk staan: hun eigen leidinggevenden, hun regels, hun protocollen. Dit maakt het publiek wakker voor het systeem."},
+  {t:"De power chain in beeld",
+   body:"Waar mogelijk verschijnen de supervisors en decision makers zelf op de scène — als personages, of als afwezigheid die gespeeld wordt (de manager die niet bereikbaar is, de regel die door niemand uitgelegd kan worden). Dit visualiseert het systeem."},
+  {t:"Serious fun",
+   body:"Katy Rubin's centrale strategische claim is dat plezier een serieuze methode is. In Manchester 2023 bouwde een jeugdcast over straatintimidatie 'grote lachen' in naast gasps: een dronken voetbalsupporter die vrouwen aanstaart, een conducteur die een vrouw wegstuurt. Humor ontwapent polarisatie en maakt het voor beleidsmakers mogelijk om meelachend hun eigen systeem kritisch te bekijken."}
+ ],
+ tip:"De valkuil is een scène die alleen ellende toont. Dat maakt beleidsmakers in de zaal defensief, niet deelnemend. Bouw — tijdens de repetities — ruimte voor humor, absurditeit en energie. Dit is geen afzwakking van het onrecht, het is het vehikel waarmee een zaal in beweging komt."},
+
+{n:7, title:"ACT — de interventies",
+ cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
+ stripe:"#0F6E56",
+ note:"De tweede beweging. Spect-actoren uit het publiek komen het podium op en spelen alternatieven. Waar Forum-interventies gericht zijn op individuele oplossingen, dwingt de joker in LT de focus naar systemische vragen.",
+ stages:[
+  {t:"De klassieke Forum-opening",
+   body:"Zoals bij Forum: de joker biedt de scène opnieuw aan en vraagt wie een ander pad wil proberen. De spect-actor vervangt de protagonist en speelt een alternatief; de acteurs reageren realistisch op wat de spect-actor probeert. De joker bevraagt na elke interventie: werkte het? Voor wie? Onder welke voorwaarden?"},
+  {t:"De systemische wending",
+   body:"Hier wijkt LT af. Na een paar interventies stelt de joker de fundamentele vraag: 'Waarom is dit de regel?' Of: 'Wie profiteert hiervan?' Of: 'Moet deze regel er überhaupt zijn?' Op dat moment verschuift het gesprek van individueel gedrag naar beleidsontwerp."},
+  {t:"Spect-actors als policy analysts",
+   body:"Katy Rubin noemt dit 'every citizen a policy analyst'. De mensen die de regel dagelijks voelen, zien de gaten erin als eerste. Hun interventies zijn geen naïeve ideeën — ze zijn ontwerpvoorstellen vanuit veldwerk dat beleidsmakers niet hebben gedaan."},
+  {t:"Joker als brug",
+   body:"De joker is tijdens ACT meer dan alleen Forum-facilitator. Ze moeten interventies live hercontextualiseren: 'Wat jullie hier zagen, is niet één persoon die anders handelde — dat is een ander protocol dat zou kunnen bestaan.' Die vertaalslag is de eigenlijke kunst van LT-jokeren."}
+ ],
+ tip:"Houd de ACT-fase niet te lang. Drie tot vijf goede interventies geven genoeg materiaal voor de VOTE-fase. Wie te veel laat spelen verliest de energie en de beleidsmakers in de zaal raken overweldigd door losse ideeën zonder dat ze gesorteerd zijn."},
+
+{n:8, title:"VOTE — voorstellen, debat, commitments",
+ cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
+ stripe:"#0F6E56",
+ note:"De derde beweging. De creatieve energie van de interventies wordt gecondenseerd tot concrete beleidsvoorstellen, waarover openlijk wordt gedebatteerd en gestemd. Aanwezige beleidsmakers verbinden zich publiekelijk aan vervolgstappen.",
+ stages:[
+  {t:"Beleidsideeën op kaartjes",
+   body:"Na de laatste interventie krijgt het publiek papieren kaartjes. Iedereen schrijft ideeën op voor concrete regelveranderingen die de situatie op scène zouden veranderen. Decision makers en advocates sorteren deze kaartjes tijdens een korte pauze in maximaal drie samenhangende voorstellen."},
+  {t:"CREATE · ABOLISH · REINFORCE",
+   body:"Het werkboek biedt een eenvoudig kader voor de aard van elk voorstel. CREATE: een nieuw beleid creëren (bijvoorbeeld: standaard-borgtarieven voor alle aanklachten). ABOLISH: een bestaand beleid afschaffen (bijvoorbeeld: borg als systeem helemaal afschaffen). REINFORCE: een bestaand beleid alsnog afdwingen (bijvoorbeeld: de volledige politie hertrainen om onrechtmatige arrestaties te voorkomen)."},
+  {t:"Clarifications · dissent · amendments",
+   body:"Elk voorstel wordt gepresenteerd door wie het sorteerde. De joker opent het woord voor drie dingen: verduidelijkingen (wat betekent dit precies?), afwijkende meningen (waarom werkt dit niet?) en amendementen (hoe moet het voorstel worden bijgesteld?). Op basis van het debat wordt het voorstel verfijnd. Dan pas volgt de stemming."},
+  {t:"Publieke commitments van beleidsmakers",
+   body:"Na de stemming committeren de aanwezige decision makers zich hardop aan concrete vervolgstappen bij aangenomen voorstellen. Dit gebeurt in het bijzijn van de troep, de advocates en de pers. Het werkboek noemt de casus van NYC Council Member Carlos Menchaca, die zei dat een TONYC-voorstelling zijn denken over het Municipal ID-wetsvoorstel rechtstreeks vormgaf."}
+ ],
+ tip:"Een commitment is iets anders dan instemming. Vraag specifiek: wat ga jij deze maand doen? Welk gesprek ga jij voeren? Welke motie ga jij indienen? Vage steunbetuigingen in de zaal bieden geen follow-up hold; concrete beloftes wel. Documenteer alles wat wordt toegezegd."},
+
+{n:9, title:"Nucleus en co-jokering",
+ cat:"Structuur", catBg:"#fdf5e8", catFg:"#8c5e2a",
+ stripe:"#8c5e2a",
+ note:"De troep rond een LT-project heet bij Boal de nucleus — een kern van mensen met geleefde ervaring rond één thema. TONYC heeft daar het co-joker-principe aan toegevoegd.",
+ stages:[
+  {t:"Een troep per thema",
+   body:"Een LT-nucleus bouwt zich maanden lang rond één specifiek thema op: dakloosheid, uitkeringsrechten, huisvestingsdiscriminatie. De leden delen geleefde ervaring en repeteren over weken tot ze tot een scène komen. Dit is geen cast voor één avond maar een werkende gemeenschap die haar eigen verhaal onderzoekt en vormgeeft."},
+  {t:"De TONYC week-by-week",
+   body:"Het werkboek schetst een cyclus van tien weken. Week 1–2: kennismaking en de-mechanisatie. Week 3–5: verhalen en beeld. Week 6–8: scènebouw en repetitie. Week 9: voorstelling. Week 10: viering en reflectie. Voor een LT-project komt daar nog een laag bovenop: research naar het systeem, contact met advocates, uitnodiging van beslissers."},
+  {t:"Het co-joker-principe",
+   body:"TONYC werkt nooit met één joker. Het werkboek stelt onomwonden: geen enkele persoon is de perfecte facilitator, de perfecte artistieke leider, of de oplosser van elk probleem. Verschillende jokers brengen verschillende vaardigheden, bewustzijn en privileges. Samen doen ze betere facilitatie."},
+  {t:"Joker als lerende",
+   body:"In het werkboek beschrijft TONYC de joker als iemand die elke avond het 'tape' terugspoelt: waar was ik bevooroordeeld? Waar bevoorrechtte ik één perspectief? De joker is nooit uitgeleerd. Dit is bijzonder belangrijk in LT, waar de joker live politieke dynamieken modereert — veel kan misgaan."}
+ ],
+ tip:"Een solo-joker bij een LT-voorstelling loopt zichzelf voorbij. Naast de co-joker is er minimaal één Policy Ranger nodig die de beleidskant doet, en een productie-manager voor de logistiek. Vier à vijf rollen worden gemakkelijk verward met één persoon die alles doet."},
+
+{n:10, title:"Policy Rangers en beleidsmakers in de zaal",
+ cat:"Structuur", catBg:"#fdf5e8", catFg:"#8c5e2a",
+ stripe:"#8c5e2a",
+ note:"De TONYC-innovatie die LT onderscheidt van Rio 1990s: specialisten die tijdens de voorstelling de improvisaties live vertalen naar haalbaar beleid, en de verplichte aanwezigheid van decision makers als actieve deelnemers.",
+ stages:[
+  {t:"Policy Rangers",
+   body:"Tijdens een TONYC LT-avond staat een team van Policy Rangers aan de zijkant — inhoudelijk experts op het thema: juristen, ex-ambtenaren, beleidsonderzoekers, campagnevoerders. Ze luisteren mee naar de interventies en naar de kaartjes. In de VOTE-fase doen zij de sortering en formuleren ze de proposals. Ze werken in de taal van beleid — kunnen zeggen wat haalbaar is, wat bestaat, wat ontbreekt."},
+  {t:"Aanwezige beleidsmakers",
+   body:"Raadsleden, wethouders, ambtenaren — niet als gasten of sprekers maar als actieve spect-actors. Ze kijken, ze mogen het podium op, ze horen wat er wordt voorgesteld, en ze doen publieke commitments. Zonder hun aanwezigheid is de methode een oefening in de leegte. Hun aanwezigheid maakt het ook spannend — de joker moet gelijkwaardigheid bewaken tegen machtsverschil."},
+  {t:"Documentatie",
+   body:"Alles wat wordt voorgesteld, besproken, gestemd en toegezegd wordt geprotocolleerd. TONYC levert na elke LT-avond een verslag aan aanwezige beleidsmakers, advocates en de troep. Deze documentatie is de brug tussen de creatieve avond en de trage beleidswerkelijkheid waarin de vervolgstappen moeten landen."},
+  {t:"Geen vervanging van participatie-democratie",
+   body:"LT wordt door People Powered gerekend tot de participatieve democratie-familie — naast participatief begroten, burgerberaden en co-creatie. LT is geen alternatief voor deze vormen, maar een complementaire techniek die goed werkt op thema's waar geleefde ervaring de sleutel is tot zinvol beleid."}
+ ],
+ tip:"Nodig nooit beleidsmakers uit zonder voorbereidend gesprek. Leg vooraf uit wat de vorm is, wat er van ze wordt verwacht, wat ze kunnen winnen en wat het risico is. Een onvoorbereide politicus die geconfronteerd wordt met scherpe kritiek uit de zaal kan defensief worden en de avond laten klappen."},
+
+{n:11, title:"Rio — Boals dertien wetten",
+ cat:"Praktijk", catBg:"#fde8e0", catFg:"#8b1a1a",
+ stripe:"#8b1a1a",
+ note:"Boals mandaat als Vereador (1993–1996) leverde dertien aangenomen wetten op die hun oorsprong hadden in Forum Theater-voorstellingen met gemeenschapsgroepen in Rio. Het boek Legislative Theatre (1998) documenteert dit proces in hoofdstuk 7: 'Laws promulgated during the mandate — and one which wasn't'.",
+ stages:[
+  {t:"Het patroon",
+   body:"Alle dertien wetten volgden dezelfde route. Een gemeenschapsgroep — ouderen, getuigen van misdrijven, verpleegkundigen, bewoners van een wijk — werkte maandenlang met een Joker aan een Forum-voorstelling rond een concreet probleem. Na de publieke forumavond in de wijk werd het materiaal vertaald naar een wetsvoorstel. Boal diende het in; de raad debatteerde en stemde."},
+  {t:"Voorbeelden",
+   body:"Een wet over de bescherming van getuigen van misdrijven. Een wet over de aanwezigheid van familie bij ouderen in ziekenhuizen. Regelingen rond straathandel, rond huisvesting voor ouderen, rond de behandeling van mensen in overheidsdiensten. De thema's waren meestal alledaags, het mechanisme van oorsprong altijd hetzelfde: theater als onderzoeksmethode."},
+  {t:"De wet die er niet kwam",
+   body:"Boals eigen hoofdstuktitel erkent dat niet alles lukte. Sommige voorstellen werden verworpen of sneuvelden in commissies. Hij beschrijft dat uitvoerig — het mislukken hoort bij de methode. LT is geen garantie op wetgeving, het is een kans die door politieke werkelijkheid wordt beperkt."},
+  {t:"Het einde in Rio",
+   body:"Boal verloor de verkiezingen in 1996. De Centro de Teatro do Oprimido in Rio bleef bestaan en werkt nog steeds, maar de directe doorloop naar de Chamber stopte. Dit is de reden waarom latere LT-praktijken (TONYC, UK) bewust niet afhankelijk zijn van één gekozen politicus maar van coalities met advocates en ambtenaren die periodes van politieke wisseling overleven."}
+ ],
+ tip:"Het verschil tussen een wet die er komt en een voorstel dat verdampt zit zelden in de kwaliteit van de voorstelling. Het zit in wat ná de avond gebeurt: lobby, campaigning, ambtelijk volgwerk over maanden. Plan dit in bij het begin van het LT-project, niet achteraf."},
+
+{n:12, title:"NYC — vier TONYC-casussen",
+ cat:"Praktijk", catBg:"#fde8e0", catFg:"#8b1a1a",
+ stripe:"#8b1a1a",
+ note:"TONYC begon met LT in 2013 en bouwde in tien jaar een consistente praktijk die concrete beleidswijzigingen in New York City opleverde. Vier casussen uit het werkboek laten zien hoe de methode werkt in de Amerikaanse context.",
+ stages:[
+  {t:"2013 · NYC Community Safety Act",
+   body:"Een groep trans jongeren maakte een Forum-voorstelling over een discriminatoire praktijk van de NYPD: het bezit van drie of meer condooms werd gebruikt als bewijs van prostitutie. De scène toonde een gewelddadige arrestatie na een stop-and-search. Raadslid Jimmy Van Bramer was aanwezig en gaf later aan dat de voorstelling zijn stem op de Community Safety Act beïnvloedde. In 2014 kondigde NYC aan condooms niet langer als bewijs te gebruiken."},
+  {t:"2014 · Municipal ID",
+   body:"Een TONYC-voorstelling toonde een trans vrouw die slachtoffer werd van huiselijk geweld en vervolgens door de politie werd gearresteerd omdat haar ID 'vervalst' zou zijn — de gendermarker klopte niet met haar presentatie. Raadslid Carlos Menchaca werkte aan het Municipal ID-wetsvoorstel. De Forum-improvisaties leidden tot het voorstel dat aanvragers een gewenste gendermarker konden opgeven zonder medisch bewijs, of het vak leeg konden laten. Dit werd onderdeel van de wet die dat jaar werd aangenomen."},
+  {t:"2017 · Cultural Plan",
+   body:"Tijdens de ontwikkeling van NYC's eerste Cultural Plan maakten TONYC-acteurs met ervaring van dakloosheid een voorstelling over hun systematische uitsluiting uit de culturele sector. Een scène over kunstenaars die gearresteerd werden voor het verkopen van hun werk in het park leidde rechtstreeks tot nieuwe wetgeving van raadslid Stephen Levin om het aantal straatverkooplicenties te verhogen."},
+  {t:"2017 · HASA Housing Vouchers",
+   body:"De TONYC Housing Works Troupe bouwde een voorstelling over illegale discriminatie door verhuurders van HIV/AIDS Services Administration-vouchers. Verhuurders claimden dat huur te laat betaald werd — terwijl de staat het systeem van twee maandelijkse termijnen voorschreef. Na de Forum-avond volgden maandenlange gesprekken tussen NYC Council en Housing Works-leden; het probleem werd opgeschaald naar beleidsmakers in de staat New York."}
+ ],
+ tip:"De NYC-casussen delen een patroon: een aanwezige raadslid met persoonlijke affiniteit op het thema, een bestaande advocacy-campagne waarop de voorstelling werd geënt, en een follow-up-structuur binnen TONYC om het momentum vast te houden. Alle drie aanwezig of geen van drie — dan geen impact. LT werkt niet in isolatie."},
+
+{n:13, title:"UK — Manchester, Glasgow, Coventry",
+ cat:"Praktijk", catBg:"#fde8e0", catFg:"#8b1a1a",
+ stripe:"#8b1a1a",
+ note:"Katy Rubin — founding director van TONYC tot 2018 — verhuisde naar de UK en ontwikkelde vanaf 2020 LT als werkbare praktijk binnen Britse regionale overheden. Haar hub The People Act coördineert inmiddels projecten door heel Europa.",
+ stages:[
+  {t:"Manchester Homelessness Strategy (2020–2021)",
+   body:"Rubin's samenwerking met de Greater Manchester Combined Authority en mensen met ervaring van dakloosheid leidde tot de mede-ontwikkeling van de Greater Manchester Homelessness Prevention Strategy. Het evaluatierapport benadrukt dat LT de barrières voor deelname doorbrak en een andere manier van beleidsbegrijpen opleverde. Dit project won de International Observatory of Participatory Democracy-award voor Best Practice in Citizen Participation 2022."},
+  {t:"Glasgow COP26 (2021)",
+   body:"In aanloop naar de klimaatconferentie COP26 in Glasgow commissioneerde Glasgow City Council een jeugd-geleid LT-project over klimaatbeleid. De Gulbenkian Foundation deed een onafhankelijke evaluatie en concludeerde dat dit initiatief rechtstreeks leidde tot deelname van de jongeren aan COP26 zelf, en hun vertrouwen en motivatie om met beleidsmakers in gesprek te gaan versterkte."},
+  {t:"Coventry Rough Sleeping Strategy (2022)",
+   body:"Een samenwerking tussen Arts Homelessness International, Coventry City Council en Coventry City of Culture leidde tot een LT-proces rond de Rough Sleeping Strategy van de stad. Het rapport van de University of Warwick benoemt uitkomsten als niet-hiërarchische burgerdemocratie en 'inclusieve, dialogische, open besluitvorming'."},
+  {t:"Manchester straatintimidatie (2023)",
+   body:"Een groep jongeren en volwassenen bouwde een voorstelling over seksuele intimidatie bij tram- en bushaltes, en rond sportarena's. In de zaal zaten beleidsmakers die na de avond committeerden tot bystander-training voor al het transportpersoneel en een grootschalige communicatiecampagne op trams en bussen. Sommige jonge acteurs traden vervolgens toe tot officiële adviesrollen binnen de regionale overheid."}
+ ],
+ tip:"Wat opvalt aan het UK-werk: de koppeling aan een bestaand beleidsproces dat toch al zou plaatsvinden — een strategie die geschreven moest worden, een conferentie die eraan kwam. LT is in deze casussen geen autonoom project maar een inclusieve co-creatieve input binnen een beleidsplanning. Dat maakt het voor overheden makkelijker om mee te doen, en voor de uitkomsten om daadwerkelijk te landen in uitvoering."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => 
+              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+            ).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle technieken</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) {
+    curStage++;
+    updateDisplay();
+  }
+}
+
+function prevStage() {
+  if (curStage > 0) {
+    curStage--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  curStage = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    curStage = 0;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    prevTech();
+  }
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    nextTech();
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+  if (e.code === 'ArrowUp') {
+    e.preventDefault();
+    prevStage();
+  }
+  if (e.code === 'ArrowDown') {
+    e.preventDefault();
+    nextStage();
+  }
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>

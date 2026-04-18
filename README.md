@@ -32,6 +32,10 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 **Krantentheater**  
 12 technieken om bestaande teksten — nieuws, beleid, wet, reclame — te ondervragen via theater. Directe brug naar Forum Theater.
 
+### Theater in de publieke ruimte
+**Onzichtbaar Theater** — 13 kaarten over Boals methode om theater te spelen zonder dat het publiek weet dat het theater is. Geboren in Argentijnse ballingschap, doorontwikkeld in Europa. Inclusief protocol, casussen en het ethische debat rond misleiding.  
+**Legislatief Theater** — 13 kaarten over de theatrale route naar wetgeving. Boals Rio-experiment (1993–96), TONYC's Amerikaanse aanpassing met vier wetswijzigingen in NYC, en Katy Rubin's UK-praktijk — waaronder de IOPD-award-winnende samenwerking rond de Greater Manchester Homelessness Prevention Strategy. Inclusief de #WatchActVote-methodiek van Rubin/TONYC.
+
 ### Regenboog van het Verlangen
 **Introspectieve Technieken** — 9 technieken om geïnternaliseerde onderdrukking zichtbaar te maken  
 **Prospectieve Technieken** — 15 technieken gericht op toekomstige verandering
