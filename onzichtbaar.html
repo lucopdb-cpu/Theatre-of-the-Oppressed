@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onzichtbaar Theater — Boals Methode voor de Publieke Ruimte</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#2c4a6b;--blue2:#3d5a7d;--blue3:#87a1c4;--blue4:#e6eef7;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="app-name">Onzichtbaar <em>Theater</em></div>
+  <div class="app-sub">Boals Methode voor de Publieke Ruimte</div>
+  <div class="context-note">
+    Theater spelen op straat zonder dat het publiek weet dat het theater is. Ontwikkeld in Argentijnse ballingschap als antwoord op censuur, later doorontwikkeld in Europa als instrument voor publieke dialoog. Een complete methode — van voorbereiding tot ethiek.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Fundament">Fundament</div>
+    <div class="tpill" data-cat="Protocol">Protocol</div>
+    <div class="tpill" data-cat="Casus">Casus</div>
+    <div class="tpill" data-cat="Ethiek">Ethiek</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">13</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>Onzichtbaar Theater</strong> — methode van <em>Augusto Boal</em> (1931–2009)<br>
+  Bronnen: <em>Games for Actors and Non-Actors</em> · <em>Theatre of the Oppressed</em> · Burstow (2008) · web research
+</div>
+
+</div>
+
+<script>
+const T = [
+
+{n:1, title:"Theater als werkelijkheid",
+ cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Onzichtbaar theater is niet hetzelfde als een flashmob, happening of prank. Het is een geplandeen gerepeteerde theatervoorstelling die een politiek punt maakt door echt te lijken.",
+ stages:[
+  {t:"Wat het is",
+   body:"Acteurs spelen een geschreven en gerepeteerde scene in een publieke ruimte — restaurant, metro, markt, park. Het publiek denkt dat het echt is en reageert alsof het een echte situatie betreft. Voor de acteurs is het theater, voor het publiek werkelijkheid."},
+  {t:"Wat het niet is", 
+   body:"Geen happening (chaotisch, anarchistisch). Geen flashmob (collectief, choreografisch). Geen prank (voor vermaak). Geen straattheater (publiek weet dat het theater is). Het verbergt bewust zijn theatrale aard."},
+  {t:"De politieke functie",
+   body:"Onzichtbaar theater toont onderdrukking die gewoonlijk onzichtbaar blijft. Door een situatie te creëren waarin mensen spontaan reageren op onrecht, wordt duidelijk hoe sociale mechanismes werken — en hoe ze doorbroken kunnen worden."},
+  {t:"Spect-actoren",
+   body:"Het onwetende publiek wordt 'spect-actoren' — zij kijken en handelen tegelijk. Hun reacties zijn echt, niet gespeeld. Dit maakt hun reacties waardevoller dan die van een traditioneel theaterpubliek dat weet dat het 'maar theater' is."}
+ ],
+ tip:"Onzichtbaar theater werkt alleen als het publiek het gelooft. Zodra duidelijk wordt dat het theater is, verandert de dynamiek volledig — van echte reactie naar 'meedoen met het spel'."},
+
+{n:2, title:"Geboren uit dictatuur",
+ cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Boal ontwikkelde de techniek tijdens zijn ballingschap in Argentinië (1971–1976) als reactie op repressie die open politiek theater onmogelijk maakte.",
+ stages:[
+  {t:"De context van censuur",
+   body:"Brazilië en Argentinië leden onder militaire dictaturen. Open politieke voorstellingen werden verboden, theatermakers vervolgd. Boal werd in 1971 gearresteerd, gemarteld en uitgewezen. Hij moest subtielere methoden vinden."},
+  {t:"Theater onder de radar",
+   body:"In Buenos Aires ontwikkelde Boal met studenten een vorm die politieke dialoog kon stimuleren zonder de aandacht van autoriteiten te trekken. Door het theater onzichtbaar te maken, werd het onpakbaar voor censuur."},
+  {t:"Europa: van overleven naar instrument",
+   body:"In Parijs, Stockholm en andere Europese steden ontwikkelde Boal de methode verder. Niet meer als overlevingsstrategie maar als bewust instrument voor maatschappelijke verandering — zelfs in democratische samenlevingen."},
+  {t:"Het blijvende gebruik",
+   body:"Ook na het einde van de dictaturen bleef onzichtbaar theater relevant. Het kan onderdrukking zichtbaar maken die anders onopgemerkt blijft — subtiele discriminatie, sociale ongelijkheid, alledaagse machtsstructuren."}
+ ],
+ tip:"De oorsprong uit dictatuur betekent niet dat de methode alleen bruikbaar is onder repressieve regimes. Elke samenleving heeft onzichtbare vormen van onderdrukking die met deze techniek onderzocht kunnen worden."},
+
+{n:3, title:"Twee opdrachtgevers",
+ cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Onzichtbaar theater dient twee doelen: repressie omzeilen (historisch) en publieke dialoog forceren over onderdrukking die normaal onzichtbaar blijft (blijvend).",
+ stages:[
+  {t:"Doel 1: Censuur ontwijken",
+   body:"Het oorspronkelijke doel was politieke boodschappen over te brengen zonder ontdekt te worden door autoriteiten. Door theater onherkenbaar te maken, kon het toch zijn werk doen — bewustwording creëren zonder represailles."},
+  {t:"Doel 2: Onzichtbare onderdrukking zichtbaar maken",
+   body:"Het tweede doel is structureler: sociale mechanismen blootleggen die gewoonlijk verborgen blijven. Door een situatie te creëren waarin discriminatie, uitbuiting of onrecht plaatsvindt, komt de normale reactie van mensen naar boven."},
+  {t:"De pedagogische kracht",
+   body:"Anders dan regulier theater leert onzichtbaar theater niet door verhalen te vertellen, maar door situaties te creëren. Het publiek leert niet van karakters maar van hun eigen reacties. Ze zien hoe zij zelf reageren op onrecht."},
+  {t:"Bewustwording door handeling",
+   body:"Paulo Freire noemt dit 'praxis' — leren door handelen. Onzichtbaar theater dwingt mensen om te handelen (reageren) voordat ze weten dat ze aan het leren zijn. Pas achteraf kunnen ze reflecteren op hun eigen gedrag."}
+ ],
+ tip:"De kracht zit niet in wat acteurs laten zien, maar in wat voorbijgangers spontaan doen. Hun natuurlijke reactie onthult meer over sociale structuren dan elke geschreven tekst."},
+
+{n:4, title:"Thema kiezen",
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b",
+ note:"Het thema moet herkenbaar, politiek geworteld en open genoeg zijn om diverse reacties mogelijk te maken. Te specifiek en er is geen debat. Te algemeen en het raakt niet.",
+ stages:[
+  {t:"Criterium: herkenbaar onrecht",
+   body:"Kies een situatie die mensen herkennen uit hun eigen ervaring — discriminatie op basis van uiterlijk, economische ongelijkheid, machtsmisbruik door autoriteiten, genderongelijkheid. Het moet voelen als 'dit gebeurt echt'."},
+  {t:"Criterium: politieke lading",
+   body:"Het thema moet raken aan machtsverhoudingen in de samenleving. Niet persoonlijke conflicten maar structurele ongelijkheid. Niet 'ruzie tussen buren' maar 'huurbaas die huur verhoogt'. Niet 'verkeersongeluk' maar 'onderhoud wegdek in armere wijken'."},
+  {t:"Criterium: open voor debat",
+   body:"Vermijd thema's waar iedereen hetzelfde over denkt. Zoek kwesties waar mensen genuanceerd over oordelen — waar de 'juiste' reactie niet voor de hand ligt. Dat creëert de ruimte voor echte discussie."},
+  {t:"Test: de kroegtest",
+   body:"Zou dit thema in een café tot discussie leiden? Zouden mensen verschillende meningen hebben over wat de juiste reactie is? Dan heb je waarschijnlijk een goed onderwerp. Zo niet, dan is het te eenduidig of te persoonlijk."}
+ ],
+ tip:"Begin bij een onderdrukking die je zelf hebt meegemaakt of gezien. Authentieke ergernis over onrecht is de beste basis voor een krachtige scene."},
+
+{n:5, title:"Script en varianten schrijven",
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b",
+ note:"Schrijf niet één script maar een script met vertakkingen. Het publiek reageert onvoorspelbaar — je moet voorbereid zijn op verschillende scenario's.",
+ stages:[
+  {t:"Het basis-script",
+   body:"Schrijf een korte scene (5–10 minuten) waarin het conflict duidelijk wordt. Begin subtiel, laat de spanning opbouwen. Zorg dat duidelijk is wie de onderdrukker is en wie de onderdrukte — maar vermijd karikaturen."},
+  {t:"Scenario A: publiek grijpt in",
+   body:"Wat als voorbijgangers de onderdrukte te hulp schieten? Hoe reageren je acteurs? Schrijf dialogen voor deze situatie. De acteurs moeten in karakter blijven maar wel de discussie faciliteren zonder hun theatrale rol te verraden."},
+  {t:"Scenario B: publiek negeert",
+   body:"Wat als niemand reageert? Hoe escaleer je zonder ongeloofwaardig te worden? Schrijf een secundaire interventie — een andere acteur die wel reageert en zo het gesprek op gang brengt."},
+  {t:"Scenario C: publiek steunt onderdrukker",
+   body:"Het lastigste scenario: wat als voorbijgangers de 'verkeerde' kant kiezen? Ook dan moet je scene doorgaan. Schrijf reacties die het conflict verdiepen zonder de spelers in gevaar te brengen."}
+ ],
+ tip:"Repeteer elk scenario tot acteurs soepel kunnen wisselen tussen varianten. De overgangen moeten onmerkbaar zijn — alsof het allemaal 'echt' is. Quasi-joker techniek: voeg een acteur toe die lijkt te mompelen 'in zichzelf' maar eigenlijk joker-vragen stelt: 'Dit kan toch niet...', 'Moet er niet iemand wat doen...'. Zo creëer je de joker-functie zonder het theater zichtbaar te maken."},
+
+{n:6, title:"Locatie scouten",
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b", 
+ note:"De locatie moet publiek zijn, het thema ondersteunen en voldoende ruimte bieden voor reacties. Een verkeerde plek kan de beste scene verpesten.",
+ stages:[
+  {t:"Publieke toegang essentieel",
+   body:"De plek moet openbaar zijn zodat voorbijgangers zich vrij voelen om te reageren. Vermijd private eigendommen waar mensen zich geobserveerd voelen. Stations, pleinen, parken, cafés, winkels en markten werken vaak goed."},
+  {t:"Thematische logica",
+   body:"De locatie moet de scene ondersteunen. Arbeidsconflict op een markt, discriminatie in openbaar vervoer, huisvesting in een wijk. De plek moet voelen als een natuurlijke setting voor het conflict dat je toont."},
+  {t:"Praktische aspecten",
+   body:"Voldoende ruimte voor publiek om te verzamelen zonder het verkeer te blokkeren. Goede akoestiek zodat gesprekken hoorbaar zijn. Vluchtroutes voor als de situatie escaleert. Geen beveiliging die snel ingrijpt."},
+  {t:"Timing observeren",
+   body:"Bezoek de locatie op verschillende tijdstippen. Wanneer is er genoeg publiek? Welk type mensen komt er? Wat is hun stemming? Haastige forenzen reageren anders dan ontspannen café-bezoekers."}
+ ],
+ tip:"Doe een testrun zonder script — ga gewoon zitten en observeren. Als je er zelf ongemakkelijk bent of opvalt, is het geen goede locatie."},
+
+{n:7, title:"Rolverdeling",
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b",
+ note:"Elk teamlid heeft een specifieke functie. De protagonist en antagonist spelen de scene, catalysatoren stimuleren discussie, getuigen observeren voor de evaluatie.",
+ stages:[
+  {t:"Protagonist: de onderdrukte",
+   body:"Speelt het slachtoffer van de onderdrukking. Moet sympathiek en geloofwaardig zijn zonder overdreven te acteren. De rol vereist moed — je staat letterlijk bloot aan de reacties van vreemden."},
+  {t:"Antagonist: de onderdrukker",
+   body:"Speelt de rol van degene die onderdrukking uitoefent. Lastigste rol — moet onrecht bedrijven zonder persoonlijk gehaat te worden. Vereist nuance: niet te cartoonachtig maar wel duidelijk in de fout."},
+  {t:"Catalysator: de aanjager",
+   body:"Lijkt een gewone voorbijganger maar is eigenlijk een acteur. Reageert als eerste op het conflict en stimuleert anderen om ook te reageren. Mag nooit laten merken onderdeel van het team te zijn."},
+  {t:"Getuigen: de observatoren",
+   body:"Lijken ook gewone voorbijgangers maar observeren wat er gebeurt. Onthouden wie wat zegt, hoe mensen reageren, welke argumenten gebruikt worden. Essentieel voor de evaluatie achteraf."}
+ ],
+ tip:"Spreek vooraf af hoe jullie elkaar herkennen zonder op te vallen. Een discrete hand-gebaar of codewoord voor noodsituaties. Maar ook voor gewone communicatie tijdens de scene."},
+
+{n:8, title:"Repeteren op onvoorspelbaarheid", 
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b",
+ note:"Het echte publiek reageert anders dan je verwacht. Repeteer niet alleen de scene maar ook omgaan met agressie, verwarring en onverwachte wendingen.",
+ stages:[
+  {t:"Basis-scenes inslijpen",
+   body:"Repeteer de kern-scene tot alle acteurs hun tekst en timing perfect beheersen. In een echte situatie is geen ruimte voor aarzelen of tekstproblemen. De basis moet automatisch gaan."},
+  {t:"Improvisatie-oefeningen",
+   body:"Oefen met onverwachte interventies. Laat teamleden beurtelings een onverwachte rol spelen — een agressieve voorbijganger, iemand die het niet begrijpt, een autoriteit die ingrijpt. Hoe blijf je in karakter?"},
+  {t:"Stress-testen",
+   body:"Oefen de scene onder druk. Met tijdsdruk, in verschillende locaties, met afleiding. Acteurs moeten kunnen doorgaan ook als ze nerveus zijn of de situatie chaotisch wordt."},
+  {t:"Veiligheidssignalen",
+   body:"Spreek duidelijke signalen af om te stoppen — een codewoord, gebaar of zin die betekent 'nu ophouden'. Oefen deze signalen tot iedereen ze automatisch herkent, ook in een stressvolle situatie."}
+ ],
+ tip:"De beste repetitie is oefenen met vreemden. Vraag vrienden die het script niet kennen om toe te kijken en te reageren. Daar leer je het meest van."},
+
+{n:9, title:"Debriefing",
+ cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
+ stripe:"#2c4a6b",
+ note:"Direct na afloop evalueren met alle spelers: wat gebeurde er? Wat zei het over de sociale werkelijkheid? Welke reacties verrasten?",
+ stages:[
+  {t:"Directe indrukken verzamelen",
+   body:"Kom direct na de scene samen op een rustige plek. Laat iedereen eerst hun directe gevoel beschrijven voordat je analyseert. Hoe voelde het? Wat was anders dan verwacht?"},
+  {t:"Reacties reconstrueren",
+   body:"Laat de getuigen verslag doen. Wie zei wat? Welke argumenten werden gebruikt? Hoe reageerde het publiek op elkaar? Probeer de dialogen zo precies mogelijk te reconstrueren."},
+  {t:"Patronen herkennen",
+   body:"Welke types mensen reageerden hoe? Waren er verschillen tussen mannen en vrouwen, jong en oud, verschillende etnische groepen? Wat zegt dat over de sociale mechanismen die jullie wilden onderzoeken?"},
+  {t:"Leren voor volgende keer",
+   body:"Wat werkte goed? Wat niet? Welke delen van het script moeten aangepast? Welke reacties hadden jullie beter kunnen anticiperen? Hoe kunnen jullie het volgende keer verbeteren?"}
+ ],
+ tip:"Schrijf de evaluatie op — niet voor publicatie maar voor jullie eigen geheugen. Deze inzichten zijn waardevoller dan je denkt en anders vergeet je ze weer."},
+
+{n:10, title:"De restaurantscène, Lima 1973",
+ cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
+ stripe:"#8c5e2a",
+ note:"Boals eerste succesvolle onzichtbare scene. Acteurs aan verschillende tafels, één kan niet betalen. De anatomie van een perfect script: helder conflict, natuurlijke escalatie, ruimte voor publiek om in te grijpen.",
+ stages:[
+  {t:"De opzet",
+   body:"Druk restaurant tijdens lunchtijd. Acteurs verspreid over verschillende tafels als gewone gasten. Eén acteur bestelt à la carte, eet normaal, vraagt om de rekening. Niets ongewoons — totdat hij niet kan betalen."},
+  {t:"Het conflict ontstaat",
+   body:"'Ik kan de 70 soles niet betalen,' zegt hij tegen de ober. 'Maar ik kan wel werken. Hoeveel verdient iemand die vuilnis ophaalt hier?' Een simpele vraag die een economische realiteit blootlegt."},
+  {t:"De informatie-cascade",
+   body:"Een acteur aan een andere tafel: 'Een vuilnisophaler verdient 7 soles per uur.' Weer een ander: 'Een tuinman krijgt 10 soles per uur.' Plotseling praten alle gasten over lonen, werk, waardigheid."},
+  {t:"De solidariteit test",
+   body:"Een vierde acteur begint geld op te halen bij de andere gasten. Echte klanten moeten nu kiezen: meedoen of niet? Betalen voor een vreemde? Wat is eerlijk? De scene test hun spontane solidariteit."}
+ ],
+ tip:"Let op de timing: van gewoon restaurant naar economisch debat in minder dan 10 minuten. Geen moment voelde als 'theater' — tot het achteraf blijkt te zijn."},
+
+{n:11, title:"Europa: Metro, ferry's en discriminatie",
+ cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
+ stripe:"#8c5e2a",
+ note:"Late jaren 70: Boal past de methode aan voor Europese steden. Parijse metro, Stockholm ferry's, Siciliaanse pleinen. Andere contexten, dezelfde methode.",
+ stages:[
+  {t:"Parijse metro: seksisme zichtbaar maken",
+   body:"Scene over seksuele intimidatie in de metro. Vergelijkbare situaties — een vrouw en een man worden allebei lastiggevallen. Hoe reageert het publiek? Beschermen ze de vrouw anders dan de man? Waarom?"},
+  {t:"Stockholm ferry: zwangerschap en status",
+   body:"Op de veerboot eist een zwangere vrouw dezelfde behandeling als de zwangere koningin. Waarom krijgt de ene zwangere wel een stoel, de andere niet? Een scene over klassenongelijkheid vermomd als hoffelijkheid."},
+  {t:"Raciale discriminatie: de trein-scene",
+   body:"Een witte man eist dat een zwarte vrouw haar plaats afstaat. Als dat lukt, eist hij hetzelfde van Zweedse Europeanen, werklozen, dronken mensen. De escalatie onthult hoe discriminatie werkt: eerst één groep, dan de volgende."},
+  {t:"Stockholm picknick: auto-cultuur bekritiseren",
+   body:"Acteurs picknicken midden op de weg en proberen autobestuurders over te halen mee te doen. Waarom is de straat voor auto's, niet voor mensen? Een ludieke maar effectieve kritiek op stedelijke ruimte-inrichting."}
+ ],
+ tip:"Elk van deze scenes was controversieel en effectief. Ze dwongen mensen om te kiezen — en maakten daardoor zichtbaar welke sociale normen er werkten."},
+
+{n:12, title:"Rio TV: slavenmarkt op het scherm",
+ cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
+ stripe:"#8c5e2a",
+ note:"1986: Boal terug in Brazilië, maakt wekelijks onzichtbaar theater voor televisie. Een donkere man verkoopt zichzelf als slaaf. De methode onder extreme mediële druk.",
+ stages:[
+  {t:"TV als nieuwe publieke ruimte",
+   body:"Na zijn terugkeer in Brazilië krijgt Boal een wekelijks programma op een Rio-zender. Hoe doe je onzichtbaar theater als miljoenen mensen kijken? Het publiek weet dat het TV is — maar de mensen op straat niet."},
+  {t:"De slavenmarkt-scene",
+   body:"Een donkere man gaat naar een markt en biedt zichzelf te koop aan als slaaf. Hij vertelt voorbijgangers dat hij minder verdient dan een 19e-eeuwse slaaf. Reacties variëren van geschok tot cynisme tot woede."},
+  {t:"Economie en ras gekoppeld",
+   body:"De scene toont hoe huidige arbeidsomstandigheden lijken op historische slavernij — maar dan 'vrijwillig'. Voor zwarte Brazilianen is deze vrijheid vaak theoretisch. Het publiek moet reageren op deze pijnlijke waarheid."},
+  {t:"Televisie als pedagogy",
+   body:"Duizenden kijkers zien hoe hun medeburgers reageren op raciale en economische ongelijkheid. Ze leren niet van acteurs maar van echte mensen — hun buren, hun stadsgenoten. Machtiger dan elke documentaire."}
+ ],
+ tip:"TV brengt risico's: meer bekendheid, maar ook meer kans dat acteurs herkend worden. Boal moest constant nieuwe gezichten vinden — échte onbekenden."},
+
+{n:13, title:"Misleiding en toestemming: het ethische debat",
+ cat:"Ethiek", catBg:"#f1f2f4", catFg:"#6b7280",
+ stripe:"#6b7280",
+ note:"Onzichtbaar theater misleidt mensen bewust. Is dat ethisch verdedigbaar? Bonnie Burstow (2008) stelt deze vraag scherp en dwingt de theater-wereld tot reflectie.",
+ stages:[
+  {t:"Burstow's kernkritiek",
+   body:"Ondanks Boals ethische intenties gebruikt onzichtbaar theater misleiding en kan het gevaar opleveren voor deelnemers. Het is onverenigbaar met Freires principe van 'non-manipulatie' — de basis van kritische pedagogie."},
+  {t:"Het consent-probleem",
+   body:"Voorbijgangers stemmen nooit in met deelname. Ze worden unknowingly deel van een theater-experiment. Zelfs als de intentie goed is — bewustwording, solidariteit — is dit een inbreuk op hun autonomie."},
+  {t:"Risico's voor deelnemers",
+   body:"Mensen kunnen getriggerd worden door de thema's. Kunnen emotioneel beschadigd raken. Kunnen in conflict komen met anderen. Kunnen juridische consequenties ondervinden (als ze bijvoorbeeld iemand aanraken tijdens de scene)."},
+  {t:"Naar ethische alternatieven",
+   body:"Burstow stelt voor: minimale misleiding, duidelijke exit-opties, meer transparantie over het proces. Sommigen suggereren het theater aan het einde te 'outen' — anderen vinden dat de kracht wegneemt."},
+  {t:"De verdedigingslinie",
+   body:"Voorstanders stellen dat het grotere onrecht — de onderdrukking zelf — de kleine misleiding rechtvaardigt. Dat mensen leren van hun spontane reacties op manieren die anders onmogelijk zijn. Dat consent soms belemmerend werkt."},
+  {t:"Praktische richtlijnen 2020+",
+   body:"Hedendaagse practitioners: kies lage-risico scenario's, vermijd trauma-triggers, zorg voor veilige exit-routes, respecteer culturele normen, evalueer altijd met het team, wees transparant over doelen en methoden."}
+ ],
+ tip:"Dit debat is niet academisch — het raakt de kern van wat Theater of the Oppressed wil zijn. Een methode die mensen manipuleert kan geen tool zijn voor bevrijding. Bron: Burstow, B. (2008). Invisible theatre, ethics, and the adult educator. International Journal of Lifelong Education, 27(3), 273-288."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => 
+              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+            ).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle technieken</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) {
+    curStage++;
+    updateDisplay();
+  }
+}
+
+function prevStage() {
+  if (curStage > 0) {
+    curStage--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  curStage = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    curStage = 0;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    prevTech();
+  }
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    nextTech();
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+  if (e.code === 'ArrowUp') {
+    e.preventDefault();
+    prevStage();
+  }
+  if (e.code === 'ArrowDown') {
+    e.preventDefault();
+    nextStage();
+  }
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>
