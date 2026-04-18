@@ -39,6 +39,9 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 ### Na Boal
 **Methodologische vernieuwingen** — 5 kaarten over hoe de TO-methode zich na 2009 heeft doorontwikkeld binnen specifieke culturele en politieke contexten. Bárbara Santos' Teatro de las Oprimidas (feministische esthetiek, Berlijn), Julian Boal &amp; Geo Britto's Escola de Teatro Popular (structurele dramaturgie, Rio), Sanjoy Ganguly's Jana Sanskriti (rurale systematisering, Calcutta), Katy Rubin's TONYC (#WatchActVote en beleids-Legislatief), en Chen Alon's Polarized Model (theater tussen ex-vijanden, Israël/Palestina).
 
+### Atlas
+**Praktijken in context** — 14 plekken waarin Theatre of the Oppressed zich heeft aangepast aan specifieke culturele, politieke en sociale omstandigheden. Amerika's: Rio (CTO-Boal), Medellín (Reconectando/Aristizábal), New York (TOPLAB → TONYC), Vancouver (Theatre for Living/Diamond). Europa: Parijs (Céditade/CTO-Paris), Londen (Cardboard Citizens/Jackson), Berlijn (KURINGA/Santos), Rotterdam (Formaat 1999–2025). Afrika: Maputo (CTO-Maputo/Cossa), Dakar (Kàddu Yaraax, milieu-theater), Nairobi (Amani People's Theatre). Azië: Calcutta (Jana Sanskriti/Ganguly). Conflict: Israël/Palestina (Combatants for Peace). Opleiding: Mandala Center/Weinblatt. Geen directory, wel dwarsdoorsnede.
+
 ### Regenboog van het Verlangen
 **Introspectieve Technieken** — 9 technieken om geïnternaliseerde onderdrukking zichtbaar te maken  
 **Prospectieve Technieken** — 15 technieken gericht op toekomstige verandering

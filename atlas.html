@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Praktijken in context</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#2d5a3e;--blue2:#3f7052;--blue3:#8fb09d;--blue4:#dce8e1;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="app-name">Atlas — <em>praktijken in context</em></div>
+  <div class="app-sub">14 plekken · Rio · Medellín · NYC · Vancouver · Parijs · Londen · Berlijn · Rotterdam · Maputo · Dakar · Nairobi · Calcutta · Tel Aviv · Pacific NW</div>
+  <div class="context-note">
+    Iedere culturele en politieke context vraagt en maakt haar eigen aanpassingen van de methode. Deze atlas brengt 14 praktijken in beeld — geen directory van organisaties, wel een dwarsdoorsnede van wat Theatre of the Oppressed in specifieke gemeenschappen is geworden. Van rurale Forum in Bengalen tot ex-combattant-theater in Colombia, van dakloosheidswerk in Londen tot milieu-Forum in Senegal. Niet volledig. Wel representatief voor de levende veelvormigheid van het werk.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Amerika's">Amerika's</div>
+    <div class="tpill" data-cat="Europa">Europa</div>
+    <div class="tpill" data-cat="Afrika">Afrika</div>
+    <div class="tpill" data-cat="Azië">Azië</div>
+    <div class="tpill" data-cat="Conflict">Conflict</div>
+    <div class="tpill" data-cat="Opleiding">Opleiding</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">14</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>Atlas — Praktijken in context</strong> — 14 plekken waarin Theatre of the Oppressed zich heeft aangepast aan specifieke culturele, politieke en sociale omstandigheden. Geen directory, wel dwarsdoorsnede.<br>
+  Bronnen: praktijkwerk van CTO Rio · Reconectando · TONYC · Theatre for Living · CTO-Paris · Cardboard Citizens · KURINGA · Formaat · CTO-Maputo · Kàddu Yaraax · Amani People's Theatre · Jana Sanskriti · Combatants for Peace · Mandala Center for Change. Publicaties en persoonlijke veldnotities van jokers die het werk ter plaatse hebben leren kennen.
+</div>
+
+</div>
+
+<script>
+const T = [
+
+{n:1, title:"Rio de Janeiro — CTO en de thuisbasis",
+ cat:"Amerika's", catBg:"#d9ebe0", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Augusto Boal richtte het Centro de Teatro do Oprimido (CTO) in Rio op in 1986, na zijn terugkeer uit Europese ballingschap. Het werd de plek waar de methodiek werd gesystematiseerd, gedocumenteerd en internationaal verspreid — en het werd het laboratorium voor alles wat na Parijs kwam: Rainbow of Desire, Legislatief Theater, de Esthetica van de Onderdrukten.",
+ stages:[
+  {t:"Het thuis na de ballingschap",
+   body:"Boal leefde van 1971 tot in de jaren '80 in ballingschap — Argentinië, Portugal, Frankrijk. De Brazil-amnesty van 1979 maakte terugkeer mogelijk. Hij wachtte echter nog jaren voor hij zich definitief opnieuw vestigde, omdat het politieke klimaat moest rijpen. Met CTO werd Rio de plek waar de methodiek haar oorsprongscontext terugvond — niet meer als pedagogische tool in Europese contexten, maar als politiek instrument in zijn eigen stad."},
+  {t:"Doorontwikkeling, niet conservering",
+   body:"Het CTO was nooit een museum. Elk grote lijn van de methodiek kreeg er zijn vorm: Rainbow (werk met geïnternaliseerde onderdrukking in Parijs, verder verfijnd in Rio), Legislatief (tijdens Boals mandaat als Vereador, 1993–96), Esthetica van de Onderdrukten (het laatste grote project vóór zijn dood in 2009). Bárbara Santos coördineerde het werk van 1994 tot 2008."},
+  {t:"Internationaal knooppunt",
+   body:"CTO trainde jokers uit tientallen landen. Wie werkelijk bij Boal wilde studeren ging naar Rio. De Engelstalige internationale trainingen (jaarlijks in december) werden een vaste afspraak voor de wereldgemeenschap. Na Boals dood werden die trainingen voortgezet door de veteranen van CTO — Geo Britto, Bárbara Santos (tot 2008), Olivar Bendelak en anderen — als directe overdrachtslijn."},
+  {t:"Na 2009",
+   body:"CTO bestaat nog steeds en werkt door. Een deel van de oorspronkelijke groep splitste af: Julian Boal en Geo Britto richtten in 2013 de Escola de Teatro Popular op, Bárbara Santos ging naar Berlijn. Die versplintering is typerend voor wat na Boal gebeurde: geen opvolger, wel meerdere erfgenamen — elk met een eigen inflectie op wat CTO Rio was."}
+ ],
+ tip:"Rio is niet 'de zuivere bron'. Het is één plek in een beweging die altijd meervoudig was. Wie denkt dat CTO Rio de maatstaf levert, miskent dat Boal zelf voortdurend opnieuw begon — de Forum in Rio was niet de Forum in Parijs of Lima. De methodiek was altijd contextueel."}
+,
+
+{n:2, title:"Medellín — Reconectando en de Waarheidscommissie",
+ cat:"Amerika's", catBg:"#d9ebe0", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Héctor Aristizábal overleefde arrestatie en marteling door het leger tijdens de Colombiaanse burgeroorlog en vertrok in 1989 naar ballingschap in de VS. Na het vredesakkoord tussen FARC en de Colombiaanse staat keerde hij in 2017 terug. Met zijn project Reconectando — opgezet samen met Work That Reconnects-practitioner Helena ter Ellen — begeleidt hij gemeenschappen, slachtoffers en ex-strijders in processen van waarheid en verzoening.",
+ stages:[
+  {t:"Theater, ritueel, deep ecology",
+   body:"Reconectando combineert drie tradities: Theatre of the Oppressed (Boal), Work That Reconnects (Joanna Macy), en Social Presencing Theatre (Arawana Hayashi). Die combinatie is methodologisch bewust: de Colombiaanse context van intergenerationeel oorlogstrauma vraagt iets dat Forum alleen niet kan dragen. Rituelen scheppen een bedding waar het theater alleen stukloopt; deep ecology voegt de aarde toe als derde partij in het verzoeningswerk."},
+  {t:"Werk met de Waarheidscommissie",
+   body:"De Colombiaanse Comisión de la Verdad, ingesteld na het vredesakkoord, schakelde Reconectando in voor gemeenschapsprocessen in regio's waar het conflict het zwaarst had gewoed. Slachtoffers, ex-FARC-strijders, ex-paramilitairen en getuigen ontmoetten elkaar in theatraal-rituele ruimtes waar verhalen konden worden uitgewisseld zonder dat het proces onmiddellijk juridisch werd. Het theater schiep de tussentijd waarin waarheid zich kon vormen."},
+  {t:"Sacred Territory",
+   body:"Een van Reconectando's lopende projecten is het Theater of Witness-stuk Sacred Territory — met zeven vrouwen uit verschillende posities in het conflict: een inheemse vrouw, een Afro-Colombiaanse vrouw, een LGBTI-activiste, een milieu-activiste, een ex-FARC-guerrillera, een ex-AUC-paramilitair, en een overlevende van de El Nogal-bomaanslag. Elk dragen ze hun stuk geschiedenis. Het gezamenlijke spelen ervan is het verzoeningsgebaar zelf."},
+  {t:"Mycelium van de ziel",
+   body:"Aristizábal gebruikt als leidend beeld 'het mycelium van de ziel' — ondergrondse schimmeldraden die dood organisch materiaal omzetten in voedingsbodem voor nieuw leven. Het is een beeld voor hoe trauma en geschiedenis kunnen worden verteerd — niet weggewerkt, maar gebruikt. Deze metafoor is niet decoratief; ze structureert de rituele dramaturgie van Reconectando's workshops."}
+ ],
+ tip:"Reconectando laat zien wat er gebeurt als Forum alleen niet toereikend is. In contexten van massaal trauma en intergenerationele rouw heeft het spel behoefte aan een ritueel vat. Wie de methode overneemt zonder de rituele dimensie te begrijpen, kan onbedoeld re-traumatiserend werken."}
+,
+
+{n:3, title:"New York — TOPLAB, TONYC en het stedelijke Forum",
+ cat:"Amerika's", catBg:"#d9ebe0", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"New York kent twee opeenvolgende TO-bastions. Het Theatre of the Oppressed Laboratory (TOPLAB) — opgericht in de jaren '80 rond Marie-Claire Picher — was de eerste langdurige Amerikaanse doorvertaling. Theatre of the Oppressed NYC (TONYC), opgericht in 2011 door Katy Rubin na haar training in Rio, bouwde daarop voort en maakte het stedelijk Forum tot herkenbare praktijk.",
+ stages:[
+  {t:"TOPLAB — de eerste generatie",
+   body:"TOPLAB bracht Boal in de jaren '80 en '90 naar New York voor workshops en performances. Marie-Claire Picher, die in Parijs met Boal had gewerkt, hield de methode levend in een Amerikaanse context waarin 'therapeutisch theater' vaak dominant werd over 'politiek theater'. TOPLAB's Augusto Boal Library werd een referentiebron voor de volgende generatie; de organisatie bestaat nog als Center for Theater & Pedagogy of the Oppressed (CTPO)."},
+  {t:"TONYC — van daklozen-troep tot stedelijke instelling",
+   body:"Rubin richtte TONYC op na ontdekking dat er in New York geen levende participatieve theaterpraktijk bestond met gemeenschappen in kwetsbare posities. De eerste troep — Jan Hus Homeless Theatre, later Concrete Justice — was een groep daklozen die hun eigen Forum-voorstellingen maakten. Het model schaalde: tegen 2020 had TONYC meerdere troepen met LGBTQ+-jongeren, ongedocumenteerde werkers, gerechtsbetrokken jongeren."},
+  {t:"Worker self-directed nonprofit",
+   body:"TONYC reorganiseerde zichzelf tot worker self-directed nonprofit — een structuur waarin de arbeiders (jokers, acteurs, makers) zelf het bestuur vormen. Dat is niet alleen organisatorisch interessant, het is methodologisch consequent: Forum kan niet geloofwaardig worden gemaakt door hiërarchische organisaties. De structuur spiegelt wat de voorstellingen willen oefenen."},
+  {t:"ESCUCHA en de Spaanstalige troep",
+   body:"ESCUCHA is TONYC's Spaanstalige troep — met ongedocumenteerde werkers die na de COVID-heropening terugkeerden naar uitbuiting en discriminatie. Hun voorstellingen (La Casa Mafalda, El Espejismo Americano) verplaatsten het Amerikaanse Forum expliciet uit de Engelstalige wereld. Dat ESCUCHA een vaste plaats heeft, niet een project, maakt een verschil van beginselen."}
+ ],
+ tip:"Het New Yorkse model werkt vanuit dienstverleningsorganisaties — shelters, GGD, immigrantendiensten. Jokers bouwen geen gemeenschap van nul op, maar werken in bestaande bedrijven met cliëntennetwerken. Die inbedding is in Nederland minder vanzelfsprekend; wie het TONYC-model overneemt moet eerst bedenken via welke instelling toegang mogelijk is."}
+,
+
+{n:4, title:"Vancouver — Theatre for Living en inheemse gemeenschappen",
+ cat:"Amerika's", catBg:"#d9ebe0", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"David Diamond werkte van 1981 af in Vancouver met wat toen Headlines Theatre heette. In 2007 hernoemde hij de praktijk tot Theatre for Living — een bewuste breuk met Boals terminologie. Zijn boek Theatre for Living (2007) formuleert de theoretische verschuiving: weg van de dichotomie onderdrukker-onderdrukte, naar een systemische kijk op 'het levende menselijke organisme' waarin niemand buiten staat.",
+ stages:[
+  {t:"De breuk met 'Oppressed'",
+   body:"Diamond's kritiek op het woord 'Oppressed' was praktisch én principieel: in zijn werk met First Nations-gemeenschappen, met mensen in verslaving, met geweldsdaders én slachtoffers tegelijk, bleek de één-op-één-splitsing ontoereikend. Wie is de onderdrukker wanneer een overlevende van residential school zelf verslaafd is geraakt en gewelddadig? Theatre for Living vervangt die dichotomie door een systemische analyse waarin mensen knooppunten zijn in een breder weefsel."},
+  {t:"Reclaiming Our Spirits",
+   body:"Een van de bekendste projecten: Reclaiming Our Spirits (vanaf 1996) in First Nations-gemeenschappen in British Columbia, rond de erfenis van de Indian Residential Schools. Weeklange workshops in elf inheemse gemeenschappen leidden tot door de gemeenschap zelf gemaakte voorstellingen. Deze werden bekeken in andere gemeenschappen — een horizontale uitwisseling tussen mensen met een gedeelde geschiedenis van cultureel genocide."},
+  {t:"Headlines-methode naar Theatre for Living",
+   body:"De Headlines-naam verwees naar het maken van voorstellingen uit actuele sociale onderwerpen. Maar in de praktijk met trauma-gemeenschappen werd duidelijk dat journalistieke snelheid niet genoeg was. De overgang naar Theatre for Living betekende ook een andere pace: langer voorbereiden, meer ritueel, meer zorg voor de gemeenschap ná de voorstelling. Dat laatste was in Boals methode impliciet; Diamond maakte het expliciet."},
+  {t:"Canadese context",
+   body:"Canada bracht de TO-praktijk in contact met de specifieke rekenschap rond kolonisatie. Waar Boal sprak over economische en politieke onderdrukking in Latijns-Amerika, sprak Diamond over cultureel genocide en intergenerationeel trauma. Zijn werk is in die zin een vroege Noord-Amerikaanse variant van wat later elders, onder andere labels, decoloniaal werk zou gaan heten."}
+ ],
+ tip:"Theatre for Living verandert niet wat je doet maar hoe je het kadert. Wie met trauma-gemeenschappen werkt en de protagonist-antagonist-logica blijft hanteren, reproduceert mogelijk juist de binaire tegenstellingen die kolonisatie heeft opgelegd. Diamond biedt taal om zonder dat te werken."}
+,
+
+{n:5, title:"Parijs — Céditade, CTO-Paris en de Europese verbreding",
+ cat:"Europa", catBg:"#d9e4ed", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Boal leefde van 1976 tot in de jaren '80 in Parijs. Met Émile Copfermann richtte hij in 1979 het Centre d'entraînement et de diffusion des techniques actives d'expression (Céditade) op, dat in 1985 werd hernoemd tot Centre du Théâtre de l'Opprimé (CTO-Paris). Hier werd de methode geprofessionaliseerd, voor Europa vertaald, en ging ze het onderwijs in.",
+ stages:[
+  {t:"Professionalisering",
+   body:"Parijs maakte TO tot beroep. Waar Boal in Latijns-Amerika had gewerkt met boeren en arbeiders die zich organiseerden, werkte hij in Frankrijk met opvoeders, maatschappelijk werkers, kunstenaars, vakbondsorganisatoren en studenten. Dat verschil is cruciaal: de methode werd een instrument in het werk van professionals, niet alleen een wapen in handen van bewegingen. Die verschuiving maakt een deel uit van de kritiek die later op 'gedomesticeerd TO' zou komen."},
+  {t:"Rainbow of Desire",
+   body:"In Parijs ontmoette Boal mensen wier onderdrukking niet primair economisch of politiek was, maar psychisch en relationeel: eenzaamheid, angst voor leegte, suïcidaliteit. 'De cop in the head' — de geïnternaliseerde onderdrukker — werd daar ontwikkeld als concept, evenals de serie technieken die samen Rainbow of Desire vormen. Dat was omstreden: sommige latere commentatoren zien hierin een depolitisering, anderen een noodzakelijke verdieping."},
+  {t:"De school en het onderwijs",
+   body:"CTO-Paris werd een school. Workshops, stages, internationale festivals. Forum Theatre als herkenbaar format dook op in Franse scholen, vakbonden, gemeenschapscentra. Vanuit Parijs trok de methode door Europa: Zwitserland, Italië, Zweden, België, Duitsland, Nederland. De vertaling van Boals boeken in het Frans (en vervolgens vanuit het Frans naar andere Europese talen) ging via deze hub."},
+  {t:"GTO-Paris en de volgende generaties",
+   body:"Na Boals terugkeer naar Rio in 1986 bleef Parijs een levende hub. GTO-Paris (Groupe de Théâtre de l'Opprimé) werkt door in de Franse context — migrantengemeenschappen, banlieues, vakbondswerk. Julian Boal, die in Parijs opgroeide en volwassen werd, was hier een tijdlang medeoprichter van het Ambaata-collectief met migrant-arbeiders."}
+ ],
+ tip:"Parijs is niet 'Europa' — het is de Franstalige hub. De rest van Europa ontwikkelde eigen lijnen: Berlijn rond Kuringa, Londen rond Cardboard Citizens, Rotterdam rond Formaat. Wie alleen de Parijse literatuur leest, mist wat Noord-Europa in de jaren na 1990 zelfstandig opbouwde."}
+,
+
+{n:6, title:"Londen — Cardboard Citizens en de daklozenrepertoire",
+ cat:"Europa", catBg:"#d9e4ed", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Adrian Jackson richtte Cardboard Citizens in 1991 op — het is inmiddels de langstlopende Forum Theatre-organisatie van het Verenigd Koninkrijk, gericht op mensen met ervaring van dakloosheid. Jackson was ook Boals Engelse vertaler (Games for Actors and Non-Actors, Legislative Theatre, The Rainbow of Desire) — de brug tussen Engelstalig Boal-onderzoek en de Britse praktijk.",
+ stages:[
+  {t:"Dakloosheid als stadsthema",
+   body:"Cardboard Citizens werkte van begin af aan met mensen die zelf dakloosheid hadden meegemaakt — niet als onderwerp vóór hen gemaakt, maar als auteurs en acteurs van hun eigen verhalen. De voorstellingen werden gespeeld in opvangcentra, hostels, op straat. Daklozen werden spect-actoren én protagonist. De methodologie drong erop aan: wie geen ervaring heeft, interpreteert niet; wie die wel heeft, verdient de scène."},
+  {t:"Jackson als vertaler",
+   body:"Jackson vertaalde Boals belangrijkste werken naar het Engels in de jaren '90 en '00. Die vertalingen vormden de basis voor vrijwel alle Engelstalige TO-praktijk ter wereld — van Jana Sanskriti's studiemateriaal tot het curriculum van Amerikaanse universiteiten. De Britse praktijk heeft daarmee op de internationale verspreiding een groter effect gehad dan het aantal lokale projecten doet vermoeden."},
+  {t:"Geardboard Citizens Actors Company",
+   body:"De professionele acteurs-tak van Cardboard Citizens bestaat volledig uit mensen met eigen ervaring van dakloosheid. Die structurele keuze — geen 'vertegenwoordigers van', maar mensen-met-ervaring zelf — is consistent toegepast over decennia. Het maakt de troep zowel artistieke instelling als sociale praktijk, en vereist andere vormen van ondersteuning: wonen, gezondheid, juridisch werk als onderdeel van de infrastructuur."},
+  {t:"Internationaal gastheerschap",
+   body:"Cardboard Citizens fungeerde als Londense hub voor internationale TO-ontmoetingen — Chen Alon kwam er masterclasses geven, Jana Sanskriti's Ganguly sprak er, Julian Boal is er regelmatig over de vloer. Deze rol — niet centrale autoriteit, wel hostende knooppunt — past bij de Britse positie in het veld: eerst praktisch, dan theoretisch."}
+ ],
+ tip:"Cardboard Citizens laat zien dat een langdurige praktijk met één gemeenschap (dakloos-ervaren mensen) diepgang voortbrengt die thematisch springerig werk niet haalt. Decennialang werk met dezelfde groep produceert ander theater dan jaarlijks wisselende projecten. Dat is een organisatorische keuze met methodologische gevolgen."}
+,
+
+{n:7, title:"Berlijn — KURINGA en Madalena-Berlin",
+ cat:"Europa", catBg:"#d9e4ed", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Bárbara Santos, twintig jaar coördinator van CTO-Rio, vestigde zich in 2011 in Berlijn en richtte met Till Baumann en Christoph Leucht KURINGA op — een theaterruimte en organisatie gewijd aan Theatre of the Oppressed. Van hieruit coördineert ze het Ma(g)dalena International Network: feministische TO-groepen uit Latijns-Amerika, Europa, Afrika en Azië.",
+ stages:[
+  {t:"Madalena-Berlin",
+   body:"De Berlijnse vertakking van Madalena werd in 2010 opgericht — nog vóór KURINGA zelf. Sindsdien ontwikkelt de groep Forum-voorstellingen rond thema's die vrouwen en gender-nonconforme mensen aangaan: Images of Women (2011), School of Women (2013), Pink Glasses (2015), Pink Machine (2019), No Means No (feministisch Legislatief Theater). Elke voorstelling werd intern gemaakt — geen externe regisseur, geen dramaturg van buiten."},
+  {t:"Qualification Course",
+   body:"KURINGA's jaarlijkse Qualification Course (opgezet door Santos, gefaciliteerd met Leucht en Baumann) is een meerwekelijks intensief programma dat de methode in zijn volledige repertoire behandelt — van basisoefeningen tot Legislatief, vanuit expliciet feministisch-antiracistisch-decoloniaal perspectief. Deelnemers komen wereldwijd. Het vult een gat dat CTO-Rio's Engelse trainingen voor een deel niet meer vullen."},
+  {t:"Aesthetics lab",
+   body:"Till Baumann werkt vanuit KURINGA aan het Aesthetics of the Oppressed-onderzoek in de richting van klank en ritme. Christoph Leucht leidt een masculinities lab — mannen onderzoeken met Forum-technieken hun positie in patriarchale structuren. Beide zijn verdiepingen die Boals Esthetica uitwerken in specifieke contexten waarvoor zijn eigen tekst aanzetten biedt maar geen volledige methode."},
+  {t:"Wedding als wijk",
+   body:"KURINGA is gevestigd in Wedding — een arbeidersbuurt in Noord-Berlijn met een grote migrantenbevolking. Die vestigingsplaats is geen toeval: de organisatie werkt niet alleen met en voor internationaal publiek maar ook met lokale gemeenschappen in Wedding zelf. Groepen met Roma, Sinti, migrantenjongeren, vrouwen uit verschillende achtergronden. De straten van Wedding zijn de atlas verkleind."}
+ ],
+ tip:"KURINGA is een van de weinige plekken waar een internationaal netwerk (Madalena), een methodologische school (Qualification Course), én een lokale praktijk (Wedding-wijkwerk) in dezelfde infrastructuur samenvallen. Die drieslag is moeilijker te onderhouden dan het klinkt — het vergt een kern van mensen die meerdere continenten kunnen dragen."}
+,
+
+{n:8, title:"Rotterdam — Formaat en de Nederlandstalige hub",
+ cat:"Europa", catBg:"#d9e4ed", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Stichting Formaat werd opgericht in 1999 en was tot eind 2025 de enige professionele TO-organisatie van Nederland. Werkzaam in Rotterdam Delfshaven vanaf 2007 (later Westzeedijk). Formaat was vanaf het begin mede-oprichter van de International Theatre of the Oppressed Organisation (ITO) en stond 26 jaar lang in het internationale netwerk — van New York tot Ramallah, van Maputo tot Calcutta.",
+ stages:[
+  {t:"Kwetsbare gemeenschappen als uitgangspunt",
+   body:"Formaat werkte consequent met mensen in kwetsbare posities: ouderen, ongedocumenteerde migranten, mensen met een psychiatrische achtergrond, jongeren in risicosituaties, mensen met verslavingsproblematiek. De keuze was principieel: geen theater óver deze gemeenschappen maar theater dóór en mét hen. Voorstellingen werden lokale dialoogmomenten — tussen bewoners met en zonder ervaring, tussen burgers en instanties."},
+  {t:"Kennisplatform en uitgeverij",
+   body:"Formaat was niet alleen werkplaats maar ook kennisinstituut: eigen opleidingsprogramma, publicaties in het Nederlands voor professionals (onder meer Een Scène Schoppen, Mens in de Hoofdrol), gastcolleges aan hogescholen en universiteiten. Die nadruk op vertaling — letterlijk én methodologisch — naar het Nederlandstalig gebied was in Europa uitzonderlijk. Andere landen kenden praktijk zonder systematische talige inbedding."},
+  {t:"Internationale gastvrijheid",
+   body:"In december 2015 organiseerde Formaat in Rotterdam een TO-festival met onder andere Combatants for Peace, Jana Sanskriti en CTO Maputo. Dergelijke ontmoetingen — waarin internationale groepen niet alleen optraden maar ook samen werkten met lokale gemeenschappen — waren een handelsmerk. Ook via het E-Motive-netwerk (vanaf 2008) werden uitwisselingen georganiseerd, onder meer met Jana Sanskriti."},
+  {t:"Afsluiting december 2025",
+   body:"Stichting Formaat beëindigde haar activiteiten per december 2025 en sloot de werkplaats aan de Westzeedijk. Daarmee verdween de enige Nederlandse professionele TO-hub — tegelijkertijd met het wegvallen van ITO als gestructureerd internationaal netwerk in de jaren daarvoor. Wat blijft is de praktijk van individuele jokers, het gepubliceerde werk, en de archieven die elders leven. Dit arsenaal is daar een voortzetting van — niet institutioneel maar inhoudelijk."}
+ ],
+ tip:"De Nederlandse situatie na 2025 is die van een veld zonder institutionele koepel. Dat is niet alleen verlies: het vraagt ook om nieuwe vormen van samenwerking tussen individuele jokers, opleidingen en vrijwilligersgroepen. Wie de Formaat-methodiek wil voortzetten zoekt best aansluiting bij internationale netwerken (KURINGA, Cardboard Citizens, ETP) en bouwt lokaal nieuwe coalities."}
+,
+
+{n:9, title:"Maputo — CTO-Maputo en post-conflict verzoening",
+ cat:"Afrika", catBg:"#e8e2d4", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Grupo de Teatro dos Oprimidos — Maputo werd in 2001 opgericht door Alvim Cossa, nadat hij met een UNESCO-beurs zes maanden bij CTO-Rio had gestudeerd. Het werk sloot aan bij een bredere Mozambikaanse praktijk die al sinds het einde van de burgeroorlog in 1992 TO-technieken gebruikte voor verzoening, landmijnen-educatie en burgerschapsvorming.",
+ stages:[
+  {t:"Na de burgeroorlog",
+   body:"Mozambique kwam uit zestien jaar burgeroorlog (1977–1992) met een samenleving die moest leren samen te leven met mensen die elkaar hadden bestreden. TO-technieken werden ingezet om de noodzaak van verzoening te onderbouwen — niet abstract maar in dorpen waar de breuklijnen door elke familie liepen. Forum Theatre werd een manier om conflicten die nog niet uitgesproken konden worden, wel theatraal onderzocht konden worden."},
+  {t:"Landmijnen-educatie",
+   body:"Mozambique was een van de zwaarst gemijnde landen ter wereld na de oorlog. Forum-voorstellingen werden ingezet om rurale gemeenschappen te informeren over veilige praktijken, herkenning van munitie, en hoe te handelen bij incidenten. Dit type TO — levensreddende informatie-overdracht in Forum-vorm — is een genre op zich geworden, later overgenomen in andere post-conflict contexten (Angola, Kosovo, Cambodja)."},
+  {t:"Eerste democratische verkiezingen",
+   body:"In de aanloop naar Mozambique's eerste democratische verkiezingen (1994) werd TO ingezet voor burgerschapseducatie. Hoe werkt stemmen? Wat betekent geheime stemming? Hoe kan een gemeenschap politieke afwijking accepteren zonder te hervallen in geweld? Deze toepassingen — TO als democratisch basisonderwijs in een samenleving die nog geen democratie gekend had — vragen een andere dramaturgie dan de protest-oriëntatie waar TO vaak aan gelieerd wordt."},
+  {t:"CTO-Maputo als hub",
+   body:"Na de oprichting van CTO-Maputo in 2001 werd het de professionele kern van TO-werk in Zuidelijk Afrika. Het werk breidde uit naar HIV/aids-educatie (cruciaal gezien de epidemie), grondrechten van boeren onder de nieuwe landwetgeving, en gendergelijkheid. Internationale samenwerking met onder andere Formaat Rotterdam gaf het werk extra schouders."}
+ ],
+ tip:"Maputo laat zien wat TO kan in contexten waar de staat zwak is, de bevolking grotendeels ruraal, en de thema's letterlijk van levensbelang. De methodologie past zich daar aan: minder stedelijk-ironisch, meer directe informatieoverdracht, meer traditionele performance-elementen (dans, zang, ritueel). Wie Maputo-werk komt observeren moet niet Europees Forum als maatstaf nemen."}
+,
+
+{n:10, title:"Dakar — Kàddu Yaraax en milieu-theater",
+ cat:"Afrika", catBg:"#e8e2d4", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Kàddu Yaraax werd in 1993 opgericht in de wijk Yarakh aan de kust bij Dakar. De organisatie gebruikt participatief theater om gemeenschapsreacties te organiseren op milieubedreigingen, armoede, HIV en andere gezondheidsvraagstukken. Sinds circa 2005 organiseert Kàddu Yaraax het Senegalese Forum-theaterfestival — een van de weinige recurrente internationale TO-ontmoetingen op het Afrikaanse continent.",
+ stages:[
+  {t:"Milieu als onderdrukking",
+   body:"Kàddu Yaraax heeft van milieukwesties consequent een TO-thema gemaakt — niet als nabijliggend onderwerp, maar als kernvorm van onderdrukking. Klimaatverandering in de Sahel treft rurale gemeenschappen die niet aan CO₂-uitstoot hebben bijgedragen. Kustero sie bedreigt vissersdorpen. Landdegradatie tast de boeren aan. Forum wordt hier een instrument om deze vormen van ecologisch onrecht theatraal onderzoekbaar te maken."},
+  {t:"Participatief klimaatonderzoek",
+   body:"Samenwerkingen met klimaatonderzoekers leidden tot stukken als dat waarin een tv-journalist in 2050 de ineenstorting van de landbouw in Fatick documenteert — gespeeld voor onderzoekers, beleidsmakers en boerengemeenschappen. Elke speler vertegenwoordigt een andere positie in de landbouwketen. Het Forum wordt een ruimte voor co-productie van klimaatkennis tussen wetenschap en rurale ervaring."},
+  {t:"Senegalese Forum-festival",
+   body:"Het Senegalese Theater-Forum-festival, sinds ongeveer 2005 bijna jaarlijks georganiseerd door Kàddu Yaraax, brengt groepen uit Senegal, West-Afrika en daarbuiten samen. Deelnemers kwamen uit Italië, Guinee-Bissau, India, Mauritanië, Spanje, Zuid-Afrika, Roemenië, de VS en Frankrijk. Het festival is een van de weinige structurele internationale TO-ontmoetingen in Afrika — een tegenhanger van Jana Sanskriti's Muktadhara."},
+  {t:"HIV, armoede, cultuur",
+   body:"Naast milieu heeft Kàddu Yaraax consequent gewerkt rond HIV-preventie en -acceptatie, rond armoedestrijd, en rond het behoud van traditionele culturele vormen als onderdeel van een hedendaagse politiek. De groep maakt deel uit van de Alliance for Initiatives for Peace and Stability in West Africa — een regionale koepel waardoor Forum-werk verbonden is met vredesopbouw."}
+ ],
+ tip:"Kàddu Yaraax illustreert dat milieu-TO niet een nieuw onderwerp is dat recent is opgekomen (Theatre of Climate Action etc.), maar dat het in Afrika al decennia onderdeel was van de kernpraktijk. Wie over 'climate-TO' publiceert zonder Dakar te kennen, dupliceert onbedoeld wat al bestond."}
+,
+
+{n:11, title:"Nairobi — Amani People's Theatre en Oost-Afrikaans conflictwerk",
+ cat:"Afrika", catBg:"#e8e2d4", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Amani People's Theatre (APT), gevestigd in Nairobi, werkt sinds eind jaren '90 met TO-technieken in conflictgebieden en post-conflict contexten in Oost-Afrika — Kenia, Oeganda, Zuid-Soedan, delen van Ethiopië. De organisatie combineert participatief theater met vredesopbouw-methodologie, traditionele conflictresolutie en transformatief leerwerk.",
+ stages:[
+  {t:"Oost-Afrika als veld",
+   body:"De regio kent meerdere lagen conflict: etnisch geweld rond verkiezingen in Kenia (2007–8), langdurige burgeroorlog in Zuid-Soedan, herinnering aan genocide in Rwanda, protracted LRA-conflict in Noord-Oeganda. APT werkt in gemeenschappen die meerdere van deze lagen tegelijk dragen — vaak zonder dat de internationale aandacht al is weggetrokken of nog niet is aangekomen. TO past daarin omdat het geen voorgebakken oplossingen aanreikt maar de gemeenschap laat spreken."},
+  {t:"Traditionele resolutie plus Forum",
+   body:"APT integreert Oost-Afrikaanse traditionele conflictresolutie-vormen (ouderraden, rituelen, palavers onder bomen) met Forum Theatre. De combinatie is methodologisch interessant: waar Forum de gemeenschap spreekt geeft, geeft de traditie de vorm waarin gesproken wordt. Zonder die vorm kan Forum aanvoelen als westerse import; mét de vorm wordt het vertaald in lokale autoriteit."},
+  {t:"Training en multiplicatie",
+   body:"APT traint facilitators uit de hele regio — wat betekent dat hun methodiek doorwerkt in conflictpreventie-programma's, scholen, vredesradioprogramma's. Veel Oost-Afrikaanse TO-praktijk loopt via dit trainingsknooppunt, ook wanneer de uiteindelijke groepen niet formeel met APT verbonden zijn."},
+  {t:"Trauma-bewuste Forum",
+   body:"In contexten van verse oorlogserfenis is klassiek Forum — waar spect-actoren worden uitgenodigd om scènes te re-enacteren — niet zonder meer toepasbaar. APT ontwikkelde trauma-bewuste variaties waarin de mogelijkheid om níet te spelen nadrukkelijk wordt geborgd, en waarin voor- en nawerk met geestelijke gezondheidsmedewerkers standaard is. Dat type zorg-infrastructuur is voor elke joker die met trauma werkt instructief."}
+ ],
+ tip:"APT-werk toont hoe TO zich laat integreren in bestaande vredesopbouw-praktijken — niet als vervanger maar als aanvulling. Wie in Europa met gepolariseerde gemeenschappen werkt, vindt in dit Oost-Afrikaanse model aanwijzingen die Boals oorspronkelijke Latijns-Amerikaanse context niet expliciet maakt."}
+,
+
+{n:12, title:"Calcutta — Jana Sanskriti en rurale schaal",
+ cat:"Azië", catBg:"#ebe2d9", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Jana Sanskriti werd in 1985 opgericht door Sanjoy Ganguly in de Sunderbans, een ruraal gebied in West-Bengalen buiten Calcutta. Wat begon als experiment met een handvol mensen werd de grootste TO-organisatie ter wereld: 40.000+ leden, 36 satellietgroepen, sinds 2004 het jaarlijkse Muktadhara-festival.",
+ stages:[
+  {t:"Rurale dramaturgie",
+   body:"Forum voor 5.000 toeschouwers is dramaturgisch iets anders dan Forum voor 50. Kleine scènes werken niet op die schaal. Jana Sanskriti ontwikkelde een grote, ritmische, muzikale dramaturgie die op afstand leesbaar is — veel beweging, duidelijke gebaren, chorale elementen, liederen, drums. De acteurs zijn rurale theatermakers uit de gemeenschappen waarin ze spelen — geen professionele buitenstaanders."},
+  {t:"Muktadhara — de ademplek",
+   body:"Het festival van Jana Sanskriti, Muktadhara ('ongehinderde stroom'), vindt sinds 2004 plaats. TO-groepen uit heel India — en internationaal — komen samen, delen voorstellingen, analyseren gezamenlijk thema's. Het festival is niet franje; het is wat het netwerk bij elkaar houdt. Zonder die jaarlijkse terugkeer valt zelfs het grootste netwerk uit elkaar onder de druk van het dagelijkse werk."},
+  {t:"Democratie van onderen",
+   body:"Ganguly's eigen theoretische werk (Forum Theatre and Democracy in India, From Boal to Jana Sanskriti) formuleert wat Jana Sanskriti na decennia geleerd heeft: Forum is geen theaterpraktijk maar een democratische oefenruimte. In een context van kasten, patriarchaat en politieke uitsluiting is deelname aan Forum het eerste moment waarin dorpelingen ervaren dat zij gehoord worden. Het werkelijke verandering gebeurt in de dialoog ná de voorstelling, niet tijdens."},
+  {t:"Spirituele integratie",
+   body:"Jana Sanskriti integreert rituelen, dans, volksmuziek en spirituele elementen niet als decor maar als gelijkwaardige dramaturgische elementen. Dat sluit aan bij een Bengaalse culturele traditie waarin theater, ritueel en activisme nooit gescheiden waren. De scheiding tussen 'spel' en 'werkelijkheid' die in westers Forum centraal staat, ligt hier anders."}
+ ],
+ tip:"De fout die westerse jokers vaak maken bij Jana Sanskriti-bezoek: de schaal bewonderen zonder de infrastructuur erachter te zien. Veertig jaar opbouwwerk, 36 satellietgroepen, directe inbedding in sociale bewegingen. Jana Sanskriti is geen voorstelling maar een instituut. De methode is even belangrijk als de structuur die haar draagt."}
+,
+
+{n:13, title:"Israël/Palestina — Combatants for Peace",
+ cat:"Conflict", catBg:"#ebdddd", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Combatants for Peace is een beweging van voormalige Israëlische soldaten en Palestijnse strijders die samen geweldloos werken aan beëindiging van de bezetting. Opgericht in 2005 door onder andere Chen Alon (Israëlisch) en Sulaiman Khatib (Palestijns) — beiden genomineerd voor de Nobel Peace Prize in 2017. Chen Alon's Polarized Model (zie Na Boal) werd hier ontwikkeld.",
+ stages:[
+  {t:"Ex-strijders als basis",
+   body:"Wie tot Combatants for Peace toetreedt heeft eerst gewapend geweld gepleegd of ondergaan. Israëlische oud-soldaten die weigerden in de bezette gebieden te dienen ('refuseniks'), Palestijnse ex-strijders die actief waren in de intifada's. De beweging werkt niet met mensen die 'vrede willen' in abstracto, maar met mensen die het andere pad geprobeerd hebben. Dat fundament maakt het werk moeilijk te imiteren in contexten met mildere polarisatie."},
+  {t:"Theater bij checkpoints",
+   body:"Performances vinden plaats bij Israëlische checkpoints in de Westelijke Jordaanoever, in Palestijnse dorpen, op publieke pleinen. Een van de terugkerende scènes: een zieke Palestijnse grootvader wordt tegengehouden door soldaten. De werkelijke soldaten die toekijken worden onvrijwillig spect-actoren. Alon beschrijft hoe acteurs in zulke situaties 'de blik van de soldaten spiegelen om schaamte op hen af te schieten'."},
+  {t:"Holot Theatre",
+   body:"Met filmmaker Avi Mograbi heeft Alon Legislatief Theater opgezet in het Holot-detentiecentrum voor Afrikaanse asielzoekers in Israël — met zes asielzoekers en vier Israëliërs. De eerste voorstelling (2015) werd gedocumenteerd in de film Between Fences. Scènes over grensoverschrijdingen, uitbuitende arbeidsomstandigheden, het onmogelijke een gezin beginnen — theater als laatste publieke ruimte voor mensen zonder papieren."},
+  {t:"Gezamenlijke herdenking",
+   body:"Eenmaal per jaar organiseert Combatants for Peace de gezamenlijke Memorial Day — Israëliërs en Palestijnen herdenken samen hun doden, iets wat in beide samenlevingen politiek zwaar omstreden is. In 2023 kwamen 2.500 mensen. Dat is geen theater in de strikte zin maar past in Boals begrip van performatie als politieke act — de publieke ruimte als repetitie van vrede."}
+ ],
+ tip:"Combatants for Peace werkt alleen door het lange voorwerk: jarenlange interne dialoog, opbouw van vertrouwen, ritueelvorming. Wie de methode wil overnemen voor conflicten elders moet bedenken dat de vorm de toewijding aan geweldloosheid vooronderstelt — die is niet automatisch aanwezig. Eerst het grondwerk, dan het theater."}
+,
+
+{n:14, title:"Mandala Center — jokers als activisten",
+ cat:"Opleiding", catBg:"#e5e5d5", catFg:"#2d5a3e",
+ stripe:"#2d5a3e",
+ note:"Marc Weinblatt's Mandala Center for Change, gevestigd in de Pacific Northwest van de VS, is al decennia een bron voor joker-opleiding in de Engelstalige wereld. Weinblatt is mede-auteur (met LeoNimm en Morgan) van The Wildcard Workbook (TONYC, 2022) en heeft jokers getraind die vervolgens in tientallen landen werkten — van TONYC tot Cardboard Citizens tot individuele activisten wereldwijd.",
+ stages:[
+  {t:"Training als kern",
+   body:"Waar andere knooppunten (CTO Rio, KURINGA, Jana Sanskriti) gemeenschapsvoorstellingen als kernactiviteit hebben, richt Mandala zich primair op de opleiding van facilitators. Dat maakt de invloed diffuus maar breed: wie met Mandala heeft getraind, draagt die methode mee in eigen projecten, vaak zonder expliciete vermelding. De invloed op het veld is groter dan de organisatie zelf."},
+  {t:"Wildcard als pedagogie",
+   body:"The Wildcard Workbook (2022) — die inmiddels in arsenalen overal ter wereld is opgenomen — formuleert Weinblatts pedagogische aanpak: jokers zijn zelf activisten, Forum is voorbereiding op actie, elke oefening heeft een debrief die de politieke lading expliciteert. Het boek is een 212 pagina's lange systematisering van 10-weken-programma's, oefeningen, reflectiewerkbladen en joker-zelfonderzoek."},
+  {t:"Ethische kaders",
+   body:"Mandala heeft consequent gewerkt aan ethische kaders voor joker-praktijk: consent-based facilitatie, trauma-bewustzijn, de grens tussen empowerment en uitbuiting van verhalen, de verantwoordelijkheid van de joker om níet zelf de oplossing te zijn. Die kaders — expliciet, geschreven, in trainingen geoefend — vormen een stille infrastructuur waar veel hedendaags joker-werk op draait."},
+  {t:"Noord-Amerikaans netwerk",
+   body:"Rond Mandala is een netwerk ontstaan van Amerikaanse en Canadese jokers die elkaar informeel ontmoeten bij de Pedagogy and Theatre of the Oppressed-conferenties (PTO, jaarlijks sinds de jaren '90). Dat circuit functioneert als de feitelijke Amerikaanse opvolger van wat ITO ooit internationaal deed — geen formele koepel, wel een levend netwerk."}
+ ],
+ tip:"Mandala en de PTO-kring bieden een model voor wat een post-institutioneel veld kan zijn: geen stichting, geen ledenlijst, wel een jaarlijkse ontmoeting, een gedeelde bibliografie, doorlopende onderlinge training. Voor de Nederlandse situatie na Formaat is dit een denkrichting — minder zwaar institutioneel dan een nieuwe stichting, lichter te dragen dan een eenmansnet."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => 
+              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+            ).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle technieken</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) {
+    curStage++;
+    updateDisplay();
+  }
+}
+
+function prevStage() {
+  if (curStage > 0) {
+    curStage--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  curStage = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    curStage = 0;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    prevTech();
+  }
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    nextTech();
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+  if (e.code === 'ArrowUp') {
+    e.preventDefault();
+    prevStage();
+  }
+  if (e.code === 'ArrowDown') {
+    e.preventDefault();
+    nextStage();
+  }
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>
