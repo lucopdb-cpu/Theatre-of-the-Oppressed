@@ -8,17 +8,17 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
-  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
-  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
-  --blue:#4a4f55;--blue2:#5c6169;--blue3:#9ea4ad;--blue4:#dfe0e2;
-  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
-  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
-  --rule:rgba(26,24,20,.1);
-  --serif:'Playfair Display',Georgia,serif;
-  --body:'Source Serif 4',Georgia,serif;
-  --mono:'JetBrains Mono','Courier New',monospace;
-  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+--paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+--creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+--blue:#4a4f55;--blue2:#5c6169;--blue3:#9ea4ad;--blue4:#dfe0e2;
+--rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+--gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+--rule:rgba(26,24,20,.1);
+--serif:'Playfair Display',Georgia,serif;
+--body:'Source Serif 4',Georgia,serif;
+--mono:'JetBrains Mono','Courier New',monospace;
+--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 html{font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
@@ -115,36 +115,34 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 </style>
 </head>
 <body>
-
 <div class="page">
-
 <a class="back-link" href="index.html">← Arsenaal van de Joker</a>
 
 <!-- Masthead -->
 <div class="masthead">
-  <div class="app-name">Joker-<em>praktijk</em></div>
-  <div class="app-sub">CLRA · trauma-informed · consent-based · brave space</div>
-  <div class="context-note">
-    Drie kaarten over hoe de joker staat, nog vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie — de richting van het werk komt uit de gemeenschap, niet uit de joker of de opdrachtgever. Trauma-informed practice als bewustzijn: hoe voorkom je dat goede bedoelingen re-traumatiserend werken? Consent-based facilitatie en brave space als vormprincipe: de ruimte wordt gebouwd, niet aangenomen. Geen methodieken maar houdingen. De basis waarop al het andere gereedschap pas werkt.
-  </div>
+<div class="app-name">Joker-<em>praktijk</em></div>
+<div class="app-sub">CLRA · trauma-informed · consent-based · brave space</div>
+<div class="context-note">
+Drie kaarten over hoe de joker staat, nog vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie — de richting van het werk komt uit de gemeenschap, niet uit de joker of de opdrachtgever. Trauma-informed practice als bewustzijn: hoe voorkom je dat goede bedoelingen re-traumatiserend werken? Consent-based facilitatie en brave space als vormprincipe: de ruimte wordt gebouwd, niet aangenomen. Geen methodieken maar houdingen. De basis waarop al het andere gereedschap pas werkt.
+</div>
 </div>
 
 <!-- Navigation -->
 <div class="nav-row">
-  <button class="nav-btn" id="prev">‹</button>
-  <div class="tech-pills">
-    <div class="tpill on" data-cat="all">Alle</div>
-    <div class="tpill" data-cat="Onderzoekspositie">Onderzoekspositie</div>
-    <div class="tpill" data-cat="Houding">Houding</div>
-  </div>
-  <div class="nav-counter"><span id="current">1</span> / <span id="total">3</span></div>
-  <button class="nav-btn" id="next">›</button>
+<button class="nav-btn" id="prev">‹</button>
+<div class="tech-pills">
+<div class="tpill on" data-cat="all">Alle</div>
+<div class="tpill" data-cat="Onderzoekspositie">Onderzoekspositie</div>
+<div class="tpill" data-cat="Houding">Houding</div>
+</div>
+<div class="nav-counter"><span id="current">1</span> / <span id="total">3</span></div>
+<button class="nav-btn" id="next">›</button>
 </div>
 
 <!-- View toggle -->
 <div class="view-toggle">
-  <button class="vt-btn on" data-view="step">Stap voor stap</button>
-  <button class="vt-btn" data-view="all">Overzicht</button>
+<button class="vt-btn on" data-view="step">Stap voor stap</button>
+<button class="vt-btn" data-view="all">Overzicht</button>
 </div>
 
 <!-- Card container -->
@@ -152,79 +150,74 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 
 <!-- Keyboard hint -->
 <div class="kbd-row">
-  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+<kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
 </div>
 
 <!-- Footer -->
 <div class="footer">
-  <strong>Joker-praktijk</strong> — Drie houdingen die samen de basis vormen voor hedendaags joker-werk. Geen methodieken, geen technieken, maar epistemologische en ethische posities die elke Forum-praktijk dragen — of ondermijnen wanneer ze ontbreken.<br>
-  Wortels: eigen praktijkonderzoek met Dreamers Beyond (CLRA) · SAMHSA trauma-informed care-kader, Carello &amp; Butler (trauma-informed) · Arao &amp; Clemens <em>From Safe Spaces to Brave Spaces</em> (2013), Rohd <em>Hope is Vital</em> (1998) (consent &amp; brave space).
+<strong>Joker-praktijk</strong> — Drie houdingen die samen de basis vormen voor hedendaags joker-werk. Geen methodieken, geen technieken, maar epistemologische en ethische posities die elke Forum-praktijk dragen — of ondermijnen wanneer ze ontbreken.<br>
+Wortels: eigen praktijkonderzoek met Dreamers Beyond (CLRA) · SAMHSA trauma-informed care-kader, Carello &amp; Butler (trauma-informed) · Arao &amp; Clemens <em>From Safe Spaces to Brave Spaces</em> (2013), Rohd <em>Hope is Vital</em> (1998) (consent &amp; brave space).
 </div>
-
 </div>
 
 <script>
 const T = [
-
 {n:1, title:"CLRA — Community Led Research in Action",
- cat:"Onderzoekspositie", catBg:"#dfe0e2", catFg:"#4a4f55",
- stripe:"#4a4f55",
- note:"Community Led Research in Action is eerder een positie dan een methode. Je probeert als joker niet óver een gemeenschap te onderzoeken maar mét en vanuit haar — de richting van het werk komt niet uit jou, niet uit de opdrachtgever, niet uit de methodiek. Dat is een eenvoudig principe dat in de praktijk ingewikkeld blijft. Niemand werkt hier onverdeeld naar. Maar je kunt wel leren er bewust in en uit te stappen, in plaats van het onbewust te verliezen.",
- stages:[
-  {t:"Twee soorten joker-werk die we verwarren",
-   body:"Er zijn twee dingen die allebei 'jokeren' worden genoemd. Het eerste: regisseren met je skills — je kunt dramaturgie, scèneopbouw, Forum-technieken, Image Theatre, Rainbow. Die gereedschappen zet je in dienst van een richting die vooraf vaststaat: een thema van een opdrachtgever, een methodisch kader, een doel dat je zelf al voor ogen hebt. Het tweede: de richting wordt onderdeel van wat je samen onderzoekt, en komt op in het proces. De skills zijn dezelfde, de positie is anders. De meeste jokers doen beide door elkaar — soms in één sessie. Weten welk van de twee je doet is al veel."}
+cat:"Onderzoekspositie", catBg:"#dfe0e2", catFg:"#4a4f55",
+stripe:"#4a4f55",
+note:"Community Led Research in Action is eerder een positie dan een methode. Je probeert als joker niet óver een gemeenschap te onderzoeken maar mét en vanuit haar — de richting van het werk komt niet uit jou, niet uit de opdrachtgever, niet uit de methodiek. Dat is een eenvoudig principe dat in de praktijk ingewikkeld blijft. Niemand werkt hier onverdeeld naar. Maar je kunt wel leren er bewust in en uit te stappen, in plaats van het onbewust te verliezen.",
+stages:[
+{t:"Twee soorten joker-werk die we verwarren",
+body:"Er zijn twee dingen die allebei 'jokeren' worden genoemd. Het eerste: regisseren met je skills — je kunt dramaturgie, scèneopbouw, Forum-technieken, Image Theatre, Rainbow. Die gereedschappen zet je in dienst van een richting die vooraf vaststaat: een thema van een opdrachtgever, een methodisch kader, een doel dat je zelf al voor ogen hebt. Het tweede: de richting wordt onderdeel van wat je samen onderzoekt, en komt op in het proces. De skills zijn dezelfde, de positie is anders. De meeste jokers doen beide door elkaar — soms in één sessie. Weten welk van de twee je doet is al veel."}
 ,
-  {t:"Wie bepaalt de vraag",
-   body:"In CLRA probeer je de vraagstelling niet zelf in te vullen. Niet 'we gaan kijken naar dakloosheid' omdat dat thema er geld voor heeft, maar eerder 'wat maakt ons leven nu moeilijk, en waar willen we samen naar kijken?' Dat klinkt eenvoudig. In de praktijk kom je jezelf voortdurend tegen: je hebt een idee, je ziet een richting, je weet al waar het volgens jou heen moet. Dat wegnemen lukt niet helemaal — je blijft degene die de vragen stelt die het gesprek vormen. Wat wél kan: merken wanneer je stuurt, en dan bewust een stap terug zetten."}
+{t:"Wie bepaalt de vraag",
+body:"In CLRA probeer je de vraagstelling niet zelf in te vullen. Niet 'we gaan kijken naar dakloosheid' omdat dat thema er geld voor heeft, maar eerder 'wat maakt ons leven nu moeilijk, en waar willen we samen naar kijken?' Dat klinkt eenvoudig. In de praktijk kom je jezelf voortdurend tegen: je hebt een idee, je ziet een richting, je weet al waar het volgens jou heen moet. Dat wegnemen lukt niet helemaal — je blijft degene die de vragen stelt die het gesprek vormen. Wat wél kan: merken wanneer je stuurt, en dan bewust een stap terug zetten."}
 ,
-  {t:"De kennis keert terug",
-   body:"De kennis die ontstaat is in de eerste plaats voor de mensen die spelen. Als ze weggestroomd is naar rapporten, subsidieaanvragen, publicaties zonder dat de deelnemers er zelf iets aan hebben, verschuift CLRA richting extractief onderzoek — hetzelfde dat Boal en Freire wilden omkeren. Dat is niet altijd een helder onderscheid. Soms komt kennis via jou in een context waar de gemeenschap zelf geen toegang toe heeft, en dat kan nuttig zijn. Maar het is iets om in de gaten te houden, niet iets dat zichzelf goed regelt. Wanneer je alleen nog teksten over het werk publiceert en de gemeenschap nooit meer hoort wat eruit gekomen is, is er iets scheefgegaan."}
+{t:"De kennis keert terug",
+body:"De kennis die ontstaat is in de eerste plaats voor de mensen die spelen. Als ze weggestroomd is naar rapporten, subsidieaanvragen, publicaties zonder dat de deelnemers er zelf iets aan hebben, verschuift CLRA richting extractief onderzoek — hetzelfde dat Boal en Freire wilden omkeren. Dat is niet altijd een helder onderscheid. Soms komt kennis via jou in een context waar de gemeenschap zelf geen toegang toe heeft, en dat kan nuttig zijn. Maar het is iets om in de gaten te houden, niet iets dat zichzelf goed regelt. Wanneer je alleen nog teksten over het werk publiceert en de gemeenschap nooit meer hoort wat eruit gekomen is, is er iets scheefgegaan."}
 ,
-  {t:"De positie is niet altijd gegund",
-   body:"Wie zo probeert te werken loopt tegen druk op. Opdrachtgevers willen vooraf weten wat eruit komt. Financiers willen hypothesen, meetbare resultaten, geen open proces. Beleidsmakers willen evidence in hun eigen vorm, niet geleefde ervaring. Collega-jokers verwarren CLRA soms met 'je laat de groep maar doen'. Die druk is reëel en werkt door in compromissen — je doet soms mee aan kaders die eigenlijk niet bij de positie passen, om het werk überhaupt mogelijk te houden. Dat is niet altijd verraad aan de methode; soms is het de enige manier om binnen te zijn waar het werk er kan toe doen. Maar het is wel wat het is, en het helpt niet om te doen alsof je altijd zuiver werkt."}
+{t:"De positie is niet altijd gegund",
+body:"Wie zo probeert te werken loopt tegen druk op. Opdrachtgevers willen vooraf weten wat eruit komt. Financiers willen hypothesen, meetbare resultaten, geen open proces. Beleidsmakers willen evidence in hun eigen vorm, niet geleefde ervaring. Collega-jokers verwarren CLRA soms met 'je laat de groep maar doen'. Die druk is reëel en werkt door in compromissen — je doet soms mee aan kaders die eigenlijk niet bij de positie passen, om het werk überhaupt mogelijk te houden. Dat is niet altijd verraad aan de methode; soms is het de enige manier om binnen te zijn waar het werk er kan toe doen. Maar het is wel wat het is, en het helpt niet om te doen alsof je altijd zuiver werkt."}
 ],
- tip:"Deze positie is geen status die je hebt, het is iets wat je elke keer opnieuw probeert. Je faalt hier regelmatig — ook wie dit schrijft. Wat helpt is andere jokers die hetzelfde dragen, om te kijken waar je werkelijk stuurt terwijl je denkt te faciliteren. Dat soort tegenspraak kun je niet zelf organiseren vanuit je eigen werk. Zoek het actief op."}
+tip:"Deze positie is geen status die je hebt, het is iets wat je elke keer opnieuw probeert. Je faalt hier regelmatig — ook wie dit schrijft. Wat helpt is andere jokers die hetzelfde dragen, om te kijken waar je werkelijk stuurt terwijl je denkt te faciliteren. Dat soort tegenspraak kun je niet zelf organiseren vanuit je eigen werk. Zoek het actief op."}
 ,
-
 {n:2, title:"Trauma-informed practice",
- cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
- stripe:"#4a4f55",
- note:"Werk met gemeenschappen die onderdrukking doormaken raakt bijna altijd aan trauma — persoonlijk, collectief, intergenerationeel. Trauma-informed werken betekent niet dat je therapeut wordt of dat je alleen nog met fluwelen handschoenen werkt; het betekent dat je bewust nadenkt over hoe het spel op mensen inwerkt en wat er nodig is om niet met goede bedoelingen schade aan te richten. Dat lukt nooit helemaal. Wel beter naarmate je er oog voor hebt.",
- stages:[
-  {t:"Vier R's als denkkader",
-   body:"Het vierR-kader (Realize, Recognize, Respond, Resist re-traumatization) komt uit de Amerikaanse gezondheidszorg via SAMHSA, en is een van de meest bruikbare werkdefinities geworden. Realize: beseffen dat trauma wijdverspreid is en invloed heeft op hoe mensen in een groep functioneren. Recognize: signalen herkennen — bevriezing, dissociatie, woede die niet in verhouding staat tot wat er gebeurt. Respond: je werkwijze aanpassen in tempo, in keuzes, in ruimte. Resist re-traumatization: proberen situaties te vermijden die triggers zijn. Het kader biedt woorden voor wat veel ervaren jokers al intuïtief deden, en dat helpt — maar het vervangt de intuïtie niet, het scherpt ze."}
+cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
+stripe:"#4a4f55",
+note:"Werk met gemeenschappen die onderdrukking doormaken raakt bijna altijd aan trauma — persoonlijk, collectief, intergenerationeel. Trauma-informed werken betekent niet dat je therapeut wordt of dat je alleen nog met fluwelen handschoenen werkt; het betekent dat je bewust nadenkt over hoe het spel op mensen inwerkt en wat er nodig is om niet met goede bedoelingen schade aan te richten. Dat lukt nooit helemaal. Wel beter naarmate je er oog voor hebt.",
+stages:[
+{t:"Vier R's als denkkader",
+body:"Het vierR-kader (Realize, Recognize, Respond, Resist re-traumatization) komt uit de Amerikaanse gezondheidszorg via SAMHSA, en is een van de meest bruikbare werkdefinities geworden. Realize: beseffen dat trauma wijdverspreid is en invloed heeft op hoe mensen in een groep functioneren. Recognize: signalen herkennen — bevriezing, dissociatie, woede die niet in verhouding staat tot wat er gebeurt. Respond: je werkwijze aanpassen in tempo, in keuzes, in ruimte. Resist re-traumatization: proberen situaties te vermijden die triggers zijn. Het kader biedt woorden voor wat veel ervaren jokers al intuïtief deden, en dat helpt — maar het vervangt de intuïtie niet, het scherpt ze."}
 ,
-  {t:"De uitnodiging als vorm",
-   body:"Het hart van trauma-bewust werken is misschien eenvoudig: elke oefening is een uitnodiging, geen opdracht. Wie niet wil spelen, kijkt. Wie niet wil kijken, stapt even naar buiten. Wie liever naast de groep staat dan erin, doet dat. In de praktijk is dit moeilijker vast te houden dan het lijkt — er is altijd de verleiding om mensen 'erbij' te willen krijgen, want dan werkt de oefening volgens plan. Maar deelname die niet gekozen is, draagt iets anders dan wat je zoekt. Meestal merk je dat pas achteraf, als iemand vertelt dat hij zich gedwongen voelde. Dan weet je: volgende keer anders. Zo leer je het voornamelijk — niet vooraf, maar in nabespreking."}
+{t:"De uitnodiging als vorm",
+body:"Het hart van trauma-bewust werken is misschien eenvoudig: elke oefening is een uitnodiging, geen opdracht. Wie niet wil spelen, kijkt. Wie niet wil kijken, stapt even naar buiten. Wie liever naast de groep staat dan erin, doet dat. In de praktijk is dit moeilijker vast te houden dan het lijkt — er is altijd de verleiding om mensen 'erbij' te willen krijgen, want dan werkt de oefening volgens plan. Maar deelname die niet gekozen is, draagt iets anders dan wat je zoekt. Meestal merk je dat pas achteraf, als iemand vertelt dat hij zich gedwongen voelde. Dan weet je: volgende keer anders. Zo leer je het voornamelijk — niet vooraf, maar in nabespreking."}
 ,
-  {t:"Waar de joker stopt en iets anders begint",
-   body:"De joker is geen therapeut. Dat klinkt eenvoudig maar in de praktijk zie je jokers die die grens oversteken omdat er niemand anders is, of omdat de situatie erom vraagt. Soms gaat dat goed, soms niet. Wat iets gemakkelijker te benoemen is: je bent er niet om trauma 'los te maken' of te verwerken, je bent er om dramatische ruimte open te houden waarin ervaring onderzocht kan worden. Wanneer iemand in heftige emotie raakt, is meestal niet de scène doorzetten het juiste — wel pauzeren, ruimte geven, zo nodig naast iemand gaan zitten of iets ter zijde laten nemen. En dan de vraag: kun je doorverwijzen? Is er iemand beschikbaar? Die vraag beantwoord je niet in het moment; die moet vooraf geregeld zijn."}
+{t:"Waar de joker stopt en iets anders begint",
+body:"De joker is geen therapeut. Dat klinkt eenvoudig maar in de praktijk zie je jokers die die grens oversteken omdat er niemand anders is, of omdat de situatie erom vraagt. Soms gaat dat goed, soms niet. Wat iets gemakkelijker te benoemen is: je bent er niet om trauma 'los te maken' of te verwerken, je bent er om dramatische ruimte open te houden waarin ervaring onderzocht kan worden. Wanneer iemand in heftige emotie raakt, is meestal niet de scène doorzetten het juiste — wel pauzeren, ruimte geven, zo nodig naast iemand gaan zitten of iets ter zijde laten nemen. En dan de vraag: kun je doorverwijzen? Is er iemand beschikbaar? Die vraag beantwoord je niet in het moment; die moet vooraf geregeld zijn."}
 ,
-  {t:"Infrastructuur is belangrijker dan intentie",
-   body:"Veel goedbedoelde projecten komen in de knoei omdat de mentaliteit er wel was maar de infrastructuur ontbrak. Een plek waar iemand uit het spel kan stappen. Iemand die — joker of niet — specifiek let op het emotionele welzijn in plaats van op de dramaturgie. Contact met geestelijke gezondheidszorg waar naar door kan worden verwezen. Voor- en nawerk met tijd en rust, niet alleen de werksessie zelf. Deze dingen zijn niet altijd realiseerbaar in de context waarin je werkt — budget, tijd, infrastructuur laten het vaak niet toe. Dan is het aan jou om eerlijk af te wegen: wat kan in deze omstandigheden verantwoord, wat moet je dan níet doen?"}
+{t:"Infrastructuur is belangrijker dan intentie",
+body:"Veel goedbedoelde projecten komen in de knoei omdat de mentaliteit er wel was maar de infrastructuur ontbrak. Een plek waar iemand uit het spel kan stappen. Iemand die — joker of niet — specifiek let op het emotionele welzijn in plaats van op de dramaturgie. Contact met geestelijke gezondheidszorg waar naar door kan worden verwezen. Voor- en nawerk met tijd en rust, niet alleen de werksessie zelf. Deze dingen zijn niet altijd realiseerbaar in de context waarin je werkt — budget, tijd, infrastructuur laten het vaak niet toe. Dan is het aan jou om eerlijk af te wegen: wat kan in deze omstandigheden verantwoord, wat moet je dan níet doen?"}
 ],
- tip:"De tegenbeweging waar trauma-informed werk makkelijk in terechtkomt is vermijding: geen moeilijke onderwerpen, geen echte emotie, geen confrontatie. Dat is niet wat het vraagt. Forum blijft Forum; anders verdampt het tot gespreksfacilitering. Wat je probeert is niet minder te confronteren, maar bewuster — met meer keuzeruimte, meer tempo, meer zorg voor wat erna komt. Soms lukt dat, soms is het achteraf duidelijk dat het beter had gekund. Dat hoort erbij."}
+tip:"De tegenbeweging waar trauma-informed werk makkelijk in terechtkomt is vermijding: geen moeilijke onderwerpen, geen echte emotie, geen confrontatie. Dat is niet wat het vraagt. Forum blijft Forum; anders verdampt het tot gespreksfacilitering. Wat je probeert is niet minder te confronteren, maar bewuster — met meer keuzeruimte, meer tempo, meer zorg voor wat erna komt. Soms lukt dat, soms is het achteraf duidelijk dat het beter had gekund. Dat hoort erbij."}
 ,
-
 {n:3, title:"Consent-based facilitation en brave space",
- cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
- stripe:"#4a4f55",
- note:"Het idee van 'safe space' is door Brian Arao en Kristi Clemens in 2013 herzien tot 'brave space' — een poging om een soort ruimte te benoemen dat Forum eigenlijk altijd al nodig had. Geen plek zonder ongemak (die bestaat niet), wel een plek waar mensen moed kunnen vinden om in ongemak te blijven omdat de basis stevig is. Consent-based facilitatie is de praktische kant ervan: toestemming als vormprincipe. Geen garantie, wel een richting.",
- stages:[
-  {t:"Veilig is niet hetzelfde als comfortabel",
-   body:"Veiligheid en comfort verwisselen we makkelijk maar ze zijn verschillend. Veiligheid betekent dat je niet in gevaar bent. Comfort betekent dat alles aangenaam is. Forum werkt niet goed in volledig comfort — het werkt in het gebied waar comfort overgaat in iets scherpers: inzicht, herkenning, soms pijn. Brave space erkent dat en maakt het bespreekbaar: we garanderen geen aangenaam gevoel, wel dat niemand in echt gevaar komt en dat er ruimte blijft om erover te spreken als iets te zwaar wordt. Die twee beloften moet je ook waar kunnen maken — anders is het een lege formule."}
+cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
+stripe:"#4a4f55",
+note:"Het idee van 'safe space' is door Brian Arao en Kristi Clemens in 2013 herzien tot 'brave space' — een poging om een soort ruimte te benoemen dat Forum eigenlijk altijd al nodig had. Geen plek zonder ongemak (die bestaat niet), wel een plek waar mensen moed kunnen vinden om in ongemak te blijven omdat de basis stevig is. Consent-based facilitatie is de praktische kant ervan: toestemming als vormprincipe. Geen garantie, wel een richting.",
+stages:[
+{t:"Veilig is niet hetzelfde als comfortabel",
+body:"Veiligheid en comfort verwisselen we makkelijk maar ze zijn verschillend. Veiligheid betekent dat je niet in gevaar bent. Comfort betekent dat alles aangenaam is. Forum werkt niet goed in volledig comfort — het werkt in het gebied waar comfort overgaat in iets scherpers: inzicht, herkenning, soms pijn. Brave space erkent dat en maakt het bespreekbaar: we garanderen geen aangenaam gevoel, wel dat niemand in echt gevaar komt en dat er ruimte blijft om erover te spreken als iets te zwaar wordt. Die twee beloften moet je ook waar kunnen maken — anders is het een lege formule."}
 ,
-  {t:"Consent als vormprincipe",
-   body:"In consent-based facilitatie wordt expliciet gevraagd waar de methode vroeger gewoon uitvoerde. 'Mag ik je schouder aanraken om je positie te veranderen?' 'Wil je deze scène spelen of liever kijken?' 'Wie is bereid te beginnen?' Dat klinkt stroef tot je ervaart hoe het de kwaliteit van wat volgt verandert. Mensen die echt gekozen hebben om te spelen, spelen anders. Tegelijk: je kunt niet élke micro-handeling vragen zonder het spel volledig te laten stilvallen. Er is altijd een balans. Het is niet een protocol om af te vinken, het is een gevoeligheid om te ontwikkelen."}
+{t:"Consent als vormprincipe",
+body:"In consent-based facilitatie wordt expliciet gevraagd waar de methode vroeger gewoon uitvoerde. 'Mag ik je schouder aanraken om je positie te veranderen?' 'Wil je deze scène spelen of liever kijken?' 'Wie is bereid te beginnen?' Dat klinkt stroef tot je ervaart hoe het de kwaliteit van wat volgt verandert. Mensen die echt gekozen hebben om te spelen, spelen anders. Tegelijk: je kunt niet élke micro-handeling vragen zonder het spel volledig te laten stilvallen. Er is altijd een balans. Het is niet een protocol om af te vinken, het is een gevoeligheid om te ontwikkelen."}
 ,
-  {t:"De ruimte bouw je, je neemt haar niet aan",
-   body:"Een brave space is er niet vanzelf, je stelt hem samen. Meestal vraagt dat een paar expliciete afspraken aan het begin van een werksessie: elke oefening is een uitnodiging, je mag pauzeren, je mag eruit stappen, wat hier gezegd wordt blijft hier, conflict is welkom — geweld niet. Deze afspraken zijn geen formaliteit. Wanneer iemand ze later overtreedt, kan je ernaar terugwijzen; zonder afspraak heb je geen ankerpunt. Maar ze zijn ook niet magisch. Mensen vergeten wat er is afgesproken, ook jij. Het uitspreken moet, ook als het lijkt alsof het vanzelfsprekend is."}
+{t:"De ruimte bouw je, je neemt haar niet aan",
+body:"Een brave space is er niet vanzelf, je stelt hem samen. Meestal vraagt dat een paar expliciete afspraken aan het begin van een werksessie: elke oefening is een uitnodiging, je mag pauzeren, je mag eruit stappen, wat hier gezegd wordt blijft hier, conflict is welkom — geweld niet. Deze afspraken zijn geen formaliteit. Wanneer iemand ze later overtreedt, kan je ernaar terugwijzen; zonder afspraak heb je geen ankerpunt. Maar ze zijn ook niet magisch. Mensen vergeten wat er is afgesproken, ook jij. Het uitspreken moet, ook als het lijkt alsof het vanzelfsprekend is."}
 ,
-  {t:"Dit lag al in de traditie",
-   body:"Veel van wat nu 'brave space' en 'consent-based' heet, bestond impliciet al in Forum-tradities. Michael Rohd's Hope is Vital (1998) drong al aan op de uitnodiging boven de opdracht. Boal's eigen werk kende respect voor het ritme van de groep. Wat er de laatste vijftien jaar is veranderd, is dat deze impliciete gevoeligheden expliciete taal hebben gekregen — en daarmee overdraagbaar zijn. Dat is winst: wat impliciet blijft, hangt af van de persoonlijke fijnzinnigheid van individuele jokers. Wat expliciet is, kan onderwezen en gecorrigeerd worden. Tegelijk is er een risico: dat het taalgebruik gaat vervangen wat de gevoeligheid zelf is. Dat gebeurt in opleidingstrajecten wel eens."}
+{t:"Dit lag al in de traditie",
+body:"Veel van wat nu 'brave space' en 'consent-based' heet, bestond impliciet al in Forum-tradities. Michael Rohd's Hope is Vital (1998) drong al aan op de uitnodiging boven de opdracht. Boal's eigen werk kende respect voor het ritme van de groep. Wat er de laatste vijftien jaar is veranderd, is dat deze impliciete gevoeligheden expliciete taal hebben gekregen — en daarmee overdraagbaar zijn. Dat is winst: wat impliciet blijft, hangt af van de persoonlijke fijnzinnigheid van individuele jokers. Wat expliciet is, kan onderwezen en gecorrigeerd worden. Tegelijk is er een risico: dat het taalgebruik gaat vervangen wat de gevoeligheid zelf is. Dat gebeurt in opleidingstrajecten wel eens."}
 ],
- tip:"Het tegenovergestelde risico van brave-space-denken is dat het zo zorgvuldig wordt dat de scherpte van Forum verdampt. Wie elke oefening omringt met check-ins en zorgvragen, dempt de energie die nodig is om echt iets op scène te laten gebeuren. Het kader is niet de inhoud. Het kader maakt de inhoud mogelijk. Wanneer je merkt dat de zorg voor de vorm de confrontatie is gaan vervangen, is er iets doorgeschoten. Dat moment is moeilijk te herkennen van binnenuit; vraag iemand van buiten mee te kijken."}
-
+tip:"Het tegenovergestelde risico van brave-space-denken is dat het zo zorgvuldig wordt dat de scherpte van Forum verdampt. Wie elke oefening omringt met check-ins en zorgvragen, dempt de energie die nodig is om echt iets op scène te laten gebeuren. Het kader is niet de inhoud. Het kader maakt de inhoud mogelijk. Wanneer je merkt dat de zorg voor de vorm de confrontatie is gaan vervangen, is er iets doorgeschoten. Dat moment is moeilijk te herkennen van binnenuit; vraag iemand van buiten mee te kijken."}
 ];
 
 let cur = 0;
@@ -235,167 +228,161 @@ let view = 'step';
 let filteredIndices = Array.from({length: T.length}, (_, i) => i);
 
 function updateDisplay() {
-  const container = document.getElementById('card-container');
-  
-  if (view === 'all') {
-    container.innerHTML = createAllView();
-  } else {
-    const techIndex = filteredIndices[cur];
-    container.innerHTML = createStepView(techIndex);
-  }
-  
-  updateNav();
+const container = document.getElementById('card-container');
+if (view === 'all') {
+container.innerHTML = createAllView();
+} else {
+const techIndex = filteredIndices[cur];
+container.innerHTML = createStepView(techIndex);
+}
+updateNav();
 }
 
 function createStepView(techIndex) {
-  const tech = T[techIndex];
-  const stages = tech.stages;
-  const hasStages = stages && stages.length > 0;
-  
-  return `
-    <div class="card">
-      <div class="card-head">
-        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
-        <div class="head-top">
-          <div>
-            <div class="tech-num">${tech.n} / ${T.length}</div>
-            <div class="card-name">${tech.title}</div>
-          </div>
-          <div class="head-badges">
-            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
-          </div>
-        </div>
-        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
-      </div>
-      
-      ${hasStages ? `
-        <div class="stages-head">
-          <div class="stages-lbl">Stappen</div>
-          <div class="stage-progress">
-            ${stages.map((_, i) => 
-              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
-            ).join('')}
-          </div>
-          <div class="stage-nav">
-            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
-            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
-          </div>
-        </div>
-        
-        <div class="stage-body">
-          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
-          <div class="stage-title">${stages[curStage].t}</div>
-          <div class="stage-text">${stages[curStage].body}</div>
-        </div>
-      ` : ''}
-      
-      ${tech.tip ? `
-        <div class="card-tip">
-          <span class="tip-lbl">Jokertip</span>
-          <div class="tip-txt">${tech.tip}</div>
-        </div>
-      ` : ''}
-    </div>
-  `;
+const tech = T[techIndex];
+const stages = tech.stages;
+const hasStages = stages && stages.length > 0;
+
+return `
+<div class="card">
+<div class="card-head">
+<div class="cat-stripe" style="background: ${tech.stripe}"></div>
+<div class="head-top">
+<div>
+<div class="tech-num">${tech.n} / ${T.length}</div>
+<div class="card-name">${tech.title}</div>
+</div>
+<div class="head-badges">
+<div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+</div>
+</div>
+${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+</div>
+
+${hasStages ? `
+<div class="stages-head">
+<div class="stages-lbl">Stappen</div>
+<div class="stage-progress">
+${stages.map((_, i) =>
+`<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+).join('')}
+</div>
+<div class="stage-nav">
+<button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+<button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+</div>
+</div>
+<div class="stage-body">
+<div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+<div class="stage-title">${stages[curStage].t}</div>
+<div class="stage-text">${stages[curStage].body}</div>
+</div>
+` : ''}
+
+${tech.tip ? `
+<div class="card-tip">
+<span class="tip-lbl">Jokertip</span>
+<div class="tip-txt">${tech.tip}</div>
+</div>
+` : ''}
+</div>
+`;
 }
 
 function createAllView() {
-  return `
-    <div class="card">
-      <div class="card-head">
-        <div class="cat-stripe" style="background: var(--blue)"></div>
-        <div class="head-top">
-          <div>
-            <div class="card-name">Alle technieken</div>
-          </div>
-          <div class="head-badges">
-            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="all-stages">
-        ${filteredIndices.map(i => {
-          const tech = T[i];
-          return `
-            <div class="all-stage-row" data-tech="${i}">
-              <div class="all-sn">${tech.n}</div>
-              <div class="all-stage-name">${tech.title}</div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  `;
+return `
+<div class="card">
+<div class="card-head">
+<div class="cat-stripe" style="background: var(--blue)"></div>
+<div class="head-top">
+<div>
+<div class="card-name">Alle technieken</div>
+</div>
+<div class="head-badges">
+<div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+</div>
+</div>
+</div>
+<div class="all-stages">
+${filteredIndices.map(i => {
+const tech = T[i];
+return `
+<div class="all-stage-row" data-tech="${i}">
+<div class="all-sn">${tech.n}</div>
+<div class="all-stage-name">${tech.title}</div>
+</div>
+`;
+}).join('')}
+</div>
+</div>
+`;
 }
 
 function updateNav() {
-  document.getElementById('current').textContent = cur + 1;
-  document.getElementById('total').textContent = filteredIndices.length;
-  
-  document.getElementById('prev').disabled = cur === 0;
-  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+document.getElementById('current').textContent = cur + 1;
+document.getElementById('total').textContent = filteredIndices.length;
+document.getElementById('prev').disabled = cur === 0;
+document.getElementById('next').disabled = cur === filteredIndices.length - 1;
 }
 
 function nextTech() {
-  if (cur < filteredIndices.length - 1) {
-    cur++;
-    curStage = 0;
-    updateDisplay();
-  }
+if (cur < filteredIndices.length - 1) {
+cur++;
+curStage = 0;
+updateDisplay();
+}
 }
 
 function prevTech() {
-  if (cur > 0) {
-    cur--;
-    curStage = 0;
-    updateDisplay();
-  }
+if (cur > 0) {
+cur--;
+curStage = 0;
+updateDisplay();
+}
 }
 
 function nextStage() {
-  const techIndex = filteredIndices[cur];
-  const stages = T[techIndex].stages;
-  if (stages && curStage < stages.length - 1) {
-    curStage++;
-    updateDisplay();
-  }
+const techIndex = filteredIndices[cur];
+const stages = T[techIndex].stages;
+if (stages && curStage < stages.length - 1) {
+curStage++;
+updateDisplay();
+}
 }
 
 function prevStage() {
-  if (curStage > 0) {
-    curStage--;
-    updateDisplay();
-  }
+if (curStage > 0) {
+curStage--;
+updateDisplay();
+}
 }
 
 function filterByCategory(category) {
-  if (category === 'all') {
-    filteredIndices = Array.from({length: T.length}, (_, i) => i);
-  } else {
-    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
-  }
-  
-  cur = 0;
-  curStage = 0;
-  updateDisplay();
+if (category === 'all') {
+filteredIndices = Array.from({length: T.length}, (_, i) => i);
+} else {
+filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+}
+cur = 0;
+curStage = 0;
+updateDisplay();
 }
 
 function goToTech(techIndex) {
-  const filterIndex = filteredIndices.indexOf(techIndex);
-  if (filterIndex !== -1) {
-    cur = filterIndex;
-    curStage = 0;
-    view = 'step';
-    updateViewToggle();
-    updateDisplay();
-  }
+const filterIndex = filteredIndices.indexOf(techIndex);
+if (filterIndex !== -1) {
+cur = filterIndex;
+curStage = 0;
+view = 'step';
+updateViewToggle();
+updateDisplay();
+}
 }
 
 function updateViewToggle() {
-  document.querySelectorAll('.vt-btn').forEach(btn => {
-    btn.classList.toggle('on', btn.dataset.view === view);
-  });
+document.querySelectorAll('.vt-btn').forEach(btn => {
+btn.classList.toggle('on', btn.dataset.view === view);
+});
 }
 
 // Event listeners
@@ -403,63 +390,58 @@ document.getElementById('prev').addEventListener('click', prevTech);
 document.getElementById('next').addEventListener('click', nextTech);
 
 document.addEventListener('click', (e) => {
-  if (e.target.id === 'stage-prev') prevStage();
-  if (e.target.id === 'stage-next') nextStage();
-  
-  if (e.target.classList.contains('sp-dot')) {
-    curStage = parseInt(e.target.dataset.stage);
-    updateDisplay();
-  }
-  
-  if (e.target.classList.contains('tpill')) {
-    document.querySelectorAll('.tpill').forEach(pill => {
-      pill.classList.toggle('on', pill === e.target);
-    });
-    filterByCategory(e.target.dataset.cat);
-  }
-  
-  if (e.target.classList.contains('vt-btn')) {
-    view = e.target.dataset.view;
-    updateViewToggle();
-    updateDisplay();
-  }
-  
-  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
-    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
-    const techIndex = parseInt(row.dataset.tech);
-    goToTech(techIndex);
-  }
+if (e.target.id === 'stage-prev') prevStage();
+if (e.target.id === 'stage-next') nextStage();
+if (e.target.classList.contains('sp-dot')) {
+curStage = parseInt(e.target.dataset.stage);
+updateDisplay();
+}
+if (e.target.classList.contains('tpill')) {
+document.querySelectorAll('.tpill').forEach(pill => {
+pill.classList.toggle('on', pill === e.target);
+});
+filterByCategory(e.target.dataset.cat);
+}
+if (e.target.classList.contains('vt-btn')) {
+view = e.target.dataset.view;
+updateViewToggle();
+updateDisplay();
+}
+if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+const techIndex = parseInt(row.dataset.tech);
+goToTech(techIndex);
+}
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.code === 'ArrowLeft') {
-    e.preventDefault();
-    prevTech();
-  }
-  if (e.code === 'ArrowRight') {
-    e.preventDefault();
-    nextTech();
-  }
-  if (e.code === 'Space') {
-    e.preventDefault();
-    view = view === 'step' ? 'all' : 'step';
-    updateViewToggle();
-    updateDisplay();
-  }
-  if (e.code === 'ArrowUp') {
-    e.preventDefault();
-    prevStage();
-  }
-  if (e.code === 'ArrowDown') {
-    e.preventDefault();
-    nextStage();
-  }
+if (e.code === 'ArrowLeft') {
+e.preventDefault();
+prevTech();
+}
+if (e.code === 'ArrowRight') {
+e.preventDefault();
+nextTech();
+}
+if (e.code === 'Space') {
+e.preventDefault();
+view = view === 'step' ? 'all' : 'step';
+updateViewToggle();
+updateDisplay();
+}
+if (e.code === 'ArrowUp') {
+e.preventDefault();
+prevStage();
+}
+if (e.code === 'ArrowDown') {
+e.preventDefault();
+nextStage();
+}
 });
 
 // Initialize
 updateDisplay();
 updateViewToggle();
 </script>
-
 </body>
 </html>
