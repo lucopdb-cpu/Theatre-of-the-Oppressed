@@ -235,6 +235,31 @@
       font-style: italic;
     }
 
+    /* Placeholder card — in opbouw, nog niet klikbaar */
+    .card.placeholder {
+      cursor: default;
+      background: var(--paper2);
+      border-style: dashed;
+      border-color: var(--paper3);
+      opacity: 0.88;
+    }
+
+    .card.placeholder:hover {
+      transform: none;
+      box-shadow: 0 1px 3px rgba(26, 24, 20, 0.03);
+      border-color: var(--paper3);
+    }
+
+    .card.placeholder .arrow {
+      opacity: 0.3;
+    }
+
+    .badge.soon {
+      background: var(--paper3);
+      color: var(--ink2);
+      border-color: var(--paper3);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .container {
@@ -285,28 +310,6 @@
           <p>Freire beschrijft de kist waarin Boal zijn gereedschap legt. Negen concrete technieken uit de alfabetiseringscampagnes met boerenarbeiders — van luisteronderzoek tot codificatie, van grensituatie tot decodering. De bodem waarop Theatre of the Oppressed gebouwd is.</p>
           <div class="card-footer">
             <span class="badge">Freire</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- Joker-praktijk -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-title">Joker-praktijk</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="grid">
-
-        <a class="card" href="joker-praktijk.html" style="--accent:#4a4f55; --icon-bg:#dfe0e2; --badge-bg:#dfe0e2; --badge-color:#4a4f55;">
-          <div class="card-icon">🧭</div>
-          <h2>CLRA, trauma, consent</h2>
-          <div class="meta">3 kaarten · onderzoekspositie · houding · brave space</div>
-          <p>Hoe staat de joker vóór hij zijn gereedschap oppakt? Community Led Research in Action: de richting van het werk komt uit de gemeenschap, niet uit joker of opdrachtgever. Trauma-informed practice: hoe voorkom je dat goede bedoelingen re-traumatiserend werken? Consent-based facilitatie en brave space: de ruimte wordt gebouwd, niet aangenomen. Geen methodieken maar houdingen.</p>
-          <div class="card-footer">
-            <span class="badge">Houding</span>
             <span class="arrow">→</span>
           </div>
         </a>
@@ -464,6 +467,28 @@
             <span class="arrow">→</span>
           </div>
         </a>
+
+      </div>
+    </div>
+
+    <!-- Toegepast in context -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Toegepast in context</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <div class="card placeholder" style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-bg:#e8e0d4; --badge-color:#52504a;">
+          <div class="card-icon">🔒</div>
+          <h2>Blagg! &amp; Theatre in Prison</h2>
+          <div class="meta">Participatief drama in detentie · Thompson · Formaat · TIPP Centre</div>
+          <p>Blagg! werd in Manchester ontwikkeld door James Thompson (TIPP Centre) en door Formaat naar Nederland gebracht in 2002. Een fictieve protagonist — Jo Blaggs, Mary, Lisa — draagt de last van het verhaal, zodat deelnemers via één-stap-verwijderd werk hun eigen delict kunnen onderzoeken. In 2006–2007 werd een gender-specifieke adaptatie gepild in Ter Peel (NL) en Gelsenkirchen (DE). Antagonist-oriëntatie bleek bij mannen, Protagonist-oriëntatie bij vrouwen. Een aparte tak die het archief verdient.</p>
+          <div class="card-footer">
+            <span class="badge soon">Binnenkort</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
 
       </div>
     </div>
