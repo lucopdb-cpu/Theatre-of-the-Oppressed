@@ -36,6 +36,9 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 **Onzichtbaar Theater** — 13 kaarten over Boals methode om theater te spelen zonder dat het publiek weet dat het theater is. Geboren in Argentijnse ballingschap, doorontwikkeld in Europa. Inclusief protocol, casussen en het ethische debat rond misleiding.  
 **Legislatief Theater** — 13 kaarten over de theatrale route naar wetgeving. Boals Rio-experiment (1993–96), TONYC's Amerikaanse aanpassing met vier wetswijzigingen in NYC, en Katy Rubin's UK-praktijk — waaronder de IOPD-award-winnende samenwerking rond de Greater Manchester Homelessness Prevention Strategy. Inclusief de #WatchActVote-methodiek van Rubin/TONYC.
 
+### Na Boal
+**Methodologische vernieuwingen** — 5 kaarten over hoe de TO-methode zich na 2009 heeft doorontwikkeld binnen specifieke culturele en politieke contexten. Bárbara Santos' Teatro de las Oprimidas (feministische esthetiek, Berlijn), Julian Boal &amp; Geo Britto's Escola de Teatro Popular (structurele dramaturgie, Rio), Sanjoy Ganguly's Jana Sanskriti (rurale systematisering, Calcutta), Katy Rubin's TONYC (#WatchActVote en beleids-Legislatief), en Chen Alon's Polarized Model (theater tussen ex-vijanden, Israël/Palestina).
+
 ### Regenboog van het Verlangen
 **Introspectieve Technieken** — 9 technieken om geïnternaliseerde onderdrukking zichtbaar te maken  
 **Prospectieve Technieken** — 15 technieken gericht op toekomstige verandering
