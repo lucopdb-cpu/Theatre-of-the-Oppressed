@@ -24,7 +24,7 @@ Negen concrete technieken die Freire ontwikkelde met boerenarbeiders in Brazili�
 
 ### Centraal arsenaal
 **TO Arsenaal**  
-363 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
+356 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
 
 **Games for Actors and Non-Actors**  
 De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen nummering.
@@ -38,7 +38,7 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 
 ### Aanvullende methodieken
 **Playback Theatre** — 9 kern-vormen van Jonathan Fox & Jo Salas (1975). Van Fluid Sculpture tot de volledige scène. Drie domeinen: kunst, sociaal, ritueel.  
-**Psychodrama** — 24 kaarten over Moreno-methodieken, technieken, rollen en fasering, met expliciete verbindingen naar TO-praktijk.  
+**Psychodrama** — 29 kaarten over Moreno-methodieken, technieken, rollen en fasering, met expliciete verbindingen naar TO-praktijk.  
 **Impro** — Oefeningen uit Spolin's improvisatietraditie. Spelgericht, lichaamsgericht, gericht op aanwezigheid en contact.  
 **Feldenkrais** — 13 Awareness Through Movement lessen, elk met TO-verbinding en jokertip. Wie zijn bewegingspatroon kan waarnemen, kan het veranderen.
 
