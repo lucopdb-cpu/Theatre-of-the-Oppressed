@@ -24,7 +24,7 @@ Negen concrete technieken die Freire ontwikkelde met boerenarbeiders in BraziliÃ
 
 ### Centraal arsenaal
 **TO Arsenaal**  
-356 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
+364 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
 
 **Games for Actors and Non-Actors**  
 De oefeningen zoals Boal ze zelf ordende â€” per categorie, met zijn eigen nummering.
