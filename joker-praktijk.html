@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joker-praktijk — CLRA, trauma, consent</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#4a4f55;--blue2:#5c6169;--blue3:#9ea4ad;--blue4:#dfe0e2;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="app-name">Joker-<em>praktijk</em></div>
+  <div class="app-sub">CLRA · trauma-informed · consent-based · brave space</div>
+  <div class="context-note">
+    Drie kaarten over hoe de joker staat, nog vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie — de richting van het werk komt uit de gemeenschap, niet uit de joker of de opdrachtgever. Trauma-informed practice als bewustzijn: hoe voorkom je dat goede bedoelingen re-traumatiserend werken? Consent-based facilitatie en brave space als vormprincipe: de ruimte wordt gebouwd, niet aangenomen. Geen methodieken maar houdingen. De basis waarop al het andere gereedschap pas werkt.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Onderzoekspositie">Onderzoekspositie</div>
+    <div class="tpill" data-cat="Houding">Houding</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">3</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>Joker-praktijk</strong> — Drie houdingen die samen de basis vormen voor hedendaags joker-werk. Geen methodieken, geen technieken, maar epistemologische en ethische posities die elke Forum-praktijk dragen — of ondermijnen wanneer ze ontbreken.<br>
+  Wortels: eigen praktijkonderzoek met Dreamers Beyond (CLRA) · SAMHSA trauma-informed care-kader, Carello &amp; Butler (trauma-informed) · Arao &amp; Clemens <em>From Safe Spaces to Brave Spaces</em> (2013), Rohd <em>Hope is Vital</em> (1998) (consent &amp; brave space).
+</div>
+
+</div>
+
+<script>
+const T = [
+
+{n:1, title:"CLRA — Community Led Research in Action",
+ cat:"Onderzoekspositie", catBg:"#dfe0e2", catFg:"#4a4f55",
+ stripe:"#4a4f55",
+ note:"Community Led Research in Action is geen techniek maar een positie. De joker onderzoekt niet óver een gemeenschap, hij onderzoekt mét en vanuit haar. De richting van het onderzoek wordt bepaald door de mensen wier leven erdoor wordt geraakt — niet door de joker, niet door de opdrachtgever, niet door de methodiek. De joker brengt skills, geen antwoorden.",
+ stages:[
+  {t:"Twee soorten joker-werk",
+   body:"Er bestaan twee verschillende dingen die beide 'jokeren' worden genoemd. Het eerste is regisseren met je skills: je kunt dramaturgie, scèneopbouw, Forum-technieken, Image Theatre, Rainbow. Die gereedschappen zet je in dienst van een vooraf vastgestelde richting — bijvoorbeeld een thema dat door de opdrachtgever is aangedragen, of een methodisch kader waarbinnen je werkt. Het tweede is het bepalen van richting in een proces waarvan de uitkomst niet vaststaat. Die tweede vorm is CLRA. De skills zijn dezelfde; de positie is anders."}
+,
+  {t:"Wie bepaalt het onderzoek",
+   body:"In CLRA bepaalt de gemeenschap wat onderzocht wordt en waarom. Niet 'we gaan kijken naar dakloosheid' omdat de joker dat thema wil, of de gemeente daar geld voor heeft. Wel: 'wat maakt ons leven nu moeilijk, en waar willen we met elkaar naar kijken?' De joker faciliteert die vraagstelling — hij staat niet boven haar. Hij brengt vormen aan waarin de vraag scherper kan worden, manieren om te luisteren naar wat nog niet gezegd is, oefeningen om geleefde ervaring lichamelijk te onderzoeken. Maar wat de scène moet blijken, blijft aan de groep."}
+,
+  {t:"De kennis keert terug",
+   body:"In CLRA is de kennis die ontstaat niet voor de joker, niet voor de instelling, niet voor het beleid. Ze is voor de gemeenschap die speelt — en keert in de eerste plaats daar terug. Dat is geen methodologische bijzaak, het is de ethische kern. Wanneer de kennis wegstroomt naar rapporten, subsidieaanvragen of academische publicaties zonder dat de deelnemers er zelf iets aan hebben, kantelt CLRA om in extractief onderzoek — dezelfde extractie waar Boal en Freire juist tegenin werkten."}
+,
+  {t:"De positie is niet altijd gegund",
+   body:"Wie vanuit deze positie werkt, loopt tegen systematische druk op. Opdrachtgevers willen vooraf weten wat eruit komt, zodat ze de investering kunnen verdedigen. Financiers willen hypothesen en meetbare resultaten, geen open proces. Beleidsmakers willen 'evidence' in hun eigen vorm, niet geleefde ervaring. Collega-jokers verwarren CLRA soms met 'je laat de groep maar doen' — alsof faciliteren hetzelfde is als afwezig zijn. De positie moet in elk project opnieuw bevochten worden, en ze wordt niet altijd gegund. Dat is geen falen van de methode; het is de werkelijkheid waarin ze zich moet bewijzen."}
+],
+ tip:"CLRA vraagt dat je als joker de moed hebt om niet te weten wat eruit komt, terwijl iedereen rond je druk zet om wél te weten. Dat is een eenzame positie. Een netwerk van andere jokers die hetzelfde dragen — al is dat informeel, al is het niemand's structuur — maakt het verschil tussen volhouden en opbranden. Zoek dat netwerk actief op; wacht niet tot het je vindt."}
+,
+
+{n:2, title:"Trauma-informed practice",
+ cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
+ stripe:"#4a4f55",
+ note:"Forum-werk met gemeenschappen die onderdrukking doormaken betekent bijna altijd werken met mensen die trauma dragen — van persoonlijk tot collectief, van recent tot intergenerationeel. Trauma-informed practice is geen therapeutisch kader dat de joker overneemt, maar een bewustzijn dat hij in zijn werk inbouwt: hoe voorkom je dat goede bedoelingen re-traumatiserend werken?",
+ stages:[
+  {t:"Vier R's",
+   body:"Het vierR-kader (Realize, Recognize, Respond, Resist re-traumatization), oorspronkelijk door SAMHSA geformuleerd voor de gezondheidszorg, is de werkdefinitie geworden. Realize: begrijp dat trauma wijdverspreid is en effect heeft op hoe mensen zich gedragen. Recognize: herken de tekenen bij individuen en in de groep — bevriezing, dissociatie, woede die niet past bij wat gebeurt. Respond: pas je werkwijze aan (tempo, keuzes, ruimte). Resist re-traumatization: voorkom dat je werk situaties herhaalt die triggers zijn — ongewenste aanrakingen, opgesloten gevoelens, plotselinge confrontaties, gedwongen onthullingen."}
+,
+  {t:"De uitnodiging is altijd open",
+   body:"Elke oefening in een trauma-bewust kader is een uitnodiging, nooit een opdracht. Wie niet wil spelen, kijkt. Wie niet wil kijken, loopt naar buiten. Wie liever naast het spel staat dan erin, doet dat. Dat is geen vrijblijvendheid — het is juist wat het spel betekenisvol maakt. Deelname die afgedwongen is, draagt geen spect-actor; die draagt een gehoorzame participant. In CLRA is dit geen extra regel, het is de basis van de positie."}
+,
+  {t:"Wat de joker niet doet",
+   body:"De joker is geen therapeut en speelt er ook geen. Hij is er om dramatische ruimte te houden waarin ervaring kan worden onderzocht, niet om trauma's te verwerken of te diagnosticeren. Wanneer een deelnemer in heftige emotie terechtkomt, is de juiste reactie niet de scène doorzetten 'om het los te laten komen', maar de scène pauzeren, de persoon ruimte geven, en zo nodig doorverwijzen. Wie deze grens niet respecteert, brengt schade toe — zelfs met de beste bedoelingen."}
+,
+  {t:"Infrastructuur, geen attitude",
+   body:"Trauma-bewust werken is geen mentaliteit die je meebrengt, het is infrastructuur die je organiseert. Een plek waar mensen uit het spel kunnen stappen. Een aanwezige persoon (soms de joker, soms iemand anders) die specifiek verantwoordelijk is voor emotioneel welzijn, niet voor dramaturgie. Contact met geestelijke gezondheidszorg waar naar door kan worden verwezen. Voor- en nawerk met tijd en rust. Deze infrastructuur moet vóór het project staan, niet bedacht worden als iets misgaat."}
+],
+ tip:"De valkuil van trauma-informed werk is dat het verandert in vermijding: geen moeilijke onderwerpen, geen echte emoties, geen confrontatie. Dat is niet wat het vraagt. Forum blijft werken met wat moeilijk is — anders is het geen Forum. Trauma-bewustzijn verandert niet dát je moeilijke dingen onderzoekt, maar hóe. Trager. Met meer keuze. Met meer zorg voor wat erna komt."}
+,
+
+{n:3, title:"Consent-based facilitation en brave space",
+ cat:"Houding", catBg:"#e3dfd8", catFg:"#4a4f55",
+ stripe:"#4a4f55",
+ note:"De oude formule van 'safe space' is door Brian Arao en Kristi Clemens in 2013 vervangen door brave space — een scherper kader voor het soort ruimte dat Forum eigenlijk altijd nodig had. Niet een plek zonder ongemak (dat bestaat niet), maar een plek waar mensen de moed kunnen opbrengen om in ongemak te blijven omdat de basis van toewijding en wederzijdse zorg stevig is.",
+ stages:[
+  {t:"Veilig is niet comfortabel",
+   body:"Veiligheid en comfort zijn twee verschillende dingen. Veiligheid is het gevoel dat je niet in gevaar bent; comfort is het gevoel dat alles aangenaam is. Forum werkt niet in comfort — het werkt op de grens waar comfort verschuift naar iets anders: inzicht, ongemak, herkenning, soms pijn. De brave-space-benadering erkent dat en neemt de verantwoordelijkheid op: wij garanderen niet dat het aangenaam is, wel dat we zorgen dat niemand in echt gevaar komt en dat er ruimte blijft om erover te spreken."}
+,
+  {t:"Consent als vormprincipe",
+   body:"In consent-based facilitatie wordt elke aanraking, elke onthulling, elke deelname expliciet uitgenodigd en vrijelijk gekozen. De joker vraagt toestemming waar traditioneel de methode gewoon werd uitgevoerd. 'Mag ik je schouder aanraken om je positie te laten zien?' 'Wil je deze scène spelen of liever kijken?' 'Wie is er klaar om te beginnen?' Dat klinkt stroef tot je ervaart hoe het de kwaliteit van wat erna komt verandert. Mensen die echt gekozen hebben om te spelen, spelen anders dan mensen die niet wisten dat ze ook konden weigeren."}
+,
+  {t:"Afspraken vooraf",
+   body:"Een brave space wordt niet aangekondigd, ze wordt gebouwd. In de openingsafspraken van een werksessie of voorstelling worden een paar basisprincipes expliciet op tafel gelegd: elke oefening is een uitnodiging; je mag altijd pauzeren; je mag eruit stappen; wat hier gedeeld wordt, blijft hier; conflict is welkom, geweld niet. Deze afspraken zijn geen formaliteit — ze maken de ruimte. Wanneer iemand ze later overtreedt, kunnen ze ook naar worden teruggewezen. Zonder afspraak is er geen ankerpunt."}
+,
+  {t:"Terug naar het spel",
+   body:"Consent en brave-space-denken hebben in Forum-tradities altijd impliciet bestaan. Michael Rohds Hope is Vital (1998) benadrukte al de uitnodiging boven de opdracht. Wat de laatste vijftien jaar is gebeurd is dat deze impliciete praktijk expliciet is gemaakt, benoembaar en overdraagbaar. Dat is winst: wat impliciet blijft hangt af van de persoonlijke fijnzinnigheid van individuele jokers. Wat expliciet is kan worden onderwezen, kan worden gecontroleerd, kan worden bevochten als het ontbreekt."}
+],
+ tip:"Het omgekeerde risico van brave-space-denken is dat het verandert in therapeutisch taalgebruik dat het politieke van Forum verdringt. Wie elke oefening inleidt met zorgvragen dempt de energie die Forum nodig heeft. De kunst is de brave space stevig te zetten én daarna de scherpte van het werk te behouden. Het kader is niet de inhoud; het kader maakt de inhoud mogelijk."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => 
+              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+            ).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle technieken</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) {
+    curStage++;
+    updateDisplay();
+  }
+}
+
+function prevStage() {
+  if (curStage > 0) {
+    curStage--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  curStage = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    curStage = 0;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    prevTech();
+  }
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    nextTech();
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+  if (e.code === 'ArrowUp') {
+    e.preventDefault();
+    prevStage();
+  }
+  if (e.code === 'ArrowDown') {
+    e.preventDefault();
+    nextStage();
+  }
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>

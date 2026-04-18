@@ -22,6 +22,9 @@ Het arsenaal is werk in uitvoering. Het groeit via onderzoek en praktijk.
 **Paulo Freire** — De Kist  
 Negen concrete technieken die Freire ontwikkelde met boerenarbeiders in Brazilië. Het luisteronderzoek, de codificatie, de grensituatie, de decodering. De pedagogische humus waarop TO is gebouwd.
 
+### Joker-praktijk
+**CLRA, trauma, consent** — 3 kaarten over hoe de joker staat vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie (de richting komt uit de gemeenschap, niet uit joker of opdrachtgever — gegrond in eigen praktijkonderzoek met Dreamers Beyond). Trauma-informed practice: hoe goede bedoelingen niet re-traumatiserend werken, met SAMHSA's vierR-kader als werkdefinitie. Consent-based facilitatie en brave space (Arao &amp; Clemens 2013, Rohd 1998): de ruimte wordt gebouwd, niet aangenomen.
+
 ### Centraal arsenaal
 **TO Arsenaal**  
 364 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
