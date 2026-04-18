@@ -25,7 +25,7 @@ Negen concrete technieken die Freire ontwikkelde met boerenarbeiders in Brazili�
 
 ### Joker-praktijk
 
-**CLRA, trauma, consent** — 3 kaarten over hoe de joker staat vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie (de richting komt uit de gemeenschap, niet uit joker of opdrachtgever — gegrond in eigen praktijkonderzoek met Dreamers Beyond). Trauma-informed practice: hoe goede bedoelingen niet re-traumatiserend werken, met SAMHSA's vierR-kader als werkdefinitie. Consent-based facilitatie en brave space (Arao & Clemens 2013, Rohd 1998): de ruimte wordt gebouwd, niet aangenomen.
+**CLRA, trauma, consent, herkomst** — 4 kaarten over hoe de joker staat vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie (de richting komt uit de gemeenschap, niet uit joker of opdrachtgever — gegrond in eigen praktijkonderzoek met Dreamers Beyond). Trauma-informed practice: hoe goede bedoelingen niet re-traumatiserend werken, met SAMHSA's vierR-kader als werkdefinitie. Consent-based facilitatie en brave space (Arao & Clemens 2013, Rohd 1998): de ruimte wordt gebouwd, niet aangenomen. Herkomst en de joker als gast (Ramose 1999, Smith 2012, correspondentie met Arun Naicker van Umtapo Centre): wat je doet wanneer je werkt met oefeningen uit tradities waar je niet uit voortkomt.
 
 ### Centraal arsenaal
 
