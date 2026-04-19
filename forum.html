@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forumtheater — Het hart van Boals methode</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#a8321f;--blue2:#c24931;--blue3:#e19888;--blue4:#f7e4df;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+/* Stage stepper */
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+
+/* Stage content */
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+
+/* Substeps */
+.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.substep{display:flex;gap:10px;align-items:flex-start}
+.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
+.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="app-name">Forum<em>theater</em></div>
+  <div class="app-sub">Het hart van Boals methode · Antimodel · Spect-acteur · Joker</div>
+  <div class="context-note">
+    De bekendste en meest invloedrijke vorm binnen het Theater van de Onderdrukten. Ontwikkeld door Augusto Boal in Brazilië en Peru (jaren '70), wereldwijd verspreid en lokaal hervormd — van Jana Sanskriti in West-Bengalen (openluchtforums voor duizenden) tot Cardboard Citizens in Londen (Forum met en voor daklozen, Adrian Jackson) en Shadow Liberation in Bangalore (participatory shadow theatre). Deze carrousel behandelt methode, dramaturgie, Jokerpraktijk, schaalvarianten en valkuilen.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Fundament">Fundament</div>
+    <div class="tpill" data-cat="Dramaturgie">Dramaturgie</div>
+    <div class="tpill" data-cat="Joker">Joker</div>
+    <div class="tpill" data-cat="Schaal">Schaal</div>
+    <div class="tpill" data-cat="Ethiek">Ethiek</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">19</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong>Forumtheater</strong> — methode van <em>Augusto Boal</em> (1931–2009), hervormd en doorgegeven door <em>Jana Sanskriti</em> (Sanjoy Ganguly, West-Bengalen, 1985–heden), <em>Cardboard Citizens</em> (Adrian Jackson, Londen, 1991–heden), <em>Shadow Liberation / Srishti</em> (Bangalore) en het <em>Centro de Teatro do Oprimido</em> (Rio de Janeiro, Bárbara Santos e.a.)<br>
+  Bronnen: Boal, <em>Theatre of the Oppressed</em> (1979) · <em>Games for Actors and Non-Actors</em> (1992/2002) · <em>The Aesthetics of the Oppressed</em> (Routledge, 2006) · <em>The Joker System</em> (TDR, 1970) · Ganguly, <em>Jana Sanskriti: Forum Theatre and Democracy in India</em> (Routledge, 2010) · Santos, <em>The Art of Curingar</em> (2009) · Shadow Liberation, <em>Forum Theatre Guide V5</em> (CC BY-NC-SA 4.0) · Jokers of the World — Luc's verzameling
+</div>
+
+</div>
+
+<script>
+const T = [
+
+// ============================================
+// I. FUNDAMENT (kaarten 1-3) — warm rood
+// ============================================
+
+{n:1, title:"Wat is Forumtheater?",
+ cat:"Fundament", catBg:"#f7e4df", catFg:"#a8321f",
+ stripe:"#a8321f",
+ note:"De bekendste vorm binnen Boals Theater van de Onderdrukten. Een toneelscène toont een situatie van onderdrukking waarin de protagonist faalt. Daarna speelt het publiek zelf mogelijke alternatieven uit — niet om de beste oplossing te vinden, maar om samen te onderzoeken wat wel en wat niet werkt tegen structurele onrechtvaardigheid.",
+ stages:[
+  {t:"Theater als repetitie voor de werkelijkheid",
+   body:"Boal noemt Forumtheater expliciet een 'repetitie voor de revolutie'. Niet een voorstelling van een oplossing, maar een oefenruimte waar mensen concrete handelingen uitproberen voordat ze die in het leven toepassen. De scène is veilig genoeg om te falen, echt genoeg om te leren."},
+  {t:"Het antimodel als startpunt",
+   body:"De voorstelling heet antimodel: de scène eindigt met de nederlaag van de protagonist. Dat is geen pessimisme maar methode. Zonder die nederlaag is er niets om te veranderen. Het publiek krijgt een situatie aangeboden die vraagt om hun tussenkomst — niet om applaus."},
+  {t:"Spect-acteur in plaats van toeschouwer",
+   body:"De kerntransformatie die Boal beoogt is de verandering van spectator (passieve toeschouwer) naar spect-actor (handelende deelnemer). Het publiek neemt plaats op de scène, vervangt de protagonist, en probeert een andere handelwijze. Dit is geen theatertruc maar een politieke daad."},
+  {t:"Collectieve analyse door spel",
+   body:"Elke interventie wordt bespeeld, bekeken, bevraagd. Niet 'wie had de beste oplossing?' maar 'wat gebeurde er met de machtsverhoudingen toen deze handeling werd geprobeerd?' Forumtheater is collectieve analyse vermomd als spel."}
+ ],
+ tip:"Forumtheater is geen debatvorm met acteurs. Als het publiek gaat argumenteren in plaats van spelen, is er iets mis gegaan. De Joker leidt het publiek steeds terug naar de scène — niet omdat woorden onbelangrijk zijn, maar omdat de ligging van het lichaam in ruimte en tijd zichtbaar maakt wat woorden verhullen."},
+
+{n:2, title:"De spect-acteur",
+ cat:"Fundament", catBg:"#f7e4df", catFg:"#a8321f",
+ stripe:"#a8321f",
+ note:"Boals neologisme spect-actor (of spect-acteur in het Nederlands) is de sleutel van zijn hele systeem. Het bestaat uit de gedachte dat toeschouwers worden niet omdat ze dat willen, maar omdat iemand anders hen die rol toebedeelt. Het theater van de onderdrukten draait die rolverdeling om.",
+ stages:[
+  {t:"Aristoteles' wapen volgens Boal",
+   body:"In Theatre of the Oppressed betoogt Boal dat het Aristotelische theater een onderdrukkend systeem is: het publiek identificeert zich met de held, ondergaat zijn catharsis, en wordt zo gezuiverd van de wil tot handelen. Forumtheater keert dit om — de catharsis wordt uitgesteld totdat het publiek zelf heeft ingegrepen."},
+  {t:"Niet alleen kijken — ook handelen",
+   body:"De spect-acteur is niet iemand die eerst kijkt en dan meedoet. Het is iemand die de hele tijd al mede-auteur is van de scène: door te kijken verandert hij de scène, door in te grijpen erkent hij dat. Het verschil tussen publiek en acteur is voor Boal een politieke illusie."},
+  {t:"Geen rolwisseling maar rolverheffing",
+   body:"Wanneer een toeschouwer naar voren komt, neemt hij niet zomaar de rol van de protagonist over. Hij blijft zichzelf — met zijn eigen biografie, lichaam, sociale positie. De inhoud van de rol verandert dus bij elke interventie. Dat is het punt: dezelfde situatie, andere mens, andere uitkomst."},
+  {t:"Collectieve eigenaar van de scène",
+   body:"Het publiek is samen eigenaar van het antimodel geworden zodra het de problematiek erkent. Niet de troep bepaalt wat de juiste interventie is — het publiek beslist door spel. Boal schrijft: 'Wij wilden democratiseren, niet domineren.' Het hele ontwerp van Forum is hierop gericht."}
+ ],
+ tip:"Pas op voor het woord 'publiek' tijdens een Forum. Zodra je zegt 'het publiek vindt', creëer je weer afstand. Zeg liever 'wij hier in de zaal' — het werkt."},
+
+{n:3, title:"Antimodel",
+ cat:"Fundament", catBg:"#f7e4df", catFg:"#a8321f",
+ stripe:"#a8321f",
+ note:"Het antimodel is de voorstelling zelf: een korte scène (meestal tien tot vijftien minuten) waarin een protagonist probeert een doel te bereiken en daarin wordt gedwarsboomd door een antagonist, binnen een herkenbare sociale context. Het antimodel eindigt op het moment van nederlaag.",
+ stages:[
+  {t:"Model van wat níet werkt",
+   body:"Boal kiest expliciet de term antimodel, niet model. Het toont een handelwijze die faalt. Pas in de ogen van het publiek ontstaat het 'model' — en dat is altijd meervoudig, tentatief, onderzocht. De anti- is niet negatief maar methodisch: het is de ruimte waarin het publiek mag scheppen."},
+  {t:"Gebaseerd op geleefde ervaring",
+   body:"Een goed antimodel komt uit het leven van de troep of de gemeenschap. Verzonnen situaties werken zelden — ze missen de specifieke details waardoor het publiek zich herkent. De scène moet waar voelen, ook al is ze gedramatiseerd. Jana Sanskriti's voorstellingen komen altijd voort uit maandenlange dorpsgesprekken."},
+  {t:"Eén concreet moment van onmacht",
+   body:"Het antimodel heeft één duidelijk crisispunt — het moment waarop de protagonist zou kunnen kiezen maar de verkeerde keuze maakt, of waarop hij geen keuze lijkt te hebben. Dat moment is waar het publiek straks zal ingrijpen. Zonder dit scherpe moment drijft het Forum af in algemene discussies."},
+  {t:"Herhaalbaar en repeteerbaar",
+   body:"Het antimodel moet de scène kunnen spelen en herspelen zonder dat het slijt. Dat vraagt strakke timing, duidelijke replieken, en acteurs die hun rol van binnenuit kennen — zodat ze kunnen reageren op de meest onverwachte interventies zonder uit karakter te vallen."}
+ ],
+ tip:"Kies geen 'neutrale' antagonist. Een antagonist die alleen 'onaardig' is biedt te weinig weerstand. De beste antagonisten zijn menselijk, gemotiveerd, en zelf ingeklemd in een systeem. Publieksinterventies moeten iets echts op de proef stellen, niet een karikatuur omverwerpen."},
+
+// ============================================
+// II. DRAMATURGIE (kaarten 4-5) — terracotta
+// ============================================
+
+{n:4, title:"Het schrijven van een antimodel",
+ cat:"Dramaturgie", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Antimodellen worden zelden 'geschreven' in de klassieke zin. Ze ontstaan in collectieve improvisatie, worden verdicht door de troep, en krijgen hun definitieve vorm in repetitie. Maar er zijn dramaturgische principes die het verschil maken tussen een werkend en een vastlopend Forum.",
+ stages:[
+  {t:"Protagonist, antagonist, context",
+   body:"Drie elementen zijn altijd nodig: een protagonist met een helder verlangen, een antagonist die dat verlangen blokkeert, en een sociale context die de conflictmogelijkheden bepaalt. Het verlangen van de protagonist moet legitiem zijn en herkenbaar voor het doelpubliek. De antagonist moet meer zijn dan een stroman — bij voorkeur zelf ook ingeklemd in structuren."},
+  {t:"Escalatie in drie beats",
+   body:"Veel werkende antimodellen volgen een drie-beats-structuur: eerste poging van de protagonist → eerste weerstand → tweede poging (meer inzet) → grotere weerstand → derde poging → definitieve nederlaag. Deze opbouw geeft het publiek ruimte om de dynamiek te doorgronden vóór de crisis, wat latere interventies beter maakt."},
+  {t:"Het crisispunt markeren",
+   body:"Er is één moment waar alles samenkomt — het moment waar het publiek straks zal ingrijpen. Dit moment moet voor iedereen zichtbaar zijn: de protagonist is alleen, geïsoleerd, en de antagonist staat klaar om de genadeslag te geven. Sanjoy Ganguly noemt dit 'the fracture' — de breuk waarin mogelijkheid kan binnendringen."},
+  {t:"Sociale laag expliciet maken",
+   body:"Een antimodel dat alleen een interpersoonlijk conflict toont werkt zelden voor Forum — het nodigt uit tot 'praat eens met elkaar'-interventies. De kracht van Forum komt pas vrij als de structurele dimensie zichtbaar is: wie heeft toegang tot welke hulpbronnen, wie spreekt welke taal, welke regels gelden voor wie. Dit vraagt om bewuste dramaturgische keuzes."}
+ ],
+ tip:"Een vuistregel van Jana Sanskriti: als de scène zonder veel verlies kan worden uitgespeeld in een dorpsplein, zonder decor, met niets dan vier acteurs en een rij stoelen — dan staat de dramaturgie. Alles wat daarna wordt toegevoegd is illustratie, geen structuur."},
+
+{n:5, title:"Scène-opbouw — ritme en specifiek",
+ cat:"Dramaturgie", catBg:"#f5e8d0", catFg:"#8b4513",
+ stripe:"#8b4513",
+ note:"Hoe een scène is opgebouwd bepaalt hoeveel ruimte er is voor interventies. Een te snelle scène geeft geen 'ingangen', een te langzame scène verliest het publiek. Ritme, specifieke details en tekstkarigheid zijn de drie schroeven waaraan de troep tot op het laatst blijft draaien.",
+ stages:[
+  {t:"Karige tekst, rijk lichaam",
+   body:"Boal waarschuwt tegen tekstovervloed. Hoe meer woorden, hoe minder ruimte voor het publiek om te zien wat er tussen de regels gebeurt. Werkende scènes hebben korte replieken en lange stiltes, veel blik en lichaamshouding. Een goede Forum-acteur communiceert negentig procent non-verbaal."},
+  {t:"Specifieke details boven generieke",
+   body:"'Hij krijgt geen uitkering' werkt niet. 'De dame aan het loket draait haar scherm om en zegt: uw BSN klopt niet' werkt wel. Specifieke details geven het publiek concrete aangrijpingspunten. Abstractie is de vijand van Forum — details zijn zijn voedsel."},
+  {t:"Ruimte voor interventie ingebouwd",
+   body:"Bij de repetitie vraagt de dramaturg zich steeds af: waar zou ik als toeschouwer willen ingrijpen, en is dat mogelijk? Als de scène te gladjes loopt, moet hij vertraagd worden. Is er een moment waarop de protagonist zou kunnen protesteren maar dat niet doet? Dat moment is goud voor Forum."},
+  {t:"Herkenbare context, universeel conflict",
+   body:"De beste antimodellen werken lokaal én hebben universele weerklank. Jana Sanskriti's 'Shonar Meye' (Gouden Meisje) gaat specifiek over bruidsschat in West-Bengalen, maar raakt overal waar vrouwen economisch afhankelijk zijn. Het lokale geeft geloofwaardigheid, het universele geeft overdraagbaarheid."}
+ ],
+ tip:"Repeteer altijd met 'mystery interventies': laat iemand uit de troep een willekeurige, niet-afgesproken interventie doen. Valt de scène dan om, of kan hij overeind blijven? Een antimodel dat alleen werkt bij braaf publiek werkt niet."},
+
+// ============================================
+// III. DE JOKER (kaarten 6-10) — amber
+// ============================================
+
+{n:6, title:"Rol van de Joker",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"De Joker is de sleutelfiguur in Forumtheater. Boal schreef in The Aesthetics of the Oppressed (2006): 'The Joker's neutrality is a responsible act and arises after having made a choice, after taking the side of the oppressed; the substance of the Joker is doubt, seed of all certainties; the end is discovery, not abstention.' De Joker is dus neutraal binnen de sessie — legt geen eigen idee op — maar die neutraliteit volgt op een eerdere keuze voor de onderdrukte.",
+ stages:[
+  {t:"Neutraliteit als verantwoordelijke daad",
+   body:"Boals formulering lost een vaak misbegrepen kwestie op. De Joker is niet neutraal zoals een scheidsrechter neutraal is tussen twee gelijkwaardige partijen. De Joker heeft al gekozen voor de onderdrukte — en kan vanuit díe positie ruimte geven aan het onderzoek zonder de uitkomst te sturen. Wie daarin alsnog zichzelf tot wet verheft, verwart Joker-zijn met moraliseren."},
+  {t:"De substantie is twijfel",
+   body:"Boal: 'the substance of the Joker is doubt, seed of all certainties; the end is discovery, not abstention.' De Joker weet niet wat het publiek moet vinden — stelt vragen, maakt zichtbaar, onderzoekt gevolgen. Roberto Mazzini (Giolli, Italië) formuleert dit als 'difficultator': de Joker veroorzaakt problemen voor het publiek, in functie van de analyse."},
+  {t:"Brug tussen scène en zaal",
+   body:"De Joker beweegt steeds tussen speelvloer en zaal, praat met acteurs en met publiek, vertaalt wat op de scène gebeurt naar de zaal en andersom. Deze brugfunctie vraagt grote flexibiliteit in taal en toon — de Joker moet codes wisselen zonder iemand te verliezen."},
+  {t:"Hoeder van de vorm, niet van de inhoud",
+   body:"De Joker bewaakt dat Forum echt Forum blijft — dat er gespeeld wordt en niet alleen gepraat, dat interventies werkelijk getest worden, dat magische oplossingen worden bevraagd. Maar de Joker bepaalt niet de inhoud: niet welk thema, niet welke oplossing, niet welke moraal. Dat is aan de groep."}
+ ],
+ tip:"Een Joker die populair wil zijn is verloren. Het werk vraagt soms ongemakkelijke confrontaties met het publiek — 'zou dat in het echt ook werken, denk je?' Die confrontatie moet liefdevol zijn maar mag niet uitblijven. Simon Malbogat (Mixed Company, Canada): 'De joker is geen expert, de mensen in de zaal wel.' En Boal zelf: 'When you don't know what to say, ask.'"},
+
+{n:7, title:"Opwarming van het publiek",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"Een publiek dat net binnen is geen spect-acteur — nog niet. De eerste minuten van het Forum gaan volledig over de transformatie van toeschouwer naar deelnemer. Zonder deze opwarming blijft de zaal verlamd zitten, ook als de Joker later smeekt om interventies.",
+ stages:[
+  {t:"Spel vóór spel",
+   body:"Veel Jokers beginnen met één of twee korte groepsspelletjes voordat het antimodel start. Niet als icebreaker, maar als lichamelijke training: het publiek leert opstaan, de ruimte ingaan, reageren op signalen. Dit maakt een cruciaal psychologisch verschil — er is al een keer bewogen, dus bewegen is nu denkbaar."},
+  {t:"Benoemen wat gaat gebeuren",
+   body:"De Joker legt aan het begin uit hoe Forum werkt: 'Jullie zien straks een scène waarin iemand iets probeert maar vastloopt. Daarna spelen we de scène opnieuw, en dan kun je op elk moment STOP roepen, de plek van deze persoon innemen, en iets anders proberen.' Duidelijke regels geven veiligheid."},
+  {t:"Het eerste interveniëren laag houden",
+   body:"Veel Jokers gebruiken een opwarm-antimodel: een heel korte, soms wat komische scène waarin meteen interveniëren laagdrempelig is. Pas daarna komt het 'echte' antimodel. Het principe: iemand die één keer de scène op is geweest, komt de tweede keer makkelijker."},
+  {t:"De boer van Boal vertellen",
+   body:"Boal vertelt een anekdote: in Peru probeerde een vrouw herhaaldelijk haar man uit te leggen wat ze wilde, steeds tevergeefs. Een toeschouwer werd boos en riep advies — waarop Boal uitnodigde: 'Doe het dan zelf.' De vrouw ging terug de zaal in, de toeschouwer de scène op. Forum was geboren. Deze anekdote aan het begin vertellen werkt beter dan elke technische uitleg."}
+ ],
+ tip:"De eerste interventie is de moeilijkste. Veel Jokers plannen ongezien een 'seed' — iemand uit eigen kring die op een afgesproken moment als eerste opstaat. Niet om de inhoud te manipuleren, maar om de drempel te breken. Eenmaal gebroken, volgen echte interventies vanzelf."},
+
+{n:8, title:"Tijdens het Forum — stoppen, bevragen, uitnodigen",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"Als het antimodel eenmaal is gespeeld en het publiek wordt uitgenodigd in te grijpen, begint het eigenlijke werk. De Joker heeft drie bewegingen die voortdurend worden afgewisseld: stoppen van de scène, bevragen van een voorstel, en uitnodigen van nieuwe spect-acteurs. Daarnaast waakt de Joker over twee valkuilen in het spel van de antagonist: Couch Potato en Brick Wall.",
+ stages:[
+  {t:"Stoppen op het juiste moment",
+   body:"De Joker stopt de scène: na een interventie om die te onderzoeken, of bij een magische wending om die te bevragen. Te vroeg stoppen breekt de interventie af; te laat laten lopen laat de scène wegdrijven. De ideale stop is precies op het moment dat iets nieuws is zichtbaar geworden — een nieuwe machtsverhouding, een nieuwe mogelijkheid, een nieuwe impasse."},
+  {t:"Bevragen zonder beoordelen, uitnodigen zonder dwingen",
+   body:"Na een interventie vraagt de Joker aan het publiek: 'Werkte dit? Wat gebeurde er? Wat veranderde aan de situatie?' Nooit: 'Was dit goed?' En daarna: 'Wie wil proberen?' — en dan wachten. De Joker moet zich comfortabel voelen in stilte. Haastig uitnodigen werkt averechts. Stilte nodigt uit; gehaast duwt weg. Boal: 'When you don't know what to say, ask the audience.'"},
+  {t:"Couch Potato en Brick Wall",
+   body:"Boal waarschuwt in The Aesthetics of the Oppressed voor twee falende antagonist-stijlen. De Couch Potato is een acteur die niet reageert op nieuwe elementen — observeert alleen en zet de improvisatie niet voort, terwijl juist die voortzetting nodig is om te zien wat de interventie teweegbrengt. De Brick Wall doet het omgekeerde: blokkeert elke interventie met een continue 'nee, nee, nee'. Beide verstoren het Forum. Goede antagonisten bieden realistische weerstand én laten nieuwe handelingen hun consequenties uitwerken."},
+  {t:"Meerdere interventies, niet één antwoord",
+   body:"De Joker zoekt niet naar de beste interventie. De Joker bouwt een serie interventies — drie, vijf, tien — zodat het publiek verschillende handelwijzen kan zien en vergelijken. Ganguly beschrijft dit als 'thesis, antithesis, synthesis' — maar dan in collectieve theatrale vorm. Mohammad Waseem (Pakistan) voegt toe: voorkom herhaling van dezelfde interventie door naar nieuwe, andere manieren te vragen."}
+ ],
+ tip:"Elke interventie verdient applaus, ook als ze faalt. Niet omdat elke interventie goed is, maar omdat de moed om op te staan altijd erkenning verdient. Waseem (Pakistan) laat aan het einde alle inspringers terug op het toneel komen voor een gezamenlijk slotapplaus — een klein gebaar dat het collectief onderstreept."},
+
+{n:9, title:"De magische oplossing",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"De gevaarlijkste interventie in elk Forum is de 'magische oplossing' — een voorstel dat het conflict oplost met middelen die de protagonist in werkelijkheid niet heeft. De antagonist wordt ineens mak, de regels worden ineens buigzaam, het geld komt uit het niets. Het publiek voelt zich goed — en heeft niets geleerd. Het ontmaskeren van magische oplossingen is de moeilijkste Joker-competentie.",
+ stages:[
+  {t:"Herkennen van het magische",
+   body:"Typische magische wendingen: 'Ze gaan dan toch overstag.' 'Hij blijkt een goede collega te hebben die helpt.' 'De directeur komt tussenbeide en lost het op.' Kenmerk: de oplossing berust op een verandering bij iemand anders, niet op een handeling van de protagonist. Of op middelen die niet tot de werkelijkheid van de situatie behoren."},
+  {t:"Bevragen, niet afwijzen",
+   body:"De Joker wijst een magische oplossing nooit af — dat zou het publiek afschrikken. De Joker bevraagt: 'In onze scène werkt dit. Maar in de werkelijkheid, zou je baas zomaar je kant kiezen? Hebben we redenen om dat te denken? Wat ontbreekt hier?' Deze bevraging haalt het publiek uit de wensdroom zonder de inzet te diskwalificeren."},
+  {t:"De antagonist laten weerstand bieden",
+   body:"Goed getrainde acteurs bieden realistische weerstand tegen magische oplossingen. Niet onverzettelijk — dat ontmoedigt — maar net zo realistisch als het antimodel suggereert. Als een interventie 'werkt' terwijl ze in werkelijkheid zou falen, heeft de antagonist de interventie cadeau gegeven. Boal was hier onvermurwbaar over: 'De antagonist mag niet toegeeflijk zijn.'"},
+  {t:"Structurele magie",
+   body:"De gevaarlijkste magische oplossingen zijn niet persoonlijk maar structureel: 'Ze moeten de wet veranderen.' 'Er moet beleid komen.' Dat kan waar zijn, maar in het Forum is het een ontsnappingsroute — het legt de verantwoordelijkheid bij niemand in de zaal. De Joker brengt het terug naar de scène: 'Goed, maar wat kan déze persoon nu doen, gegeven dat de wet níet verandert?'"}
+ ],
+ tip:"Boal in Games for Actors and Non-Actors: 'Forum is niet pessimistisch, maar eerlijk. Als in de scène iets zou werken wat in het leven niet werkt, hebben we het publiek bedrogen.' Deze zin op je handpalm schrijven voor een Forum kan geen kwaad."},
+
+{n:10, title:"Na de interventie — de analyse",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"Elke interventie eindigt in een bevraging, en de voorstelling als geheel eindigt in een analyse. Deze analyse is géén moraal — niet 'dus de les is...'. Het is een inventaris van wat zichtbaar is geworden: welke strategieën deden wat, welke muren bleken hard, welke blokkades onverwacht wegvallen.",
+ stages:[
+  {t:"Wat veranderde er — concreet",
+   body:"Na elke interventie vraagt de Joker aan het publiek: wat veranderde er concreet aan de situatie? Is de protagonist nu sterker of zwakker geplaatst? Kreeg hij bondgenoten? Verloor hij ze? Is de antagonist onder druk gezet of juist versterkt? Concrete observaties, geen interpretaties."},
+  {t:"Wat werd mogelijk, wat bleef onmogelijk",
+   body:"Een hele serie interventies maakt een kaart: dit bleek mogelijk, dit onmogelijk. Welke machten gaven mee, welke niet? De analyse legt deze kaart open — zonder hem te sluiten. De conclusie is vrijwel nooit 'dus zo moet het', wel 'dus dit hebben we nu gezien'."},
+  {t:"Verbinden met structuren",
+   body:"Aan het einde van het Forum kan de Joker één stap hoger gaan: welke structurele patronen zien we terug in alle interventies? Niet om een politieke conclusie op te leggen, maar om het publiek de brug tussen hun scène en hun samenleving zelf te laten maken. Ganguly: 'Het Forum opent een vraag die de gemeenschap buiten de zaal moet voortzetten.'"},
+  {t:"Geen afsluitende moraal",
+   body:"De verleiding om het Forum af te sluiten met een wijze boodschap is groot — en moet worden weerstaan. Een moraal sluit de vraag die het Forum opende. De Joker eindigt liever met een open vraag of een uitnodiging: 'Neem dit mee naar je eigen plek. Wie ga je er morgen met wie over spreken?'"}
+ ],
+ tip:"Veel ervaren Jokers gebruiken een schriftelijke notulering tijdens het Forum — een assistent schrijft op de flipover welke interventies zijn geprobeerd en wat ze teweegbrachten. Op die manier heeft de zaal aan het eind een feitelijk overzicht om over na te praten, en wordt de analyse niet afhankelijk van ieders geheugen."},
+
+{n:11, title:"Curinga — waar het woord Joker vandaan komt",
+ cat:"Joker", catBg:"#faf0dc", catFg:"#b8803c",
+ stripe:"#b8803c",
+ note:"Het woord 'Joker' dat we in Forumtheater gebruiken heeft een oudere betekenis dan veel Westerse Jokers beseffen. Boal bedacht de rol in 1964–1971 in het Arena Theatre van São Paulo — vóór Forumtheater zelfs bestond — als een aparte dramaturgische functie: de 'curinga', de speelkaart die elke rol kan overnemen. Bárbara Santos (CTO Rio, 23 jaar naast Boal) beschrijft de Curinga als 'specialist in een constant proces van leren'.",
+ stages:[
+  {t:"Oorsprong: Arena Theatre 1964–1971",
+   body:"Na de militaire staatsgreep van 1964 in Brazilië ontwikkelde Boal in het Arena Theatre een nieuw theatraal systeem: het Joker System. Alle acteurs speelden alle rollen behalve de protagonist, scènes wisselden van stijl binnen één 'tribunaal-stijl', en er was één acteur in een aparte functie — de Joker — als Master of Ceremonies, rechter, raisonneur. Van deze figuur erfde Forum later de naam. De Joker bestond dus vóór Forum."},
+  {t:"Curinga, niet Joker",
+   body:"In het Portugees heet deze rol 'curinga' — letterlijk de jokerkaart uit het kaartspel, de kaart die elke andere kan vervangen. Het verbum 'curingar' (jokeren) is door de CTO ontwikkeld als vaktaal. De Engelse vertaling 'Joker' heeft iets van de speelsheid verloren en klinkt soms spottend; 'curinga' dekt de pedagogische lading beter."},
+  {t:"Specialist in constant leren",
+   body:"Santos: 'A Curinga could be defined as a specialist in a constant process of learning.' Geen weekend-cursus, geen afgestudeerde Joker. De CTO onderscheidt Curingas, Assistant-Curingas (in supervisie) en Community-Curingas (binnen een groep). Opleiding is 'uninterrupted and long-term' — jarenlang, in praktijk én theorie, via workshops, laboratoria en veldwerk."},
+  {t:"Reiziger die zijn weg maakt door te gaan",
+   body:"Santos parafraseert de Spaanse dichter Antonio Machado: 'Caminante, no hay camino: se hace camino al andar.' De Curinga is een reiziger die zijn weg maakt door te gaan. Niet iemand die weet, maar iemand die onderweg is — en die weg begint in de vermenigvuldiging (multiplication): nieuwe Curingas vormen door samen te werken, niet door te doceren."}
+ ],
+ tip:"Santos' regel voor wie zich Joker wil noemen: 'It is a method that it is only learned by teaching and one which is only taught being open to learning.' Deze zin hangt in veel CTO-werkplaatsen aan de muur. Ze verplicht tot nederigheid én tot actie: wie niet doorgeeft, leert zelf niet meer; wie niet leert, kan niet doorgeven."},
+
+// ============================================
+// IV. VARIANTEN & SCHAAL (kaarten 11-15) — teal
+// ============================================
+
+{n:12, title:"Workshop-forum — 10 tot 30 mensen",
+ cat:"Schaal", catBg:"#dcefe9", catFg:"#2d6a5c",
+ stripe:"#2d6a5c",
+ note:"De meest voorkomende vorm in West-Europese praktijk: een besloten groep, vaak in een opleidings- of organisatiecontext, werkt één dag of één dagdeel samen rond een thema dat zijzelf aandraagt. De scène wordt in die dag zelf gebouwd uit het materiaal van de groep. Heel andere dynamiek dan publieksforum.",
+ stages:[
+  {t:"Scène komt uit de groep zelf",
+   body:"In workshop-forum is er geen vooraf gerepeteerd antimodel. De groep brengt verhalen in, kiest er samen een uit, bouwt daarmee een kleine scène. De spanning is lager omdat de groep zichzelf al kent — maar de inzet is hoger omdat de scène letterlijk over iemand in de zaal gaat."},
+  {t:"Iedereen is acteur én publiek",
+   body:"Er is geen vaste troep en geen vast publiek. Rollen wisselen voortdurend. Deze dynamiek geeft veel leermogelijkheden maar vraagt een Joker die scherp blijft onderscheiden: wanneer is iemand protagonist van een échte ervaring, wanneer speelt iemand? De emotionele bescherming is kwetsbaarder dan in publieksforum."},
+  {t:"Het collectief als laboratorium",
+   body:"Het doel is zelden 'de beste oplossing vinden' en bijna altijd 'samen scherper zien wat ons gevangen houdt'. Dat maakt workshop-forum een krachtig instrument in teamontwikkeling, zorgopleidingen, bij organisatievraagstukken. De toepasbaarheid is breed — de methode is relatief behoudend als je respect houdt voor de vorm."},
+  {t:"Tijd is de grote beperking",
+   body:"Een workshop-forum van drie uur kan één thema grondig behandelen, vier à vijf interventies, met tijd voor nabespreking. Een dag biedt ruimte voor twee of drie thema's. Meer dan dat wordt haastig en oppervlakkig. De Joker moet niet bezwijken voor de druk om alles te behandelen."}
+ ],
+ tip:"In workshop-contexten komt vaak de vraag: 'Kunnen we er ook gewoon over praten?' Het antwoord is: ja — maar na het spel, niet in plaats ervan. Zodra je het spel overslaat, valt de groep terug in de vertrouwde cognitieve patronen die juist door het lichaamswerk worden doorbroken."},
+
+{n:13, title:"Publieksforum — 50 tot 200 mensen",
+ cat:"Schaal", catBg:"#dcefe9", catFg:"#2d6a5c",
+ stripe:"#2d6a5c",
+ note:"De klassieke Boal-vorm zoals die in Rio de Janeiro en São Paulo groeide: een gerepeteerd antimodel wordt in een theaterzaal of gemeenschapsruimte gespeeld voor een gemengd publiek. Dit vraagt andere dramaturgie, andere Joker-technieken en andere groepsdynamieken dan workshop-forum.",
+ stages:[
+  {t:"Gerepeteerde troep, onbekend publiek",
+   body:"De troep kent elkaar en de scène grondig; het publiek komt binnen als vreemden. Dit vraagt een langere opwarming dan in workshop-contexten — vaak twintig minuten spel, kennismaking, korte demonstratie voordat het antimodel begint. Zonder deze opwarming komt het publiek niet in beweging."},
+  {t:"Zichtbaarheid en hoorbaarheid",
+   body:"Technische kwesties worden essentieel: iedereen moet kunnen zien en horen. Interventiezitplaatsen aan het gangpad, microfoons voor de Joker, eventueel een trapje naar het podium. In Jana Sanskriti's openluchtvoorstellingen staan Jokers met megafoons — niet als show, maar om de hele menigte van tweeduizend te bereiken."},
+  {t:"Gemengd publiek, gespleten loyaliteit",
+   body:"In publieksforums zitten meestal meerdere 'kampen' door elkaar: mensen met ervaring van het probleem, omstanders, professionele betrokkenen. Interventies zullen dus ook uit verschillende posities komen. De Joker zorgt dat niet één positie domineert — vraagt bewust: 'En als dit niet jouw rol is, hoe zou jij het anders doen?'"},
+  {t:"Timing in grotere zalen",
+   body:"Met honderd mensen in de zaal wordt elke beweging langzamer. Opstaan duurt langer, naar voren komen duurt langer, een stilte voelt langer. De Joker moet hier actief mee werken — niet haasten, wel ritme bewaken. Een publieksforum duurt meestal negentig minuten tot twee uur, met een antimodel van zo'n vijftien minuten."}
+ ],
+ tip:"Publieksforum kent een fenomeen dat workshop-forum niet kent: de 'eerste interveniënt als ijsbreker'. Zolang niemand heeft durven opstaan, blijft de zaal bevroren. Zodra één iemand het doet — ongeacht of de interventie goed was — vloeien de volgenden relatief makkelijk. Reken daarop in je opbouw."},
+
+{n:14, title:"Jana Sanskriti — dorpsplein voor duizenden",
+ cat:"Schaal", catBg:"#dcefe9", catFg:"#2d6a5c",
+ stripe:"#2d6a5c",
+ note:"Opgericht in 1985 door Sanjoy Ganguly en Sima Ganguly in West-Bengalen, India. Uitgegroeid tot de grootste Forumtheater-beweging ter wereld: meer dan dertig vaste troepen, jaarlijks honderden voorstellingen voor publiek van vijfhonderd tot vijfduizend mensen, doorgaans op dorpspleinen in de openlucht. Toont dat Boals methode ver kan reiken voorbij de zaal.",
+ stages:[
+  {t:"Openlucht, daglicht, geen decor",
+   body:"Voorstellingen vinden plaats op dorpspleinen onder de open hemel, overdag of bij schemer. Geen podium, geen belichting, geen geluidsversterking behalve de stem. Publiek zit in een cirkel of halve cirkel op de grond. Deze voorwaarden dwingen tot een lichamelijk theater — veel beweging, sterke stemmen, grote gebaren. De intimiteit van een zaaltheater ontbreekt; de energie van een volksvergadering vervangt haar."},
+  {t:"Troepen uit de gemeenschap",
+   body:"De spelers zijn niet bezoekers van buiten — het zijn boeren, arbeiders, huisvrouwen uit dezelfde dorpen waar wordt gespeeld. Ze worden opgeleid in werkplaatsen van Jana Sanskriti en spelen in hun eigen streek. Dit maakt het theater tot een beweging in plaats van een dienst: de troep is ook de doelgroep, de toeschouwer is ook toekomstige acteur."},
+  {t:"Thema's uit langdurig dorpsgesprek",
+   body:"Scènes ontstaan niet op basis van een snelle research maar uit maanden van dorpsgesprekken. Thema's als bruidsschat, kinderhuwelijk, alcoholisme, landroof, kastestelsel zijn geworteld in concrete lokale kwesties. Ganguly noemt dit 'dialectische dramaturgie': de scène evolueert terwijl het thema in de gemeenschap evolueert."},
+  {t:"Forum als langdurige campagne",
+   body:"Een voorstelling is geen evenement maar een fase in een jarenlange beweging. Dezelfde scène wordt soms over een periode van jaren in verschillende dorpen gespeeld, steeds met iets gewijzigde dramaturgie omdat de situatie evolueert. Ganguly heeft hiermee aangetoond: Forum kan structurele verandering bewerkstelligen, maar alleen als het niet wordt verward met een eenmalige interventie."}
+ ],
+ tip:"Ganguly's vraag aan alle Westerse Forum-gebruikers: 'Wat doen jullie ná het Forum? In onze praktijk is het Forum het begin van het gesprek, niet het eind. Westerse Forum-avonden zijn vaak geïsoleerd — voorstelling, einde, volgende week iets anders. Dat is niet Forum zoals Boal het bedoelde.' Deze kritiek is niet van tafel te vegen."},
+
+{n:15, title:"Cardboard Citizens — Forum met en voor daklozen",
+ cat:"Schaal", catBg:"#dcefe9", catFg:"#2d6a5c",
+ stripe:"#2d6a5c",
+ note:"Opgericht in 1991 in Londen door Adrian Jackson — Boals vaste Engelse vertaler (Games for Actors and Non-Actors, The Rainbow of Desire, Legislative Theatre, The Aesthetics of the Oppressed). Cardboard Citizens is inmiddels de langstlopende professionele Forum-troep van het Verenigd Koninkrijk. Werkt structureel met en voor mensen met geleefde ervaring van dakloosheid en voorbij-de-rand-situaties. Toont hoe Forum werkt als er echte doelgroep-expertise in de zaal zit.",
+ stages:[
+  {t:"Doelpubliek als kern",
+   body:"Cardboard Citizens speelt niet óver dakloosheid voor een burgerlijk publiek — ze spelen mét en vóór mensen die het zelf meemaken. In hostels, opvangcentra, inloopvoorzieningen. De acteurs hebben vaak zelf ervaring. Deze constellatie verandert het Forum fundamenteel: het publiek weet welke interventies in werkelijkheid wel of niet werken, en corrigeert magische oplossingen onmiddellijk — 'dat zou nooit werken bij die balie, geloof me.'"},
+  {t:"Creëer een kritische massa",
+   body:"Jackson in Jokers of the World: 'Creëer een kritische massa. Haal de barrières weg voor participatie — maar niet door mensen om te kopen.' In Cardboard Citizens-context betekent dat bijvoorbeeld vervoer regelen, een maaltijd, geen formele kleding verwachten, niet vooraf inschrijven. Het gaat erom dat mensen werkelijk kunnen komen, niet dat ze moeten willen komen. Toegankelijkheid is politieke keuze, geen bijzaak."},
+  {t:"Het antimodel draagt de participatie",
+   body:"Jackson's scherpste regel: 'Als mensen niet participeren, komt het door je antimodel.' Niet door hun verlegenheid, niet door een slechte dag, niet door 'deze groep is moeilijk'. Als het antimodel de werkelijke ervaring van het publiek raakt en open laat wat open moet blijven, komen de interventies. Dit gooit de verantwoordelijkheid terug bij de troep — en is een steile, nuttige regel."},
+  {t:"Professionele troep, geleefde expertise",
+   body:"Cardboard Citizens combineert vakmanschap (gerepeteerde acteurs, sterke dramaturgie, ervaren Jokers) met betrokkenheid van mensen met geleefde ervaring. Die combinatie is zeldzaam — Forum wordt vaak óf amateur-met-ervaring óf professioneel-zonder-ervaring. Cardboard Citizens' duurzaamheid (dertig jaar en meer) toont dat de combinatie kan als je er structuur op bouwt."}
+ ],
+ tip:"Een van de belangrijkste lessen van Cardboard Citizens voor Nederlandse context: toegankelijkheid is geen compromis op kwaliteit. Een Forum dat werkt voor mensen in kwetsbare posities — dakloos, verslaafd, ongedocumenteerd — is bijna altijd óók een beter Forum voor iedereen. Het dwingt tot helder spel, concrete details, menselijke antagonisten en realistische weerstand."},
+
+{n:16, title:"Shadow Liberation — Forum via schimmentheater in India",
+ cat:"Schaal", catBg:"#dcefe9", catFg:"#2d6a5c",
+ stripe:"#2d6a5c",
+ note:"Shadow Liberation, verbonden aan het Srishti Institute in Bangalore, combineert Boals Forumtheater met participatory shadow theatre rond thema's van gendergeweld. Een bijzondere hybride: de protagonist en antagonist zijn schimfiguren achter een doek, het publiek wordt alsnog uitgenodigd om als spect-acteur in te grijpen. Toont hoe Forum zich laat kruisen met andere theatervormen zonder zijn methodische kern te verliezen.",
+ stages:[
+  {t:"Schim als esthetisch register",
+   body:"Door met schimmen te werken ontstaat een ander esthetisch register dan het conventionele Forum. De abstractie van de silhouet maakt bepaalde thema's — huiselijk geweld, seksueel geweld — benaderbaar zonder voyeurisme. Het publiek ziet genoeg om te begrijpen, niet zozeer dat het wegkijkt. Een sterk voorbeeld van wat Boal 'de esthetisering van het beeld' noemt."},
+  {t:"Interventie blijft Forum",
+   body:"Ondanks het schimmenmedium blijft de structuur herkenbaar Forum: antimodel, spect-acteur, interventie, bevraging. Het publiek treedt werkelijk achter het doek om de rol van de protagonist over te nemen. De methodische kern blijft intact; alleen het visuele register verandert. Dit pleit tegen de gedachte dat Forum per se in 'naakt' realistisch theater moet — de vorm laat meer toe dan vaak wordt aangenomen."},
+  {t:"Werkboek als open bron",
+   body:"De Forum Theatre Guide V5 van Shadow Liberation — onder Creative Commons licentie vrijgegeven — is een uitzonderlijk toegankelijk werkboek. Naast de basisprincipes beschrijft het concrete scene-mechanismen: Spectrum, Soliloquy/Aside, Multiple Endings, Fast Forward/Rewind, Chorus, Double, Repetition, Role Reversal, Consultation, Pause. Een zeldzaam voorbeeld van TO-materiaal dat methodische zorgvuldigheid combineert met open licentie."},
+  {t:"De helplessness-valkuil",
+   body:"Shadow Liberation's gids benoemt expliciet een valkuil die niet altijd aandacht krijgt: als het antimodel zo extreem wordt — protagonist onder schot bijvoorbeeld — dat interventie onmogelijk lijkt, verliest het Forum zijn doel. Te zacht werkt niet (geen weerstand); te extreem werkt ook niet (geen ingang). De dramaturgische balans moet precies genoeg onmacht tonen om interventie uit te lokken, niet te veel."}
+ ],
+ tip:"Shadow Liberation's gids staat open online onder CC BY-NC-SA 4.0 en is een uitstekend startpunt voor wie Forum leert vanuit niet-Europese context. De Indiase traditie — Jana Sanskriti én Shadow Liberation — laat zien dat Forum in andere culturen andere accenten krijgt, zonder aan methode in te boeten. Boals principe 'TO in India must be Indian' wordt hier praktijk."},
+
+// ============================================
+// V. VALKUILEN & ETHIEK (kaarten 17-19) — paarsgrijs
+// ============================================
+
+{n:17, title:"Catharsis als valkuil",
+ cat:"Ethiek", catBg:"#e8e4ed", catFg:"#5c4678",
+ stripe:"#5c4678",
+ note:"Boals kritiek op Aristoteles is scherp: het klassieke theater zuivert de toeschouwer van zijn wil tot handelen, terwijl Forum die wil juist wil mobiliseren. Maar catharsis sluipt Forum-voorstellingen binnen via een achterdeur — als het Forum eindigt met een gevoel van emotionele voldoening zonder concrete handeling. Dit is een structurele valkuil.",
+ stages:[
+  {t:"Boals aristoteles-kritiek",
+   body:"In Theatre of the Oppressed betoogt Boal dat Aristotelische catharsis een sociaal wapen is: de toeschouwer leeft mee met de held, ondergaat angst en medelijden, en verlaat de zaal 'gereinigd'. Boal ziet dit als politieke kalmering — de zaal is ontladen, de werkelijkheid onveranderd. Forum wil precies het tegenovergestelde: de zaal spanning laten houden."},
+  {t:"Forum kan toch catharsis produceren",
+   body:"Ironisch genoeg produceren veel Forum-voorstellingen alsnog catharsis: het publiek voelt zich goed omdat het heeft geïntervenieerd, lacht, klapt, gaat opgelucht naar huis — en verandert niets. De emotionele voldoening heeft de plaats van handelen ingenomen. Dit is Boals grootste angst geworden in zijn latere werk."},
+  {t:"Signalen van Forum-als-catharsis",
+   body:"Herkenbare signalen: veel magische oplossingen die blijven staan; lichte, komische ondertoon die geen ongemak toestaat; eindapplaus alsof er een voorstelling is afgelopen; geen doorverwijzing of vervolg. Als het Forum eindigt en iedereen voelt zich tevreden, is waarschijnlijk iets misgegaan. Goede Forums laten ongemak achter."},
+  {t:"Weerstand bieden aan het fijne",
+   body:"De Joker heeft de pijnlijke taak om bevredigende momenten te verstoren. Als de zaal genoegen neemt met een interventie die in werkelijkheid niet zou werken, moet de Joker bevragen — ook als dat ongemakkelijk is. Boal was hierover hard: 'Als het publiek het fijn heeft gevonden en niets is veranderd, hebben we verloren.' Dit is geen populaire positie maar een methodisch noodzakelijke."}
+ ],
+ tip:"Een praktisch tegengif: zorg dat Forum altijd uitmondt in een concrete vervolgmogelijkheid. Een vervolgbijeenkomst, een campagne om bij aan te sluiten, een gesprek met beleidsmakers, een volgende workshop. Boal noemde dit 'het theater dat voorbij zichzelf wijst' — en zonder dat is Forum een nobele versie van entertainment."},
+
+{n:18, title:"Grenzen van het Forum — wanneer niet?",
+ cat:"Ethiek", catBg:"#e8e4ed", catFg:"#5c4678",
+ stripe:"#5c4678",
+ note:"Forum is niet universeel toepasbaar. Er zijn situaties waarin Forum niet de juiste vorm is — en het niet erkennen daarvan leidt tot emotionele schade, herviktimisering of simpel methodisch falen. Ervaren Jokers leren nee zeggen; startende Jokers leren meestal pas via falen.",
+ stages:[
+  {t:"Trauma zonder omkadering",
+   body:"Forum vraagt de protagonist (of de scène) zich bloot te geven aan een zaal. Wanneer het thema direct ingrijpt op onverwerkt trauma — seksueel geweld, oorlogservaringen, acuut verlies — is Forum vaak de verkeerde vorm. Boal ontwikkelde later het Regenboog van Verlangen-werk (introspectief) juist voor deze contexten. Vaardige Jokers verwijzen dan door naar andere methoden of voorwaarden."},
+  {t:"Acuut onveilige groepen",
+   body:"In een groep waar de machtsverhoudingen onveilig zijn — bijvoorbeeld een bedrijf waar de werknemer Forum doet in aanwezigheid van zijn baas — kan Forum schade veroorzaken. Het theater is een vergrootglas; wat op de scène zichtbaar wordt, heeft gevolgen na de voorstelling. Consent en veiligheidsafspraken moeten vooraf expliciet zijn."},
+  {t:"Individuele therapie vermomd als Forum",
+   body:"Soms probeert iemand Forum te gebruiken om een persoonlijk probleem op te lossen dat eigenlijk individuele begeleiding nodig heeft. De groep wordt dan therapeutisch publiek, met alle asymmetrieën van dien. De Joker herkent dit aan concreetheid (het gaat steeds om één specifieke persoon en situatie) en kan dan het proces herkaderen of beëindigen."},
+  {t:"Onder tijdsdruk of dwang",
+   body:"Forum dat wordt opgedrongen — 'we hebben één uur over in het programma, laten we dan nog een Forum doen' — wordt bijna altijd slecht. De vorm vraagt opwarming, scène-ontwikkeling, interventietijd, nabespreking. Korter dan negentig minuten voor een volwaardig Forum is onrealistisch. Kortere vormen (Bliksemforum, Handshake Forum) kunnen wel, maar dan bewust gekozen, niet als inkorting van een volwaardig Forum."}
+ ],
+ tip:"Een goede regel van Formaat-Jokers: 'Ik zeg liever nee en behoud de methode, dan ja en beschadig de groep.' Dit vraagt zelfvertrouwen dat met ervaring komt. Voor beginnende Jokers: werk altijd onder supervisie of intervisie, juist omdat deze grensbeslissingen niet alleen te maken zijn."},
+
+{n:19, title:"Nabespreking — sharing, niet analyse",
+ cat:"Ethiek", catBg:"#e8e4ed", catFg:"#5c4678",
+ stripe:"#5c4678",
+ note:"Elke Forum-voorstelling eindigt met nabespreking — en hoe die wordt gedaan bepaalt in grote mate of het Forum landt of verdampt. Hier vindt een ontmoeting plaats tussen Boals methode en Moreno's psychodrama: de sharing-traditie uit het psychodrama biedt een model dat veel Forum-praktijk versterkt.",
+ stages:[
+  {t:"Geen feedback, wel resonantie",
+   body:"Bij sharing vertelt niemand de protagonist (of de acteurs) wat ze beter hadden kunnen doen. Wat mensen delen is eigen resonantie: 'Dit deed mij denken aan...' 'Ik herkende...' 'Toen jij daar stond voelde ik...' Dit heeft twee effecten: de protagonist wordt gedeïsoleerd, en de scène wordt gevalideerd als gemeenschappelijke ervaring. Geen didactiek, wel verbinding."},
+  {t:"Tijd voor het lichaam",
+   body:"Goede nabespreking laat eerst ruimte voor lichaam en adem voordat er wordt gepraat. Een kort moment van stilte, een gezamenlijke ademhaling, soms een korte beweging. Dit is geen esoterisch ritueel maar een methodische noodzaak: het lichaam moet kunnen landen na het spel, voordat het hoofd gaat analyseren."},
+  {t:"Het onderscheid bewaken",
+   body:"De Joker onderscheidt in de nabespreking drie soorten gesprek: sharing (eigen ervaring), analyse (wat zagen we aan structuren), en planning (wat gaan we ermee doen). Deze drie volgen het best in die volgorde. Als mensen meteen beginnen te plannen voordat er is gedeeld, is de sharing overgeslagen — en daarmee de verankering in de groep."},
+  {t:"Doorverwijzing en afsluiting",
+   body:"Aan het einde biedt de Joker concrete volgende stappen: waar kunnen mensen met dit thema verder? Welke bijeenkomst, organisatie, vervolg? Soms alleen een volgende sessie; soms verwijzing naar hulpverlening of advocatiegroepen. Deze afsluiting is geen bijvoegsel — het is wat voorkomt dat Forum blijft hangen als emotionele ervaring zonder handelingsperspectief."}
+ ],
+ tip:"Laat de zaal staand afsluiten. Een kring, een gezamenlijk woord, een minuut ademhalen. De overgang van theater terug naar alledag is een kwetsbaar moment — een stevige gezamenlijke afsluiting geeft mensen iets om mee naar buiten te dragen. Dit is psychodrama-wijsheid die Forum enorm versterkt."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => 
+              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
+            ).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle technieken</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    curStage = 0;
+    updateDisplay();
+  }
+}
+
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) {
+    curStage++;
+    updateDisplay();
+  }
+}
+
+function prevStage() {
+  if (curStage > 0) {
+    curStage--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  curStage = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    curStage = 0;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    prevTech();
+  }
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    nextTech();
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+  if (e.code === 'ArrowUp') {
+    e.preventDefault();
+    prevStage();
+  }
+  if (e.code === 'ArrowDown') {
+    e.preventDefault();
+    nextStage();
+  }
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>
