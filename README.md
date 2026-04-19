@@ -25,7 +25,7 @@ Negen concrete technieken die Freire ontwikkelde met boerenarbeiders in Brazili�
 
 ### Joker-praktijk
 
-**CLRA, trauma, consent, herkomst** — 4 kaarten over hoe de joker staat vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie (de richting komt uit de gemeenschap, niet uit joker of opdrachtgever — gegrond in eigen praktijkonderzoek met Dreamers Beyond). Trauma-informed practice: hoe goede bedoelingen niet re-traumatiserend werken, met SAMHSA's vierR-kader als werkdefinitie. Consent-based facilitatie en brave space (Arao & Clemens 2013, Rohd 1998): de ruimte wordt gebouwd, niet aangenomen. Herkomst en de joker als gast (Ramose 1999, Smith 2012, correspondentie met Arun Naicker van Umtapo Centre): wat je doet wanneer je werkt met oefeningen uit tradities waar je niet uit voortkomt.
+**CLRA, Trauma, Consent, Herkomst** — 4 kaarten over hoe de joker staat vóór hij zijn gereedschap oppakt. Community Led Research in Action als onderzoekspositie (de richting komt uit de gemeenschap, niet uit joker of opdrachtgever — gegrond in eigen praktijkonderzoek met Dreamers Beyond). Trauma-informed practice: hoe goede bedoelingen niet re-traumatiserend werken, met SAMHSA's vierR-kader als werkdefinitie. Consent-based facilitatie en brave space (Arao & Clemens 2013, Rohd 1998): de ruimte wordt gebouwd, niet aangenomen. Herkomst en de joker als gast (Ramose 1999, Smith 2012, correspondentie met Arun Naicker van Umtapo Centre): wat je doet wanneer je werkt met oefeningen uit tradities waar je niet uit voortkomt.
 
 ### Centraal arsenaal
 
@@ -47,10 +47,6 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 
 **Methodologische vernieuwingen** — 5 kaarten over hoe de TO-methode zich na 2009 heeft doorontwikkeld binnen specifieke culturele en politieke contexten. Bárbara Santos' Teatro de las Oprimidas (feministische esthetiek, Berlijn), Julian Boal & Geo Britto's Escola de Teatro Popular (structurele dramaturgie, Rio), Sanjoy Ganguly's Jana Sanskriti (rurale systematisering, Calcutta), Katy Rubin's TONYC (#WatchActVote en beleids-Legislatief), en Chen Alon's Polarized Model (theater tussen ex-vijanden, Israël/Palestina).
 
-### Toegepast in context
-
-**Blagg! & Theatre in Prison** *(in opbouw)* — Participatief drama in detentie, ontwikkeld door James Thompson (TIPP Centre, Manchester) en door Formaat in 2002 naar Nederland gebracht. Een fictieve protagonist — Jo Blaggs, Mary, Lisa — draagt het verhaal, zodat deelnemers via één-stap-verwijderd werk hun eigen delict kunnen onderzoeken. In 2006–2007 werd een gender-specifieke adaptatie gepild in Ter Peel (NL) en Gelsenkirchen (DE), met de vondst dat Blagg! bij mannen Antagonist-georiënteerd werkt en bij vrouwen Protagonist-georiënteerd. Een aparte tak die het archief verdient.
-
 ### Atlas
 
 **Praktijken in context** — 14 plekken waarin Theatre of the Oppressed zich heeft aangepast aan specifieke culturele, politieke en sociale omstandigheden. Amerika's: Rio (CTO-Boal), Medellín (Reconectando/Aristizábal), New York (TOPLAB → TONYC), Vancouver (Theatre for Living/Diamond). Europa: Parijs (Céditade/CTO-Paris), Londen (Cardboard Citizens/Jackson), Berlijn (KURINGA/Santos), Rotterdam (Formaat 1999–2025). Afrika: Maputo (CTO-Maputo/Cossa), Dakar (Kàddu Yaraax, milieu-theater), Nairobi (Amani People's Theatre). Azië: Calcutta (Jana Sanskriti/Ganguly). Conflict: Israël/Palestina (Combatants for Peace). Opleiding: Mandala Center/Weinblatt. Geen directory, wel dwarsdoorsnede.
@@ -65,7 +61,8 @@ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen numme
 **Playback Theatre** — 9 kern-vormen van Jonathan Fox & Jo Salas (1975). Van Fluid Sculpture tot de volledige scène. Drie domeinen: kunst, sociaal, ritueel.  
 **Psychodrama** — 29 kaarten over Moreno-methodieken, technieken, rollen en fasering, met expliciete verbindingen naar TO-praktijk.  
 **Impro** — Oefeningen uit Spolin's improvisatietraditie. Spelgericht, lichaamsgericht, gericht op aanwezigheid en contact.  
-**Feldenkrais** — 13 Awareness Through Movement lessen, elk met TO-verbinding en jokertip. Wie zijn bewegingspatroon kan waarnemen, kan het veranderen.
+**Feldenkrais** — 13 Awareness Through Movement lessen, elk met TO-verbinding en jokertip. Wie zijn bewegingspatroon kan waarnemen, kan het veranderen.  
+**Theatre in Prison** *(in opbouw)* — Participatief drama in detentie, uit de praktijk van James Thompson (TIPP Centre, Manchester) en door Formaat naar Nederland gebracht. Een aparte tak die het archief verdient: werken met gedetineerden vraagt een eigen methodologische reflectie, los van de specifieke programma's waarin het vorm heeft gekregen.
 
 ---
 

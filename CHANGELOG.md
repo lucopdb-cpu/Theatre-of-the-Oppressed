@@ -1,8 +1,8 @@
-# Update-set — Ubuntu-spoor, sessie 18 april 2026
+# Update-set — Ubuntu-spoor, sessie 18–19 april 2026
 
 ## Wat zit erin
 
-Vier bestanden die samen één update vormen van het arsenaal.
+Vijf bestanden die samen één update vormen van het arsenaal.
 
 ## Wijzigingen per bestand
 
@@ -24,19 +24,20 @@ Vierde houdingskaart toegevoegd: *Herkomst, en de joker als gast*.
 Node.js syntax-validatie doorstaan. Vier kaarten in het T-array, elk compleet.
 
 ### `index.html` — GEWIJZIGD
-Kaart voor joker-praktijk bijgewerkt:
+Drie aanpassingen:
 
-- Titel van "CLRA, trauma, consent" naar "CLRA, trauma, consent, herkomst"
-- Meta-tekst van "3 kaarten" naar "4 kaarten", met "herkomst" toegevoegd
-- Beschrijving uitgebreid met de vierde houding en de bijbehorende bronnen
+- **Joker-praktijk kaart**: titel en meta in hoofdletters ("CLRA, Trauma, Consent, Herkomst" — "Onderzoekspositie · Houding · Herkomst"). Beschrijving uitgebreid met de vierde houding en bronnen (Ramose, Smith, Naicker/Umtapo).
+- **Blagg verwijderd**: de sectie *Toegepast in context* was alleen een "Blagg! & Theatre in Prison"-kaart. Blagg was te specifiek als programma om bovenaan te staan; de sectie is weg.
+- **Theatre in Prison verplaatst**: als eigen kaart opgenomen in *Aanvullende methodieken* (naast Playback, Psychodrama, Impro, Feldenkrais). Status *in opbouw*. Beschrijving richt zich op de bredere methodologische reflectie van participatief drama in detentie — niet op één specifiek programma.
 
 ### `README.md` — GEWIJZIGD
-Beschrijving van joker-praktijk bijgewerkt:
+Parallelle aanpassingen:
 
-- "3 kaarten" naar "4 kaarten"
-- Vierde houding beschreven met bronverwijzingen
+- Hoofdletters in joker-praktijk entry ("CLRA, Trauma, Consent, Herkomst")
+- Sectie *Toegepast in context* verwijderd (bevatte alleen Blagg)
+- Theatre in Prison toegevoegd aan aanvullende methodieken
 
-### `ubuntu-research-map-v2.md` — NIEUW
+### `ubuntu-research-map-v2.md` — NIEUW (sessie 1)
 Onderzoeksnotitie die als basis diende voor de vierde kaart. Bevat:
 
 - Filosofisch fundament (Ramose, Eze, Tutu)
@@ -49,10 +50,13 @@ Onderzoeksnotitie die als basis diende voor de vierde kaart. Bevat:
 
 Vervang de drie HTML/MD bestanden in je repo door de versies uit deze zip. De research-map gaat in je onderzoeksarchief (niet op GitHub Pages).
 
+## Openstaand — architectuurvraag
+
+Is *Herkomst* eigenlijk een joker-houding (in de ruimte) of een curatoriële positie (bij het samenstellen van het arsenaal)? De eerste drie kaarten spelen zich af in de sessie; de vierde speelt zich af ervoor. Voor nu blijft hij waar hij is, onder de framing *"vóór de joker zijn gereedschap oppakt"* — dat omarmt beide niveaus. Noteren voor een toekomstige herordening, niet nu aanpassen.
+
 ## Volgende sessie
 
-Openstaand:
-- Tien oefeningen formatteren naar v11-schema voor `to-arsenaal.html`, óf als standalone `ubuntu.html` carrousel, óf beide
+- Tien Ubuntu-oefeningen formatteren naar v11-schema voor `to-arsenaal.html`, óf als standalone `ubuntu.html` carrousel, óf beide
 - Keuze: Ubuntu-exclusief met Arun als anker, of breder indigenous-spectrum
 - Positie in architectuur: "Na Boal" of eigen "Wortels"-plaats naast Freire
 
