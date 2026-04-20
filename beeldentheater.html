@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beeldentheater — De taal van het lichaam</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#0F6E56;--blue2:#158669;--blue3:#7fb8a6;--blue4:#dff0ea;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:640px}
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.stage-progress{display:flex;gap:3px;align-items:center}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
+.sp-dot.on{background:var(--blue);transform:scale(1.4)}
+.sp-dot.done{background:var(--creme4)}
+.stage-nav{display:flex;gap:4px}
+.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.sn-btn:disabled{opacity:.25;cursor:default}
+.sn-btn:hover:not(:disabled){background:var(--creme3)}
+.stage-body{padding:18px 26px 0}
+.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s;flex:1}
+.all-cat-tag{font-family:var(--sans);font-size:8px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;flex-shrink:0;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+<div class="masthead">
+  <div class="app-name">Beelden<em>theater</em></div>
+  <div class="app-sub">De taal van het lichaam · Peru 1973 · Sinaletiek · Sculpting · Dynamisering</div>
+  <div class="context-note">
+    Beeldentheater ontstond in 1973 tijdens Boals werk voor het Peruviaanse alfabetiseringsproject ALFIN, toen hij werkte met groepen die onderling tientallen talen en dialecten spraken. De onmogelijkheid om woorden te delen werd de methode: het lichaam als eerste taal, het beeld als betekenaar én betekenis tegelijk. Deze carrousel omvat het fundament, de drie-beelden-architectuur, sculpting en dynamisering, canonieke oefeningen, de introspectieve Rainbow-uitbreiding, de beeldensequentie als methodische additie uit de Nederlandse praktijk, en toepassingen in onderzoek, klimaat en onderwijs — met jokerpraktijk en valkuilen.
+  </div>
+</div>
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Fundament">Fundament</div>
+    <div class="tpill" data-cat="Drie-beelden">Drie-beelden</div>
+    <div class="tpill" data-cat="Sculpting">Sculpting</div>
+    <div class="tpill" data-cat="Canon">Canon</div>
+    <div class="tpill" data-cat="Rainbow">Rainbow</div>
+    <div class="tpill" data-cat="Sequentie">Sequentie</div>
+    <div class="tpill" data-cat="Praktijk">Praktijk</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">24</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+<div id="card-container"></div>
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>↑</kbd> <kbd>↓</kbd> voor stappen · <kbd>spatie</kbd> voor overzicht
+</div>
+<div class="footer">
+  <strong>Beeldentheater</strong> — methode van <em>Augusto Boal</em> (1931–2009), ontwikkeld tijdens het ALFIN-alfabetiseringsproject (Peru, 1973), verder uitgewerkt in Parijs en Rio en hervormd door <em>Bárbara Santos / Kuringa</em> (Berlijn), <em>Jana Sanskriti</em> (Sanjoy Ganguly, West-Bengalen) en <em>David Diamond / Theatre for Living</em> (Vancouver). De beeldensequentie-methodiek in categorie VI is een methodische additie uit de Nederlandse praktijk — <em>Arsenaal van de Joker</em>.<br>
+  Bronnen: Boal, <em>Theatre of the Oppressed</em> (1979) · <em>Games for Actors and Non-Actors</em> (1992/2002) · <em>The Rainbow of Desire</em> (1995) · <em>The Aesthetics of the Oppressed</em> (2006) · Santos, <em>Theatre of the Oppressed: Roots and Wings</em> (2019) · Kaptani & Yuval-Davis (2008) · Davids et al. (Social Inclusion, 2024) · Kuringa Berlijn · T.O. Philadelphia · Drama Resource
+</div>
+</div>
+<script>
+const T = [
+
+{n:1, title:"Wat is Beeldentheater?",
+ cat:"Fundament", catBg:"#dff0ea", catFg:"#0F6E56", stripe:"#0F6E56",
+ note:"Beeldentheater is een non-verbale methode waarin deelnemers met hun lichamen stilstaande beelden boetseren die een situatie, gevoel of maatschappelijke werkelijkheid tonen. Ontwikkeld door Augusto Boal in 1973 binnen het Peruviaanse alfabetiseringsproject ALFIN — een project dat op Paulo Freire's pedagogie was gebouwd. Beeldentheater is dus fundamenteel Freireaans van geboorte, zelfs voor Boal en Freire elkaar persoonlijk ontmoetten.",
+ stages:[
+  {t:"Boal en Freire rond één project",
+   body:"ALFIN (Operación Alfabetización Integral) werd in 1973 opgezet door de Peruviaanse regering en geleid door educator Alfonso Lizarzaburu. De methode was afgeleid van Freire's Pedagogie van de Onderdrukten — Freire zelf adviseerde vanuit Genève, waar hij vanaf 1970 werkte voor de Wereldraad van Kerken. Boal, in ballingschap sinds 1971, werd opgenomen in het project. Beiden werkten dus aan hetzelfde raamwerk, maar op verschillende niveaus: Freire leverde de pedagogie, Lizarzaburu implementeerde, Boal ontwikkelde binnen dat kader de theatervorm. Hun persoonlijke ontmoeting kwam pas in 1996 op het podium in Omaha — meer dan twintig jaar later."},
+  {t:"Geboren uit noodzaak, niet uit concept",
+   body:"Boal stond tegenover groepen uit verschillende regio's van Latijns-Amerika die onderling niet elkaars taal spraken — Peru kende in ALFIN zo'n 45 talen en dialecten. Verbale communicatie was geen optie. Uit die onmogelijkheid ontstond de methode: als we geen woorden delen, delen we lichamen. Beeldentheater is niet theoretisch bedacht — het is ontstaan omdat het moest. Freire beschreef de kist, Boal bedacht het gereedschap."},
+  {t:"Het lichaam als eerste taal",
+   body:"Boal stelt dat het lichaam vóór de taal komt. Het lichaam is het oorspronkelijke medium van waarnemen en communiceren, en alle latere taal is eraan ondergeschikt. Wanneer een groep zijn werkelijkheid moet tonen, hoeft ze niet te vertalen naar taal en weer terug — ze kan direct boetseren wat er is. Dat maakt Beeldentheater niet alleen praktisch bij taalbarrières, maar methodisch superieur wanneer het gaat om ervaringen die moeilijk of gevaarlijk in woorden te vatten zijn."},
+  {t:"Bron voor alle latere TO-technieken",
+   body:"Wat Boal in Peru ontdekte — dat een lichaamsbeeld een politieke analyse kan zijn — werd de bron voor alles wat volgde. Forum Theater heeft zijn antimodel omdat eerst het beeld van de onderdrukking wordt gebouwd. Rainbow of Desire is gebouwd op beeldtechnieken voor de geïnternaliseerde cop. Legislative Theatre gebruikt beelden als eerste diagnose voor beleid. Beeldentheater is geen subsectie — het is de worteltaal waarin de hele boom spreekt. En de wortels zelf reiken naar Freire."}
+ ],
+ tip:"Start nooit een TO-sessie met woordelijke discussie over het thema. De groep heeft elkaar al mentaal ingedeeld voor het beeldwerk begonnen is. Begin met lichaam — dan kan later ook het woord landen."},
+
+{n:2, title:"De sinaletische taal",
+ cat:"Fundament", catBg:"#dff0ea", catFg:"#0F6E56", stripe:"#0F6E56",
+ note:"Sinaletisch betekent: betekenaar en betekenis vallen samen. Een woord 'boom' is niet een boom — het is een klank die naar een boom verwijst. Maar een beeld van een boom is een beeld van een boom. Bij Beeldentheater werk je niet met verwijzing maar met directe betekenis. Het beeld is wat het toont. Dit principe is de methodische sleutel.",
+ stages:[
+  {t:"Het beeld als zelf-betekenis",
+   body:"Bárbara Santos (Kuringa Berlijn) formuleert het zo: het beeld is tegelijkertijd reëel als beeld — het bestaat in het moment als concrete werkelijkheid — én representatief voor een aparte geleefde realiteit. Wanneer iemand een beeld maakt van 'macht', staat dat beeld niet symbool voor macht zoals het woord dat doet. Dat beeld ís die macht, in die ruimte, met die lichamen. De deelnemer die erin staat ervaart het fysiek. De toeschouwer leest het zintuiglijk."},
+  {t:"Waarom uitleg de oefening verzwakt",
+   body:"Zodra iemand zegt 'wat ik bedoel is...', verandert er iets. Het beeld wordt vaak gereduceerd tot wat de maker in woorden kan vatten — en dat is meestal minder dan wat het beeld kon tonen. Dus: de joker is terughoudend met de vraag 'wat betekent het?' en geeft voorrang aan 'wat zie je?' — en laat meerdere lezingen naast elkaar staan. Het beeld blijft zo open; de betekenissen worden sociaal. Boal zelf waarschuwde tegen het tegenovergestelde uiterste: TO is geen dogma. Er zijn momenten waarop een maker iets wezenlijks wil toevoegen en de joker ruimte maakt. De discipline is geen verbod — ze is een hiërarchie van kansen."},
+  {t:"Meerdere lezingen als kracht",
+   body:"Wanneer tien deelnemers naar hetzelfde beeld kijken en tien verschillende dingen zien, is het beeld niet mislukt — het is geslaagd. Die meervoudigheid is wat een beeld onderscheidt van een uitleg. Een uitleg dwingt één lezing af; een beeld biedt een veld waarin meerdere waarheden tegelijk kunnen bestaan. Daarom is het sinaletische beeld democratischer dan het woord."},
+  {t:"De uitdaging voor Westerse gewoontes",
+   body:"Deelnemers die zijn opgevoed in een schrijf- en discussiecultuur willen bijna altijd uitleggen wat ze bedoelen. Ze voelen zich onveilig zonder woorden. De joker staat hier voor een taaie taak: het vertrouwen bouwen dat niet-verklaren geen tekort is maar een discipline. Dit kost tijd. In landen zonder die schoolcultuur gaat het vaak sneller — daar ligt de sinaletiek dichter aan de oppervlakte."}
+ ],
+ tip:"Als je merkt dat deelnemers na een beeld naar woorden grijpen, geef dan bewust dertig seconden stilte. Niet als sanctie — als ademruimte. In die stilte landt het beeld."},
+
+{n:3, title:"Woorden als vrachtwagens",
+ cat:"Fundament", catBg:"#dff0ea", catFg:"#0F6E56", stripe:"#0F6E56",
+ note:"Boals beroemde uitspraak: 'Woorden zijn als vrachtwagens — ze dragen de lading die je erop legt.' Woorden zijn neutrale containers; pas in de context krijgen ze richting. Dat maakt ze veelzijdig, maar ook manipuleerbaar. Mensen kunnen zich achter woorden verstoppen. Het lichaam kan dat veel minder.",
+ stages:[
+  {t:"Het lichaam liegt niet",
+   body:"Santos citeert Boal: het lichaam liegt niet, het bedriegt ons niet. Iemand kan zeggen 'ik ben gelijkwaardig aan mijn partner' terwijl haar schouders al gebogen staan voordat hij iets heeft gezegd. Het beeld vangt de houding vóór de ideologie. Dit is waarom Beeldentheater ook waardevol is buiten taalbarrières: in gevoelige communicatie waar woorden tekortschieten of verhullen, legt het lichaam bloot wat de mond afdekt."},
+  {t:"Bedoeld en onbedoeld — beide zichtbaar",
+   body:"Wanneer iemand een beeld boetseert, plant hij bewust bepaalde dingen. Maar het lichaam dat hij gebruikt — zijn eigen én dat van anderen — brengt ook onbedoelde informatie mee. De sculptor wilde misschien een autoritaire vader tonen; het beeld toont ook angst in de zoon die hij niet had uitgelegd. Die laag onder de intentie is de rijkste laag. De joker helpt de groep die te lezen."},
+  {t:"De politieke noodzaak van non-verbaal",
+   body:"In situaties van directe onderdrukking — dictatuur, oorlog, marginalisatie — is woord vaak gevaarlijk. Wie schrijft, kan gearresteerd worden. Wie beeldt, heeft deniability: dit is maar een oefening. Boal ontwikkelde veel technieken in ballingschap precies omdat ze onder dictatuur inzetbaar waren. Beeldentheater is geen toevallige non-verbale vorm — het is methodisch ontworpen voor situaties waar taal een wapen wordt."},
+  {t:"Ook in veilige contexten waardevol",
+   body:"Ook zonder direct politiek gevaar verbergen woorden meer dan ze tonen. Een werknemer die 'ja, ik begrijp het' zegt tegen zijn leidinggevende zegt vaak iets heel anders dan wat zijn lichaam zou laten zien als hij eenzelfde scène moest boetseren. Daarom werkt Beeldentheater in zorgopleidingen, onderwijs, organisatie-ontwikkeling, therapie — overal waar sociale rollen de directe uitspraak blokkeren."}
+ ],
+ tip:"Wanneer je merkt dat een groep zich vast praat in abstracties — systeemdruk, communicatieproblemen — vraag dan: maak daar eens een beeld van. De vage woorden worden dan scherpe lichamen."},
+
+{n:4, title:"Van subjectief naar sociaal-objectief",
+ cat:"Fundament", catBg:"#dff0ea", catFg:"#0F6E56", stripe:"#0F6E56",
+ note:"Eén beeld is een individuele perceptie — subjectief. Maar wanneer meerdere deelnemers gelijktijdig hun beeld van hetzelfde thema tonen, ontstaat iets anders: een meervoudige sociale visie. Niet de waarheid van één, maar de veld-van-waarheden van een gemeenschap. Boal noemt dit de overgang van subjectief naar sociaal-objectief — zo dicht bij objectiviteit als een collectieve analyse kan komen.",
+ stages:[
+  {t:"Eerste beeld: het individu",
+   body:"Elke deelnemer maakt zonder te overleggen zijn eigen beeld van het thema. Geen afspraak, geen compromis. Dit eerste beeld is onvermijdelijk subjectief — het draagt de biografie, de sociale positie, de blinde vlekken van de maker. Dat is geen bezwaar; dat is materiaal."},
+  {t:"Tweede beeld: gelijktijdig",
+   body:"Op een teken tonen alle makers hun beeld tegelijk. Wat eerst los naast elkaar stond wordt een landschap. Nu kijken de makers, in hun houding blijvend, naar wat de anderen doen. Ze zien patronen: bepaalde gebaren komen steeds terug, andere zijn uitzonderingen. Sommige beelden bevestigen elkaar, andere spreken elkaar tegen. Dit is de eerste dynamisering — subjectief wordt meervoudig."},
+  {t:"Derde beeld: relaties leggen",
+   body:"Boal vraagt de deelnemers vervolgens om zich te verhouden tot elkaars beelden. Ze mogen verplaatsen, contact maken, een figuur uit het ene beeld laten deelnemen in het andere. Wat ontstaat is één geheel beeld — niet meer vijftien parallelle visies maar één organische sociale representatie. Dit is de tweede dynamisering."},
+  {t:"Derde dynamisering: rolwisseling",
+   body:"De krachtigste stap, en de politiek scherpste: alle onderdrukten in het beeld worden gevraagd hun onderdrukker te worden. Alle slachtoffers nemen de rol van dader in. Dan terug. Boal ontdekte iets bijzonders: wanneer deelnemers hun eigen onderdrukking tonen zijn de beelden realistisch, gedetailleerd, levend. Wanneer ze de onderdrukker tonen zijn de beelden vaak karikaturaal en vaag. Dat verschil onthult ideologie — we kennen onze onderdrukking beter dan we onze onderdrukker kennen."}
+ ],
+ tip:"Deze drie dynamiseringen horen bij elkaar. Stop je na de eerste, dan heb je een tentoonstelling van meningen. Stop je na de tweede, dan heb je een sociaal beeld. Pas de derde onthult de ideologische asymmetrie. Laat die niet weg omdat ze ongemakkelijk is — dat ongemak is het punt."},
+
+{n:5, title:"Het echte beeld",
+ cat:"Drie-beelden", catBg:"#dde7ef", catFg:"#1e5a7a", stripe:"#1e5a7a",
+ note:"Het eerste van de drie canonieke beelden: het real image. De sculptor boetseert de werkelijkheid zoals hij of zij die nu ervaart — niet zoals ze zou moeten zijn, niet zoals buitenstaanders ze zien, maar zoals ze voelt van binnenuit. Dit beeld is de diagnose: wat is er?",
+ stages:[
+  {t:"Trouw aan de geleefde ervaring",
+   body:"Het echte beeld mag rauw zijn, onaf, lelijk. Het moet vooral eerlijk zijn. De sculptor wordt uitgenodigd om niet te verfraaien, niet te vertalen naar wat anderen zouden kunnen begrijpen, niet te censureren om de hoorbaarheid te vergroten. Het beeld draagt de waarheid zoals zij in het lichaam ligt — met al haar contradicties en ongemakken. Boal beschrijft het beeld dat een jonge vrouw in het Peruviaanse dorp Otuzco maakte — van het plein waar boerenopstandleiders publiekelijk waren gemarteld — als 'terrible, tragic, pessimistic, defeatist, but, at the same time, an image of something that really happened' (Theatre of the Oppressed, p.145). Niet elk echt beeld is zo rauw, maar het voorbeeld toont de toon: een zoete diagnose levert geen geneesmiddel."},
+  {t:"Geen regie, geen compromis",
+   body:"De joker bemoeit zich niet met de inhoud. Hij vraagt alleen: is dit de werkelijkheid zoals jij haar ervaart? Als de sculptor twijfelt, mag hij aanpassen. Als anderen meedoen, mogen zij hun eigen echte beeld ernaast zetten — maar ze passen niet het beeld van de eerste maker aan. Elk echt beeld is eigendom van zijn maker tot het expliciet wordt vrijgegeven."},
+  {t:"De sculptor als diagnosticus",
+   body:"Wie zijn eigen echte beeld maakt, doet iets bijzonders: hij stapt uit de situatie en kijkt ernaar. De onderdrukking die van binnen voelde onontkoombaar staat nu buiten hem, als object. Dat is het eerste bevrijdende moment van Beeldentheater — niet het oplossen, maar het zichtbaar maken. Wat je kunt zien, kun je onderzoeken. Wat je kunt onderzoeken, kun je veranderen."},
+  {t:"De val: al vooruit springen naar oplossing",
+   body:"Veel deelnemers willen meteen het goede beeld maken. Ze tonen de oplossing in plaats van het probleem. Of ze maken het probleem mild, omdat het niet zo erg mag lijken. De joker waakt hier: als het echte beeld te optimistisch is, is er niets om van te vertrekken. De protagonist in de scène kan niet winnen als hij niet eerst verliest. Zo is het ook met het echte beeld — de nederlaag moet eerst zichtbaar zijn."}
+ ],
+ tip:"Als iemand een echt beeld maakt dat je mild vindt, vraag dan niet: is het niet erger? Vraag: is er een moment dat je dit echt zo ervaren hebt? — en laat hen zelf beslissen of ze willen aanscherpen."},
+
+{n:6, title:"Het ideale beeld",
+ cat:"Drie-beelden", catBg:"#dde7ef", catFg:"#1e5a7a", stripe:"#1e5a7a",
+ note:"Het tweede beeld: de werkelijkheid zoals zij zou moeten zijn. Niet abstract gelukkig of rechtvaardig, maar concreet: dezelfde mensen, dezelfde ruimte, maar in een configuratie die klopt. Het ideale beeld is utopie als analytisch instrument — het toont wat we willen, precies genoeg om ernaartoe te kunnen werken.",
+ stages:[
+  {t:"Utopie als werkmateriaal",
+   body:"Een vaag ideaal (iedereen is gelukkig) is onbruikbaar. Het ideale beeld is altijd specifiek: dit gezin, aan deze tafel, in deze verhouding. Door zo concreet te worden komt de deelnemer in aanraking met zijn eigen verlangen — niet als algemeen moreel principe maar als fysiek kloppende configuratie. Dat maakt het ideaal toetsbaar: klopt het in het lichaam? Of voelt het nog steeds onvolledig?"},
+  {t:"Dezelfde mensen, andere verhoudingen",
+   body:"Het ideale beeld gebruikt dezelfde lichamen als het echte beeld. Dit is methodisch belangrijk: we maken geen fantasie waarin de mensen andere mensen zijn geworden — we maken een toekomst waarin dezelfde mensen zich anders tot elkaar verhouden. Dat sluit revolutionair denken niet uit, maar het houdt het aards. De chef blijft de chef. De werknemer blijft de werknemer. Maar hun ruimte, afstand, hoogte, contact — alles staat anders."},
+  {t:"Het verlangen getoetst aan het lichaam",
+   body:"Wanneer de sculptor het ideale beeld heeft gebouwd, kan de joker vragen: hoe voelt het om in deze positie te staan? Soms zegt een deelnemer dan: oh — ik dacht dat ik dit wilde, maar het voelt niet goed. Het lichaam ontmaskert het geleende ideaal. Het echte verlangen is wat het lichaam herkent, niet wat de gedachte voorschrijft."},
+  {t:"De val: het onmogelijke ideaal",
+   body:"Sommige deelnemers maken een ideaal dat zo perfect is dat het niet meer maakbaar is. Iedereen houdt van iedereen. Daar is geen weg naartoe. De joker kan dan vragen: als we één stap vanuit het echte beeld moeten zetten — waar zouden we dan uitkomen? Het ideaal moet voelen als einde, maar ook als einde van een weg waar de eerste stap ergens begint."}
+ ],
+ tip:"Als het ideale beeld te abstract wordt, vraag: waar staan je voeten in dit beeld? Het fysieke verankeren dwingt concreetheid af. Voeten liegen nog minder dan lichamen."},
+
+{n:7, title:"Het overgangsbeeld",
+ cat:"Drie-beelden", catBg:"#dde7ef", catFg:"#1e5a7a", stripe:"#1e5a7a",
+ note:"Het derde beeld: de brug. Tussen het echte en het ideale ligt een reeks overgangen. Welke eerste stap is mogelijk? Welke tweede? Het overgangsbeeld is de afbeelding van de revolutie — niet de eindbestemming, maar de beweging ernaartoe. Dit is waar Beeldentheater politiek wordt in plaats van alleen diagnostisch.",
+ stages:[
+  {t:"De brug tussen nu en dan",
+   body:"Na het echte en het ideale beeld vraagt de joker aan de groep: welke stap is denkbaar om van hier naar daar te komen? De sculptor maakt één tussenbeeld — niet de hele weg, alleen de eerste overgang. Deze overgang wordt dan zelf een nieuw echt beeld van waaruit de volgende overgang gezocht wordt. Zo bouwt de groep een trap van beelden die samen een route zijn."},
+  {t:"Wat er concreet moet veranderen",
+   body:"Het overgangsbeeld dwingt concreetheid af waar het ideale beeld die niet levert. Wat moet er letterlijk bewegen? Wie moet één stap dichterbij komen, wie moet één stap terug? Wiens hand moet opengaan, wiens mond moet dichtgaan? Deze kleine fysieke veranderingen zijn de metafoor voor de politieke, psychologische of sociale verandering die nodig is. Als het beeld niet beweegt, beweegt de werkelijkheid ook niet."},
+  {t:"Het onderhandelen maakt zichtbaar",
+   body:"Wanneer meerdere deelnemers samen een overgangsbeeld bouwen, gaan ze onderhandelen. Deze wil dat de baas al helemaal gelijkwaardig is; die vindt dat te snel. De onderhandeling zelf is diagnostisch — ze toont welke stappen de groep haalbaar vindt en welke te ver gaan. Dit gesprek over haalbaarheid is vaak belangrijker dan het resulterende beeld."},
+  {t:"Boal: de afbeelding van de revolutie",
+   body:"Boal formuleert het scherp: het overgangsbeeld is de afbeelding van de revolutie. Het is niet de utopie, niet het verzet — het is de concrete handeling waardoor het ene wordt tot het andere. Een beweging vraagt theorie en organisatie, maar ze begint bij iemand die weet welke eerste stap te zetten. Het overgangsbeeld is het lichamelijke antwoord op die vraag."}
+ ],
+ tip:"Als een groep vastloopt bij het overgangsbeeld — dat gebeurt vaak — vraag dan niet wat de oplossing is. Vraag: welke kleinste beweging zou het beeld iets minder onmogelijk maken? Kleine bewegingen openen wat grote afstanden sluiten."},
+
+{n:8, title:"Boetseren als fysieke dialoog",
+ cat:"Sculpting", catBg:"#e4ecd8", catFg:"#4a7c3a", stripe:"#4a7c3a",
+ note:"Sculpting is het hart van de techniek: één persoon (de sculptor) boetseert het lichaam van een of meer anderen (het materiaal) tot een beeld. Er wordt niet gepraat, niet gedemonstreerd — alleen aangeraakt. De regel is simpel maar de ethiek dicht: de sculptor gebruikt andermans lichaam, en dat vraagt zorg.",
+ stages:[
+  {t:"Aanraking als taal",
+   body:"De sculptor plaatst een arm, kantelt een hoofd, buigt een rug — altijd door directe fysieke aanraking. Geen spiegelwerk (doe na wat ik doe), geen woordelijke instructie. Boal kiest hier bewust: het lichaam van de sculptor kent het gewenste beeld niet via zijn hoofd maar via zijn handen. Door te boetseren denkt de sculptor in vorm. Dit is een andere manier van denken dan verbaal — trager, preciezer, fysieker."},
+  {t:"Het materiaal is niet passief",
+   body:"De persoon die geboetseerd wordt is geen standbeeld — is een levend, voelend lichaam. Dat lichaam onthoudt wat ermee gebeurt. De sculptor moet dus voorzichtig zijn: geen geweld, geen gewrichten forceren, geen positie vasthouden die pijn doet. Het materiaal kan altijd pas zeggen door één hand op te steken. De kracht van de oefening hangt af van dat impliciete contract: ik geef jou mijn lichaam, jij behandelt het met zorg."},
+  {t:"Consent als doorlopend proces",
+   body:"Expliciete consent vooraf is onvoldoende. Tijdens het boetseren kunnen grenzen verschuiven — wat in het begin oké was, voelt na tien minuten te intiem. De joker maakt aan het begin afspraken helder: je mag altijd stoppen, geen vragen. En hij observeert: als hij iemand ziet verstarren, stopt hij zelf. De methode werkt alleen binnen duidelijke fysieke veiligheid. Zonder dat is het geen theater meer, dan is het grensoverschrijding."},
+  {t:"Het lichaam dat zich laat maken",
+   body:"Er is ook een omgekeerde vaardigheid: je lichaam leren geven. Sommige mensen kunnen niet geboetseerd worden — ze helpen, corrigeren, maken onbewust andere keuzes. De oefening voor het materiaal is: je spieren loslaten, geen intentie toevoegen, de vorm worden die de sculptor zoekt. Dat is moeilijk. Het vraagt vertrouwen in een ander en een bereidheid om tijdelijk niet-zelf te zijn. Vaak is dit de krachtigste leerervaring voor deelnemers."}
+ ],
+ tip:"Vraag voor het begin: wie wil vandaag niet aangeraakt worden? — en vraag het ook iedere sessie opnieuw. Toestemming van vorige week geldt niet voor vandaag. De lichamelijke conditie, de stemming, de relaties in de groep veranderen."},
+
+{n:9, title:"De stilte-regel",
+ cat:"Sculpting", catBg:"#e4ecd8", catFg:"#4a7c3a", stripe:"#4a7c3a",
+ note:"In Beeldentheater wordt niet gepraat. Niet door de sculptor, niet door het materiaal, niet door de toeschouwers. Deze stilte is geen esthetische keuze — ze is methodisch. Zodra woorden binnenkomen verliest het beeld zijn sinaletische kracht en wordt het weer een illustratie van een uitleg.",
+ stages:[
+  {t:"Stilte beschermt het beeld",
+   body:"Een beeld zonder woorden dwingt iedereen — maker, materiaal, kijkers — om te denken in vormen. Zodra iemand zegt 'ik bedoel dat...' wordt het beeld gereduceerd tot die ene uitleg. De rijke meervoudigheid van mogelijke lezingen verdwijnt. De stilte houdt het interpretatieveld open en democratisch. Iedereen mag zien wat hij ziet, zonder gecorrigeerd te worden door de intentie van de maker."},
+  {t:"Wat de joker wel zegt",
+   body:"De joker is de enige die spreekt, en hij beperkt zich tot het nodige: instructies voor de oefening (nu maken we het echte beeld), vragen aan de toeschouwers (wat zien jullie?), kaders voor de volgende stap (nu dynamiseren we). Geen interpretatie, geen waardering, geen bemoediging. De joker houdt het proces strak maar de betekenis open."},
+  {t:"Wat de joker liever niet vraagt",
+   body:"De vraag 'wat betekent jouw beeld?' is bij voorkeur geen openingszet. Ook niet: 'heb je dit of dat bedoeld?' Of: 'was het niet beter zo?' Deze vragen neigen ertoe één lezing af te dwingen op een beeld dat meerdere lezingen kan dragen. De joker vraagt hooguit aan de maker: 'klopt dit in je lichaam?' — een fysieke, geen betekenis-vraag. Dit is een werkvoorkeur, geen regel. Soms wil een maker iets toevoegen wat cruciaal is; dan maakt een goede joker ruimte. TO is geen dogma — het is discipline met uitzonderingen."},
+  {t:"De discipline van niet-verklaren",
+   body:"Westerse deelnemers zijn getraind in uitleggen. Ze willen zich verantwoorden, aantonen dat ze iets begrepen hebben, hun intentie verhelderen. Het duurt sessies voor een groep de discipline van niet-verklaren opbouwt. De joker helpt door zelf consequent niet-uit te leggen, en door bij dreigende uitleg zachtjes te onderbreken: laten we het beeld laten staan. Na een tijd proeft de groep de ruimte en wil ze zelf niet meer in woorden vallen."}
+ ],
+ tip:"Een woord dat wél werkt: nog. Wanneer iemand wil gaan uitleggen, zeg nog niet — niet nee. Zo wordt de stilte niet gevoeld als verbod maar als uitstel."},
+
+{n:10, title:"Dynamisering",
+ cat:"Sculpting", catBg:"#e4ecd8", catFg:"#4a7c3a", stripe:"#4a7c3a",
+ note:"Een beeld is statisch, maar de werkelijkheid beweegt. Dynamisering is de kunst om het stilstaande beeld in beweging te brengen — via geluid, ritme, slow-motion, fast-forward, of via spect-actoren die binnenstappen. Dynamisering maakt van de diagnose een analyse, en van analyse een mogelijk recept.",
+ stages:[
+  {t:"Geluid en ritme",
+   body:"De eerste en eenvoudigste dynamisering: elke figuur in het beeld maakt het geluid dat bij zijn positie hoort. Een zuchtend ritme, een voortdurend commentaar, een roep, stilte. De groep luistert — en hoort vaak iets wat in het stilstaande beeld nog niet zichtbaar was. Geluiden kunnen elkaar overstemmen, bevestigen, tegenspreken. Het beeld wordt een partituur."},
+  {t:"Beweging en herhaling",
+   body:"Tweede laag: elke figuur maakt de kleinste beweging die bij zijn houding past, en herhaalt die. Een ritueel gebaar: de moeder die steeds haar hand uitstrekt maar net niet bereikt; de baas die steeds lichtjes met zijn hoofd knikt. Deze gemechaniseerde herhaling onthult de structuur — dit is niet wat er vandaag gebeurt, dit is wat er elke dag gebeurt. Ritueel maakt systemisch zichtbaar."},
+  {t:"Slow-motion, fast-forward, rewind",
+   body:"Het beeld kan in de tijd gemanipuleerd worden. In slow-motion toont een ruzie zijn opbouw; in fast-forward toont een geluksscène zijn vluchtigheid; in rewind toont een scène zijn omkeerbaarheid. Deze techniek leent van film maar werkt bij lichaamswerk anders — het lichaam voelt de tijd in plaats van hem te registreren. Deelnemers krijgen toegang tot wat er tussen de frames gebeurt."},
+  {t:"Spect-actoren stappen binnen",
+   body:"Derde laag: toeschouwers stappen binnen in het beeld. Een kijker die tijdens een pestscène binnenstapt als omstander en interveniëert, verandert de hele compositie. De oorspronkelijke figuren reageren, blijven in karakter, maar de dynamiek schuift. Dit is de brug naar Forum — het beeld wordt een experimenteerruimte voor interventies. Wat kan één lichaam doen? Wat verandert er door één aanwezigheid?"}
+ ],
+ tip:"Werk dynamiseringen altijd gelaagd op: eerst stilte, dan geluid, dan beweging, dan interventie. Wie overslaat verliest informatie. En: een beeld dat niet gedynamiseerd wordt, wordt een tableau. Mooi, maar politiek onschadelijk."},
+
+{n:11, title:"Great Game of Power",
+ cat:"Canon", catBg:"#f2ead2", catFg:"#8a6a1e", stripe:"#8a6a1e",
+ note:"Zes stoelen, een tafel, een fles — en de vraag: welke stoel is het machtigst? Boals bekendste Beeldentheater-oefening, opgenomen in Games for Actors and Non-Actors. In twintig minuten wordt een abstract begrip als macht tastbaar, voelbaar, bespreekbaar. En telkens wanneer iemand de stoelen anders zet, komt een andere vorm van macht tevoorschijn.",
+ stages:[
+  {t:"De setup",
+   body:"In een open ruimte zet de joker zes stoelen, één tafel en één fles. De stoelen zijn identiek; de opdracht aan de groep is: herschik alles zo dat één stoel duidelijk machtiger is dan de anderen. Elk object mag verplaatst worden, maar niets mag weg. Eén voor één komen deelnemers naar voren om een nieuwe configuratie te maken — in stilte. Pas daarna bespreekt de groep."},
+  {t:"Anthropomorfisme als analyse",
+   body:"De groep begint onmiddellijk de stoelen te personifiëren: die voorste is de baas, die achterste ziet alles, die in het midden heeft de fles. De stoelen worden mensen, posities worden rollen, ruimte wordt hiërarchie. Dit is geen projectie maar herkenning — we leven in ruimtes en weten wat posities betekenen. De oefening maakt die tacit kennis expliciet."},
+  {t:"Meerdere configuraties naast elkaar",
+   body:"Naarmate deelnemers om de beurt de stoelen herschikken, ontstaat een bibliotheek van machtsconfiguraties. De hoge eenzame positie (tiran); de kring met één in het midden (gevangenis of klas); de rij achter een tafel (panel); de chaotische stapel (wanorde). Elke configuratie draagt een politieke analyse. De groep kan ze vergelijken: welke macht is het sterkst? Welke het meest fragiel? Welke meest herkenbaar?"},
+  {t:"Uitbreiding met lichamen",
+   body:"In de vervolgvariant krijgt een deelnemer de opdracht om een persoon zó in het beeld te zetten dat deze de macht van de stoel afneemt. Iemand die zich naast de tiran-stoel zet op dezelfde hoogte haalt hem omlaag. Iemand die op tafel springt ondermijnt de hele configuratie. Deze stap transformeert de oefening van analyse naar interventie — en vormt de brug naar Forum."}
+ ],
+ tip:"Deze oefening werkt vooral als opener van een sessie over macht, hiërarchie of institutionele context. Gebruik niet te veel stoelen — zes is genoeg. Meer maakt de beelden onleesbaar."},
+
+{n:12, title:"Columbian Hypnosis",
+ cat:"Canon", catBg:"#f2ead2", catFg:"#8a6a1e", stripe:"#8a6a1e",
+ note:"Een van de meest gebruikte Boal-oefeningen wereldwijd. Twee mensen staan tegenover elkaar; één houdt zijn hand 20-40 cm van het gezicht van de ander. De ander volgt die hand als gehypnotiseerd, en houdt altijd dezelfde afstand. Ontwikkeld tijdens Boals ballingschap met niet-Spaanssprekende Colombianen. Schijnbaar speels, maar in tien minuten onthult deze oefening meer over macht en vertrouwen dan een uur discussie.",
+ stages:[
+  {t:"Eén leider, één volger",
+   body:"De leider beweegt langzaam zijn hand — omhoog, omlaag, zijwaarts, roterend. De volger moet het gezicht op exact dezelfde afstand houden. Dit dwingt de volger in ongemakkelijke posities: buigen, hurken, rekken, draaien. De leider ontdekt hoeveel macht hij heeft; de volger ontdekt hoeveel hij bereid is mee te gaan. Na vijf minuten wisselen."},
+  {t:"De verantwoordelijkheid van de leider",
+   body:"Boal is hier subtiel: de oefening is niet alleen voor de gehypnotiseerde. Ook de leider leert — omdat hij moet zorgen dat zijn partner kan blijven volgen. Een leider die te snel beweegt verliest zijn volger. Een leider die zijn volger steeds in pijnlijke posities brengt is gewoon een pestkop. De kunst is: uitdagen zonder breken. Dit is macht met zorg — en dat is politieker dan macht zonder."},
+  {t:"Twee handen, meerdere volgers",
+   body:"Varianten bouwen complexiteit: de leider gebruikt beide handen en heeft twee volgers; één leider heeft drie volgers (twee handen, één voet); groepen van vier, vijf, meer. Naarmate de configuratie ingewikkelder wordt, wordt zichtbaar hoe meerdere afhankelijkheden tegelijk werken — dichter bij hoe onderdrukking werkelijk functioneert dan één-op-één dynamieken."},
+  {t:"Brug naar Beeldentheater",
+   body:"Jana Sanskriti (West-Bengalen) gebruikt Columbian Hypnosis als directe overgang naar stilstaand beeldwerk. Wanneer de joker bevries roept, staan alle paren plots stil — en krijg je een landschap van machtsrelaties. De groep analyseert: wie zit in welke positie, wie is in balans, wie lijdt? Zo wordt het spel een diagnostisch beeld. De beweging wordt tijdelijk stil, om dan weer te bewegen als de groep er klaar mee is."}
+ ],
+ tip:"Laat deze oefening nooit een wedstrijd worden. De leider die zijn volger helemaal kapot maakt heeft niet gewonnen — hij heeft alleen laten zien dat hij zorg ontbrak. Bespreek dit expliciet in de nabespreking."},
+
+{n:13, title:"Complete the Image",
+ cat:"Canon", catBg:"#f2ead2", catFg:"#8a6a1e", stripe:"#8a6a1e",
+ note:"De snelste manier om te bewijzen dat één beeld oneindig veel verhalen draagt. Twee mensen schudden elkaar de hand en bevriezen. Dan vertrekt één. De achterblijver blijft in houding. Een derde komt erbij en completeert het beeld — zo dat er een heel nieuw verhaal ontstaat. Zo wisselt het beeld steeds van betekenis, zonder dat de achterblijver ook maar iets verandert.",
+ stages:[
+  {t:"Het vertrekpunt: twee mensen, één beeld",
+   body:"Twee deelnemers schudden elkaar de hand. Ze bevriezen. De joker vraagt de groep: wat zien jullie? Antwoorden komen: een begroeting, een afscheid, een deal, een eerste ontmoeting. Al in die eerste ronde is zichtbaar dat hetzelfde beeld meerdere verhalen draagt. Er is geen juist antwoord."},
+  {t:"Eén vertrekt, de ander blijft",
+   body:"Nu stapt één van de twee uit het beeld. De ander blijft exact zoals hij was — hand uitgestoken, lichaam gekanteld. Zijn houding is nu ambigu: de context is weg, maar de vorm blijft. Dit moment is cruciaal — de joker laat de stilte staan. De achterblijver is een half beeld, een openstaande zin."},
+  {t:"Een nieuw lichaam completeert",
+   body:"Een derde stapt in. Zij neemt een nieuwe positie aan die een compleet ander verhaal maakt. Waar eerst een begroeting was, is nu een smeekbede. Of een bedreiging. Of een omhelzing. De eerste deelnemer heeft niets veranderd — alleen de relatie is veranderd, omdat er een nieuw tweede lichaam is bijgekomen. Dit is Boals bewijs: betekenis zit in relatie, niet in individu."},
+  {t:"Serieel herhalen",
+   body:"De oefening loopt nu in serie: degene die net het beeld compleetmaakte blijft staan, de eerste stapt uit. Een vierde komt en completeert met de tweede. Een vijfde met de vierde. Zo rolt het beeld door de ruimte — elke keer één nieuw lichaam, elke keer een compleet nieuw verhaal. De snelheid van deze transformaties maakt concreet wat anders een abstracte claim blijft: één lichaam draagt oneindig veel betekenissen."}
+ ],
+ tip:"Houd de wissels snel. Als deelnemers lang nadenken voor ze binnenstappen, gaan ze verbaliseren. Deze oefening werkt juist op de vóór-talige laag. Ritme: elke tien seconden een nieuw lichaam erbij."},
+
+{n:14, title:"Multiple Image of Happiness",
+ cat:"Canon", catBg:"#f2ead2", catFg:"#8a6a1e", stripe:"#8a6a1e",
+ note:"Een van Boals meest elegante oefeningen. Vraag deelnemers niet naar hun onderdrukking — die ligt te diep begraven. Vraag naar hun geluk. Dat tonen ze gemakkelijker. En vraag dan pas: wie of wat staat dit geluk in de weg? Het antwoord legt de onderdrukking bloot, preciezer dan elke directe vraag zou doen.",
+ stages:[
+  {t:"Niet abstract, maar concreet geluk",
+   body:"De joker vraagt elke deelnemer: wat zou je doen als je echt gelukkig was? Met wie zou je zijn? Waar? Niet: wat is geluk in het algemeen? — dat levert clichés op. Maar: jouw geluk, vandaag. De deelnemer boetseert dit beeld met behulp van anderen. Een tafel met familie, een boek op het terras, een danspartner, het niet hoeven haasten — elk beeld is specifiek voor één mens."},
+  {t:"Meerdere beelden, één samenleving",
+   body:"Wanneer vijf of zes deelnemers hun geluksbeelden gelijktijdig tonen, ontstaat een meervoudig sociaal portret. Sommige beelden lijken op elkaar; andere zijn scherp verschillend. De groep ziet: geluk is niet universeel, het is biografisch. Wat voor de een vervulling is, is voor de ander gevangenschap. Die meervoudigheid is diagnostisch — zij toont welke geluksvormen in deze gemeenschap leven."},
+  {t:"De obstakel-vraag",
+   body:"Nu vraagt de joker: wie of wat staat dit geluk in de weg? Elke deelnemer boetseert het obstakel — ook met behulp van lichamen. Een schuldeiser, een ziekte, een systeem, een fatsoen. De obstakel-figuur staat naast of over het geluksbeeld. De twee samen vormen de onderdrukking — niet abstract, maar als precieze geometrische verhouding tussen verlangen en blokkade."},
+  {t:"De structuur wordt zichtbaar",
+   body:"Het meest onthullende moment: de groep vergelijkt de obstakel-beelden. Wanneer tien individuen tien verschillende geluk-visies hebben maar steeds hetzelfde soort obstakel — een werkgever, een vader, een ziektekostensysteem, een sociale norm — is daar de structuur. De individuele ervaring is verschillend, de structurele blokkade is gedeeld. Dat is de politieke analyse waar de oefening naartoe werkt."}
+ ],
+ tip:"De kracht van deze oefening ligt in de volgorde: eerst het geluk, dan het obstakel. Draai het om en je krijgt klagen. Houd je aan Boals volgorde — verlangen eerst, dan de vraag wat het blokkeert."},
+
+{n:15, title:"Ritueel gebaar",
+ cat:"Canon", catBg:"#f2ead2", catFg:"#8a6a1e", stripe:"#8a6a1e",
+ note:"Een alledaagse handeling — je baas begroeten, klanten bedienen, een familiediner — wordt uitgevoerd alsof het een heilig ritueel is. Door het gewone te ritualiseren worden de onderliggende machtscodes en sociale conventies plots zichtbaar. Wat vanzelfsprekend leek, wordt vreemd — en dat vreemde maakt analyse mogelijk.",
+ stages:[
+  {t:"Kies het alledaagse",
+   body:"De joker nodigt deelnemers uit om een handeling te kiezen die zij elke dag verrichten zonder erover na te denken. Een hand geven bij een sollicitatie. Op het schoolplein bij je kind weggaan. Geld geven aan een straatmuzikant. De handeling moet zo gewoon zijn dat je haar normaal niet eens ziet. Dit is precies de handeling die de meeste macht-informatie draagt — wat we niet opmerken, werkt het sterkst."},
+  {t:"Ritualiseer met formaliteit",
+   body:"De deelnemer voert de handeling uit met de ernst van een ceremonie. Overdreven traag. Met volledige concentratie. Alsof elke stap religieus is voorgeschreven. De hiërarchie wordt uitvergroot: wie spreekt eerst, wie buigt hoger, wie wacht tot de ander gaat zitten. Het kleinste detail krijgt symbolisch gewicht."},
+  {t:"De codes worden leesbaar",
+   body:"Door de formalisatie worden de sociale codes plots zichtbaar. De groep ziet: in een gewone handgroet zitten zeven impliciete machtsregels. Wie eerst zijn hand uitsteekt bepaalt de status. De vastheid van de handdruk communiceert. De duur communiceert. Waar gekeken wordt communiceert. In de alledaagse handeling was dit onzichtbaar; in het ritueel staat het breeduit."},
+  {t:"Varianten onthullen meer",
+   body:"Nu kan de oefening variëren: dezelfde handeling gespeeld door mensen van verschillende sociale klassen, met rolwisseling, met maskers. Elke variant onthult weer iets anders. Wat verandert er als de peon de boss groet? Als de klant de serveerster bedient? Wanneer de codes zichtbaar worden kun je ze ook doorbreken — dat is de politieke winst van deze oefening."}
+ ],
+ tip:"Pas op voor parodie. Ritualiseren is niet belachelijk maken — het is vergroten wat werkelijk aanwezig is. Als de groep gaat lachen omdat het een grap wordt, is de ernst verdwenen. Vraag dan: doe het nog eens, maar nu zonder ironie."},
+
+{n:16, title:"De geïnternaliseerde onderdrukker",
+ cat:"Rainbow", catBg:"#ebdcef", catFg:"#6a3d7a", stripe:"#6a3d7a",
+ note:"Vanaf de jaren 80 werkte Boal in West-Europa en stuitte op een andere soort onderdrukking. In Latijns-Amerika werd onderdrukking uitgeoefend door politie en militairen — extern, zichtbaar. In Noord-Europa niet: mensen onderdrukten zichzelf. Boal noemde deze geïnternaliseerde onderdrukker de smeris in het hoofd, en ontwikkelde een hele nieuwe familie beeldtechnieken om ermee te werken — gebundeld in The Rainbow of Desire (1995).",
+ stages:[
+  {t:"Het probleem van het Noorden",
+   body:"Boal ontdekte: in landen zonder zichtbare dictatuur waren mensen even onderdrukt — alleen was hun onderdrukking verinnerlijkt. Ze censureerden zichzelf, ambieerden niet wat ze wilden, bleven in relaties die hen uitholden. Ze noemden dit vrij zijn. De cops stonden niet op straat — ze zaten in het hoofd. Ze hielden wacht met stemmen van ouders, leerkrachten, media, jeugd."},
+  {t:"De drie hypothesen",
+   body:"In Rainbow of Desire formuleert Boal drie hypothesen: (1) de smeris in het hoofd is een internalisering van externe machten — hun hoofdkwartier staat buiten; (2) osmose is het proces waardoor maatschappelijke ideeën, smaken en waarden in ons kruipen zonder dat we het merken; (3) elk onderdrukt persoon is innerlijk verdeeld tussen onderwerping en subversie. Het doel van Beeldentheater in deze mode is: de subversieve kant versterken door het onderwerpende deel zichtbaar te maken."},
+  {t:"Adversarial, niet integratief",
+   body:"Hier verschilt Boal scherp van de meeste therapeutische tradities. Waar visualisatietherapie vaak streeft naar integratie van innerlijke delen, is Boals benadering strijdlustig: de cop moet overwonnen worden, niet liefgehad. Het beeld maakt de vijand zichtbaar zodat hij bestreden kan worden. Dit is Beeldentheater als therapie, maar met politieke rand — innerlijke bevrijding blijft gekoppeld aan externe structuren."},
+  {t:"De relatie tot Forum",
+   body:"De Rainbow-technieken zijn beeldgebaseerd, niet scène-gebaseerd. Ze werken op de protagonist zelf — op zijn innerlijke strijd — in plaats van op de protagonist in relatie tot een externe antagonist. Daardoor zijn ze geschikt in contexten waar directe politiek-confrontatie niet werkt: verslaving, depressie, identiteitsvragen, keuze-verlamming. Boal was lang terughoudend om TO als drama therapy te beschrijven — in de latere fase omarmde hij die beschrijving voor deze specifieke technieken."}
+ ],
+ tip:"Rainbow-werk vraagt meer dan Image Theatre in groepswerk. Wie met geïnternaliseerde onderdrukking werkt, moet opvangcapaciteit hebben — in de groep en bij de joker. Niet inzetten zonder stevige groepsband en zonder uitgangsoefening aan het einde."},
+
+{n:17, title:"Image of the Antagonist",
+ cat:"Rainbow", catBg:"#ebdcef", catFg:"#6a3d7a", stripe:"#6a3d7a",
+ note:"De kerntechniek uit de introspectieve familie van Rainbow of Desire. De protagonist boetseert het beeld van zijn eigen antagonist — niet een externe vijand, maar de innerlijke tegenkracht die hem blokkeert. Daarnaast komt het counter-image: de tegenkant van die antagonist, de kracht in hemzelf die weerwoord geeft. Tussen die twee speelt zich zijn innerlijke strijd af.",
+ stages:[
+  {t:"De antagonist uit het hoofd halen",
+   body:"De protagonist vertelt kort een situatie waarin hij zich geblokkeerd voelde. De joker helpt hem één specifiek moment te kiezen — niet een hele periode maar één ogenblik van blokkade. De protagonist boetseert nu, met behulp van een andere deelnemer, het beeld van de antagonist in dat moment. Dat kan een reële persoon zijn — een vader, een leerkracht — maar vaak is het een stem, een oordeel, een herinnering. Het lichaam dat de antagonist vertegenwoordigt krijgt een concrete houding, blik, spanning."},
+  {t:"Het image maken tastbaar",
+   body:"Wat eerst een innerlijke stem was, staat nu buiten de protagonist. Hij kan ernaar kijken. Hij kan eromheen lopen. Hij kan zijn hoogte vergelijken met zijn eigen hoogte. Voor het eerst is de antagonist iets anders dan zichzelf. Deze externalisering is al bevrijdend — zelfs zonder verdere handeling voelt de protagonist vaak minder overweldigd."},
+  {t:"Counter-image: de eigen tegenkracht",
+   body:"Nu boetseert de protagonist een tweede beeld: zijn counter-image. Dit is de kracht in hemzelf die de antagonist weerspreekt. Misschien een kindergezicht dat hij nog kent; misschien een ouder ik dat ooit iets zei wat hem hielp. Deze counter-image is vaak zwakker dan de antagonist — dat is precies waarom de protagonist geblokkeerd is. Maar door haar te boetseren erkent hij haar bestaan."},
+  {t:"De strijd onderzoeken",
+   body:"De joker kan nu vragen: wat gebeurt er tussen deze twee beelden? Kan de protagonist zelf ertussen gaan staan? Wat voelt hij? Welke van de twee wint nu? Wat zou nodig zijn om de counter-image te versterken? Deze vragen zijn niet retorisch — ze vragen fysieke antwoorden. De protagonist beweegt zijn eigen lichaam, zijn positie, zijn oriëntatie. Zo repeteert hij de innerlijke strijd in veiligheid, met de mogelijkheid om uitkomsten te testen die in de werkelijkheid nog niet mogelijk waren."}
+ ],
+ tip:"Deze oefening is krachtig en kan emotioneel ver gaan. Werk altijd met een co-joker of observer die de protagonist kan ondersteunen. En eindig nooit met de antagonist nog op — zorg dat de protagonist zichzelf weer uit het beeld stapt voor je afsluit."},
+
+{n:18, title:"De gechoreografeerde sequentie als antimodel",
+ cat:"Sequentie", catBg:"#d4e4dc", catFg:"#1a5240", stripe:"#1a5240",
+ note:"Een methodische additie uit de Nederlandse praktijk. In plaats van het klassieke Forum-antimodel als narratieve scène, is de beeldensequentie een gechoreografeerde reeks beelden en bewegingen die een maatschappelijk thema vanuit meerdere perspectieven tegelijk toont. Het resultaat: een antimodel dat geen enkele protagonistlijn volgt maar een meervoudige sociale kaart neerzet — voor thema's waar juist de gelijktijdigheid van krachten het probleem vormt.",
+ stages:[
+  {t:"Waarom beeld en beweging samen",
+   body:"Narratief theater vraagt reductie: er moet een protagonist zijn, er moet escalatie zijn, er moet een crisispunt zijn. Dat werkt bij conflicten die zich in één relatie afspelen. Het werkt niet voor thema's waar juist de gelijktijdigheid van onverzoenbare krachten de onmacht produceert. Toegang tot geestelijke gezondheidszorg voor jongeren is geen één-op-één conflict — het is het gelijktijdig werken van hulpverlener, ouder, wachttijd, sociale verwachting, zelfbeeld en financiering. De beeldensequentie toont die gelijktijdigheid direct."},
+  {t:"Voorbeeld: toegang tot GGZ voor jongeren",
+   body:"Een mogelijke sequentie: Beeld 1 — een jongere alleen in zijn kamer, twee minuten stil, licht bewegend. Beeld 2 — de ouder aan de keukentafel met een formulier, aarzelend. Beeld 3 — de huisarts met een vol wachtkamer-beeld eromheen. Beeld 4 — een telefoongesprek dat niet opgenomen wordt, in slow-motion. Beeld 5 — klasgenoten die een groepsfoto maken zonder hem. Beeld 6 — een hulpverlener die een dossier sluit. Elk beeld is kort. Samen vormen ze geen verhaal maar een landschap. Het publiek ziet niet één falende protagonist — het ziet een systeem waarin niemand alleen faalt."},
+  {t:"Voorbeeld: de positie van de vrouw in Suriname",
+   body:"Een andere sequentie: Beeld 1 — drie generaties vrouwen in de keuken, elk ander werk doende. Beeld 2 — een vrouw bij de bank met papieren van een man. Beeld 3 — een kerkdienst, wie vooraan staat. Beeld 4 — een politiek debat, wie spreekt. Beeld 5 — huiselijke scène met zichtbare spanning. Beeld 6 — een jonge vrouw met een diploma, thuis afwassend. Opnieuw: geen enkele lijn, maar een kaart. De verschillende maatschappelijke lagen — economie, religie, politiek, familie, onderwijs — tonen zich als gelijktijdig werkende velden. Het publiek ziet de structuur, niet een incident."},
+  {t:"De val: illustratie in plaats van antimodel",
+   body:"Het grootste risico van deze vorm: de sequentie wordt illustratief in plaats van spanningsvol. Wanneer elk beeld het probleem laat zien, wordt het geheel een pamflet. Een goede beeldensequentie heeft spanning: beelden spreken elkaar tegen, er zit humor naast tragiek, een beeld bevat zijn eigen tegenkracht. En — zoals bij het klassieke antimodel — de sequentie eindigt op onmacht, niet op oplossing. Zonder die eindigheid is er niets voor het publiek om aan toe te voegen."}
+ ],
+ tip:"Houd de sequentie kort: zes tot acht beelden, elk twee tot drie minuten. Langer en het publiek verliest het overzicht. Investeer in de overgangen — de bewegingen tussen beelden vertellen vaak meer dan de beelden zelf."},
+
+{n:19, title:"Aanvullende beelden door publieksgroepen",
+ cat:"Sequentie", catBg:"#d4e4dc", catFg:"#1a5240", stripe:"#1a5240",
+ note:"De methodische draai die deze vorm onderscheidt van klassieke Forum. Na het tonen van de beeldensequentie wordt het publiek niet uitgenodigd om in de scène in te grijpen — het wordt uitgenodigd om de scène aan te vullen. Welke beelden miste de sequentie? Wiens perspectief ontbrak? Publieksgroepen bouwen eigen beelden die naast de getoonde komen te staan. De machtsverdeling verschuift: de troep levert de opening, het publiek voltooit de kaart.",
+ stages:[
+  {t:"Na bespreking en reflectie",
+   body:"Eerst bespreekt de groep wat ze gezien heeft. Welke beelden raakten? Welke verhoudingen vielen op? Wat voelde herkenbaar, wat voelde vreemd? Deze reflectieronde is belangrijk — zonder dat wordt de volgende fase oppervlakkig. Maar de reflectie blijft kort en gericht: niet discussiëren over oplossingen, alleen benoemen wat zichtbaar werd. De joker let op één vraag: wat hebben we niet gezien?"},
+  {t:"Groepsverdeling en opdracht",
+   body:"Het publiek wordt verdeeld in kleine groepen van vier tot zes personen. Elke groep krijgt dezelfde opdracht: maak één of twee beelden die missen in de sequentie. Dat kan een perspectief zijn dat niet getoond werd (de vader die niet betrokken is; de zorgverzekeraar; de jongerenwerker die niet gebeld werd). Het kan ook een moment zijn dat ontbreekt (het moment vlak voor de crisis; de stilte na de oplossing die niet kwam). De groepen werken in hun eigen hoek, in stilte, met hun eigen lichamen."},
+  {t:"Tonen en toevoegen",
+   body:"Elke groep toont zijn aanvullende beeld. Niet als correctie van de sequentie — als uitbreiding. Waar de originele sequentie zes beelden had, heeft de verzamelde sessie er nu twaalf of veertien. Het thema is rijker geworden. Niemand heeft het probleem opgelost — maar het is nu voller, accurater, moeilijker weg te drukken. Wat ontbrak was niet bij toeval afwezig; het was vaak systematisch onzichtbaar."},
+  {t:"Waarom dit een andere machtsverdeling is",
+   body:"In klassieke Forum is de scène eigendom van de troep; spect-actoren komen er binnen om iets van de troep te veranderen. Hier is de sequentie een uitnodiging; het publiek bouwt zijn eigen beelden ernaast. De troep wordt niet gecorrigeerd — ze wordt aangevuld. Dit vraagt vertrouwen van de troep: je toont je werk als onaf, als begin van een gemeenschappelijke constructie. En het geeft het publiek een creatieve, niet alleen interveniërende, rol."}
+ ],
+ tip:"Zeg nooit: wat mist er? — dat klinkt als correctie. Vraag liever: wat zou je hier graag naast willen zien? Het verschil in formulering bepaalt of het publiek zich als criticus of als mede-maker gedraagt."},
+
+{n:20, title:"Bejokeren op angst en verlangen",
+ cat:"Sequentie", catBg:"#d4e4dc", catFg:"#1a5240", stripe:"#1a5240",
+ note:"De derde fase van de methode. Nu alle beelden — oorspronkelijk en aangevuld — samen staan, wordt elke figuur in elk beeld beschikbaar voor onderzoek. De joker stelt aan iedere figuur twee vragen: waar ben je bang voor? En: waar verlang je naar? Het getoonde lichaam antwoordt. Zo ontstaat per beeld een emotionele kaart van botsende verlangens en angsten.",
+ stages:[
+  {t:"Waarom juist deze twee vragen",
+   body:"Verlangen en angst zijn de twee krachten die onder politieke posities liggen. Een ouder die zijn zorgdragende rol niet loslaat, verlangt iets én is bang voor iets. Een hulpverlener die streng omgaat met regels, verlangt iets én is bang voor iets. Als je alleen vraagt naar mening of argument, krijg je ideologie. Als je vraagt naar verlangen en angst, krijg je de motor onder het gedrag. Die motor kun je onderzoeken. En — cruciaal — de motor van de tegenstander blijkt vaak verwant aan die van de protagonist. Beiden willen veiligheid. Beiden zijn bang voor verlies. Daar begint politieke verbeelding."},
+  {t:"Figuur voor figuur door het beeld",
+   body:"De joker gaat langs de figuren in één beeld. Jij, in deze houding — waar ben je bang voor? De speler antwoordt in het karakter, niet vanuit zichzelf. Ik ben bang dat ik niet voldoende ben. Dan: en waar verlang je naar? Dat iemand ziet wie ik ben. De antwoorden worden niet geëvalueerd. Ze worden opgeschreven of onthouden. Elke figuur krijgt dezelfde twee vragen. Aan het eind is er per beeld een emotionele kaart."},
+  {t:"Zonder psychologiseren",
+   body:"Het grote risico: de oefening wordt individuele therapie. Elke figuur krijgt een inner wereld, de groep wordt geïndividualiseerd, het maatschappelijke wordt vergeten. De joker voorkomt dit door steeds terug te koppelen naar de sociale laag: deze angst — is die van deze persoon, of past hij bij deze positie? Een hulpverlener die bang is voor tuchtzaken heeft niet haar eigen angst — ze draagt een structurele angst die bij haar positie hoort. Die differentiatie houdt de analyse collectief."},
+  {t:"Wat het oplevert",
+   body:"Aan het eind van deze fase is de sequentie doorlicht. Elk beeld draagt nu niet alleen visuele informatie maar ook emotionele kaart: wie wil wat, wie vreest wat, waar overlappen verlangens, waar botsen ze. Dat maakt interventie mogelijk die verder gaat dan de verkeerde partij overtuigen. Je kunt nu ontwerpen: welke interventie spreekt het verlangen van meerdere partijen tegelijk aan? Welke vermindert de gedeelde angst? Dit is beleidsontwerp via beeld. Hier ontmoet Beeldentheater Legislatief Theater."}
+ ],
+ tip:"Schrijf de antwoorden op een groot vel, zichtbaar voor iedereen. Niet als boekhouding maar als gedeeld materiaal. Aan het eind leest iemand het hardop: dit is wat we samen hebben gehoord. Dat moment is vaak krachtiger dan elke interventie die volgt."},
+
+{n:21, title:"Image Theatre als onderzoek",
+ cat:"Praktijk", catBg:"#dde3dd", catFg:"#5a6b5a", stripe:"#5a6b5a",
+ note:"Sinds 2008 wordt Image Theatre ingezet als formele onderzoeksmethode in de sociale wetenschappen. Kaptani en Yuval-Davis baanbrekend werk met vluchtelingen, daarna Erel, Bune, Davids en anderen. De stelling: participatief theater levert belichaamde, dialogische data die met interviews of enquêtes niet te krijgen zijn. Bijzonder waardevol bij onderzoek naar trauma, taboe en marginaliteit.",
+ stages:[
+  {t:"Waarom belichaamde data",
+   body:"Een interview vraagt de respondent zijn ervaring in woorden te vatten — en die woorden zijn vaak al gecensureerd, vertaald, gerationaliseerd. Een beeld gebouwd met het lichaam ontloopt die filters. Onderzoekers krijgen toegang tot een laag van kennis die de respondent zelf mogelijk niet kon articuleren. Dit is niet zachter dan kwantitatief werk — het is ánder. Belichaamde data onthult patronen die door talige methoden worden weggespoeld."},
+  {t:"Veilige afstand via fictie",
+   body:"De methodische kracht voor gevoelige onderwerpen: deelnemers hoeven hun eigen verhaal niet te vertellen. Ze werken met fictieve beelden en verhalen die op de theatervloer ontstaan. Die fictie creëert wat Davids et al. (2024) veilige emotionele afstand noemen — de deelnemer kan bijdragen aan gedeeld materiaal zonder zich te exposeren. Dit maakt onderzoek mogelijk bij groepen die in individuele interviews zouden dichtklappen: overlevenden van geweld, vluchtelingen, mensen met complexe trauma's."},
+  {t:"Concrete projecten",
+   body:"Columbia Universiteit Rehearsals for Change (2022): Image Theatre gebruikt om de Covid-ervaring te verwerken en te onderzoeken. Kaptani en Yuval-Davis (ESRC-project): identiteit, performance en sociale actie bij vluchtelingen in Londen. Kuringa Berlijn: doorlopend onderzoek naar migratie, gender, geweld. Bune (2023): toegankelijkheid in Nederland. In al deze projecten levert Image Theatre kwalitatieve data die gepubliceerd wordt in peer-reviewed tijdschriften — niet als illustratie, maar als kernmateriaal."},
+  {t:"Wat dit voor jokers betekent",
+   body:"Als jouw sessie wordt ingebed in onderzoek, verandert je positie. Je bent niet alleen facilitator, je bent co-onderzoeker. Dat vraagt afspraken over data — mag er gefilmd worden, hoe worden beelden beschreven, wie bezit het materiaal. Jokers die onderzoek niet willen faciliteren moeten dat vooraf duidelijk maken. Omgekeerd: onderzoekers die met Image Theatre willen werken zonder ervaren joker krijgen vaak oppervlakkige data. De methodologie vraagt methodologische discipline."}
+ ],
+ tip:"Als je sessie onderzoek wordt: maak vooraf een data-protocol. Wat wordt genoteerd? Wie ziet de notities? Kunnen deelnemers iets terugtrekken? Wie is eigenaar van de gepubliceerde beelden? Deze vragen niet achteraf oplossen — vooraf."},
+
+{n:22, title:"Image Theatre voor klimaat en crisis",
+ cat:"Praktijk", catBg:"#dde3dd", catFg:"#5a6b5a", stripe:"#5a6b5a",
+ note:"De klimaatcrisis wordt vaak omschreven als een crisis of imagination — een onmacht om de omvang en de gevolgen in onze verbeelding toe te laten. Image Theatre is letterlijk verbeelding-op-de-vloer. Dat maakt het uitzonderlijk geschikt voor klimaatwerk — en meer breed voor elke crisis waar het probleem onzichtbaar of te groot is voor woorden.",
+ stages:[
+  {t:"Wat onzichtbaar werkt, verbeelden",
+   body:"Klimaatverandering gebeurt op tijdschalen en ruimtelijke schalen die onze zintuigen niet bevatten. Systeemonderdrukking werkt in netwerken die we niet kunnen overzien. Ziekten zoals depressie blijven in ieders hoofd en worden niet gedeeld. Al deze fenomenen hebben gemeen: ze werken maar zijn onzichtbaar. Het beeldwerk dwingt ze in fysieke vorm. Een groep kan niet een gletsjer smelten, maar kan wel een beeld maken van wat verlies eruitziet. Die beelden zijn geen oplossing, maar ze verzamelen wat anders verstrooid blijft."},
+  {t:"Van individuele angst naar gedeeld beeld",
+   body:"Klimaatangst is epidemisch onder jongeren, maar wordt vaak individueel gedragen. Image Theatre-sessies over klimaat beginnen met individuele beelden van angst, verlies, woede — en dynamiseren die tot een collectief landschap. Dat moment van zien dat je angst gedeeld is, is politiek bevrijdend. Je bent niet gek, niet alleen, niet disproportioneel. Je bent onderdeel van een gemeenschap die iets waarneemt."},
+  {t:"Utopische beelden als repetitie",
+   body:"De tweede beweging: wat zou bevrijding eruit zien? Groepen maken beelden van een post-fossiele gemeenschap, een rechtvaardige transitie, een stad zonder auto-dominantie. Deze beelden zijn niet naïef — ze zijn oefeningen in collectieve verbeelding die nodig is om politieke strijd aan te sturen. Chantal Bilodeau (Arts and Climate Initiative) heeft dit principe tien jaar lang gedocumenteerd: theaters die klimaat-futures verbeelden produceren activistische energie die debat alleen niet levert."},
+  {t:"De valkuil van eco-melancholie",
+   body:"Het gevaar: sessies worden ritueel rouwen zonder vervolg. Het beeld van verlies wordt steeds mooier, steeds triester, en de groep vertrekt met een zwaarder hart. Goed gebruik van Image Theatre vraagt daarom altijd de volledige drie-beelden-boog: echt (wat is), ideaal (wat wij willen), overgang (welke stap is mogelijk). Stop bij het echt, en je hebt klimaatpsychiater gespeeld. Ga door naar overgang, en je hebt politieke repetitie gedaan."}
+ ],
+ tip:"Werk bij klimaatsessies met gemengde groepen — wetenschappers, activisten, kunstenaars, mensen uit getroffen gebieden. De verschillende kennissen leveren beelden die elkaar corrigeren. Homogene groepen produceren te consistente beelden, en consistente beelden missen wat het moeilijkst is om te zien."},
+
+{n:23, title:"De beeldenregel: terughoudend met uitleg",
+ cat:"Praktijk", catBg:"#dde3dd", catFg:"#5a6b5a", stripe:"#5a6b5a",
+ note:"Een van de meest genoemde werkprincipes van Image Theatre — en de meest verkeerd begrepen. Bij voorkeur vraagt de joker aan de kijkers wat ze zien, niet aan de maker wat het beeld betekent. De verleiding om toe te lichten is groot — voor de maker, voor de joker, voor de groep. Maar let op: dit is geen regel die je met ijzer handhaaft. Boal zelf waarschuwde dat TO geen dogma is. De discipline zit in het principe, de kunst in het oordeel wanneer je van het principe afwijkt.",
+ stages:[
+  {t:"Waarom het principe werkt",
+   body:"Wanneer de maker zijn beeld direct uitlegt, krimpt het beeld vaak tot die uitleg. Al het andere dat in het beeld zat — het onbedoelde, het ambivalente, wat alleen de kijkers konden zien — raakt op de achtergrond. Er is één waarheid in plaats van een veld. De democratische, sinaletische kracht van het beeld verzwakt. Na één vroege uitleg wordt de hele groep voorzichtiger, minder vrij in observatie. Het principe beschermt dus de werking — en heeft daarmee een goede reden, geen ritueel karakter."},
+  {t:"Wat de joker meestal doet",
+   body:"Eerst: wat zien jullie? — aan de kijkers. Tweede: luisteren naar meerdere antwoorden zonder ze te corrigeren. Derde, pas daarna, aan de maker: klopt iets hiervan bij wat jij maakte? De maker kan antwoorden met ja, met nee, of met: ja, en er is nog iets. Zo blijft het beeld in eerste instantie eigendom van de groep. De maker voegt toe, niet af. Dit is werkgewoonte, geen sacrament."},
+  {t:"Wanneer je van het principe afwijkt",
+   body:"Er zijn momenten waarop een rigide toepassing van het principe juist tegenwerkt. Een deelnemer die iets wezenlijks wil toevoegen wordt afgekapt en voelt zich ongezien. Een cultuur waarin verbale uitdrukking een vorm van respect is, voelt zich stilgelegd. Een trauma-context waarin de maker ruimte nodig heeft. Een ervaren groep die de sinaletiek al beheerst en nu verder wil met gedeelde reflectie. In al deze gevallen kiest de joker bewust voor meer ruimte voor woord — niet uit zwakte maar uit oordeel. Boal noemde deze beoordeling zelf belangrijker dan de regel. TO is discipline, geen ritueel."},
+  {t:"De valkuil van het omgekeerde uiterste",
+   body:"Te veel verbale ruimte brengt zijn eigen problemen. Een groep die overal over praat verliest de sinaletische kracht waar de methode op rust. Een joker die elke maker lang laat uitleggen maakt van Image Theatre een improvisatiecursus. Het principe bestaat omdat het werkt; je wijkt ervan af met argumenten, niet uit luiheid. Een goede joker kan beide: vasthouden wanneer het nodig is, loslaten wanneer het dienstig is. En kan benoemen wat ze doet, zodat de groep leert waar de grenzen van methode en oordeel liggen."}
+ ],
+ tip:"Als je merkt dat je zelf bijna gaat uitleggen — pauzeer. Vraag: wat zien jullie? Jouw impuls tot uitleggen is vaak een signaal dat het beeld werkt. Maar als iemand in de groep duidelijk iets wezenlijks kwijt wil dat niet in het beeld past, onderdruk dat niet uit principe. De methode dient mensen, niet omgekeerd."},
+
+{n:24, title:"Appropriation en taming",
+ cat:"Praktijk", catBg:"#dde3dd", catFg:"#5a6b5a", stripe:"#5a6b5a",
+ note:"Twee kritische vragen voor de Westerse joker. (1) Appropriation: is jouw gebruik van deze Latijns-Amerikaanse bevrijdingsmethode een voortzetting van haar emancipatorische project, of een consumptie van haar esthetiek? (2) Taming: blijft de methode in jouw handen een repetitie voor bevrijding, of wordt ze omgezet in een tool om met onderdrukking te leren leven? Beide vragen verdienen doorlopende aandacht — niet één keer beantwoord en opgelost.",
+ stages:[
+  {t:"De appropriation-vraag",
+   body:"Image Theatre is ontwikkeld door een Braziliaanse marxistische theaterman in ballingschap, werkend met door de staat onderdrukte boeren en inheemse gemeenschappen in Latijns-Amerika. Wanneer het wordt gebruikt in Nederlandse kantoortrainingen, Britse drama-lessen of Amerikaanse zelfontplooiingsworkshops, stelt dat vragen. Niet automatisch problematisch — de methode is expliciet open verspreid en vele culturen hebben er eigen takken aan gehangen (Jana Sanskriti, Kuringa, Cardboard Citizens). Maar wel vraag-waardig: wat breng je terug naar de traditie waaruit je leent? Welke boeken lees je, welke jokers citeer je, aan welke netwerken draag je bij?"},
+  {t:"De taming-vraag",
+   body:"Een breder onderzocht risico, zie Boncori (2024) Taming the radical. Wanneer Image Theatre wordt ingezet in leiderschapsontwikkeling, team-cohesie, bedrijfsstrategie, komt de vraag: waar is de onderdrukking gebleven? Vaak is ze er wel — maar ze wordt niet benoemd omdat dat onveilig is voor de opdrachtgever. Het werk wordt dan uitdrukkelijke communicatie in plaats van politieke repetitie. Boal zou zeggen: dat is geen Theatre of the Oppressed meer, dat is activerende training met Boal-citaat. Niets mis mee, maar benoem het dan ook niet als de bevrijdingsmethode."},
+  {t:"Wanneer is het nog TO?",
+   body:"Een nuttige toets — niet absoluut, wel scherp: dient jouw sessie de bevrijding van de deelnemers, of het comfort van de opdrachtgever? Deze vraag is niet retorisch. Veel sessies dienen in feite beide, of schuiven tussen de twee, of beginnen met het één en verschuiven naar het andere. Waar jij die grens trekt, bepaalt of je Image Theatre beoefent of een afgeleide techniek. Eerlijkheid hierover tegenover jezelf en je deelnemers is onderdeel van de joker-ethiek."},
+  {t:"Wat je wel kunt doen",
+   body:"Geen van deze vragen leidt tot: dus stop met deze methode. Ze leiden tot: praktiseer met bewustzijn. Lees Boals eigen teksten, niet alleen samenvattingen. Lees Santos, Ganguly, Diamond — andere stemmen dan Boal zelf. Werk af en toe pro bono voor gemeenschappen die minder middelen hebben. Verwijs serieus naar de traditie. Erken wat je niet kunt doen (je bent geen peón, je bent geen vluchteling) en beperk je daartoe. De methode overleeft vertaling — niet door ontkenning van vertaalverlies, maar door bewustheid ervan."}
+ ],
+ tip:"De taming-vraag stel je niet één keer voor je sessie, maar halverwege. Voel je dat het werk onschadelijk is geworden? Dat is niet falen — dat is informatie. Benoem het in de groep: ik merk dat we veilig blijven. Willen we iets aangaan wat niet veilig is? De groep beslist."}
+
+];
+
+let cur = 0;
+let curStage = 0;
+let view = 'step';
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      ${hasStages ? `
+        <div class="stages-head">
+          <div class="stages-lbl">Stappen</div>
+          <div class="stage-progress">
+            ${stages.map((_, i) => `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`).join('')}
+          </div>
+          <div class="stage-nav">
+            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
+            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
+          </div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
+          <div class="stage-title">${stages[curStage].t}</div>
+          <div class="stage-text">${stages[curStage].body}</div>
+        </div>
+      ` : ''}
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle kaarten</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+              <div class="all-cat-tag" style="background:${tech.catBg};color:${tech.catFg}">${tech.cat}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) { cur++; curStage = 0; updateDisplay(); }
+}
+function prevTech() {
+  if (cur > 0) { cur--; curStage = 0; updateDisplay(); }
+}
+function nextStage() {
+  const techIndex = filteredIndices[cur];
+  const stages = T[techIndex].stages;
+  if (stages && curStage < stages.length - 1) { curStage++; updateDisplay(); }
+}
+function prevStage() {
+  if (curStage > 0) { curStage--; updateDisplay(); }
+}
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  cur = 0; curStage = 0; updateDisplay();
+}
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex; curStage = 0; view = 'step';
+    updateViewToggle(); updateDisplay();
+  }
+}
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'stage-prev') prevStage();
+  if (e.target.id === 'stage-next') nextStage();
+  if (e.target.classList.contains('sp-dot')) {
+    curStage = parseInt(e.target.dataset.stage);
+    updateDisplay();
+  }
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle(); updateDisplay();
+  }
+  if (e.target.classList.contains('all-stage-row') || (e.target.parentElement && e.target.parentElement.classList.contains('all-stage-row'))) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') { e.preventDefault(); prevTech(); }
+  if (e.code === 'ArrowRight') { e.preventDefault(); nextTech(); }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle(); updateDisplay();
+  }
+  if (e.code === 'ArrowUp') { e.preventDefault(); prevStage(); }
+  if (e.code === 'ArrowDown') { e.preventDefault(); nextStage(); }
+});
+
+updateDisplay();
+updateViewToggle();
+</script>
+</body>
+</html>
