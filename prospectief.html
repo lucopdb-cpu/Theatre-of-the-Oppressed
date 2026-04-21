@@ -273,111 +273,9 @@ body{
 }
 
 /* ── WEERGAVE TOGGLE ── */
-.view-toggle{
-  display: flex;
-  gap: 0;
-  margin-bottom: 14px;
-  border: 1px solid var(--paper4);
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--paper2);
-}
-.vtab{
-  flex: 1;
-  padding: 8px 10px;
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 500;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  color: var(--ink3);
-  transition: all .15s;
-  border-right: 1px solid var(--paper4);
-}
-.vtab:last-child{border-right: none;}
-.vtab:hover{background: var(--paper3); color: var(--ink2);}
-.vtab.on{background: var(--teal5); color: #fff;}
 
-/* ── PER-STAP WEERGAVE ── */
-.stage-nav{
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.stage-nav.show{display:flex;}
-.stage-progress{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.stage-dot{
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--paper4);
-  cursor: pointer;
-  transition: all .2s;
-  flex-shrink: 0;
-}
-.stage-dot.on{background: var(--teal); transform: scale(1.4);}
-.stage-label{
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--teal5);
-  letter-spacing: .04em;
-  flex: 1;
-}
-.stage-counter{
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink3);
-}
-.stage-content{
-  background: var(--paper2);
-  border: 1px solid var(--paper4);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.stage-content-head{
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--teal5);
-  padding: 8px 14px;
-  background: var(--teal4);
-  border-bottom: 1px solid var(--teal3);
-  letter-spacing: .03em;
-}
-.stage-content-steps{
-  padding: 10px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.stage-nav-btns{
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-}
-.stage-btn{
-  padding: 8px 16px;
-  border-radius: 7px;
-  border: 1px solid var(--paper4);
-  background: #fff;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--teal);
-  cursor: pointer;
-  transition: all .12s;
-}
-.stage-btn:hover:not(:disabled){background: var(--teal4);}
-.stage-btn:disabled{opacity:.25; cursor:default;}
-.stage-btn.primary{background: var(--teal); color: #fff; border-color: var(--teal);}
-.stage-btn.primary:hover:not(:disabled){background: var(--teal5);}
+
+
 
 /* ── ALLE STAPPEN WEERGAVE ── */
 .all-stages{
@@ -404,6 +302,25 @@ body{
   border-bottom: 1px solid var(--teal3);
   letter-spacing: .03em;
 }
+/* Accordion trigger/collapse */
+.stage-trigger{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background .1s;
+}
+.stage-trigger:hover{background: var(--teal3);}
+.stage-trigger.open{background: var(--teal);color:#fff;border-bottom-color: var(--teal);}
+.stage-arrow{font-size: 10px;transition: transform .2s;flex-shrink:0;}
+.stage-trigger.open .stage-arrow{transform: rotate(180deg);}
+.stage-collapse{display: none;}
+.stage-collapse.open{display: flex;}
+/* Bij gesloten accordion: geen border-bottom op head */
+.stage-block:has(.stage-trigger:not(.open)) .stage-head{border-bottom: none;}
 .stage-steps{
   padding: 10px 14px;
   display: flex;
@@ -1033,8 +950,6 @@ const DATA = [
 // ── STATE ──
 let filtered = DATA.slice();
 let idx = 0;
-let stageIdx = 0;      // welke fase is actief in per-stap modus
-let viewMode = 'step'; // 'step' | 'all'
 
 // power labels
 const POWER_LABELS = {
@@ -1051,10 +966,7 @@ function render(){
     area.innerHTML='<div class="empty">Geen technieken gevonden.</div>';
     renderNav(); renderPills(); return;
   }
-
-  // Clamp stageIdx
   const nStages = card.stages ? card.stages.length : 0;
-  if(stageIdx >= nStages) stageIdx = Math.max(0, nStages-1);
 
   // ── Power pills ──
   const powerHTML = card.power && card.power.length
@@ -1066,60 +978,26 @@ function render(){
        </div>`
     : '';
 
-  // ── Fasen/stappen HTML ──
+  // ── Fasen/stappen HTML (accordion, alles default dicht) ──
   let stagesHTML = '';
   if(nStages > 0){
-    if(viewMode === 'step'){
-      const st = card.stages[stageIdx];
-      const dots = card.stages.map((_,i)=>
-        `<div class="stage-dot${i===stageIdx?' on':''}" onclick="goStage(${i})"></div>`).join('');
-      stagesHTML = `
-        <div class="view-toggle">
-          <button class="vtab on" onclick="setView('step')">▶ Per fase</button>
-          <button class="vtab" onclick="setView('all')">☰ Alle stappen</button>
-        </div>
-        <div class="stage-nav show">
-          <div class="stage-progress">
-            ${dots}
-            <span class="stage-label">${st.head}</span>
-            <span class="stage-counter">${stageIdx+1} / ${nStages}</span>
-          </div>
-          <div class="stage-content">
-            ${st.head !== 'Stappen' ? `<div class="stage-content-head">${st.head}</div>` : ''}
-            <div class="stage-content-steps">
+    stagesHTML = `
+      <div class="all-stages show">
+        ${card.stages.map((st,si)=>`
+          <div class="stage-block">
+            <button class="stage-head stage-trigger" onclick="toggleStage(this)">
+              <span>${st.head !== 'Stappen' ? st.head : `Fase ${si+1}`}</span>
+              <span class="stage-arrow">▾</span>
+            </button>
+            <div class="stage-steps stage-collapse">
               ${st.steps.map((s,i)=>`
                 <div class="step-row">
                   <div class="step-nr">${i+1}</div>
                   <div class="step-txt">${s}</div>
                 </div>`).join('')}
             </div>
-          </div>
-          <div class="stage-nav-btns">
-            <button class="stage-btn" onclick="prevStage()" ${stageIdx===0?'disabled':''}>← Vorige fase</button>
-            <button class="stage-btn primary" onclick="nextStage()" ${stageIdx>=nStages-1?'disabled':''}>Volgende fase →</button>
-          </div>
-        </div>`;
-    } else {
-      // all-stages view
-      stagesHTML = `
-        <div class="view-toggle">
-          <button class="vtab" onclick="setView('step')">▶ Per fase</button>
-          <button class="vtab on" onclick="setView('all')">☰ Alle stappen</button>
-        </div>
-        <div class="all-stages show">
-          ${card.stages.map(st=>`
-            <div class="stage-block">
-              ${st.head !== 'Stappen' ? `<div class="stage-head">${st.head}</div>` : ''}
-              <div class="stage-steps">
-                ${st.steps.map((s,i)=>`
-                  <div class="step-row">
-                    <div class="step-nr">${i+1}</div>
-                    <div class="step-txt">${s}</div>
-                  </div>`).join('')}
-              </div>
-            </div>`).join('')}
-        </div>`;
-    }
+          </div>`).join('')}
+      </div>`;
   }
 
   area.innerHTML = `
@@ -1189,21 +1067,12 @@ function renderPills(){
 
 // ── NAVIGATION ──
 function goCard(i){
-  idx = i; stageIdx = 0; render();
+  idx = i; render();
 }
-function goStage(i){
-  stageIdx = i; render();
-}
-function prevStage(){
-  const card = filtered[idx];
-  if(stageIdx > 0){ stageIdx--; render(); }
-}
-function nextStage(){
-  const card = filtered[idx];
-  if(card && stageIdx < card.stages.length-1){ stageIdx++; render(); }
-}
-function setView(mode){
-  viewMode = mode; render();
+function toggleStage(btn){
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
 }
 
 // ── SEARCH ──
@@ -1219,28 +1088,28 @@ document.getElementById('srch').addEventListener('input', function(){
       (d.tip||'').toLowerCase().includes(q)
     );
   }
-  idx = 0; stageIdx = 0; render();
+  idx = 0; render();
 });
 
 document.getElementById('clr-btn').onclick = function(){
   document.getElementById('srch').value = '';
   this.classList.remove('show');
-  filtered = DATA.slice(); idx = 0; stageIdx = 0; render();
+  filtered = DATA.slice(); idx = 0; render();
 };
 
 // ── NAV BUTTONS ──
 document.getElementById('prev-btn').onclick = ()=>{
-  if(idx>0){ idx--; stageIdx=0; render(); }
+  if(idx>0){ idx--; render(); }
 };
 document.getElementById('next-btn').onclick = ()=>{
-  if(idx<filtered.length-1){ idx++; stageIdx=0; render(); }
+  if(idx<filtered.length-1){ idx++; render(); }
 };
 
 // ── RANDOM ──
 document.getElementById('rnd-btn').onclick = ()=>{
   if(filtered.length<2) return;
   let ni; do{ ni=Math.floor(Math.random()*filtered.length); }while(ni===idx && filtered.length>1);
-  idx=ni; stageIdx=0; render();
+  idx=ni; render();
 };
 
 // ── KEYBOARD ──
@@ -1251,7 +1120,7 @@ document.addEventListener('keydown', e=>{
   if(e.key>='1' && e.key<='9'){
     const num = parseInt(e.key);
     const fi = filtered.findIndex(d=>d.num===num);
-    if(fi>=0){ idx=fi; stageIdx=0; render(); }
+    if(fi>=0){ idx=fi; render(); }
     return;
   }
 });
@@ -1259,12 +1128,8 @@ document.addEventListener('keydown', e=>{
 window.addEventListener('DOMContentLoaded', () => {
   ArsenaalNav.init({
     horizontal: {
-      next: () => { if(idx<filtered.length-1){ idx++; stageIdx=0; render(); } },
-      prev: () => { if(idx>0){ idx--; stageIdx=0; render(); } }
-    },
-    vertical: {
-      next: () => { const c=filtered[idx]; if(c && stageIdx<c.stages.length-1){ stageIdx++; render(); } },
-      prev: () => { const c=filtered[idx]; if(c && stageIdx>0){ stageIdx--; render(); } }
+      next: () => { if(idx<filtered.length-1){ idx++; render(); } },
+      prev: () => { if(idx>0){ idx--; render(); } }
     }
   });
 });
