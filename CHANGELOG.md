@@ -1,6 +1,12 @@
-# Update-set — Ubuntu-oefeningen in archief + systeembreed: favicon, swipe, accordion
+# Update-set — Ubuntu-oefeningen in archief + systeembreed: favicon, swipe, accordion + joker-praktijk kaart 4
 
-Sessie 21 april 2026. Drie parallelle sporen afgerond.
+Sessie 21 april 2026. Vier parallelle sporen afgerond.
+
+## joker-praktijk.html — vierde kaart hersteld
+
+De in de vorige CHANGELOG beschreven kaart *Herkomst, en de joker als gast* bleek in de betreffende sessie nooit in het project geland. Nu opnieuw gebouwd volgens de daar beschreven specificatie: vijf stages (wat er feitelijk gebeurt wanneer we lenen, het verschil tussen oogsten en bezoeken, drie vragen voor elke geleende oefening, wat we wél doen, dit raakt ook het eigen materiaal), eigen categorie `Herkomst` met aardkleur-streep `#8b7340`, eigen badge-kleur `#e8dfc8`/`#6b5a30`. Title uitgebreid naar "CLRA, trauma, consent, herkomst", app-sub en context-note aangepast van drie naar vier houdingen, vierde pill `Herkomst` toegevoegd aan de navigatie, footer aangevuld met Ramose (*African Philosophy Through Ubuntu*, 1999), Smith (*Decolonizing Methodologies*, 1999/2021) en correspondentie met Arun Naicker (Umtapo Centre).
+
+JS syntax OK, T-array parseert als 4 kaarten, HTML balance 0 issues, E2E mock-test OK. De `index.html`-kaart was in een vorige sessie al bijgewerkt naar 4 kaarten met Ramose/Smith/Naicker in de beschrijving — geen extra wijziging op `index.html` nodig.
 
 ## Ubuntu-uitbreiding in `to-arsenaal.html`
 
