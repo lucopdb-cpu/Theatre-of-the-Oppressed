@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arsenaal van de Joker — Theatre of the Oppressed Toolkit</title>
-  <meta name="description" content="Arsenaal van de Joker — Theatre of the Oppressed toolkit. Freire beschrijft de kist, Boal bedacht het gereedschap. Oefeningen, beeldentheater, forum en meer voor jokers en facilitators.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚒️</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
   <style>
     /* Base reset and variables */
@@ -264,6 +260,63 @@
       border-color: var(--paper3);
     }
 
+    /* Navigatie-snelkoppelingen */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      scroll-margin-top: 24px;
+    }
+
+    .quicknav {
+      padding: 28px 0 8px;
+      border-bottom: 1px solid var(--paper3);
+    }
+
+    .quicknav-inner {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 4px 2px 16px;
+      justify-content: center;
+    }
+
+    .quicknav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quicknav a {
+      flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper2);
+      border: 1px solid var(--paper3);
+      border-radius: 50%;
+      font-size: 1.375rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .quicknav a:hover,
+    .quicknav a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--accent, var(--amber));
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(26, 24, 20, 0.08);
+      outline: none;
+    }
+
+    .quicknav a:active {
+      transform: translateY(0);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .container {
@@ -282,6 +335,18 @@
       .card {
         padding: 24px;
       }
+
+      .quicknav-inner {
+        justify-content: flex-start;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .quicknav a {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
@@ -297,10 +362,26 @@
     </div>
   </header>
 
+  <nav class="quicknav" aria-label="Snelnavigatie naar hoofdstukken">
+    <div class="quicknav-inner">
+      <a href="#humuslaag" aria-label="Humuslaag" style="--accent:#5c3d1e;">🌱</a>
+      <a href="#joker-praktijk" aria-label="Joker-praktijk" style="--accent:#4a4f55;">🧭</a>
+      <a href="#centrale-arsenaal" aria-label="Het centrale arsenaal" style="--accent:#8c5e2a;">⚒️</a>
+      <a href="#beeldentheater" aria-label="Beeldentheater" style="--accent:#0F6E56;">🎨</a>
+      <a href="#forum-theater" aria-label="Forum Theater" style="--accent:#a8321f;">🏟️</a>
+      <a href="#krantentheater" aria-label="Krantentheater" style="--accent:#8b1a1a;">📰</a>
+      <a href="#publieke-ruimte" aria-label="Theater in de publieke ruimte" style="--accent:#2c4a6b;">👤</a>
+      <a href="#na-boal" aria-label="Na Boal" style="--accent:#8b3a2e;">🔥</a>
+      <a href="#atlas" aria-label="Atlas" style="--accent:#2d5a3e;">🗺️</a>
+      <a href="#regenboog" aria-label="Regenboog van het Verlangen" style="--accent:#0F6E56;">🔭</a>
+      <a href="#aanvullende-methodieken" aria-label="Aanvullende methodieken" style="--accent:#993556;">🔁</a>
+    </div>
+  </nav>
+
   <main class="main">
 
     <!-- Humuslaag -->
-    <div class="section">
+    <div class="section" id="humuslaag">
       <div class="section-header">
         <span class="section-title">Humuslaag</span>
         <div class="section-line"></div>
@@ -322,7 +403,7 @@
     </div>
 
     <!-- Joker-praktijk -->
-    <div class="section">
+    <div class="section" id="joker-praktijk">
       <div class="section-header">
         <span class="section-title">Joker-praktijk</span>
         <div class="section-line"></div>
@@ -344,7 +425,7 @@
     </div>
 
     <!-- TO Arsenaal -->
-    <div class="section">
+    <div class="section" id="centrale-arsenaal">
       <div class="section-header">
         <span class="section-title">Het centrale arsenaal</span>
         <div class="section-line"></div>
@@ -377,7 +458,7 @@
     </div>
 
     <!-- Beeldentheater -->
-    <div class="section">
+    <div class="section" id="beeldentheater">
       <div class="section-header">
         <span class="section-title">Beeldentheater</span>
         <div class="section-line"></div>
@@ -399,7 +480,7 @@
     </div>
 
     <!-- Forum Theater -->
-    <div class="section">
+    <div class="section" id="forum-theater">
       <div class="section-header">
         <span class="section-title">Forum Theater</span>
         <div class="section-line"></div>
@@ -432,7 +513,7 @@
     </div>
 
     <!-- Krantentheater -->
-    <div class="section">
+    <div class="section" id="krantentheater">
       <div class="section-header">
         <span class="section-title">Krantentheater</span>
         <div class="section-line"></div>
@@ -454,7 +535,7 @@
     </div>
 
     <!-- Theater in de publieke ruimte -->
-    <div class="section">
+    <div class="section" id="publieke-ruimte">
       <div class="section-header">
         <span class="section-title">Theater in de publieke ruimte</span>
         <div class="section-line"></div>
@@ -487,7 +568,7 @@
     </div>
 
     <!-- Na Boal -->
-    <div class="section">
+    <div class="section" id="na-boal">
       <div class="section-header">
         <span class="section-title">Na Boal</span>
         <div class="section-line"></div>
@@ -509,7 +590,7 @@
     </div>
 
     <!-- Atlas -->
-    <div class="section">
+    <div class="section" id="atlas">
       <div class="section-header">
         <span class="section-title">Atlas</span>
         <div class="section-line"></div>
@@ -531,7 +612,7 @@
     </div>
 
     <!-- Regenboog van het Verlangen -->
-    <div class="section">
+    <div class="section" id="regenboog">
       <div class="section-header">
         <span class="section-title">Regenboog van het Verlangen</span>
         <div class="section-line"></div>
@@ -564,7 +645,7 @@
     </div>
 
     <!-- Aanvullende methodieken -->
-    <div class="section">
+    <div class="section" id="aanvullende-methodieken">
       <div class="section-header">
         <span class="section-title">Aanvullende methodieken</span>
         <div class="section-line"></div>
