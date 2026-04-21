@@ -515,17 +515,16 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowUp')    { prevStage(); }
 });
 
-// Swipe-navigatie (mobiel) — veeg horizontaal op de kaart om tussen technieken te wisselen
+// Swipe-navigatie (mobiel) — veeg horizontaal ergens op de pagina om tussen technieken te wisselen
 (function() {
-  const wrap = document.getElementById('card-wrap');
   let startX = 0, startY = 0, active = false;
-  wrap.addEventListener('touchstart', e => {
+  document.body.addEventListener('touchstart', e => {
     if (e.touches.length !== 1) return;
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     active = true;
   }, {passive: true});
-  wrap.addEventListener('touchend', e => {
+  document.body.addEventListener('touchend', e => {
     if (!active) return;
     active = false;
     const t = e.changedTouches[0];
