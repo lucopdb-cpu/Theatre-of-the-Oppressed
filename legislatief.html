@@ -66,34 +66,28 @@ body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height
 .badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
 .card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
 
-/* Stage stepper */
-.stages-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 10px;border-bottom:1px solid var(--creme3)}
 .stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
-.stage-progress{display:flex;gap:3px;align-items:center}
-.sp-dot{width:6px;height:6px;border-radius:50%;background:var(--creme3);cursor:pointer;transition:all .15s;border:none;padding:0}
-.sp-dot.on{background:var(--blue);transform:scale(1.4)}
-.sp-dot.done{background:var(--creme4)}
-.stage-nav{display:flex;gap:4px}
-.sn-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:12px;color:var(--blue);display:flex;align-items:center;justify-content:center;transition:all .12s}
-.sn-btn:disabled{opacity:.25;cursor:default}
-.sn-btn:hover:not(:disabled){background:var(--creme3)}
-
-/* Stage content */
-.stage-body{padding:18px 26px 0}
-.stage-num-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
-.stage-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
-.stage-text{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink)}
-
-/* Substeps */
-.substeps{margin-top:12px;display:flex;flex-direction:column;gap:8px}
-.substep{display:flex;gap:10px;align-items:flex-start}
-.substep-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;border:1px solid var(--blue3)}
-.substep-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
-
 /* Tip */
 .card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
 .tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
 .tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--creme3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s;font-family:inherit}
+.acc-trigger:hover{background:var(--creme2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
 
 /* All stages overview */
 .all-stages{padding:0 26px 20px}
@@ -385,7 +379,6 @@ const T = [
 ];
 
 let cur = 0;
-let curStage = 0;
 let view = 'step';
 
 // Filter state
@@ -425,26 +418,7 @@ function createStepView(techIndex) {
         ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
       </div>
       
-      ${hasStages ? `
-        <div class="stages-head">
-          <div class="stages-lbl">Stappen</div>
-          <div class="stage-progress">
-            ${stages.map((_, i) => 
-              `<button class="sp-dot ${i === curStage ? 'on' : i < curStage ? 'done' : ''}" data-stage="${i}"></button>`
-            ).join('')}
-          </div>
-          <div class="stage-nav">
-            <button class="sn-btn" id="stage-prev" ${curStage === 0 ? 'disabled' : ''}>‹</button>
-            <button class="sn-btn" id="stage-next" ${curStage === stages.length - 1 ? 'disabled' : ''}>›</button>
-          </div>
-        </div>
-        
-        <div class="stage-body">
-          <div class="stage-num-lbl">Stap ${curStage + 1} / ${stages.length}</div>
-          <div class="stage-title">${stages[curStage].t}</div>
-          <div class="stage-text">${stages[curStage].body}</div>
-        </div>
-      ` : ''}
+      ${hasStages ? renderStagesAcc(stages) : ''}
       
       ${tech.tip ? `
         <div class="card-tip">
@@ -497,7 +471,6 @@ function updateNav() {
 function nextTech() {
   if (cur < filteredIndices.length - 1) {
     cur++;
-    curStage = 0;
     updateDisplay();
   }
 }
@@ -505,23 +478,6 @@ function nextTech() {
 function prevTech() {
   if (cur > 0) {
     cur--;
-    curStage = 0;
-    updateDisplay();
-  }
-}
-
-function nextStage() {
-  const techIndex = filteredIndices[cur];
-  const stages = T[techIndex].stages;
-  if (stages && curStage < stages.length - 1) {
-    curStage++;
-    updateDisplay();
-  }
-}
-
-function prevStage() {
-  if (curStage > 0) {
-    curStage--;
     updateDisplay();
   }
 }
@@ -534,7 +490,6 @@ function filterByCategory(category) {
   }
   
   cur = 0;
-  curStage = 0;
   updateDisplay();
 }
 
@@ -542,7 +497,6 @@ function goToTech(techIndex) {
   const filterIndex = filteredIndices.indexOf(techIndex);
   if (filterIndex !== -1) {
     cur = filterIndex;
-    curStage = 0;
     view = 'step';
     updateViewToggle();
     updateDisplay();
@@ -560,14 +514,6 @@ document.getElementById('prev').addEventListener('click', prevTech);
 document.getElementById('next').addEventListener('click', nextTech);
 
 document.addEventListener('click', (e) => {
-  if (e.target.id === 'stage-prev') prevStage();
-  if (e.target.id === 'stage-next') nextStage();
-  
-  if (e.target.classList.contains('sp-dot')) {
-    curStage = parseInt(e.target.dataset.stage);
-    updateDisplay();
-  }
-  
   if (e.target.classList.contains('tpill')) {
     document.querySelectorAll('.tpill').forEach(pill => {
       pill.classList.toggle('on', pill === e.target);
@@ -599,10 +545,42 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Accordion helpers (stappen binnen één kaart)
+function renderStagesAcc(stages) {
+  const rows = stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--creme3)">
+      <span class="stages-lbl">${stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div>${rows}</div>`;
+}
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   ArsenaalNav.init({
-    horizontal: { next: nextTech,  prev: prevTech  },
-    vertical:   { next: nextStage, prev: prevStage }
+    horizontal: { next: nextTech,  prev: prevTech  }
   });
 });
 

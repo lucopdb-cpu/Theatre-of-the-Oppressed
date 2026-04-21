@@ -394,7 +394,6 @@ function render() {
 
 function renderAll(t) {
   const rows = t.stages.map((s, i) => {
-    const isOpen = i === 0;
     const bodyHtml = s.subs
       ? `<div class="acc-subs">${s.subs.map((sub, j) =>
           `<div class="acc-sub"><div class="acc-sub-nr">${j+1}</div><div class="acc-sub-txt">${sub}</div></div>`
@@ -402,12 +401,12 @@ function renderAll(t) {
       : `<div class="acc-text">${s.body}</div>`;
     return `
       <div class="acc-item">
-        <button class="acc-trigger${isOpen ? ' open' : ''}" onclick="toggleAcc(this)">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
           <div class="acc-sn">${i+1}</div>
           <div class="acc-title">${s.t}</div>
           <span class="acc-arrow">&#9660;</span>
         </button>
-        <div class="acc-body${isOpen ? ' open' : ''}">${bodyHtml}</div>
+        <div class="acc-body">${bodyHtml}</div>
       </div>`;
   }).join('');
 
