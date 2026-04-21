@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="nav.js" defer></script>
 <meta name="theme-color" content="#8b1a1a">
 <title>Krantentheater — Twaalf Technieken van Boal</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -488,11 +489,14 @@ function prevStage() { if (curStage > 0) { curStage--; render(); } }
 document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; curStage = 0; render(); } };
 document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; curStage = 0; render(); } };
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight') { if (cur < T.length - 1) { cur++; curStage = 0; render(); } }
-  if (e.key === 'ArrowLeft')  { if (cur > 0) { cur--; curStage = 0; render(); } }
-  if (e.key === 'ArrowDown')  { nextStage(); }
-  if (e.key === 'ArrowUp')    { prevStage(); }
+function nextTech() { if (cur < T.length - 1) { cur++; curStage = 0; render(); } }
+function prevTech() { if (cur > 0)              { cur--; curStage = 0; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  },
+    vertical:   { next: nextStage, prev: prevStage }
+  });
 });
 
 render();

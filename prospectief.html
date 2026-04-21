@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="nav.js" defer></script>
 <meta name="theme-color" content="#1a6b6b">
 <title>TO Archief — Prospectieve Technieken · Rainbow of Desire</title>
 <style>
@@ -1243,39 +1244,29 @@ document.getElementById('rnd-btn').onclick = ()=>{
 };
 
 // ── KEYBOARD ──
+// Cijfertoetsen blijven via aparte keydown-listener
 document.addEventListener('keydown', e=>{
   if(e.target.tagName==='INPUT') return;
-  // Left/Right: wisselen tussen technieken
-  if(e.key==='ArrowLeft'){
-    if(idx>0){ idx--; stageIdx=0; render(); }
-    return;
-  }
-  if(e.key==='ArrowRight'){
-    if(idx<filtered.length-1){ idx++; stageIdx=0; render(); }
-    return;
-  }
-  // Up/Down: stap door fasen
-  if(e.key==='ArrowUp'){
-    e.preventDefault();
-    const card = filtered[idx];
-    if(card && stageIdx > 0){ stageIdx--; render(); }
-    return;
-  }
-  if(e.key==='ArrowDown'){
-    e.preventDefault();
-    const card = filtered[idx];
-    if(card && stageIdx < card.stages.length-1){ stageIdx++; render(); }
-    return;
-  }
-  // Cijfertoetsen 1–9: direct naar techniek (op basis van originele num)
+  if(e.altKey||e.ctrlKey||e.metaKey) return;
   if(e.key>='1' && e.key<='9'){
     const num = parseInt(e.key);
     const fi = filtered.findIndex(d=>d.num===num);
     if(fi>=0){ idx=fi; stageIdx=0; render(); }
     return;
   }
-  // Space: willekeurig
-  if(e.key===' '){ e.preventDefault(); document.getElementById('rnd-btn').click(); }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: {
+      next: () => { if(idx<filtered.length-1){ idx++; stageIdx=0; render(); } },
+      prev: () => { if(idx>0){ idx--; stageIdx=0; render(); } }
+    },
+    vertical: {
+      next: () => { const c=filtered[idx]; if(c && stageIdx<c.stages.length-1){ stageIdx++; render(); } },
+      prev: () => { const c=filtered[idx]; if(c && stageIdx>0){ stageIdx--; render(); } }
+    }
+  });
 });
 
 // ── INIT ──
