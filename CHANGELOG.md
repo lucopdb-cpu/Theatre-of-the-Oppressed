@@ -1,59 +1,102 @@
-# Update-set — Beeldentheater, sessie 20 april 2026
+# Update-set — Ubuntu-oefeningen in archief + systeembreed: favicon, swipe, accordion
+
+Sessie 21 april 2026. Drie parallelle sporen afgerond.
+
+## Ubuntu-uitbreiding in `to-arsenaal.html`
+
+Zes nieuwe Ubuntu-oefeningen toegevoegd, gespreid over Boal-categorieën. Totaal nu tien Ubuntu-gerelateerde oefeningen in het archief, per categorie:
+
+- `kennismaking` — Sawubona (bestond)
+- `zintuigen` — Stem-Sikhona (eigen adaptatie; Viola Spolin blind-recognition verwant)
+- `vertrouwen` — Indaba-cirkel (Battle, *Ubuntu Circles Training Guide*; Tutu)
+- `lichaam` — Call & response — stemcirkel (griot, Igbo amanye)
+- `beeld` — Ubuntu-beeld (bestond); Ancestor-stoel (Moreno × Ramose, eigen adaptatie)
+- `geheugen` — Drie-draden-verhaal (griot; Ubuntu-BYFA Baltimore)
+- `forum` — Lekgotla-besluit (Ramose 1999; van Hooft)
+- `afsluiting` — Hand-imprint en Kolibrie-pledge (beide bestonden)
+
+Zeven van acht Boal-categorieën nu gedekt in het Ubuntu-spoor. Het archief groeide van 368 naar 374 oefeningen. Alle oefeningen zijn geformuleerd volgens het v11-schema en passen de drie-vragen-test uit joker-praktijk kaart 4 toe bij bronverwijzing. JS-syntax gevalideerd; D-array parseert als 374 objecten.
+
+## Systeembreed — `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `icon-512.png`
+
+Kompas-roosje in amber op donker fond (`#b8803c` op `#1a1418`). Geplaatst in alle HTML-files via script `inject_favicon.py` (idempotent). Elke carousel kreeg ook een eigen `theme-color` meta-tag passend bij zijn palet — playback rose, prospectief teal, legislatief blauw, enzovoort.
+
+## Systeembreed — `nav.js` shared navigation script
+
+Swipe-ondersteuning op mobiel, keyboard-arrows op desktop. Geïnstalleerd in alle veertien carousels. Horizontale swipe tussen technieken; custom shortcuts (Spacebar voor view-toggle in atlas/forum, 'r' voor random in to-arsenaal, cijfertoetsen 1-9 in prospectief) behouden via aparte keydown-listeners. Freire gebruikt alleen keyboard — native CSS scroll-snap handelt touch al af.
+
+Twaalf van veertien carousels pasten vrijwel volledig de E2E mock-test; de twee falers (psychodrama, to-arsenaal) falen óók in hun originele toestand op dezelfde mock-beperking, géén regressie.
+
+## Stappen als accordion — uniform over alle stappen-carousels
+
+Verticale swipe tussen stappen geschrapt na gebruikerstest; stappen nu uitklapbaar via accordion. "Alles dicht" bij opening voor gestructureerd overzicht. Klik op stap-kop opent/sluit.
+
+Elf bestanden omgebouwd: `playback.html`, `feldenkrais.html`, `introspectief.html`, `krantentheater.html`, `atlas.html`, `forum.html`, `joker-praktijk.html`, `legislatief.html`, `na-boal.html`, `onzichtbaar.html`, `prospectief.html`. Prospectief had een eigen datastructuur (`head` + `steps[]` per stage) en kreeg een aangepaste accordion die de `.stage-block` visuele stijl behoudt.
+
+Totaal 647 regels code verwijderd over deze elf bestanden — de stepper-UI (sp-dot, stage-nav, sn-btn, stage-body) plus de view-toggle (vt-step, vt-all, renderStep) waren overbodig geworden.
+
+---
+
+# Update-set — Ubuntu-spoor, sessie 18–19 april 2026
 
 ## Wat zit erin
 
-Twee bestanden die samen de introductie vormen van een nieuw hoofdstuk in het arsenaal: Beeldentheater als zelfstandige tool, losgekoppeld van `to-arsenaal.html#fase=beeld`.
+Vijf bestanden die samen één update vormen van het arsenaal.
 
 ## Wijzigingen per bestand
 
-### `beeldentheater.html` — NIEUW
-Standalone carrousel van 24 kaarten in 7 categorieën, architectuur geïnspireerd op `forum.html`:
+### `joker-praktijk.html` — GEWIJZIGD
+Vierde houdingskaart toegevoegd: *Herkomst, en de joker als gast*.
 
-**I. Fundament** (4 kaarten)
-Peru/ALFIN, de sinaletische taal, woorden als vrachtwagens, van subjectief naar sociaal-objectief. De openingskaart plaatst Boal en Freire expliciet rond één project: Freire adviseerde ALFIN vanuit Genève (Wereldraad van Kerken), Alfonso Lizarzaburu leidde het project in Peru, Boal ontwikkelde binnen dat kader Beeldentheater. Hun persoonlijke ontmoeting kwam pas in Omaha 1996.
+- Title bijgewerkt naar "CLRA, trauma, consent, herkomst"
+- Masthead app-sub en context-note uitgebreid van drie naar vier houdingen
+- Vierde pill toegevoegd aan de navigatie: *Herkomst*
+- Nieuwe kaart met vijf stappen:
+  1. Wat er feitelijk gebeurt wanneer we lenen
+  2. Het verschil tussen oogsten en bezoeken
+  3. Drie vragen voor elke geleende oefening
+  4. Wat we wél doen
+  5. Dit raakt ook het eigen materiaal
+- Eigen kleurenstreep (`#8b7340`, aardkleur) en eigen categorie-badge
+- Footer aangevuld met Ramose, Smith en correspondentie met Arun Naicker
 
-**II. Drie-beelden** (3 kaarten)
-Het echte beeld, het ideale beeld, het overgangsbeeld — Boals canonieke methodische kern. Het Otuzco-citaat ("terrible, tragic, pessimistic, defeatist, but, at the same time, an image of something that really happened", TO p.145) staat in zijn juiste context als specifiek voorbeeld, niet als algemene definitie.
-
-**III. Sculpting** (3 kaarten)
-Boetseren als fysieke dialoog, de stilte-regel, dynamisering.
-
-**IV. Canon** (5 kaarten)
-Great Game of Power, Columbian Hypnosis, Complete the Image, Multiple Image of Happiness, Ritueel gebaar.
-
-**V. Rainbow** (2 kaarten)
-De geïnternaliseerde onderdrukker (Smeris in het Hoofd), Image of the Antagonist. Link naar `introspectief.html`.
-
-**VI. Sequentie** (3 kaarten) — methodische additie uit de Nederlandse praktijk
-Arsenaal van de Joker als bron. Drie-faseproces: (1) gechoreografeerde beeldensequentie als antimodel, (2) publieksgroepen bouwen aanvullende beelden, (3) bejokeren op angst en verlangen per figuur. Voorbeelden: toegang tot GGZ voor jongeren, positie van de vrouw in Suriname.
-
-**VII. Praktijk** (4 kaarten)
-Image Theatre als onderzoek (Kaptani & Yuval-Davis, Columbia Rehearsals for Change), klimaat en crisis, terughoudend met uitleg (niet dogmatisch), appropriation & taming.
-
-**Anti-dogmatische herziening doorgevoerd:**
-Boals les *"TO is not a dogma"* (zoals Luc het rechtstreeks van hem hoorde) is methodisch verwerkt. Kaart 23 heet nu "De beeldenregel: terughoudend met uitleg" (was: "nooit uitleggen"); "fundamenteel verbod" en "nooit" als methodische termen zijn weg; er is expliciet ruimte voor oordeel over wanneer van het principe wordt afgeweken.
-
-Node.js syntax-validatie doorstaan. 24 kaarten in T-array, elk met vier stages en tip.
+Node.js syntax-validatie doorstaan. Vier kaarten in het T-array, elk compleet.
 
 ### `index.html` — GEWIJZIGD
-Eén aanpassing in de Beeldentheater-sectie:
+Drie aanpassingen:
 
-- Link van `to-arsenaal.html#fase=beeld` naar `beeldentheater.html`
-- Meta bijgewerkt: *"De basis · Peru 1973 · ALFIN · non-verbaal · sinaletisch"* (was: *"Freire + Boal · non-verbaal"* — ALFIN is preciezer en sinaletisch is het kernconcept)
-- Beschrijving verfijnd: de drie-beelden (echt/ideaal/overgang), de ALFIN-oorsprong, en de range *"van Great Game of Power tot beeldensequenties"* zichtbaar gemaakt
+- **Joker-praktijk kaart**: titel en meta in hoofdletters ("CLRA, Trauma, Consent, Herkomst" — "Onderzoekspositie · Houding · Herkomst"). Beschrijving uitgebreid met de vierde houding en bronnen (Ramose, Smith, Naicker/Umtapo).
+- **Blagg verwijderd**: de sectie *Toegepast in context* was alleen een "Blagg! & Theatre in Prison"-kaart. Blagg was te specifiek als programma om bovenaan te staan; de sectie is weg.
+- **Theatre in Prison verplaatst**: als eigen kaart opgenomen in *Aanvullende methodieken* (naast Playback, Psychodrama, Impro, Feldenkrais). Status *in opbouw*. Beschrijving richt zich op de bredere methodologische reflectie van participatief drama in detentie — niet op één specifiek programma.
+
+### `README.md` — GEWIJZIGD
+Parallelle aanpassingen:
+
+- Hoofdletters in joker-praktijk entry ("CLRA, Trauma, Consent, Herkomst")
+- Sectie *Toegepast in context* verwijderd (bevatte alleen Blagg)
+- Theatre in Prison toegevoegd aan aanvullende methodieken
+
+### `ubuntu-research-map-v2.md` — NIEUW (sessie 1)
+Onderzoeksnotitie die als basis diende voor de vierde kaart. Bevat:
+
+- Filosofisch fundament (Ramose, Eze, Tutu)
+- Indigenous knowledge bredere familie (Sumak Kawsay, Council Circle, Lekgotla, Affini, Griot)
+- Brug naar TO (Freire-Boal-Ubuntu, Hellinger's verzwegen Zoeloe-bron, Macy, Maathai, Diamond)
+- Ethisch kader met vier werkprincipes en drie-vragen-test
+- Tien oefening-kernen met specifieke bronverwijzing, klaar om volgende sessie te formatteren
 
 ## Hoe te installeren
 
-Vervang `index.html` in je repo door de nieuwe versie, en voeg `beeldentheater.html` toe. Deploy via GitHub Pages.
+Vervang de drie HTML/MD bestanden in je repo door de versies uit deze zip. De research-map gaat in je onderzoeksarchief (niet op GitHub Pages).
 
-## Openstaand — na publicatie
+## Openstaand — architectuurvraag
 
-Drie werkpunten die op de volgende sessie staan:
-
-1. **Volledige review van `beeldentheater.html`** — samen doorlopen op dogmatische formuleringen en niet-geverifieerde Boal-citaten. Luc's inhoudelijke toetsing heeft deze sessie al twee belangrijke correcties opgeleverd (anti-dogmatisme, Otuzco-citaat) en er zitten waarschijnlijk meer zulke plekken in het bestand.
-2. **Ubuntu-toevoeging** aan het TO-Arsenaal archief — blijft op de lijst, niet deze sessie aangepakt.
-3. **Eventueel `README.md`** bijwerken om beeldentheater.html te noemen als zelfstandige tool (niet gedaan deze sessie).
+Is *Herkomst* eigenlijk een joker-houding (in de ruimte) of een curatoriële positie (bij het samenstellen van het arsenaal)? De eerste drie kaarten spelen zich af in de sessie; de vierde speelt zich af ervoor. Voor nu blijft hij waar hij is, onder de framing *"vóór de joker zijn gereedschap oppakt"* — dat omarmt beide niveaus. Noteren voor een toekomstige herordening, niet nu aanpassen.
 
 ## Volgende sessie
 
-De beeldentheater-tool is nu onderdeel van het arsenaal. De openstaande review kan in een relatief korte sessie gedaan worden — dat is een goede vervolgtaak. Daarna is Ubuntu het grotere volgende hoofdstuk.
+- Tien Ubuntu-oefeningen formatteren naar v11-schema voor `to-arsenaal.html`, óf als standalone `ubuntu.html` carrousel, óf beide
+- Keuze: Ubuntu-exclusief met Arun als anker, of breder indigenous-spectrum
+- Positie in architectuur: "Na Boal" of eigen "Wortels"-plaats naast Freire
+
+Het fundament — kaart 4 in joker-praktijk — staat nu. De drie-vragen-test uit die kaart is het directe filter bij het formatteren van de oefeningen.
