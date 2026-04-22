@@ -1,4 +1,4 @@
-# Update-set — Boal's Joker-tekening als watermerk in `index.html`
+# Update-set — Boal's Joker-tekening als watermerk in `index.html` en `boal-games.html`
 
 Sessie 22 april 2026.
 
@@ -6,7 +6,7 @@ Sessie 22 april 2026.
 
 Luc bracht een gesigneerd briefje van Augusto Boal mee waarop Boal met de hand een Joker-figuur had getekend — met hoed, bloemenboeket, lange mantel. De tekening is uit een foto van het briefje geïsoleerd: alleen de blauwe inktlijnen, op transparante achtergrond, op amber (`#b8803c`) gerecolord om bij het Arsenaal-palet te passen. Papiertextuur-ruis en omringende tekst weggefilterd met `scipy.ndimage`-opschoning; Boal's authentieke krabbel-kwaliteit behouden (geen SVG-trace, want dat zou de handgemaakte kwaliteit doden).
 
-Drie kleurversies gegenereerd: `joker-blauw.png` (origineel), `joker-amber.png` / `joker-boal.png` (site-versie, amber), `joker-donker.png` (neutraal). Alle op 1500×2000 px, ~105 KB per stuk.
+Vier kleurversies gegenereerd: `joker-blauw.png` (origineel), `joker-amber.png` / `joker-boal.png` (amber, `#b8803c`, voor lichte achtergronden), `joker-donker.png` (neutraal), `joker-goud.png` (gold-light, `#d4a843`, voor donkere achtergronden). Alle op 1500×2000 px, ~105 KB per stuk.
 
 ## `index.html` — watermerk rechtsonder in de hero
 
@@ -15,6 +15,18 @@ Nieuwe CSS-regels `.header { position: relative; overflow: hidden; }` en `.hero-
 Attributie toegevoegd aan de `footer-sources`: *"Jokertekening: Augusto Boal"*. Bewust sober en zonder organisatorische context (Arsenaal blijft autonoom).
 
 HTML-balans gevalideerd (0 issues). Visual check via Playwright op desktop (1200px) en mobiel (390px): watermerk aanwezig maar verstoort de leesbaarheid van de hero-tekst niet.
+
+## `boal-games.html` — watermerk in de donkere header
+
+Tweede plaatsing, op verzoek na goedkeuring van `index.html`. De donkere header van `boal-games.html` (`--ink: #1a1208`) vraagt om een lichtere kleurvariant: `joker-goud.png` in `#d4a843`, dezelfde tint die al gebruikt wordt voor het woord "Non-Actors" in de titel. Dat geeft een subtiele typografisch-visuele rijm binnen de header.
+
+CSS-regel `.hero-joker` toegevoegd aan de inline stylesheet: 200px breed op desktop (opacity 0.28), 120px op mobiel (opacity 0.22). `z-index: 0` op de tekening, `z-index: 1` op `.header-inner` zodat titel en introductietekst bovenop staan. De bestaande `repeating-linear-gradient` (diagonaal lijnpatroon op de header) blijft zichtbaar onder de Joker.
+
+Attributie toegevoegd aan de `page-footer`: *"Jokertekening: Augusto Boal"*.
+
+## `boal-games.html` — pre-existente HTML-bugfix
+
+Bij HTML-balansvalidatie kwam een bestaande fout aan het licht: de terug-link bovenaan de pagina (`← Arsenaal van de Joker`) bevatte een overbodige `<body>`-tag binnen de anchor, wat de HTML ongeldig maakte. Regel oorspronkelijk: `<a href="index.html" ...><body>← Arsenaal van de Joker</a>`. De `<body>`-tag binnen de anchor is verwijderd. HTML-balans daarna: 0 issues.
 
 ---
 
