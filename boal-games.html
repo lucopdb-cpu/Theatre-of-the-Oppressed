@@ -15,7 +15,9 @@
   body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh;overflow-x:hidden;}
   header{background:var(--ink);color:var(--paper);padding:2rem 2rem 1.5rem;position:relative;overflow:hidden;}
   header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 80px);}
-  .header-inner{position:relative;max-width:900px;margin:0 auto;}
+  .hero-joker{position:absolute;right:-20px;bottom:-20px;width:200px;height:auto;opacity:.28;pointer-events:none;user-select:none;z-index:0;}
+  @media(max-width:600px){.hero-joker{width:120px;opacity:.22;right:-10px;}}
+  .header-inner{position:relative;max-width:900px;margin:0 auto;z-index:1;}
   .header-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.5rem;}
   header h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.15;color:var(--paper);margin-bottom:.4rem;}
   header h1 em{font-style:italic;color:var(--gold-light);}
@@ -81,8 +83,8 @@
 </style>
 </head>
 <body>
-<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#9a9790;text-decoration:none;padding:12px 16px;transition:color .15s" onmouseover="this.style.color='#b8803c'" onmouseout="this.style.color='#9a9790'"><body>← Arsenaal van de Joker</a>
-<header><div class="header-inner">
+<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#9a9790;text-decoration:none;padding:12px 16px;transition:color .15s" onmouseover="this.style.color='#b8803c'" onmouseout="this.style.color='#9a9790'">← Arsenaal van de Joker</a>
+<header><img src="joker-goud.png" alt="" class="hero-joker" aria-hidden="true"><div class="header-inner">
   <div class="header-label">Het Arsenaal — Augusto Boal</div>
   <h1>Games for Actors<br>and <em>Non-Actors</em></h1>
   <div class="header-sub">Tweede editie · Routledge · 2002 · Vertaling: Adrian Jackson</div>
@@ -1540,7 +1542,8 @@
 
 <footer class="page-footer">
   Augusto Boal — <em>Games for Actors and Non-Actors</em>, Tweede editie, 2002 · Routledge · Vertaling: Adrian Jackson<br>
-  Deze digitale weergave is bedoeld als werkinstrument voor Jokers en is gebaseerd op directe tekst uit het boek.
+  Deze digitale weergave is bedoeld als werkinstrument voor Jokers en is gebaseerd op directe tekst uit het boek.<br>
+  Jokertekening: Augusto Boal
 </footer>
 
 <script>
