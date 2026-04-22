@@ -65,6 +65,25 @@
       padding: 60px 0 40px;
       text-align: center;
       border-bottom: 1px solid var(--paper3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Joker-tekening van Boal als subtiel watermerk rechtsonder in hero */
+    .hero-joker {
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 180px;
+      height: auto;
+      opacity: 0.22;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
     }
 
     .header h1 {
@@ -274,6 +293,12 @@
         font-size: 2rem;
       }
 
+      .hero-joker {
+        width: 110px;
+        opacity: 0.18;
+        right: -10px;
+      }
+
       .grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -290,10 +315,13 @@
 <div class="container">
 
   <header class="header">
-    <h1>Arsenaal van de Joker</h1>
-    <div class="subtitle">Theatre of the Oppressed Toolkit</div>
-    <div class="description">
-      Oefeningen, technieken en methodes uit de Theatre of the Oppressed-traditie. Van Boals klassieke spellen tot hedendaagse toepassingen. Voor jokers, facilitators en iedereen die theater inzet voor sociale verandering.
+    <img src="joker-boal.png" alt="" class="hero-joker" aria-hidden="true">
+    <div class="header-content">
+      <h1>Arsenaal van de Joker</h1>
+      <div class="subtitle">Theatre of the Oppressed Toolkit</div>
+      <div class="description">
+        Oefeningen, technieken en methodes uit de Theatre of the Oppressed-traditie. Van Boals klassieke spellen tot hedendaagse toepassingen. Voor jokers, facilitators en iedereen die theater inzet voor sociale verandering.
+      </div>
     </div>
   </header>
 
@@ -644,7 +672,8 @@
       <em>Een Scene Schoppen</em> &amp; <em>Mens in de Hoofdrol</em> — Luc Opdebeeck ·
       <em>Games for Actors and Non-Actors</em> &amp; <em>The Rainbow of Desire</em> — Augusto Boal (Routledge) ·
       <em>Improvisation for the Theater</em> — Viola Spolin (Northwestern University Press) ·
-      <em>Theatre for Living</em> — David Diamond
+      <em>Theatre for Living</em> — David Diamond<br>
+      Jokertekening: Augusto Boal
     </div>
   </div>
 </footer>

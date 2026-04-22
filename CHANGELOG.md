@@ -1,4 +1,24 @@
-# Update-set — Ubuntu-oefeningen in archief + systeembreed: favicon, swipe, accordion + joker-praktijk kaart 4
+# Update-set — Boal's Joker-tekening als watermerk in `index.html`
+
+Sessie 22 april 2026.
+
+## `joker-boal.png` — tekening van Boal als hero-watermerk
+
+Luc bracht een gesigneerd briefje van Augusto Boal mee waarop Boal met de hand een Joker-figuur had getekend — met hoed, bloemenboeket, lange mantel. De tekening is uit een foto van het briefje geïsoleerd: alleen de blauwe inktlijnen, op transparante achtergrond, op amber (`#b8803c`) gerecolord om bij het Arsenaal-palet te passen. Papiertextuur-ruis en omringende tekst weggefilterd met `scipy.ndimage`-opschoning; Boal's authentieke krabbel-kwaliteit behouden (geen SVG-trace, want dat zou de handgemaakte kwaliteit doden).
+
+Drie kleurversies gegenereerd: `joker-blauw.png` (origineel), `joker-amber.png` / `joker-boal.png` (site-versie, amber), `joker-donker.png` (neutraal). Alle op 1500×2000 px, ~105 KB per stuk.
+
+## `index.html` — watermerk rechtsonder in de hero
+
+Nieuwe CSS-regels `.header { position: relative; overflow: hidden; }` en `.hero-joker` (positie absolute, 180px breed op desktop, opacity 0.22, `pointer-events: none`, `aria-hidden="true"`). Een `.header-content` wrapper is toegevoegd zodat de tekst op `z-index: 1` boven de Joker staat. Op mobiel (`max-width: 768px`): 110px breed, opacity 0.18. De Joker is puur decoratief — alt-attribuut leeg en `aria-hidden`.
+
+Attributie toegevoegd aan de `footer-sources`: *"Jokertekening: Augusto Boal"*. Bewust sober en zonder organisatorische context (Arsenaal blijft autonoom).
+
+HTML-balans gevalideerd (0 issues). Visual check via Playwright op desktop (1200px) en mobiel (390px): watermerk aanwezig maar verstoort de leesbaarheid van de hero-tekst niet.
+
+---
+
+
 
 Sessie 21 april 2026. Vier parallelle sporen afgerond.
 
