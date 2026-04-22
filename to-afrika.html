@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#b5533b">
+<script src="nav.js" defer></script>
+<title>TO in Afrika — Het continent dat Boal adopteerde en hervond</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1f1a15;--ink2:#524a40;--ink3:#9a9080;
+  --paper:#faf5ec;--paper2:#f2ebdd;--paper3:#e8dcc3;--paper4:#d6c4a0;
+  --terra:#b5533b;--terra2:#cf6748;--terra3:#e8b8a8;--terra4:#fbeae2;
+  --terra5:#7a3524;
+  --indigo:#2d4a5e;--indigo2:#3f6480;--indigo3:#a8bfd0;
+  --rule:rgba(31,26,21,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--terra)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--terra3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--terra2);color:var(--terra)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(31,26,21,.05),0 3px 12px rgba(31,26,21,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.card-name em{font-style:italic;color:var(--terra);font-weight:400}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-form{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-type{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Meta bar */
+.meta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--paper3)}
+.meta-item{font-family:var(--sans);font-size:10px;color:var(--ink2);display:inline-flex;align-items:center;gap:4px;background:var(--paper2);padding:3px 9px;border-radius:12px;border:1px solid var(--paper3)}
+.meta-item strong{color:var(--ink);font-weight:500}
+
+/* Stages label */
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--terra4);border-left:3px solid var(--terra2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Source */
+.card-source{margin:0 26px 20px;padding:10px 14px;background:var(--paper2);border-radius:7px;font-family:var(--sans);font-size:10px;color:var(--ink3);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-source strong{color:var(--ink2);font-weight:500}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--terra4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--terra2);background:var(--terra4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--terra3)}
+.acc-trigger.open .acc-sn{background:var(--terra);color:#fff;border-color:var(--terra2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--terra2);color:var(--terra)}
+
+/* Home button */
+.home-btn{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--terra);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;box-shadow:0 2px 10px rgba(31,26,21,.2);z-index:100;transition:all .2s}
+.home-btn:hover{background:var(--terra5);transform:scale(1.05)}
+
+@media (max-width: 600px){
+  .page{padding:0 16px}
+  .app-name{font-size:22px}
+  .card-name{font-size:19px}
+  .card-head{padding:18px 20px 14px;padding-left:28px}
+  .card-tip,.card-source{margin-left:20px;margin-right:20px}
+  .acc-trigger{padding:10px 20px}
+  .acc-body{padding:0 20px 12px 50px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="app-name">TO in <em>Afrika</em></div>
+  <div class="app-sub">Het continent dat Boal adopteerde en hervond</div>
+  <div class="context-note">Van de baai van Hann tot de baai van Maputo: hoe Afrikaanse jokers de technieken van Boal niet simpelweg importeerden, maar ze entten op precoloniale performatieve tradities — de <em>géew</em>, de <em>koteba</em>, de <em>hakawati</em>. Twaalf knooppunten in een verhaal dat nog steeds verder geschreven wordt.</div>
+</header>
+
+<nav class="nav-row">
+  <button id="pv" class="nav-btn" aria-label="Vorige">‹</button>
+  <div class="tech-pills" id="pills"></div>
+  <button id="nx" class="nav-btn" aria-label="Volgende">›</button>
+  <span class="nav-counter" id="ctr"></span>
+</nav>
+
+<main id="card-wrap"></main>
+
+</div>
+
+<a href="index.html" class="home-btn" aria-label="Terug naar overzicht">⌂</a>
+
+<script>
+const T = [
+
+{n:1, title:"Boal reist naar <em>Afrika</em>",
+ page:"introductie",
+ type:"Inleiding", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 5 min", group:"—", phase:"Aanloop",
+ note:"Toen Augusto Boal in 1971 uit Brazilië verbannen werd, begon Theatre of the Oppressed te reizen. Naar Latijns-Amerika, naar Europa, en — via twee heel verschillende sporen — naar Afrika. Het ene spoor loopt via CTO-Rio en Bárbara Santos de lusofone wereld in (Guinee-Bissau, Mozambique, Angola). Het andere spoor is autonoom Afrikaans onderzoek: makers die Boals boeken lezen en hun eigen precoloniale performatieve vormen gebruiken om hem te ontvangen.",
+ stages:[
+  {t:"Twee sporen, één continent",
+   body:"Het is belangrijk om te begrijpen dat er geen enkel 'Afrikaans TO' bestaat. Er zijn minstens twee verschillende verhaallijnen. Het <strong>lusofone spoor</strong> is grotendeels geïnstitutionaliseerd via het programma Teatro do Oprimido de Ponto a Ponto (2005–2010), gecoördineerd vanuit Rio door Bárbara Santos. Het <strong>francofone spoor</strong> is autonoom ontstaan — Prosper Kompaoré in Burkina Faso begon al in 1978, Mamadou Diol in Senegal in 1993. Beiden lazen Boal en zochten eigen antwoorden."},
+  {t:"De precoloniale ontvangst",
+   body:"Wat opvalt in beide sporen: de Afrikaanse makers lenen Boals <em>technieken</em> (forum, beeld, spect-actor), maar vervangen zijn <em>architectuur</em> — het Westerse podium met proscenium — door een lokale performatieve vorm. Diol gebruikt de <em>géew</em> (de Lebou-cirkel in een dorp). Kompaoré gebruikt de <em>koteba</em> (de Bambara-satire). Aoun en Muallem in Palestina gebruiken de <em>hakawati</em>-traditie (de caféverteller). Dit is geen folklore — het is een bewuste methodologische keuze."},
+  {t:"Festivals als infrastructuur",
+   body:"In Afrika organiseren TO-gezelschappen zich rond festivals, niet rond vaste theatergebouwen. Kompaoré start het FITD in 1988. Diol start FSTF in 2005. Alvim Cossa in Maputo heeft zijn internationaal festival sinds 2001. Ashtar in Ramallah sinds 2004. Deze festivals zijn de Afrikaanse netwerkvorm — tweejaarlijkse of jaarlijkse ontmoetingsplekken die troepen uit buurlanden samenbrengen."},
+  {t:"Een vierde verhaal: Zuid-Afrika",
+   body:"Zuid-Afrika past in geen van beide sporen. Daar bestond al een stevige protest-theatertraditie (Market Theatre, The Space, Junction Avenue) toen Boals boeken arriveerden. TO-technieken zijn geïntegreerd in wat al gaande was — DramAidE, AREPP, Puppets Against AIDS, Shack Theatre. Geen centrum, wel diepe invloed. Dit verhaal loopt parallel en ontmoet het in de jaren negentig."},
+  {t:"Wat deze carrousel is",
+   body:"Geen volledige atlas. Twaalf knooppunten die samen laten zien hoe TO zich in Afrika heeft genesteld. De lusofone en francofone sporen volgen elkaar op, met Bárbara Santos als scharnierfiguur. We eindigen met Zuid-Afrika en een synthese. Bedoeld als startpunt voor Jokers die willen begrijpen waar hun werk in past."}
+ ],
+ tip:"Lees deze carrousel niet als een ranglijst of hiërarchie. De relaties tussen de centra zijn horizontaal: ieder werkt in een andere taal, andere geografie, andere politieke realiteit. Boal verwees in workshops graag naar de 'Yellow Pages of the Theatre of the Oppressed' — de internationale directory van TO-groepen die CTO-Rio bijhield. Zijn punt: er is niet één TO, er zijn zoveel TO's als er gemeenschappen zijn die hem opnemen. Deze twaalf kaarten tonen er twaalf.",
+ source:"Synthese op basis van The Routledge Companion to Theatre of the Oppressed (2019) en primaire bronnen per knooppunt."},
+
+{n:2, title:"Kàddu Yaraax",
+ page:"Dakar, Senegal — 1993",
+ type:"Francofoon spoor", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 6 min", group:"17 actieve leden + 30 ondersteuners", phase:"Actief sinds 1993",
+ note:"De naam betekent 'Stem van Yarakh' — een Lebou-vissersdorp aan de baai van Hann in Dakar. Opgericht in november 1993 door Mamadou Diol (geboren 1958) om gemeenschapsbewustwording te ondersteunen tegen sociale onderdrukking. Hun centrale thema is de industriële vervuiling van de baai, ooit een vruchtbare visserijhaven, nu omgedoopt tot 'Trash Bay' vanwege 71 fabrieken die er afval lozen.",
+ stages:[
+  {t:"Mamadou Diol, de oprichter",
+   body:"Ook gespeld als Mouhamadou of Mohamadou Diol — dezelfde persoon. Artistiek directeur, animator van forum-theater sinds 1994, president van het Festival sénégalais de théâtre-forum. Hij heeft een expliciet politieke positie: Kàddu Yaraax heeft nooit staatsfinanciering ontvangen, omdat het ministerie hun werk als 'activisme' bestempelt. Diol draagt dat als een eretitel."},
+  {t:"De géew als podium",
+   body:"Diol's belangrijkste methodologische vondst: hij gebruikt de <em>géew</em> — de traditionele ronde speelruimte midden in een Senegalees dorp — als architectuur voor zijn forum. Zijn referentie is de studie van Alioune Oumy Diop, <em>Le théâtre traditionnel au Sénégal</em> (1990). Diop stelt dat theater geen 'voor consumptie klaargemaakte folklore' moet zijn, maar 'een instrument van sociale transformatie door directe actie'."},
+  {t:"Yakaar — de ommekeer van 1998",
+   body:"De groep, toen nog een gemengde 'geafrikaniseerde' vorm, maakte in 1998 het stuk <em>Yakaar</em> ('Hoop'). Diol's samenvatting van de boodschap: 'Als je iets wilt ontwikkelen, een project of wat dan ook, moet je beginnen bij jezelf te ontwikkelen.' Het stuk ontmaskerde het idee dat Senegals problemen altijd van buitenaf komen, meestal uit het Westen. Vanaf dat moment was de artistieke lijn duidelijk."},
+  {t:"Milieu-TO zonder 'ecotheater'-label",
+   body:"Thema's die Kàddu Yaraax behandelt: vervuiling van de baai van Hann ('de baai is geen vuilnisbak'), zonne-energie met het Franse IRD ('de zon kookt voor iedereen'), aids-preventie, irreguliere migratie, klimaatverandering, herderstraditie, genderongelijkheid. Ze spelen in Wolof, in de openlucht, op markten en pleinen. Dit is milieu-theater avant la lettre, zonder het label."},
+  {t:"De kolibrie-filosofie",
+   body:"Diol's leidende beeld, uit een interview van 2016: 'Wat de omvang van de brand ook is, de kolibrie komt aan met één druppel water en zegt dat hij zijn partituur speelt.' Kleine, vasthoudende handelingen in een grote onrechtvaardigheid. Deze nederigheid typeert zijn aanpak: geen grote gebaren, wel dagelijkse volharding."}
+ ],
+ tip:"Als je ooit de kans krijgt om bij Kàddu Yaraax te werken of hun festival bij te wonen: ga. Dit is geen 'applied theatre' in de noordelijke zin — dit is theater dat decennialang samenleeft met de gemeenschap waarvoor het speelt. De groep woont letterlijk tussen de fabrieken waartegen ze spelen. Die verankering is leerbaar, maar niet kopieerbaar.",
+ source:"American Theatre (2018) · African Studies Quarterly 14.3 (2014) · The Routledge Companion to Theatre of the Oppressed (2019)"},
+
+{n:3, title:"Festival Sénégalais de <em>Théâtre-Forum</em>",
+ page:"Yarakh, Dakar — sinds 2005",
+ type:"Francofoon spoor", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 4 min", group:"troepen uit 5+ landen", phase:"Jaarlijks in juli",
+ note:"FSTF — soms ook FESTHEF genoemd — is de jaarlijkse samenkomst die Kàddu Yaraax sinds juli 2005 organiseert in het dorp Yarakh, Dakar. Zes dagen voorstellingen, workshops, causeries (gesprekscirkels) en filmvertoningen. Deelnemers uit Senegal, Gambia, Guinee-Bissau, Mauritanië, Frankrijk, Engeland. Het festival is de netwerkvorm van het West-Afrikaanse forumtheater.",
+ stages:[
+  {t:"De eerste editie, 2005",
+   body:"In juli 2005 organiseerde Kàddu Yaraax de eerste editie. De aanpak was vanaf het begin internationaal: open voor alle troepen wereldwijd die met TO-technieken werken. De filosofie: de acteurs zijn vóór alles lokale agenten van ontwikkeling en coöperatie."},
+  {t:"Thema's per editie",
+   body:"Elke editie heeft een Wolof-thema dat ook in het Frans wordt vertaald. De 12e editie (2016): 'Beneen yoon' — 'een andere weg, een andere wet, een andere keer'. De 16e editie (2022): 'Tiyaatar leen! Te bu leen ci xaar kénn!' — 'Maak theater! Zonder op iemand te wachten!' Deze thema's bepalen de inhoud van de causeries en van de nieuwe forum-creaties."},
+  {t:"De causerie als festivalelement",
+   body:"Naast voorstellingen en workshops heeft FSTF iets wat West-Europese festivals zelden hebben: de <em>causerie</em>, een publieke gesprekscirkel op de festivalsite onder een boom of in een schoollokaal. Geen panel met geprivilegieerde sprekers, maar een gedeelde reflectie. Dit verankert het festival in de Senegalese palaver-traditie."},
+  {t:"Diol's reclame voor zelforganisatie",
+   body:"In 2022 formuleerde Diol het thema als oproep tot onafhankelijkheid: theatermakers moeten hun vrijheid bewaren, theater maken zoals zij het willen, zonder restrictie of compartiment. Gezien de voortdurende afhankelijkheid van veel Afrikaanse gezelschappen van Europese donorfinanciering, is dit een politieke stellingname binnen het TO-veld."}
+ ],
+ tip:"Internationale bezoekers zijn welkom maar krijgen geen VIP-behandeling. Dit is een dorpsfestival, niet een conferentiefestival. Neem de tijd — vijf dagen is het minimum om iets werkelijk mee te maken, minder is toerisme. Wolof-Frans-tweetaligheid helpt enorm.",
+ source:"Le Quotidien (Senegal, 2022) · APS Faapa (2022) · Au-Sénégal.com · Kàddu Yaraax eigen archief"},
+
+{n:4, title:"Atelier Théâtre <em>Burkinabé</em>",
+ page:"Ouagadougou, Burkina Faso — 1978",
+ type:"Francofoon spoor", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 6 min", group:"19 vaste + 41 tijdelijke leden, 30+ aangesloten troepen", phase:"Actief sinds 1978",
+ note:"Oudere zuster van Kàddu Yaraax en van alle andere Afrikaanse TO-centra. Opgericht op 18 juni 1978 door Prosper Kompaoré aan de Universiteit van Ouagadougou. ATB is geen import van Boal — het ontstond als eigen zoektocht en vond Boals werk onderweg. Kompaoré is Ashoka Fellow (1997) en werd genomineerd samen met zijn Palestijnse collega's voor de Vredesnobelprijs (2017).",
+ stages:[
+  {t:"Prosper Kompaoré",
+   body:"De correcte spelling van zijn naam is Kompaoré, niet Kampaoré (die tweede duikt op in sommige Engelstalige bronnen, maar is incorrect). Poëet, toneelschrijver, hoogleraar dramatische kunsten aan de Université Joseph Ki-Zerbo (het voormalige Université de Ouagadougou). Actief tijdens de Thomas Sankara-revolutie (1983–1987) — een periode die in de westerse literatuur over TO nauwelijks wordt belicht."},
+  {t:"De koteba als fundament",
+   body:"Kompaoré's sleutelkeuze: hij baseert zijn werk op de <em>koteba</em>, de traditionele Bambara-vorm van satirische gemeenschapsopvoering. Ashoka beschrijft het zo: 'Hij nam de term Forum Theatre over en leende enkele van Boals technieken, terwijl hij trouw bleef aan de koteba-praktijk van Burkina Faso, wat de originaliteit van zijn aanpak vormgeeft.' Dit is dezelfde methodologische beweging als Diol's géew."},
+  {t:"Vier theatervormen",
+   body:"ATB heeft in de loop van de decennia vier benaderingen ontwikkeld: théâtre rural (plattelandstheater), théâtre forum (het klassieke Boal-model), théâtre communautaire (gemeenschapstheater), en théâtre procès (een theater waarin een tribunaal wordt opgezet — vergelijkbaar met Legislatief Theater maar met juridische dramaturgie). Over 100 stukken in het repertoire."},
+  {t:"Schaalgrootte",
+   body:"De organisatie is massaal voor Afrikaanse begrippen: 19 vaste leden, 41 tijdelijke, en via de <em>Fédération Nationale de Théâtre Forum</em> (FNTF) nog eens 18 aangesloten groepen en meer dan 30 regionale troepen. Thema's: gezondheid (moeder, reproductief, kind, hiv/aids), plattelandsontwikkeling, milieubehoud, mensenrechten, democratie."},
+  {t:"Democratisch theater",
+   body:"Kompaoré's eigen formulering, opgetekend door Ashoka: 'Het is democratisch theater. Het is bedoeld om mensen te betrekken, om hen aan te moedigen zich uit te drukken, om hen te laten weten dat ze recht hebben op hun mening. Het theater-forum geeft hen het gevoel dat ze verandering kunnen teweegbrengen.'"},
+  {t:"Veiligheidscrisis en pauze",
+   body:"Sinds de Sahel-veiligheidscrisis (vanaf 2019) ligt het festival stil en werkt ATB onder moeilijkere omstandigheden. Kompaoré, inmiddels met emeritaat, werkt door. In 2022 lanceerde hij de 'Soirée des Baobabs' — een eerbetoon aan 235 Afrikaanse theater-bouwers, verdeeld in categorieën goud (20+ jaar), zilver (10–19 jaar), brons (3–9 jaar)."}
+ ],
+ tip:"Als je de koteba wilt begrijpen: zoek opnames op van traditionele Malinese koteba-troupes. Het is geen folkloristische dans maar een dramatische satire met vaste rollen, ruimte voor improvisatie en publieke interventie. Je herkent het TO-DNA erin voordat Boal er zelf mee bezig was. Dit is waarschijnlijk waarom Kompaoré het model zo natuurlijk vond passen.",
+ source:"Ashoka Fellow Profile (1997) · Libreinfo.net interview (2023) · Taylor & Francis: Annette Bühler-Dietrich hoofdstuk over Kompaoré"},
+
+{n:5, title:"FITD — <em>Festival International</em>",
+ page:"Ouagadougou — sinds 1988",
+ type:"Francofoon spoor", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 3 min", group:"internationale troepen", phase:"Tweejaarlijks in feb-maart",
+ note:"Het Festival International de Théâtre pour le Développement is een creatie van ATB. Het werd in 1988 opgestart ter gelegenheid van het tienjarig bestaan van de groep, en vindt sindsdien elke twee jaar plaats in februari-maart van even jaren. Kompaoré's ambitie was expliciet: een wereldwijde mobilisatie ten gunste van theater voor ontwikkeling, met Ouagadougou als het wereldlijk rendez-vouspunt.",
+ stages:[
+  {t:"De oprichting in 1988",
+   body:"Op het tienjarig bestaan van ATB koos Kompaoré voor een internationale opzet. Hij wilde een subregionale — en vervolgens wereldwijde — mobilisatie rond 'theater voor ontwikkeling'. Augusto Boal zelf kwam in 1989 naar Ouagadougou voor het francofone forum-theaterfestival."},
+  {t:"Een eclectisch programma",
+   body:"Het FITD-programma combineert: opleidingsworkshops over acteerspel, regie, dramatisch schrijven, kritiek, forum; debatten en rondetafels; soms ook academische colloquia; gedecentraliseerde voorstellingen in dorpen, scholen en publieke ruimtes; en wedstrijden voor de aangesloten troepen."},
+  {t:"De concours théâtre forum",
+   body:"Uniek aan het festival: de wedstrijd forum-theater, exclusief voor troepen die door ATB zijn opgeleid. Dit verbindt de training met een competitief moment. Niet alle TO-beoefenaars zijn hier gelukkig mee — een wedstrijd matcht niet vanzelfsprekend met Boals filosofie van publieksgelijkwaardigheid — maar het werkt als motiverende infrastructuur."},
+  {t:"Het spiegelbeeld van FSTF",
+   body:"Belangrijk om te zien: FITD (1988, Burkina Faso) en FSTF (2005, Senegal) zijn parallelle festivals die elkaar niet concurrentieel verhouden maar complementair. Troepen reizen tussen beide. Samen vormen ze de West-Afrikaanse forum-festival-as. Kompaoré en Diol kennen elkaar en respecteren elkaar."}
+ ],
+ tip:"FITD ligt stil sinds ongeveer 2019 vanwege de veiligheidssituatie in Burkina Faso. Volg de berichten van ATB voor hervatting. Als je geïnteresseerd bent in internationale TO-festivals op het Afrikaanse continent: het Senegalese FSTF is momenteel actiever en bereikbaarder.",
+ source:"Burkina Tourism · Libreinfo.net (2023) · Transatlantic Cultures (Trajectoires intercontinentales)"},
+
+{n:6, title:"Théâtre de la <em>Fraternité</em>",
+ page:"Ouagadougou, Burkina Faso — 1975",
+ type:"Francofoon spoor", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 3 min", group:"", phase:"1975–heden (Guingané †2011)",
+ note:"De andere grote naam van Burkinabè forum-theater: Jean-Pierre Guingané (†2011). Hij stichtte in 1975 het Théâtre de la Fraternité, aanvankelijk als Cultureel Clublid van het Lycée Municipal van Ouagadougou, waar hij doceerde. Guingané en Kompaoré zijn de twee pilaren van het francofone Afrikaanse TO — vaak samen genoemd. Als je Burkina Faso doet, moet Guingané erbij.",
+ stages:[
+  {t:"Van schooltheater naar autonomie",
+   body:"De eerste artiesten van Théâtre de la Fraternité waren leerlingen van het lycée; repetities vonden plaats in klaslokalen na schooltijd. Pas na jaren van schoolverbonden werk groeide de troupe uit tot een autonome structuur. Dit schoolspoor blijft het DNA: Guingané bleef steeds geloven in theater als pedagogisch en civiel instrument."},
+  {t:"De Espace Culturel Gambidi",
+   body:"Guingané bouwde in Ouagadougou de Espace Culturel Gambidi — een theaterruimte die tegelijk productiehuis, opleidingscentrum en gemeenschapsruimte is. In 1990 stichtte hij bovendien de UNEDO (Union des Ensembles Dramatiques de Ouagadougou), een opleidingsschool voor theateracteurs. Dit maakt hem de institutionele bouwer waar Kompaoré de festivalbouwer is."},
+  {t:"Complementaire strategieën",
+   body:"Waar Kompaoré via festivals en de FNTF een netwerk uitbouwt, werkt Guingané eerder via instituties: school, opleidingscentrum, vaste theaterruimte. De twee strategieën vullen elkaar aan. Samen hebben ze Burkina Faso tot de waarschijnlijk dichtste TO-infrastructuur van West-Afrika gemaakt."},
+  {t:"Na 2011",
+   body:"Guingané overleed in 2011. Théâtre de la Fraternité bestaat verder. Zijn directe invloed is moeilijk te overschatten: een hele generatie Burkinabè regisseurs, acteurs en pedagogen passeerde bij hem. In het academische werk van Pierre Médéhouégnon (2010) worden Kompaoré en Guingané als duo behandeld, elk met eigen nadruk."}
+ ],
+ tip:"Over Guingané is in het Nederlands en Engels relatief weinig beschikbaar — de meeste literatuur is Franstalig. Pierre Médéhouégnon's werk over West-Afrikaans theater (2010) is een goede ingang. Annette Bühler-Dietrich's latere hoofdstukken (Taylor & Francis) behandelen hem ook.",
+ source:"Jean Pierre Caillon blog (2010) · Taylor & Francis: Bühler-Dietrich over Burkinabè theater · Médéhouégnon (2010)"},
+
+{n:7, title:"CTO-Bissau",
+ page:"Bissau, Guinee-Bissau — ca. 2004",
+ type:"Lusofoon spoor", typeBg:"#e6eef7;", typeFg:"#2d4a5e",
+ stripe:"#2d4a5e",
+ duration:"lezen: 5 min", group:"regionale beoefenaars", phase:"Actief sinds ca. 2004",
+ note:"Het oudste Afrikaanse CTO-knooppunt in het lusofone netwerk. Bárbara Santos van CTO-Rio werkte er persoonlijk tussen 2004 en 2011, als artistiek directeur van het programma Teatro do Oprimido de Ponto a Ponto. Het centrum draagt de volledige naam Centro de Teatro do Oprimido de Bissau en is sindsdien uitgegroeid tot een volwaardige institutie met eigen festival.",
+ stages:[
+  {t:"De oprichting via Ponto a Ponto",
+   body:"Santos' programma 'Teatro do Oprimido de Ponto a Ponto' (2005–2010) was ontworpen als een CTO-Rio-uitreiking naar de lusofone wereld: Brazilië, Guinee-Bissau, Mozambique, met uitlopers in Angola en Senegal. Ongeveer 700 beoefenaars werden geschoold in die periode. Bissau was het eerste Afrikaanse land waar een volwaardig CTO-centrum ontstond."},
+  {t:"Mijlpaal 2022",
+   body:"In november 2022 organiseerde CTO-Bissau de IV International Meeting of Theatre of the Oppressed — de eerste keer dat een internationaal TO-netwerktreffen op het Afrikaanse continent plaatsvond. Slogan: 'For the end of violence against women!' Deelnemers uit alle regio's van Guinee-Bissau en uit Mozambique, Brazilië, Frankrijk, Duitsland, Italië, Spanje, Chili, Guatemala, Argentinië."},
+  {t:"De Ma(g)dalena-verankering",
+   body:"De feministische tak van TO, het Madalena-netwerk (soms geschreven als Ma(g)dalena), heeft in Bissau een sterke verankering. Santos ontwikkelde hier het stuk <em>Maria — Ritual de Parideira</em> ('Ritueel van de Baarster'), naast <em>A Voz de Rosa</em> in Mozambique en <em>EVA</em> in Brazilië. Deze lijn behandelt specifiek vrouwelijke onderdrukking vanuit een feministisch perspectief."},
+  {t:"GTO-Bissau versus CTO-Bissau",
+   body:"In de literatuur komen beide afkortingen voor — vaak door elkaar. Algemeen gezegd: GTO (Grupo de Teatro do Oprimido) verwijst naar een lokale theatergroep, CTO (Centro de Teatro do Oprimido) naar een formeel geïnstitutionaliseerd centrum met erkenning vanuit Rio. In Bissau zijn beide termen in gebruik; het hangt af van de context en het moment."}
+ ],
+ tip:"Guinee-Bissau is een van de armste landen in de wereld en de werkomstandigheden zijn zeer uitdagend. Wie er werkt doet dat met een minimum aan middelen — veelal met steun van internationale NGO's en het Portugees-Bissau Cultureel Centrum. Het is daarom des te opmerkelijker dat het land een internationale TO-bijeenkomst kon hosten.",
+ source:"Kuringa Berlin · Bárbara Santos blogarchief · Madalena International Network"},
+
+{n:8, title:"GTO-Maputo",
+ page:"Maputo, Mozambique — 2001",
+ type:"Lusofoon spoor", typeBg:"#e6eef7;", typeFg:"#2d4a5e",
+ stripe:"#2d4a5e",
+ duration:"lezen: 7 min", group:"3.000+ beoefenaars, 120+ groepen", phase:"Actief sinds 2001",
+ note:"De grootste TO-organisatie van Afrika, en waarschijnlijk een van de grootste ter wereld. Opgericht in 2001 door Alvim Cossa (°11 oktober 1968), nadat hij zes maanden in Rio de Janeiro studeerde met een UNESCO-beurs, met Augusto Boal als mentor. GTO-Maputo telt meer dan 3.000 beoefenaars in meer dan 120 theatergroepen verspreid over 93 Mozambikaanse districten.",
+ stages:[
+  {t:"Alvim Cossa",
+   body:"Afgestudeerd in religiewetenschappen, acteur, algemeen coördinator. Naast GTO-Maputo is hij voorzitter van RETEC (Rede Moçambicana de Teatro Comunitário) en van AMOTE (Associação Moçambicana de Teatro). Schrijver en voordrager van Tsonga-poëzie. Verloor vier familieleden aan hiv/aids — een verlies dat zijn werk rond aidspreventie persoonlijk maakt."},
+  {t:"O Meu Marido Está a Negar",
+   body:"Het handtekeningstuk: <em>Mijn Man Is In Ontkenning</em>, een forum-stuk over hiv/aids in een patriarchale context. Gespeeld op markten, scholen, werkplekken. De analyse: de oorzaken van de hiv-epidemie in Mozambique liggen in de patriarchale structuur van de samenleving. Het stuk onderzoekt waarom mensen niet durven testen of voorzorgsmaatregelen nemen. Verfilmd door Rogério Manjate in 2007."},
+  {t:"De Formaat-connectie",
+   body:"In mei 2011 werd Formaat (Rotterdam) door Alvim Cossa en zijn team getraind. Formaat-directeur Luc Opdebeeck heeft sindsdien een duurzame samenwerking met GTO-Maputo onderhouden. Na de overstromingen van januari 2013, waarbij het hele archief van GTO-Maputo vernietigd werd, lanceerde Formaat de 'Save GTO Maputo'-campagne. Dit is geen abstract netwerk — dit zijn concrete, persoonlijke banden."},
+  {t:"Wat Cossa Formaat leerde",
+   body:"Uit het Formaat-E-motive-document: 'We leerden hoe je een stuk binnen 10–15 minuten fascinerend maakt en hoe je direct tot de kern komt, bijvoorbeeld door nieuwe personages te introduceren in niet meer dan drie zinnen.' En over vertrouwen: 'Cossa bouwt vertrouwen op met het publiek via eenvoudige opwarmingsspelletjes en adresseert zijn onderwerp dan direct.' De methodologie: stilte en volle aandacht."},
+  {t:"Schaalgrootte en thematiek",
+   body:"Via het RETEC-netwerk verbindt GTO-Maputo meer dan 120 troepen in 93 districten. Thema's: hiv/aids, onderwijs, milieu, bestuur, burgerschap, mensenrechten, kinderrechten, vrouwenrechten. Er is geen andere TO-organisatie in Afrika met deze schaal — dit is meer dan een theatergroep, het is een nationaal sociaal-cultureel netwerk."},
+  {t:"Festival internacional",
+   body:"GTO-Maputo organiseert sinds 2001 het International Festival of Theatre of the Oppressed. De 8e editie vond plaats in juli 2016, ter gelegenheid van 15 jaar TO in Mozambique. Slogan: 'Dare to Create a World of Freedom.' Veertien Mozambikaanse groepen plus internationale deelname."}
+ ],
+ tip:"Als je de methodologie van Cossa wilt begrijpen: focus op de opwarming en op het vertrouwen-bouwen met publiek. Zijn kracht ligt niet in complexe dramatische structuur — zijn kracht ligt in hoe hij een publiek binnen minuten mee heeft. Dat is leerbaar door te observeren. Formaat heeft daar opnamen van.",
+ source:"E-motive / Formaat documentatie · Cardboard Citizens What Now #4 (Cossa, 2021) · Rode Kruis / c-linq relief documentatie (2013)"},
+
+{n:9, title:"GTO-Angola",
+ page:"Luanda, Angola — 2006-2010",
+ type:"Lusofoon spoor", typeBg:"#e6eef7;", typeFg:"#2d4a5e",
+ stripe:"#2d4a5e",
+ duration:"lezen: 3 min", group:"15 actores-multiplicadores + 10 gemeenschapsgroepen", phase:"Actief sinds 2006-2010",
+ note:"Het jongste van de drie lusofone knooppunten, en qua omvang het kleinste. Opgestart via het Ponto a Ponto-programma van Bárbara Santos in de periode 2006–2010. Structuur: 15 'actores-multiplicadores' (vermeerderingsacteurs), 10 gemeenschapsgroepen in Luanda, 15 Forum-Theater-groepen in scholen. Opvallend: Angola werkt expliciet met Legislatief Theater — Boals meest politieke techniek.",
+ stages:[
+  {t:"De Legislatief-keuze",
+   body:"Uit de academische literatuur (Andrade & Balme, 2020): 'In Afrika implementeerde het Theatre of the Oppressed Group GTO-Angola de nieuwe Legislatief-modaliteit, en CTO-Rio zelf hield formele sessies over Legislatief Theater in Guinee-Bissau en Mozambique.' Dit betekent: Angola pakt niet het gemakkelijkste deel van TO op, maar juist het meest politiek-institutioneel riskante."},
+  {t:"Schaalcijfers",
+   body:"De eigen blog van GTO-Angola geeft (stand 2010): 304 deelnemers aan mobiele en lokale trainingen, 77 voorstellingen, meer dan 11.363 toeschouwers. Voor een land dat nog maar net uit een lange burgeroorlog kwam (einde 2002), is dit een aanzienlijke culturele infrastructuur in korte tijd."},
+  {t:"De positie in het Ponto a Ponto-programma",
+   body:"Santos beschrijft Angola in haar eigen tekst <em>A Arte de Curingar</em> als 'ontplooiing' — een uitbreiding vanuit Mozambique en Bissau, niet als zelfstandig opgezet centrum. Dit blijft tot vandaag de structurele positie: kleiner, afhankelijk van de lusofone hub, maar eigen."}
+ ],
+ tip:"Over GTO-Angola is in het Nederlands en Engels relatief weinig te vinden. De primaire bron is de eigen blog (gtoangola.blogspot.com) en Santos' publicaties in het Portugees. Als je hier dieper op wilt ingaan: leer wat Portugees of zoek een vertaler.",
+ source:"GTO-Angola blog · Bárbara Santos: A Arte de Curingar (2010) · Andrade & Balme: Transnational networks of the TO (2020)"},
+
+{n:10, title:"Bárbara <em>Santos</em>",
+ page:"De architect van het lusofone spoor",
+ type:"Lusofoon spoor", typeBg:"#e6eef7;", typeFg:"#2d4a5e",
+ stripe:"#2d4a5e",
+ duration:"lezen: 5 min", group:"—", phase:"Werkte met Boal 1991–2009",
+ note:"Zonder Bárbara Santos zou het lusofone Afrikaanse TO-netwerk niet bestaan in de huidige vorm. Zelfbeschreven als 'vrouw, zwart, moeder, Zuid-Amerikaans, Braziliaans, sociologe, actrice en Kuringa'. Algemeen Coördinator van het Centro de Teatro do Oprimido in Rio van 1994 tot 2008. Werkte met Boal van 1991 tot zijn overlijden in mei 2009. Woont sinds ongeveer 2010 in Berlijn.",
+ stages:[
+  {t:"Kuringa met K",
+   body:"Santos schrijft de titel van de TO-facilitator consequent als Kuringa — met K, niet het Portugese Curinga. Bewuste keuze: een internationale terminologie die verwijst naar de oorspronkelijke Braziliaanse functie maar ook een eigen identiteit claimt. Haar Berlijnse centrum heet ook zo: Kuringa — space for Theatre of the Oppressed."},
+  {t:"Teatro do Oprimido de Ponto a Ponto",
+   body:"Haar grootste bijdrage aan Afrikaans TO: het programma <em>Teatro do Oprimido de Ponto a Ponto</em>, artistiek geleid door haar van 2005 tot 2010. Brazilië, Guinee-Bissau, Mozambique, met uitlopers in Angola en Senegal. Ongeveer 700 beoefenaars opgeleid, duizenden mensen bereikt via gemeenschapsactiviteiten."},
+  {t:"Madalena en Teatro das Oprimidas",
+   body:"Rond 2010 ontwikkelde Santos, samen met Alessandra Vannucci, het Madalena-laboratorium — een specifiek feministisch spoor van TO, gewijd aan vrouwelijke onderdrukking. Groeide uit tot het internationale Madalena-netwerk (Brazilië, Bissau, Mozambique, Duitsland, Oostenrijk, Spanje, Portugal, Argentinië, Uruguay, India, Peru, Zwitserland, Frankrijk, Guatemala, Colombia, Bolivia). Haar boek: <em>Teatro das Oprimidas: estéticas feministas para poéticas políticas</em> (Philos, 2019)."},
+  {t:"Bruggen bouwen",
+   body:"Santos werkte ook in Palestina (2002–2007) en in andere conflictgebieden. Ze heeft in meer dan dertig landen gewerkt. Haar uniekheid: ze is de enige Kuringa die systematisch het TO-netwerk heeft uitgebreid naar de Zuidelijke hemisfeer, en dat doet vanuit een expliciet zwart-feministisch perspectief. Dat maakt haar positie anders dan die van Cardboard Citizens of TOPLAB."},
+  {t:"Theoretisch werk",
+   body:"Santos is ook theoretica. Haar boek <em>Teatro do Oprimido: raízes e asas — uma teoria da práxis</em> (Ibis Libris, 2016) is een systematisering van de methode. Ze hanteert daarin concepten als 'opgaande lijn' (ascese) — de beweging van persoonlijke ervaring naar de maatschappelijke analyse, als het dramaturgische hart van forum-theater."}
+ ],
+ tip:"Als je één auteur kiest om naast Boal te lezen: Bárbara Santos. Haar <em>Teatro do Oprimido: raízes e asas</em> is voor veel TO-beoefenaars van de nieuwe generatie de toegankelijkste theoretische uitwerking na Boals eigen werk. Nog niet in het Nederlands vertaald, wel in het Portugees, Spaans, Duits en (deels) Engels.",
+ source:"Kuringa Berlin website · Santos: A Arte de Curingar (2010) · Bárbara Santos: Teatro do Oprimido: raízes e asas (2016) · Madalena International Network"},
+
+{n:11, title:"Zuid-Afrika",
+ page:"Een parallelle protest-traditie",
+ type:"Parallel spoor", typeBg:"#f2ebdd", typeFg:"#524a40",
+ stripe:"#9a9080",
+ duration:"lezen: 6 min", group:"—", phase:"1972–heden",
+ note:"Zuid-Afrika past in geen van beide sporen. Daar bestond in de jaren zeventig al een robuuste protest-theatertraditie — Market Theatre (1976), The Space (1972), Junction Avenue (1976), FUBA — toen Boals werk arriveerde. TO-technieken zijn opgenomen in een beweging die al bezig was. Geen officieel CTO, wel diepe invloed.",
+ stages:[
+  {t:"Parallelle uitvinding",
+   body:"De South African protest theater movement van de jaren zeventig en tachtig had al veel van wat Boal theoretiseerde: workshop-gebaseerd, politiek geëngageerd, gemeenschapsgericht, publiek in gesprek brengend. Namen: Athol Fugard (<em>Sizwe Banzi is Dead</em>, <em>The Island</em>), Mbongeni Ngema, Maishe Maponya, John Kani, Winston Ntshona. Dit was geen Boal-toepassing — dit was een autonome parallelle ontwikkeling."},
+  {t:"Wanneer Boal arriveerde",
+   body:"Uit de Zuid-Afrikaanse encyclopedie ESAT: 'De Engelse versie van Theatre of the Oppressed (1979) beïnvloedde veel lokale beoefenaars tijdens de culturele strijd, terwijl zijn latere handboek Games for Actors and Non-Actors (1992) een belangrijk instrument werd in de post-apartheid-periode.' Dus: eerst de politieke invloed (jaren tachtig), daarna de pedagogische (jaren negentig)."},
+  {t:"DramAidE",
+   body:"Een belangrijk TO-achtig programma: DramAidE, opgericht door Lynn Dalrymple aan de University of Zululand vanaf 1992. Gericht op aidspreventie via participatieve dramatechnieken. Nationaal schaalprogramma. Methodologisch dicht bij forum-theater maar met eigen pedagogische structuur."},
+  {t:"Andere belangrijke initiatieven",
+   body:"Puppets Against AIDS (Gary Friedman / AREPP) — marionettentheater voor bewustwording. University of Cape Town's Centre for Theatre, Dance and Performance Studies — Veronica Baxter werkt met Oxfam aan klimaatverandering-forum. Shack Theatre (Khayelitsha) — Mandisi Sindo maakt theater in een township. Recente producties zoals die van Musa Nonkwelo in Zikode Village (2021) beroepen zich expliciet op Boals naam."},
+  {t:"Waarom geen CTO?",
+   body:"Een interessante vraag. Mogelijke verklaring: Zuid-Afrika had al een eigen stevige infrastructuur (Market Theatre, CAPAB, PACT) en een eigen academische theatertraditie. Er was geen vacuüm om een CTO te installeren. Bárbara Santos' programma bereikte Zuid-Afrika ook niet direct — het had 'repercussies' in Senegal, niet in Zuid-Afrika. Het land zit in een ander netwerk: eerder Britse en Amerikaanse theaterverbanden."},
+  {t:"Academische brug",
+   body:"Veronica Baxter (UCT) is de voornaamste academische stem die TO en Zuid-Afrikaans applied theater verbindt. Haar werk is een goede ingang voor wie de parallelle ontwikkeling wil begrijpen. Ze heeft met Oxfam forum-stukken gemaakt die op COP-klimaatconferenties zijn gespeeld."}
+ ],
+ tip:"Als je applied theatre in Zuid-Afrika wilt begrijpen: lees eerst Loren Kruger's werk over post-apartheid theater. Dan Veronica Baxter. Dan Mbongeni Ngema's <em>Sarafina!</em>. Dit leest als een ander verhaal dan dat van Kàddu Yaraax of ATB — en dat is de punt. Geen universele 'Afrikaanse TO' bestaat. Er zijn meerdere verhalen.",
+ source:"ESAT (Encyclopedia of South African Theatre) · Loren Kruger: Democratic Actors and Post-Apartheid Drama (2010) · Climate & Development Knowledge Network · allAfrica.com (2021)"},
+
+{n:12, title:"Drie <em>patronen</em>",
+ page:"Synthese — wat dit Nederland leert",
+ type:"Synthese", typeBg:"#fbeae2", typeFg:"#7a3524",
+ stripe:"#b5533b",
+ duration:"lezen: 4 min", group:"—", phase:"Afsluiting",
+ note:"Wat leren elf Afrikaanse knooppunten ons, samengenomen? Drie patronen komen terug — niet als 'Afrikaans kenmerk' maar als methodologische uitvindingen die ook elders bruikbaar zijn. En één laatste vraag voor de Nederlandse Joker.",
+ stages:[
+  {t:"Patroon 1 — Boals technieken, precoloniale architectuur",
+   body:"Diol's <em>géew</em>, Kompaoré's <em>koteba</em>, Aoun/Muallems <em>hakawati</em> (later in de Midden-Oosten-carrousel): drie verschillende oplossingen voor dezelfde vraag. Hoe ontvang je TO zonder het Westerse podium erbij te moeten meenemen? Antwoord: vind een precoloniale performatieve vorm en ent Boals technieken daarop. Dit is niet folklore, dit is methodologie. Nederland heeft ook niet-Westerse performatieve tradities (denk aan hakenkruismaaltijden, wijkcafés, Turkse/Marokkaanse/Ghanese gemeenschapsrituelen in diaspora-wijken). Daar valt iets te doen wat nog nauwelijks is onderzocht."},
+  {t:"Patroon 2 — Festival als infrastructuur",
+   body:"Waar Europese TO-gezelschappen vaak rond vaste theatergebouwen georganiseerd zijn, kiezen Afrikaanse gezelschappen consequent voor het festival als ordenend principe. Jaarlijks of tweejaarlijks. Internationaal van opzet. Causeries in plaats van panels. Wedstrijden (FITD) of open uitnodigingen (FSTF). Dit is een organisatievorm waar Europese TO-gemeenschappen van kunnen leren — minder vast vastgoed, meer periodieke netwerkcreatie."},
+  {t:"Patroon 3 — Onafhankelijkheid van de staat",
+   body:"Kàddu Yaraax heeft nooit staatsfinanciering ontvangen en draagt dat als eretitel. ATB klaagt over het gebrek aan partners. GTO-Maputo werkt voornamelijk via NGO-netwerken. GTO-Bissau via internationale solidariteit. Wat opvalt: de Afrikaanse TO-wereld opereert structureel <em>buiten</em> het staatsapparaat, vaak als expliciet oppositioneel gedefinieerd. De Europese TO-wereld (Formaat, Cardboard Citizens, CTO Paris) werkt juist vaak <em>met</em> staats- of gemeentelijke subsidies. Geen van beide is 'juister' — het zijn verschillende positioneringen."},
+  {t:"Voor de Nederlandse Joker",
+   body:"Drie vragen die dit materiaal opwerpt: (1) Welke precoloniale of niet-Westerse performatieve traditie kun jij in jouw stadswijk activeren als architectuur voor TO? (2) Zou een regionaal festival nuttiger zijn dan nog een vaste huisvesting? (3) Wat betekent het politiek als jouw werk staatsgesubsidieerd is — wat kun je wél en niet zeggen? Geen antwoorden hier. Wel: de Afrikaanse collega's hebben hun eigen antwoorden, soms al decennia."},
+  {t:"Tot slot",
+   body:"De Midden-Oosten-carrousel (Ashtar, Combatants for Peace, Nora Amin) vertelt een ander verhaal — dat van theater onder bezetting, dat van gepolariseerde intimiteit, dat van synchrone wereldwijde monologen. Die carrousel staat naast deze. Samen vormen ze twee antwoorden op één vraag: wat is TO als je het niet in Brazilië of Parijs maar in Dakar, Ramallah, Bissau of Maputo doet?"}
+ ],
+ tip:"Deze carrousel is geen eindpunt. Het is een kaart met witte vlekken. Ghana, Nigeria, Ethiopië, Kenia — allemaal hebben ze TO-praktijken die hier niet behandeld zijn. Voeg kaarten toe als je ze tegenkomt. Het Arsenaal groeit door gebruik.",
+ source:"Samenvatting van kaarten 1-11 · The Routledge Companion to TO (2019) · eigen synthese"}
+
+];
+
+let cur = 0;
+
+function renderPills() {
+  const pills = document.getElementById('pills');
+  pills.innerHTML = T.map((t,i) => 
+    `<button class="tpill ${i===cur?'on':''}" onclick="goTech(${i})">${i+1}</button>`
+  ).join('');
+}
+
+function render() {
+  const t = T[cur];
+  renderPills();
+  
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Kaart ${t.n} van ${T.length} &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-form">${t.page}</span>
+            <span class="badge-type" style="background:${t.typeBg};color:${t.typeFg}">${t.type}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Lengte</strong> ${t.duration}</span>
+          ${t.group ? `<span class="meta-item"><strong>Schaal</strong> ${t.group}</span>` : ''}
+          <span class="meta-item"><strong>Periode</strong> ${t.phase}</span>
+        </div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-source">
+        <span><strong>Bron</strong> · ${t.source}</span>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`
+  ).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; render(); }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof ArsenaalNav !== 'undefined') {
+    ArsenaalNav.init({
+      horizontal: { next: nextTech, prev: prevTech }
+    });
+  }
+});
+
+render();
+</script>
+</body>
+</html>
