@@ -1,0 +1,495 @@
+--- a/README.md
++++ b/README.md
+@@ -30,7 +30,7 @@
+ ### Centraal arsenaal
+ 
+ **TO Arsenaal**  
+-364 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
++374 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
+ 
+ **Games for Actors and Non-Actors**  
+ De oefeningen zoals Boal ze zelf ordende — per categorie, met zijn eigen nummering.
+--- a/atlas.html
++++ b/atlas.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#2d5a3e">
+ <title>Atlas — Praktijken in context</title>
++<meta name="description" content="Theatre of the Oppressed in de wereld — 14 praktijken in context, van Rio tot Calcutta, van Maputo tot Rotterdam. De veelvormigheid van het werk in beeld.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Atlas — Praktijken in context">
++<meta property="og:description" content="Theatre of the Oppressed in de wereld — 14 praktijken in context, van Rio tot Calcutta, van Maputo tot Rotterdam. De veelvormigheid van het werk in beeld.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/atlas.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Atlas — Praktijken in context">
++<meta name="twitter:description" content="Theatre of the Oppressed in de wereld — 14 praktijken in context, van Rio tot Calcutta, van Maputo tot Rotterdam. De veelvormigheid van het werk in beeld.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/beeldentheater.html
++++ b/beeldentheater.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#0F6E56">
+ <title>Beeldentheater — De taal van het lichaam</title>
++<meta name="description" content="24 technieken van Boals Beeldentheater — sculpting, dynamisering, beeldensequenties. Van het fundament tot toepassingen in onderzoek, klimaat en onderwijs.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Beeldentheater — De taal van het lichaam">
++<meta property="og:description" content="24 technieken van Boals Beeldentheater — sculpting, dynamisering, beeldensequenties. Van het fundament tot toepassingen in onderzoek, klimaat en onderwijs.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/beeldentheater.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Beeldentheater — De taal van het lichaam">
++<meta name="twitter:description" content="24 technieken van Boals Beeldentheater — sculpting, dynamisering, beeldensequenties. Van het fundament tot toepassingen in onderzoek, klimaat en onderwijs.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/boal-games.html
++++ b/boal-games.html
+@@ -8,6 +8,20 @@
+ <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <meta name="theme-color" content="#8b1a1a">
+ <title>Games for Actors and Non-Actors — Augusto Boal</title>
++<meta name="description" content="De oefeningen zoals Boal ze zelf ordende in Games for Actors and Non-Actors — per categorie, met zijn eigen nummering en introductieteksten. Dicht bij de bron.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Games for Actors and Non-Actors — Augusto Boal">
++<meta property="og:description" content="De oefeningen zoals Boal ze zelf ordende in Games for Actors and Non-Actors — per categorie, met zijn eigen nummering en introductieteksten. Dicht bij de bron.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/boal-games.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Games for Actors and Non-Actors — Augusto Boal">
++<meta name="twitter:description" content="De oefeningen zoals Boal ze zelf ordende in Games for Actors and Non-Actors — per categorie, met zijn eigen nummering en introductieteksten. Dicht bij de bron.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <style>
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
+   :root{--ink:#1a1208;--paper:#f5f0e8;--paper-dark:#ede5d0;--accent:#8b1a1a;--gold:#b8860b;--gold-light:#d4a843;--muted:#6b5d4f;--border:#c8b89a;--cat-I:#2c5f2e;--cat-II:#1a3a5c;--cat-III:#5c2c5f;--cat-IV:#5c3d1a;--cat-V:#1a4a3a;--cat-IT:#8b1a1a;--cat-RE:#3a3a1a;}
+--- a/feldenkrais.html
++++ b/feldenkrais.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#185FA5">
+ <title>Feldenkrais — Bewustzijn door Beweging</title>
++<meta name="description" content="13 Awareness Through Movement-lessen uit de Feldenkrais-methode. Elk met TO-verbinding en jokertip: wie zijn bewegingspatroon waarneemt, kan het veranderen.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Feldenkrais — Bewustzijn door Beweging">
++<meta property="og:description" content="13 Awareness Through Movement-lessen uit de Feldenkrais-methode. Elk met TO-verbinding en jokertip: wie zijn bewegingspatroon waarneemt, kan het veranderen.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/feldenkrais.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Feldenkrais — Bewustzijn door Beweging">
++<meta name="twitter:description" content="13 Awareness Through Movement-lessen uit de Feldenkrais-methode. Elk met TO-verbinding en jokertip: wie zijn bewegingspatroon waarneemt, kan het veranderen.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/forum.html
++++ b/forum.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#a8321f">
+ <title>Forumtheater — Het hart van Boals methode</title>
++<meta name="description" content="Forumtheater — Boals kernmethode in 19 kaarten. Fundament, schaalvarianten, casussen en ethische valkuilen. Voor jokers die theater inzetten voor verandering.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Forumtheater — Het hart van Boals methode">
++<meta property="og:description" content="Forumtheater — Boals kernmethode in 19 kaarten. Fundament, schaalvarianten, casussen en ethische valkuilen. Voor jokers die theater inzetten voor verandering.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/forum.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Forumtheater — Het hart van Boals methode">
++<meta name="twitter:description" content="Forumtheater — Boals kernmethode in 19 kaarten. Fundament, schaalvarianten, casussen en ethische valkuilen. Voor jokers die theater inzetten voor verandering.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/freire.html
++++ b/freire.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#5c3d1e">
+ <title>Paulo Freire — De Kist</title>
++<meta name="description" content="Negen concrete technieken uit Freires alfabetiseringscampagnes met boerenarbeiders — de pedagogische humus waarop Theatre of the Oppressed gebouwd is.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Paulo Freire — De Kist">
++<meta property="og:description" content="Negen concrete technieken uit Freires alfabetiseringscampagnes met boerenarbeiders — de pedagogische humus waarop Theatre of the Oppressed gebouwd is.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/freire.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Paulo Freire — De Kist">
++<meta name="twitter:description" content="Negen concrete technieken uit Freires alfabetiseringscampagnes met boerenarbeiders — de pedagogische humus waarop Theatre of the Oppressed gebouwd is.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/impro.html
++++ b/impro.html
+@@ -7,7 +7,21 @@
+ <link rel="icon" type="image/x-icon" href="favicon.ico">
+ <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <meta name="theme-color" content="#1a6b8a">
+-<title>TO Archief — Viola Spolin</title>
++<title>Impro — Oefeningen van Viola Spolin</title>
++<meta name="description" content="Oefeningen uit Viola Spolins improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Impro — Oefeningen van Viola Spolin">
++<meta property="og:description" content="Oefeningen uit Viola Spolins improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/impro.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Impro — Oefeningen van Viola Spolin">
++<meta name="twitter:description" content="Oefeningen uit Viola Spolins improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f3f6f7;color:#1a1a1a;padding:2rem 1rem}
+--- a/index.html
++++ b/index.html
+@@ -8,6 +8,20 @@
+ <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <meta name="theme-color" content="#b8803c">
+   <title>Arsenaal van de Joker — Theatre of the Oppressed Toolkit</title>
++<meta name="description" content="Theatre of the Oppressed-toolkit voor jokers en facilitators. 374 oefeningen, sessiebouwer, en methodieken van Boal, Freire, Spolin en Moreno.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Arsenaal van de Joker — Theatre of the Oppressed Toolkit">
++<meta property="og:description" content="Theatre of the Oppressed-toolkit voor jokers en facilitators. 374 oefeningen, sessiebouwer, en methodieken van Boal, Freire, Spolin en Moreno.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Arsenaal van de Joker — Theatre of the Oppressed Toolkit">
++<meta name="twitter:description" content="Theatre of the Oppressed-toolkit voor jokers en facilitators. 374 oefeningen, sessiebouwer, en methodieken van Boal, Freire, Spolin en Moreno.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+   <style>
+     /* Base reset and variables */
+--- a/introspectief.html
++++ b/introspectief.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#b8803c">
+ <title>Regenboog van het Verlangen — Introspectieve Technieken</title>
++<meta name="description" content="De negen introspectieve beeldentechnieken uit Boals Rainbow of Desire — waarmee de innerlijke onderdrukker ('cop in the head') zichtbaar wordt.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Regenboog van het Verlangen — Introspectieve Technieken">
++<meta property="og:description" content="De negen introspectieve beeldentechnieken uit Boals Rainbow of Desire — waarmee de innerlijke onderdrukker ('cop in the head') zichtbaar wordt.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/introspectief.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Regenboog van het Verlangen — Introspectieve Technieken">
++<meta name="twitter:description" content="De negen introspectieve beeldentechnieken uit Boals Rainbow of Desire — waarmee de innerlijke onderdrukker ('cop in the head') zichtbaar wordt.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/joker-praktijk.html
++++ b/joker-praktijk.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#4a4f55">
+ <title>Joker-praktijk — CLRA, trauma, consent, herkomst</title>
++<meta name="description" content="Vijf houdingen die het werk van de joker dragen — CLRA, trauma-informed practice, consent, herkomst en community arts. De basis waarop het gereedschap pas werkt.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Joker-praktijk — CLRA, trauma, consent, herkomst">
++<meta property="og:description" content="Vijf houdingen die het werk van de joker dragen — CLRA, trauma-informed practice, consent, herkomst en community arts. De basis waarop het gereedschap pas werkt.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-praktijk.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Joker-praktijk — CLRA, trauma, consent, herkomst">
++<meta name="twitter:description" content="Vijf houdingen die het werk van de joker dragen — CLRA, trauma-informed practice, consent, herkomst en community arts. De basis waarop het gereedschap pas werkt.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/krantentheater.html
++++ b/krantentheater.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#8b1a1a">
+ <title>Krantentheater — Twaalf Technieken van Boal</title>
++<meta name="description" content="Twaalf technieken om bestaande teksten — nieuws, beleid, wet, reclame — te ondervragen via theater. Boals directe brug naar Forum Theater.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Krantentheater — Twaalf Technieken van Boal">
++<meta property="og:description" content="Twaalf technieken om bestaande teksten — nieuws, beleid, wet, reclame — te ondervragen via theater. Boals directe brug naar Forum Theater.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/krantentheater.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Krantentheater — Twaalf Technieken van Boal">
++<meta name="twitter:description" content="Twaalf technieken om bestaande teksten — nieuws, beleid, wet, reclame — te ondervragen via theater. Boals directe brug naar Forum Theater.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/legislatief.html
++++ b/legislatief.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#1a3a5c">
+ <title>Legislatief Theater — Van Forum naar Wet</title>
++<meta name="description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Legislatief Theater — Van Forum naar Wet">
++<meta property="og:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/legislatief.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Legislatief Theater — Van Forum naar Wet">
++<meta name="twitter:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/na-boal.html
++++ b/na-boal.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#8b3a2e">
+ <title>Na Boal — Methodologische vernieuwingen</title>
++<meta name="description" content="Hoe de TO-methode zich na 2009 heeft doorontwikkeld — Santos, Julian Boal, Ganguly, Rubin, Alon. Vijf methodologische vernieuwingen in verschillende contexten.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Na Boal — Methodologische vernieuwingen">
++<meta property="og:description" content="Hoe de TO-methode zich na 2009 heeft doorontwikkeld — Santos, Julian Boal, Ganguly, Rubin, Alon. Vijf methodologische vernieuwingen in verschillende contexten.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/na-boal.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Na Boal — Methodologische vernieuwingen">
++<meta name="twitter:description" content="Hoe de TO-methode zich na 2009 heeft doorontwikkeld — Santos, Julian Boal, Ganguly, Rubin, Alon. Vijf methodologische vernieuwingen in verschillende contexten.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/onzichtbaar.html
++++ b/onzichtbaar.html
+@@ -9,6 +9,20 @@
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#2c4a6b">
+ <title>Onzichtbaar Theater — Boals Methode voor de Publieke Ruimte</title>
++<meta name="description" content="Onzichtbaar Theater — Boals methode om te spelen zonder dat het publiek weet dat het theater is. Protocol, casussen, en het ethische debat rond misleiding.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Onzichtbaar Theater — Boals Methode voor de Publieke Ruimte">
++<meta property="og:description" content="Onzichtbaar Theater — Boals methode om te spelen zonder dat het publiek weet dat het theater is. Protocol, casussen, en het ethische debat rond misleiding.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/onzichtbaar.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Onzichtbaar Theater — Boals Methode voor de Publieke Ruimte">
++<meta name="twitter:description" content="Onzichtbaar Theater — Boals methode om te spelen zonder dat het publiek weet dat het theater is. Protocol, casussen, en het ethische debat rond misleiding.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/playback.html
++++ b/playback.html
+@@ -9,6 +9,20 @@
+ <meta name="theme-color" content="#993556">
+ <script src="nav.js" defer></script>
+ <title>Playback Theatre — De kern-technieken van Jonathan Fox</title>
++<meta name="description" content="De negen kern-technieken van Playback Theatre — van Fluid Sculpture tot de volledige scène. Jonathan Fox &amp; Jo Salas' traditie sinds 1975.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Playback Theatre — De kern-technieken van Jonathan Fox">
++<meta property="og:description" content="De negen kern-technieken van Playback Theatre — van Fluid Sculpture tot de volledige scène. Jonathan Fox &amp; Jo Salas' traditie sinds 1975.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/playback.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Playback Theatre — De kern-technieken van Jonathan Fox">
++<meta name="twitter:description" content="De negen kern-technieken van Playback Theatre — van Fluid Sculpture tot de volledige scène. Jonathan Fox &amp; Jo Salas' traditie sinds 1975.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/prospectief.html
++++ b/prospectief.html
+@@ -8,7 +8,21 @@
+ <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#1a6b6b">
+-<title>TO Archief — Prospectieve Technieken · Rainbow of Desire</title>
++<title>Regenboog van het Verlangen — Prospectieve Technieken</title>
++<meta name="description" content="Vijftien prospectieve beeldentechnieken uit Boals Rainbow of Desire — gericht op de gewenste toekomst. Het beeld als werkplek voor alternatieven.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Regenboog van het Verlangen — Prospectieve Technieken">
++<meta property="og:description" content="Vijftien prospectieve beeldentechnieken uit Boals Rainbow of Desire — gericht op de gewenste toekomst. Het beeld als werkplek voor alternatieven.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/prospectief.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Regenboog van het Verlangen — Prospectieve Technieken">
++<meta name="twitter:description" content="Vijftien prospectieve beeldentechnieken uit Boals Rainbow of Desire — gericht op de gewenste toekomst. Het beeld als werkplek voor alternatieven.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ 
+--- a/psychodrama.html
++++ b/psychodrama.html
+@@ -4,9 +4,25 @@
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" type="image/svg+xml" href="favicon.svg">
++<link rel="icon" type="image/x-icon" href="favicon.ico">
++<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#5c3d1e">
+ <title>Psychodrama — Methodieken van Moreno</title>
++<meta name="description" content="29 kaarten over Moreno's psychodrama — technieken, rollen, fasering — met expliciete verbindingen naar Theatre of the Oppressed-praktijk.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="Psychodrama — Methodieken van Moreno">
++<meta property="og:description" content="29 kaarten over Moreno's psychodrama — technieken, rollen, fasering — met expliciete verbindingen naar Theatre of the Oppressed-praktijk.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/psychodrama.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Psychodrama — Methodieken van Moreno">
++<meta name="twitter:description" content="29 kaarten over Moreno's psychodrama — technieken, rollen, fasering — met expliciete verbindingen naar Theatre of the Oppressed-praktijk.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/to-afrika.html
++++ b/to-afrika.html
+@@ -9,6 +9,20 @@
+ <meta name="theme-color" content="#b5533b">
+ <script src="nav.js" defer></script>
+ <title>TO in Afrika — Het continent dat Boal adopteerde en hervond</title>
++<meta name="description" content="Theatre of the Oppressed op het Afrikaanse continent — francofoon en lusofoon spoor, van Kompaoré tot Santos. Afgesloten met Jane Plastows kritische tegenstem.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="TO in Afrika — Het continent dat Boal adopteerde en hervond">
++<meta property="og:description" content="Theatre of the Oppressed op het Afrikaanse continent — francofoon en lusofoon spoor, van Kompaoré tot Santos. Afgesloten met Jane Plastows kritische tegenstem.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/to-afrika.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="TO in Afrika — Het continent dat Boal adopteerde en hervond">
++<meta name="twitter:description" content="Theatre of the Oppressed op het Afrikaanse continent — francofoon en lusofoon spoor, van Kompaoré tot Santos. Afgesloten met Jane Plastows kritische tegenstem.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+--- a/to-arsenaal.html
++++ b/to-arsenaal.html
+@@ -8,7 +8,21 @@
+ <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+ <script src="nav.js" defer></script>
+ <meta name="theme-color" content="#b8803c">
+-<title>TO Archief — Dreamers Beyond</title>
++<title>TO Arsenaal — 374 oefeningen met sessiebouwer</title>
++<meta name="description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Arsenaal van de Joker">
++<meta property="og:locale" content="nl_NL">
++<meta property="og:title" content="TO Arsenaal — 374 oefeningen met sessiebouwer">
++<meta property="og:description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
++<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/to-arsenaal.html">
++<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="TO Arsenaal — 374 oefeningen met sessiebouwer">
++<meta name="twitter:description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
++<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <style>
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@@ -463,7 +477,7 @@
+   {b:"geheugen",n:"Vloermap",t:"Reflectie / kennismaking",d:"15–25 min",g:"6–30 p.",o:"De groep letterlijk spreiden over een denkbeeldige kaart van de wereld — en verkennen wie er waar vandaan komt.",s:["De vloer is een kaart van Nederland of de wereld — Joker benoemt de oriëntatie.","Vraag: ga staan waar je geboren bent. Kijk om je heen.","Nieuwe vraag: ga staan waar je je beste vriend hebt. Waar je over 5 jaar wil zijn.","Elke vraag geeft een ander landschap van de groep."],tg:["kennismaking","reflectie","identiteit"],tip:"Vragen over 'waar wil je niet meer heen' en 'waar heb je je veiligst gevoeld' zijn het meest veelzeggend. Begin licht, eindig diep.",bron:"Dreamers Beyond",fase:"opwarming",niv:1,eng:"laag"},
+   {b:"lichaam",n:"Ritme door de ruimte",t:"Warming-up / muzikaliteit",d:"10–15 min",g:"8–30 p.",o:"Een gedeeld ritme vinden als groep — en dat ritme omzetten naar beweging door de ruimte.",s:["Joker klapt een vierkwartsmaat — groep klapt mee.","Accentueer één tel: iedereen stopt een stap daarin.","Vier bewegingen bedenken op vier tellen — waarvan minimaal één met stap voorwaarts.","Groep beweegt door de ruimte op dit ritme — tot het uiteenvalt in individueel spel."],tg:["ritme","beweging","opwarming"],tip:"Zodra de groep uiteenvalt en de mensen elkaar als individu ontmoeten in de ruimte — alleen met dit ritme als taal — is de oefening op haar hoogtepunt.",bron:"Dreamers Beyond",fase:"opwarming",niv:1,eng:"hoog"},
+   {b:"kennismaking",n:"Krantenmep",t:"Kennismaking / reactie",d:"5–10 min",g:"9–30 p.",o:"Naam + snelheid. De mepster probeert iemand te raken voordat die zijn eigen naam zegt.",s:["Kring op stoelen. Één persoon staat in het midden met een opgerolde krant.","De mepster loopt naar iemand en probeert hem op het hoofd te tikken.","Die persoon moet zijn eigen naam roepen vóór de mep aankomt.","Als het niet lukt: wisselen. Variatie: niet eigen naam maar die van een buur roepen."],tg:["kennismaking","humor","concentratie"],tip:"Varieer het tempo van de mepster — soms snel, soms overdreven langzaam. Dat is het grappigste moment.",bron:"Dreamers Beyond",fase:"opening",niv:1,eng:"hoog"},
+-  {b:"geheugen",n:"Innerlijke monoloog",t:"Repetitietechniek / beeldentheater",d:"15–25 min",g:"6–20 p.",o:"De verborgen gedachten van een bevroren personage hardop horen — alle gedachten, ook de tegenstrijdige.",s:["Een compositiebeeld staat stil op de vloer.","Joker geeft opdracht: 'Spreek alle gedachten die in je opkomen hardop uit — censureer niets.'","Alle personages tegelijk — het wordt een kakofonie. Dat is goed.","Variatie: Joker tikt iemand aan — alleen die persoon spreekt. De rest wacht."],tg:["innerlijk","verhaal","image theater","personage"],tip:"De gedachten die iemand wil censureren zijn de interessantste. Benadruk dat alles gezegd mag worden — het is theater, niet therapie.",bron:"Formaat",fase:"repetitie",niv:2,eng:"laag"},
++  {b:"geheugen",n:"Innerlijke monoloog (uit beeld)",t:"Repetitietechniek / beeldentheater",d:"15–25 min",g:"6–20 p.",o:"De verborgen gedachten van een bevroren personage hardop horen — alle gedachten, ook de tegenstrijdige.",s:["Een compositiebeeld staat stil op de vloer.","Joker geeft opdracht: 'Spreek alle gedachten die in je opkomen hardop uit — censureer niets.'","Alle personages tegelijk — het wordt een kakofonie. Dat is goed.","Variatie: Joker tikt iemand aan — alleen die persoon spreekt. De rest wacht."],tg:["innerlijk","verhaal","image theater","personage"],tip:"De gedachten die iemand wil censureren zijn de interessantste. Benadruk dat alles gezegd mag worden — het is theater, niet therapie.",bron:"Formaat",fase:"repetitie",niv:2,eng:"laag"},
+   {b:"beeld",n:"Compositiebeelden",t:"Beeldentheater / analyse",d:"20–40 min",g:"6–20 p.",o:"Meerdere personages samen een situatie laten uitbeelden — en via het beeld de kern van het probleem vinden.",s:["Joker geeft een thema of begrippenpaar: 'vrijheid/onvrijheid', 'thuis/dakloos'.","Groepen van 4–5 bouwen een compositiebeeld met hun lichamen.","Andere groepen kijken: wat zien ze? Geen interpretatie — alleen beschrijving.","Variatie: één groep maakt beeld van de werkelijkheid, de andere van het ideaal."],tg:["image theater","analyse","ensemble"],tip:"Meerdere beelden naast elkaar van hetzelfde thema laten zien hoe divers één begrip kan zijn. Gebruik dat verschil — niet als fout maar als rijkdom.",bron:"Formaat",fase:"beeldentheater",niv:2,eng:"middel"},
+   {b:"beeld",n:"Beeldhouwer en klei",t:"Beeldentheater / Image Theater",d:"20–30 min",g:"6–30 p.",o:"Het lichaam van een ander vormen als materiaal — en daarin een emotie of situatie inscrijven.",s:["Tweetallen. A is klei, B is beeldhouwer. A is volledig passief — laat zich vormen.","B vormt A tot een beeld van een bepaalde emotie of situatie — zonder woorden.","B stapt achteruit en bekijkt het beeld.","Wissel rollen. Dan: beide beelden naast elkaar — wat zien we?"],tg:["lichaam","image theater","ensemble"],tip:"De klei mag geen oordeel hebben over het beeld — alleen gevormd worden. Dat is een zeldzame ervaring van volledig loslaten.",bron:"Formaat",fase:"beeldentheater",niv:2,eng:"middel"},
+   {b:"beeld",n:"Woordenwisseling",t:"Beeldentheater / dynamisering",d:"15–25 min",g:"6–20 p.",o:"Een bevroren beeld laten spreken — één woord of zin per personage, dan improvisatie.",s:["Een compositiebeeld staat stil.","Joker tikt elk personage aan: die zegt het eerste woord of de eerste zin die opkomt.","Daarna: het beeld begint te bewegen en te reageren — korte improvisatie.","Joker stopt: 'Bevries!' — nieuw beeld. Beschrijf wat er veranderd is."],tg:["image theater","taal","improvisatie"],tip:"De eerste zin is het meest eerlijk — wie te lang nadenkt gaat regisseren in plaats van voelen. Snel aantikken helpt.",bron:"Formaat",fase:"beeldentheater",niv:2,eng:"middel"},
+@@ -519,7 +533,7 @@
+   {b:"forum",n:"Opera en Genre",t:"Repetitietechniek / scènewerk",d:"15–25 min",g:"4–20 p.",o:"Een bestaande scène opblazen door emotie of genre over te drijven — om verborgen lagen zichtbaar te maken en levity in het repeteerproces te brengen.",s:["De scène wordt gespeeld zoals gerepeteerd. Actie en essentiële tekst veranderen niet.","Variant Opera: joker roept een emotie — blij, verdrietig, boos, jaloers, verveeld, bang, flirterig. Alle acteurs spelen de scène met die emotie sterk overdreven, ook als de emotie de tekst tegenspreekt.","Variant Genre: joker roept een genre — ballet, soap, kindershow, detective, actiefilm, horror. De scène wordt in die stijl gespeeld.","Na enkele minuten roept de joker een nieuwe emotie/genre. Publiek (de rest van de groep) mag voorstellen doen.","Blijf aansporen: sterker, groter, over the top. Speel door tot einde scène of tot iedereen uitgeput is.","Debrief: 'Wanneer was de emotie/het genre ineens passend — onthulde het iets nieuws over de scène? Welke momenten willen we bewaren?' Bijvoorbeeld: iedereen die hilarisch lacht na een rechter-vonnis, of een doktersgesprek als horrorfilm."],tg:["repetitie","emotie","genre","humor","forum theater"],tip:"Opera werkt beter voor scènes waar emoties te klein zijn — de overdrijving legt de onderliggende gevoelens bloot. Genre werkt beter als de scène vast zit in één toon — de stijlverschuiving breekt de gewoonte open.",bron:"Wildcard",fase:"repetitie",niv:2,eng:"hoog"},
+   {b:"forum",n:"Verbale boksring",t:"Repetitie / argumentatie",d:"15–20 min",g:"8–25 p.",o:"Acteurs voorbereiden om als antagonisten verbaal krachtig en responsief te zijn. Ook bruikbaar om zich voor te bereiden op echte moeilijke ontmoetingen — bij een medisch consult, een uitkeringsinstantie, of activisme.",s:["Een vrijwilliger die zich sterk voelt in het spreken vanuit de antagonist van de Forum-scène gaat in het midden staan.","De rest staat rond de ruimte als een boksring. Er is een denkbeeldige lijn in het midden — de antagonist kan er niet over.","De vrijwilliger begint met een korte speech die de hoofdargumenten van het karakter samenvat: waarom hun handelen 'juist' is. De eerste klap.","Iemand anders stapt aan de andere kant van de ring en geeft een tegenargument. De antagonist luistert en counter-argumenteert. Een dialoog.","Wanneer iemand de antagonist ziet verliezen, kan die persoon achter de antagonist gaan staan, wachten tot er een pauze is, en tappen. De ander neemt over. Geen teams — iedereen kan voor beide kanten spelen.","Vervang niemand die aan het winnen is — het gaat niet om winnen, het gaat om het drama gaande houden.","Stop op basis van tijd of energie.","Debrief: 'Moment om de argumenten van je af te schudden. Sommigen hebben misschien erkenning nodig dat de woorden die ze gebruikten niet hun eigen overtuigingen zijn.' Dan: 'Wat kunnen de acteurs gebruiken om de scène te verdiepen? Welke tactieken gebruikte je om argumenten te blijven aandragen?'"],tg:["forum theater","repetitie","argumentatie","personage"],tip:"Dit is niet hetzelfde als 'Boksematch' (fysiek) — hier staat taal centraal. De oefening vraagt emotionele hygiëne: na afloop de argumenten fysiek van je afschudden, desnoods met een collectief geluid.",bron:"Wildcard",fase:"repetitie",niv:2,eng:"hoog"},
+   {b:"forum",n:"Tegen elkaar duwen",t:"Repetitie / responsiviteit",d:"5–10 min",g:"Even aantal p.",o:"Acteurs voorbereiden om met spect-actoren te improviseren — door te leren luisteren en antwoorden via het lichaam in plaats van via het ego.",s:["Twee vrijwilligers demonstreren: tegenover elkaar, handpalmen tegen elkaar. Een denkbeeldige lijn op de vloer tussen hen.","Ze duwen tegen elkaar zo hard als mogelijk — maar alleen zo hard als de ander terug duwt. Ze willen winnen, maar werken samen om in het spel te blijven (niet over de lijn geduwd worden).","Vraag ze te spelen met minder kracht. Dan met meer kracht. Elke partner moet voelen en antwoorden.","Iedereen in paren. Als mensen zich zorgen maken over kracht of lengte: het spel gaat niet over fysieke kracht, het gaat om responsiviteit — de ander matchen.","Pauzeer na korte tijd.","Debrief: koppel de responsiviteit van het spel aan het werk met spect-actoren. 'Spect-actoren duwen tegen de scène — tegen de onderdrukking erin. Om hun idee te kunnen begrijpen, moeten acteurs ruimte maken om te horen wat ze proberen, dan realistisch antwoorden, met genoeg kracht zodat het idee zich kan ontvouwen. Als acteurs meegeven, lijkt onderdrukking trivialiseerbaar. Als ze proberen te winnen zonder te luisteren, lijkt onderdrukking onoverwinnelijk — en wil niemand meer komen.'"],tg:["repetitie","contact","forum theater","improvisatie","lichaam"],tip:"Doe dit vlak vóór een Forum-voorstelling. Het is een fysieke herinnering aan de houding die acteurs moeten hebben tegenover spect-actoren: luisterend, responsief, stevig.",bron:"Wildcard",fase:"repetitie",niv:1,eng:"middel"},
+-  {b:"forum",n:"Innerlijke monoloog",t:"Repetitie / karakter",d:"15–20 min",g:"4–20 p.",o:"Het onbesproken laten horen — wat personages denken en voelen maar niet zeggen — zichtbaar maken zodat de scène gelaagder wordt.",s:["Zet de scène op vanaf het begin. Instructie aan alle personages: spreek je innerlijke monoloog hardop uit voordat de scène begint. De innerlijke monoloog is de stream of consciousness — de gedachten en gevoelens die het personage niet uitspreekt tijdens de scène.","Alle personages spreken hun innerlijke monoloog tegelijk, zonder te stoppen. De rest van de groep loopt rond en luistert.","Laat het enkele minuten duren. Mensen zullen dingen ontdekken over hun personage — behoeften, angsten, motivaties — die in het gewone spel onzichtbaar blijven.","Joker: 'Wat je zojuist hebt geleerd over de gevoelens, behoeften en motivaties van je personage kan de dialoog en de actie voor de volgende run voeden.'","Speel de scène opnieuw met wat nu bekend is. Publiek (rest van groep) gaat zitten.","Variatie — Ondervraag het personage (als aparte oefening bestaand): publiek stelt tijdens de scène vragen aan de personages (niet aan de acteurs). Acteurs blijven in rol. Joker pauzeert om vragen te laten stellen en gaat dan door.","Debrief: 'Wat heb je ontdekt over de personages? Hoe kan dat de scène aanscherpen?'"],tg:["repetitie","personage","innerlijk","scène"],tip:"Innerlijke monoloog verschilt van 'Ondervraag het personage': dit is zelf-onderzoek door de acteur, dat is externe bevraging. Beide oefeningen kunnen na elkaar — eerst innerlijke monoloog, dan ondervraging — voor diepst begrip van karakter.",bron:"Wildcard",fase:"repetitie",niv:2,eng:"middel"},
++  {b:"forum",n:"Innerlijke monoloog (in scène)",t:"Repetitie / karakter",d:"15–20 min",g:"4–20 p.",o:"Het onbesproken laten horen — wat personages denken en voelen maar niet zeggen — zichtbaar maken zodat de scène gelaagder wordt.",s:["Zet de scène op vanaf het begin. Instructie aan alle personages: spreek je innerlijke monoloog hardop uit voordat de scène begint. De innerlijke monoloog is de stream of consciousness — de gedachten en gevoelens die het personage niet uitspreekt tijdens de scène.","Alle personages spreken hun innerlijke monoloog tegelijk, zonder te stoppen. De rest van de groep loopt rond en luistert.","Laat het enkele minuten duren. Mensen zullen dingen ontdekken over hun personage — behoeften, angsten, motivaties — die in het gewone spel onzichtbaar blijven.","Joker: 'Wat je zojuist hebt geleerd over de gevoelens, behoeften en motivaties van je personage kan de dialoog en de actie voor de volgende run voeden.'","Speel de scène opnieuw met wat nu bekend is. Publiek (rest van groep) gaat zitten.","Variatie — Ondervraag het personage (als aparte oefening bestaand): publiek stelt tijdens de scène vragen aan de personages (niet aan de acteurs). Acteurs blijven in rol. Joker pauzeert om vragen te laten stellen en gaat dan door.","Debrief: 'Wat heb je ontdekt over de personages? Hoe kan dat de scène aanscherpen?'"],tg:["repetitie","personage","innerlijk","scène"],tip:"Innerlijke monoloog verschilt van 'Ondervraag het personage': dit is zelf-onderzoek door de acteur, dat is externe bevraging. Beide oefeningen kunnen na elkaar — eerst innerlijke monoloog, dan ondervraging — voor diepst begrip van karakter.",bron:"Wildcard",fase:"repetitie",niv:2,eng:"middel"},
+   {b:"forum",n:"Meervoudig beeld van onderdrukking",t:"Image Theater / analyse",d:"30–45 min",g:"8–25 p.",o:"Vijf of meer beelden van hetzelfde onderdrukkingsthema naast elkaar — de diversiteit wordt zichtbaar.",s:["Meerdere vrijwilligers bouwen elk een beeld van hetzelfde thema: 'armoede', 'uitsluiting', 'angst'.","De beelden staan verspreid door de ruimte.","Toeschouwers lopen erdoorheen — beschrijven wat ze zien per beeld.","Dan: beelden dynamiseren. Wat hebben ze gemeen? Waar zit de breeklijn?"],tg:["image theater","onderdrukking","gemeenschap","analyse"],tip:"De variatie tussen de beelden is het rijkste materiaal — niet de overeenkomsten. Wie dezelfde situatie zo anders verbeeldt, maakt de subjectiviteit van beleving zichtbaar.",bron:"Boal",fase:"forum",niv:2,eng:"middel"},
+   {b:"forum",n:"Beeld van overgang",t:"Image Theater / transformatie",d:"30–45 min",g:"6–20 p.",o:"Van het beeld van nu naar het beeld van gewenst — de weg ertussen als het eigenlijke Forum.",s:["Groep bouwt een beeld van de huidige onderdrukkingssituatie.","Groep bouwt een ideaalbeeld — hoe het zou moeten zijn.","De twee beelden staan naast elkaar. Joker vraagt: wat is nodig om van het ene naar het andere te komen?","De toeschouwers worden uitgenodigd in te grijpen: verander iets in het huidige beeld."],tg:["image theater","transformatie","forum theater","analyse"],tip:"De weg van huidig naar ideaal is het Forum. Niet het doel, maar de beweging. Wie de beweging blokkeert is de antagonist — ook als dat een systeem is en geen persoon.",bron:"Boal",fase:"forum",niv:3,eng:"middel"},
+   {b:"afsluiting",n:"De ceremonie",t:"Afsluiting / ritueel",d:"10–20 min",g:"6–30 p.",o:"De groep bedenkt zelf een afsluitingsritueel — en voert het gezamenlijk uit.",s:["Joker vraagt: welk woord, welke beweging of welk gebaar sluit dit process af?","De groep kiest gezamenlijk een ritueel — dat kan simpel zijn: een klap, een omhelzing, een zin.","Het ritueel wordt collectief uitgevoerd — zorgvuldig, in stilte of met geluid.","Variatie: elk subgroepje maakt een ritueel voor de andere subgroepen."],tg:["ritueel","ensemble"],tip:"Een ritueel dat de groep zelf heeft gemaakt is krachtiger dan elk ritueel dat van buitenaf wordt opgelegd. De joker begeleidt — niet dicteert.",bron:"Boal",fase:"afsluiting",niv:1,eng:"middel"},
+@@ -622,7 +636,7 @@
+   {b:"geheugen",n:"Herintegratie",t:"Verhaal / structuur",d:"20–30 min",g:"4–15 p.",o:"Eerder geïntroduceerde elementen terugbrengen in het verhaal — de kunst van de narratieve kring.",s:["Groep begint een verhaal. Elk element dat wordt ingebracht — object, personage, detail — wordt door de joker opgeschreven.","Halverwege: joker introduceert verplicht één eerder element terug.","Einddoel: elk element keert terug. Niets verdwijnt uit het verhaal.","Nabespreking: wat maakte het verhaal rijker? Wat voelde als toevallig, wat als noodzakelijk?"],tg:["verhaal","improvisatie"],tip:"Re-incorporation is het verschil tussen een reeks gebeurtenissen en een verhaal. Elk terugkerend element geeft de kijker het gevoel dat er een wereld bestaat.",bron:"Johnstone",fase:"verdieping",niv:1,eng:"middel"},
+   {b:"lichaam",n:"Expert interview",t:"Improvisatie / status",d:"10–15 min",g:"4–20 p.",o:"Spontaan expert zijn over een compleet onbekend onderwerp — zonder te blokkeren.",s:["Één persoon is 'expert' op een absurd specifiek gebied: 'de psychologie van kaasschimmels', 'de traditie van het dubbel parkeren'.","De groep stelt serieuze vragen. De expert antwoordt volledig overtuigd.","Regel: nooit 'ik weet het niet' — altijd een antwoord.","Na twee minuten: nieuwe expert, nieuw onderwerp."],tg:["status","improvisatie","humor"],tip:"De sleutel is hoge status spelen met lage inhoud. Het grappige ontstaat uit de combinatie — niet uit de grap. Wie probeert grappig te zijn verliest de oefening.",bron:"Johnstone",fase:"opwarming",niv:1,eng:"hoog"},
+   {b:"geheugen",n:"Routines doorbreken",t:"Verhaal / improvisatie",d:"15–20 min",g:"4–15 p.",o:"Leren dat verhalen pas beginnen als de routine wordt onderbroken — en die onderbreking bewust inzetten.",s:["Twee spelers spelen een scène van volledige normaliteit — iedereen kent zijn plek.","Joker stopt: 'Verander één ding.' De andere speler reageert op de verandering.","De scène moet nu ergens heen — het verhaal begint.","Variatie: publiceer het moment van breuk als 'het begin van de scène'."],tg:["verhaal","improvisatie"],tip:"Johnstone zegt: een verhaal begint pas als iets verandert. Deze oefening maakt dat principe speelbaar. Gebruik het als voorbereiding op Forumscèneontwikkeling.",bron:"Johnstone",fase:"verdieping",niv:1,eng:"middel"},
+-  {b:"zintuigen",n:"Fluid Sculptures",t:"Playback / expressie",d:"15–20 min",g:"4–15 p.",o:"Abstracte emoties en gevoelens uitbeelden via beweging en geluid — de korte form van Playback.",s:["Een deelnemer deelt een kort gevoel of moment: 'Ik voelde me vandaag als...'","Drie tot vier spelers vormen tegelijk een beeldend, beweeglijk antwoord — niet letterlijk, maar associatief.","Geluid, ritme en beweging tegelijk — geen woorden.","De verteller kijkt: klopt dit? Is er iets dat resoneert?"],tg:["playback","gevoel","ensemble"],tip:"Fluid Sculptures zijn de snelste Playback-vorm. Gebruik ze als warming-up voor dieper vertelwerk, of als kortform tussendoor.",bron:"Playback Theatre",fase:"opwarming",niv:1,eng:"middel"},
++  {b:"zintuigen",n:"Fluid Sculptures (solo)",t:"Playback / expressie",d:"15–20 min",g:"4–15 p.",o:"Abstracte emoties en gevoelens uitbeelden via beweging en geluid — de korte form van Playback.",s:["Een deelnemer deelt een kort gevoel of moment: 'Ik voelde me vandaag als...'","Drie tot vier spelers vormen tegelijk een beeldend, beweeglijk antwoord — niet letterlijk, maar associatief.","Geluid, ritme en beweging tegelijk — geen woorden.","De verteller kijkt: klopt dit? Is er iets dat resoneert?"],tg:["playback","gevoel","ensemble"],tip:"Fluid Sculptures zijn de snelste Playback-vorm. Gebruik ze als warming-up voor dieper vertelwerk, of als kortform tussendoor.",bron:"Playback Theatre",fase:"opwarming",niv:1,eng:"middel"},
+   {b:"geheugen",n:"Pairs (Tweetallen verhaal)",t:"Playback / luisteren",d:"15–25 min",g:"4–20 p.",o:"Een kort persoonlijk verhaal van twee mensen terugspelen — simultaan, in tweetallen.",s:["Conductor vraagt twee mensen elk een kort moment te delen — tegelijk of na elkaar.","Twee spelers spelen de twee verhalen gelijktijdig naast elkaar — of verweven.","De verbinding tussen de verhalen ontstaat vanzelf — zonder regie.","Vertellers kijken: wat weerklinkt, wat verrast?"],tg:["playback","verhaal","contact"],tip:"De kracht zit in de gelijktijdigheid — twee verhalen die naast elkaar leven maken de verbinding tussen mensen zichtbaar. Conductor begeleidt zacht.",bron:"Playback Theatre",fase:"verdieping",niv:1,eng:"middel"},
+   {b:"afsluiting",n:"Luisterritueel",t:"Playback / getuigenis",d:"10–15 min",g:"6–30 p.",o:"Een moment van gedeeld getuigen — zonder oordeel, zonder interpretatie, alleen ontvangen.",s:["Kring. Iemand deelt één moment — een woord, een zin, een beeld.","De kring luistert in stilte. Geen reactie, geen commentaar.","Na de stilte: de spelers of de groep maakt een kort fluid sculpture als antwoord.","De verteller ontvangt het — hoeft niets te zeggen."],tg:["contact","verhaal","gemeenschap"],tip:"Dit ritueel geeft elk verhaal de waardigheid van een publiek getuigenis. Het maakt de sluiting van een sessie merkbaar.",bron:"Playback Theatre",fase:"afsluiting",niv:1,eng:"middel"},
+   {b:"geheugen",n:"Gevoelstableau",t:"Playback / image",d:"10–15 min",g:"4–15 p.",o:"Een gevoel of stemming vertalen naar een bevroren beeldende vorm — als antwoord op een verteld moment.",s:["Conductor vraagt: 'Hoe voel je je op dit moment?' of na een gedeeld verhaal.","Drie spelers vormen een stilstaand tableau — houdingen, ruimtelijke verhoudingen, expressie.","De verteller bekijkt het tableau: klopt dit? Wat wil je aanpassen?","Variatie: de verteller voegt zelf een element toe aan het tableau."],tg:["playback","image theater","gevoel","verhaal"],tip:"Het tableau heeft geen uitleg nodig — het ís het antwoord. Als de verteller iets aanpast wordt hij co-maker van zijn eigen verhaal.",bron:"Playback Theatre",fase:"verdieping",niv:1,eng:"middel"},
+@@ -718,7 +732,7 @@
+   // ═══════════════════════════════════════════════════════
+ 
+   // ── PLAYBACK THEATRE ────────────────────────────────────
+-  {b:"beeld",n:"Fluid Sculptures",t:"Playback Theatre / korte vorm",d:"10–15 min",g:"4–20 p.",o:"Het wezen van een gevoel of moment belichamen via geluid, beweging en poëtische taal — als groep, organisch opgebouwd.",s:["Verteller deelt een kort gevoel of moment. De Joker herhaalt het in kernwoorden.","Spelers komen één voor één naar voren en voegen een herhalende beweging met geluid toe — elk bouwt voort op wat er al is.","De sculptuur groeit tot een levend, bewegend ensemble. De eerste speler bevriest als afsluiting.","Joker vraagt de verteller: 'Klopt dit?' Verteller beantwoordt non-verbaal of met één woord."],tg:["playback","ensemble","gevoel"],tip:"De sculptuur is geen illustratie — het is een resonantie. Spelers zoeken de essentie, niet de letterlijke weergave. Muziek op de achtergrond (live of opgenomen) ondersteunt enorm.",bron:"Playback Theatre",fase:"beeldentheater",niv:2,eng:"middel"},
++  {b:"beeld",n:"Fluid Sculptures (ensemble)",t:"Playback Theatre / korte vorm",d:"10–15 min",g:"4–20 p.",o:"Het wezen van een gevoel of moment belichamen via geluid, beweging en poëtische taal — als groep, organisch opgebouwd.",s:["Verteller deelt een kort gevoel of moment. De Joker herhaalt het in kernwoorden.","Spelers komen één voor één naar voren en voegen een herhalende beweging met geluid toe — elk bouwt voort op wat er al is.","De sculptuur groeit tot een levend, bewegend ensemble. De eerste speler bevriest als afsluiting.","Joker vraagt de verteller: 'Klopt dit?' Verteller beantwoordt non-verbaal of met één woord."],tg:["playback","ensemble","gevoel"],tip:"De sculptuur is geen illustratie — het is een resonantie. Spelers zoeken de essentie, niet de letterlijke weergave. Muziek op de achtergrond (live of opgenomen) ondersteunt enorm.",bron:"Playback Theatre",fase:"beeldentheater",niv:2,eng:"middel"},
+ 
+   {b:"beeld",n:"Pairs — twee gevoelens tegelijk",t:"Playback Theatre / korte vorm",d:"8–12 min",g:"4–20 p.",o:"Het menselijke van ambivalentie zichtbaar maken — twee tegenstrijdige gevoelens tegelijk in het lichaam dragen.",s:["Verteller beschrijft twee tegenstrijdige gevoelens tegelijk. Joker selecteert twee spelers.","De spelers staan rug aan rug. De voorste verbeeldt gevoel A — met geluid, beweging, taal. Dan draaien ze: de achterste verbeeldt gevoel B.","Ze wisselen een paar keer — elke wissel laat het andere gevoel spreken. Nooit tegelijk.","Joker vraagt de verteller: 'Herken je dit?' Stilte. Dan verder."],tg:["playback","gevoel"],tip:"Pairs werkt het sterkst als de twee gevoelens écht tegenstrijdig zijn — niet complementair. Wees scherp in het bevragen van de verteller welke twee gevoelens het zijn.",bron:"Playback Theatre",fase:"beeldentheater",niv:2,eng:"middel"},
+ 
