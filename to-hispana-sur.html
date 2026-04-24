@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2d4a7a">
+<script src="nav.js" defer></script>
+<title>TO in Hispanofoon Zuid-Amerika — het parallelle continent</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1f1a15;--ink2:#524a40;--ink3:#9a9080;
+  --paper:#faf5ec;--paper2:#f2ebdd;--paper3:#e8dcc3;--paper4:#d6c4a0;
+  --amber:#2d4a7a;--amber2:#4a6a9e;--amber3:#a3b3c7;--amber4:#dfe4ec;
+  --amber5:#1e3254;
+  --terra:#2d4a7a;--terra2:#4a6a9e;--terra3:#a3b3c7;--terra4:#dfe4ec;
+  --terra5:#1e3254;
+  --indigo:#2d4a5e;--indigo2:#3f6480;--indigo3:#a8bfd0;
+  --rule:rgba(31,26,21,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--terra)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--terra3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--terra2);color:var(--terra)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(31,26,21,.05),0 3px 12px rgba(31,26,21,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.card-name em{font-style:italic;color:var(--terra);font-weight:400}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-form{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-type{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Meta bar */
+.meta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--paper3)}
+.meta-item{font-family:var(--sans);font-size:10px;color:var(--ink2);display:inline-flex;align-items:center;gap:4px;background:var(--paper2);padding:3px 9px;border-radius:12px;border:1px solid var(--paper3)}
+.meta-item strong{color:var(--ink);font-weight:500}
+
+/* Stages label */
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--terra4);border-left:3px solid var(--terra2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Source */
+.card-source{margin:0 26px 20px;padding:10px 14px;background:var(--paper2);border-radius:7px;font-family:var(--sans);font-size:10px;color:var(--ink3);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-source strong{color:var(--ink2);font-weight:500}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--terra4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--terra2);background:var(--terra4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--terra3)}
+.acc-trigger.open .acc-sn{background:var(--terra);color:#fff;border-color:var(--terra2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--terra2);color:var(--terra)}
+
+/* Home button */
+.home-btn{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--terra);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;box-shadow:0 2px 10px rgba(31,26,21,.2);z-index:100;transition:all .2s}
+.home-btn:hover{background:var(--terra5);transform:scale(1.05)}
+
+@media (max-width: 600px){
+  .page{padding:0 16px}
+  .app-name{font-size:22px}
+  .card-name{font-size:19px}
+  .card-head{padding:18px 20px 14px;padding-left:28px}
+  .card-tip,.card-source{margin-left:20px;margin-right:20px}
+  .acc-trigger{padding:10px 20px}
+  .acc-body{padding:0 20px 12px 50px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="app-name">TO in <em>Hispanofoon Zuid-Amerika</em></div>
+  <div class="app-sub">Het parallelle continent — Nuevo Teatro, RELATO-netwerk, eigen wortels</div>
+  <div class="context-note">Naast Brazilië bestaat een even oud en even rijk ecosysteem in Spaanstalig Zuid-Amerika — vaak onzichtbaar in lusofoon-gedomineerde TO-literatuur. Hier werkte Buenaventura in Cali al sinds 1955, schreef Boal in Buenos Aires <em>Teatro do Oprimido</em> (1973), ontstond Forum in Peru (Chiclayo 1973), vonden na 2007 de RELATO en ELTO-netwerken hun horizontale vorm. Elf kaarten over een parallelle traditie — Nuevo Teatro als mede-bron, Magdalena-netwerk als feministische doorsnede, en een eerlijke melding van wat het archief nog mist.</div>
+</header>
+
+<nav class="nav-row">
+  <button id="pv" class="nav-btn" aria-label="Vorige">‹</button>
+  <div class="tech-pills" id="pills"></div>
+  <button id="nx" class="nav-btn" aria-label="Volgende">›</button>
+  <span class="nav-counter" id="ctr"></span>
+</nav>
+
+<main id="card-wrap"></main>
+
+</div>
+
+<a href="index.html" class="home-btn" aria-label="Terug naar overzicht">⌂</a>
+
+<script>
+const T = [
+
+{n:1, title:"Het <em>parallelle</em> continent",
+ page:"introductie",
+ type:"Inleiding", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"—", phase:"Aanloop",
+ note:"Deze carrousel is de tegenhanger van <em>TO in Brazilië</em>. Samen vormen ze één continent. De splitsing is geen hiërarchische beslissing — Brazilië is niet 'de bron' en Hispanofoon Zuid-Amerika niet 'het vervolg' — maar een erkenning dat lusofoon en hispanofoon Zuid-Amerika twee verschillende TO-ecosystemen zijn geworden, met eigen talen, eigen tradities, en eigen netwerken. Bovendien: belangrijke stukken van TO ontstonden hier en niet in Brazilië.",
+ stages:[
+  {t:"Wat hier ontstond, niet in Brazilië",
+   body:"Drie fundamentele TO-vormen kwamen voort uit hispanofoon Zuid-Amerika: <strong>Teatro Invisible</strong> werd ontwikkeld in Buenos Aires (1971–1976), tijdens Boals Argentijnse ballingschap, met het Grupo Machete (Mauricio Kartun, Cora Fairstein) en het latere TIT. <strong>Forum Theatre</strong> werd geboren in Peru — de beroemde scène in Chiclayo in 1973 waarin een vrouw weigerde dat een acteur haar oplossing uitvoerde en zelf het podium opklom, tijdens de ALFIN-alfabetiseringscampagne. <strong>Teatro do Oprimido</strong> (1973) werd in Buenos Aires geschreven en in het Spaans gepubliceerd als <em>Teatro del oprimido y otras poéticas políticas</em> (1974). Het foundationele TO-boek is dus technisch gezien een Argentijns boek."},
+  {t:"Nuevo Teatro Latinoamericano — de mede-bron",
+   body:"Terwijl Boal in São Paulo de Arena dirigeerde, werkte <strong>Enrique Buenaventura</strong> sinds 1955 in Cali aan het <em>Teatro Experimental de Cali</em> (TEC). Tegelijkertijd: <em>La Candelaria</em> in Bogotá (Santiago García), <em>Yuyachkani</em> in Lima (Miguel Rubio Zapata, vanaf 1971), <em>Teatro El Galpón</em> in Montevideo (Atahualpa del Cioppo). Samen vormden zij <strong>Nuevo Teatro Latinoamericano</strong> — een beweging die onafhankelijk van Boal de <em>Creación Colectiva</em>-methodiek ontwikkelde, gebaseerd op Stanislavski, Brecht, Artaud, Weiss en Jarry. Boal kende Buenaventura, ontmoette hem op festivals (Manizales, Nancy). De relatie was wederzijds beïnvloedend."},
+  {t:"Een horizontaal netwerk — RELATO",
+   body:"Sinds 2007 is er een formeel regionaal netwerk: <strong>RELATO — Red Latinoamericana de Teatro del Oprimido</strong>. Het verkort 'Relato Sur' uit de beginjaren. Vanaf 2010 is het heel Latijns-Amerika. In 2010 al ~50 groepen en ~500 actieve deelnemers in meer dan 10 landen. <em>Horizontaal</em> georganiseerd: geen centrum, geen bestuur, enkel tweejaarlijkse encontro's en online coördinatie. De zichtbare ruggengraat is het <strong>ELTO — Encuentro Latinoamericano de Teatro del Oprimido</strong>, sinds 2010 afwisselend in Zuid- en Midden-Amerika. Dit is een radicaal andere organisatievorm dan CTO-Rio (institutioneel) of TONYC (gecentreerd)."},
+  {t:"Wat deze carrousel is",
+   body:"Elf kaarten over hispanofoon Zuid-Amerika. We beginnen met de Nuevo Teatro-wortel (kaart 2), volgen Boals Argentijnse jaren (Buenos Aires 1971–1976, kaart 3), de Peruviaanse ALFIN-campagne en de geboorte van Forum (kaart 4), Chili onder Pinochet (kaart 5), de Colombiaanse hedendaagse groepen (kaart 6), Argentinië sinds 2001 (kaart 7), Uruguay en het V ELTO (kaart 8), de Red Ma(g)dalena Internacional als feministische netwerkdoorsnede (kaart 9), de kritische momenten (III ELTO La Paz 2014, kaart 10) en een syntheskaart met wat het archief nog mist (kaart 11). Explicitering: Peru-hedendaags, Bolivia, Paraguay, Venezuela en Ecuador blijven onderbelicht — dat is zelf een bevinding."}
+ ],
+ tip:"Wie hispanofoon Zuid-Amerika wil benaderen moet twee misverstanden loslaten. Eén: dat TO een Braziliaanse import is in het continent — nee, het ontstond mede hier, en Buenaventura's werk is even oud als Arena's. Twee: dat horizontale netwerken 'minder georganiseerd' zijn dan centrale instellingen — RELATO's horizontaliteit is een bewuste methodologische keuze, geen gebrek. Lees deze carrousel naast <em>TO in Brazilië</em>: de twee spiegelen elkaar en complementen elkaar.",
+ source:"Transatlantic Cultures · Rizk (2008) · RELATO-documentatie · Pisano (2009) · Orellana, Peña & Villalón (UV Valparaíso)"},
+
+{n:2, title:"Cali 1955 — <em>Teatro Experimental de Cali</em>",
+ page:"Cali, Colombia — 1955 tot heden",
+ type:"Parallelle wortel", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"TEC + Nuevo Teatro", phase:"1955–heden",
+ note:"In 1955 — één jaar vóór Boal in de Arena intrad — stichtte <strong>Enrique Buenaventura</strong> (1925–2003) aan het Instituto Departamental de Bellas Artes in Cali het <em>Teatro Experimental de Cali</em>. Vanaf 1956 nam hij de directie over. Vanaf 1967 werd TEC een onafhankelijk collectief. In de volgende drie decennia ontwikkelde Buenaventura met Jacqueline Vidal de <strong>Creación Colectiva</strong>-methode — een volledig uitgewerkte Latijns-Amerikaanse theatermethodiek, parallel aan wat Boal in Brazilië en ballingschap deed.",
+ stages:[
+  {t:"De vijf bronnen van Creación Colectiva",
+   body:"Buenaventura's methode is een expliciet eclectische synthese: <strong>Stanislavski</strong> (psychologisch-realistisch acteerwerk als basis), <strong>Brecht</strong> (epische distantie, historicisering, sociaal gestus), <strong>Artaud</strong> (lichaamspoëtica, sensorisch geweld), <strong>Peter Weiss</strong> (documentair theater, <em>Die Ermittlung</em> als model), <strong>Alfred Jarry</strong> (satirische vervreemding, farceske ontmaskering). Samen met een dramaturgische werkwijze waarin de hele groep aan de tekst bijdraagt — niet één auteur maar collectieve creatie. Het boek <em>El método de Creación Colectiva</em> (Buenaventura & Vidal) codificeert deze werkwijze."},
+  {t:"De verhouding met Boals TO",
+   body:"Boal en Buenaventura kenden elkaar. Ze ontmoetten elkaar op festivals in <strong>Manizales</strong> (Colombiaans nationaal festival, vanaf 1968) en <strong>Nancy</strong> (Frans internationaal festival, waar Arena in 1971 Bolívar speelde). Boals <em>Técnicas Latinoamericanas de Teatro Popular</em> (1979) is expliciet een synthese van dit bredere Nuevo Teatro-veld — niet alleen zijn eigen werk. De twee methodes waren <em>complementair</em>: Creación Colectiva produceert voorstellingen met politiek-dramaturgische tekst; TO is een interactieve participatieve methodiek. Veel Colombiaanse groepen werken vandaag met beide — onder andere <em>La Candelaria</em>."},
+  {t:"Latijns-Amerikaanse zusterverbanden",
+   body:"TEC was geen eiland. Parallelle knooppunten: <strong>La Candelaria</strong> in Bogotá (Santiago García, vanaf 1966) — collectieve methode onafhankelijk ontwikkeld, veel kruisbestuiving met TEC. <strong>Teatro El Galpón</strong> in Montevideo (Atahualpa del Cioppo, vanaf 1949) — oudste collectief van Uruguay, expliciet sociaal geëngageerd. <strong>Yuyachkani</strong> in Lima (1971–heden, Miguel Rubio Zapata) — werkt met inheemse tradities, documentair theater over het interne conflict met Sendero Luminoso. Samen met Teatro Escambray in Cuba (1968–) vormen zij het intellectuele landschap waarbinnen Boals TO opereerde en dat TO mede-beïnvloedde."},
+  {t:"Waarom deze kaart vooraan staat",
+   body:"Het is verleidelijk om de Zuid-Amerikaanse TO-geschiedenis te openen met Boal. Dat zou een fout zijn. Wie alleen het TO-spoor volgt, mist het feit dat Boal zelf één kanaal was in een breder, zelfbewust Latijns-Amerikaans theaterveld. Buenaventura werkte al <em>in</em> Latijns-Amerika toen Boal nog bij Columbia University studeerde. Deze kaart zet het in perspectief: TO is niet <em>naar</em> het continent gebracht; het is <em>in</em> het continent ontstaan, als één lijn naast andere, door mensen die elkaar kenden en wederzijds van elkaar leerden."}
+ ],
+ tip:"Lees Beatriz J. Rizk, <em>Creación colectiva: el legado de Enrique Buenaventura</em> (Atuel, Buenos Aires, 2008) voor de methodologische synthese. Wie La Candelaria wil begrijpen: Santiago García's eigen geschriften, of de documentaire <em>La Candelaria: 45 años</em>. En bezoek — als je ooit naar Colombia gaat — Cali. TEC bestaat nog steeds, zij het na Buenaventura's dood in 2003 in ander bestuur en kleinere schaal.",
+ source:"Rizk, Creación colectiva (Atuel 2008) · Buenaventura & Vidal, El método · Transatlantic Cultures · TEC-archief"},
+
+{n:3, title:"Buenos Aires 1971–1976 — <em>Invisible</em> geboren",
+ page:"Buenos Aires, Argentinië — ballingschap",
+ type:"Historisch fundament", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"Boal + Grupo Machete + TIT", phase:"1971–1982",
+ note:"Na zijn arrestatie in februari 1971 en voorwaardelijke vrijlating was Boal gedwongen uit Brazilië te vertrekken. Hij koos voor Buenos Aires — dichtbij taal en cultuur, en met vrienden en kennissen in de Argentijnse theatervoorhoede. Hier bleef hij vijf jaar. Hier werd <em>Teatro do Oprimido</em> (1973) geschreven. Hier ontstond <strong>Teatro Invisible</strong>. En hier werden de technieken doorgegeven aan een Argentijnse generatie die tijdens de Videla-dictatuur (1976-1983) clandestien door zou werken.",
+ stages:[
+  {t:"Het Grupo Machete — eerste Argentijnse TO-groep",
+   body:"In de Argentijnse ballingsjaren werkte Boal met het <strong>Grupo Machete</strong>. Kernleden: <strong>Mauricio Kartun</strong> (later een van Argentina's belangrijkste dramaturgen), <strong>Cora Fairstein</strong> (later met Cristina Molina en Adrián Berler oprichter van doorgaande TO-groepen), en anderen. Het groepswerk vond plaats in bars, buurthuizen, vakbondslokalen — niet in theaters, want Boal was politiek verdacht. Dit was geen 'performance voor publiek' maar werk aan de techniek zelf: hoe speel je een scène in een café zonder dat de andere gasten weten dat het theater is?"},
+  {t:"Teatro Invisible — de uitvinding",
+   body:"<strong>Teatro Invisible</strong> werd in Buenos Aires uitgevonden als politiek antwoord op censuur en repressie. De premisse: theater dat niet als theater wordt herkend kan niet verboden worden. Acteurs spelen een scène in de publieke ruimte — een bus, een café, een markt — waarin een conflict wordt uitgespeeld dat toeschouwers tot reactie dwingt. De scène is voorbereid; het publiek is dat niet. De grens tussen politiek theater en directe actie wordt hier dun. In Boals <em>Theatre of the Oppressed</em> (1974) krijgt Invisible een volledig hoofdstuk — de techniek was toen al gereed."},
+  {t:"Het boek dat hier geschreven werd",
+   body:"In Buenos Aires schreef Boal <em>Teatro do Oprimido e outras poéticas políticas</em>. Het verscheen <strong>eerst in Spaanse vertaling</strong> bij Siglo Veintiuno Editores in Buenos Aires (1974), als <em>Teatro del oprimido y otras poéticas políticas</em>. De Braziliaanse Portugese editie (1975) kwam later. Het foundationele TO-boek is, strikt historisch, een Argentijnse publicatie. Het boek synthetiseert Arena-jaren, Lima ALFIN-ervaring, Buenos Aires groepswerk. Het is geen naïeve systematisering — Boal had op dat moment net twintig jaar praktijk achter zich."},
+  {t:"TIT — Taller de Investigaciones Teatrales (1977–1982)",
+   body:"Na Boals vertrek naar Lissabon (1976) nam de Argentijnse dictatuur (maart 1976) onderdrukking en verdwijningen over. Toch bleef de TO-lijn in Buenos Aires bestaan — clandestien, onder de vlag van <strong>TIT — Taller de Investigaciones Teatrales</strong> (1977–1982). Leden werkten met Forum-scenes over buurtsituaties en vakbondsconflicten, zonder dat de groep zich expliciet 'Boalistisch' durfde te noemen. Dit is voor internationaal TO-publiek onbekend werk — gedocumenteerd door Cora Fairstein in haar UBA-sociales proefschrift, en deels in <em>La desmesura de un gesto</em> (2017)."}
+ ],
+ tip:"Voor wie Boals Argentijnse periode wil begrijpen: Boals autobiografie <em>Hamlet and the Baker's Son</em> (2001) heeft een uitgebreid hoofdstuk over deze jaren, met persoonlijke details over het leven in ballingschap en de dagelijkse angst voor arrestatie. Fairstein, Molina & Berler (UBA, Instituto de Artes del Espectáculo) zijn de academische referenties voor de continuïteit van het Argentijnse TO-spoor. Wie naar Buenos Aires reist: Pura Praxis, Rizoma, Trafo en Casoneros werken er vandaag, en kennen deze voorgeschiedenis.",
+ source:"Boal, Hamlet and the Baker's Son · Fairstein, Molina & Berler (UBA) · Siglo XXI 1974 Spaanstalige editie · La desmesura de un gesto (UBA 2017)"},
+
+{n:4, title:"Lima en Chiclayo 1973 — <em>Forum</em> geboren",
+ page:"Peru — ALFIN-campagne 1973",
+ type:"Methodologisch scharnier", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 5 min", group:"Boal + ALFIN + Yuyachkani", phase:"1973 en later",
+ note:"In 1973 werd Boal door de Peruaanse regering Velasco Alvarado uitgenodigd om mee te werken aan <strong>ALFIN — Operación Alfabetización Integral</strong>, een nationale alfabetiseringscampagne in de Freire-lijn. Peru was in die jaren een van de weinige Latijns-Amerikaanse staten waar een linkse militaire junta progressieve sociale hervormingen doorvoerde. In één scène in Chiclayo werd Forum Theatre geboren — niet als theoretisch concept maar als onvoorziene praktijk.",
+ stages:[
+  {t:"ALFIN — alfabetiseren met theater",
+   body:"ALFIN werd opgezet door de Peruaanse regering onder invloed van Paulo Freire's <em>Pedagogía del oprimido</em> (1970). Doel: geletterdheid koppelen aan politieke bewustwording. Boal werd in 1973 uitgenodigd om te helpen met de <em>metodología de teatro</em> binnen deze campagne. Hij werkte in Lima en reisde naar de kustprovincie bij Chiclayo. De technieken die hij had gedragen uit Arena — sistema coringa, Teatro-Jornal, <em>simultaneous dramaturgy</em> — werden hier toegepast op alfabetiseringssessies met boeren en arbeiders."},
+  {t:"De Chiclayo-scène",
+   body:"Wat er toen gebeurde is onderdeel van de TO-mythologie geworden. Tijdens een <em>simultaneous dramaturgy</em>-sessie — waarbij het publiek voorstellen mag doen die acteurs improviserend uitvoeren — gaf een boerin aanwijzingen die de actrice niet goed begreep of niet goed uitvoerde. De boerin werd ongeduldig, stond op, klom het podium op, en <strong>speelde haar eigen voorstel zelf</strong>. Boal besefte ter plekke: dit is beter. De <em>spect-actor</em> was geboren. Niet de acteur, maar het publiek kan het probleem naspelen. Forum Theatre kreeg zijn definitieve vorm door deze onvoorziene interventie."},
+  {t:"Wat dit betekent voor de methode",
+   body:"Forum is dus een <em>Peruviaanse</em> uitvinding, niet een Braziliaanse. Dat is meer dan anekdote. De oorsprong verbindt Forum met een specifiek ander werkveld: alfabetisering, Freire-methode, rurale bewegingen. Boal zelf beschrijft de scène in <em>Theatre of the Oppressed</em> (1974) en herhaaldelijk in interviews. De techniek is dus gevormd in dialoog met de Peruviaanse ruralen, niet door Boal alleen. Dit is ook waarom Forum het sterkst werkt in gemeenschapscontexten — het is geboren uit gemeenschap, niet uit theater."},
+  {t:"Yuyachkani — de Peruviaanse parallel",
+   body:"Naast Boals ALFIN-werk bestond in Peru sinds 1971 <strong>Yuyachkani</strong> — de groep van <strong>Miguel Rubio Zapata</strong> en <strong>Ana Correa</strong>, gevestigd in Lima. Hun werk is geen Forum maar documentair-fysiek theater, gebouwd op inheemse performatieve tradities (Quechua- en Aymara-elementen) en op onderzoek naar het Peruaanse interne conflict (Sendero Luminoso, 1980-2000). Yuyachkani is een van de meest invloedrijke Latijns-Amerikaanse theatergezelschappen van de laatste decennia — deels via de Hemispheric Institute (NYU) geïnternationaliseerd."}
+ ],
+ tip:"De Chiclayo-scène is mythische geworden, maar ze gebeurde werkelijk. Boal's beschrijving in <em>Theatre of the Oppressed</em> is de primaire bron; Rodrigo Benza's hedendaagse Lima-werk (2009-2012, <em>Proyecto Empleadas</em> over huishoudsters, <em>Tránsito</em> over moederschap) toont dat de Peruaanse TO-lijn bestaat — maar hedendaagse Peruaanse groepen zijn in internationale documentatie onderbelicht. Dit is een van de regio's waar deze carrousel minder diepgang biedt dan gewild. Yuyachkani is daarentegen uitstekend gedocumenteerd via Hemispheric Institute.",
+ source:"Boal, Theatre of the Oppressed (1974) · Freire, Pedagogía del oprimido (1970) · Yuyachkani eigen publicaties · Hemispheric Institute · Benza (2009-2012)"},
+
+{n:5, title:"Chili — <em>onder</em> en <em>na</em> Pinochet",
+ page:"Chili — 1973 tot heden",
+ type:"Onderbelicht diepgronden", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"Las Sin Rienda + Sinestesia + Grupo IAP", phase:"1973–heden",
+ note:"Chili heeft een ander verhaal dan Argentinië of Brazilië. Onder Pinochet (1973-1990) was alle politieke cultuur clandestien. Theater in de schaduw. Vermoedelijk is hier veel TO-werk gedaan dat nooit gedocumenteerd werd — en dat buiten internationale archieven valt. Pas na 1990, en meer nog na 2010, begon Chileens TO zich internationaal zichtbaar te organiseren. In januari 2026 is Valparaíso gastheer van het VII ELTO — het eerste ELTO in Chili sinds het netwerk bestaat.",
+ stages:[
+  {t:"De dictatuurschaduw — Pisano (2009)",
+   body:"<strong>Jorge Pisano</strong>, in zijn studie <em>Teatro del oprimido en Chile</em> (2009), documenteert wat van het TO-werk onder Pinochet te traceren is. Het beeld: fragmentarisch, clandestien, met weinig schriftelijke sporen. Buurtwerk, parochiewerk, ondergrondse vrouwenorganisaties, mensenrechtengroepen — daar vond het werk plaats. Een aantal namen zijn bewaard, maar een systematische geschiedenis van TO onder de dictatuur moet nog geschreven worden. Dit is structureel een onderbelichte periode, en niet uit toeval: publicatie kon levens in gevaar brengen."},
+  {t:"Las Sin Rienda — buurt als podium",
+   body:"<strong>Las Sin Rienda</strong> ('De teugelloze vrouwen') is een groep van zeven vrouwen in <em>Pedro Aguirre Cerda</em>, een arbeiderswijk in zuidelijk Santiago. Buurtactivisten — niet professionele actrices. Ze werken sinds de jaren 2010 met Forum rond thema's uit hun eigen wijk: huiselijk geweld, gezondheidszorg-toegang, politie-intimidatie. De groep is representatief voor hoe Chileens hedendaags TO <em>van de grond af</em> werkt — niet via universiteiten of instituten, maar in concrete buurten, door mensen die zelf de verhalen beleven."},
+  {t:"Sinestesia — Escuela de Teatro de las Personas Oprimidas",
+   body:"<strong>Sinestesia</strong> is een school-als-collectief in Santiago. Methodische training, Magdalena-lijn (feministisch), verbinding met buurtorganisaties. De naam 'Escuela de Teatro de las Personas Oprimidas' is expliciete markering: niet 'people' maar <em>personas oprimidas</em> — mensen-die-onderdrukt-zijn, als subject, niet als abstract categorie. Sinestesia speelt in januari 2026 op ELTO Valparaíso <em>Animita</em>. Dit is een van de eerste keer dat Chileens TO expliciet regionaal zichtbaar wordt."},
+  {t:"Grupo IAP — gevangeniswerk in Valparaíso",
+   body:"<strong>Grupo IAP</strong> werkt sinds de jaren 2010 in het <em>Complejo Penitenciario Valparaíso</em> — de grote gevangenis nabij de havenstad. Werk met gedetineerden rond machismo, familierelaties, en de transitie na vrijlating. De academische analyse loopt via het UV-Valparaíso-proefschrift van <strong>Orellana, Peña & Villalón</strong> — de belangrijkste hedendaagse Chileense academische TO-bron. Dat Chili een gevangenis-TO-traditie heeft naast de buurt-traditie spreekt voor de breedte van het hedendaagse veld."}
+ ],
+ tip:"ELTO 2026 Valparaíso — Parque Cultural Valparaíso (de ex-gevangenis, nu cultureel centrum) — is het moment om Chileens TO internationaal zichtbaar te zien worden. Programmaonderdelen: <em>Animita</em> (Sinestesia), partnercentra zijn community-based (Centro Comunitario Las Cañas, Las Huaitecas, Patio Sócrates). 40+ groepen uit 13 landen, Portugal en Mozambique als special guests. Wie naar Chili gaat voor TO-onderzoek moet Pisano lezen, de UV-thesis raadplegen, en direct contact opnemen met groepen ter plekke — de internet-documentatie is uitzonderlijk dun.",
+ source:"Pisano (2009) Teatro del oprimido en Chile · Orellana, Peña & Villalón (UV) · Parque Cultural Valparaíso programma ELTO 2026"},
+
+{n:6, title:"Colombia — <em>hedendaagse</em> reveil",
+ page:"Bogotá + Medellín + Meta — 2013 tot heden",
+ type:"Netwerk in opbouw", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"Corporación Otra Escuela + La Vaina + Concoras", phase:"Sinds 2013",
+ note:"Colombia heeft een uniek TO-ecosysteem. Bovenop de oude Nuevo Teatro-wortel (TEC Cali, La Candelaria Bogotá, Gilberto Martínez in Medellín) is sinds 2013 een hedendaagse TO-beweging gekomen — methodisch, georganiseerd, gekoppeld aan de post-conflict context na de FARC-vredesakkoorden (2016). Geen enkel ander Zuid-Amerikaans land heeft zo'n duidelijke netwerkvorming in de laatste tien jaar laten zien.",
+ stages:[
+  {t:"Corporación Otra Escuela",
+   body:"<strong>Corporación Otra Escuela</strong> is de centrale institutionele actor in Bogotá. Sinds 2013 organiseert zij een jaarlijkse TO-cursus (8+ edities, 2013-heden) en het <em>Festival PaZes en Escena</em> (2013, 2015). Otra Escuela werkt in de lijn van Bárbara Santos/Kuringa en is één van de draagbogen van het <strong>Madalenas-werk in Colombia</strong> — het 1er Madalenas en Colombia werd in 2013 op het Eerste Festival Nacional de TO in Bogotá gehouden, door Santos zelf geleid. De organisatie is feministisch, intersekseel, en expliciet post-conflict gericht."},
+  {t:"La Vaina en El Tente",
+   body:"<strong>La Vaina Colectivo Creativo</strong> werkt in Bogotá met sociale gerechtigheid-thema's, arbeidsrechten, LGBTQ+-rechten. <strong>El Tente</strong> is een gerelateerde groep. <strong>Colectivo Mujeres de Fuego</strong> werkt onder leiding van Ariane Denault Lauzier — een Quebecoise-Colombiaanse curinga — rond vrouwenrechten en geweld. La Vaina speelt in januari 2026 op ELTO Valparaíso <em>Algo va a cambiar</em>. Dit hedendaagse Colombiaanse veld is relatief jong (meeste groepen sinds 2013), maar stevig methodisch gevormd."},
+  {t:"Concoras del Llano — de madres buscadoras",
+   body:"In <em>Villavicencio</em> (departement Meta), aan de rand van de Colombiaanse vlakten, werkt <strong>Concoras del Llano</strong> — een groep gevormd rond <em>madres buscadoras</em>, moeders van tijdens het gewapend conflict verdwenen familieleden. Dit is TO op het snijvlak van theater en forensische waarheid. De Forum-scènes gaan over zoekwerk, aanklachten, institutionele ontkenning. Het werk is verbonden met de <em>Comisión de la Verdad</em>-procedures die na het vredesakkoord van 2016 van start gingen. Dit is een van de pregnantste plekken waar hedendaags TO de vraag beantwoordt wat theater doet in een post-conflictland."},
+  {t:"Medellín — Reconectando en de bredere lijn",
+   body:"<strong>Reconectando</strong> werkt in Medellín in samenwerking met de Comisión de la Verdad — staat al in <em>atlas.html</em>. Breder kader: sinds 21 november 1997 bestaat de <em>Red Colombiana de Teatro en Comunidad</em> (oprichtingsvergadering Medellín). Niet identiek aan TO, maar expliciet gemeenschapsgericht — het netwerk is één van de oudste van zijn soort in Latijns-Amerika. Medellín's specifieke TO-werk bestaat naast de algemene community-theater-traditie die er al langer is."}
+ ],
+ tip:"Colombia is het land waar je vandaag kunt leren hoe TO werkt in een post-conflictcontext. Als je Nederlands werk wilt doen over waarheidscommissies, verdwijningen, of reconciliation processen, is Colombiaans hedendaags TO je belangrijkste leraar. Corporación Otra Escuela biedt jaarlijks cursussen die (gedeeltelijk) in het Spaans/Engels lopen. De <em>Comisión de la Verdad</em>-documentatie via Reconectando is ook internationaal beschikbaar. Voor bezoek: Bogotá heeft de dichtste groepen-concentratie; voor post-conflict-specifiek werk: Villavicencio (Meta) en Medellín.",
+ source:"Corporación Otra Escuela · La Vaina Colectivo · Concoras del Llano · Red Colombiana de Teatro en Comunidad · ELTO 2026 programma"},
+
+{n:7, title:"Argentinië sinds 2001 — de <em>heropleving</em>",
+ page:"Buenos Aires + Rosario + Jujuy — 2001 tot heden",
+ type:"Post-crisis heropleving", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"Pura Praxis + MTO-Jujuy + Magdalena Puerto Madryn", phase:"Sinds 2001",
+ note:"De Argentijnse economische en politieke crisis van december 2001 was een breekpunt. Meer dan 30 doden in de rellen, vier presidenten in elf dagen, bevroren bankrekeningen (corralito), asambleas barriales (buurtvergaderingen) in elke wijk van Buenos Aires. Uit die crisis ontstond een nieuwe generatie politieke cultuur — en daarmee een Argentijnse TO-heropleving die vandaag een van de meest actieve is in hispanofoon Zuid-Amerika.",
+ stages:[
+  {t:"Pura Praxis — de eerste consolidatie",
+   body:"<strong>Pura Praxis</strong> werd opgericht in Buenos Aires, kort na de 2001-crisis, en is vandaag een van de meest zichtbare Argentijnse TO-groepen. Werk in gevangenissen, villas miseria (armoedewijken), neuropsychiatrische instellingen, vakbonden. Training van nieuwe curingas, publicaties, en internationale uitwisselingen (onder andere met Kuringa Berlijn). Zelf-positionering: expliciet Boalistisch, expliciet feministisch, expliciet in de Argentijnse linkse traditie. Minder zichtbaar in internationale Engelstalige TO-literatuur dan hun omvang rechtvaardigt."},
+  {t:"MTO-Jujuy — het eerste ELTO (2010)",
+   body:"In <em>San Salvador de Jujuy</em>, in het noordwesten van Argentinië aan de Boliviaanse grens, werkt <strong>MTO-Jujuy</strong> (Movimiento de Teatro del Oprimido Jujuy) — een groep die in januari 2010 gastheer was van het <strong>I ELTO — het eerste Encuentro Latinoamericano de Teatro del Oprimido</strong>. Dit was het moment waarop RELATO zijn eerste continentale manifestatie kreeg. MTO-Jujuy is verbonden met inheems en boerenwerk, en werkt in een regio met sterke Quechua- en Aymara-aanwezigheid. Jujuy was geen toevallige keuze: de eerste ELTO werd expliciet <em>buiten Buenos Aires</em> gehouden, om de gedecentreerde identiteit van RELATO te tonen."},
+  {t:"GTO Rosario en de provincie",
+   body:"Naast Buenos Aires en Jujuy werkt <strong>GTO Rosario</strong> — een van de grootste provinciale TO-groepen, in de derde stad van Argentinië. Andere groepen: <strong>Trafo</strong>, <strong>Rizoma</strong>, <strong>Casoneros</strong>. Werk in gevangenissen is een consistent Argentijns accent — het Argentijnse strafrechtsysteem is een van de meest onderdrukkende van Latijns-Amerika, en TO-groepen werken al twintig jaar met gedetineerden. Een ander accent: <em>Les Yuyeres</em> in Córdoba, die vanuit travestie- en transfeministisch perspectief werken — een lijn die in Argentinië bijzonder sterk is (Argentinië heeft sinds 2012 een van de progressieve Ley de Identidad de Género wereldwijd)."},
+  {t:"Puerto Madryn — eerste internationale Magdalena-festival",
+   body:"In <em>Puerto Madryn</em>, in Patagonië (provincie Chubut), vond in <strong>september 2014 het eerste Internationale Magdalena-festival</strong> plaats. Zes dagen theater en laboratorium over genderviolentie, laboreel misbruik, het vrouwelijke lichaam in de publieke ruimte, moederschap, seksuele en reproductieve rechten, esthetische violentie. Georganiseerd door Magdalenas de Madryn, gesteund door Programa Iberescena. Dit is het moment waarop Teatro das Oprimidas wereldwijd zichtbaar werd — en dat het in Patagonië gebeurde is zelf betekenisvol: niet in de metropool, maar op de geografische rand van het continent."}
+ ],
+ tip:"Argentijnse hedendaagse TO-literatuur is grotendeels in het Spaans en niet internationaal vertaald. Het UBA-sociales-proefschrift <em>La desmesura de un gesto</em> (2017) door Fairstein, Molina en Berler is de academische sleutel. Voor directe ontmoeting: Pura Praxis biedt regelmatig workshops voor internationale bezoekers in Buenos Aires. MTO-Jujuy werkt meer regionaal gebonden, maar deelname aan ELTO's laat zien wat er in de noordwestelijke provincies gebeurt. Argentinië's TO is expliciet politiek gepositioneerd — meer dan in de meeste West-Europese toepassingen.",
+ source:"Fairstein, Molina & Berler (UBA) · Pura Praxis publicaties · MTO-Jujuy ELTO-documentatie · Magdalenas de Madryn archief"},
+
+{n:8, title:"Uruguay — <em>klein land, diep werk</em>",
+ page:"Montevideo — sinds 2011",
+ type:"Intiem ecosysteem", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 4 min", group:"GTO Montevideo + Magdalenas Uruguay + El Abrojo", phase:"Sinds 2011",
+ note:"Uruguay is Zuid-Amerika's kleinste hispanofone land — 3,4 miljoen inwoners, geconcentreerd rond Montevideo. Het TO-ecosysteem is navenant klein maar inhoudelijk scherp. Werk in gevangenissen, feministisch straatwerk, gezondheidsvoorlichting. De V ELTO in februari 2018 werd in Montevideo gehouden — door een klein nationaal netwerk met groot internationaal krediet.",
+ stages:[
+  {t:"GTO Montevideo — via El Abrojo",
+   body:"<strong>GTO Montevideo</strong> werd opgericht in 2011, binnen de bredere organisatie <em>El Abrojo</em> — een sociale ONG die al sinds de jaren 90 in Uruguay werkt rond jongerenrechten, drugsgebruik, en sociale uitsluiting. Deze institutionele thuishaven maakt GTO-Montevideo anders dan veel autonome TO-groepen: het werk is ingebed in een groter sociaal platform met gevestigde financiering en publieke zichtbaarheid. Keerzijde: minder experimentele vrijheid dan groepen zonder institutionele rugdekking."},
+  {t:"Magdalenas Uruguay (mei 2012)",
+   body:"<strong>Magdalenas Uruguay</strong> werd in mei 2012 opgericht door 15-19 vrouwen in Montevideo, in directe relatie met Bárbara Santos en het bredere Magdalena-netwerk. De groep werkt rond huiselijk geweld, vrouwenlichaam in publieke ruimte, en seksuele/reproductieve rechten. Uruguay heeft een bijzondere feministische traditie — het was het eerste Latijns-Amerikaanse land waar vrouwenstemrecht werd ingevoerd (1927), waar abortus werd gelegaliseerd (2012) en waar gelijkgeslachtelijk huwelijk bestaat sinds 2013. Magdalenas Uruguay werkt in die maatschappelijke stroom."},
+  {t:"CNR — gevangenis voor vrouwen",
+   body:"Specifiek werkveld: het <strong>Centro Nacional de Rehabilitación Femenino (CNR)</strong> in Montevideo — de grootste vrouwengevangenis van Uruguay. GTO-Montevideo en Magdalenas Uruguay hebben daar jarenlang gewerkt, met Forum-sessies rond moederschap in gevangenschap, geweld vóór detentie, en terugkeer naar de samenleving. Werk in vrouwengevangenissen is een specifiek TO-accent in Zuid-Amerika (óók Pura Praxis Argentinië, CTO-Bahía Brazilië) dat in West-Europese TO-toepassingen minder centraal staat."},
+  {t:"V ELTO februari 2018",
+   body:"In <strong>februari 2018</strong> was Montevideo gastheer van het <strong>V ELTO</strong>. Magdalenas Uruguay trok de organisatie; GTO-Montevideo leverde logistieke ondersteuning. Het thema was expliciet feministisch en intergenerationeel. Voor een klein nationaal netwerk een enorme onderneming — wat ook iets zegt over de professionaliteit die de organisaties in tien jaar hadden opgebouwd. Dit is het V ELTO waar de hispanofone Zuid-Amerika-as duidelijk feministisch werd gekleurd."}
+ ],
+ tip:"Uruguay is een land dat Nederlanders makkelijker kunnen lezen dan andere Latijns-Amerikaanse landen — institutionele infrastructuur, Europese koloniale erfenis, relatief hoge welvaart. Dat maakt het een interessante plek voor vergelijkingen: hoe werkt Forum in een samenleving die al veel progressieve wetgeving heeft? Wat doe je met feministisch TO in een post-abortuslegalisering-context? El Abrojo heeft internationale connecties en biedt samenwerkingsmogelijkheden.",
+ source:"El Abrojo publicaties · Magdalenas Uruguay archief · RELATO V ELTO-documentatie"},
+
+{n:9, title:"Red Ma(g)dalena — <em>feministische doorsnede</em>",
+ page:"continent-breed — sinds 2010",
+ type:"Netwerk-as", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 5 min", group:"Santos / Vannucci / Kuringa Berlijn", phase:"Sinds 2010",
+ note:"De Red Ma(g)dalena Internacional is geen landelijk fenomeen maar een continent-brede (en wereldwijde) feministische as door het Zuid-Amerikaanse TO-veld. Gesystematiseerd door Bárbara Santos vanaf 2010, met Italiaanse Alessandra Vannucci als mede-ontwikkelaar. In 2013 internationaal doorbrekend in Colombia. Sindsdien in bijna elk hispanofoon Zuid-Amerikaans land actief — met eigen accenten per regio.",
+ stages:[
+  {t:"Waar het vandaan komt",
+   body:"<strong>Bárbara Santos</strong> werkte 20 jaar bij CTO-Rio naast Boal. In 2010 verhuisde ze naar Berlijn en stichtte <em>Kuringa Berlijn</em> — een feministisch TO-centrum. Samen met <strong>Alessandra Vannucci</strong> (Italiaanse kuringa) ontwikkelde ze de <em>Magdalena-methodologie</em> al vanaf 2004, met het eerste laboratorium in Brazilië (2009-2010). Santos theoretiseert het niet als 'TO voor vrouwen' maar als <strong>Teatro das Oprimidas</strong> — een eigen systematisering, met eigen epistemologie: ecofeministisch, interseksueel, dekoloniaal. Haar boek <em>Teatro de las Oprimidas</em> (2023) is de theoretische sleutel."},
+  {t:"De Colombiaanse doorbraak (2013)",
+   body:"In 2013 werd het <strong>1er Madalenas en Colombia</strong> gehouden, op het Eerste Festival Nacional de TO in Bogotá — door Santos zelf geleid. Dit was een ankerpunt. Corporación Otra Escuela nam de Madalena-lijn over. In de volgende jaren verspreidde de methode zich over het continent: Argentinië (Puerto Madryn, Rosario, Osadía in José León Suárez met Nancy Salvatierra als facilitator, Fuerza Colectiva, Pura Praxis), Uruguay (Magdalenas Uruguay), Chili (Sinestesia), Peru (kleinere groepen). Buiten het continent: Brazilië (Madalena-Anastácia in Rio, Ocupa Madalena, Madalenas na Luta in Santa Catarina), Guinee-Bissau, Mozambique, Portugal, Spanje, Duitsland, Oostenrijk, Frankrijk, Zwitserland, India."},
+  {t:"Wat methode-eigen is",
+   body:"Magdalena-groepen bestaan uitsluitend uit vrouwen. Dit is geen apartheid maar strategische creatie van een denkruimte — vrouwen die samen naar eigen onderdrukking kijken zonder dat mannelijke blik meekijkt. De methode combineert standaard-TO-technieken (Forum, Beeldentheater, Rainbow) met expliciet feministische analyse: <em>interseksionaliteit</em> (gender als één as, naast klasse, ras, seksualiteit), <em>ecofeminisme</em> (lichaam en aarde gedacht samen), <em>dekolonialiteit</em> (westerse feminismen bekritiseerd). Dat laatste is in hispanofoon Zuid-Amerika bijzonder sterk — Rita Segato, Silvia Rivera Cusicanqui, en andere Latijns-Amerikaanse feminist-denkers zijn mede-referenties."},
+  {t:"Puerto Madryn 2014 — eerste internationale festival",
+   body:"In september 2014 vond in <strong>Puerto Madryn</strong> (Patagonië, Argentinië) het eerste Internationale Magdalena-festival plaats. Zes dagen theater en laboratorium. Gesteund door <em>Programa Iberescena</em>. Dit was het moment waarop Teatro das Oprimidas wereldwijd zichtbaar werd. Sindsdien zijn er regionale Magdalena-festivals op verschillende continenten. In januari 2026 plant het VII ELTO in Valparaíso een sterke Magdalena-component. De Red Ma(g)dalena is vandaag het levendigste subnetwerk binnen RELATO — met eigen autonomie."}
+ ],
+ tip:"Wie één feministische TO-schrijver naast Boal leest: Bárbara Santos. <em>Teatro das Oprimidas</em> (2023) is beschikbaar in Portugees, Spaans en Duits (niet in het Nederlands). Haar eerdere <em>Raízes e Asas</em> (2016) legt de methodologische basis. Voor wie concreet met Magdalena-methode wil werken: Kuringa Berlijn biedt regelmatig Engelstalige trainingen. De Puerto Madryn-archieven (2014 festival) zijn gedeeltelijk online. Teatro das Oprimidas is geen 'variant' van TO — het is een eigen systematisering die op een aantal punten expliciet breekt met oudere Boal-aannames.",
+ source:"Santos, Teatro das Oprimidas (2023) · Santos, Raízes e Asas (2016) · Kuringa Berlijn · Magdalenas de Madryn archief · RELATO-netwerk"},
+
+{n:10, title:"III ELTO La Paz 2014 — <em>crisis</em> en leermoment",
+ page:"La Paz, Bolivia — februari 2014",
+ type:"Kritiek van binnenuit", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 5 min", group:"RELATO + III ELTO", phase:"februari 2014",
+ note:"Horizontale netwerken falen ook. Het III ELTO in La Paz (februari 2014, 700 deelnemers uit 17 landen, financieel gesteund door de gemeente La Paz) was de grootste ELTO tot dan toe — en tegelijk het meest problematische. Boliviaanse TO-groepen werden niet uitgenodigd. Interne spanningen rond machismo binnen de beweging braken publiek open. Na afloop was het mentale landschap van RELATO veranderd.",
+ stages:[
+  {t:"Wat er fout ging",
+   body:"Het III ELTO werd georganiseerd door een internationaal collectief van curingas, met lokale Boliviaanse ondersteuning — maar, zoals RELATO zelf later documenteerde, met <strong>selectieve informatie</strong>. Boliviaanse TO-groepen die actief werkten in La Paz, Cochabamba en El Alto werden niet in de programmering opgenomen en sommige werden niet eens uitgenodigd. Een ELTO in Bolivia zonder de Boliviaanse stem aan tafel was intern contradictoir. Parallel: er kwamen klachten van vrouwelijke curingas over machismo in de organisatiestructuur — beslissingen die buiten de feministische deelnemers werden genomen, toewijzing van spreeksleutels die oudere mannelijke figuren bevoordeelden."},
+  {t:"Magdalena als reactie",
+   body:"De respons kwam grotendeels van de Magdalena-groep binnen het ELTO. In La Paz werd expliciet publieke <em>denuncia</em> uitgesproken — aanklacht van machismo binnen de TO-beweging zelf. Dit was een kantelmoment. Niet alleen dat de kritiek gesproken werd (dat gebeurde al in kleinere kring), maar dat ze in het centrum van het grootste Latijns-Amerikaanse TO-evenement geformuleerd werd, in bijzijn van 700 deelnemers uit 17 landen. De feministische Magdalena-bijeenkomst werd het sterkste onderdeel van het III ELTO — niet ondanks maar <em>door</em> de crisis."},
+  {t:"Leermomenten voor horizontale netwerken",
+   body:"Wat de III ELTO-crisis laat zien: horizontaliteit is geen automatische rechtvaardigheid. Een netwerk zonder centrum kan óók onrecht produceren — door informatievoorsprong, door historische autoriteit van oudere leden, door onzichtbare uitsluitingen. RELATO's eigen reflecties na La Paz (gepubliceerd in de aanloop naar het IV ELTO Matagalpa 2016) benoemen dit expliciet: <em>decentralisatie moet geborgd worden, niet verondersteld</em>. Bij latere ELTO's werd meer aandacht besteed aan voorafgaand contact met lokale groepen en aan feministische quota in organisatie."},
+  {t:"Wat niet opgelost werd — Bolivia",
+   body:"Bolivia blijft structureel ondervertegenwoordigd in internationale TO-documentatie. Na de III ELTO-crisis is er geen systematische herstelbeweging gekomen. Boliviaanse groepen bestaan — vermoedelijk in La Paz, Cochabamba, El Alto, Santa Cruz — maar ze verschijnen zelden op ELTO's of in internationale publicaties. Dit is een eerlijke vermelding: deze carrousel kan Bolivia niet diepgaand documenteren omdat het materiaal er simpelweg niet in gebruikelijke kanalen is. Wie onderzoek daar doet, zou zeer welkom zijn in het bredere netwerk."}
+ ],
+ tip:"Zelfkritiek is een teken van volwassenheid van een beweging. Het feit dat RELATO zijn eigen III ELTO publiekelijk als leermoment documenteert — en niet als succesverhaal — is wat de Zuid-Amerikaanse TO-traditie onderscheidt van gesaniseerde Angelsaksische applied-theatre-presentaties. Wie vanuit West-Europa naar Latijns-Amerikaans TO kijkt: verwacht zelfkritiek, niet promotie. Lees Julian Boal's <em>Theatre of the Oppressed and Its Times</em> (2023) voor een vergelijkbare kritische toon op brede schaal.",
+ source:"RELATO post-La Paz documentatie · Magdalena-internationale communicaties · ELTO IV Matagalpa-dossier"},
+
+{n:11, title:"Wat dit <em>continent</em> Zuid-Amerikaans maakt",
+ page:"Hispanofoon Zuid-Amerika — synthese",
+ type:"Synthese", typeBg:"#dfe4ec", typeFg:"#1e3254",
+ stripe:"#2d4a7a",
+ duration:"lezen: 6 min", group:"—", phase:"Afsluiting",
+ note:"Tien kaarten beschreven een ecosysteem. Deze elfde trekt de lijnen. Wat maakt hispanofoon Zuid-Amerikaans TO onderscheidend — ten opzichte van Brazilië, Europa, Afrika, Midden-Amerika? Zes patronen, plus expliciete vermelding van wat deze carrousel nog niet dekt.",
+ stages:[
+  {t:"1. Horizontaal boven centraal",
+   body:"RELATO weigert een centrale organisatie. Elke twee jaar organiseert een ander land de ELTO. Geen vast hoofdkwartier, geen permanent bestuur. Dit is een <em>bewuste methodologische keuze</em>, niet een gebrek aan organisatievermogen. De keerzijde — III ELTO La Paz liet het zien — is dat horizontaliteit niet automatisch rechtvaardigheid produceert. Maar het model is radicaal anders dan CTO-Rio (institutioneel gevestigd), TONYC (gecentreerd rond één stad) of CTO-Paris (persoonlijk geleid door Julian Boal). De methode volgt de geografie: een continent zonder hoofdstad kan geen hoofdstad-gebaseerd netwerk onderhouden."},
+  {t:"2. Nuevo Teatro als mede-bron",
+   body:"Anders dan in Brazilië, waar Boal-TO binnen een één-traditie-lijn staat, heeft hispanofoon Zuid-Amerika een <strong>dubbele theoretische wortel</strong>: Boal-TO én Nuevo Teatro (Buenaventura, García, Yuyachkani, El Galpón). Veel hedendaagse groepen werken met elementen uit beide. Dit maakt het hispanofone veld theoretisch rijker — er is meer vocabulaire beschikbaar — en tegelijk minder herkenbaar voor buitenstaanders die alleen 'TO' kennen. Wie het continent serieus wil lezen, moet beide tradities binnenhalen."},
+  {t:"3. Gedwongen ballingschap als vormende kracht",
+   body:"Argentinië onder Videla (1976–1983), Chili onder Pinochet (1973–1990), Uruguay onder militaire dictatuur (1973–1985) — hispanofoon Zuid-Amerika heeft een patroon van dictaturen waaronder TO clandestien moest werken of verdween. Boal zelf was gevormd door uitwijzing; latere generaties curingas zijn gevormd door herinnering aan dictatuur. Dit geeft hispanofoon TO een <em>specifieke alertheid voor autoritarisme</em> — niet als abstract politiek probleem, maar als concrete familiegeschiedenis. Argentijnse jokers bijvoorbeeld weten wat 'desaparecido' betekent in een familie."},
+  {t:"4. Feminisme als methodologische as",
+   body:"De Red Ma(g)dalena is niet een subnetwerk maar een doorsnede. In bijna elk land met hedendaags TO is een Magdalena-groep actief. III ELTO La Paz 2014 maakte het machismo-debat publiek. Latijns-Amerikaans feminisme heeft een specifieke intellectuele diepte — Rita Segato, Silvia Rivera Cusicanqui, María Lugones als mede-bronnen naast Santos' eigen systematisering. Ten opzichte van Europees feminisme accentueert het Latijns-Amerikaans feminisme meer kolonialiteit, meer raciale assen, meer verstrengeling van lichaam en aarde."},
+  {t:"5. Gevangeniswerk als consistent accent",
+   body:"In Argentinië (Pura Praxis), Chili (Grupo IAP Valparaíso), Uruguay (CNR Montevideo), Brazilië (CTO-Rio prisões): TO in gevangenissen is een consistent Zuid-Amerikaans werkveld. Redenen: strafrechtsystemen die tot de meest onderdrukkende van de wereld horen, overbevolking, inheemse en Afro-descendant oververtegenwoordiging. Dit accent is minder centraal in West-Europese toepassingen (waar educatief en corporate werk dominant is). Voor wie TO in Nederland met gedetineerden doet: Latijns-Amerikaanse methodologie is hier directer relevant dan Britse applied theatre."},
+  {t:"6. Expliciete zelfkritiek",
+   body:"Misschien de subtielste karakteristiek: hispanofoon Zuid-Amerikaans TO documenteert zijn eigen falen. III ELTO La Paz is niet gesaniseerd tot succesverhaal. Julian Boal's <em>Theatre of the Oppressed and Its Times</em> (2023) stelt de kritische vragen openlijk. Geo Britto waarschuwt tegen mercantilisering. Bárbara Santos heeft de beweging feministisch gecorrigeerd vanuit binnen. Dit is kenmerkend voor een <em>volwassen</em> beweging: geen zelfverheerlijking, geen defensieve reflexen. Voor een Nederlandse Joker die beoogt internationaal te werken is dit een belangrijk voorbeeld — hoe kritiek van binnenuit een beweging sterker maakt in plaats van verzwakt."},
+  {t:"Wat nog niet hier staat",
+   body:"Eerlijk: deze carrousel heeft blinde vlekken. <strong>Peru-hedendaags</strong> (voorbij Yuyachkani en Benza): onderbelicht. <strong>Bolivia</strong>: structureel onderbelicht sinds III ELTO 2014. <strong>Paraguay, Venezuela, Ecuador</strong>: expliciete hiaten, genoemd in ELTO 2026-programma maar niet in diepte uitgewerkt. De Amazone-inheemse TO-tradities (brazilianistisch en peruviano-columbiaans) zijn slechts geraakt. Dit is geen neutrale observatie maar een structurele bias van welke documentatie online ontsloten is in welke talen. De carrousel is een begin — verdere rondes kunnen en moeten deze hiaten vullen."}
+ ],
+ tip:"Deze carrousel staat naast <strong>TO in Brazilië</strong>. Samen zijn ze één continent. Lees ze parallel, niet achtereenvolgens. En lees ook de <strong>Red Ma(g)dalena</strong>-materialen apart — die as werkt door beide carrousels heen. Voor wie na beide carrousels verder wil: Julian Boal's boek (2023), Santos' twee boeken (2016 + 2023), Britto (2024), Fairstein et al. (2017). Niet in het Nederlands beschikbaar. Engels en Spaans zijn voor serieuze TO-studie noodzakelijk.",
+ source:"Synthese uit alle voorgaande bronnen · onderzoeksrapport TO in Zuid-Amerika (april 2026)"}
+
+];
+
+let cur = 0;
+
+function renderPills() {
+  const pills = document.getElementById('pills');
+  pills.innerHTML = T.map((t,i) => 
+    `<button class="tpill ${i===cur?'on':''}" onclick="goTech(${i})">${i+1}</button>`
+  ).join('');
+}
+
+function render() {
+  const t = T[cur];
+  renderPills();
+  
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Kaart ${t.n} van ${T.length} &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-form">${t.page}</span>
+            <span class="badge-type" style="background:${t.typeBg};color:${t.typeFg}">${t.type}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Lengte</strong> ${t.duration}</span>
+          ${t.group ? `<span class="meta-item"><strong>Schaal</strong> ${t.group}</span>` : ''}
+          <span class="meta-item"><strong>Periode</strong> ${t.phase}</span>
+        </div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-source">
+        <span><strong>Bron</strong> · ${t.source}</span>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`
+  ).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; render(); }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof ArsenaalNav !== 'undefined') {
+    ArsenaalNav.init({
+      horizontal: { next: nextTech, prev: prevTech }
+    });
+  }
+});
+
+render();
+</script>
+</body>
+</html>

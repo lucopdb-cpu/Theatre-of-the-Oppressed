@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#6d3a52">
+<script src="nav.js" defer></script>
+<title>TO in Brazilië — de thuishaven van de methode</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1f1a15;--ink2:#524a40;--ink3:#9a9080;
+  --paper:#faf5ec;--paper2:#f2ebdd;--paper3:#e8dcc3;--paper4:#d6c4a0;
+  --amber:#6d3a52;--amber2:#8a5072;--amber3:#c9a0b5;--amber4:#ebe0e5;
+  --amber5:#4d2839;
+  --terra:#6d3a52;--terra2:#8a5072;--terra3:#c9a0b5;--terra4:#ebe0e5;
+  --terra5:#4d2839;
+  --indigo:#2d4a5e;--indigo2:#3f6480;--indigo3:#a8bfd0;
+  --rule:rgba(31,26,21,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--terra)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--terra3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--terra2);color:var(--terra)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(31,26,21,.05),0 3px 12px rgba(31,26,21,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.card-name em{font-style:italic;color:var(--terra);font-weight:400}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-form{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-type{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Meta bar */
+.meta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--paper3)}
+.meta-item{font-family:var(--sans);font-size:10px;color:var(--ink2);display:inline-flex;align-items:center;gap:4px;background:var(--paper2);padding:3px 9px;border-radius:12px;border:1px solid var(--paper3)}
+.meta-item strong{color:var(--ink);font-weight:500}
+
+/* Stages label */
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--terra4);border-left:3px solid var(--terra2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Source */
+.card-source{margin:0 26px 20px;padding:10px 14px;background:var(--paper2);border-radius:7px;font-family:var(--sans);font-size:10px;color:var(--ink3);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-source strong{color:var(--ink2);font-weight:500}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--terra4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--terra2);background:var(--terra4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--terra3)}
+.acc-trigger.open .acc-sn{background:var(--terra);color:#fff;border-color:var(--terra2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--terra2);color:var(--terra)}
+
+/* Home button */
+.home-btn{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--terra);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;box-shadow:0 2px 10px rgba(31,26,21,.2);z-index:100;transition:all .2s}
+.home-btn:hover{background:var(--terra5);transform:scale(1.05)}
+
+@media (max-width: 600px){
+  .page{padding:0 16px}
+  .app-name{font-size:22px}
+  .card-name{font-size:19px}
+  .card-head{padding:18px 20px 14px;padding-left:28px}
+  .card-tip,.card-source{margin-left:20px;margin-right:20px}
+  .acc-trigger{padding:10px 20px}
+  .acc-body{padding:0 20px 12px 50px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="app-name">TO in <em>Brazilië</em></div>
+  <div class="app-sub">De thuishaven — van Arena tot MST, van Legislativo tot ETP</div>
+  <div class="context-note">Brazilië is niet "de oerbron" van TO — Forum werd geboren in Peru, Invisible in Argentinië, Rainbow in Parijs. Maar het is wel het land dat Boal voortbracht, dat hem na 1986 terugnam, en dat sinds dan de institutionele en intellectuele thuishaven is. Elf kaarten: van Arena in 1956 tot de Escola de Teatro Popular in 2018, van Teatro Legislativo tot de MST-Brigada Patativa do Assaré. Het werk van een land dat TO niet ontving maar voortbracht.</div>
+</header>
+
+<nav class="nav-row">
+  <button id="pv" class="nav-btn" aria-label="Vorige">‹</button>
+  <div class="tech-pills" id="pills"></div>
+  <button id="nx" class="nav-btn" aria-label="Volgende">›</button>
+  <span class="nav-counter" id="ctr"></span>
+</nav>
+
+<main id="card-wrap"></main>
+
+</div>
+
+<a href="index.html" class="home-btn" aria-label="Terug naar overzicht">⌂</a>
+
+<script>
+const T = [
+
+{n:1, title:"Niet de oerbron — de <em>thuishaven</em>",
+ page:"introductie",
+ type:"Inleiding", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 6 min", group:"—", phase:"Aanloop",
+ note:"Brazilië is niet de enige plek waar TO ontstond. Forum werd geboren in Peru (Chiclayo, 1973), Invisible in Argentinië (Buenos Aires, 1971–76), Rainbow in Parijs (1978–86). Wat Brazilië wél is: het land dat Boal voortbracht, dat hem in 1986 terugnam, en dat sinds dan de institutionele en intellectuele thuishaven van de methode vormt. Zestig procent van alle levende TO-praktijk wereldwijd speelt zich binnen dit ene land af.",
+ stages:[
+  {t:"Drie geboortes buiten Brazilië",
+   body:"Het klopt niet om TO 'Braziliaans' te noemen zonder nuance. <strong>Forum Theatre</strong> is een <em>Peruviaanse</em> uitvinding — de beroemde scène in Chiclayo 1973 waarin een boerenvrouw weigerde de acteur-oplossing te accepteren en zelf het podium opklom, tijdens de ALFIN-alfabetiseringscampagne. <strong>Teatro Invisible</strong> werd ontwikkeld in <em>Buenos Aires</em> 1971–76, met het Grupo Machete (onder Mauricio Kartun). <strong>Arco-Íris do Desejo</strong> werd geschreven in <em>Parijs</em> 1978–86. Arena-sistema-curinga, Teatro-Jornal en Teatro Legislativo zijn Braziliaans. De methode is intercontinentaal — gevormd in ballingschap."},
+  {t:"Wat Brazilië dan wel is",
+   body:"Brazilië is de institutionele thuishaven. Hier ligt het Centro de Teatro do Oprimido (CTO-Rio, 1986), het Instituto Augusto Boal (2010, onder Cecilia Boal), de Escola de Teatro Popular (2018, Julian Boal & Geo Britto). Hier werkt CTO-Bahía in Salvador. Hier werkte Boal als vereador 1993–1996, waar hij Teatro Legislativo uitwerkte met 13 aangenomen wetten. Hier sloot CTO-Rio in 2001 een partnerschap met het MST — uitgegroeid tot de Brigada Nacional de Teatro Patativa do Assaré met ~40 groepen. Hier verschijnt de belangrijkste academische literatuur — Santos' <em>Raízes e Asas</em> (2016), Britto's door de Braziliaanse Nationale Bibliotheek bekroonde boek (2024), twintig jaar Villas-Boas over MST-Boal."},
+  {t:"De enige zuidelijke methode in theaterland",
+   body:"Van de methodes die wereldwijd als theoretisch-praktisch kader geciteerd worden — Stanislavski, Brecht, Artaud, Grotowski, Boal — is <strong>Boals TO de enige die op het zuidelijk halfrond ontstond en systematisch van zuid naar noord reisde</strong>. Niet andersom. Dat is historisch uniek. Het maakt Brazilië niet 'de enige zuidelijke bron', maar wel het continent waar een omgekeerde intellectuele stroom startte. Jana Sanskriti in India leest Boal <em>naast</em> Brecht — Sanjoy Ganguly komt zelf uit de IPTA-traditie (Indian People's Theatre Association, cultureel front van de CPI, sterk Brechtiaans gevormd) en ontmoette Boals werk pas in 1990-91, zes jaar na de oprichting van Jana Sanskriti. De combinatie is typisch: zuidelijke methodes verdringen het Europese canon niet, ze voegen zich ertussen."},
+  {t:"Wat deze carrousel is",
+   body:"Elf kaarten over Brazilië als intellectueel-institutionele motor. We beginnen met Arena (São Paulo 1956–71), volgen de geboorte van CTO-Rio in 1986, Teatro Legislativo in de jaren 90, de MST-partnerschap vanaf 2001, CTO-Bahía, het Circuito Teatro do Oprimido, Escola de Teatro Popular (2018), Instituto Augusto Boal, de academische productie, en we sluiten af met een synthese over wat het Braziliaanse ecosysteem Braziliaans maakt. Een parallelle carrousel — <em>TO in Hispanofoon Zuid-Amerika</em> — neemt de rest van het continent op."}
+ ],
+ tip:"Hoed je voor twee misverstanden. Eén: Brazilië is niet 'de zuivere bron' — de zuivere bron bestaat niet, TO werd gevormd door Boals migratie. Twee: een aparte Brazilië-carrousel is geen claim van superioriteit, maar erkenning van schaal. Wie Hispanofoon Zuid-Amerika onder één dak met Brazilië zet, maakt het Braziliaanse boventoning onvermijdelijk. Twee carrousels doen recht aan taal, traditie en omvang.",
+ source:"Britto (2024) · Santos (2016) · Villas-Boas (2021) · Transatlantic Cultures · Cairn · Project MUSE"},
+
+{n:2, title:"São Paulo — <em>Teatro de Arena</em> 1956–1971",
+ page:"São Paulo, Brazil — 1956 tot ballingschap",
+ type:"Fundament", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 7 min", group:"Teatro de Arena", phase:"Pre-TO",
+ note:"Vijftien jaar vóór de term 'Teatro do Oprimido' bestond, werkte Augusto Boal als artistiek directeur van Teatro de Arena in São Paulo. Het was hier — onder John Gassner's leerlingen, in dialoog met Vianna Filho, Guarnieri, José Renato — dat de technieken werden voorbereid die pas later door de ballingschap zouden kristalliseren tot TO. Arena is het fundament.",
+ stages:[
+  {t:"De groep die Brazilië herschreef",
+   body:"Teatro de Arena werd in 1953 opgericht door José Renato als alternatief voor het commerciële Europees-geïnspireerde Braziliaanse theater. Boal trad toe in 1956, na studies onder John Gassner aan Columbia University. Onder zijn artistiek leiderschap schreef Arena de Braziliaanse theatergeschiedenis opnieuw. <strong>Eles não usam black-tie</strong> (Gianfrancesco Guarnieri, 1958) was de eerste Braziliaanse proletarische drama op een commercieel podium. De <em>Arena conta</em>-cyclus (vanaf 1965) — Zumbi, Tiradentes, Bolívar — nationaliseerde het epische theater."},
+  {t:"Sistema coringa — de eerste Joker",
+   body:"Tijdens de Arena-cyclus ontwikkelde Boal het <strong>sistema coringa</strong>: meerdere acteurs delen één personage, identificatie wordt doorbroken, een 'Joker'-figuur opent en commentarieert de voorstelling. Dit was de eerste verschijning van de term die later centraal werd in TO. De Joker was geen personage maar een functie — een dramaturgische brug tussen toneel en publiek. Alle latere TO-curingas zijn erfgenamen van dit Arena-experiment."},
+  {t:"Teatro-Jornal — eerste officiële TO-techniek",
+   body:"Na AI-5 (1968, het verscherpte militaire decreet) werd open politiek theater verboden. Arena ging op tournee — VS, Mexico, Peru. In deze late Arena-periode ontstond <strong>Teatro-Jornal</strong>: technieken om krantenartikelen snel in scènes te vertalen, zonder narratieve opbouw. De eerste officiële TO-techniek. Teatro-Jornal is ouder dan Forum, ouder dan Beeldentheater — het is Boals antwoord op censuur: als we geen eigen teksten mogen schrijven, gebruiken we het nieuws zelf."},
+  {t:"Het einde door arrestatie",
+   body:"Februari 1971: Boal wordt van de straat opgepakt, overgebracht naar DOPS (Departamento de Ordem Política e Social), gemarteld. Internationale druk — Jean-Paul Sartre, Arthur Miller, Ariane Mnouchkine tekenden petities — leidde tot voorwaardelijke vrijlating. Boal reisde naar het Festival van Nancy (waar Arena conta Bolívar speelde) en keerde niet terug. Zijn ballingschap begon. Arena zelf overleefde hem niet lang: in 1972 viel de groep uiteen. Maar wat daar uitgevonden was — de Joker, Teatro-Jornal, creação coletiva, dialectische dramaturgie — reisde mee."}
+ ],
+ tip:"Wie Boals werk wil begrijpen, begint niet bij het boek <em>Teatro do Oprimido</em> (1974) maar bij Arena. Teatro do Oprimido is de systematisering van wat in Arena en in ballingschap al uitgewerkt was. Het boek leest anders als je weet dat elke techniek erin een concrete Arena-herinnering draagt — Zumbi, Tiradentes, een vakbondsoptreden in Santo André, een Teatro-Jornal-scène in Peru.",
+ source:"Britto (2024), Augusto Boal e a formação do Teatro do Oprimido · Hamlet and the Baker's Son (autobiografie) · Cosmonaut Magazine: Flores over Boal"},
+
+{n:3, title:"Rio 1986 — <em>CTO-Rio</em> als institutie",
+ page:"Rio de Janeiro — 1986 tot heden",
+ type:"Institutioneel hart", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 7 min", group:"CTO-Rio + Circuito", phase:"Sinds 1986",
+ note:"In 1986 keerde Boal terug uit vijftien jaar ballingschap (Buenos Aires, Lissabon, Parijs). Darcy Ribeiro — vicegouverneur van Rio — had hem uitgenodigd voor het <em>Projeto Fábrica de Teatro Popular</em> in de CIEPs (Centros Integrados de Ensino Público). In datzelfde jaar stichtte Boal het <strong>Centro de Teatro do Oprimido</strong> aan Av. Mem de Sá 31 in Lapa. Bijna vier decennia later is CTO-Rio het institutionele hart van de internationale TO-beweging.",
+ stages:[
+  {t:"Het team dat het droeg",
+   body:"Boal was artistiek directeur tot zijn dood op 2 mei 2009 — 23 jaar. <strong>Bárbara Santos</strong> werkte van 1991 tot 2009 naast hem; van 1994 tot 2008 was ze algemeen coördinator (20 jaar). <strong>Geo Britto</strong> werkte 32 jaar bij CTO, waarvan 20 direct naast Boal. Verder: <em>Claudete Felix</em> (één van de eerste door Boal opgeleide vermenigvuldigers, 1986), <em>Helen Sarapeck</em>, <em>Olivar Bendelak</em>. Een kerngroep van vijf à zes curingas die samen de methode doorgaven aan alles wat internationaal trainde."},
+  {t:"Het Circuito Teatro do Oprimido",
+   body:"Rond CTO-Rio ontstond een circuit van tien geassocieerde theatergroepen. Geen aanhangsels maar zelfstandige gezelschappen die met eigen onderdrukte gemeenschappen werkten: <strong>Marias do Brasil</strong> (huishoudsters), <strong>Pirei na Cena</strong> (gebruikers en familie van geestelijke gezondheidszorg), <strong>Pantera</strong> (LGBT), <strong>Madalena-Anastácia</strong> (zwarte vrouwen, genoemd naar Anastácia — slavin gedwongen tot het dragen van een ijzeren masker), <strong>Corpo EnCena</strong>, <strong>Panela de Opressão</strong>, <strong>Dereito de Ser</strong>. Sinds 2020 wordt het Circuito gesponsord door Petrobras."},
+  {t:"De methodologische lijnen uit Rio",
+   body:"Elk grote lijn van de methodiek kreeg in Rio zijn definitieve vorm. <em>Rainbow of Desire</em> — werk met geïnternaliseerde onderdrukking, in Parijs gedacht, in Rio verder verfijnd met groepen uit de geestelijke gezondheidszorg. <em>Teatro Legislativo</em> — tijdens Boals mandaat als Vereador 1993–96 en daarna voortgezet door CTO als FESTEL-festival (vijf edities). <em>Estética do Oprimido</em> — Boals laatste grote project, over kunst als politieke oefening voorbij Forum."},
+  {t:"Internationaal knooppunt",
+   body:"CTO trainde jokers uit tientallen landen. Wie werkelijk bij Boal wilde studeren ging naar Rio. De Engelstalige internationale trainingen (jaarlijks in december) werden een vaste afspraak voor de wereldgemeenschap. Na Boals dood werden die trainingen voortgezet door de veteranen van CTO. Vanuit CTO-Rio liep ook het programma <em>Teatro do Oprimido de Ponto a Ponto</em> (2005–2010, Santos artistiek directeur) — dat de lusofone wereld afreisde: Guinee-Bissau, Mozambique, Angola, Brazilië. Ongeveer 700 beoefenaars werden in die periode geschoold."},
+  {t:"Metaxis — eigen tijdschrift",
+   body:"Sinds 2001 publiceert CTO-Rio <strong>Metaxis — A Revista do Teatro do Oprimido</strong>. De naam (Grieks: <em>metaxis</em>) verwijst naar Plato's begrip van beweging tussen de wereld van ideeën en die van de werkelijkheid — toegepast op TO: het vermogen van de toeschouwer om het theaterritueel te doorbreken en het beeld te transformeren. Tot nu toe negen edities, grotendeels thematisch: <em>Ponto a Ponto</em> (nr 4, december 2008), <em>Fábrica de Teatro Popular Nordeste</em> (nr 5), <em>Ponto a Ponto Boal</em> (nr 6, oktober 2010, eerbetoon aan Boal met bijdragen van Ganguly, Julian Boal, Cossa, Baumann, Cecília Boal), <em>TO na Saúde Mental</em> (nr 7, maart 2011), <em>CTO 30 anos & TO na Maré</em> (nr 8), <em>Circuito TO</em> (nr 9). Totaaloplage ~15.000 exemplaren, verspreid wereldwijd. Alle nummers zijn als PDF gratis beschikbaar via <em>ctorio.org.br/publicacoes</em>. Geen enkele andere TO-traditie heeft zo'n systematisch tijdschrift-archief."}
+ ],
+ tip:"CTO-Rio is niet 'de zuivere bron'. Het is één plek in een beweging die altijd meervoudig was. Wie denkt dat CTO de maatstaf levert, miskent dat Boal zelf voortdurend opnieuw begon — de Forum in Rio was niet de Forum in Parijs of Lima. Maar het is wel waar de methode haar langste continue institutionele leven heeft. Wie curinga wil worden en een plek zoekt om op te gaan: Rio blijft de referentie.",
+ source:"ctorio.org.br · Metaxis edities 1-9 (2001-heden, alle PDF online) · Santos (2016) · Britto (2024) · Latinoamericana.wiki.br"},
+
+{n:4, title:"Teatro Legislativo — <em>13 wetten</em>",
+ page:"Câmara Municipal do Rio — 1993–1996",
+ type:"Politiek instrument", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 6 min", group:"Mandato coletivo + CTO", phase:"1992–heden",
+ note:"In 1992 werd Boal — na aandringen van vijf CTO-curingas — kandidaat-vereador voor de Partido dos Trabalhadores in Rio. Hij verwachtte niet gekozen te worden. Hij werd gekozen. De volgende vier jaar vormen een van de meest ongewone experimenten in de wereldgeschiedenis van theater: een toneelstuk dat wetten werd. Boal noemde het 'teatro como política' — niet politiek theater, maar theater als politiek.",
+ stages:[
+  {t:"Het mandato coletivo avant la lettre",
+   body:"Boals mandaat (januari 1993 – december 1996) was een <strong>mandato coletivo</strong> — een term die pas twintig jaar later in de Braziliaanse linkse politiek gangbaar zou worden. Een hele theatercompagnie trad toe tot het wetgevingsorgaan. Boals adviseurs waren culturele activisten. Vaste werkwijze: een gemeenschapsgroep (ouderen, getuigen van misdrijven, verpleegkundigen, wijkbewoners) werkte maandenlang met een Joker aan een Forum-voorstelling rond een concreet probleem; na de publieke forumavond werd het materiaal vertaald naar een wetsvoorstel; Boal diende het in; de Câmara debatteerde en stemde."},
+  {t:"De cijfers (Utida 2024)",
+   body:"Academische review door Utida de Miranda, da Conceição & da Silva (2024) stelt het exacte aantal vast. Boal diende <strong>33 wetsvoorstellen</strong> in. Daarvan werden <strong>13 wetten aangenomen</strong>. Onder de aangenomen wetten: <em>Lei 1.119/1995</em> (sancties tegen discriminatie op basis van seksuele oriëntatie in commerciële etablissementen — nog steeds van kracht), <em>Lei 2.390/1995</em> (Conselho Municipal Meio Ambiente), <em>Lei 2.403/1996</em> (verhoogde vuilnisbakken zodat blinden ze konden waarnemen — later ongrondwettig verklaard). De allerbelangrijkste: Brazilië's <strong>eerste Wet op Bescherming van Getuigen</strong>, die de federale Lei 9.807/99 (PROVITA) zou inspireren."},
+  {t:"Doorloop na 1996 — FESTEL",
+   body:"Boal verloor de verkiezingen in 1996. Maar Teatro Legislativo stopte niet. Uit CTO-groep <em>Corpo EnCena</em> (Rio-community, pré-vestibulair probleem) kwam de eerste <strong>Staatswet</strong> uit TL — bewijs dat de methode niet afhankelijk was van een zittend parlementariër. In 2004 volgde een tweede Staatswet, uit groep <em>Panela de Opressão</em> (over verplichte vrouwencondooms in motels). Om het werk voort te zetten organiseerde CTO-Rio vijf edities van <strong>FESTEL</strong> (Festival de Teatro Legislativo), symbolische Sessões Solenes met voorstellingen van verschillende groepen."},
+  {t:"Waarom dit uniek is in de wereld",
+   body:"Teatro Legislativo zoals Boal het praktiseerde is in de wereld zonder echte precedent. Niet 'publieksparticipatie', niet 'burgerraadpleging' — maar <em>het publiek schrijft mee en die tekst wordt wet</em>. Latere adaptaties (Katy Rubin/TONYC sinds 2013, The People Act in UK sinds 2020) hebben expliciet gekozen om <em>niet</em> afhankelijk te zijn van één gekozen politicus — juist omdat Boals experiment bewees hoe kwetsbaar het was toen hij in 1996 verloor."}
+ ],
+ tip:"Lees Utida de Miranda et al. (2024) voor de exacte telling en de volledige lijst. Lees Boals eigen <em>Teatro Legislativo</em> (1996/2020) voor de verhalen achter de wetten. En lees — als je politieke gebruik van Forum serieus overweegt — het Outras Palavras-stuk <em>A potente imaginação política do Teatro Legislativo</em> over wat er nodig is om het model in andere contexten te laten werken.",
+ source:"Utida de Miranda, da Conceição, da Silva (2024) · Boal, Teatro Legislativo (1996, 2020) · augustoboal.com.br · Outras Palavras"},
+
+{n:5, title:"MST 2001 — <em>Brigada Patativa do Assaré</em>",
+ page:"Brazilië ruraal — 2001 tot heden",
+ type:"Rurale systematisering", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 6 min", group:"MST + CTO-Rio", phase:"2001–heden",
+ note:"In 2001 sloot CTO-Rio een partnerschap met het <em>Movimento dos Trabalhadores Rurais Sem Terra</em> — de grootste massabeweging van Latijns-Amerika, met honderdduizenden leden in landbezettingen door heel Brazilië. Boal en zijn team gaven een intensieve eerste formatie. Twintig jaar later was de <strong>Brigada Nacional de Teatro Patativa do Assaré</strong> uitgegroeid tot een eigen esthetiek. Dit is waar CTO-Rio de stad verliet.",
+ stages:[
+  {t:"De aanloop — 1990 en eerder",
+   body:"De MST-Boal relatie begon vroeger dan 2001. In 1990 — Boal net terug uit ballingschap, bezig met wat later Teatro Legislativo zou worden — ontmoette hij een groep <em>Teatro Camponês</em> in het MST-Assentamento Sol da Manhã (Rio-staat). Die samenwerking duurde acht jaar. De Braziliaanse MST was vóór 2001 al een kweekvijver van politiek-cultureel werk, met wortels in de CPCs (Centros Populares de Cultura) van de jaren 60 en in de Freire-traditie. Boal landde in bekend terrein."},
+  {t:"De vijf etappes (2001–2002)",
+   body:"De eigenlijke formatie kwam in vijf etappes tussen 2001 en 2002. CTO-Rio trainde militanten uit verschillende deelstaten als <strong>multiplicadores</strong> — vermenigvuldigers die zelf weer groepen zouden formeren in acampamentos en assentamentos. Daaruit ontstond de <strong>Brigada Nacional de Teatro Patativa do Assaré</strong>, genoemd naar de cearense dichter-improvisator Antônio Gonçalves da Silva (1909–2002) — 'Patativa' was zijn bijnaam, naar de Braziliaanse zangvogel. Op het hoogtepunt ~40 groepen verspreid over Brazilië."},
+  {t:"Teatro Procissão 2005 — het zichtbaarheidsmoment",
+   body:"In 2005, tijdens de <em>Marcha Nacional do MST</em> naar Brasília (~12.000 mensen over 17 dagen), speelde de Brigada <strong>Teatro Procissão</strong> — 270 militanten in een doorlopende theatrale processie die de mars begeleidde. Dit was het grootste massatheater-experiment in de Braziliaanse TO-geschiedenis. Het liet zien wat een brigade-structuur vermocht: niet losse groepen die toevallig theater maakten, maar een gecoördineerd cultureel front binnen een politieke beweging."},
+  {t:"Twintig jaar later — 'capilarisatie'",
+   body:"Julian Boal in interview (MST-site 2023): vandaag zijn er misschien minder formele groepen dan vroeger, maar 'de techniek is gecapilariseerd — er zijn geen gespecialiseerde groepen meer nodig, elke cel van het MST kan zelf een korte Forum-scène op een vergadering zetten'. De academische analyse (Villas-Boas 2021, <em>2001–2021: Duas décadas</em>) stelt vast dat het MST-TO-werk een eigen esthetiek heeft ontwikkeld die niet meer zuiver Boalistisch is — ook Brecht, Piscator, AgitProp, Blusa Azul zitten erin."}
+ ],
+ tip:"De Brigada Patativa laat zien dat TO in Brazilië diep op het platteland is geworteld — niet alleen in favela's en Rio-instellingen. Wie een compleet beeld wil van Braziliaans TO, moet ook Villas-Boas lezen (<em>MST conta Boal</em>, 2013, over de Ligas Camponesas–Arena–CTO-lijn) en Douglas Estevam (<em>A práxis teatral do MST</em>, 2021). De 'mística' — openingsritueel van MST-bijeenkomsten — is nauw verwant aan wat TO onder esthetica verstaat.",
+ source:"mst.org.br · Villas-Boas (2021) Rev. Brasileira de Educação do Campo · Estevam (2021) A Terra é Redonda · Julian Boal-interview MST 2023"},
+
+{n:6, title:"Salvador — <em>CTO-Bahía</em>",
+ page:"Salvador, Bahia — eigen tak",
+ type:"Regionale tak", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 4 min", group:"CTO-Bahía", phase:"Actief",
+ note:"Rio is niet de enige CTO in Brazilië. In Salvador — hoofdstad van Bahia, het zwartst-afrikaanse hart van Brazilië — werkt <strong>CTO-Bahía</strong> als zelfstandige tak van de TO-beweging. Regelmatig op ELTO's aanwezig (in Valparaíso januari 2026 met <em>O Pregador — Teatro Foro Antirracista</em>) en met eigen groepen die specifiek aan antiracistische en Afro-Braziliaanse thema's werken.",
+ stages:[
+  {t:"Waarom Bahia ertoe doet",
+   body:"Salvador was de eerste hoofdstad van koloniaal Brazilië en het centrum van de Afrikaanse slavenhandel. Vandaag is Bahia de deelstaat waar de Braziliaanse zwarte bevolking, de cultuur, de religies (candomblé) en de muzikale traditie (samba-reggae, afoxé) het meest geconcentreerd zijn. TO in Salvador werkt in dat specifieke culturele veld — wat een ander accent legt dan Rio-CTO, dat meer stedelijk-Zuidoost-Braziliaans gekleurd is."},
+  {t:"O Pregador — antiracistisch Forum",
+   body:"In de ELTO 2026 Valparaíso-programmatie speelt CTO-Bahía <strong>O Pregador</strong> — een Forum-voorstelling over anti-zwart racisme in Braziliaanse religieuze en culturele ruimten. De voorstelling is typerend voor het Bahiaanse accent: racisme-analyse vanuit het zwarte subject, niet als abstract thema maar vanuit specifieke alledaagse ontmoetingen — politie, buurt, kerk, werk."},
+  {t:"Geografische dubbelkern",
+   body:"De aanwezigheid van CTO-Bahía maakt Brazilië tot een land met een <em>dubbele CTO-kern</em>: Rio (Zuidoost-as) en Salvador (Nordeste). Voor wie de Braziliaanse TO-kaart wil lezen: er is niet één centrum. Boal zelf kwam uit Rio (geboren Penha, 16 maart 1931) en koos Rio voor zijn post-ballingschap institutie, maar de MST-Brigada heeft haar zwaartepunt in Nordeste, CTO-Bahía in Salvador, Companhia do Latão in São Paulo. Brazilië is een continent."},
+  {t:"Minder internationaal zichtbaar",
+   body:"CTO-Bahía is in internationale TO-literatuur minder zichtbaar dan CTO-Rio — deels omdat Salvador geografisch verder van de internationale congresroutes ligt, deels omdat de lusofone literatuur uit Bahia minder vertaald is. Dat maakt de groep niet minder actief: ELTO-deelnames, Latijns-Amerikaanse netwerkwerk, eigen festivals. Maar het is een herinnering dat 'Braziliaans TO' niet gelijk is aan 'CTO-Rio'."}
+ ],
+ tip:"Als je ooit naar Brazilië reist voor TO-onderzoek, overweeg naast Rio ook Salvador. De dialogen met candomblé-traditie, capoeira-performativiteit en Afro-Braziliaanse vrouwenbewegingen zijn in Bahia intensiever dan elders. Voor wie aan het snijvlak van TO en dekoloniaal/antiracistisch werk zit: daar ligt materiaal.",
+ source:"ELTO 2026 programma (parquecultural.cl) · CTO-Bahía via RELATO-netwerk"},
+
+{n:7, title:"Escola de Teatro Popular — <em>ETP 2018</em>",
+ page:"Rio de Janeiro — sinds oktober 2018",
+ type:"Nieuwe generatie", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 5 min", group:"Julian Boal & Geo Britto", phase:"Sinds 2018",
+ note:"In oktober 2018 — tussen de eerste ronde van de Braziliaanse presidentsverkiezing en de runoff tussen Bolsonaro en Haddad — richtten <strong>Julian Boal</strong> (Augusto's zoon, leefde grotendeels in Parijs) en <strong>Geo Britto</strong> de Escola de Teatro Popular op in Rio. Geen tegenhanger van CTO, maar een volgend hoofdstuk: een school gerund door sociale bewegingen, voor sociale bewegingen, met politieke eenheid als doel — gepraktiseerd via theater.",
+ stages:[
+  {t:"Waarom juist 2018",
+   body:"De conceptdatum is geen toeval. Julian Boal zelf (Project MUSE 2019): 'It was conceived in October 2018, in the weeks between the first round of the Brazilian presidential election and the runoff between Bolsonaro and Haddad.' Bolsonaro lag vóór, de opmars van extreem-rechts was onmiskenbaar. ETP werd opgericht als cultuurfront tegen een bedreigde democratie — met de expliciete premisse dat 'trabalho de base' (basiswerk) zonder culturele dimensie niet werkt. De scholen die ETP bedient zijn schoolvoorbereidingen (vestibular), verbonden met bezettingsbewegingen en favela-organisaties."},
+  {t:"Geo Britto — de pedagogische schouder",
+   body:"Britto werkte 32 jaar bij CTO (20 daarvan naast Boal). In 2024 verscheen zijn boek <em>Augusto Boal e a formação do Teatro do Oprimido</em> (Mórula) — bekroond door de Braziliaanse Nationale Bibliotheek in de categorie Sergio Buarque de Holanda. Het boek is een marxistisch-archeologisch onderzoek naar Boals formatie: Teatro Negro, John Gassner, Erwin Piscator, Langston Hughes, Lee Strasberg als voorgeschiedenis. Britto gebruikt het om ETP-studenten te leren TO te lezen als deel van een bredere traditie van revolutionair theater."},
+  {t:"Een school voor sociale bewegingen",
+   body:"ETP werkt niet als traditioneel opleidingsinstituut. Het werft leerlingen uit <em>occupations</em> (bezette gebouwen, bezet land), favela's en arbeidersscholen. Voorbeelden van partnerschappen: schoolvoorbereiding in Complexo do Alemão en Maré (twee van de grootste Rio-favela's), samenwerking met +Nos, trajecten met MST. De structuur: een jaar voorbereiding voor vestibular-examens waaraan theater fundamenteel verbonden is — zodat na het examen de leerlingen doorgaan binnen de beweging."},
+  {t:"Versplintering of verveelvoudiging?",
+   body:"Na Boals dood in 2009 is CTO-Rio niet uiteengevallen maar wél verveelvoudigd. Barbara Santos ging naar Berlijn (KURINGA). Julian Boal en Geo Britto richtten ETP op. CTO-Rio zelf bleef doorwerken met Claudete Felix, Helen Sarapeck, Olivar Bendelak en anderen. In 2010 werd het <strong>Instituto Augusto Boal</strong> opgericht (Cecilia Boal voorzitter, Julian mede-directeur) voor archief en nalatenschap. Dit is niet versplintering maar iets typisch Braziliaans: meerdere erfgenamen, elk met eigen inflectie, samen levend door dezelfde methode."}
+ ],
+ tip:"Als je hedendaags Braziliaans TO wilt volgen, volg drie adressen: <strong>ctorio.org.br</strong> (CTO-Rio), <strong>augustoboal.com.br</strong> (Instituto Augusto Boal, met archief en lezingen), en <strong>ETP</strong> via Geo Britto's publicaties en Julian Boals Eventbrite. Samen dekken ze het hedendaagse Braziliaanse TO-spectrum — instituut, nalatenschap, nieuwe generatie.",
+ source:"Project MUSE: Taylor over Julian Boal (2019) · MIT Theater: Britto lezing (2024) · Montclair Interview (2019) · augustoboal.com.br"},
+
+{n:8, title:"Instituto Augusto Boal — <em>nalatenschap</em>",
+ page:"Rio de Janeiro — sinds 2010",
+ type:"Archief & nalatenschap", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 4 min", group:"Instituto Augusto Boal", phase:"Sinds 2010",
+ note:"Eén jaar na Boals dood richtte zijn familie het <strong>Instituto Augusto Boal</strong> op. Geen museum, geen denktank — een werkend archief dat Boals persoonlijke nalatenschap (correspondentie, manuscripten, opnames, foto's) digitaliseert, ordent en beschikbaar stelt. Cecilia Thumin Boal — Argentijnse psychoanalytica, actrice, Boals levenspartner — is voorzitter. Julian Boal en Fabián Boal zijn directeur.",
+ stages:[
+  {t:"Wat het Instituto doet",
+   body:"Kernactiviteit: archiefbeheer. Boal hield zijn leven lang alles bij — brieven aan Chico Buarque, Ferreira Gullar, Jan Kott; manuscripten van onuitgegeven werken; foto's uit Arena, Buenos Aires, Lima, Parijs; video-opnames van internationale Forum-sessies. Dit materiaal wordt gedigitaliseerd en in het <em>Acervo Augusto Boal</em> gecatalogiseerd (codering bijvoorbeeld 'AB.Rf.013' voor foto's). Het archief is fundament voor alle academische Boal-studie sindsdien."},
+  {t:"Publicaties en heruitgaven",
+   body:"Het Instituto coördineert heruitgaven van Boals werk bij <strong>Editora 34</strong> — een gerenommeerde Braziliaanse academische uitgever. Verschenen sinds 2019: <em>Teatro Reunido</em> (bundeling toneelstukken), een definitieve editie van <em>Teatro Legislativo</em> (2020, bezorgd door Fabiana Comparato en Julian Boal), een nieuwe editie van <em>Teatro do Oprimido e outras poéticas políticas</em> (gelanceerd in het <em>Armazém do Campo</em> van het MST). Ook tentoonstellingen: <em>Meus Caros Amigos</em> (Museu do Aljube Lissabon, 2017, curatorschap Eucanaã Ferraz) over Boals ballingschap."},
+  {t:"Educatie en politieke actualisering",
+   body:"Naast archief organiseert het Instituto lezingen, ronde tafels en formatie-workshops. Vaak in samenwerking met MST (Mineirinho), Companhia do Latão (Sérgio de Carvalho), CTO-Rio (Geo Britto), ETP (Julian Boal), en internationale partners (Instituto Goethe, Kuringa Berlijn). Het Instituto vervult de functie van een centraal referentiepunt — een 'waar ben je als je iets over Boal wilt weten?' — en fungeert tegelijkertijd als politieke actualisering: hoe betekent Boal vandaag?"},
+  {t:"Een ongebruikelijke familiestructuur",
+   body:"Het Instituto is grotendeels een familiezaak. Cecilia als voorzitter — zelf psychoanalytica en actrice, zelfstandig denker in feministische psychoanalytische kringen. Julian — zelf academicus (Sorbonne, UFRJ), auteur, curator, mede-oprichter ETP. Fabián — Cecilia's oudste zoon uit eerder huwelijk, opgegroeid in het Boal-huishouden. Deze structuur is niet evident (risico op hagiografie), maar werkt in dit geval: de familie heeft expliciet gekozen voor <em>kritische continuering</em>, niet verering."}
+ ],
+ tip:"Wie een serieus onderzoeksproject over Boal begint, gaat naar het Instituto. Niet alleen voor de bronnen — ook voor het commentaar. Cecilia, Julian en hun team zijn scherpe lezers van de methode en terughoudend tegenover oppervlakkige 'applied theatre'-toepassingen. Hun blog <em>augustoboal.com.br</em> publiceert regelmatig thematische series (april-maand over de vereador-periode, andere maanden over Arena, over correspondentie, etc.).",
+ source:"augustoboal.com.br · Editora 34 · Museu do Aljube exposities · Instituto Augusto Boal programmering"},
+
+{n:9, title:"Academische productie — de <em>Braziliaanse canon</em>",
+ page:"Brazilië — continu",
+ type:"Intellectuele motor", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 5 min", group:"Curingas + academici", phase:"2016–heden",
+ note:"Brazilië produceert vandaag meer serieuze theoretische TO-literatuur dan welk ander land ook. Sinds 2016 is een Braziliaanse canon ontstaan — geschreven door curingas die zelf jaren met Boal werkten, niet door academici die hem van buiten bestudeerden. Dit is nieuw: eerdere TO-theorie kwam vooral uit Angelsaksische en Franse academies. De kentering sinds 2016 is een van de belangrijkste ontwikkelingen in het hedendaagse TO.",
+ stages:[
+  {t:"Bárbara Santos — Raízes e Asas (2016)",
+   body:"<strong>Santos' <em>Teatro do Oprimido: Raízes e Asas — uma teoria da práxis</em></strong> (Íbis Libris, 528 pp.) is de eerste grote Braziliaanse theoretische synthese na Boal. Gebaseerd op 20 jaar CTO-coördinatie, 20 jaar internationale vermenigvuldigingsprogramma's, 10 jaar Madalena-werk. Santos systematiseert de methode als <em>praxis</em> — niet als 'technieken' maar als politieke oefening met een eigen epistemologie. In 2023 volgde <em>Teatro de las Oprimidas</em> — de aparte feministische lijn. Voor velen: toegankelijker en concreter dan Boals eigen latere werken."},
+  {t:"Geo Britto — Augusto Boal e a formação... (2024)",
+   body:"<strong>Britto's <em>Augusto Boal e a formação do Teatro do Oprimido</em></strong> (Mórula, 2024) is een marxistisch-archeologisch onderzoek: hoe werd Boal intellectueel gevormd? Teatro Negro, John Gassner, Piscator, Erwin Piscator, Langston Hughes, Lee Strasberg, Brecht. Het boek verzet zich expliciet tegen depolitiserende interpretaties van TO. Britto: 'TO is geen toolbox. Het is de uitdrukking van een specifieke materialistische analyse van macht in theaterruimtes.' Bekroond door de Braziliaanse Nationale Bibliotheek."},
+  {t:"Villas-Boas — twee decennia MST-TO",
+   body:"<strong>Rafael Villas-Boas</strong> (UnB) is de academische referentie over de MST-Boal lijn. Zijn werk omvat: <em>MST conta Boal: do diálogo das Ligas Camponesas com o Teatro de Arena à parceria do CTO com o MST</em> (Revista IEB, 2013), <em>Quando Camponeses Entram em Cena</em> (2019), en de grote synthese <em>2001–2021: Duas décadas da Brigada Patativa</em> (Revista Brasileira de Educação do Campo, 2021). Samen 200+ pagina's peer-reviewed analyse over wat een rurale sociale beweging met TO heeft gedaan."},
+  {t:"Utida de Miranda — Teatro Legislativo herzien",
+   body:"<strong>Gabriel Utida de Miranda</strong>, met collega's da Conceição en da Silva, publiceerde in <em>Olhares</em> (2024) de definitieve review: <em>Teatro Legislativo: uma revisão das leis do mandato político-teatral do vereador Augusto Boal</em>. De eerdere tellingen varieerden (Boal zelf noemde verschillende getallen in verschillende interviews); Utida et al. stelden met archiefwerk in de Câmara Municipal do Rio vast: 33 voorstellen ingediend, 13 aangenomen. Dit is hoe gedegen historiografie eruitziet: geen herhaling, maar teruggaan naar de bron."}
+ ],
+ tip:"Als je één Braziliaanse TO-auteur leest na Boal: Bárbara Santos. <em>Raízes e Asas</em> is beschikbaar in het Portugees, Spaans, Duits en deels Engels (niet in het Nederlands). Als je er twee leest: Santos én Britto — ze vullen elkaar aan. Santos schrijft vanuit systematische synthese (praxis), Britto vanuit historische archeologie (formatie). Samen bouwen ze een Braziliaanse canon die Angelsaksische TO-literatuur decentraliseert.",
+ source:"Santos, Raízes e Asas (Íbis Libris 2016) · Britto (Mórula 2024) · Villas-Boas publicaties · Utida et al. Olhares 10(1), 2024"},
+
+{n:10, title:"Kritiek van binnenuit — <em>tegen depolitisering</em>",
+ page:"Brazilië — debat",
+ type:"Zelfkritiek", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 5 min", group:"Britto, Julian Boal, Santos", phase:"Doorlopend",
+ note:"De belangrijkste kritiek op hedendaags TO komt uit Brazilië zelf. Niet van buitenstaanders die TO te radicaal vinden, maar van curingas die TO te <em>gedepolitiseerd</em> vinden. Britto, Julian Boal en Santos waarschuwen alle drie — met verschillende accenten — voor commercialisering, 'soft skills-training' en de reductie van Forum tot conflicttool. Dit debat is binnen Brazilië scherp en wordt niet altijd naar het buitenland geëxporteerd.",
+ stages:[
+  {t:"De mercantiliseringskritiek (Britto)",
+   body:"Geo Britto's centrale kritiek: TO wordt in de wereld in toenemende mate verpakt als 'soft skills'-tool voor bedrijven, trainingsprogramma's en institutionele consultaties. Forum wordt een techniek om 'stakeholder-input' te verkrijgen in plaats van een oefening in politieke actie. Britto's boek (2024) is deels een expliciete interventie daartegen: door TO's formatie terug te plaatsen in de marxistische traditie (Piscator, agitprop, revolutionair theater) wijst hij op wat verloren gaat wanneer je alleen de 'technieken' overneemt zonder de analyse. <em>'TO is geen toolbox.'</em>"},
+  {t:"De 'trabalho de base'-kritiek (Julian Boal)",
+   body:"Julian Boal — gevormd in de anti-Bolsonaro-weerstand van 2018–2022 — legt het accent anders. Zijn waarschuwing: de Braziliaanse links heeft in haar strategieën <em>te weinig</em> ruimte voor cultureel werk. 'We weten dat Bolsonaro verloor, maar we weten ook dat het bolsonarismo nog leeft — en om harten en hoofden te winnen is veel werk nodig.' ETP is daar een concreet antwoord op: theater als onderdeel van grondwerk, niet als aanhangsel. De kritiek is dus niet alleen 'TO wordt gedepolitiseerd' maar ook 'politiek verlaat TO'."},
+  {t:"De feministische tegenpositie (Santos)",
+   body:"Bárbara Santos voegt een derde dimensie toe. Haar kritiek: TO-zoals-gepraktiseerd heeft lang blinde vlekken gehad voor gender-onderdrukking binnen de eigen beweging. Machismo in Forum-groepen, patriarchale beslisstructuren, vrouwen uitgenodigd maar niet gehoord. Teatro das Oprimidas ontstond deels <em>binnen</em> die kritiek — als poging om een methode waarvan ze dertig jaar bouwer was <em>opnieuw</em> te maken, nu vanuit feministisch-intersectioneel perspectief. Het III ELTO La Paz (2014) was het moment waarop deze kritiek publiek werd."},
+  {t:"Waarom dit Brazilië-specifiek is",
+   body:"Dit debat vindt plaats in Brazilië in een specifieke vorm. In Europa is TO vaker 'applied theatre' geworden — een grotendeels gedepolitiseerd werkveld. In Brazilië bestaat een levende curinga-generatie die Boal persoonlijk kende en het recht voelt om te waarschuwen. Bovendien: Brazilië kent door Bolsonaro (2019–2022) en het aanhoudende bolsonarismo een politieke urgentie die in West-Europa minder pregnant is. De Braziliaanse kritiek is geen academisch debat, het is bestaansstrategie."}
+ ],
+ tip:"Deze kritiek is belangrijk voor Jokers die in West-Europese institutionele contexten werken — scholen, welzijnsinstellingen, vakbonden, gemeentes. Niet om TO onbruikbaar te verklaren daar, maar om scherp te blijven over wat je doet. De vraag die Britto, Julian en Santos samen stellen: <em>werkt jouw Forum-werk mee aan emancipatoire organisatie, of werkt het mee aan het gladstrijken van conflicten die niet gladgestreken zouden moeten worden?</em>",
+ source:"Britto MIT-lezing (2024) · Julian Boal Project MUSE (2019) en MST-interview (2023) · Santos Raízes e Asas + Teatro de las Oprimidas"},
+
+{n:11, title:"Wat maakt dit <em>Braziliaans</em>?",
+ page:"Brazilië — synthese",
+ type:"Synthese", typeBg:"#ebe0e5", typeFg:"#4d2839",
+ stripe:"#6d3a52",
+ duration:"lezen: 6 min", group:"—", phase:"Afsluiting",
+ note:"Tien kaarten beschreven een land. Deze elfde trekt de lijnen samen. Wat maakt Braziliaans TO onderscheidend — ten opzichte van Hispanofoon Zuid-Amerika, Europa, Afrika, Midden-Amerika? Zes patronen. En een brug naar de parallel-carrousel.",
+ stages:[
+  {t:"1. Institutionalisering zonder depolitisering",
+   body:"Anders dan in West-Europa (waar TO vaak 'applied theatre' werd) of de VS (waar het in academische theaterprogramma's verdween), heeft Braziliaans TO institutionele vorm gekregen <em>zonder</em> noodzakelijk te depolitiseren. CTO-Rio werkt sinds 1986, bezet een vast gebouw, ontvangt publieke financiering — en is nog steeds uitgesproken marxistisch. Dat is niet vanzelfsprekend; het is het resultaat van een generatie curingas die bewust tegen mercantilisering vecht."},
+  {t:"2. Staatlijke actie als onderdeel van de methode",
+   body:"Teatro Legislativo als formele wetgevende procedure — 13 aangenomen wetten in Rio, 2 staatswetten daarna — is in de wereld zonder echt precedent. Niet 'publieksparticipatie' maar <em>het publiek schrijft mee en die tekst wordt wet</em>. In Hispanofoon Zuid-Amerika bestaat wel RELATO-ELTO-activisme maar minder directe wetgevende praktijk. In Europa en VS bestaat intussen TONYC/The People Act als adaptaties — maar ze zijn bewust anders gestructureerd (minder afhankelijk van één gekozen politicus)."},
+  {t:"3. Plattelandswortel — MST",
+   body:"De Afrika-carrousel liet zien: daar is TO overwegend stedelijk en peri-urbaan. Hispanofoon Zuid-Amerika werkt in steden en gevangenissen. Brazilië heeft als enige land een structurele plattelandstak — MST Brigada Patativa — die ~40 groepen in assentamentos en acampamentos heeft gedragen. Dit maakt Braziliaans TO een van de weinige waar stad en platteland, favela en landbezetting, deel zijn van één methode-ecosysteem."},
+  {t:"4. Lusofoon circulatie",
+   body:"Brazilië is de enige lusofone natie met een volwaardig TO-apparaat. Dat maakt het automatisch de brug naar Lusofoon Afrika — Guinee-Bissau, Mozambique, Angola — via het Ponto a Ponto-programma (Santos 2005–2010). Hispanofoon Zuid-Amerika werkt in het Spaans, Lusofoon Afrika werkt in het Portugees; Brazilië staat als enige aan beide kanten. Curingas uit Salvador en Rio reizen naar Maputo en Bissau; Kaapverdiaanse en Bissau-Guinese curingas studeren in Rio."},
+  {t:"5. Continue academische productie na Boal",
+   body:"Het post-2009 verschil: Brazilië produceert zelf de TO-theorie. Santos (2016, 2023), Britto (2024), Villas-Boas (2013–2021), Utida (2024). Dit is geen academie <em>over</em> TO — het zijn curingas die theoretiseren vanuit eigen praktijk. De Angelsaksische academie (Howe, Cohen-Cruz, Babbage, Jackson als vertaler) blijft belangrijk, maar de Braziliaanse stem is nu gelijkwaardig aanwezig in het internationale debat. Dat was vóór 2016 niet zo."},
+  {t:"6. Herhaalde beweging: ballingschap en thuiskomst",
+   body:"Boal zelf is het patroon: gedwongen uitgewezen 1971, technieken aangepast in den vreemde, teruggekeerd 1986, institutie gesticht. Santos heeft een klein-scale parallel: Rio 1991–2010, Berlijn 2010–heden, Magdalena-netwerk wereldwijd. Het is niet toevallig dat Braziliaans TO zo'n diaspora-gevoelig werk is geworden: de grondleggers <em>waren</em> diaspora. Dat geeft het een specifieke alertheid voor wat grenzen doen met methodes — en voor wat methodes doen met grenzen."},
+  {t:"Brug naar de parallel-carrousel",
+   body:"Brazilië is niet alleen. Deze carrousel staat naast <strong>TO in Hispanofoon Zuid-Amerika</strong> — waar Buenaventura/TEC Cali, Santiago García/La Candelaria, Yuyachkani/Lima, El Galpón/Montevideo, MTO-Jujuy, Las Sin Rienda, Corporación Otra Escuela en het RELATO-ELTO-Magdalena-netwerk leven. Het is een ander ecosysteem: Spaanstalig, horizontaler georganiseerd, met een eigen Nuevo Teatro-traditie die <em>parallel</em> aan Boal werd ontwikkeld en hem mede-beïnvloedde. Samen vormen de twee carrousels één continent, twee talen, één stamboom."}
+ ],
+ tip:"Als je Braziliaans TO wilt benaderen: aanvaard dat 60% van alle levende TO-praktijk wereldwijd hier speelt — maar dat dit geen reden is om Brazilië als <em>norm</em> te nemen. De methode werd meervoudig gevormd en blijft meervoudig. Rio is één plek, Salvador is een andere, Porto Alegre nog een andere. Binnen Brazilië zelf is TO geen uniforme praktijk maar een familie van praktijken.",
+ source:"Synthese uit alle voorgaande bronnen · onderzoeksrapport TO in Zuid-Amerika (april 2026)"}
+
+];
+
+let cur = 0;
+
+function renderPills() {
+  const pills = document.getElementById('pills');
+  pills.innerHTML = T.map((t,i) => 
+    `<button class="tpill ${i===cur?'on':''}" onclick="goTech(${i})">${i+1}</button>`
+  ).join('');
+}
+
+function render() {
+  const t = T[cur];
+  renderPills();
+  
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Kaart ${t.n} van ${T.length} &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-form">${t.page}</span>
+            <span class="badge-type" style="background:${t.typeBg};color:${t.typeFg}">${t.type}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Lengte</strong> ${t.duration}</span>
+          ${t.group ? `<span class="meta-item"><strong>Schaal</strong> ${t.group}</span>` : ''}
+          <span class="meta-item"><strong>Periode</strong> ${t.phase}</span>
+        </div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-source">
+        <span><strong>Bron</strong> · ${t.source}</span>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`
+  ).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; render(); }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof ArsenaalNav !== 'undefined') {
+    ArsenaalNav.init({
+      horizontal: { next: nextTech, prev: prevTech }
+    });
+  }
+});
+
+render();
+</script>
+</body>
+</html>

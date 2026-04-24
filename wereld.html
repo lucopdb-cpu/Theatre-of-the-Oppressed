@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2d5a3e">
+  <title>Atlas en regionale verdiepingen — Arsenaal van de Joker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a1814;
+      --ink2: #52504a;
+      --ink3: #9a9790;
+      --paper: #faf8f4;
+      --paper2: #f2ede4;
+      --paper3: #e8e0d4;
+      --serif: 'Playfair Display', Georgia, serif;
+      --body: 'Source Serif 4', Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 60px 0 30px;
+      text-align: center;
+      border-bottom: 1px solid var(--paper3);
+    }
+
+    .header h1 {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .header .subtitle {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--ink3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .header .description {
+      font-family: var(--body);
+      font-size: 1.125rem;
+      color: var(--ink2);
+      max-width: 640px;
+      margin: 0 auto;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 8px 16px;
+      background: var(--paper2);
+      border-radius: 20px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-family: var(--sans);
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--paper3);
+      color: var(--ink);
+    }
+
+    /* Main content */
+    .main {
+      padding: 40px 0 80px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink2);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--paper3);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border: 1px solid var(--paper3);
+      border-radius: 12px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--icon-bg);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-family: var(--serif);
+      font-size: 1.375rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .card .meta {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: var(--ink3);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 0.9375rem;
+      color: var(--ink2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--paper3);
+    }
+
+    .badge {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: var(--badge-bg);
+      color: var(--badge-color);
+      font-weight: 500;
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-size: 1.125rem;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* Horizon-notitie (voor toekomstige regio's) */
+    .horizon-note {
+      background: var(--paper2);
+      border: 1px dashed var(--paper3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 24px;
+      font-family: var(--body);
+      font-size: 0.9375rem;
+      color: var(--ink2);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .horizon-note strong {
+      font-weight: 400;
+      font-style: normal;
+      color: var(--ink);
+    }
+
+    /* Werk in uitvoering — niet-klikbare kaart */
+    .card-wip {
+      background: var(--paper2);
+      border: 1px dashed var(--paper3);
+      border-radius: 12px;
+      padding: 28px;
+      display: block;
+      position: relative;
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    .card-wip .card-icon {
+      background: var(--paper3);
+    }
+
+    .card-wip h2 {
+      font-family: var(--serif);
+      font-size: 1.375rem;
+      font-weight: 400;
+      color: var(--ink2);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .card-wip .meta {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: var(--ink3);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card-wip p {
+      font-size: 0.9375rem;
+      color: var(--ink2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .card-wip-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px dashed var(--paper3);
+    }
+
+    .wip-badge {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: #fbecd4;
+      color: #8a5120;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .wip-marker {
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      color: var(--ink3);
+      font-style: italic;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .header h1 { font-size: 2rem; }
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <h1>Atlas en regionale verdiepingen</h1>
+    <div class="subtitle">TO in de wereld — achtergrond</div>
+    <div class="description">
+      Hoe Theatre of the Oppressed vorm krijgt in verschillende regio's. De atlas met 14 praktijken wereldwijd, plus regionale carrousels per continent. Dit is achtergrondmateriaal — context, geschiedenis, netwerken, debatten. De gereedschapskist zelf vind je in de hoofdindex.
+    </div>
+    <a class="back-link" href="index.html">← Terug naar het Arsenaal</a>
+  </header>
+
+  <main class="main">
+
+    <!-- Atlas: 14 praktijken wereldwijd -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">De atlas</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="atlas.html" style="--accent:#2d5a3e; --icon-bg:#dce8e1; --badge-bg:#dce8e1; --badge-color:#2d5a3e;">
+          <div class="card-icon">🗺️</div>
+          <h2>Praktijken in context</h2>
+          <div class="meta">14 plekken · Amerika's · Europa · Afrika · Azië · conflict · opleiding</div>
+          <p>Theatre of the Oppressed is altijd contextueel. Deze atlas brengt 14 praktijken in beeld — van Rio tot Calcutta, van Maputo tot Rotterdam, van Medellín tot Tel Aviv. Elke plek met haar eigen aanpassing, haar eigen gemeenschap, haar eigen nood. Geen directory van organisaties, wel een dwarsdoorsnede van de levende veelvormigheid van het werk.</p>
+          <div class="card-footer">
+            <span class="badge">14 plekken</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Regionale verdiepingen -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Regionale verdiepingen</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <div class="card-wip">
+          <div class="card-icon">🚧</div>
+          <h2>TO in Afrika</h2>
+          <div class="meta">13 kaarten · werk in uitvoering</div>
+          <p>Verdieping op één continent — francofoon en lusofoon spoor, met Zuid-Afrika als parallelle traditie en Jane Plastows kritische tegenstem. Tijdelijk niet beschikbaar tot de update klaar is.</p>
+          <div class="card-wip-footer">
+            <span class="wip-badge">🚧 In bewerking</span>
+            <span class="wip-marker">binnenkort terug</span>
+          </div>
+        </div>
+
+        <div class="card-wip">
+          <div class="card-icon">🚧</div>
+          <h2>TO in Midden-Amerika</h2>
+          <div class="meta">7 kaarten · werk in uitvoering</div>
+          <p>Een regio die zichzelf organiseert rond REDTOCA — van FOMMA in Chiapas tot de Magdalenas in Matagalpa. Tijdelijk niet beschikbaar tot de update klaar is.</p>
+          <div class="card-wip-footer">
+            <span class="wip-badge">🚧 In bewerking</span>
+            <span class="wip-marker">binnenkort terug</span>
+          </div>
+        </div>
+
+        <div class="card-wip">
+          <div class="card-icon">🚧</div>
+          <h2>TO in Brazilië</h2>
+          <div class="meta">11 kaarten · werk in uitvoering</div>
+          <p>De institutionele thuishaven van TO — van Teatro de Arena tot de MST-Brigada Patativa. Tijdelijk niet beschikbaar tot de update klaar is.</p>
+          <div class="card-wip-footer">
+            <span class="wip-badge">🚧 In bewerking</span>
+            <span class="wip-marker">binnenkort terug</span>
+          </div>
+        </div>
+
+        <div class="card-wip">
+          <div class="card-icon">🚧</div>
+          <h2>TO in Hispanofoon Zuid-Amerika</h2>
+          <div class="meta">11 kaarten · werk in uitvoering</div>
+          <p>Het parallelle continent — van Buenaventura in Cali tot Yuyachkani in Lima, met RELATO en Magdalena-netwerk. Tijdelijk niet beschikbaar tot de update klaar is.</p>
+          <div class="card-wip-footer">
+            <span class="wip-badge">🚧 In bewerking</span>
+            <span class="wip-marker">binnenkort terug</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="horizon-note">
+        <strong>Aan de horizon:</strong> alle regionale verdiepingen worden momenteel lokaal uitgewerkt en komen terug zodra ze klaar zijn. Daarnaast volgen in latere onderzoeksrondes <em>TO in Europa</em>, <em>TO in Azië</em> en <em>TO in Oceanië</em>. Elementen ervan zitten al verspreid in Na Boal (Jana Sanskriti, Polarized Model, TONYC).
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
