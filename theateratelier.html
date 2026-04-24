@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="nav.js" defer></script>
+<meta name="theme-color" content="#b8803c">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>Theateratelier — Een Nederlandse TO-methodiek</title>
+<meta name="description" content="Het Theateratelier — werkvorm binnen Participatief Drama, vormgegeven door Luc Opdebeeck bij Formaat Rotterdam. Sociale activering via langdurig groepswerk.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arsenaal van de Joker">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Theateratelier — Een Nederlandse TO-methodiek">
+<meta property="og:description" content="Het Theateratelier — werkvorm binnen Participatief Drama, vormgegeven door Luc Opdebeeck bij Formaat Rotterdam. Sociale activering via langdurig groepswerk.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/theateratelier.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Theateratelier — Een Nederlandse TO-methodiek">
+<meta name="twitter:description" content="Het Theateratelier — werkvorm binnen Participatief Drama, vormgegeven door Luc Opdebeeck bij Formaat Rotterdam. Sociale activering via langdurig groepswerk.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --rule:rgba(26,24,20,.1);
+
+  /* Theateratelier-signatuur: amber-goud */
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#d6a566;--amber4:#fdf5e8;
+  --amber-deep:#704a1e;
+
+  /* Categorie-accenten voor de zes kaarten */
+  --cat-definitie:#8c5e2a;
+  --cat-ateliers:#a86b2d;
+  --cat-proces:#b8803c;
+  --cat-doelgroep:#5c8c4a;
+  --cat-fundering:#5c3d1e;
+  --cat-erkenning:#4a5c7a;
+
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);line-height:1.6;min-height:100vh;padding-bottom:5rem;overflow-x:hidden}
+
+/* Noise-textuur — papierwarmte */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;mix-blend-mode:multiply}
+
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* Back link */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:12px 0 4px;transition:color .15s}
+.back-link:hover{color:var(--amber)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--amber);padding:28px 0 24px;margin-bottom:24px;text-align:center}
+.eyebrow{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:12px}
+.app-name{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.6rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.1;margin-bottom:.4rem;letter-spacing:-.02em}
+.app-name strong{font-style:normal;font-weight:600;color:var(--amber)}
+.app-sub{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.5rem}
+.context-note{font-family:var(--body);font-style:italic;font-size:15px;font-weight:300;color:var(--ink2);max-width:580px;margin:0 auto;line-height:1.75}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--amber2);color:var(--amber)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.card-cat{display:inline-block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px;background:var(--amber4);color:var(--amber-deep);border:1px solid var(--amber3)}
+.card-name{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
+.card-sub{font-family:var(--body);font-style:italic;font-size:13px;font-weight:300;color:var(--ink2);margin-top:4px}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-num{font-family:var(--serif);font-size:2.2rem;font-weight:400;font-style:italic;color:var(--amber);opacity:.16;line-height:1}
+
+/* Card body */
+.card-body{padding:20px 26px 4px}
+.card-desc{font-family:var(--body);font-size:14px;font-weight:300;line-height:1.75;color:var(--ink);margin-bottom:14px}
+.card-desc strong{font-weight:500;color:var(--amber-deep)}
+.card-quote{font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--amber-deep);border-left:3px solid var(--amber3);padding-left:14px;margin-bottom:14px;line-height:1.65;opacity:.95}
+
+/* Lijst-items binnen een kaart */
+.inner-label{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-deep);margin:18px 0 10px 0;display:block}
+.inner-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+.inner-item{display:flex;gap:12px;align-items:flex-start;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.inner-marker{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--amber3)}
+.inner-item strong{font-weight:500;color:var(--amber-deep);font-style:normal}
+
+/* Tags */
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;padding-bottom:16px}
+.tag{font-family:var(--sans);font-size:10px;font-weight:500;border-radius:4px;padding:3px 9px;background:var(--creme2);color:var(--ink2);border:1px solid var(--creme3)}
+
+/* Tip */
+.card-tip{margin:4px 26px 20px;padding:12px 15px;background:var(--amber4);border-left:3px solid var(--amber2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Bronnen */
+.card-sources{padding:12px 26px 18px;border-top:1px solid var(--creme3);font-family:var(--body);font-size:11px;font-weight:300;color:var(--ink3);line-height:1.6}
+.card-sources strong{font-weight:500;color:var(--ink2);font-style:normal;letter-spacing:.04em;text-transform:uppercase;font-size:9px;font-family:var(--sans)}
+.card-sources a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--creme4)}
+.card-sources a:hover{border-bottom-color:var(--amber)}
+
+/* Keyboard hint */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Eind-quote */
+.end-quote{margin-top:48px;padding:24px;border-left:3px solid var(--amber);background:var(--creme);font-family:var(--body);font-style:italic;color:var(--ink2);max-width:760px}
+.end-quote blockquote{font-size:15px;line-height:1.7;margin-bottom:10px}
+.end-quote cite{font-family:var(--sans);font-size:11px;font-style:normal;letter-spacing:.06em;color:var(--ink3);text-transform:uppercase}
+
+/* Footer */
+.site-footer{margin-top:36px;padding:22px 0;border-top:1px solid var(--creme3);font-family:var(--body);font-size:12px;font-style:italic;color:var(--ink3);line-height:1.6;text-align:center}
+.site-footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--creme4);font-style:normal;font-weight:500}
+.site-footer a:hover{border-bottom-color:var(--amber)}
+
+/* Responsive */
+@media (max-width:640px){
+  .page{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<a class="back-link" href="index.html">← Arsenaal van de Joker</a>
+
+<div class="masthead">
+  <div class="eyebrow">Nederlandse Praktijk · Formaat Rotterdam · Sinds 1999</div>
+  <div class="app-name"><strong>Theateratelier</strong></div>
+  <div class="app-sub">Participatief Drama als langdurig groepswerk</div>
+  <div class="context-note">Een Nederlandse methodologische bijdrage aan Theatre of the Oppressed — ontwikkeld door Luc Opdebeeck bij Formaat, Rotterdam. Theater als plek waar kwetsbare mensen hun eigen verhaal leren maken, delen en publiek maken — niet als kunst of therapie, maar als sociale activering van onderaf.</div>
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>&larr;</kbd> <kbd>&rarr;</kbd> kaarten
+</div>
+
+<div class="end-quote">
+  <blockquote>"Het verschil tussen therapie en participatief drama: therapie helpt iemand zich aan te passen aan de wereld. Participatief drama helpt de wereld zich aan te passen aan de persoon."</blockquote>
+  <cite>Luc Opdebeeck — Een Scene Schoppen</cite>
+</div>
+
+<div class="site-footer">
+  Onderdeel van het <a href="index.html">Arsenaal van de Joker</a> · Gebaseerd op de Movisie-methodebeschrijving <em>Participatief Drama</em> (2018) en het werk van Formaat, Rotterdam (1999–2025).
+</div>
+
+</div>
+
+<script>
+const T = [
+{n:1, cat:"Definitie", stripe:"#8c5e2a",
+ title:"Wat is een Theateratelier?",
+ sub:"Een methodologische bijdrage van Luc Opdebeeck aan TO",
+ body:`Het Theateratelier is een <strong>werkvorm binnen Participatief Drama</strong> die Luc Opdebeeck gedurende zijn artistiek leiderschap bij Formaat heeft vormgegeven. Het is een langdurig, wekelijks groepsproces waarin mensen in achterstandssituaties samen onderzoeken wat er op hun levens speelt — en van daaruit voorstellingen maken waarin ze hun eigen stem naar buiten brengen.<br><br>De beweging is herkenbaar: een groep komt bij elkaar en deelt wat hen bezighoudt — wat moeilijk is, wat schuurt. Uit die gesprekken kristalliseert een thema. De joker verleidt de groep tot het spelen van een <em>anti-model</em> aan het einde van het traject — een scène waarin de onderdrukking zichtbaar wordt maar niet wordt opgelost. Bij die slotpresentatie worden alle stakeholders van het getoonde probleem uitgenodigd: ambtenaren, managers in de zorg, politici — naargelang het onderwerp wordt de werkruimte gevuld met wie het aangaat. Geen lezing, geen debat, maar een <strong>wederkerig leerproces</strong> tussen deelnemers en stakeholders in diezelfde ruimte. In die slotbeweging klinkt de echo van Brecht's <em>Lehrstück</em>: theater dat niet toont om bekeken te worden, maar gespeeld wordt om samen te leren — met de extra wending dat ook de stakeholders leerlingen worden.<br><br>Theaterateliers zijn altijd gekoppeld aan zorg en coaching op persoonlijk en maatschappelijk vlak — theater als instrument, niet als doel op zichzelf.`,
+ kenmerken:[
+   {m:"1", b:"<strong>Groep van maximaal 20</strong> deelnemers die samenblijft"},
+   {m:"2", b:"<strong>Minimaal 6 maanden</strong> — en vaak doorlopend in opeenvolgende cycli"},
+   {m:"3", b:"<strong>Wekelijks een dag</strong> werken met Participatief Drama"},
+   {m:"4", b:"<strong>Gezamenlijk eten</strong> voorafgaand aan elke bijeenkomst — geen bijzaak maar vast ritueel waar de groep binnen komt in het werk"},
+   {m:"5", b:"<strong>Instroomgroep</strong> van maximaal 12 nieuwe deelnemers ernaast"},
+   {m:"6", b:"<strong>Altijd verbonden</strong> met zorg en coaching buiten de atelier-dag"}
+ ],
+ tags:["Werkvorm","Langdurig","Groepsproces","Rotterdam"],
+ tip:"Het Theateratelier is geen cursus en geen therapie. Het is een plek. Mensen komen niet om iets te leren, ze komen omdat hier hun leven gehoord wordt.",
+ sources:"Methodebeschrijving Participatief Drama (Movisie, 2018) · Formaat.org"},
+
+{n:2, cat:"De Ateliers", stripe:"#a86b2d",
+ title:"De ateliers van Formaat",
+ sub:"Varianten voor uiteenlopende doelgroepen en contexten",
+ body:`Formaat faciliteert een reeks <strong>Theaterateliers</strong>, elk afgestemd op een specifieke doelgroep en context. De methodiek is schaalbaar gebleken — van wijkbewoners tot dak- en thuislozen, van senioren tot jongeren, van mensen met een verstandelijke beperking tot vrouwengroepen die hun eigen stad opnieuw onderzoeken. Sommige ateliers lopen al jaren, andere worden projectmatig opgezet rond specifieke vragen en samenwerkingen.`,
+ kenmerken:[
+   {m:"1", b:"<strong>Buurtatelier Delfshaven</strong> — een gemêleerde groep Rotterdammers uit één wijk. Jaarlijkse voorstellingen over armoede, opvoeding, veiligheid, en conflicten tussen bewoners en autoriteiten."},
+   {m:"2", b:"<strong>Seniorenatelier</strong> — oudere deelnemers die thema's als eenzaamheid, verlies en zorg voor elkaar onderzoeken. In 2014 samen met het Buurtatelier de voorstelling \"Scènes uit de Stad\"."},
+   {m:"3", b:"<strong>Studio Sterk</strong> — theateratelier met mensen met een verstandelijke beperking. Beeld en lichaam als voertaal waar verbale communicatie tekortschiet."},
+   {m:"4", b:"<strong>Dak- en thuislozenateliers in Haarlem en Leiden</strong> — langdurig groepswerk met mensen wier thuis onzeker is. Theater als plek waar een gezicht en een stem gaan horen."},
+   {m:"5", b:"<strong>2DO — jongerenatelier</strong> — een groep voor jongeren die hun eigen vragen, verhalen en frustraties via theater op tafel leggen."},
+   {m:"6", b:"<strong>Maia's in de Stad</strong> — vrouwengroepen in Rotterdamse wijken (Crooswijk, Zuid, Delfshaven) die de stad onderzoeken vanuit hun eigen perspectief en ervaring."}
+ ],
+ tags:["Buurtatelier","Studio Sterk","Maia's","2DO","Dak- en thuislozen","Senioren","Delfshaven","Haarlem","Leiden","Crooswijk"],
+ tip:"Elk atelier heeft zijn eigen ritme en rituelen, maar ze delen hetzelfde DNA: langdurig, groepsgedragen, gericht op voorstelling als publieke daad. De lijst is geen eindpunt — ateliers komen erbij, lopen door, groeien uit.",
+ sources:"Formaat — Activiteiten · Jaarverslagen Formaat"},
+
+{n:3, cat:"Proces & Cyclus", stripe:"#b8803c",
+ title:"Hoe een Theateratelier werkt",
+ sub:"De lemniscaat — een cyclus die zich steeds opnieuw opent",
+ body:`Het proces van een Theateratelier is geen rechte lijn maar een <strong>lemniscaat</strong> — een oneindigheidsteken. Elk halfjaar loopt van het eerste gesprek tot de slotpresentatie, maar daar stopt het niet. Op het kruispunt tussen de twee lussen ligt de <em>evaluatie en planning</em>: de groep kijkt terug op wat is gemaakt, en vooruit naar wat het volgende halfjaar vraagt. De groep is al bij elkaar — er begint een nieuwe cyclus, met nieuwe thema's, nieuwe lagen van hetzelfde thema, of een groter wordende gemeenschap.<br><br>Met de lemniscaat ademt ook de groep zelf. Peers die op de slotpresentatie komen kijken en meedoen in het Forum worden vaak de natuurlijke instroom voor de volgende cyclus. Op het kruispunt van evaluatie kan wie klaar is afscheid nemen. De groep blijft, maar ze is nooit gesloten.`,
+ kenmerken:[
+   {m:"1", b:"<strong>Aanwezigheid & dialoog</strong> — elke week komen deelnemers bij elkaar om in gesprek te gaan over wat voor hen op dat moment speelt. Geen agenda — het thema komt uit de groep zelf."},
+   {m:"2", b:"<strong>Onderzoek & codificatie</strong> — persoonlijke ervaringen worden omgezet in beelden, scènes en korte improvisaties. Wat is de kern van wat we meemaken?"},
+   {m:"3", b:"<strong>Dramatische verdichting</strong> — de groep destilleert uit het materiaal één of meerdere scènes die exemplarisch zijn voor een wijder gedeeld probleem."},
+   {m:"4", b:"<strong>Repetitie & spectacle-building</strong> — de scènes worden tot een voorstelling gemaakt, vaak met een antimodel waarin de onderdrukking zichtbaar wordt maar niet wordt opgelost."},
+   {m:"5", b:"<strong>Strategische invitatie</strong> — joker en zorgbegeleider werken samen aan een plan: welke stakeholders zijn voor <em>dit</em> thema de juiste gesprekspartners, en welke achterban van de deelnemers moet erbij zijn. De werkruimte wordt doelgericht gevuld."},
+   {m:"6", b:"<strong>Slotpresentatie & Forum</strong> — stakeholders en achterban zijn aanwezig. Na de voorstelling opent de Joker het Forum — kijkers worden spect-acteurs, springen in, proberen alternatieven."},
+   {m:"7", b:"<strong>Evaluatie & planning</strong> — het kruispunt van de lemniscaat. De groep blikt terug, kijkt vooruit, formuleert wat het volgende halfjaar vraagt."},
+   {m:"8", b:"<strong>Nieuwe cyclus</strong> — dezelfde structuur opnieuw, nieuwe inhoud. De groep blijft, het proces opent zich weer."}
+ ],
+ tags:["Lemniscaat","Proces","Cyclus","Forumtheater","Evaluatie"],
+ tip:"De slotpresentatie is de oogst van één lus — niet het einde van het werk. Op het kruispunt van evaluatie en planning begint de volgende. De groep is er al, het werk rijpt verder.",
+ sources:"Een Scene Schoppen — Luc Opdebeeck · Methodebeschrijving Participatief Drama (Movisie, 2018)"},
+
+{n:4, cat:"Doelgroepen", stripe:"#5c8c4a",
+ title:"Voor wie is het Theateratelier?",
+ sub:"Mensen in achterstandssituaties, die hun stem zoeken",
+ body:`Het Theateratelier richt zich op <strong>mensen wier positie in de samenleving fragiel is</strong> — door armoede, psychische gezondheid, verstandelijke beperking, of maatschappelijke uitsluiting. De Movisie-methodebeschrijving noemt expliciet vijf doelgroepen. Formaat heeft daarnaast een bredere praktijk ontwikkeld rondom thema's als jeugdzorg, migratie, en detentie.`,
+ kenmerken:[
+   {m:"—", b:"<strong>Mensen met psychosociale problemen</strong> — al dan niet in of uit de GGZ"},
+   {m:"—", b:"<strong>Bewoners van probleemwijken</strong> — waar thema's van armoede, veiligheid en onderlinge conflicten sterk aanwezig zijn"},
+   {m:"—", b:"<strong>Mensen met een verstandelijke beperking</strong> — die via beeld en lichaam kunnen zeggen wat via taal moeilijker gaat"},
+   {m:"—", b:"<strong>Senioren</strong> — vooral rond eenzaamheid, verlies en de zorg die wegvalt"},
+   {m:"—", b:"<strong>Mensen die tegen de armoedegrens aan leven</strong> — voor wie meedoen met de samenleving een dagelijkse strijd is"}
+ ],
+ tags:["GGZ","Armoede","Senioren","VB","Sociale uitsluiting"],
+ tip:"De groep bepaalt het thema. Niet de opdrachtgever, niet de joker, niet de beleidsvraag die de financiering genereerde. Wie dat vergeet maakt van het theateratelier weer een project over mensen in plaats van met mensen.",
+ sources:"Methodebeschrijving Participatief Drama (Movisie, 2018)"},
+
+{n:5, cat:"Theoretische Fundering", stripe:"#5c3d1e",
+ title:"Op welke schouders staat het?",
+ sub:"Boal als basis, Freire als bodem, Moreno als voorloper, Brecht als echo",
+ body:`Het Theateratelier is geen methode van de grond af aan. Het is een synthese, een Nederlandse samenbundeling van meerdere tradities binnen Participatief Drama — met Boal als centrale inspiratiebron en een herkenbare Brechtiaanse echo in de slotpresentatie.`,
+ kenmerken:[
+   {m:"A", b:"<strong>Augusto Boal — Theater van de Onderdrukten</strong> als basisgereedschap: <a href=\"beeldentheater.html\">Beeldentheater</a> om maatschappelijke problemen te analyseren, <a href=\"forum.html\">Forumtheater</a> om alternatieven te verkennen, <a href=\"introspectief.html\">Regenboog van het Verlangen</a> voor innerlijke belemmeringen, <a href=\"legislatief.html\">Legislatief Theater</a> als politieke stem, en de Esthetiek van de Onderdrukten als expressiemiddel."},
+   {m:"B", b:"<strong>Paulo Freire — Pedagogiek van de Onderdrukten</strong> als pedagogische bodem: de mens als volwaardig gespreksgenoot, niet als leerling die onderwezen moet worden. Zie <a href=\"freire.html\">De Kist</a>."},
+   {m:"C", b:"<strong>Jacob Levy Moreno — Psychodrama</strong> als methodologische voorloper: handelen in plaats van bespreken, de groep als getuige, de rolwisseling als empathische daad. Zie <a href=\"psychodrama.html\">Psychodrama</a>."},
+   {m:"D", b:"<strong>Bertolt Brecht — Lehrstück</strong> als verwante echo: Brechts leerstukken uit 1929–1930 (<em>Der Jasager</em>, <em>Die Maßnahme</em>, <em>Das Badener Lehrstück</em>) breken dezelfde muur tussen speler en toeschouwer af. <em>\"Das Lehrstück lehrt dadurch, dass es gespielt wird, nicht dadurch, dass es gesehen wird.\"</em> Geen directe bron, wel een parallelle intuïtie — theater als collectieve leerruimte in plaats van voorstelling voor passief publiek."},
+   {m:"E", b:"<strong>Luc Opdebeeck</strong> — de Nederlandse synthese: hoe je deze tradities laat rijpen in een langdurig wekelijks proces met dezelfde groep, in een wijk, onder Nederlandse institutionele voorwaarden. De Brechtiaanse intuïtie wordt hier verder getrokken: ook de stakeholders worden in de leerruimte genodigd."}
+ ],
+ tags:["Boal","Freire","Moreno","Brecht","Lehrstück","Synthese"],
+ tip:"Het Theateratelier is geen methodologische puurheid — het is toepassing in context. Wie vraagt \"is dit nog wel Boal?\" mist het punt. Het is Boal geworden wat hij zelf in Rio deed: plaatselijk vertaald, wekelijks getest, blijvend aangepast.",
+ sources:"Formaat — Methodiek · Mens in de Hoofdrol — Luc Opdebeeck"},
+
+{n:6, cat:"Impact", stripe:"#b85c4a",
+ title:"De therapie van het applaus",
+ sub:"Impact op de kwaliteit van bestaan",
+ body:`In het eerste jaar van het Theateratelier Rotterdam (2007–2008) was Evelien van der Niet zorgverlener bij Pameijer. Ze droeg een <strong>dubbele rol</strong>: ze was medeontdekker — samen met Luc aan het aftasten wat daar aan het ontstaan was — én ze had de opdracht om deze manier van werken binnen haar organisatie te verantwoorden. Het zorgverslag dat ze in oktober 2008 schreef is daardoor tegelijk iets van binnenuit en iets naar buiten: een getuigenis uit de vroege dagen, én een verantwoording aan Pameijer dat deze nog jonge praktijk mogelijk maakte.<br><br>Haar keuze viel op <strong>Schalocks Quality of Life-model</strong> met zijn acht kerndomeinen — een erkende taal binnen de zorg die tegelijk zichtbaar kon maken wat ze zag gebeuren bij de deelnemers. Twee zinnen uit haar voorwoord dragen het verslag: <em>"De therapie van het applaus werkt!"</em> en <em>"Van overleven naar leven."</em> Geen conclusies, maar beelden die opkwamen in het werk. Op alle acht domeinen bewoog er iets. Niet als therapie in de klassieke zin, maar als plek waar de kwaliteit van bestaan zich kon herstellen.<br><br>Wat zich daar aftekende laat zich benoemen als <strong>community restoration</strong> — de kunst van zorg. Geen individueel herstel los van omgeving, maar een gemeenschap die weer kan dragen. Het atelier was — en is — de oefenplek waar die gedeelde herstelcapaciteit rijpt.`,
+ kenmerken:[
+   {m:"1", b:"<strong>Lichamelijk welbevinden</strong> — meer energie en vitaliteit, via spel, opwarming, ontspanning, beweging."},
+   {m:"2", b:"<strong>Emotioneel welbevinden</strong> — plezier, reëel zelfbeeld, basisveiligheid, \"je mens zijn opnieuw vormen\"."},
+   {m:"3", b:"<strong>Interpersoonlijke relaties</strong> — conflicten in beeld, inzicht in sociale systemen en de eigen plek daarin."},
+   {m:"4", b:"<strong>Sociale inclusie</strong> — volwaardige deelname, doorbreken van het stigma, een \"ruimte zonder labels\"."},
+   {m:"5", b:"<strong>Persoonlijke ontwikkeling</strong> — succeservaringen (de therapie van het applaus), talenten die zichtbaar worden."},
+   {m:"6", b:"<strong>Materieel welbevinden</strong> — doorstroom naar betaald werk en zelfstandigere huisvesting."},
+   {m:"7", b:"<strong>Zelfregie</strong> — meer zelfvertrouwen, eigen keuzes maken, grenzen aangeven, rituelen herontdekken."},
+   {m:"8", b:"<strong>Rechten</strong> — belangenbehartiging, gezamenlijke stem, een solidariteit gebaseerd op veiligheid en wederkerigheid."}
+ ],
+ tags:["Schalock","Kwaliteit van bestaan","Community restoration","Kunst van zorg","Pameijer","Van overleven naar leven","Zorgverslag 2008"],
+ tip:"Basisveiligheid is de eerste vereiste — zonder een groep die elkaar kan dragen, geen kwaliteit-van-bestaan-winst. De joker zorgt dat die veiligheid er is vóór er ook maar één oefening wordt gedaan.",
+ sources:"Zorgverslag Theateratelier Rotterdam 2007–2008 — Evelien van der Niet (Pameijer) · Schalock & Alonso, Quality of Life Model (2000)"},
+
+{n:7, cat:"Erkenning & Status", stripe:"#4a5c7a",
+ title:"Movisie, erkenning, en de huidige stand",
+ sub:"Van databank-erkende interventie naar publiek document",
+ body:`Participatief Drama — met het Theateratelier als belangrijkste werkvorm — is in 2018 als formele interventie bij Movisie <strong>beschreven en erkend</strong>. De methodebeschrijving is nog steeds publiek beschikbaar en vormt een waardevol naslagwerk voor wie de onderbouwing wil zien.<br><br>In juli 2022 heeft Movisie de criteria voor haar databank aangescherpt — sindsdien worden alleen interventies opgenomen die beoordeeld zijn als <em>Goed Beschreven</em>, <em>Goed Onderbouwd</em> of <em>Effectief</em>. Participatief Drama is onder die nieuwe criteria niet opnieuw ingediend, waardoor de erkenning in de actieve databank is vervallen. De praktijk zelf draait door.`,
+ kenmerken:[
+   {m:"2018", b:"<strong>Interventiebeschrijving gepubliceerd</strong> — Movisie Databank Effectieve Sociale Interventies. PDF nog beschikbaar op movisie.nl."},
+   {m:"2022", b:"<strong>Nieuwe erkenningscriteria</strong> — Movisie hanteert sinds juli 2022 drie niveaus: Goed Beschreven, Goed Onderbouwd, Effectief. Oudere erkenningen vervallen automatisch."},
+   {m:"—", b:"<strong>Huidige status</strong>: Niet meer in de actieve databank. Methodebeschrijving als los PDF beschikbaar. Formaat leidt nog altijd jokers op in Participatief Drama (opleiding startte in februari 2025)."},
+   {m:"→", b:"<strong>Wat betekent dit?</strong> De methodiek is níet ingetrokken of weerlegd — ze is alleen niet opnieuw door het verzwaarde erkenningsproces heen geloodst. De praktische waarde en de inhoudelijke onderbouwing staan nog overeind."}
+ ],
+ tags:["Movisie","Erkenning","Databank","2018","2022"],
+ tip:"De erkenningsbadge is niet hetzelfde als de werkzaamheid van de methodiek. Wat Formaat bij Delfshaven al 25 jaar doet, hoeft niet elke paar jaar opnieuw door een instituut goedgekeurd te worden om te blijven werken.",
+ sources:"Methodebeschrijving Participatief Drama (Movisie, 2018) · Notitie Criteria Erkenning 2019–2022 · Movisie praktijkvoorbeeld Participatief Drama"}
+];
+
+let cur = 0;
+
+function render() {
+  const t = T[cur];
+  const pillsEl = document.getElementById('pills');
+  const counterEl = document.getElementById('ctr');
+  const pvEl = document.getElementById('pv');
+  const nxEl = document.getElementById('nx');
+  const wrap = document.getElementById('card-wrap');
+
+  pillsEl.innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTo(${i})">${x.n}</button>`
+  ).join('');
+  counterEl.textContent = `${cur + 1} / ${T.length}`;
+
+  pvEl.disabled = cur === 0;
+  nxEl.disabled = cur === T.length - 1;
+
+  wrap.innerHTML = buildCard(t);
+}
+
+function buildCard(t) {
+  const itemsHtml = t.kenmerken.map(k =>
+    `<li class="inner-item"><span class="inner-marker">${k.m}</span><span>${k.b}</span></li>`
+  ).join('');
+  const tagsHtml = t.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <span class="card-cat">${t.cat}</span>
+            <div class="card-name">${t.title}</div>
+            <div class="card-sub">${t.sub}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-num">${t.n}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">${t.body}</div>
+        <ul class="inner-list">${itemsHtml}</ul>
+        <div class="card-tags">${tagsHtml}</div>
+      </div>
+      <div class="card-tip">
+        <span class="tip-lbl">Jokertip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-sources">
+        <strong>Bronnen:</strong> ${t.sources}
+      </div>
+    </div>`;
+}
+
+function goTo(i) { cur = i; render(); }
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0) { cur--; render(); } }
+
+document.getElementById('pv').onclick = prevTech;
+document.getElementById('nx').onclick = nextTech;
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.ArsenaalNav) {
+    ArsenaalNav.init({
+      horizontal: { next: nextTech, prev: prevTech }
+    });
+  }
+});
+
+render();
+</script>
+</body>
+</html>
