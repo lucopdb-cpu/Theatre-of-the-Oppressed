@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#c97d37">
+<script src="nav.js" defer></script>
+<title>TO in Midden-Amerika — REDTOCA en de regionale lijn</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1f1a15;--ink2:#524a40;--ink3:#9a9080;
+  --paper:#faf5ec;--paper2:#f2ebdd;--paper3:#e8dcc3;--paper4:#d6c4a0;
+  --amber:#c97d37;--amber2:#de9550;--amber3:#f0c895;--amber4:#fbecd4;
+  --amber5:#8a5120;
+  --terra:#c97d37;--terra2:#de9550;--terra3:#f0c895;--terra4:#fbecd4;
+  --terra5:#8a5120;
+  --indigo:#2d4a5e;--indigo2:#3f6480;--indigo3:#a8bfd0;
+  --rule:rgba(31,26,21,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--terra)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--terra3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--terra2);color:var(--terra)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(31,26,21,.05),0 3px 12px rgba(31,26,21,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.card-name em{font-style:italic;color:var(--terra);font-weight:400}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-form{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-type{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Meta bar */
+.meta-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--paper3)}
+.meta-item{font-family:var(--sans);font-size:10px;color:var(--ink2);display:inline-flex;align-items:center;gap:4px;background:var(--paper2);padding:3px 9px;border-radius:12px;border:1px solid var(--paper3)}
+.meta-item strong{color:var(--ink);font-weight:500}
+
+/* Stages label */
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--terra4);border-left:3px solid var(--terra2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Source */
+.card-source{margin:0 26px 20px;padding:10px 14px;background:var(--paper2);border-radius:7px;font-family:var(--sans);font-size:10px;color:var(--ink3);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-source strong{color:var(--ink2);font-weight:500}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--terra4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--terra2);background:var(--terra4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--terra3)}
+.acc-trigger.open .acc-sn{background:var(--terra);color:#fff;border-color:var(--terra2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--terra2);color:var(--terra)}
+
+/* Home button */
+.home-btn{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--terra);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;box-shadow:0 2px 10px rgba(31,26,21,.2);z-index:100;transition:all .2s}
+.home-btn:hover{background:var(--terra5);transform:scale(1.05)}
+
+@media (max-width: 600px){
+  .page{padding:0 16px}
+  .app-name{font-size:22px}
+  .card-name{font-size:19px}
+  .card-head{padding:18px 20px 14px;padding-left:28px}
+  .card-tip,.card-source{margin-left:20px;margin-right:20px}
+  .acc-trigger{padding:10px 20px}
+  .acc-body{padding:0 20px 12px 50px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="app-name">TO in <em>Midden-Amerika</em></div>
+  <div class="app-sub">REDTOCA en een regionale lijn die zichzelf organiseert</div>
+  <div class="context-note">Van San Cristóbal de las Casas tot Matagalpa: hoe Centraal-Amerikaanse jokers een bewust regionaal netwerk bouwden rond de Boal-methode — met feminisme als hoofdader, inheemse talen als constitutief element, en werk in de schaduw van burgeroorlog en dictatuur. Zeven kaarten over een lijn waar jij niet uit eerste hand bij hoort, maar die het archief verdient.</div>
+</header>
+
+<nav class="nav-row">
+  <button id="pv" class="nav-btn" aria-label="Vorige">‹</button>
+  <div class="tech-pills" id="pills"></div>
+  <button id="nx" class="nav-btn" aria-label="Volgende">›</button>
+  <span class="nav-counter" id="ctr"></span>
+</nav>
+
+<main id="card-wrap"></main>
+
+</div>
+
+<a href="index.html" class="home-btn" aria-label="Terug naar overzicht">⌂</a>
+
+<script>
+const T = [
+
+{n:1, title:"Een regio organiseert <em>zichzelf</em>",
+ page:"introductie",
+ type:"Inleiding", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 6 min", group:"—", phase:"Aanloop",
+ note:"Midden-Amerikaans TO is geen verzameling losse initiatieven. Sinds ongeveer 2012 bestaat er een bewust georganiseerd regionaal netwerk — REDTOCA, Red Centroamericana de Teatro del Oprimido — dat zich over zeven landen uitstrekt en zich op tweejaarlijkse ontmoetingen rond eigen politieke thema's verzamelt. Feminisme is de hoofdader, burgeroorlog en dictatuur vormen de schaduwcontext, en inheemse talen zijn geen decor maar materiaal.",
+ stages:[
+  {t:"De infrastructuur heet REDTOCA",
+   body:"De regionale lijn kent een naam en een geschiedenis. REDTOCA kwam voort uit het grotere <strong>RELATO</strong> (Red Latinoamericana de Teatro del Oprimido, 2007). De Centraal-Amerikaanse vertakking consolideerde in 2012 via het project <strong>METOCA</strong> — Multiplicación y Exploración del Teatro del Oprimido en Centroamérica — vanuit Guatemala. Geen CTO-achtige structuur met een vast gebouw, maar een netwerk van groepen die elkaar trainen en ontmoeten."},
+  {t:"De ELTO's als ruggengraat",
+   body:"De zichtbare ruggengraat zijn de <em>Encuentros Latinoamericanos de Teatro del Oprimido</em>, afwisselend in Zuid- en Midden-Amerika. <strong>II ELTO Quetzaltenango (Guatemala, 2012)</strong> — meer dan 500 deelnemers, georganiseerd door METOCA. <strong>IV ELTO Matagalpa (Nicaragua, 2016)</strong> — 10 dagen, georganiseerd door RedTOCA Nicaragua en de Magdalenas. Deze encuentros zijn de Midden-Amerikaanse netwerkvorm — niet vaste huizen, maar periodieke ontmoetingen."},
+  {t:"Twee externe draaischijven",
+   body:"De regio staat niet op zichzelf. Bijna alle groepen traceren hun formatie naar <strong>CTO-Rio</strong> via <em>Geo Britto</em> — de Braziliaanse curinga die de eerste intensieve week in Guatemala gaf in 2009. Daarnaast is <strong>KURINGA Berlijn</strong> onder <em>Bárbara Santos</em> — een Braziliaanse die vanuit Berlijn werkt — de feministische hub die het Magdalena-werk naar Guatemala (2013) en Nicaragua heeft gebracht. METOCA-Guatemala fungeert als praktische vertaler: Portugees/Braziliaans → Spaans/Midden-Amerikaans."},
+  {t:"Wat de regio eigen maakt",
+   body:"Drie dingen onderscheiden Midden-Amerikaans TO van wat elders gebeurt. Eén: <em>feminisme als methodologische hoofdader</em> — de Magdalena-inflectie is dominant. Twee: <em>werk in de schaduw van oorlog</em> — Guatemala 1960-1996, El Salvador 1979-1992, Nicaragua Contra-oorlog, Honduras post-2009. Drie: <em>inheemse talen als constitutief element</em> — Tsotsil, Tseltal, Kaqchiquel, Tzutujil zijn geen decoratie maar werktaal. Daarnaast: HIV/SIDA is een terugkerend werkveld op een manier die in Europa en Azië minder pregnant is."},
+  {t:"Wat deze carrousel is",
+   body:"Zeven kaarten. Eén introductie, vijf plek- en groepkaarten (Chiapas ×2, Quetzaltenango, San Salvador, Matagalpa), en een synthesekaart aan het eind. Panama en Belize ontbreken — dat is zelf ook een bevinding. Deze carrousel is <em>secundair gedocumenteerd</em> — gebouwd uit publicaties en web-onderzoek, niet uit eigen veldkennis. Waar je voor Afrika eigen ontmoetingen hebt, is hier de positie die van de kartograaf die uit documentatie werkt."}
+ ],
+ tip:"Als je Midden-Amerikaans TO wilt benaderen, denk dan niet per land, maar via REDTOCA. Een Guatemalteekse workshopleider traint groepen in Nicaragua. Een Hondurese trans-activiste speelt op een Guatemalteeks festival. De Magdalenas in vier landen zijn één netwerk, niet vier. Deze transversaliteit is de structuur — en dat is precies wat je eigen positie als Nederlandse Joker problematisch maakt om van binnenuit te documenteren. Secundair bronnenwerk is hier eerlijker dan doen alsof.",
+ source:"Fairstein, Molina & Berler · Instituto de Artes del Espectáculo UBA · Nodal Cultura · eltonicaragua.wordpress.com"},
+
+{n:2, title:"San Cristóbal — <em>FOMMA</em> en de Maya-vrouwen",
+ page:"Chiapas, Mexico — sinds 1994",
+ type:"Inheems vrouwentheater", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 6 min", group:"Tsotsil- en Tseltal-actrices", phase:"Actief sinds 1994",
+ note:"Fortaleza de la Mujer Maya (FOMMA) werd opgericht in San Cristóbal de las Casas in 1994 — het jaar van de Zapatista-opstand. De oprichtsters zijn Petu' De la Cruz Cruz (Tsotsil uit Zinacantán) en Isabel Juárez Espinosa (Tseltal uit Aguacatenango), beiden migrant en alleenstaand moeder. FOMMA werkt in Tsotsil en Tseltal, wordt geleid door en voor inheemse vrouwen, en gebruikt TO-technieken ingebed in Maya-lichaamspraktijken.",
+ stages:[
+  {t:"1994 is geen toeval",
+   body:"De oprichting van FOMMA valt samen met de <em>Ejército Zapatista de Liberación Nacional</em>-opstand van 1 januari 1994. Dat is geen cosmetische coïncidentie. FOMMA ontstond in de context van een inheemse vrouwenbeweging die zowel <strong>tegen de Mexicaanse staat</strong> streed als <strong>binnen</strong> inheemse gemeenschappen om vrouwenrechten. De groep onderscheidt zich van Sna Jtz'ibajom (Casa del Escritor, 1981) — het oudere gemengde schrijverscollectief — door expliciet vrouwen-geleid te zijn."},
+  {t:"Cuerpo y experiencia",
+   body:"Doris Difarnecio — creatief directrice van FOMMA sinds eind jaren negentig — ontwikkelde een eigen methodiek genaamd <em>Cuerpo y experiencia</em> (lichaam en ervaring). Het is een uitwerking van TO waarin Maya-performatieve tradities, lichaamstaal en tweetaligheid (Spaans + Tsotsil/Tseltal) constitutief zijn. Difarnecio's masterthesis aan de UNICACH (2020) documenteert deze methodiek — voor wie serieus wil begrijpen hoe TO wordt ontvangen in inheemse context is dat de sleutel-tekst."},
+  {t:"De methodologische eigenheid",
+   body:"FOMMA's werk is geen 'Boal in Chiapas'. Het is <em>Tzeltal/Tzotzil-vrouwentheater dat onder andere TO-technieken gebruikt</em> — naast oraliteit, textielwerk, vertelling, liederen. Net zoals in Afrika: de technieken (forum, beeld, spect-actor) worden geleend, maar de architectuur wordt vervangen. De toetsing waar je voor Afrika naar verwijst — <em>naam de herkomst, maak de introductie-keuze expliciet, beschrijf eerlijk de relatie met de oorsprongsgemeenschap</em> — FOMMA doet dat vanzelf omdat de gemeenschap zelf aan het roer zit."},
+  {t:"Publiek en internationale zichtbaarheid",
+   body:"FOMMA treedt op in inheemse gemeenschappen op het Chiapaneekse platteland, in steden als San Cristóbal, en internationaal. De stukken behandelen gedwongen huwelijken, huiselijk geweld, alfabetisering, migratie, taal en identiteit. De groep werd vroeg opgepakt door de academische wereld — Diana Taylor (NYU), Sophie Dufays, Elvira Sánchez-Blake — wat zowel kracht was (financiering, zichtbaarheid) als beperking (de kenmerkende spanning tussen gemeenschapswerk en academische representatie)."},
+  {t:"Zusterlijn: Sna Jtz'ibajom",
+   body:"Wie FOMMA bestudeert, kan Sna Jtz'ibajom niet negeren. Dit gemengde schrijverscollectief werkt sinds 1981 in dezelfde regio, gebruikt ook theatrale vormen, en vormt met FOMMA de twee pijlers van Maya-theater in Chiapas. Waar Sna Jtz'ibajom op tekst en poëzie steunt, gaat FOMMA via het lichaam en improvisatie. Samen laten ze zien hoe inheemse gemeenschappen na 1990 hun eigen podium bouwden, niet wachtend op uitnodiging van het nationale theaterveld."}
+ ],
+ tip:"FOMMA is een ingang tot een bredere vraag: hoe verhoudt TO zich tot theatervormen die al in een gemeenschap bestonden vóórdat Boal arriveerde? Het antwoord ligt niet in de techniek maar in de machtsverhouding. Wie leidt? Wie kiest de thema's? In welke taal wordt gerepeteerd? FOMMA beantwoordt deze vragen in het voordeel van de gemeenschap. Voor een externe Joker die met inheemse gemeenschappen wil werken is dit niet zomaar een model om te kopiëren, maar een spiegel om je eigen positie aan te toetsen.",
+ source:"Difarnecio, Cuerpo y experiencia (UNICACH 2020) · Investigación Teatral Vol. 25 · Sánchez-Blake (2012) · FOMMA websites en interviews"},
+
+{n:3, title:"Chiapas — <em>TO met parteras</em>",
+ page:"Tenejapa, Huitiupan — 2019-2022",
+ type:"Bevalling en autonomie", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 5 min", group:"Traditionele vroedvrouwen", phase:"Actief",
+ note:"In de bergen van Chiapas — in Tenejapa en Huitiupan — loopt sinds ongeveer 2019 een van de meest eigenaardige TO-projecten wereldwijd: workshops met traditionele parteras (vroedvrouwen) rond reproductieve autonomie en obstetrisch geweld. Het project wordt gefaciliteerd vanuit het CCESC, en gebruikt TO-technieken — vooral teatro imagen — in samenspel met geboortekennis die al generaties doorgegeven wordt.",
+ stages:[
+  {t:"Het CCESC en zijn geschiedenis",
+   body:"Het <em>Centro de Capacitación en Ecología y Salud para Campesinos</em> werd opgericht in 1985, na de uitbarsting van de Chichonal-vulkaan en de toestroom van Guatemalteekse vluchtelingen. De oorspronkelijke missie — medische ondersteuning in rurale inheemse gemeenschappen — heeft zich uitgebreid naar voedselsoevereiniteit, lichamelijke autonomie en reproductieve rechten. TO kwam erbij als methodologisch instrument om <em>niet-tekstuele kennis</em> te kunnen verwerken — precies wat parteras in hun dagelijks werk hebben."},
+  {t:"Wat wordt er getheatraliseerd?",
+   body:"De centrale spanning waar de workshops mee werken: tussen <strong>traditionele geboortekennis</strong> (thuisbevalling, gemeenschapsondersteuning, samenwerking met de natuur) en <strong>geïnstitutionaliseerd obstetrisch geweld</strong> in ziekenhuizen (gedwongen ingrepen, taal-isolement voor vrouwen die geen Spaans spreken, ontkenning van partera-kennis). In beeldtheater worden beide werelden naast elkaar gezet — en de parteras zelf bepalen welk handelingsperspectief ze willen oefenen."},
+  {t:"Uniek in het wereldwijde TO-veld",
+   body:"TO wordt wereldwijd gebruikt rond veel thema's — gender, ras, klasse, migratie, HIV, mentale gezondheid. Maar <strong>TO in bevallingspolitiek</strong> is buitengewoon zeldzaam. In de internationale literatuur komt dit Chiapas-werk nauwelijks voor, terwijl het methodologisch een serieuze bijdrage is: het laat zien dat TO niet alleen voor 'sociale' onderdrukkingen werkt, maar ook voor <em>medische</em> onderdrukking — een domein waarin machtsverhoudingen diep fysiek zijn."},
+  {t:"De curinga-positie",
+   body:"In het gepubliceerde onderzoek (<em>Investigación Teatral</em> Vol. 15, nr. 25) beschrijft de curinga haar eigen rol: ze kwam met haar methodologische kennis, maar werd ontvangen in een gemeenschap met haar eigen spirituele en lichamelijke tradities. Citaat: <em>'Parí simbólicamente una y otra vez en cada taller'</em> — 'Ik bevaal symbolisch keer op keer in elke workshop.' De curinga werd meegenomen in het ritme van de parteras, niet omgekeerd. Dat is methodologisch het interessantst: wie faciliteert wie?"},
+  {t:"Wat dit de Joker leert",
+   body:"Deze lijn werpt een vraag op die in Europees TO minder urgent wordt: <em>welke kennissystemen respecteert je techniek?</em> Boals TO is ontworpen binnen een linkse, secundair-seculiere Latijns-Amerikaanse traditie. Wat gebeurt er wanneer die techniek terechtkomt bij gemeenschappen met inheemse kosmologieën, spirituele geboortepraktijken, of partera-eden? Het Chiapas-project laat zien dat TO dan werkt — maar alleen als de curinga bereid is zich te laten veranderen door de gemeenschap. Dat is geen horizontaliteit als idee maar als praktijk."}
+ ],
+ tip:"Als je ooit met gezondheidswerkers wilt werken — verpleegkundigen, verloskundigen, psychiaters, palliatieve zorg — is dit Chiapas-werk een referentie waard. Het laat zien hoe TO kan werken binnen een zorgcontext, zonder te worden gedomesticeerd tot 'communicatietraining'. De sleutel: het zijn de zorgverleners zelf die hun onderdrukkingen noemen, niet hun opleiders. De curinga brengt methode, niet diagnose.",
+ source:"Investigación Teatral Vol. 15, nr. 25 — De parir y renacer. Experiencia encarnada · CCESC publicaties"},
+
+{n:4, title:"Quetzaltenango — <em>METOCA</em> en de hub",
+ page:"Guatemala — sinds 2009",
+ type:"Regionale vertaler", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 6 min", group:"Asociación Atz'anem K'oj", phase:"Actief sinds 2009",
+ note:"METOCA staat voor Multiplicación y Exploración del Teatro del Oprimido en Centroamérica. Het is de operationele motor van REDTOCA — gevestigd in Quetzaltenango (Xela), West-Guatemala. Vanuit hier worden trainingen in Nicaragua, El Salvador en Honduras geleverd. METOCA is onderdeel van de Asociación Atz'anem K'oj (oorspronkelijk Asociación Payasos), die sinds 2007 met kwetsbare groepen werkt rond mensenrechten, seksualiteit en HIV-preventie.",
+ stages:[
+  {t:"2009 — de formele start",
+   body:"De formatie begon met een intensieve week door <strong>Geo Britto</strong> (CTO-Rio) in 2009. Britto — een van de belangrijkste discipelen van Boal en al decennialang curinga-trainer — legde de pedagogische basis. Sindsdien werken METOCA-leden in voortdurende uitwisseling met CTO-Rio (Portugees-Spaans brugwerk) en met KURINGA Berlijn (waar Bárbara Santos vanuit werkt). METOCA is de praktische vertaler: een Guatemalteekse curinga die een Nicaraguaanse facilitator traint in het Spaans van de regio, gebaseerd op de Braziliaanse methode van Boal en Santos."},
+  {t:"Nueva Esperanza",
+   body:"Een van METOCA's voortdurende werkgroepen: <em>Nueva Esperanza</em>, een TO-groep van inheemse vrouwen die leven met HIV. Sinds 2009 in continu proces. De stukken gaan over stigma in de gemeenschap, medische toegang, zichtbaarheid van HIV-positieve vrouwen als subject in plaats van object van zorg. Dit werk staat in directe verbinding met ICW Rizoma in Honduras (waar METOCA-getrainde facilitators vrouwen met HIV in Tegucigalpa begeleiden) — de regionale multiplicatie in actie."},
+  {t:"Luces Kaji Batz' — inheemse jongeren",
+   body:"Een tweede gestage werklijn: <em>Colectivo teatral Luces Kaji Batz'</em>, een groep van Kaqchiquel- en Tzutujil-sprekende jongeren. De groepsnaam zelf is tweetalig — <em>Luces</em> (Spaans, lichten) en <em>Kaji Batz'</em> (Maya-Cakchiquel datum, een specifieke dag in de tzolkin-kalender). Dit is methodologisch belangrijk: de naam zelf is al een statement dat de groep inheemse tijd naast coloniale tijd plaatst, zonder dat een van beide gesupprimeerd wordt."},
+  {t:"Andamio Teatro Raro — parallel",
+   body:"Parallel aan METOCA werkt in Guatemala-Stad <strong>Andamio Teatro Raro</strong>, opgericht rond 2004 door dramaturg Luis Carlos Pineda. Actieve leden Rubén Ávila (curinga) en Camilla Camerlengo (actrice, klinisch psychologe) werden beiden via METOCA getraind. Het collectief combineert TO met Teatro Pobre (Grotowski), Teatro Épico (Brecht) en een eigen Laboratorio de Fantasías Sociales. Pineda's stuk <em>Bufones</em> (2015) is opgenomen in de antologie Dramaturgia centroamericana contemporánea."},
+  {t:"Mi Cuerpo, Mi Escena",
+   body:"In december 2023 organiseerde METOCA in Panajachel het eerste festival <em>Mi Cuerpo, Mi Escena</em> — meer dan 100 deelneemsters uit de regio, met actrices uit Honduras, El Salvador en Nicaragua. Het festival toont een verschuiving: METOCA begon als trainingsorganisatie, maar is inmiddels ook een vrouwen- en queer-festivalhuis geworden. Argenis — een Hondurese trans-activiste, actrice in 'Otras Formas' van LBT-groep La excitante espera — trad er op. Dat signaleert hoe de regio zich uitbreidt van vrouwenwerk naar breder queer/trans activisme."}
+ ],
+ tip:"Als je serieus over regionale TO-infrastructuur wilt denken, is METOCA een model dat bestudering verdient. Geen vast theatergebouw, geen hoog budget, geen academische inbedding — wel: een kern van ervaren curingas, langdurige relaties met specifieke gemeenschappen, en bereidheid om telkens weer naar buurlanden te reizen om lokale facilitators op te leiden. Dat is een model dat in Europa bijna niet bestaat — wij zijn gewend aan vaste huizen, subsidiestructuren, festivals met adres. METOCA toont dat TO-infrastructuur ook mobiel en relationeel kan zijn.",
+ source:"Mugarik Gabe Nafarroa · Barrancópolis · talleresteatralesandamioteatro.blogspot.com · Metoca Facebook"},
+
+{n:5, title:"San Salvador — <em>La Cachada</em> en het bioteatro",
+ page:"El Salvador — sinds 2011",
+ type:"Bioteatro", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 6 min", group:"Egly Larreynaga + 6 actrices", phase:"Actief sinds 2011",
+ note:"La Cachada Teatro werd opgericht in november 2011 door regisseur Egly Larreynaga, vanuit een theaterworkshop met vrouwen uit de informele sector — straatverkoopsters, huishoudelijke hulpen, alleenstaande moeders. Geen van de actrices had vóór 2011 ooit theater gezien. Cachada betekent in het Salvadoraans Spaans 'een kans die je niet mag laten liggen'. Dat is precies wat de groep werd: een kans om te zeggen wat onzegbaar was gemaakt.",
+ stages:[
+  {t:"De actrices en hun vaste ensemble",
+   body:"Het ensemble bestaat uit <em>Wendy Hernández, Evelyn Chileno, Ruth Vega, Magaly Lemus, Magdalena Henríquez en Mariam Santamaría</em>. Allen madres solteras, allen uit <em>comunidades urbano-marginales</em> van San Salvador. Egly Larreynaga — opgeleid actrice en regisseur — is geen deelneemster maar curinga/regisseur. De wederzijdse verhouding wordt expliciet onderhouden: de actrices faciliteren inmiddels zelf workshops voor andere vrouwen. De groep is tegelijk ensemble en <em>multiplicadora</em>."},
+  {t:"Het repertoire",
+   body:"<strong>Algún día</strong> (2011, debuut, in schoolzalen en kleine theaters). <strong>Si vos no hubieras nacido</strong> (2015, debuut in Teatro Nacional San Salvador, daarna 55+ voorstellingen plus vier festivals in Spanje) — gebaseerd op het boek <em>Las mujeres que nadie amó</em> van antropoloog Juan Martínez. <strong>Retazos</strong> (2021, over vrouwen in maquilas). <strong>La casa de Bernarda Alba</strong> (Lorca-bewerking). Thema's: gendergeweld, gedwongen moederschap, verkrachting, obstetrisch geweld, kindermishandeling, schooluitval, tienerzwangerschappen, remesas die niet aankomen."},
+  {t:"Wat bioteatro onderscheidt",
+   body:"La Cachada noemt het eigen werk <em>bioteatro</em>: de actrices brengen hun eigen levensverhalen, niet gespeeld maar geleefd. Dit is geen pure Boal-forum (geen spect-actoren die in de scène stappen), maar deelt wel de politieke ader. Magdalena Henríquez noemde het proces van <em>Si vos no hubieras nacido</em>: <em>'El proceso más sanador, con el que más nos hemos entendido y descubierto. Descubrimos que habíamos sido víctimas de mucha violencia que — como era lo normal y lo único que conocíamos — no la identificamos como tal.'</em>"},
+  {t:"De context van El Salvador",
+   body:"La Cachada werkt in het volgens veel tellingen gewelddadigste land ter wereld (zeker tot rond 2020). Dat is niet achtergrond maar onderwerp. De maras (jeugdgangs), de femicides, de staatsgeweld tegen communities, de economische uitsluiting — alles wat de vrouwen in hun leven meemaakten, wordt materiaal. Larreynaga zegt dat de groep heeft opgetreden <em>'voor de hoogste sociale elites van El Salvador en die hebben geluisterd.'</em> Het theater creëert een ontmoeting tussen klassen die elders niet plaatsvindt."},
+  {t:"Institutionele thuisbasis",
+   body:"La Cachada werkt onder de paraplu van <em>Asociación Cultural Azoro</em> — een professionele culturele organisatie die Larreynaga infrastructuur geeft. De groep staat ook in regionale uitwisseling: opgetreden op de Muestra de Directoras en Centroamérica in Casa del Teatro Memorias (Tegucigalpa, Honduras, 2022), samen met Midas Arte (Guatemala) en El Gato (Nicaragua). De Salvadoraanse lijn is dus regionaal ingebed, niet solitair."}
+ ],
+ tip:"Als je een nieuw ensemble wilt opbouwen rond mensen die geen theater-achtergrond hebben, is La Cachada een model waar je veel van kunt leren — vooral de verhouding tussen opgeleide regisseur en ongeschoolde deelneemsters. Larreynaga's vondst: ze noemde het aanvankelijk een 'taller de autoestima' (zelfvertrouwenworkshop) om vrouwen binnen te krijgen; het werd iets veel radicaler. Het is eerlijker werk dan 'empowerment via theater' — het is vrouwen een podium geven, daarna eisen dat ze het vullen, daarna erbij blijven als dat niet vanzelf gaat.",
+ source:"El Faro (El Salvador) · Revista con la A · Directorio SELA · cachadateatro.com · Asociación Cultural Azoro"},
+
+{n:6, title:"Matagalpa — <em>Magdalenas</em> en het IV ELTO",
+ page:"Nicaragua — januari 2016",
+ type:"Feministische hub", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 6 min", group:"RedTOCA Nicaragua", phase:"IV ELTO 2016",
+ note:"In januari 2016 kwamen 10 dagen lang TO-makers uit heel Latijns-Amerika samen in Matagalpa, Nicaragua — het IV Encuentro Latinoamericano de Teatro del Oprimido. Georganiseerd door RedTOCA Nicaragua en de lokale Magdalenas-groep, met steun van METOCA Guatemala. Dit was niet zomaar een regionale bijeenkomst: het was het moment waarop Midden-Amerikaans TO zijn feministische identiteit expliciet maakte, óók ten opzichte van de eigen beweging.",
+ stages:[
+  {t:"De Magdalena-methode",
+   body:"<em>Magdalenas</em> is een methode ontwikkeld door <strong>Bárbara Santos</strong> (KURINGA Berlijn), specifiek gericht op vrouwen. De naam verwijst naar het eerste laboratorium dat ze in Afrika leidde — één van de facilitatoren noemde het zo. Sindsdien heten alle deelnemende groepen Magdalenas. Er zijn Magdalenas in Brazilië, Berlijn, Guatemala, Nicaragua, Argentinië, Spanje. De methode combineert TO-technieken met expliciet feministische analyse — en eist dat groepen alleen uit vrouwen bestaan, niet als apartheid maar als strategische creatie van een denkruimte."},
+  {t:"Het IV ELTO — wat er gebeurde",
+   body:"Tien dagen. Talleres (workshops), obra-presentaties, assemblees, debatten. Enorme tent, tribunes voor 300+ mensen, aan de oever van een rivier aan de rand van Matagalpa. Georganiseerd met wat de Nicaraguaanse Magdalenas <em>'la política del cuido'</em> noemden — de politiek van de zorg: vervoer, voeding, veiligheid, inclusieve maaltijden. En: een feministisch voor-encuentro in het nabije Matagalpa vóór het hoofdevenement, waar Magdalenas uit de hele wereld zich verzamelden om de eigen beweging te bespreken."},
+  {t:"Confrontatie met intern machismo",
+   body:"Wat het IV ELTO onderscheidt, is dat de Nicaraguaanse organisatorinnen bewust <em>machismo binnen het TO-netwerk zelf</em> aan de orde stelden. Op het III ELTO (La Paz, Bolivia) waren klachten gerezen over patriarchale dynamieken in de organisatie. In Matagalpa werd daar expliciet op gereageerd: panels, mesas met feministische organisaties, een duidelijke lijn dat een beweging tegen onderdrukking zichzelf continu moet controleren op reproductie van dezelfde onderdrukking. Dit is methodologisch cruciaal — en typerend voor het Midden-Amerikaanse feminisme, dat <em>niet wacht</em> op permissie om te bekritiseren."},
+  {t:"Racisme ter plekke",
+   body:"Het was geen zuivere viering. Twee Braziliaanse zwarte Magdalenas werden bij aankomst in Nicaragua racistisch en xenofoob aangevallen — niet door de organisatie, maar door derden in de stad. De respons van het collectief: een openbare erkenning, solidariteitsacties met Matagalpaanse feministische organisaties, en een expliciete verwerking tijdens het encuentro. Dit staat ook in de documentatie — Nodal Cultura deed er verslag van. Belangrijk detail: de beweging poetst haar eigen wonden niet weg."},
+  {t:"De Nicaraguaanse groepen vandaag",
+   body:"Buiten de Magdalenas werkt in Nicaragua ook <em>Grupo El Gato</em> (Managua, regie Mónica Ocampo — opgetreden op Muestra de Directoras Tegucigalpa 2022), het feministische <em>Nuestra Cara</em>, het experimentele <em>Grupo de teatro Informal</em>, en de <em>Escuela de Arte Comunitario</em>. De laatste staat in uitwisseling met RELAJO — Red Latinoamericana del Juego — en levert curingas ook voor Hondurees en Spaans werk. De politieke context sinds 2018 (Ortega's harde lijn tegen protesten) is precair; het is onzeker hoe al deze groepen vandaag nog kunnen werken."}
+ ],
+ tip:"Als je ooit een internationaal Forum-festival wilt organiseren, bestudeer dan <em>la política del cuido</em> van Matagalpa. Het is geen extra service; het is een politieke stelling. Wie het welzijn van deelnemers serieus neemt — vervoer, voeding, lichamelijke veiligheid, ruimte voor herstel na intense sessies — creëert daadwerkelijke deelname. Wie dat als logistiek afdoet, laat de meest kwetsbare deelnemers vallen. De Magdalenas tonen hoe feministische ethiek festivalorganisatie kan transformeren zonder dat 'het festival' iets afleert.",
+ source:"Nodal Cultura (2016) · eltonicaragua.wordpress.com · Instituto de Artes del Espectáculo UBA"},
+
+{n:7, title:"Drie <em>patronen</em> — wat Midden-Amerika eigen maakt",
+ page:"Synthese",
+ type:"Synthese", typeBg:"#fbecd4", typeFg:"#8a5120",
+ stripe:"#c97d37",
+ duration:"lezen: 5 min", group:"—", phase:"Afsluiting",
+ note:"Zes kaarten beschreven een regio. Deze zevende trekt de lijnen samen. Wat maakt Midden-Amerikaans TO onderscheidend ten opzichte van Brazilië, Europa, Afrika, Azië? Drie patronen — plus een eerlijke notitie over wat dit verhaal niet is.",
+ stages:[
+  {t:"Patroon 1 — Feminisme als hoofdader",
+   body:"Anders dan in Brazilië (waar klasse- en rassenanalyse gelijkwaardig zijn) of Europa (waar gender relatief laat als as erkend werd), is het Midden-Amerikaanse netwerk <strong>overwegend feministisch gestructureerd</strong>. De Magdalena-methode is dominant. La Cachada, FOMMA, Magdalenas Nicaragua, Magdalenas Guatemala, ICW Honduras, Nuestra Cara — de bewegingen worden grotendeels door vrouwen getrokken, en het feminisme is <em>intersectioneel</em>: inheems-feminisme (Chiapas), afro-feminisme (Cuero Montenegro in CESMECA), trans-feminisme (Argenis in Honduras). Dit is geen bijproduct, het is de structuur."},
+  {t:"Patroon 2 — Werk in de schaduw van oorlog",
+   body:"Vrijwel alle groepen werken in de nasleep van recente gewelddadige conflicten: <strong>Guatemala 1960-1996</strong> (genocide tegen Maya-gemeenschappen), <strong>El Salvador 1979-1992</strong> (burgeroorlog), <strong>Nicaragua Contra-oorlog jaren 80</strong>, <strong>Honduras post-coup 2009</strong>, <strong>Mexico war on drugs</strong>. Dit maakt het werk existentieel anders dan in Costa Rica (geen vergelijkbare conflictgeschiedenis) of in Nederland. Het werk rond obstetrisch geweld, HIV-stigma, maras, femicide, gedwongen migratie — het is geen metafoor. Het is de dagelijkse realiteit waartegen de methode wordt ingezet."},
+  {t:"Patroon 3 — Inheemse talen als constitutief element",
+   body:"FOMMA werkt in Tsotsil en Tseltal. Luces Kaji Batz' in Kaqchiquel en Tzutujil. Nueva Esperanza is een groep inheemse vrouwen. Dit is niet decor maar materiaal. De regio <em>heeft grote inheemse bevolkingen</em> — dat is demografisch — maar de inheemse aanwezigheid <em>in het TO-werk</em> is niet vanzelfsprekend. Ze is het resultaat van bewuste methodologische keuzes: tweetalig werken, orale traditie insluiten, de curinga laten vertalen in plaats van de deelneemsters te vragen zich in het Spaans te voegen. Dit sluit direct aan bij de Afrikaanse lijn die je al in kaart bracht: techniek lenen, architectuur vervangen."},
+  {t:"Extra: HIV als terugkerend werkveld",
+   body:"Een accent dat in de regio opvalt en elders minder: <em>HIV/SIDA</em> als centraal werkveld. Nueva Esperanza in Guatemala (sinds 2009). ICW Rizoma in Honduras (Proyecto Rizoma sinds 2023, Robert Carr Network Fund). Sna Jtz'ibajom's werk rond seksuele gezondheid. Dit spiegelt de specifieke epidemiologische geschiedenis van Midden-Amerika én het werk dat CTO-Rio in Brazilië deed rond <em>Salud a escena</em>. TO werkt hier niet alleen rond sociale uitsluiting, maar expliciet rond medisch-institutioneel geweld: de tweedeling waarin vrouwen met HIV 'beheerd' worden maar niet gehoord."},
+  {t:"Panama, Belize, en wat dit rapport niet is",
+   body:"Eerlijke aantekeningen. <strong>Panama en Belize</strong> vielen uit het onderzoek weg: geen zichtbare TO-praktijk in digitale documentatie. Dat betekent niet dat er niets is — het betekent dat het niet traceerbaar is vanuit Rotterdam op een zaterdagmiddag. <strong>Honduras en Costa Rica</strong> kregen geen eigen kaart maar staan wel in de regio (ICW Rizoma / Tegucigalpa, UNA / UCR / Teatro Girasol). En: deze hele carrousel is <em>secundair gedocumenteerd</em>. Anders dan to-afrika.html, anders dan wat ik over Chili of Formaat kan zeggen, is dit werk dat ik niet uit eigen ontmoeting ken. Deze zeven kaarten zijn kartografie uit publicaties, geen getuigenis."}
+ ],
+ tip:"De belangrijkste les van deze carrousel is misschien niet methodologisch maar ethisch: er bestaat een Midden-Amerikaans TO-netwerk dat decennialang werkt zonder dat de Nederlandstalige TO-wereld het grondig kent. Dat is geen toeval — het is het resultaat van welke conferenties Europese Jokers bijwonen, welke boeken vertaald worden, welke netwerken bestaan. Het archief-scheefheid is een structureel effect, geen persoonlijke tekortkoming. Maar wel iets om over na te denken: waar we onze 'internationale scope' vaak vieren, blijven hele regio's onzichtbaar. Deze carrousel is een kleine correctie, geen oplossing.",
+ source:"Synthese van voorgaande kaarten en het volledige onderzoeksrapport april 2026"}
+
+];
+
+let cur = 0;
+
+function renderPills() {
+  const pills = document.getElementById('pills');
+  pills.innerHTML = T.map((t,i) => 
+    `<button class="tpill ${i===cur?'on':''}" onclick="goTech(${i})">${i+1}</button>`
+  ).join('');
+}
+
+function render() {
+  const t = T[cur];
+  renderPills();
+  
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Kaart ${t.n} van ${T.length} &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-form">${t.page}</span>
+            <span class="badge-type" style="background:${t.typeBg};color:${t.typeFg}">${t.type}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Lengte</strong> ${t.duration}</span>
+          ${t.group ? `<span class="meta-item"><strong>Schaal</strong> ${t.group}</span>` : ''}
+          <span class="meta-item"><strong>Periode</strong> ${t.phase}</span>
+        </div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+      <div class="card-source">
+        <span><strong>Bron</strong> · ${t.source}</span>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`
+  ).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+function goTech(i) { cur = i; render(); }
+
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof ArsenaalNav !== 'undefined') {
+    ArsenaalNav.init({
+      horizontal: { next: nextTech, prev: prevTech }
+    });
+  }
+});
+
+render();
+</script>
+</body>
+</html>
