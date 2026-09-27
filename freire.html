@@ -151,6 +151,11 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
   .meta-item{border-right:none;border-bottom:1px solid var(--creme3)}
   .meta-item:last-child{border-bottom:none}
 }
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -159,6 +164,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 <a class="back-link" href="index.html">← Arsenaal van de Joker</a>
 
 <div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="eyebrow">Humuslaag · Kritische Pedagogiek</div>
   <div class="app-name"><strong>Paulo Freire</strong> — <em>De koffer</em></div>
   <div class="app-sub">Negen technieken voor de Joker</div>

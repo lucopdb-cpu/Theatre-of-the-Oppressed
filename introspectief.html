@@ -111,6 +111,11 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
 .acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
 .acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -119,6 +124,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:12px 0 4px;transition:color .15s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--ink3)'"><div class="page">← Arsenaal van de Joker</a>
 
 <div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="app-name">Regenboog van het Verlangen — <em>Introspectieve Technieken</em></div>
   <div class="app-sub">Augusto Boal · The Rainbow of Desire · Routledge 1995 · p. 118–173</div>
   <div class="context-note">Negen technieken om geïnternaliseerde onderdrukking zichtbaar te maken. Niet de agent op straat — maar de agent in het hoofd. Gebruik intuïtief; niet elke stap hoeft te worden uitgevoerd.</div>

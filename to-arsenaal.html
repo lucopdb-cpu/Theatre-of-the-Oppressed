@@ -263,6 +263,10 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .card-add-btn.in-sessie:hover{background:#fde8e0;border-color:#e8c0b0;color:#5c1e10}
 .tbron-feldenkrais{background:#2e5c8c}
 @media print{.masthead,.controls-row,.phase-tabs,.sec-filters,.nav-bar,#kw,.kbd-row,.sb-toggle{display:none!important}.sb-panel{display:block!important;border:none!important;margin:0!important}.sb-actions{display:none!important}body{padding:0!important}.page{max-width:100%!important;padding:0 16px!important}}
+
+/* Joker-tekening in de kop */
+.arsenaal-joker{float:left;width:62px;height:auto;margin:0 16px 0 0;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:46px;margin-right:12px}}
 </style>
 </head>
 <body>
@@ -272,6 +276,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 <header class="masthead">
   <div>
+    <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
     <h1 class="app-name">TO <em>Arsenaal</em></h1>
     <p class="app-tagline">Gereedschapskoffer voor de Joker</p>
   </div>

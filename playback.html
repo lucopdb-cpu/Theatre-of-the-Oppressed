@@ -129,6 +129,11 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .intro-panel em{color:var(--rose);font-style:italic}
 .intro-panel .pullquote{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink);border-left:3px solid var(--rose2);padding:6px 0 6px 16px;margin:14px 0;line-height:1.55}
 .intro-panel .attrib{font-family:var(--sans);font-size:10px;letter-spacing:.05em;color:var(--ink3);text-transform:uppercase;margin-top:-4px;margin-bottom:12px;padding-left:19px}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -137,6 +142,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:12px 0 4px;transition:color .15s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--ink3)'">← Arsenaal van de Joker</a>
 
 <div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="app-name">Playback Theatre — <em>De kern-technieken</em></div>
   <div class="app-sub">Jonathan Fox &amp; Jo Salas · New Paltz NY · 1975 – heden · Centre for Playback Theatre</div>
   <div class="context-note">Negen vormen waaruit een Playback-voorstelling is opgebouwd — van de kortste non-narratieve sculpture tot de volledige scène. Fox onderscheidt drie domeinen die de speler moet beheersen: kunst, sociaal, ritueel. De vormen zijn het vaartuig; het ritueel is de rivier.</div>

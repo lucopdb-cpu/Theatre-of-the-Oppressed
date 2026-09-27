@@ -111,6 +111,11 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 /* Kbd */
 .kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
 kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -119,6 +124,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 <a class="back-link" href="index.html">← Arsenaal van de Joker</a>
 
 <div class="masthead">
+  <img src="joker-blauw.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="app-name">Feldenkrais — <em>Bewustzijn door Beweging</em></div>
   <div class="app-sub">Moshe Feldenkrais · Awareness Through Movement (1972) · somatische opvoeding</div>
   <div class="context-note">Twaalf lessen in lichamelijk zelfonderzoek. Feldenkrais stelde dat we handelen in overeenstemming met ons zelfbeeld — en dat zelfbeeld zit in het lichaam, niet alleen in het hoofd. Wie zijn bewegingspatronen kan waarnemen, kan ze veranderen. Dat is ook wat Theatre of the Oppressed wil.</div>

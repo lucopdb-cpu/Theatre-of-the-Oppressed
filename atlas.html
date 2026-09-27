@@ -126,6 +126,11 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 .footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
 .footer strong{color:var(--ink2)}
 .footer em{font-style:italic;color:var(--blue2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -136,6 +141,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 
 <!-- Masthead -->
 <div class="masthead">
+  <img src="joker-donker.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="app-name">Atlas — <em>praktijken in context</em></div>
   <div class="app-sub">12 plekken · Rio · Medellín · NYC · Vancouver · Parijs · Londen · Berlijn · Rotterdam · Maputo · Dakar · Nairobi · Calcutta</div>
   <div class="context-note">

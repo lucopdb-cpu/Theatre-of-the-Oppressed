@@ -116,6 +116,11 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 /* Back link */
 .back-link{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--ink3);text-decoration:none;margin-bottom:16px;letter-spacing:.04em}
 .back-link:hover{color:var(--red)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 </style>
 </head>
 <body>
@@ -124,6 +129,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 <a class="back-link" href="index.html">← Arsenaal van de Joker</a>
 
 <div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="app-name">Krantentheater — <em>Twaalf Technieken</em></div>
   <div class="app-sub">Augusto Boal · Games for Actors and Non-Actors · Routledge 1992</div>
   <div class="context-note">Twaalf technieken om bestaande teksten — nieuws, beleid, wet, reclame — om te zetten in theatermateriaal. Niet het nieuws spelen, maar het nieuws ondervragen. Elk artikel draagt een ideologie. De techniek maakt die zichtbaar.</div>
