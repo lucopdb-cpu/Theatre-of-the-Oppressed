@@ -83,6 +83,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
 .arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
 .arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(26,24,20,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#1a1814;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
 </style>
 </head>
 <body>
@@ -98,6 +107,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <button class="nb" id="nx">&#8594;</button>
   </div>
   <div id="kw"></div>
+<footer class="arsenaal-footer">
+  <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+</footer>
 </div>
 
 <script>
