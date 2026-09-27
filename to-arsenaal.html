@@ -1251,6 +1251,20 @@ window.addEventListener('DOMContentLoaded', () => {
 // ── START ─────────────────────────────────────────────
 renderSessie();
 apply();
+
+// Sessie opnieuw inlezen als die op een andere pagina (bijv. Boal-oefeningen) is aangevuld
+function herlaadSessie() {
+  try { sessie = JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch(e) { sessie = []; }
+  renderSessie(); renderKaartKnop();
+}
+window.addEventListener('storage', function(e) { if (e.key === 'to-sessie') herlaadSessie(); });
+window.addEventListener('pageshow', function(e) { if (e.persisted) herlaadSessie(); });
+// to-arsenaal.html#sessie opent de sessiebouwer direct
+if (location.hash === '#sessie') {
+  document.getElementById('sb-panel').classList.add('open');
+  document.getElementById('sb-icon').classList.add('open');
+  document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
+}
 </script>
 </body>
 </html>

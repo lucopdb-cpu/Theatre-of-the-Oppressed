@@ -23,78 +23,120 @@
 <meta name="twitter:title" content="Games for Actors and Non-Actors — Augusto Boal">
 <meta name="twitter:description" content="De oefeningen zoals Boal ze zelf ordende in Games for Actors and Non-Actors — per categorie, met zijn eigen nummering en introductieteksten. Dicht bij de bron.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
-  :root{--ink:#1a1208;--paper:#faf8f4;--paper-dark:#ede5d0;--accent:#8b1a1a;--gold:#b8860b;--gold-light:#d4a843;--muted:#6b5d4f;--border:#c8b89a;--cat-I:#2c5f2e;--cat-II:#1a3a5c;--cat-III:#5c2c5f;--cat-IV:#5c3d1a;--cat-V:#1a4a3a;--cat-IT:#8b1a1a;--cat-RE:#3a3a1a;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;min-height:100vh;overflow-x:hidden;}
-  header{background:var(--ink);color:var(--paper);padding:2rem 2rem 1.5rem;position:relative;overflow:hidden;}
-  header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 80px);}
-  .hero-joker{position:absolute;right:-20px;bottom:-20px;width:200px;height:auto;opacity:.28;pointer-events:none;user-select:none;z-index:0;}
-  @media(max-width:600px){.hero-joker{width:120px;opacity:.22;right:-10px;}}
-  .header-inner{position:relative;max-width:900px;margin:0 auto;z-index:1;}
-  .header-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.5rem;}
-  header h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.15;color:var(--paper);margin-bottom:.4rem;}
-  header h1 em{font-style:italic;color:var(--gold-light);}
-  .header-sub{font-size:.85rem;color:#a89880;font-style:italic;}
-  .header-divider{width:3rem;height:1px;background:var(--gold);margin:1rem 0 .8rem;}
-  .header-intro{font-size:.82rem;color:#c4b49a;max-width:600px;line-height:1.6;}
-  .cat-nav{background:var(--paper-dark);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.1);}
-  .cat-nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;}
-  .cat-nav-inner::-webkit-scrollbar{display:none;}
-  .cat-btn{flex:0 0 auto;padding:.8rem 1.2rem;border:none;background:none;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:.4rem;}
-  .cat-btn:hover{color:var(--ink);}
-  .cat-btn.active{color:var(--ink);border-bottom-color:var(--accent);}
-  .cat-btn .roman{font-style:italic;font-size:.85em;}
-  .main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem;}
-  .category-section{display:none;}.category-section.active{display:block;}
-  .category-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
-  .category-numeral{font-family:'Playfair Display',serif;font-style:italic;font-size:3.5rem;color:var(--border);line-height:1;margin-bottom:-.5rem;}
-  .category-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;line-height:1.2;margin-bottom:.6rem;}
-  .category-intro{font-size:.9rem;line-height:1.75;color:#3a2e22;max-width:720px;background:var(--paper-dark);padding:1rem 1.2rem;border-left:3px solid var(--gold);border-radius:0 4px 4px 0;}
-  .series-group{margin-bottom:2.5rem;}
-  .series-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:.8rem;}
-  .series-label::after{content:'';flex:1;height:1px;background:var(--border);opacity:.4;}
-  .exercises-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;}
-  .exercise-card{background:white;border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:all .2s;}
-  .exercise-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.1);transform:translateY(-2px);}
-  .exercise-card.expanded{grid-column:1/-1;cursor:default;transform:none;box-shadow:0 4px 24px rgba(0,0,0,.12);}
-  .card-header{padding:1rem 1.1rem .8rem;border-bottom:1px solid #f0e8d8;display:flex;gap:.8rem;align-items:flex-start;}
-  .card-number{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;color:var(--border);line-height:1;flex:0 0 auto;min-width:1.8rem;}
-  .card-title-area{flex:1;}
-  .card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:.2rem;}
-  .card-aka{font-size:.72rem;color:var(--muted);font-style:italic;}
-  .card-expand-hint{font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;opacity:.7;}
-  .exercise-card.expanded .card-expand-hint{display:none;}
-  .card-meta{padding:.6rem 1.1rem;display:flex;gap:.5rem;flex-wrap:wrap;background:#faf7f2;border-bottom:1px solid #f0e8d8;}
-  .meta-tag{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px;background:var(--paper-dark);color:var(--muted);border:1px solid var(--border);}
-  .meta-tag.groep{background:#e8f0e8;color:#2c5f2e;border-color:#b8d4b8;}
-  .meta-tag.koppels{background:#e8eef5;color:#1a3a5c;border-color:#b8ccdc;}
-  .meta-tag.solo{background:#f5ece8;color:#5c2c1a;border-color:#dcb8b8;}
-  .card-body{padding:1rem 1.1rem;display:none;}
-  .exercise-card.expanded .card-body{display:block;}
-  .card-teaser{padding:.7rem 1.1rem 1rem;font-size:.85rem;color:var(--muted);line-height:1.6;font-style:italic;}
-  .exercise-card.expanded .card-teaser{display:none;}
-  .body-section{margin-bottom:1rem;}
-  .body-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
-  .body-text{font-size:.88rem;line-height:1.75;color:#2a2016;}
-  .body-text p{margin-bottom:.7rem;}.body-text p:last-child{margin-bottom:0;}
-  .variation-block{margin-top:.8rem;padding:.7rem .9rem;background:var(--paper-dark);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;}
-  .variation-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
-  .variation-text{font-size:.83rem;line-height:1.7;color:#3a2e22;font-style:italic;}
-  .boal-note{margin-top:.8rem;padding:.6rem .9rem;background:#fef9f0;border:1px solid #e8d8b0;border-radius:3px;font-size:.8rem;color:#5c4a2a;font-style:italic;line-height:1.6;}
-  .boal-note::before{content:"✦ ";color:var(--gold);}
-  .close-btn{display:block;margin-top:1.2rem;padding:.5rem 1rem;background:none;border:1px solid var(--border);border-radius:3px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.75rem;color:var(--muted);letter-spacing:.08em;transition:all .2s;}
-  .close-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .page-footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);margin-top:3rem;}
-  [data-cat="I"] .category-numeral{color:#b8d4b8;}[data-cat="I"] .category-title{color:var(--cat-I);}[data-cat="I"] .exercise-card:hover,[data-cat="I"] .exercise-card.expanded{border-color:var(--cat-I);}
-  [data-cat="II"] .category-numeral{color:#b8c8dc;}[data-cat="II"] .category-title{color:var(--cat-II);}[data-cat="II"] .exercise-card:hover,[data-cat="II"] .exercise-card.expanded{border-color:var(--cat-II);}
-  [data-cat="III"] .category-numeral{color:#d4b8dc;}[data-cat="III"] .category-title{color:var(--cat-III);}[data-cat="III"] .exercise-card:hover,[data-cat="III"] .exercise-card.expanded{border-color:var(--cat-III);}
-  [data-cat="IV"] .category-numeral{color:#dcc8b0;}[data-cat="IV"] .category-title{color:var(--cat-IV);}[data-cat="IV"] .exercise-card:hover,[data-cat="IV"] .exercise-card.expanded{border-color:var(--cat-IV);}
-  [data-cat="V"] .category-numeral{color:#b0d0c8;}[data-cat="V"] .category-title{color:var(--cat-V);}[data-cat="V"] .exercise-card:hover,[data-cat="V"] .exercise-card.expanded{border-color:var(--cat-V);}
-  [data-cat="IT"] .category-numeral{color:#dcb8b8;}[data-cat="IT"] .category-title{color:var(--cat-IT);}[data-cat="IT"] .exercise-card:hover,[data-cat="IT"] .exercise-card.expanded{border-color:var(--cat-IT);}
-  [data-cat="RE"] .category-numeral{color:#cccca0;}[data-cat="RE"] .category-title{color:var(--cat-RE);}[data-cat="RE"] .exercise-card:hover,[data-cat="RE"] .exercise-card.expanded{border-color:var(--cat-RE);}
-  @media(max-width:600px){.exercises-grid{grid-template-columns:1fr;}header,.main{padding:1.5rem 1rem;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --accent:#8b1a1a;--accent3:#e8c4c0;--accent4:#fbf1ef;
+  --gold:#a8792a;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --cat-I:#2c5f2e;--cat-II:#1a3a5c;--cat-III:#5c2c5f;--cat-IV:#5c3d1a;--cat-V:#1a4a3a;--cat-IT:#8b1a1a;--cat-RE:#3a3a1a;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:0;display:flow-root}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--accent)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--accent3);padding-left:14px;max-width:600px}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* CATEGORIEEN */
+.cat-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:12px 0;margin-bottom:22px}
+.cat-nav-inner{display:flex;flex-wrap:wrap;gap:5px}
+.cat-btn{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.cat-btn:hover{border-color:var(--ink3);color:var(--ink)}
+.cat-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cat-btn .roman{font-style:normal;font-weight:500;margin-right:2px}
+.main{padding:0}
+.category-section{display:none}.category-section.active{display:block}
+.category-header{margin-bottom:22px}
+.category-numeral{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.category-numeral::before{content:'Categorie '}
+.category-title{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+.category-title small{display:block;margin-top:3px;font-family:var(--body);font-style:italic;font-weight:300;font-size:13px!important;color:var(--ink2)!important}
+.category-intro{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2);border-left:3px solid var(--paper4);padding-left:14px;max-width:640px}
+.series-group{margin-bottom:28px}
+.series-label{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.series-label::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+/* OEFENKAARTEN */
+.exercises-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.exercise-card{background:#fff;border:1px solid var(--paper4);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.exercise-card:hover{box-shadow:0 2px 6px rgba(26,24,20,.07),0 6px 18px rgba(26,24,20,.06)}
+.exercise-card.expanded{grid-column:1/-1;cursor:default;animation:enter .2s ease}
+@keyframes enter{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.card-header{padding:14px 18px 10px;display:flex;gap:10px;align-items:flex-start}
+.card-number{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink2);background:var(--paper2);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--paper4);margin-top:1px}
+.card-title-area{flex:1}
+.card-title{font-family:var(--serif);font-size:17px;font-weight:400;line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin-bottom:2px}
+.card-aka{font-family:var(--body);font-size:12px;font-style:italic;color:var(--ink2)}
+.card-expand-hint{font-family:var(--sans);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-top:4px}
+.exercise-card.expanded .card-expand-hint{display:none}
+.card-meta{padding:0 18px 10px 52px;display:flex;gap:5px;flex-wrap:wrap}
+.meta-tag{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;background:var(--paper2);border:1px solid var(--paper4);color:var(--ink3)}
+.meta-tag.groep{background:#e8f0e8;color:#2c5f2e;border-color:#b8d4b8}
+.meta-tag.koppels{background:#e8eef5;color:#1a3a5c;border-color:#b8ccdc}
+.meta-tag.solo{background:#f5ece8;color:#5c2c1a;border-color:#dcb8b8}
+.card-teaser{padding:10px 18px 16px;border-top:1px solid var(--paper3);font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6}
+.exercise-card.expanded .card-teaser{display:none}
+.card-body{padding:14px 26px 20px;border-top:1px solid var(--paper3);display:none}
+.exercise-card.expanded .card-body{display:block}
+.body-section{margin-bottom:14px}
+.body-label{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.body-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.body-text p{margin-bottom:.7rem}.body-text p:last-child{margin-bottom:0}
+.variation-block{margin-top:12px;padding:10px 14px;background:var(--paper2);border-left:3px solid var(--paper4);border-radius:0 7px 7px 0}
+.variation-label{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.variation-text{font-family:var(--body);font-size:12.5px;font-weight:300;line-height:1.65;color:var(--ink2)}
+.boal-note{margin-top:14px;padding:12px 15px;background:var(--accent4);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+.boal-note::before{content:'Noot van Boal';display:block;font-family:var(--sans);font-size:9px;font-weight:500;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.close-btn{display:inline-block;margin-top:16px;font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s}
+.close-btn:hover{border-color:var(--ink3);color:var(--ink)}
+[data-cat="I"] .category-title{color:var(--cat-I)}[data-cat="I"] .exercise-card.expanded{border-color:var(--cat-I)}
+[data-cat="II"] .category-title{color:var(--cat-II)}[data-cat="II"] .exercise-card.expanded{border-color:var(--cat-II)}
+[data-cat="III"] .category-title{color:var(--cat-III)}[data-cat="III"] .exercise-card.expanded{border-color:var(--cat-III)}
+[data-cat="IV"] .category-title{color:var(--cat-IV)}[data-cat="IV"] .exercise-card.expanded{border-color:var(--cat-IV)}
+[data-cat="V"] .category-title{color:var(--cat-V)}[data-cat="V"] .exercise-card.expanded{border-color:var(--cat-V)}
+[data-cat="IT"] .category-title{color:var(--cat-IT)}[data-cat="IT"] .exercise-card.expanded{border-color:var(--cat-IT)}
+[data-cat="RE"] .category-title{color:var(--cat-RE)}[data-cat="RE"] .exercise-card.expanded{border-color:var(--cat-RE)}
+/* ═══ SESSIE (koppeling met de sessiebouwer in to-arsenaal) ═══ */
+.cat-nav{display:flex;align-items:center;gap:12px}
+.cat-nav-inner{flex:1;min-width:0}
+.sessie-link{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:#fff;white-space:nowrap;transition:all .15s}
+.sessie-link:hover{border-color:var(--accent3);color:var(--accent);background:var(--accent4)}
+.sessie-link .sl-n{background:var(--accent);color:#fff;border-radius:20px;padding:1px 7px;font-weight:500}
+.sessie-link .sl-n.leeg{background:var(--paper3);color:var(--ink3)}
+.sessie-uitleg{font-family:var(--serif);font-size:12.5px;font-style:italic;color:var(--ink3);margin:10px 0 0}
+.sessie-uitleg a{color:var(--ink2);text-decoration:underline;text-decoration-color:var(--paper4);text-underline-offset:2px}
+.sessie-uitleg a:hover{color:var(--accent)}
+.sessie-knop{flex-shrink:0;font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;white-space:nowrap;margin-top:2px}
+.sessie-knop:hover{border-color:var(--accent3);color:var(--accent);background:var(--accent4)}
+.sessie-knop.in-sessie{background:var(--accent4);border-color:var(--accent3);color:var(--accent)}
+@media (max-width:600px){
+  .cat-nav{gap:8px}
+  .cat-nav .cat-nav-inner{margin:0 0 0 -16px;padding:0 0 0 16px}
+  .sessie-link .sl-txt{display:none}
+}
+@media (max-width:600px){
+  .cat-nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+  .cat-nav-inner::-webkit-scrollbar{display:none}
+  .cat-btn{flex-shrink:0}
+  .page{padding:0 16px}
+  .arsenaal-joker{width:58px;margin-left:12px}
+  .exercises-grid{grid-template-columns:1fr}
+  .card-body{padding:14px 18px 18px}
+}
 
 /* Vaste navigatie terug, gelijk op alle pagina's */
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
@@ -114,14 +156,18 @@
 </style>
 </head>
 <body>
-<nav class="arsenaal-nav is-edge" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
-<header><img src="joker-goud.png" alt="" class="hero-joker" aria-hidden="true"><div class="header-inner">
-  <div class="header-label">Het centrale arsenaal · Augusto Boal</div>
-  <h1>Games for Actors<br>and <em>Non-Actors</em></h1>
-  <div class="header-sub">Tweede editie · Routledge · 2002 · Vertaling: Adrian Jackson</div>
-  <div class="header-divider"></div>
-  <div class="header-intro">Het arsenaal van Theatre of the Oppressed. Vijf categorieën van spelen en oefeningen — aangevuld met Beeldtheater en Repetitieoefeningen — elk gericht op de-specialisatie van het lichaam en herstel van de zintuiglijke waarneming.</div>
-</div></header>
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
+
+<div class="masthead">
+  <img src="joker-goud.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Het centrale arsenaal · Augusto Boal</div>
+  <div class="app-name">Games for Actors and <em>Non&#8209;Actors</em></div>
+  <div class="app-sub">Augusto Boal · Tweede editie · Routledge · 2002 · Vertaling Adrian Jackson</div>
+  <div class="context-note">Het arsenaal van Theatre of the Oppressed. Vijf categorieën van spelen en oefeningen — aangevuld met Beeldtheater en Repetitieoefeningen — elk gericht op de-specialisatie van het lichaam en herstel van de zintuiglijke waarneming.</div>
+  <p class="sessie-uitleg">Met <b>+ sessie</b> op een kaart zet je een oefening in de sessiebouwer van het <a href="to-arsenaal.html#sessie">TO Arsenaal</a>, naast oefeningen uit de rest van het arsenaal.</p>
+</div>
 
 <nav class="cat-nav"><div class="cat-nav-inner">
   <button class="cat-btn active" onclick="showCat('I',this)"><span class="roman">I</span> Voelen wat we aanraken</button>
@@ -131,7 +177,8 @@
   <button class="cat-btn" onclick="showCat('V',this)"><span class="roman">V</span> Geheugen van de zintuigen</button>
   <button class="cat-btn" onclick="showCat('IT',this)">Beeldtheater</button>
   <button class="cat-btn" onclick="showCat('RE',this)">Repetitieoefeningen</button>
-</div></nav>
+</div><a class="sessie-link" href="to-arsenaal.html#sessie" title="Naar de sessiebouwer"><span class="sl-txt">Sessie</span> <span class="sl-n leeg" id="sl-n">0</span> <span class="sl-duur" id="sl-duur"></span>→</a>
+</nav>
 
 <main class="main">
 
@@ -1571,11 +1618,13 @@
 
 </main>
 
-<footer class="arsenaal-footer is-edge">
+<footer class="arsenaal-footer">
   <div class="af-content">Bron: <a href="bronnen.html#boal-2002">Boal, A. (2002), <em>Games for actors and non-actors</em> (2e druk; A. Jackson, Vert.), Routledge</a><br>
   Deze digitale weergave is bedoeld als werkinstrument voor Jokers en is gebaseerd op directe tekst uit het boek.</div>
   <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
 </footer>
+
+</div>
 
 <script>
   function showCat(id, btn) {
@@ -1583,6 +1632,7 @@
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('cat-' + id).classList.add('active');
     btn.classList.add('active');
+    const row = btn.parentElement; row.scrollLeft = btn.offsetLeft - (row.clientWidth - btn.offsetWidth) / 2;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function toggleCard(card) {
@@ -1595,6 +1645,115 @@
     event.stopPropagation();
     btn.closest('.exercise-card').classList.remove('expanded');
   }
+
+  // ── SESSIE: koppeling met de sessiebouwer (to-arsenaal.html, localStorage 'to-sessie') ──
+  // Per oefening: [fase, duur in minuten, energie, niveau]. Schattingen voor de sessiebouwer; pas gerust aan.
+  // Oefeningen die ook in het TO Arsenaal staan, gebruiken daar de naam en gegevens (zie SESSIE_ALIAS).
+  const SESSIE_DATA = {
+    "Het Kruis en de Cirkel":["opwarming",5,"laag",1],
+    "Minimaal Oppervlaktecontact":["opwarming",10,"middel",1],
+    "Joe Egg":["vertrouwen",15,"laag",2],
+    "De Knopenkring":["opwarming",15,"middel",1],
+    "De Speler als 'Subject'":["vertrouwen",15,"middel",2],
+    "Een Ballon als Verlengstuk van het Lichaam":["opwarming",10,"hoog",1],
+    "Beweging met Overdreven Voorbedachtheid":["opwarming",10,"laag",1],
+    "Slowmotion":["opwarming",10,"laag",1],
+    "Op een Rechte Hoek":["opwarming",5,"hoog",1],
+    "Gekruiste Benen":["opwarming",10,"hoog",1],
+    "Het Rollende Tapijt":["vertrouwen",15,"laag",2],
+    "Goedendag":["opening",5,"middel",1],
+    "Horizontale Reeks":["opwarming",15,"laag",1],
+    "Een Ronde van Ritme en Beweging":["opwarming",15,"hoog",1],
+    "Ritmes Wisselen":["opwarming",10,"hoog",1],
+    "De Ritmemachine":["opwarming",15,"hoog",1],
+    "Het Peruaanse Balspel":["opwarming",10,"hoog",1],
+    "Klank en Beweging":["opwarming",10,"middel",1],
+    "Ademhalingsoefeningen":["opwarming",20,"laag",1],
+    "Het Focuspunt, de Omhelzing en de Handdruk":["vertrouwen",15,"laag",1],
+    "Geluiden":["vertrouwen",10,"middel",1],
+    "De Denkbeeldige Reis":["vertrouwen",15,"laag",1],
+    "De Magneet — Positief en Negatief":["vertrouwen",10,"middel",1],
+    "De Ruimte Vullen en Structureren":["opwarming",10,"hoog",1],
+    "De Gewone Spiegel":["opwarming",10,"laag",1],
+    "Rollen Wisselen → Beiden Tegelijk":["opwarming",10,"laag",1],
+    "De Vervormende Spiegel":["opwarming",10,"middel",1],
+    "De Beeldhouwer en het Model":["beeldentheater",15,"laag",1],
+    "Het Beeld Voltooien":["beeldentheater",15,"middel",1],
+    "Het Grote Machtsspel":["beeldentheater",20,"laag",2],
+    "Volg de Meester":["opwarming",10,"middel",1],
+    "Geheugen: Gisteren Herinneren":["verdieping",15,"laag",1],
+    "Geheugen en Emotie: Een Dag uit het Verleden Herinneren":["verdieping",25,"laag",2],
+    "Een Echte Onderdrukking Herinneren":["verdieping",30,"laag",3],
+    "Repetitie op het Podium van de Verbeelding":["verdieping",30,"middel",3],
+    "Extrapolatie":["nabespreking",15,"laag",2],
+    "Het Beeld van het Woord: Een Onderwerp Uitbeelden met je Lichaam":["beeldentheater",30,"middel",2],
+    "Het Overgangsbeeld":["beeldentheater",30,"laag",2],
+    "Meervoudig Beeld van Geluk":["beeldentheater",30,"laag",2],
+    "Ritueel":["beeldentheater",25,"middel",2],
+    "Dissociatie — Gedachte, Woord, Daad":["verdieping",20,"middel",2],
+    "Improvisatie":["repetitie",20,"middel",2],
+    "Verander het Verhaal":["repetitie",30,"middel",2],
+    "De Onderdrukking Doorbreken":["repetitie",30,"middel",3],
+    "Abstracte Emotie":["repetitie",15,"middel",2],
+    "Stop! Denk na!":["repetitie",20,"middel",2],
+    "Analytische Repetitie van Emotie":["repetitie",25,"middel",2],
+    "Tegenovergestelde Omstandigheden":["repetitie",20,"middel",2]
+  };
+  const SESSIE_ALIAS = {
+    "Colombiaanse Hypnose":["Colombiaanse hypnose","vertrouwen",15,"middel",1],
+    "Tegen Elkaar Duwen":["Tegen elkaar duwen","repetitie",5,"middel",1],
+    "Cadavre Exquis":["Cadavre exquis","opwarming",15,"middel",1],
+    "De Glazen Cobra":["De glazen cobra","opwarming",10,"laag",1],
+    "De Drie Wensen":["De drie wensen","forum",20,"middel",3],
+    "Rashomon":["Rashomon","beeldentheater",30,"middel",2]
+  };
+
+  function leesSessie() {
+    try { return JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch (e) { return []; }
+  }
+  function schrijfSessie(lijst) {
+    try { localStorage.setItem('to-sessie', JSON.stringify(lijst)); return true; } catch (e) { return false; }
+  }
+  function sessieItem(titel) {
+    const a = SESSIE_ALIAS[titel];
+    if (a) return { naam: a[0], fase: a[1], duur: a[2], eng: a[3], niv: a[4] };
+    const d = SESSIE_DATA[titel] || ["opwarming", 15, "middel", 1];
+    return { naam: titel, fase: d[0], duur: d[1], eng: d[2], niv: d[3] };
+  }
+  function toggleSessie(e, knop) {
+    e.stopPropagation();
+    const item = sessieItem(knop.dataset.titel);
+    let lijst = leesSessie();
+    const i = lijst.findIndex(s => s.naam === item.naam);
+    if (i >= 0) lijst.splice(i, 1); else lijst.push(item);
+    if (!schrijfSessie(lijst)) { knop.textContent = 'niet beschikbaar'; return; }
+    toonSessie();
+  }
+  function toonSessie() {
+    const lijst = leesSessie();
+    const namen = new Set(lijst.map(s => s.naam));
+    document.querySelectorAll('.sessie-knop').forEach(k => {
+      const aan = namen.has(sessieItem(k.dataset.titel).naam);
+      k.classList.toggle('in-sessie', aan);
+      k.textContent = aan ? '✓ in sessie' : '+ sessie';
+      k.title = aan ? 'Uit de sessie halen' : 'Toevoegen aan de sessiebouwer';
+    });
+    const n = lijst.length, tot = lijst.reduce((a, s) => a + (s.duur || 0), 0);
+    const nEl = document.getElementById('sl-n');
+    nEl.textContent = n; nEl.classList.toggle('leeg', !n);
+    document.getElementById('sl-duur').textContent = n ? tot + ' min ' : '';
+  }
+  document.querySelectorAll('.exercise-card').forEach(card => {
+    const titel = card.querySelector('.card-title').textContent.trim();
+    const knop = document.createElement('button');
+    knop.className = 'sessie-knop';
+    knop.dataset.titel = titel;
+    knop.onclick = e => toggleSessie(e, knop);
+    card.querySelector('.card-header').appendChild(knop);
+  });
+  toonSessie();
+  window.addEventListener('storage', e => { if (e.key === 'to-sessie') toonSessie(); });
+  window.addEventListener('pageshow', toonSessie);
 </script>
 </body>
 </html>
