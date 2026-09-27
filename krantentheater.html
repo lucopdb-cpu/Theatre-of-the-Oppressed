@@ -526,5 +526,25 @@ render();
   });
 })();
 </script>
+<script src="sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "Simpele lezing": ["verdieping", 10, "laag", 1],
+    "Aanvullende activiteit": ["verdieping", 15, "middel", 1],
+    "Ritmische lezing": ["verdieping", 15, "hoog", 1],
+    "Parallelle actie": ["verdieping", 10, "middel", 2],
+    "Tekst uit context": ["verdieping", 10, "laag", 1],
+    "Gemimed lezen": ["verdieping", 10, "middel", 2],
+    "Historisering": ["verdieping", 15, "laag", 2],
+    "Versterking": ["verdieping", 10, "middel", 2],
+    "Herdefiniëring": ["verdieping", 15, "laag", 2],
+    "Improvisatie op nieuws": ["verdieping", 20, "middel", 2],
+    "De stem die ontbreekt": ["verdieping", 20, "middel", 2]
+  }
+});
+</script>
 </body>
 </html>

@@ -719,5 +719,24 @@ window.addEventListener('DOMContentLoaded', () => {
 updateDisplay();
 updateViewToggle();
 </script>
+<script src="sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "Het echte beeld": ["beeldentheater", 15, "laag", 1],
+    "Het ideale beeld": ["beeldentheater", 15, "laag", 1],
+    "Het overgangsbeeld": ["forum", 30, "middel", 3, "Beeld van overgang"],
+    "Dynamisering": ["beeldentheater", 15, "middel", 2],
+    "Great Game of Power": ["beeldentheater", 20, "middel", 2, "De grote machtstest"],
+    "Columbian Hypnosis": ["vertrouwen", 15, "middel", 1, "Colombiaanse hypnose"],
+    "Complete the Image": ["beeldentheater", 15, "middel", 2, "Voltooi het beeld"],
+    "Multiple Image of Happiness": ["beeldentheater", 20, "middel", 2, "Meervoudige beelden van geluk"],
+    "Ritueel gebaar": ["beeldentheater", 20, "middel", 2],
+    "Image of the Antagonist": ["verdieping", 25, "laag", 3, "Het beeld van de antagonist"]
+  }
+});
+</script>
 </body>
 </html>

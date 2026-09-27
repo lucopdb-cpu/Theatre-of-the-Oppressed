@@ -113,21 +113,13 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 /* ═══ SESSIE (koppeling met de sessiebouwer in to-arsenaal) ═══ */
 .cat-nav{display:flex;align-items:center;gap:12px}
 .cat-nav-inner{flex:1;min-width:0}
-.sessie-link{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:#fff;white-space:nowrap;transition:all .15s}
-.sessie-link:hover{border-color:var(--accent3);color:var(--accent);background:var(--accent4)}
-.sessie-link .sl-n{background:var(--accent);color:#fff;border-radius:20px;padding:1px 7px;font-weight:500}
-.sessie-link .sl-n.leeg{background:var(--paper3);color:var(--ink3)}
 .sessie-uitleg{font-family:var(--serif);font-size:12.5px;font-style:italic;color:var(--ink3);margin:10px 0 0}
 .sessie-uitleg a{color:var(--ink2);text-decoration:underline;text-decoration-color:var(--paper4);text-underline-offset:2px}
 .sessie-uitleg a:hover{color:var(--accent)}
-.sessie-knop{flex-shrink:0;font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;white-space:nowrap;margin-top:2px}
-.sessie-knop:hover{border-color:var(--accent3);color:var(--accent);background:var(--accent4)}
-.sessie-knop.in-sessie{background:var(--accent4);border-color:var(--accent3);color:var(--accent)}
 @media (max-width:600px){
   .cat-nav{gap:8px}
   .cat-nav .cat-nav-inner{margin:0 0 0 -16px;padding:0 0 0 16px}
-  .sessie-link .sl-txt{display:none}
-}
+  }
 @media (max-width:600px){
   .cat-nav-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
   .cat-nav-inner::-webkit-scrollbar{display:none}
@@ -177,8 +169,7 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
   <button class="cat-btn" onclick="showCat('V',this)"><span class="roman">V</span> Geheugen van de zintuigen</button>
   <button class="cat-btn" onclick="showCat('IT',this)">Beeldtheater</button>
   <button class="cat-btn" onclick="showCat('RE',this)">Repetitieoefeningen</button>
-</div><a class="sessie-link" href="to-arsenaal.html#sessie" title="Naar de sessiebouwer"><span class="sl-txt">Sessie</span> <span class="sl-n leeg" id="sl-n">0</span> <span class="sl-duur" id="sl-duur"></span>→</a>
-</nav>
+</div></nav>
 
 <main class="main">
 
@@ -1646,114 +1637,71 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
     btn.closest('.exercise-card').classList.remove('expanded');
   }
 
-  // ── SESSIE: koppeling met de sessiebouwer (to-arsenaal.html, localStorage 'to-sessie') ──
-  // Per oefening: [fase, duur in minuten, energie, niveau]. Schattingen voor de sessiebouwer; pas gerust aan.
-  // Oefeningen die ook in het TO Arsenaal staan, gebruiken daar de naam en gegevens (zie SESSIE_ALIAS).
-  const SESSIE_DATA = {
-    "Het Kruis en de Cirkel":["opwarming",5,"laag",1],
-    "Minimaal Oppervlaktecontact":["opwarming",10,"middel",1],
-    "Joe Egg":["vertrouwen",15,"laag",2],
-    "De Knopenkring":["opwarming",15,"middel",1],
-    "De Speler als 'Subject'":["vertrouwen",15,"middel",2],
-    "Een Ballon als Verlengstuk van het Lichaam":["opwarming",10,"hoog",1],
-    "Beweging met Overdreven Voorbedachtheid":["opwarming",10,"laag",1],
-    "Slowmotion":["opwarming",10,"laag",1],
-    "Op een Rechte Hoek":["opwarming",5,"hoog",1],
-    "Gekruiste Benen":["opwarming",10,"hoog",1],
-    "Het Rollende Tapijt":["vertrouwen",15,"laag",2],
-    "Goedendag":["opening",5,"middel",1],
-    "Horizontale Reeks":["opwarming",15,"laag",1],
-    "Een Ronde van Ritme en Beweging":["opwarming",15,"hoog",1],
-    "Ritmes Wisselen":["opwarming",10,"hoog",1],
-    "De Ritmemachine":["opwarming",15,"hoog",1],
-    "Het Peruaanse Balspel":["opwarming",10,"hoog",1],
-    "Klank en Beweging":["opwarming",10,"middel",1],
-    "Ademhalingsoefeningen":["opwarming",20,"laag",1],
-    "Het Focuspunt, de Omhelzing en de Handdruk":["vertrouwen",15,"laag",1],
-    "Geluiden":["vertrouwen",10,"middel",1],
-    "De Denkbeeldige Reis":["vertrouwen",15,"laag",1],
-    "De Magneet — Positief en Negatief":["vertrouwen",10,"middel",1],
-    "De Ruimte Vullen en Structureren":["opwarming",10,"hoog",1],
-    "De Gewone Spiegel":["opwarming",10,"laag",1],
-    "Rollen Wisselen → Beiden Tegelijk":["opwarming",10,"laag",1],
-    "De Vervormende Spiegel":["opwarming",10,"middel",1],
-    "De Beeldhouwer en het Model":["beeldentheater",15,"laag",1],
-    "Het Beeld Voltooien":["beeldentheater",15,"middel",1],
-    "Het Grote Machtsspel":["beeldentheater",20,"laag",2],
-    "Volg de Meester":["opwarming",10,"middel",1],
-    "Geheugen: Gisteren Herinneren":["verdieping",15,"laag",1],
-    "Geheugen en Emotie: Een Dag uit het Verleden Herinneren":["verdieping",25,"laag",2],
-    "Een Echte Onderdrukking Herinneren":["verdieping",30,"laag",3],
-    "Repetitie op het Podium van de Verbeelding":["verdieping",30,"middel",3],
-    "Extrapolatie":["nabespreking",15,"laag",2],
-    "Het Beeld van het Woord: Een Onderwerp Uitbeelden met je Lichaam":["beeldentheater",30,"middel",2],
-    "Het Overgangsbeeld":["beeldentheater",30,"laag",2],
-    "Meervoudig Beeld van Geluk":["beeldentheater",30,"laag",2],
-    "Ritueel":["beeldentheater",25,"middel",2],
-    "Dissociatie — Gedachte, Woord, Daad":["verdieping",20,"middel",2],
-    "Improvisatie":["repetitie",20,"middel",2],
-    "Verander het Verhaal":["repetitie",30,"middel",2],
-    "De Onderdrukking Doorbreken":["repetitie",30,"middel",3],
-    "Abstracte Emotie":["repetitie",15,"middel",2],
-    "Stop! Denk na!":["repetitie",20,"middel",2],
-    "Analytische Repetitie van Emotie":["repetitie",25,"middel",2],
-    "Tegenovergestelde Omstandigheden":["repetitie",20,"middel",2]
-  };
-  const SESSIE_ALIAS = {
-    "Colombiaanse Hypnose":["Colombiaanse hypnose","vertrouwen",15,"middel",1],
-    "Tegen Elkaar Duwen":["Tegen elkaar duwen","repetitie",5,"middel",1],
-    "Cadavre Exquis":["Cadavre exquis","opwarming",15,"middel",1],
-    "De Glazen Cobra":["De glazen cobra","opwarming",10,"laag",1],
-    "De Drie Wensen":["De drie wensen","forum",20,"middel",3],
-    "Rashomon":["Rashomon","beeldentheater",30,"middel",2]
-  };
-
-  function leesSessie() {
-    try { return JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch (e) { return []; }
+</script>
+<script src="sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  kaart: '.exercise-card', naam: '.card-title', plek: '.card-header',
+  teller: '.cat-nav', tellerVooraan: false,
+  oefeningen: {
+    "Het Kruis en de Cirkel": ["opwarming", 5, "laag", 1],
+    "Colombiaanse Hypnose": ["vertrouwen", 15, "middel", 1, "Colombiaanse hypnose"],
+    "Minimaal Oppervlaktecontact": ["opwarming", 10, "middel", 1],
+    "Tegen Elkaar Duwen": ["repetitie", 5, "middel", 1, "Tegen elkaar duwen"],
+    "Joe Egg": ["vertrouwen", 15, "laag", 2],
+    "De Knopenkring": ["opwarming", 15, "middel", 1],
+    "De Speler als 'Subject'": ["vertrouwen", 15, "middel", 2],
+    "Een Ballon als Verlengstuk van het Lichaam": ["opwarming", 10, "hoog", 1],
+    "Beweging met Overdreven Voorbedachtheid": ["opwarming", 10, "laag", 1],
+    "Slowmotion": ["opwarming", 10, "laag", 1],
+    "Op een Rechte Hoek": ["opwarming", 5, "hoog", 1],
+    "Gekruiste Benen": ["opwarming", 10, "hoog", 1],
+    "Het Rollende Tapijt": ["vertrouwen", 15, "laag", 2],
+    "Goedendag": ["opening", 5, "middel", 1],
+    "Cadavre Exquis": ["opwarming", 15, "middel", 1, "Cadavre exquis"],
+    "Horizontale Reeks": ["opwarming", 15, "laag", 1],
+    "Een Ronde van Ritme en Beweging": ["opwarming", 15, "hoog", 1],
+    "Ritmes Wisselen": ["opwarming", 10, "hoog", 1],
+    "De Ritmemachine": ["opwarming", 15, "hoog", 1],
+    "Het Peruaanse Balspel": ["opwarming", 15, "laag", 1, "Peruaanse bal"],
+    "Klank en Beweging": ["opwarming", 10, "middel", 1],
+    "Ademhalingsoefeningen": ["opwarming", 20, "laag", 1],
+    "Het Focuspunt, de Omhelzing en de Handdruk": ["vertrouwen", 15, "laag", 1],
+    "Geluiden": ["vertrouwen", 10, "middel", 1],
+    "De Denkbeeldige Reis": ["vertrouwen", 15, "laag", 1],
+    "De Glazen Cobra": ["opwarming", 10, "laag", 1, "De glazen cobra"],
+    "De Magneet — Positief en Negatief": ["vertrouwen", 10, "middel", 1],
+    "De Ruimte Vullen en Structureren": ["opwarming", 10, "hoog", 1],
+    "De Gewone Spiegel": ["opwarming", 10, "laag", 1],
+    "Rollen Wisselen → Beiden Tegelijk": ["opwarming", 10, "laag", 1],
+    "De Vervormende Spiegel": ["opwarming", 10, "middel", 1],
+    "De Beeldhouwer en het Model": ["beeldentheater", 15, "laag", 1],
+    "Het Beeld Voltooien": ["beeldentheater", 15, "middel", 2, "Voltooi het beeld"],
+    "Het Grote Machtsspel": ["beeldentheater", 20, "middel", 2, "De grote machtstest"],
+    "Volg de Meester": ["opwarming", 10, "middel", 1],
+    "Geheugen: Gisteren Herinneren": ["verdieping", 15, "laag", 1],
+    "Geheugen en Emotie: Een Dag uit het Verleden Herinneren": ["verdieping", 25, "laag", 2],
+    "Een Echte Onderdrukking Herinneren": ["verdieping", 30, "laag", 3],
+    "Repetitie op het Podium van de Verbeelding": ["verdieping", 30, "middel", 3],
+    "Extrapolatie": ["nabespreking", 15, "laag", 2],
+    "Het Beeld van het Woord: Een Onderwerp Uitbeelden met je Lichaam": ["beeldentheater", 20, "middel", 2, "Beeld van het woord"],
+    "Het Overgangsbeeld": ["forum", 30, "middel", 3, "Beeld van overgang"],
+    "Meervoudig Beeld van Geluk": ["beeldentheater", 20, "middel", 2, "Meervoudige beelden van geluk"],
+    "Ritueel": ["beeldentheater", 20, "middel", 2, "Ritueel gebaar"],
+    "Dissociatie — Gedachte, Woord, Daad": ["verdieping", 20, "middel", 2],
+    "De Drie Wensen": ["forum", 20, "middel", 3, "De drie wensen"],
+    "Improvisatie": ["repetitie", 20, "middel", 2],
+    "Verander het Verhaal": ["repetitie", 30, "middel", 2],
+    "De Onderdrukking Doorbreken": ["repetitie", 30, "middel", 3],
+    "Abstracte Emotie": ["repetitie", 15, "middel", 2],
+    "Stop! Denk na!": ["repetitie", 20, "laag", 3, "Stop! Denk!"],
+    "Analytische Repetitie van Emotie": ["repetitie", 25, "middel", 2],
+    "Rashomon": ["beeldentheater", 30, "middel", 2],
+    "Tegenovergestelde Omstandigheden": ["repetitie", 20, "middel", 2]
   }
-  function schrijfSessie(lijst) {
-    try { localStorage.setItem('to-sessie', JSON.stringify(lijst)); return true; } catch (e) { return false; }
-  }
-  function sessieItem(titel) {
-    const a = SESSIE_ALIAS[titel];
-    if (a) return { naam: a[0], fase: a[1], duur: a[2], eng: a[3], niv: a[4] };
-    const d = SESSIE_DATA[titel] || ["opwarming", 15, "middel", 1];
-    return { naam: titel, fase: d[0], duur: d[1], eng: d[2], niv: d[3] };
-  }
-  function toggleSessie(e, knop) {
-    e.stopPropagation();
-    const item = sessieItem(knop.dataset.titel);
-    let lijst = leesSessie();
-    const i = lijst.findIndex(s => s.naam === item.naam);
-    if (i >= 0) lijst.splice(i, 1); else lijst.push(item);
-    if (!schrijfSessie(lijst)) { knop.textContent = 'niet beschikbaar'; return; }
-    toonSessie();
-  }
-  function toonSessie() {
-    const lijst = leesSessie();
-    const namen = new Set(lijst.map(s => s.naam));
-    document.querySelectorAll('.sessie-knop').forEach(k => {
-      const aan = namen.has(sessieItem(k.dataset.titel).naam);
-      k.classList.toggle('in-sessie', aan);
-      k.textContent = aan ? '✓ in sessie' : '+ sessie';
-      k.title = aan ? 'Uit de sessie halen' : 'Toevoegen aan de sessiebouwer';
-    });
-    const n = lijst.length, tot = lijst.reduce((a, s) => a + (s.duur || 0), 0);
-    const nEl = document.getElementById('sl-n');
-    nEl.textContent = n; nEl.classList.toggle('leeg', !n);
-    document.getElementById('sl-duur').textContent = n ? tot + ' min ' : '';
-  }
-  document.querySelectorAll('.exercise-card').forEach(card => {
-    const titel = card.querySelector('.card-title').textContent.trim();
-    const knop = document.createElement('button');
-    knop.className = 'sessie-knop';
-    knop.dataset.titel = titel;
-    knop.onclick = e => toggleSessie(e, knop);
-    card.querySelector('.card-header').appendChild(knop);
-  });
-  toonSessie();
-  window.addEventListener('storage', e => { if (e.key === 'to-sessie') toonSessie(); });
-  window.addEventListener('pageshow', toonSessie);
+});
 </script>
 </body>
 </html>

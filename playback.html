@@ -556,5 +556,23 @@ render();
   });
 })();
 </script>
+<script src="sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "Fluid Sculpture": ["opwarming", 3, "middel", 1],
+    "Pairs": ["beeldentheater", 8, "middel", 2, "Pairs — twee gevoelens tegelijk"],
+    "Tableau": ["beeldentheater", 5, "middel", 2],
+    "3-Sentence Story": ["beeldentheater", 5, "laag", 2, "Drie zinnen"],
+    "3-Part Story": ["beeldentheater", 5, "middel", 2],
+    "Narrative V": ["verdieping", 5, "middel", 2],
+    "Chorus": ["beeldentheater", 15, "middel", 3, "Chorus — een koor van stemmen"],
+    "Scene — de lange vorm": ["verdieping", 15, "middel", 3],
+    "Collage Story": ["verdieping", 15, "middel", 3]
+  }
+});
+</script>
 </body>
 </html>

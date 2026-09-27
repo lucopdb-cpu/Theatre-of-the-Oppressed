@@ -761,5 +761,32 @@ render();
   });
 })();
 </script>
+<script src="sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "Exposure (Blootstelling)": ["opwarming", 10, "laag", 1],
+    "Mirror (Spiegel)": ["opwarming", 15, "laag", 1],
+    "No Motion Warm-Up": ["opwarming", 10, "middel", 1],
+    "Space Walk (Ruimtewandeling)": ["opwarming", 10, "middel", 1, "Ruimtewandeling"],
+    "Space Substance Introduction — Handen": ["opwarming", 10, "laag", 1],
+    "Space Shaping — Solo": ["opwarming", 10, "middel", 1],
+    "Space Shaping — Ensemble": ["opwarming", 15, "middel", 1],
+    "Play Ball": ["opwarming", 10, "hoog", 1],
+    "Tug-of-War (Touwtrekken)": ["opwarming", 10, "hoog", 1],
+    "Jump Rope (Springtouw)": ["opwarming", 10, "hoog", 1],
+    "The Where Game": ["repetitie", 15, "middel", 2],
+    "Gibberish — Onzinlezing": ["opwarming", 10, "middel", 1, "Gibberish speech"],
+    "Gibberish — Scène": ["repetitie", 15, "middel", 2],
+    "Explore and Heighten": ["repetitie", 20, "middel", 2],
+    "How Old Am I? (Hoe oud ben ik?)": ["opwarming", 15, "middel", 1],
+    "Animal Images (Dierbeelden)": ["verdieping", 20, "middel", 2],
+    "Red Light / Green Light": ["opwarming", 10, "hoog", 1],
+    "Who Started the Motion?": ["opwarming", 10, "middel", 1]
+  }
+});
+</script>
 </body>
 </html>
