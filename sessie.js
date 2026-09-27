@@ -28,11 +28,12 @@
     '.sessie-knop:hover{border-color:var(--ink3,#9a9790);color:var(--ink,#1a1814)}',
     '.sessie-knop.in-sessie{background:var(--ink,#1a1814);border-color:var(--ink,#1a1814);color:var(--paper,#faf8f4)}',
     '.head-badges .sessie-knop{margin-top:6px}',
-    '.sessie-link{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono,"JetBrains Mono",monospace);font-size:10px;letter-spacing:.02em;color:var(--ink2,#4a4740);text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4,#ddd4c4);background:#fff;white-space:nowrap;transition:all .15s}',
+    '.sessie-link{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;line-height:1.4;font-family:var(--mono,"JetBrains Mono",monospace);font-size:10px;letter-spacing:.02em;color:var(--ink2,#4a4740);text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4,#ddd4c4);background:#fff;white-space:nowrap;transition:all .15s}',
     '.sessie-link:hover{border-color:var(--ink3,#9a9790);color:var(--ink,#1a1814)}',
     '.sessie-link .sl-n{background:var(--ink,#1a1814);color:var(--paper,#faf8f4);border-radius:20px;padding:1px 7px;font-weight:500}',
     '.sessie-link .sl-n.leeg{background:var(--paper3,#e8e1d4);color:var(--ink3,#9a9790)}',
-    '.view-toggle .sessie-link{margin-right:auto}',
+    '.view-toggle{align-items:center}',
+    '.view-toggle .sessie-link{margin-right:auto;padding:1px 10px}',
     '@media (max-width:600px){.sessie-link .sl-txt{display:none}}'
   ].join('\n');
 
