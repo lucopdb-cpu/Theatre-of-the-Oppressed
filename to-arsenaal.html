@@ -9,20 +9,20 @@
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#b8803c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-<title>TO Arsenaal — 374 oefeningen met sessiebouwer</title>
-<meta name="description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
+<title>TO Arsenaal — 414 oefeningen, met Boals Games for Actors and Non-Actors</title>
+<meta name="description" content="414 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arsenaal van de Joker">
 <meta property="og:locale" content="nl_NL">
-<meta property="og:title" content="TO Arsenaal — 374 oefeningen met sessiebouwer">
-<meta property="og:description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
+<meta property="og:title" content="TO Arsenaal — 414 oefeningen, met Boals Games for Actors and Non-Actors">
+<meta property="og:description" content="414 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
 <meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/to-arsenaal.html">
 <meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="2000">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TO Arsenaal — 374 oefeningen met sessiebouwer">
-<meta name="twitter:description" content="374 oefeningen uit de Theatre of the Oppressed-traditie — filterbaar op fase, niveau en energie. Met sessiebouwer en energieboog voor workshops.">
+<meta name="twitter:title" content="TO Arsenaal — 414 oefeningen, met Boals Games for Actors and Non-Actors">
+<meta name="twitter:description" content="414 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -269,6 +269,58 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 /* Mobiel: zijmarge gelijk op alle pagina's */
 @media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* ═══ TWEE INGANGEN: werkplaats en Boals boek ═══ */
+:root{--boal:#8b1a1a;--boal3:#e8c4c0;--boal4:#fbf1ef;--cat-I:#2c5f2e;--cat-II:#1a3a5c;--cat-III:#5c2c5f;--cat-IV:#5c3d1a;--cat-V:#1a4a3a;--cat-IT:#8b1a1a;--cat-RE:#3a3a1a}
+body[data-view="boek"] .alleen-werkplaats{display:none!important}
+body[data-view="werkplaats"] .alleen-boek{display:none!important}
+.ingangen{display:grid;grid-template-columns:1fr 1fr;margin-bottom:16px;border:1px solid var(--paper4);border-radius:10px;overflow:hidden;background:var(--paper2)}
+.ingang{padding:11px 16px;border:none;border-right:1px solid var(--paper4);background:transparent;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:3px;transition:background .15s}
+.ingang:last-child{border-right:none}
+.ingang:hover{background:var(--paper3)}
+.ingang-titel{font-family:var(--serif);font-size:16px;line-height:1.2;color:var(--ink)}
+.ingang-sub{font-family:var(--sans);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.ingang.on{background:var(--ink)}
+.ingang[data-v="boek"].on{background:var(--boal)}
+.ingang.on .ingang-titel{color:var(--paper)}
+.ingang.on .ingang-sub{color:rgba(250,248,244,.7)}
+.ptab[data-c="I"].on{background:var(--cat-I)}.ptab[data-c="II"].on{background:var(--cat-II)}.ptab[data-c="III"].on{background:var(--cat-III)}.ptab[data-c="IV"].on{background:var(--cat-IV)}.ptab[data-c="V"].on{background:var(--cat-V)}.ptab[data-c="IT"].on{background:var(--cat-IT)}.ptab[data-c="RE"].on{background:var(--cat-RE)}
+.boek-tabs .ptab-icon{font-family:var(--serif)}
+.sec-filters{grid-template-columns:1fr 1fr 1fr}
+@media (max-width:640px){.sec-filters{grid-template-columns:1fr}.ingang{padding:10px 12px}.ingang-titel{font-size:14px}}
+.cat-info{margin-bottom:20px;background:var(--paper2);border:1px solid var(--paper4);border-radius:8px;padding:10px 14px}
+.cat-info summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cat-info summary::-webkit-details-marker{display:none}
+.ci-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ci-title{font-family:var(--serif);font-size:15px;color:var(--ink)}
+.ci-sub{font-family:var(--body);font-size:12px;font-style:italic;color:var(--ink2)}
+.ci-toggle{margin-left:auto;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+.cat-info[open] .ci-toggle::after{content:' ▲'}
+.cat-info:not([open]) .ci-toggle::after{content:' ▼'}
+.ci-intro{margin-top:10px;font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2);border-left:3px solid var(--paper4);padding-left:12px}
+.badge-herkomst{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;border:1px solid var(--paper4);color:var(--ink2);background:#fff;text-decoration:none;white-space:nowrap}
+.badge-herkomst.boal{background:var(--boal4);border-color:var(--boal3);color:var(--boal)}
+a.badge-herkomst:hover{border-color:var(--boal)}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:20px;border:1px solid var(--paper4);color:var(--ink3);background:var(--paper2)}
+.vorm{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:20px;background:var(--paper2);border:1px solid var(--paper4);color:var(--ink3)}
+.vorm.groep{background:#e8f0e8;color:#2c5f2e;border-color:#b8d4b8}
+.vorm.koppels{background:#e8eef5;color:#1a3a5c;border-color:#b8ccdc}
+.vorm.solo{background:#f5ece8;color:#5c2c1a;border-color:#dcb8b8}
+.card-aka{font-family:var(--body);font-size:13px;font-style:italic;color:var(--ink2);margin-top:4px}
+.deel-kop{display:flex;justify-content:space-between;gap:12px;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding-bottom:8px;margin:4px 0 16px;border-bottom:1px solid var(--paper3)}
+.deel-kop a{color:inherit;text-decoration:none;font-weight:500}
+.deel-kop a:hover{text-decoration:underline}
+.deel-kop.boal{color:var(--boal)}
+.deel + .deel{margin-top:10px}
+.deel.boal .section-lbl{color:var(--boal)}
+.body-text{font-family:var(--body);font-size:13.5px;font-weight:300;line-height:1.75;color:var(--ink)}
+.body-text p{margin-bottom:.7rem}.body-text p:last-child{margin-bottom:0}
+.body-text ol,.body-text ul{padding-left:1.3rem;margin-bottom:.7rem}.body-text li{margin-bottom:.3rem}
+.variation-block{margin:-6px 0 20px;padding:10px 14px;background:var(--paper2);border-left:3px solid var(--paper4);border-radius:0 7px 7px 0}
+.variation-label{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.variation-text{font-family:var(--body);font-size:12.5px;font-weight:300;line-height:1.65;color:var(--ink2)}
+.boal-noot{margin:0 0 20px;padding:12px 15px;background:var(--boal4);border-left:3px solid var(--boal);border-radius:0 7px 7px 0}
+.boal-noot .tip-lbl{color:var(--boal)}
+
 /* Vaste navigatie terug, gelijk op alle pagina's */
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
@@ -289,7 +341,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
 </style>
 </head>
-<body>
+<body data-view="werkplaats">
 <div class="page">
 
 <nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
@@ -298,9 +350,14 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
   <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="laagregel">Het centrale arsenaal</div>
   <h1 class="app-name">TO <em>Arsenaal</em></h1>
-  <div class="app-sub">Gereedschapskoffer voor de Joker · <span class="total-count" id="hc">374</span> oefeningen</div>
-  <div class="context-note">Oefeningen uit de hele Theatre of the Oppressed-traditie en verwante praktijken, te filteren op sessiefase, niveau en energie. Onderaan stel je met de sessiebouwer een workshop samen, ook met oefeningen uit de andere carousels van het arsenaal.</div>
+  <div class="app-sub">Gereedschapskist voor de Joker · <span class="total-count" id="hc">414</span> oefeningen</div>
+  <div class="context-note">Twee ingangen tot hetzelfde arsenaal. <b>De werkplaats</b> ordent alle oefeningen naar sessiefase, te filteren op niveau, energie en herkomst. <b>Boals boek</b> volgt <em>Games for Actors and Non-Actors</em> in Boals eigen indeling, met zijn tekst. Op elke kaart zie je waar een oefening vandaan komt; staat ze zowel bij Boal als in de praktijk, dan zie je beide. Onderaan stel je met de sessiebouwer een workshop samen.</div>
 </header>
+
+<div class="ingangen" role="tablist" aria-label="Ingang">
+  <button class="ingang on" data-v="werkplaats" role="tab"><span class="ingang-titel">De werkplaats</span><span class="ingang-sub">Alle oefeningen · per sessiefase</span></button>
+  <button class="ingang" data-v="boek" role="tab"><span class="ingang-titel">Boals boek</span><span class="ingang-sub"><i>Games for Actors and Non-Actors</i> · Boals indeling</span></button>
+</div>
 
 <div class="controls-row">
   <div class="search-wrap">
@@ -311,7 +368,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
   <button class="rnd-btn" onclick="goRandom()">↻ Willekeurig</button>
 </div>
 
-<div class="phase-tabs">
+<div class="phase-tabs alleen-werkplaats">
   <button class="ptab on" data-f="alle"><span class="ptab-icon">◎</span><span class="ptab-label">Alle</span></button>
   <button class="ptab" data-f="opening"><span class="ptab-icon">☀</span><span class="ptab-label">Opening</span></button>
   <button class="ptab" data-f="opwarming"><span class="ptab-icon">▲</span><span class="ptab-label">Opwarming</span></button>
@@ -324,7 +381,19 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
   <button class="ptab" data-f="afsluiting"><span class="ptab-icon">◐</span><span class="ptab-label">Afsluiting</span></button>
 </div>
 
-<div class="sec-filters">
+<div class="phase-tabs boek-tabs alleen-boek" aria-label="Categorie bij Boal">
+  <button class="ptab on" data-c="alle"><span class="ptab-icon">◎</span><span class="ptab-label">Alle</span></button>
+  <button class="ptab" data-c="I"><span class="ptab-icon">I</span><span class="ptab-label">Voelen</span></button>
+  <button class="ptab" data-c="II"><span class="ptab-icon">II</span><span class="ptab-label">Luisteren</span></button>
+  <button class="ptab" data-c="III"><span class="ptab-icon">III</span><span class="ptab-label">Zintuigen</span></button>
+  <button class="ptab" data-c="IV"><span class="ptab-icon">IV</span><span class="ptab-label">Zien</span></button>
+  <button class="ptab" data-c="V"><span class="ptab-icon">V</span><span class="ptab-label">Geheugen</span></button>
+  <button class="ptab" data-c="IT"><span class="ptab-icon">◻</span><span class="ptab-label">Beeldtheater</span></button>
+  <button class="ptab" data-c="RE"><span class="ptab-icon">↺</span><span class="ptab-label">Repetitie</span></button>
+</div>
+<details class="cat-info alleen-boek" id="ci"></details>
+
+<div class="sec-filters alleen-werkplaats">
   <div class="filter-block">
     <span class="filter-block-lbl">Niveau</span>
     <div class="chips" id="niv-chips">
@@ -341,6 +410,14 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
       <button class="chip chip-hoog" data-e="hoog">↑ Hoog</button>
       <button class="chip chip-middel" data-e="middel">→ Middel</button>
       <button class="chip chip-laag" data-e="laag">↓ Laag</button>
+    </div>
+  </div>
+  <div class="filter-block">
+    <span class="filter-block-lbl">Herkomst</span>
+    <div class="chips" id="herk-chips">
+      <button class="chip on" data-h="alle">Alle</button>
+      <button class="chip" data-h="boek">Uit Boals boek</button>
+      <button class="chip" data-h="praktijk">Uit de praktijk</button>
     </div>
   </div>
 
@@ -394,7 +471,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 </div>
 
 <footer class="arsenaal-footer">
-  <div class="af-content">Bronnen: de praktijk van Formaat, het werk van Augusto Boal (ook <em>The rainbow of desire</em>), Theatre for Living, Dreamers Beyond, Spolin, Rohd, Johnstone, Grotowski, Playback Theatre en andere werkplaatsen; de volledige vermeldingen staan in de <a href="bronnen.html">bronnenlijst</a></div>
+  <div class="af-content">Bronnen: <a href="bronnen.html#boal-2002">Boal (2002)</a>, <em>Games for actors and non-actors</em> (de ingang Boals boek); de praktijk van Formaat, het werk van Augusto Boal (ook <em>The rainbow of desire</em>), Theatre for Living, Dreamers Beyond, Spolin, Rohd, Johnstone, Grotowski, Playback Theatre en andere werkplaatsen; de volledige vermeldingen staan in de <a href="bronnen.html">bronnenlijst</a></div>
   <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
 </footer>
 </div><!-- /page -->
@@ -846,12 +923,1696 @@ const D=[
 
 
 ];
+// ── BOALS BOEK ──────────────────────────────────────────
+// Games for Actors and Non-Actors (Boal 2002) in Boals eigen indeling. BOEK_C: categorieën met Boals inleiding.
+// BOEK: oefeningen in Boals volgorde. est = [fase, duur, energie, niveau], een schatting voor de werkplaats.
+// arsenaal = naam van dezelfde oefening in D; dan komen beide op één kaart ("In de praktijk" en "Bij Boal").
+const BOEK_C = [{"id": "I", "num": "I", "title": "Voelen wat we aanraken", "sub": "(Herstructurering van Spierrelaties)", "intro": "Deze oefeningen gaan over tastgevoeligheid. Onze lichamen raken voortdurend lucht, kleding en andere lichamen aan — maar we voelen nauwelijks wat we aanraken. Deze reeks helpt het lichaam te de-mechaniseren: elk gewricht, elke spier, elk deel afzonderlijk bewust maken. \"Het naderen van de dood verstijft het lichaam, te beginnen bij de gewrichten.\" Deze oefeningen werken dat tegen."}, {"id": "II", "num": "II", "title": "Luisteren naar wat we horen", "sub": "", "intro": "\"In deze reeks moeten de spelers begrijpen dat het belangrijk is innerlijke ritmes te vinden, en niet te proberen portretten of — erger nog — karikaturen van mensen te maken.\" Deze oefeningen gaan over ritme, melodie, klank en ademhalingsritme — en helpen ontdekken dat het hele lichaam denkt, niet alleen het brein."}, {"id": "III", "num": "III", "title": "Meerdere zintuigen activeren", "sub": "", "intro": "\"Van alle zintuigen is het zicht de grote monopolist. Omdat we zien, storen we ons er niet aan de buitenwereld via de andere zintuigen waar te nemen, die slapend blijven of atrofiëren.\" In de blindenreeks ontzeggen deelnemers zichzelf vrijwillig het zicht om alle andere zintuigen te versterken. In de ruimtereeks verkennen ze de ruimtelijke dimensies van de zaal."}, {"id": "IV", "num": "IV", "title": "Zien wat we bekijken", "sub": "", "intro": "Drie voorbereidende reeksen ontwikkelen het observatievermogen via 'visuele dialogen' — spiegels, boetseren en marionettenspel. In Beeldtheater zou het gebruik van gesproken woorden de beeldentaal storen. \"Soms vinden mensen de stilte die deze oefeningen vereisen moeilijk — maar hoe meer de deelnemers zich concentreren, hoe meer ze de fascinatie van dit werk ontdekken.\""}, {"id": "V", "num": "V", "title": "Het Geheugen van de Zintuigen", "sub": "", "intro": "\"Als ik mijn hand stoot, voel ik de impact. Als ik me herinner dat ik gisteren mijn hand heb gestoten, kan ik in mezelf een analoge gewaarwording wekken.\" Deze reeks helpt geheugen, emotie en verbeelding opnieuw te verbinden — of je nu een scène repeteert of een toekomstige handeling voorbereidt. De zintuigen hebben een geheugen — hier proberen we dat te wekken."}, {"id": "IT", "num": "Beeld", "title": "Beeldtheater", "sub": "", "intro": "\"Woorden zijn als vrachtwagens: ze dragen de lading die je erop legt.\" Toen Boal werkte met deelnemers uit verschillende regio's van Latijns-Amerika, die verschillende talen spraken, begon hij hen te vragen beelden te maken. \"Maak een beeld van je gezin, van je baas, van je herinneringen, je verlangens, je land.\" Beeldtheater is een sinaletische methode — betekenaar en betekenis zijn hetzelfde. De betekenis van een beeld is het beeld zelf."}, {"id": "RE", "num": "Repetitie", "title": "Repetitieoefeningen voor elk soort voorstelling", "sub": "", "intro": "Deze oefeningen zijn bruikbaar voor spelers die aan een tekst of zelfgemaakt theater werken, maar zijn bijzonder nuttig bij het voorbereiden of repeteren van Forumtheatermodellen. Ze ontwikkelen het vermogen personage, motivatie, emotie en de complexiteit van scènes vanuit meerdere invalshoeken te begrijpen."}];
+const BOEK = [
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "1",
+"n": "Het Kruis en de Cirkel",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+},
+{
+"t": "zittend of staand",
+"c": ""
+}
+],
+"kort": "Theoretisch de makkelijkste oefening — in de praktijk bijna onmogelijk door psychologische mechanisaties.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Deelnemers beschrijven een cirkel met hun rechterhand — groot of klein, naar keuze. Iedereen doet het makkelijk. Stop. Maak een kruis met de linkerhand. Nog makkelijker. Stop. Nu: beide tegelijk. Bijna onmogelijk. In een groep van dertig lukt het soms één persoon; vrijwel nooit twee. Drie is het record.</p>"
+},
+{
+"k": "var",
+"l": "Variatie",
+"h": "Beschrijf een cirkel met de rechtervoet (zittend is makkelijker). Na een minuut: vergeet de voet — maar laat hem doorgaan. Dan: schrijf je voornaam in de lucht met de rechterhand, tegelijk. De voet volgt de hand en begint ook de naam te schrijven."
+},
+{
+"k": "note",
+"h": "Waarom is dit zo moeilijk? Pure psychologische mechanisatie — er is geen enkel fysiek obstakel. Met oefening lukt het wel."
+}
+],
+"est": [
+"opwarming",
+5,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "2",
+"n": "Colombiaanse Hypnose",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+},
+{
+"t": "ook in groep",
+"c": "groep"
+}
+],
+"kort": "Een van de basisoefeningen van Theatre of the Oppressed — volg de hand als een gehypnotiseerde.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Eén speler houdt haar hand met de palm naar voren, vingers omhoog, 20 tot 40 centimeter van het gezicht van de ander, die als gehypnotiseerd is en zijn gezicht steeds op dezelfde afstand van de hand moet houden — haargrens op vingertophoogte, kin op handpalmbasis.</p>\n<p>De hypnotiseur beweegt de hand in alle richtingen — omhoog, omlaag, zijwaarts, voor- en achterwaarts, diagonaal. De partner moet zijn lichaam in alle richtingen verdraaien om de afstand constant te houden. De hand mag nooit stoppen of te snel bewegen. Na een paar minuten wisselen de rollen.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — twee handen",
+"h": "Eén speler leidt twee partners tegelijk, één met elke hand. De twee geleide spelers mogen elkaar niet aanraken — elk lichaam vindt zijn eigen evenwicht."
+},
+{
+"k": "var",
+"l": "Variatie — handen én voeten",
+"h": "Vier spelers, één voor elke hand en voet van de leider. De leider kan dansen, rollen, springen. De volgers volgen het aangewezen lichaamsdeel."
+},
+{
+"k": "var",
+"l": "Variatie — elk lichaamsdeel",
+"h": "Eén speler staat in het midden van een kring en beweegt langzaam. Vrijwilligers stappen naar voren en laten zich hypnotiseren door een willekeurig lichaamsdeel — oor, neus, rug, voet. Een voor een sluit iedereen aan tot de hele groep door een deel van iemands lichaam wordt geleid."
+}
+],
+"est": [
+"vertrouwen",
+15,
+"middel",
+1
+],
+"arsenaal": "Colombiaanse hypnose"
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "3",
+"n": "Minimaal Oppervlaktecontact",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+},
+{
+"t": "ook koppels",
+"c": "koppels"
+},
+{
+"t": "ook groep",
+"c": "groep"
+}
+],
+"kort": "Vind zo veel mogelijk manieren om met zo weinig mogelijk lichaamsoppervlak de vloer te raken.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke speler onderzoekt welke houdingen zo weinig mogelijk lichaamsoppervlak in contact brengen met de vloer — variërend en alle mogelijkheden verkennen: voeten en handen, één voet en één hand, alleen billen, borst, rug. Op enig moment tijdens de oefening moet elk lichaamsdeel de vloer hebben aangeraakt.</p>\n<p>Overgangen tussen houdingen moeten zeer langzaam gaan, zodat alle betrokken spieren worden geactiveerd en de speler bewust wordt van wat er gebeurt. Voel de zwaartekracht die naar de grond trekt.</p>"
+},
+{
+"k": "var",
+"l": "In koppels",
+"h": "Elke speler moet in contact zijn met het lichaam van de partner en er tegenaan leunen, terwijl beiden minimaal contact houden met de vloer. De twee lichamen bewegen langzaam en voortdurend, steeds nieuwe houdingen vindend in één lange, continue stroom. Communicatie uitsluitend via spieren of ogen — nooit via woorden. Praten verstoort de oefening."
+}
+],
+"est": [
+"opwarming",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "4",
+"n": "Tegen Elkaar Duwen",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+}
+],
+"kort": "Gebruik al je kracht — maar verlies niet. Precies wat de Joker doet tijdens een Forumtheatersessie.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>(a)</strong> Twee partners staan tegenover elkaar. Armen altijd in contact, beiden bewegen in hetzelfde langzame ritme, elk proberend het gezicht van de ander te raken. Armen mogen over elkaar schuiven — altijd in contact, nooit kracht opleggen. Elke beweging die de partner aanbiedt moet worden aanvaard; de enige verdediging is wegdraaien, nooit blokkeren.</p>\n<p><strong>(b)</strong> Partners staan tegenover elkaar, handen op elkaars schouders, een denkbeeldige lijn tussen hen op de grond. Beiden duwen met alle kracht. Zodra iemand voelt dat de ander zwakker wordt en gaat verliezen, geeft ze toe om de lijn niet te overschrijden. Als de ander zijn kracht vergroot, doet de eerste hetzelfde — samen gebruiken ze alle kracht die ze hebben. Dit is precies de maieutische handeling van de Joker: niet te snel meegeven, maar de ingreep van de toeschouwer alle ruimte geven zich te ontplooien.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — wip",
+"h": "Zittend op de grond, benen gespreid en licht gebogen, zolen tegen de voeten van de partner. Pak elkaars armen vast. Eerst staat de één op terwijl de ander trekt — als zij neergaat begint de tweede op te staan, zodat op een gegeven moment beiden halverwege zijn — als twee kinderen op een echte wip."
+},
+{
+"k": "var",
+"l": "Variatie — rug aan rug",
+"h": "Rug aan rug, tegen elkaar leunend. Geleidelijk, zonder rugcontact te verbreken, naar de grond zakken tot zittend. Dan zonder handen weer omhoog. Kan ook dansend: intuïtief aanvoelen wat de ander wil doen zonder rugcontact te verbreken."
+}
+],
+"est": [
+"repetitie",
+5,
+"middel",
+1
+],
+"arsenaal": "Tegen elkaar duwen"
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "5",
+"n": "Joe Egg",
+"aka": "ook wel: vertrouwenskring",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+},
+{
+"t": "vertrouwen",
+"c": ""
+}
+],
+"kort": "De klassieke vertrouwensoefening waarbij één persoon zich laat opvangen door de kring.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Iedereen vormt een kring op een armslengte afstand, rechtop staand. Ze leunen naar het midden zonder te buigen in de taille, zonder de hielen van de grond te tillen — zoals de Toren van Pisa. Dan naar buiten leunen (zonder de tenen te tillen). Meerdere malen herhalen. Daarna cirkels: naar links, naar buiten, naar rechts, naar het midden.</p>\n<p>Een vrijwilliger gaat naar het midden. De kring sluit, schouder aan schouder. De persoon in het midden sluit de ogen en leunt in elke richting, zichzelf latend vallen. De kring vangt op en stuurt zacht terug naar het midden, vanwaar de persoon meteen in een andere richting valt. Op elk moment moeten minstens drie mensen de persoon in het midden ondersteunen.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — met drie personen",
+"h": "Slechts drie personen: één tussen twee anderen, voor en achter. De middelste laat zich voor- of achterwaarts vallen. De voeten mogen het midden niet verlaten. De vangers stoppen de val zacht en duwen terug."
+}
+],
+"est": [
+"vertrouwen",
+15,
+"laag",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "6",
+"n": "De Knopenkring",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Verstrengel de kring — en probeer daarna geruisloos los te raken zonder handen los te laten.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>Voorbereiding — elastische kring:</strong> Sluit handen en beweeg uit elkaar tot alleen de vingertoppen raken; lichamen zo ver mogelijk weg. Dan het omgekeerde: naar het midden samenklonteren op zo min mogelijk ruimte. Kan gecombineerd worden met stem: bij uit elkaar gaan klanken van verlangen naar aanraking; bij samen zijn klanken van verlangen naar afstand.</p>\n<p><strong>Het spel:</strong> Kring vormen en handen vasthouden — de greep mag gedurende de hele oefening nooit veranderen of loslaten. Eén persoon beweegt naar voren en trekt de buren mee, klimt over of onder de handen van mensen tegenover, en legt zo een knoop. Dan een tweede, dan een derde, tot iedereen zo verstrengeld is dat niemand meer kan bewegen. Dan: zeer langzaam, zonder geweld, in stilte, zonder handen los te laten, probeert iedereen de keten te ontwarren en terug te keren naar de beginpositie.</p>"
+},
+{
+"k": "var",
+"l": "Variatie",
+"h": "Hetzelfde met gesloten ogen — nog langzamer om botsingen te vermijden."
+}
+],
+"est": [
+"opwarming",
+15,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "7",
+"n": "De Speler als 'Subject'",
+"aka": "de Griekse oefening",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "De protagonist beweegt — de groep draagt, ondersteunt, vult in. Effect: alsof de protagonist gewichtsloos is.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Eén speler in het midden, minstens zeven of acht anderen eromheen. Zij begint een beweging en iedereen gebruikt zijn lichaam om die beweging te helpen voltooien. Als ze een voet optilt, plaatst iemand zijn lichaam onder die voet. Ze strekt een ledemaat, leunt, doet wat ze wil — de groep helpt inventief door zich in de relevante ruimte te voegen.</p>\n<p>De protagonist moet altijd langzaam genoeg bewegen zodat de anderen tijd hebben haar bedoelingen te ontdekken — die niet uitgesproken mogen worden. Het allerbelangrijkste: vermijd het manipuleren van de protagonist. Zij bepaalt haar bewegingen, de anderen bewegen haar niet.</p>"
+},
+{
+"k": "note",
+"h": "Pas op — ooit in Italië zei ik 'Stop' en lieten de deelnemers de protagonist op de grond vallen. Dat was een vergissing. Een ernstige vergissing."
+}
+],
+"est": [
+"vertrouwen",
+15,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "11",
+"n": "Een Ballon als Verlengstuk van het Lichaam",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+},
+{
+"t": "materiaal: ballonnen",
+"c": ""
+}
+],
+"kort": "Houd de ballon in de lucht met elk lichaamsdeel — en ervaar je eigen lichaam als een zwevende ballon.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De workshopleider gooit ballonnen in de lucht. De spelers moeten ze in de lucht houden met elk lichaamsdeel — niet alleen handen — alsof hun lichaam deel uitmaakt van de ballonnen die ze aanraken. De spelers zouden hun eigen lichaam als ballonnen moeten ervaren: opgeblazen, zwevend door de lucht naast de echte ballonnen. Het effect kan ontspannend zijn.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Eerste reeks · Algemene oefeningen",
+"nr": "15",
+"n": "Beweging met Overdreven Voorbedachtheid",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+}
+],
+"kort": "Denk elke beweging bewust van tevoren — alsof de simpelste stap een complexe circusact is.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Spelers bewegen hun lichamen met overdreven voorbedachtheid — ze verwoorden mentaal van tevoren alles wat ze gaan doen. In alle richtingen, op meerdere niveaus, op tafels, stoelen, de grond, trappen. Nooit stilstaan. Alle overgangen zacht uitvoeren, denkend aan het lichaam en zijn spierstructuren. Elke beweging vooraf plannen en uitstippelen, alle gemechaniseerde beweging vermijden — zelfs de eenvoudigste stap moet uitgevoerd worden alsof het een hoog-complexe circusacrobatiek is.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Tweede reeks · Loopvormen",
+"nr": "1",
+"n": "Slowmotion",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "De winnaar is degene die als laatste aankomt. Elke stap zo groot en zo langzaam als mogelijk.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De winnaar is degene die als laatste aankomt. Eenmaal begonnen mogen de spelers nooit stoppen met bewegen en elke beweging moet zo langzaam mogelijk zijn. Elke 'loper' zet de grootst mogelijke stap, bij elke pas. De bewegende voet moet boven kniehoogte passeren. Het lichaam moet volledig uitstrekken — elke centimeter voorwaarts activeert een nieuwe spierstructuur. Beide voeten mogen nooit tegelijk op de grond zijn: zodra de rechtervoet landt, moet de linker opstijgen.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Tweede reeks · Loopvormen",
+"nr": "2",
+"n": "Op een Rechte Hoek",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+}
+],
+"kort": "Lopen op de billen, met gestrekte benen en armen — heen en terug.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Spelers zitten op de grond, armen horizontaal gestrekt voor hen, benen gestrekt, rug recht. Iedereen begint te lopen met de billen — rechterbil, dan linkerbal, alsof het voeten zijn. De rug vormt een rechte hoek met armen en benen. Na een afstand afgelegd te hebben, teruglopen in omgekeerde richting. Een ontspannen wandeling, geen wedstrijd.</p>"
+}
+],
+"est": [
+"opwarming",
+5,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Tweede reeks · Loopvormen",
+"nr": "4",
+"n": "Gekruiste Benen",
+"aka": "ook wel: driebenige race",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+}
+],
+"kort": "Twee lichamen, drie benen — coördinatie zonder woorden.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>In koppels van ongeveer gelijke bouw, naast elkaar staand. De spelers houden elkaar om de taille vast en verweven de binnenbenen — het rechterbeen van A gekruist onder het linkerbeen van B. Ze lopen, rennen en navigeren hindernissen met hun drie beschikbare benen, uitsluitend communicerend via lichamelijk contact.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Derde reeks · Massages",
+"nr": "4",
+"n": "Het Rollende Tapijt",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Eén persoon rolt langzaam over de lichamen van de liggende groep.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Alle spelers behalve één liggen op hun rug op de grond, dicht naast elkaar, gezichten omhoog. De overblijvende speler legt zich met het gezicht naar beneden over de lichamen van zijn collega's aan één kant van de rij en laat zich langzaam langs hen rollen, gedragen door de golvende beweging van hun lichamen. De 'tapijt'-spelers moeten hun bewegingen coördineren om de roller soepel van het ene eind naar het andere te dragen.</p>"
+}
+],
+"est": [
+"vertrouwen",
+15,
+"laag",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Vierde reeks · Integratieve spelen",
+"nr": "18",
+"n": "Goedendag",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+},
+{
+"t": "kennismaking",
+"c": ""
+}
+],
+"kort": "Bijzonder nuttig bij de start van een Forumtheatersessie met veel mensen die elkaar niet kennen.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Iedereen moet een hand schudden met een onbekende en daarbij zijn eigen naam zeggen. Pas loslaten als er een andere hand gegrepen is — waaraan de speler opnieuw zijn naam zegt. Dit gaat door totdat iedereen iedereen ontmoet heeft.</p>"
+},
+{
+"k": "var",
+"l": "Variatie",
+"h": "Als de groep klein is: in het tweede deel van het spel zegt elke speler de naam van de ander in plaats van de eigen naam."
+}
+],
+"est": [
+"opening",
+5,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "I",
+"serie": "Vierde reeks · Integratieve spelen",
+"nr": "19",
+"n": "Cadavre Exquis",
+"aka": "ook wel: gevolgen",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Het surrealistische spel van de dadaïsten — als tekening én als verteld verhaal.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>Als tekening:</strong> Elke deelnemer tekent iets in het bovenste deel van een vel papier en vouwt het dicht, waarbij slechts een paar lijnen zichtbaar blijven. De volgende tekent iets dat aansluit op die lijnen, vouwt dicht — enzovoort tot het vel vol is. Dan ontvouwen en onthullen.</p>\n<p><strong>Als verteld verhaal:</strong> Eén speler begint een verhaal, dat een tweede vervolgt, dan een derde, enzovoort tot de hele groep heeft bijgedragen. Het verhaal kan worden opgenomen zodat iedereen het resultaat kan terugluisteren. \"Hoe onschuldig zulke spelen ook lijken, ze kunnen de verbeelding sterk stimuleren.\"</p>"
+}
+],
+"est": [
+"opwarming",
+15,
+"middel",
+1
+],
+"arsenaal": "Cadavre exquis"
+},
+{
+"cat": "I",
+"serie": "Vijfde reeks · Zwaartekracht",
+"nr": "1",
+"n": "Horizontale Reeks",
+"aka": "",
+"vorm": [
+{
+"t": "solo / koppels",
+"c": "solo"
+}
+],
+"kort": "Systematisch de zwaartekracht onderzoeken — van nek tot bekken — langzaam en zonder geweld.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Zonder de rest van het lichaam te bewegen strekt de speler nek en hoofd naar voren op één horizontale lijn. Een partner kan helpen door de neus aan te raken en meteen de vinger weg te trekken — de neus probeert te volgen. Dan naar achteren op hetzelfde horizontale vlak. Dan de nek naar links buigen (partner raakt het oor aan). Dan rechts. Dan cirkelende nekbewegingen, ogen gefixeerd op een punt.</p>\n<p>Stappen 6–10: dezelfde oefeningen voor de borstkas — het hele borstbeen optillen en bewegen. Stappen 11–15: hetzelfde voor het bekken. Stappen 16–19: 'poppetjes'-oefeningen — een partner houdt de kraag van de jas vast en het hoofd hangt los als een marionet, alleen reagerend op de zwaartekracht.</p>"
+},
+{
+"k": "note",
+"h": "Zorg ervoor de reeks af te sluiten met de positieve, zwaartekrachtoverwinnnende afsluiting — anders voelen spelers dat ze nooit meer kunnen bewegen."
+}
+],
+"est": [
+"opwarming",
+15,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "II",
+"serie": "Eerste reeks · Ritme",
+"nr": "1",
+"n": "Een Ronde van Ritme en Beweging",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Één voor één gaat iemand naar het midden met een beweging en geluid — de groep imiteert precies.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Spelers vormen een kring. Eén gaat naar het midden en maakt een beweging naar eigen keuze, hoe vreemd of ongewoon ook, vergezeld van een zelfverzonnen klank en ritme. Alle anderen imiteren zo nauwkeurig mogelijk — bewegingen en klanken — in haar tempo.</p>\n<p>Terwijl ze haar beweging en klank blijft maken, benadert de leider iemand in de kring en daagt diegene uit haar plek in te nemen. Die persoon gaat langzaam naar het midden en verandert de beweging, het ritme en de klank naar eigen inzicht. Iedereen volgt de nieuwe leider. En zo verder. De persoon in het midden mag elk ritme kiezen zolang het niets is wat ze in het dagelijks leven doen. Geen angst voor het belachelijke.</p>"
+},
+{
+"k": "note",
+"h": "In het proberen de manier van bewegen van iemand anders na te doen beginnen we onze eigen mechanisaties ongedaan te maken. We maken geen karikatuur — we proberen het uiterlijk exact te kopiëren om het innerlijk beter te begrijpen."
+}
+],
+"est": [
+"opwarming",
+15,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "II",
+"serie": "Eerste reeks · Ritme",
+"nr": "3",
+"n": "Ritmes Wisselen",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Met stemmen, handen en voeten een gezamenlijk ritme opbouwen — dan langzaam transformeren naar iets nieuws.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Met stemmen, handen en voeten stellen alle spelers gezamenlijk een ritme in. Na een paar minuten veranderen ze het langzaam, totdat een nieuw ritme ontstaat — enzovoort, gedurende enkele minuten.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — verenigen / verspreiden",
+"h": "Elke speler doet alleen zijn eigen ritme totdat de Joker 'Verenigen!' roept — iedereen smelt samen tot één ritme. Na een tijdje: 'Verspreiden!' — het ritme valt uiteen. Dan weer verenigen. Enzovoort."
+},
+{
+"k": "var",
+"l": "Variatie — affiniteitsgroepen",
+"h": "Bij een signaal pakt elke speler een eigen ritme en beweging. Dan beweegt iedereen naar degenen met de grootste ritmische verwantschap. Geleidelijk homogeniseren de meest verwante spelers hun ritme totdat vrijwel de hele groep hetzelfde ritme en dezelfde beweging heeft."
+}
+],
+"est": [
+"opwarming",
+10,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "II",
+"serie": "Eerste reeks · Ritme",
+"nr": "4",
+"n": "De Ritmemachine",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Stuk voor stuk voegen deelnemers een lichaamsdeel toe aan een gezamenlijke machine — die versnelt en vertraagt.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Een speler gaat naar het midden en stelt zich voor een bewegend onderdeel te zijn van een complexe machine. Ze begint een mechanische, ritmische beweging met haar lichaam en vocaliseert een bijbehorende klank. Een tweede voegt haar lichaam als nieuw onderdeel toe. Een derde sluit aan. Uiteindelijk zijn alle deelnemers geïntegreerd in één gesynchroniseerde, veelvuldige machine.</p>\n<p>Als iedereen deel uitmaakt van de machine, vraagt de Joker de eerste speler te versnellen — iedereen moet volgen, want de machine is één geheel. Als de machine bijna ontploft, vraagt de Joker de eerste te vertragen, geleidelijk, totdat de hele groep in eigen tempo gezamenlijk eindigt.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — liefde en haat",
+"h": "Dezelfde oefening: eerst een liefdesmachine, dan een haasmachine. Alleen bewegingen en klanken, geen woorden. Het gaat om innerlijke ritmes, niet om uitwendige clichégedragingen."
+},
+{
+"k": "var",
+"l": "Variatie — thematisch",
+"h": "De machine van het thema waaraan je werkt: bureaucratie, autoritarisme, seksisme, racisme. \"Het is buitengewoon hoe de ideologie van een groep, haar politieke standpunt, zich kan openbaren in een ritme van klank en beweging.\""
+}
+],
+"est": [
+"opwarming",
+15,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "II",
+"serie": "Eerste reeks · Ritme",
+"nr": "5",
+"n": "Het Peruaanse Balspel",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Speel een denkbeeldige bal met heel je lichaam — dan wissel je van bal, en weer, en weer. Vind daarna jouw eigen terug.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke deelnemer beeldt zich een bal in naar eigen keuze — voetbal, tennisbal, pingpongbal, strandbal. Ze spelen ermee in een herhalend ritme, waarbij het hele lichaam betrokken is en de stem de klank van de bal reproduceert. Na een paar minuten roept de Joker: 'Zoek een partner.'</p>\n<p>Partners observeren elkaars bal nauwkeurig. Op 'Wissel!' nemen ze elkaars bal over — bewegingen en klanken zo exact mogelijk. Daarna opnieuw een partner zoeken en wisselen. Dit meerdere malen. Tot slot: 'Zoek je eigen bal terug!' — deelnemers moeten de persoon vinden die hun oorspronkelijke bal heeft, terwijl ze nog steeds met de huidige bal spelen.</p>"
+}
+],
+"est": [
+"opwarming",
+15,
+"laag",
+1
+],
+"arsenaal": "Peruaanse bal"
+},
+{
+"cat": "II",
+"serie": "Tweede reeks · Melodie  |  Derde reeks · Klanken en geluiden",
+"nr": "1",
+"n": "Klank en Beweging",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Beweging en klank als ondeelbaar geheel — de één ontstaat uit de ander.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke speler maakt een beweging en produceert tegelijkertijd een klank die daarmee samenhangt — niet als illustratie van de beweging, maar voortkomend erúit. De beweging en de klank moeten aanvoelen als één ondeelbare handeling. Geleidelijk luisteren de spelers naar elkaar en laten ze hun klanken en bewegingen beïnvloeden door die van de anderen.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "II",
+"serie": "Vierde reeks · Het ritme van de ademhaling (1–19)",
+"nr": "1–19",
+"n": "Ademhalingsoefeningen",
+"aka": "",
+"vorm": [
+{
+"t": "solo / groep",
+"c": "solo"
+}
+],
+"kort": "Een reeks van negentien ademhalingsoefeningen — liggend, staand, tegen een muur, in groep.",
+"b": [
+{
+"k": "body",
+"l": "Reeks",
+"h": "<p><strong>1.</strong> Op de rug liggen, volledig ontspannen — de natuurlijke ademhaling waarnemen. <strong>2.</strong> Leunend tegen een muur — de rug voelen ademen. <strong>3.</strong> Rechtop staan. <strong>4.</strong> Langzaam inademen. <strong>5.</strong> Explosie — plotselinge krachtige uitademing. <strong>6.</strong> Langzaam inademen terwijl de armen omhooggaan. <strong>7.</strong> De snelkookpan — adem vasthouden en inwendige druk opbouwen. <strong>8.</strong> Zo snel mogelijk inademen. <strong>9.</strong> Zo langzaam mogelijk inademen.</p>\n<p><strong>10.</strong> Diep inademen door de mond. <strong>11.</strong> Inademen met grote helderheid en veel energie. <strong>12.</strong> Twee groepen — de één ademt in terwijl de ander uitademt, afwisselend. <strong>13.</strong> Uitademen, staand in een kring. <strong>14.</strong> Eén speler doet alsof hij de stop uit iemands lichaam trekt. <strong>15.</strong> A, E, I, O, U — elke klinker op één adem.</p>"
+}
+],
+"est": [
+"opwarming",
+20,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "III",
+"serie": "De Blindenreeks",
+"nr": "1",
+"n": "Het Focuspunt, de Omhelzing en de Handdruk",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+},
+{
+"t": "ook koppels",
+"c": "koppels"
+}
+],
+"kort": "Ogen dicht — loop naar je gekozen punt. Omhels iemand — los — loop terug — vind dezelfde persoon.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>Deel 1:</strong> Elke deelnemer richt zijn blik op een vast punt — een raam, een vlek op de muur, een radiator. Dan ogen sluiten en langzaam naar het gekozen punt lopen. Bij botsing met anderen de richting corrigeren. Dan ogen openen en oriënteren. Ben je dichtbij je doel?</p>\n<p><strong>Deel 2:</strong> Koppels vormen en omarmen. Midden in de omhelzing ogen sluiten, loslaten, een bepaald aantal stappen achteruit lopen. Dan teruglopen en dezelfde persoon opnieuw omarmen.</p>\n<p><strong>Deel 3 (moeilijkst):</strong> In koppels handen schudden. Ogen sluiten. Loslaten. Achteruit lopen. Terugkomen en proberen dezelfde hand opnieuw te schudden — niet zomaar een willekeurige hand.</p>"
+}
+],
+"est": [
+"vertrouwen",
+15,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "III",
+"serie": "De Blindenreeks",
+"nr": "2",
+"n": "Geluiden",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+}
+],
+"kort": "Volg het geluid van jouw gids door een ruimte vol andere geluiden.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Koppels: één blind, één gids. De gids maakt een dierachtig geluid en de partner luistert. Dan sluiten alle blinden hun ogen en beginnen alle gidsen tegelijk hun klanken te maken. De blinde partner moet zijn specifieke gids volgen door een ruimte vol andere geluiden. De gids verplaatst zich regelmatig. Als de blinde 'goed' is, moet de gids verder weg gaan. De oefening gaat over de selectieve werking van het oor.</p>"
+}
+],
+"est": [
+"vertrouwen",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "III",
+"serie": "De Blindenreeks",
+"nr": "3",
+"n": "De Denkbeeldige Reis",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+}
+],
+"kort": "Een blinde wordt geleid door een denkbeeldig landschap — spreken verboden, alleen lichamelijk contact.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>In koppels. De blinde partner wordt geleid door een reeks echte of denkbeeldige obstakels die de gids verzint — alsof ze zich midden in een bos bevinden, in een grote stad, in een krater op de maan, in een supermarkt. Spreken is verboden — alle informatie via lichamelijk contact. De gids maakt dezelfde bewegingen als de blinde en stelt zich zijn eigen verhaal voor.</p>\n<p>Na een paar minuten stopt de oefening. De blinde vertelt rustig aan de gids waar ze dacht te zijn; de gids vertelt zijn verhaal. Ze vergelijken.</p>"
+}
+],
+"est": [
+"vertrouwen",
+15,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "III",
+"serie": "De Blindenreeks",
+"nr": "4",
+"n": "De Glazen Cobra",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "De cobra valt uiteen — en moet zichzelf blind terugvinden.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Iedereen staat in een kring (of rijen), handen op de schouders van de persoon voor hen. Met gesloten ogen tasten ze het achterhoofd, de nek en de schouders van degene voor hen af. Dit is de glazen cobra in één stuk.</p>\n<p>Op een teken van de Joker breekt de cobra uiteen en beweegt iedereen door de ruimte, nog steeds met gesloten ogen. Na een paar minuten moeten ze, op een signaal, de persoon terugvinden die vóór hen stond en de cobra opnieuw samenstellen.</p>"
+},
+{
+"k": "note",
+"h": "In de legende van de Chileense Araucano-indianen viel deze glazen cobra in duizend stukken toen hun volk door de Spanjaarden werd binnengevallen; maar op een dag zullen de stukken elkaar terugvinden en veranderen in een stalen cobra die de indringers verdrijft. De cobra in de legende zijn de mensen."
+}
+],
+"est": [
+"opwarming",
+10,
+"laag",
+1
+],
+"arsenaal": "De glazen cobra"
+},
+{
+"cat": "III",
+"serie": "De Blindenreeks",
+"nr": "6",
+"n": "De Magneet — Positief en Negatief",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Eerst vermijden we aanraking; dan zoeken we die. En tot slot: voel het gezicht van de persoon naast je.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>Negatief:</strong> Deelnemers dwalen met gesloten ogen. Zodra iemand een ander aanraakt, wijken beiden onmiddellijk terug. Oriënteren in de ruimte terwijl aanraken vermeden wordt.</p>\n<p><strong>Positief:</strong> De Joker kondigt aan dat de magnetische energie positief is geworden. Nu, zodra iemand een ander aanraakt, blijven ze een paar tellen aan elkaar vastgeplakt — maar mogen niet stoppen met bewegen. Aanraken met handen is te vermijden — andere lichaamsdelen hebben de voorkeur.</p>\n<p><strong>Afsluiting:</strong> Iedereen stopt. Elke deelnemer zoekt met zijn handen één gezicht en 'vertaalt' de tastindrukken naar een voorgesteld beeld van dat gezicht. Dan ogen open en vergelijken.</p>"
+}
+],
+"est": [
+"vertrouwen",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "III",
+"serie": "De Ruimtereeks",
+"nr": "1–7",
+"n": "De Ruimte Vullen en Structureren",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Laat geen lege plek in de ruimte — en reageer op de opdrachten van de Joker.",
+"b": [
+{
+"k": "body",
+"l": "Reeks",
+"h": "<p><strong>1.</strong> Loop door de ruimte en vul die volledig — geen lege plekken. <strong>2.</strong> In plaats van 'Stop' roept de Joker een getal — zoveel mensen bevriezen. <strong>3.</strong> De Joker noemt een getal en een meetkundige figuur — zoveel mensen vormen die figuur. <strong>4.</strong> De Joker roept een getal en een lichaamsdeel — zoveel mensen moeten dat lichaamsdeel op de grond hebben als ze bevriezen. <strong>5.</strong> De Joker noemt een kleur en een kledingstuk — alle mensen met die combinatie stoppen. <strong>6.</strong> Deelnemers lopen langzaam. <strong>7.</strong> Deelnemers raken elkaar aan — improviseer contact bij het passeren.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"hoog",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "IV",
+"serie": "De Spiegelreeks (1–12)",
+"nr": "1",
+"n": "De Gewone Spiegel",
+"aka": "",
+"vorm": [
+{
+"t": "koppels / rijen",
+"c": "koppels"
+}
+],
+"kort": "Twee rijen tegenover elkaar — één is het beeld, de ander het subject. Zo perfect dat je het verschil niet ziet.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Twee rijen tegenover elkaar, elke persoon recht in de ogen kijkend van degene tegenover hem. Rij A zijn de 'subjecten'; rij B de 'beelden'. Het subject maakt een reeks bewegingen en gelaatsuitdrukkingen; het beeld kopieert, tot in het kleinste detail.</p>\n<p>Het subject mag zijn beeld niet tegenwerken — het is geen wedstrijd. Het doel is perfecte synchronisatie zodat een buitenstaander niet kan zien wie leidt en wie volgt. Alle bewegingen langzaam en elk vloeiend voortkomend uit het vorige.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "IV",
+"serie": "De Spiegelreeks (1–12)",
+"nr": "2–3",
+"n": "Rollen Wisselen → Beiden Tegelijk",
+"aka": "",
+"vorm": [
+{
+"t": "koppels / rijen",
+"c": "koppels"
+}
+],
+"kort": "Wisselen zonder pauze — dan zijn beiden tegelijk subject én beeld.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>2. Rollen omdraaien:</strong> De Joker geeft het signaal en op dat exacte moment worden subjecten beelden en omgekeerd. Dit moet zonder onderbreking van de continuïteit. Idealiter wordt de beweging die op het moment van omwisseling plaatsvindt voortgezet en voltooid zonder enige hapering.</p>\n<p><strong>3. Gelijktijdig:</strong> Beiden zijn tegelijk 'beeld' en 'subject'. Elke partner heeft het recht elke beweging te maken, en tegelijk de plicht de bewegingen van de partner te reproduceren. Geen van beiden mag de ander tiranniseren. \"Deze kwaliteiten van vrijheid en sympathie zijn essentieel.\"</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "IV",
+"serie": "De Spiegelreeks (1–12)",
+"nr": "9",
+"n": "De Vervormende Spiegel",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+}
+],
+"kort": "Het beeld vervormt de beweging — vergroot, verkleint, transformeert.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Als de gewone spiegel, maar nu reproduceert het 'beeld' de bewegingen van het subject niet getrouw — het vervormt ze, alsof door een lachspiegel. Kleine bewegingen worden groot; grote worden klein; zijwaartse bewegingen worden verticaal; een zacht gebaar wordt agressief. Het subject beweegt vrij en het beeld transformeert alles wat het waarneemt.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "IV",
+"serie": "De Boetserenreeks",
+"nr": "1–2",
+"n": "De Beeldhouwer en het Model",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+},
+{
+"t": "ook groep",
+"c": "groep"
+}
+],
+"kort": "Vorm de ander als klei — met aanraken, of zonder aanraken.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p><strong>1. Met aanraken:</strong> De beeldhouwer raakt het model fysiek aan en brengt het lichaam in de gewenste positie. Het model volgt de lichamelijke suggesties passief, als klei.</p>\n<p><strong>2. Zonder aanraken:</strong> De beeldhouwer mag het model niet aanraken. In plaats daarvan plaatst de beeldhouwer zijn eigen lichaam in de gewenste positie en het model reproduceert dit, de beeldhouwer nauwkeurig bestuderend. Later werken meerdere beeldhouwers tegelijk in de ruimte zodat meerdere modellen meerdere beeldhouwers tegelijk kunnen bestuderen.</p>"
+}
+],
+"est": [
+"beeldentheater",
+15,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "IV",
+"serie": "Beeldspelen (selectie)",
+"nr": "1",
+"n": "Het Beeld Voltooien",
+"aka": "",
+"vorm": [
+{
+"t": "koppels",
+"c": "koppels"
+},
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Eén persoon bevriest — de ander vult de relatie aan. Dan wissel, wissel, wissel.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Twee spelers schudden handen. Op een signaal bevriezen ze — een beeld ontstaat. Eén speler ontspant, kijkt naar de bevroren partner en positioneert zichzelf in een nieuw beeld dat de relatie aanvult — maar met een volledig andere verhouding. Dan ontspant de eerste speler, observeert en maakt een nieuw beeld als reactie. Voortdurend de relatie veranderend die het bevroren beeld impliceert.</p>"
+}
+],
+"est": [
+"beeldentheater",
+15,
+"middel",
+2
+],
+"arsenaal": "Voltooi het beeld"
+},
+{
+"cat": "IV",
+"serie": "Beeldspelen (selectie)",
+"nr": "3",
+"n": "Het Grote Machtsspel",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+},
+{
+"t": "materiaal: stoelen",
+"c": ""
+}
+],
+"kort": "Zes stoelen in de ruimte. Wie heeft de meeste macht — en waarom?",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Zes stoelen worden willekeurig in de ruimte geplaatst. Een vrijwilliger betreedt de ruimte en positioneert zichzelf ten opzichte van de stoelen op een manier die zijn personage maximale macht verleent. Anderen observeren. Dan treedt een volgende vrijwilliger in en past het beeld aan — eigen positie en de stoelen — totdat de nieuwe configuratie hem maximale macht geeft. Bespreking: wat geeft het gevoel van macht? Hoogte? Centraliteit? De blik? Afstand?</p>"
+}
+],
+"est": [
+"beeldentheater",
+20,
+"middel",
+2
+],
+"arsenaal": "De grote machtstest"
+},
+{
+"cat": "IV",
+"serie": "Beeldspelen (selectie)",
+"nr": "1",
+"n": "Volg de Meester",
+"aka": "maskers en rituelen",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Iedereen neemt het levende masker van een leider over — dan lost de leider op in de groep.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Eén speler wordt de 'meester' en beweegt door de ruimte met een heel eigen manier van lopen, gebaren en uitdrukken — een 'levend masker'. Alle anderen volgen hem en nemen dit masker geleidelijk volledig over: de gang, het gebaar, de uitdrukking, de innerlijke houding. Als de hele groep het masker heeft aangenomen, lost de meester op in de groep. Dan verschijnt spontaan een nieuwe meester.</p>"
+}
+],
+"est": [
+"opwarming",
+10,
+"middel",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "V",
+"serie": "Geheugen, emotie en verbeelding opnieuw verbinden",
+"nr": "1",
+"n": "Geheugen: Gisteren Herinneren",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+}
+],
+"kort": "Sluit de ogen — en herbeleef gisteren in detail, met elk zintuig.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De spelers zitten rustig op stoelen, volledig ontspannen. Ze bewegen elk lichaamsdeel langzaam achtereenvolgens, zich uitsluitend op dat deel concentrerend. Ogen gesloten.</p>\n<p>De Joker begeleidt hen: herinner je alles wat er gisteren avond is gebeurd vóór het slapengaan. Elk detail vergezeld van lichamelijke gewaarwordingen — smaak, geur, tastgevoel, vormen, kleuren, contouren, geluiden. Om het makkelijker te maken herhaalt de speler de relevante lichaamsbeweging: bij herinnering aan iets gegeten bewegen mond en tong; bij herinnering aan een douche beweegt de huid die in contact was met het water.</p>\n<p>De Joker vervolgt naar die ochtend: hoe werd je wakker? Wat waren de geluiden? Het eerste gezicht — beschrijf het in detail. De ruimte, het ontbijt, het vervoer, de aankomst hier.</p>\n<p>Dan: ogen open. Vergelijk.</p>"
+}
+],
+"est": [
+"verdieping",
+15,
+"laag",
+1
+],
+"arsenaal": null
+},
+{
+"cat": "V",
+"serie": "Geheugen, emotie en verbeelding opnieuw verbinden",
+"nr": "2",
+"n": "Geheugen en Emotie: Een Dag uit het Verleden Herinneren",
+"aka": "",
+"vorm": [
+{
+"t": "koppels (copiloot)",
+"c": "koppels"
+}
+],
+"kort": "Vertel een dag uit het verleden aan een copiloot — die luistert én ervaart mee.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke deelnemer heeft een copiloot nodig. Ze vertellen een dag uit het verleden — vorige week of twintig jaar geleden — waarop iets heel belangrijks is gebeurd dat vandaag nog steeds emotie oproept. De copiloot luistert terwijl hij tegelijk hetzelfde voorval in zijn eigen verbeelding schept. De copiloot helpt de verteller geheugen aan gewaarwordingen te koppelen door vragen te stellen over zintuiglijke details.</p>\n<p>\"De copiloot is geen voyeur; hij moet de oefening gebruiken om hetzelfde voorval in zijn eigen verbeelding te creëren, met dezelfde details, dezelfde emotie, dezelfde gewaarwordingen — die uiteraard anders zullen zijn, want het zijn zijn eigen.\"</p>"
+}
+],
+"est": [
+"verdieping",
+25,
+"laag",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "V",
+"serie": "Geheugen, emotie en verbeelding opnieuw verbinden",
+"nr": "4",
+"n": "Een Echte Onderdrukking Herinneren",
+"aka": "",
+"vorm": [
+{
+"t": "koppels (copiloot)",
+"c": "koppels"
+}
+],
+"kort": "Herinner een echte onderdrukking — en verken in de verbeelding hoe je die doorbreekt.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Dezelfde oefening als nr. 2. Deze keer mag de copiloot alleen mogelijke handelingen voorstellen die eventueel tot het doorbreken van de beschreven onderdrukking kunnen leiden. Het is aan de protagonist zelf om de onderdrukking — in haar verbeelding — te doorbreken, zelfs als ze de suggesties van de copiloot volgt. Dit bereidt voor op de volgende oefening.</p>"
+}
+],
+"est": [
+"verdieping",
+30,
+"laag",
+3
+],
+"arsenaal": null
+},
+{
+"cat": "V",
+"serie": "Geheugen, emotie en verbeelding opnieuw verbinden",
+"nr": "5",
+"n": "Repetitie op het Podium van de Verbeelding",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Alles wat in de verbeelding gespeeld is — nu fysiek opvoeren op de echte speelvloer.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Alles wat in de verbeelding gespeeld is moet onmiddellijk op het podium worden gespeeld. De andere spelers helpen; de protagonist en de copiloot spelen regisseur. Probeer fysiek alles te spelen wat in de verbeelding gespeeld werd — dezelfde voorwerpen, dezelfde zinnen, dezelfde handelingen.</p>"
+}
+],
+"est": [
+"verdieping",
+30,
+"middel",
+3
+],
+"arsenaal": null
+},
+{
+"cat": "V",
+"serie": "Geheugen, emotie en verbeelding opnieuw verbinden",
+"nr": "6",
+"n": "Extrapolatie",
+"aka": "",
+"vorm": [
+{
+"t": "individueel",
+"c": "solo"
+}
+],
+"kort": "Van verbeelding naar werkelijkheid — oplossingen gevonden in de verbeelding toepassen in het echte leven.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>\"Het theater, de fictie, eindigt met de vorige oefening, maar het echte doel, de uiteindelijke doelstelling, is om in het echte leven oplossingen toe te passen die in de verbeelding zijn gevonden en op het podium zijn gerepeteerd. Dit hebben we al meerdere malen gedaan. Zonder spijt.\"</p>\n<p>Dit is de bekroning van de reeks Geheugen van de Zintuigen — geen oefening op zichzelf, maar een gezindheid: breng wat in de fictie is gerepeteerd naar de werkelijke wereld.</p>"
+}
+],
+"est": [
+"nabespreking",
+15,
+"laag",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "IT",
+"serie": "Beeldtechnieken: modellen en dynamiseringen",
+"nr": "1a",
+"n": "Het Beeld van het Woord: Een Onderwerp Uitbeelden met je Lichaam",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Maak een beeld van een woord — dan dynamiseer je het in drie stappen naar een sociaal panorama.",
+"b": [
+{
+"k": "body",
+"l": "Het Model",
+"h": "<p><strong>Eerste methode:</strong> Vijf of meer vrijwilligers drukken een gekozen thema visueel uit. Iedereen werkt zonder te zien wat de anderen doen. Een voor een komen ze naar het midden en gebruiken alleen hun lichaam om hun idee van het thema uit te drukken — een stilstaande pose. Geen uitleg nodig. Na alle individuele beelden vraagt de Joker of iemand anders een ander beeld heeft. Anderen komen naar voren.</p>\n<p><strong>Tweede methode (kleine groepen):</strong> Op een signaal beelden alle deelnemers gelijktijdig het onderwerp uit met hun lichamen, waarna ze (in hun pose blijvend) rondkijken naar wat iedereen doet.</p>"
+},
+{
+"k": "body",
+"l": "De Dynamisering (drie fasen)",
+"h": "<p><strong>Eerste dynamisering:</strong> Alle beelden worden gelijktijdig gepresenteerd. Wat een subjectieve visie was wordt een 'objectieve', meervoudige visie — niet wat elk individu denkt, maar een sociale visie van hoe dit thema deze gemeenschap raakt.</p>\n<p><strong>Tweede dynamisering:</strong> De deelnemers brengen relaties aan tussen de beelden van anderen. Niet langer meerdere standpunten, maar een enkele, globale, organische visie.</p>\n<p><strong>Derde dynamisering:</strong> Als deelnemers alleen 'gevolgen' hebben getoond en geen 'oorzaken', vraagt de Joker alle slachtoffers hun onderdrukker te worden. Dan terug. Dit openbaart ideologie: \"bij het tonen van de eigen onderdrukking gebruiken deelnemers echte beelden; bij het tonen van de 'vijand' neigen ze naar subjectieve beelden.\"</p>"
+}
+],
+"est": [
+"beeldentheater",
+20,
+"middel",
+2
+],
+"arsenaal": "Beeld van het woord"
+},
+{
+"cat": "IT",
+"serie": "Beeldtechnieken: modellen en dynamiseringen",
+"nr": "2",
+"n": "Het Overgangsbeeld",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Echt beeld → ideaal beeld → overgangsbeelden: hoe kom je van hier naar daar?",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De protagonist boetseert een 'echt beeld' — de feitelijke situatie van onderdrukking zoals hij die nu ervaart. Dan een 'ideaal beeld' — de situatie zoals hij die zou willen. Daarna een reeks 'overgangsbeelden' — elk één stap tussen het echte en het ideale beeld. Deze overgangsbeelden onthullen welke concrete handelingen mogelijk zouden zijn. De Joker kan de groep vragen de overgangsbeelden te bezielen tot scènes.</p>"
+}
+],
+"est": [
+"forum",
+30,
+"middel",
+3
+],
+"arsenaal": "Beeld van overgang"
+},
+{
+"cat": "IT",
+"serie": "Beeldtechnieken: modellen en dynamiseringen",
+"nr": "4",
+"n": "Meervoudig Beeld van Geluk",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Toon je beeld van geluk — dan vraagt de Joker: wie stond jou in de weg?",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De Joker vraagt de deelnemers een beeld van hun geluk te boetseren — niet een abstract beeld van geluk in het algemeen, maar hun eigen geluk: wat zouden ze doen, met wie, op welke plek, als ze gelukkig waren? Na de beelden vraagt de Joker: \"Wie of wat verhindert dit geluk?\" Deelnemers boetseren het obstakel. De twee beelden samen — geluk en obstakel — onthullen de structuur van hun specifieke onderdrukking.</p>"
+}
+],
+"est": [
+"beeldentheater",
+20,
+"middel",
+2
+],
+"arsenaal": "Meervoudige beelden van geluk"
+},
+{
+"cat": "IT",
+"serie": "Beeldtechnieken: modellen en dynamiseringen",
+"nr": "7",
+"n": "Ritueel",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Ontdek het ritueel achter een gewone dagelijkse handeling.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Deelnemers kiezen een alledaagse handeling — je baas begroeten, klanten bedienen, een familiediner. Ze voeren deze handeling uit alsof het een heilig ritueel is — de formaliteit, de hiërarchie en de symbolische betekenis overdrijvend. Door het gewone te ritualiseren worden de onderliggende machtsstructuren en sociale codes zichtbaar. Na de uitvoering bespreekt de groep wat er zichtbaar werd.</p>"
+}
+],
+"est": [
+"beeldentheater",
+20,
+"middel",
+2
+],
+"arsenaal": "Ritueel gebaar"
+},
+{
+"cat": "IT",
+"serie": "Nieuwe Beeldtheater-technieken: De Smeris in het Hoofd",
+"nr": "1",
+"n": "Dissociatie — Gedachte, Woord, Daad",
+"aka": "",
+"vorm": [
+{
+"t": "solo / groep",
+"c": "solo"
+}
+],
+"kort": "Zeg iets anders dan je doet — denk iets anders dan je zegt. Onthul de interne censuur.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Drie gelijktijdige kanalen: wat de speler denkt (hardop als innerlijke monoloog), wat hij tegen anderen zegt (het sociale, publieke zelf), en wat hij daadwerkelijk doet (de fysieke handeling). In het eerste deel zijn deze drie congruent. Dan introduceert de Joker dissociatie — de innerlijke gedachte spreekt het gesproken woord tegen; de daad spreekt beide tegen. Dit onthult de 'smeris in het hoofd' — de geïnternaliseerde onderdrukker die ons onze eigen verlangens en waarheden laat censureren.</p>"
+}
+],
+"est": [
+"verdieping",
+20,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "IT",
+"serie": "Nieuwe Beeldtheater-technieken: De Smeris in het Hoofd",
+"nr": "5",
+"n": "De Drie Wensen",
+"aka": "",
+"vorm": [
+{
+"t": "solo / groep",
+"c": "solo"
+}
+],
+"kort": "Als je drie wensen mocht doen — waarvoor? Beeldend uitgedrukt, daarna bevraagd.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke deelnemer maakt drie beelden: zijn drie wensen voor zijn eigen leven. Dan moeten ze deze beelden rangschikken — welke wens is het dringendst? Welke zou je kiezen als je er maar één mocht hebben? De groep observeert en kan obstakels aanwijzen die ze in de beelden zien. De Joker vraagt: wat verhindert dat deze wensen werkelijkheid worden? Wie heeft er baat bij dat ze niet worden gerealiseerd?</p>"
+}
+],
+"est": [
+"forum",
+20,
+"middel",
+3
+],
+"arsenaal": "De drie wensen"
+},
+{
+"cat": "RE",
+"serie": "Oefeningen met of zonder tekst",
+"nr": "1",
+"n": "Improvisatie",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "De klassieke improvisatie — maar met aandacht voor wil, tegenwil en kwalitatieve verandering.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Improviseer een scène vanuit een paar basisgegevens. Deelnemers moeten geloven in en accepteren wat anderen ook inbrengen — het is verboden een uitvinding te verwerpen. Om te voorkomen dat de improvisatie in emotionele stilstand raakt moeten spelers hun 'motoren' inschakelen: een dominante wil (voortkomend uit een strijd tussen minstens één wil en één tegenwil) die een intern, subjectief conflict kan produceren.</p>\n<p>Deze dominante wil moet botsen met de dominante willen van anderen, waardoor een extern, objectief conflict ontstaat. En dit conflictsysteem moet zowel kwantitatief als kwalitatief evolueren. \"Louter kwantitatieve variatie is veel minder theatraal dan dezelfde variatie vergezeld van een echte kwalitatieve verandering.\"</p>"
+}
+],
+"est": [
+"repetitie",
+20,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "RE",
+"serie": "Oefeningen met of zonder tekst",
+"nr": "4",
+"n": "Verander het Verhaal",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Speel wat er NIET is gebeurd — alle mogelijkheden die het stuk bevat maar niet toont.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>\"Een stuk vertelt een verhaal — wat er gebeurt. Maar een stuk bevat ook de ontkenning van wat er gebeurt: wat er níet gebeurt.\" Repeteer de scènes van wat niet is gebeurd: hoe zou het huwelijk van Hamlet en Ophelia zijn verlopen? Hoe zou Othello Desdemona hebben vergeven? \"Het is altijd goed voor de speler te weten wat had kunnen gebeuren.\"</p>"
+}
+],
+"est": [
+"repetitie",
+30,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "RE",
+"serie": "Spelen van emotionele dynamisering",
+"nr": "1",
+"n": "De Onderdrukking Doorbreken",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Herbeleef een echte onderdrukking — in drie fasen: exact, dan anders, dan van rol wisselen.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>De speler probeert een moment te herinneren waarop hij het object was van een krachtige onderdrukking. De oefening verloopt in drie fasen:</p>\n<p><strong>Fase 1:</strong> Reproduceer het voorval precies zoals het is gebeurd, zonder iets toe te voegen of weg te laten. Toon al het verzet dat werd geblokkeerd.</p>\n<p><strong>Fase 2:</strong> De protagonist accepteert de onderdrukking niet. Speel de scène opnieuw en de protagonist houdt stand. \"We worden onderdrukt omdat we de neiging hebben toe te geven, onderdrukking te accepteren, in ruil voor het verlengen van ons leven.\" Hier doen we dat niet.</p>\n<p><strong>Fase 3:</strong> De spelers wisselen van rol en spelen hun tegenpool — de onderdrukte speelt de onderdrukker en vice versa. \"De jonge joodse man in zijn rol van onderdrukker was beter dan allen die de rol eerder hadden gespeeld, want hij kende zijn onderdrukker veel beter dan spelers die dit soort onderdrukking nooit hadden ondergaan.\"</p>"
+}
+],
+"est": [
+"repetitie",
+30,
+"middel",
+3
+],
+"arsenaal": null
+},
+{
+"cat": "RE",
+"serie": "Emotionele opwarmingsoefeningen",
+"nr": "1",
+"n": "Abstracte Emotie",
+"aka": "",
+"vorm": [
+{
+"t": "solo",
+"c": "solo"
+},
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Geef een emotie vorm — zonder gezichten te trekken of een herkenbaar personage te spelen.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Elke speler kiest een emotie — liefde, haat, angst, vreugde, verdriet — en drukt die uit via beweging en ritme, zonder gezichten te trekken, zonder herkenbare menselijke personages te tonen. De uitdrukking moet abstract en innerlijk zijn, alsof het ritme en de vorm van de emotie zelf getoond wordt, niet een illustratie ervan. De speler moet het 'innerlijke ritme' van de emotie vinden.</p>"
+},
+{
+"k": "var",
+"l": "Variatie — met dieren",
+"h": "Dezelfde oefening maar de speler wordt een abstract dier dat de emotie uitdrukt — niet een letterlijke hond of kat, maar het ritmische wezen van een dier dat die emotie voelt."
+}
+],
+"est": [
+"repetitie",
+15,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "RE",
+"serie": "Oefeningen ter voorbereiding van Forumtheater (selectie)",
+"nr": "2",
+"n": "Stop! Denk na!",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Bevries de scène op elk moment — en analyseer wat het personage ziet, voelt en denkt.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Een scène wordt gerepeteerd of geïmproviseerd. Op elk moment roept de regisseur of Joker 'Stop!' Alle spelers bevriezen. Dan vraagt de regisseur aan één speler: wat zie je nu? Wat voel je? Wat wil je? Wat denk je? De speler antwoordt als zijn personage, in dat exacte bevroren moment. Dan 'Verder' — de scène gaat door. Deze oefening laat spelers elk moment volledig bewonen in plaats van te haasten naar het einde van de scène.</p>"
+}
+],
+"est": [
+"repetitie",
+20,
+"laag",
+3
+],
+"arsenaal": "Stop! Denk!"
+},
+{
+"cat": "RE",
+"serie": "Oefeningen ter voorbereiding van Forumtheater (selectie)",
+"nr": "6",
+"n": "Analytische Repetitie van Emotie",
+"aka": "",
+"vorm": [
+{
+"t": "solo / groep",
+"c": "solo"
+}
+],
+"kort": "Speel de scène met elke emotie — ook degenen die niet voor de hand liggen.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Een scène wordt meerdere malen gerepeteerd, elke keer met een andere dominante emotie die de handeling van het personage bepaalt — zelfs emoties die voor dat moment verkeerd of tegendraads lijken. Het personage spreekt dezelfde regels maar voelt liefde, dan haat, dan angst, dan vreugde, dan verdriet. Dit onthult hoe de emotie van het personage eigenlijk een keuze is, en toont welke emotionele lezing het meest theatraal of meest waarachtig is.</p>"
+}
+],
+"est": [
+"repetitie",
+25,
+"middel",
+2
+],
+"arsenaal": null
+},
+{
+"cat": "RE",
+"serie": "Oefeningen ter voorbereiding van Forumtheater (selectie)",
+"nr": "28",
+"n": "Rashomon",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Dezelfde scène verteld vanuit elk personage — vier versies van dezelfde waarheid.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Vernoemd naar de film van Kurosawa. Een scène wordt eerst neutraal gespeeld. Dan krijgt elk personage in de scène de gelegenheid zijn versie van wat er is gebeurd te vertellen — vanuit zijn eigen perspectief, met zijn eigen emotionele waarheid. De andere spelers spelen de scène opnieuw volgens het verslag van elke verteller, dat de anderen volledig kan tegenspreken. Deze oefening onthult hoe elke persoon hetzelfde voorval anders ervaart, en hoe onderdrukking voor de onderdrukker vaak onzichtbaar is.</p>"
+}
+],
+"est": [
+"beeldentheater",
+30,
+"middel",
+2
+],
+"arsenaal": "Rashomon"
+},
+{
+"cat": "RE",
+"serie": "Oefeningen ter voorbereiding van Forumtheater (selectie)",
+"nr": "8",
+"n": "Tegenovergestelde Omstandigheden",
+"aka": "",
+"vorm": [
+{
+"t": "groep",
+"c": "groep"
+}
+],
+"kort": "Speel de scène onder omgekeerde omstandigheden — en kijk wat er verandert.",
+"b": [
+{
+"k": "body",
+"l": "Beschrijving",
+"h": "<p>Een scène wordt normaal gespeeld. Dan opnieuw met één of meer omstandigheden omgekeerd — het machtige personage wordt machteloos; de openbare ruimte wordt privé; de formele vergadering wordt intiem; de wanhopige situatie wordt comfortabel. Dezelfde tekst, tegenovergestelde omstandigheden. Wat verandert er? Wat onthult dit over welke elementen van de scène werkelijk essentieel zijn voor het conflict?</p>"
+}
+],
+"est": [
+"repetitie",
+20,
+"middel",
+2
+],
+"arsenaal": null
+}
+];
+var CAT_B = {I:'lichaam', II:'zintuigen', III:'zintuigen', IV:'beeld', V:'geheugen', IT:'beeld', RE:'forum'};
+var BOEK_CAT = {}; BOEK_C.forEach(function(c){ BOEK_CAT[c.id] = c; });
+var catKort = {I:'I · Voelen wat we aanraken', II:'II · Luisteren', III:'III · Meerdere zintuigen', IV:'IV · Zien wat we bekijken', V:'V · Geheugen van de zintuigen', IT:'Beeldtheater', RE:'Repetitieoefeningen'};
+function plat(x) { return (x || '').replace(/<[^>]+>/g, ' ').toLowerCase(); }
+var BOEK_D = BOEK.map(function(t) {
+  var o = t.arsenaal ? D.find(function(x){ return x.n === t.arsenaal; }) : null;
+  if (!o) {
+    o = { b: CAT_B[t.cat], n: t.n, t: t.serie, d: 'ca. ' + t.est[1] + ' min', g: t.vorm.map(function(v){ return v.t; }).join(' · ') || '—',
+          o: t.kort, s: [], tg: [], tip: '', bron: 'Boal', fase: t.est[0], niv: t.est[3], eng: t.est[2], _alleenBoek: true };
+    D.push(o);
+  }
+  o.boal = t;
+  o._zb = plat([t.n, t.aka, t.kort, t.serie, t.vorm.map(function(v){ return v.t; }).join(' '), t.b.map(function(x){ return x.h; }).join(' ')].join(' '));
+  return o;
+});
+
 
 // ── STATE ──────────────────────────────────────────────
 var sessie = [];
 try { sessie = JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch(e) { sessie = []; }
 
 var gef = [], h = 0, actFase = 'alle', actNiv = 'alle', actEng = 'alle', actBron = 'alle', zoekQ = '';
+var view = 'werkplaats', actCat = 'alle', actHerk = 'alle';
 
 // ── SESSIE HELPERS ────────────────────────────────────
 function inSessie(naam) {
@@ -1053,20 +2814,25 @@ function renderKaartKnop() {
 }
 
 // ── FILTER ────────────────────────────────────────────
+function zoektreffer(o, q) {
+  return o.n.toLowerCase().indexOf(q) >= 0 ||
+         plat(o.o).indexOf(q) >= 0 ||
+         (o.tg && o.tg.some(function(t){ return t.toLowerCase().indexOf(q) >= 0; })) ||
+         (o._zb && o._zb.indexOf(q) >= 0);
+}
 function filterData() {
+  var q = zoekQ.toLowerCase();
+  if (view === 'boek') {
+    return BOEK_D.filter(function(o){ return (actCat === 'alle' || o.boal.cat === actCat) && (!q || zoektreffer(o, q)); });
+  }
   var r = D.slice();
   if (actFase !== 'alle') r = r.filter(function(o){ return o.fase === actFase; });
   if (actNiv !== 'alle') r = r.filter(function(o){ return o.niv === parseInt(actNiv); });
   if (actEng !== 'alle') r = r.filter(function(o){ return o.eng === actEng; });
   if (actBron !== 'alle') r = r.filter(function(o){ return o.bron === actBron; });
-  if (zoekQ) {
-    var q = zoekQ.toLowerCase();
-    r = r.filter(function(o){
-      return o.n.toLowerCase().indexOf(q) >= 0 ||
-             o.o.toLowerCase().indexOf(q) >= 0 ||
-             (o.tg && o.tg.some(function(t){ return t.toLowerCase().indexOf(q) >= 0; }));
-    });
-  }
+  if (actHerk === 'boek') r = r.filter(function(o){ return !!o.boal; });
+  if (actHerk === 'praktijk') r = r.filter(function(o){ return !o._alleenBoek; });
+  if (q) r = r.filter(function(o){ return zoektreffer(o, q); });
   return r;
 }
 
@@ -1074,6 +2840,8 @@ function apply() {
   gef = filterData();
   h = 0;
   document.getElementById('hc').textContent = gef.length;
+  if (view !== 'boek') catInfo(null);
+  else if (actCat !== 'alle') catInfo(BOEK_CAT[actCat]);
   dots();
   render();
 }
@@ -1095,6 +2863,72 @@ document.querySelectorAll('.ptab').forEach(function(b) {
     apply();
   };
 });
+
+// ── INGANGEN ──────────────────────────────────────────
+function setView(v, cat) {
+  view = v;
+  document.body.dataset.view = v;
+  document.querySelectorAll('.ingang').forEach(function(b){ b.classList.toggle('on', b.dataset.v === v); });
+  if (v === 'boek') {
+    actCat = cat || 'alle';
+    document.querySelectorAll('.boek-tabs .ptab').forEach(function(b){ b.classList.toggle('on', b.dataset.c === actCat); });
+  }
+  try { history.replaceState(null, '', v === 'boek' ? '#boek' + (actCat !== 'alle' ? '=' + actCat : '') : location.pathname + location.search); } catch (e) {}
+  apply();
+}
+document.querySelectorAll('.ingang').forEach(function(b){ b.onclick = function(){ setView(b.dataset.v); }; });
+document.querySelectorAll('.boek-tabs .ptab').forEach(function(b) {
+  b.onclick = function() {
+    actCat = b.dataset.c;
+    document.querySelectorAll('.boek-tabs .ptab').forEach(function(x){ x.classList.toggle('on', x === b); });
+    try { history.replaceState(null, '', '#boek' + (actCat !== 'alle' ? '=' + actCat : '')); } catch (e) {}
+    apply();
+  };
+});
+document.querySelectorAll('#herk-chips .chip').forEach(function(b) {
+  b.onclick = function() {
+    actHerk = b.dataset.h;
+    document.querySelectorAll('#herk-chips .chip').forEach(function(x){ x.classList.toggle('on', x === b); });
+    apply();
+  };
+});
+function catInfo(c) {
+  var ci = document.getElementById('ci');
+  if (!c) { ci.hidden = true; return; }
+  ci.hidden = false;
+  if (ci.dataset.cat === c.id) return;
+  var open = ci.open;
+  ci.dataset.cat = c.id;
+  var lbl = /^[IV]+$/.test(c.num) ? 'Categorie ' + c.num : 'Categorie';
+  ci.innerHTML = '<summary><span class="ci-lbl">' + lbl + '</span><span class="ci-title">' + c.title + '</span>' +
+    (c.sub ? '<span class="ci-sub">' + c.sub + '</span>' : '') + '<span class="ci-toggle">Inleiding van Boal</span></summary>' +
+    '<div class="ci-intro">' + c.intro + '</div>';
+  ci.open = open;
+}
+function boekPlaats(t) {
+  var c = BOEK_CAT[t.cat];
+  return (/^[IV]+$/.test(c.num) ? 'Cat. ' + c.num : c.title) + ' nr. ' + t.nr;
+}
+function boalDeel(t, metKop) {
+  var html = metKop ? '<div class="deel-kop boal"><span>Bij Boal</span><a href="bronnen.html#boal-2002"><i>Games for Actors and Non-Actors</i></a></div>' : '';
+  html += '<div class="section"><span class="section-lbl">In het kort</span><p class="doel">' + t.kort + '</p></div>';
+  t.b.forEach(function(x) {
+    if (x.k === 'body') html += '<div class="section"><span class="section-lbl">' + x.l + '</span><div class="body-text">' + x.h + '</div></div>';
+    else if (x.k === 'var') html += '<div class="variation-block"><div class="variation-label">' + x.l + '</div><div class="variation-text">' + x.h + '</div></div>';
+    else if (x.k === 'note') html += '<div class="boal-noot"><span class="tip-lbl">Noot van Boal</span><div class="tip-txt">' + x.h + '</div></div>';
+  });
+  return '<div class="deel boal">' + html + '</div>';
+}
+function praktijkDeel(o, metKop) {
+  var stappen = o.s.map(function(x, i) {
+    return '<div class="step"><span class="step-nr">' + (i+1) + '</span><span class="step-txt">' + x + '</span></div>';
+  }).join('');
+  var html = metKop ? '<div class="deel-kop"><span>In de praktijk</span><span>' + o.bron + '</span></div>' : '';
+  html += '<div class="section"><span class="section-lbl">Doel</span><p class="doel">' + o.o + '</p></div>';
+  if (stappen) html += '<div class="section"><span class="section-lbl">Stappen</span><div class="steps">' + stappen + '</div></div>';
+  return '<div class="deel">' + html + '</div>';
+}
+function gelijkeNaam(a, b) { return a.toLowerCase().replace(/[^a-z]/g, '') === b.toLowerCase().replace(/[^a-z]/g, ''); }
 
 // ── NIVEAU CHIPS ──────────────────────────────────────
 document.querySelectorAll('#niv-chips .chip').forEach(function(b) {
@@ -1173,44 +3007,51 @@ function render() {
     d.className = 'ndot' + (i === h ? ' on' : '');
   });
 
+  var boek = view === 'boek';
+  if (boek && actCat === 'alle') catInfo(BOEK_CAT[o.boal.cat]);
   var catLbl = catLabel[o.b] || o.b;
   var faseLbl = faseLabel[o.fase] || o.fase;
-  var stappen = o.s.map(function(s, i) {
-    return '<div class="step"><span class="step-nr">' + (i+1) + '</span><span class="step-txt">' + s + '</span></div>';
-  }).join('');
   var catTagMap = {lichaam:'lichaam',zintuigen:'zintuigen',vertrouwen:'vertrouwen',beeld:'image theater',geheugen:'geheugen',forum:'forum theater',kennismaking:'kennismaking',afsluiting:'afsluiting',opening:'check-in',stem:'stem',nabespreking:'nabespreking',derolling:'derolling',jokertraining:'joker'};
   var skipTags = new Set([o.b, catTagMap[o.b], o.fase]);
   var tags = o.tg.filter(function(t){ return !skipTags.has(t); }).map(function(t) {
     return '<span class="tag tag-kw">' + t + '</span>';
   }).join('');
   var isIn = inSessie(o.n);
+  var t = o.boal, praktijk = !o._alleenBoek;
+
+  var herkomst = (t ? '<a class="badge-herkomst boal" href="bronnen.html#boal-2002" title="Boal (2002), Games for Actors and Non-Actors">Boal · Games · ' + boekPlaats(t) + '</a>' : '') +
+                 (praktijk ? '<span class="badge-herkomst" title="Herkomst in de praktijk">' + o.bron + '</span>' : '');
+  var badges = boek
+    ? '<span class="badge-cat">' + catKort[t.cat] + '</span>' + t.vorm.map(function(v){ return '<span class="vorm ' + v.c + '">' + v.t + '</span>'; }).join('') + herkomst
+    : '<span class="badge-fase">' + faseLbl + '</span>' + nivBadge(o.niv) + engBadge(o.eng) + herkomst;
+  var naam = boek && t ? t.n : o.n;
+  var ondertitel = '';
+  if (boek && t && t.aka) ondertitel = t.aka;
+  if (t && praktijk && !gelijkeNaam(t.n, o.n)) ondertitel += (ondertitel ? ' · ' : '') + (boek ? 'In de werkplaats: ' + o.n : 'Bij Boal: ' + t.n);
+  var meta = boek
+    ? '<div class="meta-cell"><div class="meta-lbl">Werkvorm</div><div class="meta-val">' + (t.vorm.map(function(v){ return v.t; }).join(' · ') || '—') + '</div></div>' +
+      '<div class="meta-cell"><div class="meta-lbl">Bij Boal</div><div class="meta-val">' + boekPlaats(t) + '</div></div>'
+    : '<div class="meta-cell"><div class="meta-lbl">' + (praktijk ? 'Duur' : 'Duur (richttijd)') + '</div><div class="meta-val">' + o.d + '</div></div>' +
+      '<div class="meta-cell"><div class="meta-lbl">Groep</div><div class="meta-val">' + o.g + '</div></div>';
+  var beide = t && praktijk;
+  var inhoud = !t ? praktijkDeel(o, false)
+             : !praktijk ? boalDeel(t, false)
+             : boek ? boalDeel(t, true) + praktijkDeel(o, true)
+             : praktijkDeel(o, true) + boalDeel(t, true);
 
   kw.innerHTML =
     '<div class="card">' +
     '<div class="card-head">' +
-      '<div class="cat-stripe cs-' + o.b + '"></div>' +
-      '<div class="card-badges">' +
-        '<span class="badge-fase">' + faseLbl + '</span>' +
-        nivBadge(o.niv) +
-        engBadge(o.eng) +
-      '</div>' +
-      '<div class="card-type">' + o.t + '</div>' +
-      '<h2 class="card-name">' + o.n + '</h2>' +
+      '<div class="cat-stripe ' + (boek ? '" style="background:var(--cat-' + t.cat + ')' : 'cs-' + o.b) + '"></div>' +
+      '<div class="card-badges">' + badges + '</div>' +
+      '<div class="card-type">' + (boek ? t.serie : o.t) + '</div>' +
+      '<h2 class="card-name">' + naam + '</h2>' +
+      (ondertitel ? '<div class="card-aka">' + ondertitel + '</div>' : '') +
     '</div>' +
-    '<div class="card-meta">' +
-      '<div class="meta-cell"><div class="meta-lbl">Duur</div><div class="meta-val">' + o.d + '</div></div>' +
-      '<div class="meta-cell"><div class="meta-lbl">Groep</div><div class="meta-val">' + o.g + '</div></div>' +
-    '</div>' +
-    '<div class="card-body">' +
-      '<div class="section"><span class="section-lbl">Doel</span><p class="doel">' + o.o + '</p></div>' +
-      '<div class="section"><span class="section-lbl">Stappen</span><div class="steps">' + stappen + '</div></div>' +
-    '</div>' +
-    '<div class="card-tags">' +
-      
-      '<span class="tag tag-cat">' + catLbl + '</span>' +
-      tags +
-    '</div>' +
-    '<div class="card-tip"><span class="tip-lbl">Jokertip</span><p class="tip-txt">' + o.tip + '</p></div>' +
+    '<div class="card-meta">' + meta + '</div>' +
+    '<div class="card-body">' + inhoud + '</div>' +
+    (praktijk ? '<div class="card-tags"><span class="tag tag-cat">' + catLbl + '</span>' + tags + '</div>' : '') +
+    (praktijk && o.tip ? '<div class="card-tip"><span class="tip-lbl">Jokertip</span><p class="tip-txt">' + o.tip + '</p></div>' : '') +
     '<button class="card-add-btn' + (isIn ? ' in-sessie' : '') + '" id="sb-kaart-btn" data-naam="">' +
       (isIn ? '− Verwijder uit sessie' : '+ Voeg toe aan sessie') +
     '</button>' +
@@ -1256,7 +3097,8 @@ function herlaadSessie() {
 }
 window.addEventListener('storage', function(e) { if (e.key === 'to-sessie') herlaadSessie(); });
 window.addEventListener('pageshow', function(e) { if (e.persisted) herlaadSessie(); });
-// Voorselectie via het adres: to-arsenaal.html#fase=forum (ook niveau=1..3 en energie=hoog|middel|laag)
+// Voorselectie via het adres: to-arsenaal.html#fase=forum (ook niveau=1..3 en energie=hoog|middel|laag),
+// #boek opent Boals boek, #boek=I een categorie daarin (I, II, III, IV, V, IT, RE)
 // en to-arsenaal.html#sessie opent de sessiebouwer direct
 function leesAdres() {
   var h = location.hash.replace(/^#/, '');
@@ -1266,10 +3108,13 @@ function leesAdres() {
     document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
     return;
   }
+  if (h === 'boek') { setView('boek'); return; }
   if (h.indexOf('=') < 0) return;
   var p = {};
   h.split('&').forEach(function(kv) { var d = kv.split('='); p[decodeURIComponent(d[0])] = decodeURIComponent(d[1] || ''); });
   var klik = function(sel) { var b = document.querySelector(sel); if (b) b.click(); };
+  if (p.boek) { setView('boek', p.boek); return; }
+  if (view !== 'werkplaats') setView('werkplaats');
   if (p.fase) klik('.ptab[data-f="' + p.fase + '"]');
   if (p.niveau) klik('#niv-chips .chip[data-n="' + p.niveau + '"]');
   if (p.energie) klik('#eng-chips .chip[data-e="' + p.energie + '"]');
