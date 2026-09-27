@@ -329,11 +329,20 @@
 /* Joker-tekening in de kop */
 .arsenaal-joker{display:block;width:110px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
 @media (max-width:600px){.arsenaal-joker{width:79px;margin-bottom:12px}}
+
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
 </style>
 </head>
 <body>
 
 <div class="container">
+
+  <nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
 
   <header class="header">
     <img src="joker-donker.png" alt="" class="arsenaal-joker" aria-hidden="true">
@@ -342,7 +351,6 @@
     <div class="description">
       Hoe Theatre of the Oppressed vorm krijgt in verschillende regio's. De atlas met 12 praktijken wereldwijd, plus regionale carrousels per continent. Dit is achtergrondmateriaal — context, geschiedenis, netwerken, debatten. De gereedschapskoffer zelf vind je in de hoofdindex.
     </div>
-    <a class="back-link" href="index.html">← Arsenaal van de Joker</a>
   </header>
 
   <main class="main">
