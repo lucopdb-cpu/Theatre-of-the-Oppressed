@@ -29,7 +29,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
-  --creme:#f8f6f0;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --creme:#faf8f4;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
   --rule:rgba(26,24,20,.1);
   --humus:#5c3d1e;--humus2:#3d2a14;--humus3:#a87c4f;--humus4:#f0e4cc;
   --cat-concept:#5c3d1e;--cat-sessie:#3d6e8c;--cat-kern:#7c4a1e;
@@ -52,12 +52,12 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .back-link:hover{color:var(--humus)}
 
 /* MASTHEAD */
-.masthead{border-bottom:2px solid var(--humus);padding:28px 0 24px;margin-bottom:24px;text-align:center}
-.eyebrow{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--humus3);margin-bottom:12px}
-.app-name{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.6rem);font-weight:400;font-style:italic;color:var(--ink);line-height:1.1;margin-bottom:.4rem;letter-spacing:-.02em}
-.app-name strong{font-style:normal;font-weight:600;color:var(--humus)}
-.app-sub{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.5rem}
-.context-note{font-family:var(--body);font-style:italic;font-size:15px;font-weight:300;color:var(--ink2);max-width:560px;margin:0 auto;line-height:1.75}
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px;text-align:left;display:flow-root}
+.eyebrow{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--humus);margin-bottom:6px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--humus)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--humus4);padding-left:14px;max-width:600px}
 
 /* FILTERS */
 .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-bottom:18px}
@@ -142,8 +142,8 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 }
 
 /* Joker-tekening in de kop */
-.arsenaal-joker{display:block;width:110px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
-@media (max-width:600px){.arsenaal-joker{width:79px;margin-bottom:12px}}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 
 /* Vaste navigatie terug, gelijk op alle pagina's */
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
@@ -160,6 +160,23 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
 .arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+
+/* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#f2ede4;color:#9a9790;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#1a1814}
+.ov-card{background:#fff;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1814}
+.ov-list{padding:4px 26px 16px}
+.ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
+.ov-row:last-child{border-bottom:none}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#f2ede4;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#1a1814}
+.ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -169,8 +186,8 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 
 <div class="masthead">
     <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
-  <div class="eyebrow">Dieptelaag · Ervaringsgerichte Psychologie</div>
-  <div class="app-name"><strong>Psychodrama</strong> — <em>Moreno</em></div>
+  <div class="laagregel">Aanvullende methodieken · Ervaringsgerichte psychologie</div>
+  <div class="app-name">Psychodrama — <em>Moreno</em></div>
   <div class="app-sub">Zesentwintig technieken en concepten</div>
   <div class="context-note">Moreno's psychodrama is de directe voorloper van Boals Theater van de Onderdrukte. Niet bespreken maar uitspelen — met echte lichamen, in het hier en nu. Alles wat Boal deed, begon hier.</div>
 </div>
@@ -191,10 +208,14 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
   <button class="nav-btn" id="nx">&#8594;</button>
 </div>
 
+<div class="view-toggle" role="group" aria-label="Weergave"><button class="vt-btn on" data-view="step">Stap voor stap</button><button class="vt-btn" data-view="all">Overzicht</button></div>
+
+
+<div id="overzicht" hidden></div>
 <div id="card-wrap"></div>
 
 <div class="kbd-row">
-  <kbd>&larr;</kbd> <kbd>&rarr;</kbd> kaarten
+  <kbd>&larr;</kbd> <kbd>&rarr;</kbd> kaarten &nbsp;·&nbsp; <kbd>spatie</kbd> overzicht
 </div>
 
 <div class="moreno-quote">
@@ -520,6 +541,48 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 render();
+</script>
+
+<script>
+/* Schakelaar Stap voor stap / Overzicht */
+(function(){
+  const wrap = document.getElementById('card-wrap');
+  const ov = document.getElementById('overzicht');
+  const GO = typeof goTech === 'function' ? 'goTech' : 'goTo';
+  function items(){
+    if (typeof filtered === 'function') return filtered();
+    if (typeof lijst !== 'undefined') return lijst;
+    return T;
+  }
+  function nr(x, i){ return x.nr != null ? x.nr : (x.num != null ? x.num : (typeof x.n === 'number' ? x.n : i + 1)); }
+  function title(x){ return x.title || x.en || x.n || ''; }
+  let view = 'step';
+  function setView(v){
+    view = v;
+    document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+    if (v === 'all') {
+      ov.innerHTML = `<div class="ov-card"><div class="ov-head">Overzicht</div><div class="ov-list">${
+        items().map((x, i) => `<button class="ov-row" data-i="${i}"><span class="ov-nr">${nr(x, i)}</span><span class="ov-title">${title(x)}</span></button>`).join('')
+      }</div></div>`;
+      ov.hidden = false; wrap.hidden = true;
+    } else {
+      ov.hidden = true; wrap.hidden = false;
+    }
+  }
+  ov.addEventListener('click', e => {
+    const r = e.target.closest('.ov-row'); if (!r) return;
+    window[GO](parseInt(r.dataset.i, 10));
+    window.scrollTo({ top: Math.max(0, document.querySelector('.view-toggle').getBoundingClientRect().top + window.scrollY - 120), behavior: 'smooth' });
+  });
+  document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+  const _render = render;
+  render = function(){ const out = _render.apply(this, arguments); if (view !== 'step') setView('step'); return out; };
+  document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.altKey || e.ctrlKey || e.metaKey) return;
+    const t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA' || t === 'BUTTON' || t === 'SELECT') return;
+    e.preventDefault(); setView(view === 'step' ? 'all' : 'step');
+  });
+})();
 </script>
 </body>
 </html>

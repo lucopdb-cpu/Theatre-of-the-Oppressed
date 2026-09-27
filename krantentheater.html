@@ -137,6 +137,23 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
 .arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+
+/* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#f2ede4;color:#9a9790;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#1a1814}
+.ov-card{background:#fff;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1814}
+.ov-list{padding:4px 26px 16px}
+.ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
+.ov-row:last-child{border-bottom:none}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#f2ede4;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#1a1814}
+.ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -146,6 +163,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 <div class="masthead">
   <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Boals methodes</div>
   <div class="app-name">Krantentheater — <em>Twaalf Technieken</em></div>
   <div class="app-sub">Augusto Boal · Games for Actors and Non-Actors · Routledge 1992</div>
   <div class="context-note">Twaalf technieken om bestaande teksten — nieuws, beleid, wet, reclame — om te zetten in theatermateriaal. Niet het nieuws spelen, maar het nieuws ondervragen. Elk artikel draagt een ideologie. De techniek maakt die zichtbaar.</div>
@@ -158,10 +176,14 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
   <button class="nav-btn" id="nx">&#8594;</button>
 </div>
 
+<div class="view-toggle" role="group" aria-label="Weergave"><button class="vt-btn on" data-view="step">Stap voor stap</button><button class="vt-btn" data-view="all">Overzicht</button></div>
+
+
+<div id="overzicht" hidden></div>
 <div id="card-wrap"></div>
 
 <div class="kbd-row">
-  <kbd>←</kbd> <kbd>→</kbd> technieken &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> stappen
+  <kbd>←</kbd> <kbd>→</kbd> technieken &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> stappen &nbsp;·&nbsp; <kbd>spatie</kbd> overzicht
 </div>
 
 <footer class="arsenaal-footer">
@@ -461,6 +483,48 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 render();
+</script>
+
+<script>
+/* Schakelaar Stap voor stap / Overzicht */
+(function(){
+  const wrap = document.getElementById('card-wrap');
+  const ov = document.getElementById('overzicht');
+  const GO = typeof goTech === 'function' ? 'goTech' : 'goTo';
+  function items(){
+    if (typeof filtered === 'function') return filtered();
+    if (typeof lijst !== 'undefined') return lijst;
+    return T;
+  }
+  function nr(x, i){ return x.nr != null ? x.nr : (x.num != null ? x.num : (typeof x.n === 'number' ? x.n : i + 1)); }
+  function title(x){ return x.title || x.en || x.n || ''; }
+  let view = 'step';
+  function setView(v){
+    view = v;
+    document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+    if (v === 'all') {
+      ov.innerHTML = `<div class="ov-card"><div class="ov-head">Overzicht</div><div class="ov-list">${
+        items().map((x, i) => `<button class="ov-row" data-i="${i}"><span class="ov-nr">${nr(x, i)}</span><span class="ov-title">${title(x)}</span></button>`).join('')
+      }</div></div>`;
+      ov.hidden = false; wrap.hidden = true;
+    } else {
+      ov.hidden = true; wrap.hidden = false;
+    }
+  }
+  ov.addEventListener('click', e => {
+    const r = e.target.closest('.ov-row'); if (!r) return;
+    window[GO](parseInt(r.dataset.i, 10));
+    window.scrollTo({ top: Math.max(0, document.querySelector('.view-toggle').getBoundingClientRect().top + window.scrollY - 120), behavior: 'smooth' });
+  });
+  document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+  const _render = render;
+  render = function(){ const out = _render.apply(this, arguments); if (view !== 'step') setView('step'); return out; };
+  document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.altKey || e.ctrlKey || e.metaKey) return;
+    const t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA' || t === 'BUTTON' || t === 'SELECT') return;
+    e.preventDefault(); setView(view === 'step' ? 'all' : 'step');
+  });
+})();
 </script>
 </body>
 </html>
