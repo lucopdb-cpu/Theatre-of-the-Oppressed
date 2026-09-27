@@ -1256,12 +1256,26 @@ function herlaadSessie() {
 }
 window.addEventListener('storage', function(e) { if (e.key === 'to-sessie') herlaadSessie(); });
 window.addEventListener('pageshow', function(e) { if (e.persisted) herlaadSessie(); });
-// to-arsenaal.html#sessie opent de sessiebouwer direct
-if (location.hash === '#sessie') {
-  document.getElementById('sb-panel').classList.add('open');
-  document.getElementById('sb-icon').classList.add('open');
-  document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
+// Voorselectie via het adres: to-arsenaal.html#fase=forum (ook niveau=1..3 en energie=hoog|middel|laag)
+// en to-arsenaal.html#sessie opent de sessiebouwer direct
+function leesAdres() {
+  var h = location.hash.replace(/^#/, '');
+  if (h === 'sessie') {
+    document.getElementById('sb-panel').classList.add('open');
+    document.getElementById('sb-icon').classList.add('open');
+    document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
+    return;
+  }
+  if (h.indexOf('=') < 0) return;
+  var p = {};
+  h.split('&').forEach(function(kv) { var d = kv.split('='); p[decodeURIComponent(d[0])] = decodeURIComponent(d[1] || ''); });
+  var klik = function(sel) { var b = document.querySelector(sel); if (b) b.click(); };
+  if (p.fase) klik('.ptab[data-f="' + p.fase + '"]');
+  if (p.niveau) klik('#niv-chips .chip[data-n="' + p.niveau + '"]');
+  if (p.energie) klik('#eng-chips .chip[data-e="' + p.energie + '"]');
 }
+leesAdres();
+window.addEventListener('hashchange', leesAdres);
 </script>
 </body>
 </html>
