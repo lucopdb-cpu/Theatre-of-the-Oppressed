@@ -6,7 +6,8 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="theme-color" content="#1a6b8a">
+<script src="nav.js" defer></script>
+<meta name="theme-color" content="#1f5f73">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <title>Impro — Oefeningen van Viola Spolin</title>
 <meta name="description" content="Oefeningen uit Viola Spolins improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk.">
@@ -23,59 +24,98 @@
 <meta name="twitter:title" content="Impro — Oefeningen van Viola Spolin">
 <meta name="twitter:description" content="Oefeningen uit Viola Spolins improvisatietraditie — spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f3f6f7;color:#1a1a1a;padding:2rem 1rem}
-.wrap{max-width:560px;margin:0 auto;padding:1rem 0 1.5rem}
-.source-banner{background:#1a3a4a;color:#a8d4e6;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:8px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.source-banner span{color:#fff}
-.filter-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.fb{font-size:11px;font-weight:500;border-radius:4px;padding:4px 12px;cursor:pointer;border:1px solid #b0cdd8;background:#fff;color:#555;font-family:inherit}
-.fb.on{background:#1a6b8a;color:#fff;border-color:#1a6b8a}
-.nav-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.nb{width:34px;height:34px;border-radius:8px;border:1px solid #b0cdd8;background:#fff;cursor:pointer;font-size:16px;color:#1a6b8a;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.nb:hover{background:#E0F0F7}
-.nb:disabled{opacity:.3;cursor:default}
-.dots{display:flex;gap:6px;flex-wrap:wrap}
-.dot{width:7px;height:7px;border-radius:50%;background:#b0cdd8;cursor:pointer;transition:background .2s,transform .2s;flex-shrink:0}
-.dot.on{background:#1a6b8a;transform:scale(1.4)}
-.ctr{font-size:12px;color:#888;margin-left:auto;white-space:nowrap}
-.card{background:#fff;border:1px solid #c8e0ea;border-radius:16px;overflow:hidden}
-.ch{background:#1a6b8a;padding:16px 22px 14px}
-.ct{font-size:10px;color:#8fcfe6;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
-.cn{font-size:21px;font-weight:600;color:#fff}
-.cm{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #e0eef3}
-.cmi{padding:10px 22px}
-.cmi:first-child{border-right:1px solid #e0eef3}
-.cml{font-size:9px;color:#1a6b8a;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:2px}
-.cmv{font-size:13px;color:#1a1a1a}
-.cb{padding:16px 22px 4px}
-.cs{margin-bottom:14px}
-.csl{font-size:9px;color:#1a6b8a;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
-.cd{font-size:13px;color:#333;line-height:1.6}
-.steps{display:flex;flex-direction:column;gap:7px}
-.step{display:flex;gap:10px;align-items:flex-start}
-.snr{min-width:20px;height:20px;background:#1a6b8a;color:#fff;border-radius:50%;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.stx{font-size:13px;color:#333;line-height:1.55}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{font-size:11px;font-weight:500;border-radius:4px;padding:2px 9px}
-.te{background:#E0F0F7;color:#0d4a62}
-.tb{background:#E1F5EE;color:#085041}
-.tf{background:#FFF3E0;color:#633806}
-.tl{background:#FFF8E1;color:#5D4037}
-.ts{background:#FCE4EC;color:#880E4F}
-.ti{background:#EDF3F7;color:#1a3a4a}
-.td{background:#FBE9E7;color:#BF360C}
-.tbron a{color:inherit;text-decoration:none}
-.tbron{font-size:10px;font-weight:700;border-radius:4px;padding:2px 9px;background:#1a3a4a;color:#fff;letter-spacing:.04em;text-transform:uppercase}
-.tip{margin:4px 22px 18px;background:#eef6fa;padding:11px 15px;border-left:3px solid #1a6b8a}
-.tipl{font-size:9px;color:#1a6b8a;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:3px}
-.tipt{font-size:12px;color:#555;line-height:1.55;font-style:italic}
-.page-ref{font-size:10px;color:#999;margin-top:6px;font-style:normal}
+:root{
+  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
+  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#1f5f73;--amber2:#3a8199;--amber3:#b9d7e0;--amber4:#eef6f8;
+  --rule:rgba(26,24,20,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--amber)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--amber3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--amber2);color:var(--amber)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-power{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--amber4);border-left:3px solid var(--amber2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--paper3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--amber)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--amber3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--amber4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--amber3)}
+.acc-trigger.open .acc-sn{background:var(--amber);color:#fff;border-color:var(--amber2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-subs{display:flex;flex-direction:column;gap:8px}
+.acc-sub{display:flex;gap:10px;align-items:flex-start}
+.acc-sub-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--amber3)}
+.acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
 
 /* Joker-tekening in de kop */
-.arsenaal-joker{display:block;width:80px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
-@media (max-width:600px){.arsenaal-joker{width:57px;margin-bottom:12px}}
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
 
 /* Vaste navigatie terug, gelijk op alle pagina's */
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
@@ -92,112 +132,570 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
 .arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+
+/* Aanvullingen voor oefen- en techniekkaarten */
+.cat-row{display:flex;gap:5px;flex-wrap:wrap;margin:-8px 0 14px}
+.card-nl{font-family:var(--body);font-size:13px;font-style:italic;font-weight:300;color:var(--ink2);margin-top:3px}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right;border:1px solid transparent}
+.meta-bar{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px}
+.meta-item{font-family:var(--sans);font-size:11px;color:var(--ink2)}
+.meta-item strong{font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;font-size:9px;margin-right:4px}
+.stages-head{display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.step-list{display:flex;flex-direction:column}
+.step-row{display:flex;gap:10px;align-items:flex-start;padding:10px 26px;border-bottom:1px solid var(--paper3)}
+.step-row:last-child{border-bottom:none}
+.step-row .acc-sn{margin-top:1px}
+.step-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;padding:12px 26px 0}
+.tag{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;background:var(--paper2);border:1px solid var(--paper4);color:var(--ink3)}
+.card-source{margin:0 26px 20px;padding:9px 12px;background:var(--paper2);border-radius:6px;font-family:var(--sans);font-size:11px;color:var(--ink2);line-height:1.5}
+.card-source strong{font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;font-size:9px;margin-right:4px}
+.card-source a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+.card-source a:hover{opacity:.7}
+.masthead .context-note a{color:inherit}
 </style>
 </head>
 <body>
-<nav class="arsenaal-nav is-edge" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
-<div class="wrap">
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
+
+<div class="masthead">
   <img src="joker-blauw.png" alt="" class="arsenaal-joker" aria-hidden="true">
-  <div class="source-banner">📖 Bron: <span>Viola Spolin — Improvisation for the Theater (1999)</span> &nbsp;via Otto (2020), SAGE Open</div>
-  <div class="filter-row" id="fr"></div>
-  <div class="nav-row">
-    <button class="nb" id="pv">&#8592;</button>
-    <div class="dots" id="ds"></div>
-    <span class="ctr" id="ct"></span>
-    <button class="nb" id="nx">&#8594;</button>
-  </div>
-  <div id="kw"></div>
+  <div class="app-name">Impro — <em>Oefeningen van Viola Spolin</em></div>
+  <div class="app-sub">Viola Spolin · Improvisation for the Theater · Northwestern University Press · 3e druk 1999</div>
+  <div class="context-note">Oefeningen uit Viola Spolins improvisatietraditie: spelgericht, lichaamsgericht, gericht op aanwezigheid en contact. Voorloper en zuster van veel TO-werk. De oefeningen staan per categorie; kies bovenaan een categorie of blader door alle achttien.</div>
+</div>
+
+<div class="cat-row" id="cats" role="group" aria-label="Categorieën"></div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv" aria-label="Vorige">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx" aria-label="Volgende">&#8594;</button>
+</div>
+
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> oefeningen
+</div>
+
 <footer class="arsenaal-footer">
+  <div class="af-content">Bron: <a href="bronnen.html#spolin-1999">Spolin (1999)</a>, <em>Improvisation for the theater</em>, in de selectie van Otto (2020), <em>SAGE Open</em></div>
   <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
 </footer>
+
 </div>
 
 <script>
-const D=[
-
-  // ORIËNTATIE — BLOOTSTELLING
-  {b:"oriëntatie",n:"Exposure (Blootstelling)",t:"Oriëntatiegame / podiumvrees",d:"10–15 min",g:"8–30 p.",o:"De ongemakkelijkheid van geobserveerd worden voelen — en ontdekken dat een taak die angst opheft. Direct toepasbaar voor dirigenten en performers die podiumvrees kennen.",s:["Groepen spelers staan voor het publiek. Geen opdracht — gewoon staan en geobserveerd worden.","Na een minuut: geef spelers een simpele taak, bijv. tel de stoelen in de ruimte.","Evaluatie: wie voelde ongemak bij het staan? Wat veranderde er bij de taak?","Bespreek: de aanwezigheid van een focus trekt de aandacht weg van zelfoordeel."],tg:["podiumvrees","focus","aanwezigheid","evaluatie"],tip:"Dit is het startpunt van bijna elk Spolin-traject. De ontdekking dat een taak podiumvrees opheft is de kern van haar pedagogiek: wie zich richt op de focus, vergeet beoordeeld te worden.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 53</a>"},
-
-  // ORIËNTATIE — MIRROR SERIES
-  {b:"oriëntatie",n:"Mirror (Spiegel)",t:"Oriëntatiegame / lichaamsbewustzijn",d:"15–20 min",g:"6–30 p.",o:"De verhouding tussen leiden en volgen ervaren via spiegeling — alle aspecten van de fysieke expressie van de ander overnemen: gebaren, houding, gezichtsuitdrukking.",s:["Tweetallen staan tegenover elkaar. Afspreken wie leider is, wie volger.","De volger spiegelt de leider zo precies mogelijk — alle ledematen, houding, gezichtsexpressie.","Na enkele minuten: rollen wisselen zonder dat de beweging stopt.","Variant: wie leidt en wie volgt wordt onduidelijk — beweging ontstaat simultaan."],tg:["leiden","volgen","simultaan","gezichtsexpressie"],tip:"De volger loopt altijd net achter de leider — precies zoals muzikanten achter de dirigent aanlopen. Een leider die te snel of te abrupt beweegt verliest de ander. Wie langzaam beweegt ontdekt aandacht voor detail en lichaamsbesef.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 61–63</a>"},
-
-  // ORIËNTATIE — NO MOTION
-  {b:"oriëntatie",n:"No Motion Warm-Up",t:"Oriëntatiegame / bewegingsbewustzijn",d:"10–15 min",g:"8–30 p.",o:"Bewegen vanuit het concept 'geen beweging' — denk aan je motie als stilstaande beelden in een duimflipboekje. Bevrijdt spanning en maakt bewegingen moeiteloos.",s:["Iedereen loopt door de ruimte. De side coach roept: 'Focus op de momenten zonder beweging.'","Stel je voor dat je beweging een serie stilstaande foto's is — niet de vloeiende overgang, maar de stilstaande beelden.","Leg de nadruk op elk bevroren moment. Wat voelt er anders?","Nabespreking: welke spanning verdween? Wat werd lichter?"],tg:["spanning","moeiteloos","beweging","bewustzijn"],tip:"Dit gaat direct over hoe dirigenten leren: wie minder spanning in de arm heeft, communiceert helderder. De 'no motion'-focus heft onbewuste spierspanning op zonder dat je er direct op richt.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 83</a>"},
-
-  // ORIËNTATIE — SPACE WALK
-  {b:"oriëntatie",n:"Space Walk (Ruimtewandeling)",t:"Oriëntatiegame / fysicalisering",d:"15–20 min",g:"8–30 p.",o:"Bewegen door ruimtes met een andere substantie of sfeer — de verbeelding creëert een weerstand of stemming die het lichaam vanzelf uitdrukt.",s:["Iedereen loopt door de ruimte. Side coach: 'De ruimte is dik en stroperig — als honing.'","Volg de veranderende ruimte: water, magnetische vloer, bevroren lucht, drukke straat.","Variatie: verander niet de substantie maar de sfeer: lopen door de stad na slecht nieuws; door een feestmenigte.","Nabespreking: wat deed het lichaam vanzelf?"],tg:["verbeelding","weerstand","expressie","fysicalisering"],tip:"Dit is de eerste stap naar fysicalisering van emotie en karakter. Wie door 'honing' loopt hoeft niet te 'acteren' — het lichaam reageert vanzelf. Voor dirigenten: hetzelfde geldt voor hoe je de muziek voelt in je lichaam.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 83–84</a>"},
-
-  // SPACE SUBSTANCE — HANDEN
-  {b:"ruimte",n:"Space Substance Introduction — Handen",t:"Ruimtespel / beginnersniveau",d:"10–15 min",g:"6–30 p.",o:"De ruimte tussen je handpalmen als echte substantie ervaren — en ontdekken dat denkbeeldige voorwerpen echt worden als je ze serieus behandelt.",s:["Sta rechtop. Houd beide handpalmen tegenover elkaar, 20–40 cm uit elkaar.","Focus op de ruimtesubstantie tussen je handen. Wat zit er tussen?","Verander de afstand — groter, kleiner — en observeer hoe de ruimte zich gedraagt.","Laat de hands vanzelf een vorm aannemen. Wat houd je vast?"],tg:["ruimtesubstantie","handen","verbeelding","beginners"],tip:"Dit is het startpunt voor alle space object-spelen. De ervaring van grootte, gewicht, temperatuur en dichtheid in de denkbeeldige ruimte maakt latere gebaren organisch. Wie dit overslaat gebaard altijd iets hoogs.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 391</a>"},
-
-  // SPACE SHAPING — SOLO
-  {b:"ruimte",n:"Space Shaping — Solo",t:"Ruimtespel / solo",d:"10–15 min",g:"6–30 p.",o:"De ruimtesubstantie laten uitharden tot een voorwerp — en dat voorwerp vervolgens op alle manieren manipuleren.",s:["Begin vanuit de Space Substance Introduction. Er is een vorm tussen je handen.","Laat de substantie uitvloeien naar de rest van je handen en armen. Wat neem je vast?","Manipuleer het voorwerp: draai het om, verander het formaat, breng het gewicht over.","Wissel van voorwerp. Dezelfde ruimte kan van een groot vel papier een zware steen worden."],tg:["ruimtesubstantie","solo","manipulatie","gewicht"],tip:"Het gaat erom dat de speler zélf gelooft in het voorwerp — niet dat het publiek het gelooft. Wie het zelf voelt, communiceert het vanzelf. Wie het simuleert, simuleert het ook voor het publiek.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 81–83</a>"},
-
-  // SPACE SHAPING — ENSEMBLE
-  {b:"ruimte",n:"Space Shaping — Ensemble",t:"Ruimtespel / groep",d:"15–20 min",g:"8–30 p.",o:"Denkbeeldige voorwerpen samen creëren en doorgeven — de consistentie van het voorwerp wordt gedeeld door de groep.",s:["Kleine groepjes. Eén speler begint een ruimteobject te creëren en te manipuleren.","Een tweede speler treedt toe en neemt het object over of werkt eraan mee.","Let op: het object moet dezelfde grootte, gewicht en consistentie behouden.","Bouw verder: het object groeit, krimpt, verandert van eigenaar maar nooit van 'werkelijkheid'."],tg:["ruimtesubstantie","ensemble","consistentie","samenwerking"],tip:"De uitdaging zit in het bijhouden van de 'realiteit' van het voorwerp — als één speler het object groter maakt dan de ander verwacht breekt de illusie. Dat is communicatie, niet magie.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 81–83</a>"},
-
-  // SPACE OBJECTS — PLAY BALL
-  {b:"ruimte",n:"Play Ball",t:"Ruimtespel / interactie",d:"10–15 min",g:"6–25 p.",o:"Een denkbeeldige bal gooien en vangen in tweetallen — de consistentie van de bal vereist nauwkeurig waarnemen en reageren.",s:["Tweetallen. Creëer samen een denkbeeldige bal: welk formaat? Welk gewicht? Welke textuur?","Gooi en vang de bal. Let op: de bal heeft een echte vliegboog — hij stuitert, rolt, valt.","Varieer: kleine tennisbal, grote beachbal, natte zware bal, vluchtige ballon.","Evaluatie: wanneer voelde de bal het meest echt?"],tg:["ruimteobject","bal","vangen","gooien"],tip:"De vanger geeft het meeste informatie over de realiteit van de bal — reageer op de bal die je ziet aankomen. Wie de bal 'wegklapt' voor hij aankomt gooit het hele spel overboord.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 64</a>"},
-
-  // SPACE OBJECTS — TUG OF WAR
-  {b:"ruimte",n:"Tug-of-War (Touwtrekken)",t:"Ruimtespel / spanning en weerstand",d:"10–15 min",g:"8–25 p.",o:"Touwtrekken met een denkbeeldig touw — het lichaam begint vanzelf spanning te tonen: gespannen spieren, gefronst gezicht, zware ademhaling.",s:["Twee teams staan tegenover elkaar. Schets samen de dikte en textuur van het touw.","Trek. Beide teams verzetten zich — gebruik lichaamsgewicht, coördineer in de groep.","Side coach: 'Voel het touw! Voelen jullie de weerstand?'","Na het spel: nabespreking over wat het lichaam vanzelf deed."],tg:["weerstand","spanning","lichaam","ensemble"],tip:"Dit is een van de krachtigste oefeningen voor lichaamsbewustzijn omdat de weerstand echt voelbaar wordt zonder dat je eraan denkt. De frustratie, de spanning, de uitputting — allemaal authentiek. Precies wat een dirigent nodig heeft bij zware muziek.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 63</a>"},
-
-  // SPACE OBJECTS — JUMP ROPE
-  {b:"ruimte",n:"Jump Rope (Springtouw)",t:"Ruimtespel / ritme",d:"10–15 min",g:"6–20 p.",o:"Springtouw draaien en inspringen met een denkbeeldig touw — ritme en timing worden lichaamstaal.",s:["Twee spelers draaien het denkbeeldige touw. Één persoon springt in.","Het touw heeft een consistente snelheid — de draaiers moeten op elkaar zijn afgestemd.","Meer springers kunnen erin. Stel je het gewicht en de snelheid van het touw voor.","Evaluatie: hoe communiceerden de draaiers zonder woorden over de snelheid?"],tg:["ritme","timing","samenwerking","ruimteobject"],tip:"Het ritme van het touw vraagt subtiele non-verbale communicatie — precies wat dirigenten leren. Wie de snelheid eenzijdig verandert gooit de springers eruit.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 387</a>"},
-
-  // THE WHERE GAME
-  {b:"ruimte",n:"The Where Game",t:"Ruimtespel / scènebouw",d:"15–20 min",g:"6–25 p.",o:"Een omgeving definiëren door ermee te interacteren — het publiek begrijpt 'waar' de scène speelt door wat de spelers doen, niet door wat ze zeggen.",s:["Eén speler betrekt de speelruimte en begint met een ruimteobject te interacteren. Geen woorden over de plek.","Publiek kijkt: waar zijn we? Wat doet de speler precies?","Als andere spelers begrijpen waar de scène speelt, treden ze in en interacteren met eigen ruimteobjecten.","Nabespreking: wanneer was de plek duidelijk? Welke actie maakte het zeker?"],tg:["omgeving","scènebouw","ruimteobject","waar"],tip:"'Waar' wordt nooit gezegd — alleen gedaan. Wie binnenkomt en vraagt 'Ben je hier de dokter?' vernietigt het spel. De omgeving leeft in de objecten en acties, nergens anders.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 98</a>"},
-
-  // GIBBERISH
-  {b:"expressie",n:"Gibberish — Onzinlezing",t:"Expressiespel / non-verbale communicatie",d:"10–15 min",g:"6–25 p.",o:"Een lezing houden in volslagen onzintaal — en toch begrijpelijk maken door actie, expressie en stemtoon. Direct verwant aan dirigeren: de handen moeten spreken, niet de mond.",s:["Één speler houdt een korte lezing over een zelfgekozen onderwerp — volledig in onzintaal.","Het publiek luistert: waarover gaat de lezing? Welk gevoel straalt de spreker uit?","Variatie: één speler spreekt gibberish, een andere tolkt live voor het publiek.","Evaluatie: wanneer begreep het publiek iets? Wat maakte het duidelijk?"],tg:["gibberish","non-verbaal","communicatie","expressie"],tip:"Wie gibberish spreekt begint vanzelf te gebaren — en die gebaren zijn universeel menselijk. Dat zijn ook de gebaren die een dirigent nodig heeft. Spolin: 'De betekenis van een geluid in gibberish wordt alleen begrepen als de acteur het door actie, expressie of stemtoon overbrengt.'",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 114–118</a>"},
-
-  // GIBBERISH — SCENE
-  {b:"expressie",n:"Gibberish — Scène",t:"Expressiespel / karakter",d:"15–20 min",g:"4–20 p.",o:"Een volledige scène spelen in gibberish — plot, conflict, emotie — zonder ook maar één woord van de eigen taal.",s:["Tweetallen of kleine groepjes. Kies een 'wie' en een 'waar' — maar niet 'hoe'.","Speel de scène volledig in gibberish. Stem, houding, gezichtsexpressie dragen de betekenis.","Publiek evalueert: welk conflict zagen we? Wat voelde elk personage?","Nabespreking: welke momenten waren het helderst? Waarom?"],tg:["gibberish","karakter","conflict","scène"],tip:"Gibberish-scènes onthullen wat spelers normaal verbergen achter woorden — de lichaamstaal en emotie kunnen niet meer worden gemaskeerd. Dat is zowel de kracht als het ongemak.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, pp. 114–118</a>"},
-
-  // EXPLORE AND HEIGHTEN
-  {b:"expressie",n:"Explore and Heighten",t:"Expressiespel / overtraining",d:"20–25 min",g:"4–20 p.",o:"Een aspect van een scène uitvergroten tot het extreme — om daarna te ontdekken dat 'normaal spelen' een veelvoud expressiever is geworden.",s:["Kleine groepjes spelen een simpele scène. Side coach observeert.","Side coach roept: 'Explore and heighten!' — de groep vergroot een aspect tot het absurde: stiltes, objecten, bewegingen, emoties.","Zolang de coach geen stop roept: alles mag groter.","Terug naar normale speel. Evaluatie: wat is er veranderd?"],tg:["expressie","overdrijving","overtraining","evaluatie"],tip:"Overtraining werkt: wie gewend is om extreem te spelen vindt 'normaal expressief spelen' daarna moeiteloos. Dit is hetzelfde principe als met een zware veer lopen vóór een sprint.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 217</a>"},
-
-  // HOW OLD AM I
-  {b:"karakter",n:"How Old Am I? (Hoe oud ben ik?)",t:"Karakterspel / lichaamstaal",d:"15–20 min",g:"8–30 p.",o:"Een bushalte — iedereen arriveert met een ander leeftijdskarakter. Niet imiteren maar werkelijk belichamen: houding, tempo, gelaatsuitdrukking.",s:["Bouw een bushalte neer (één stoel of punt in de ruimte).","Eén voor één arriveert elk speler als een personage van een specifieke leeftijd — naar eigen keuze, niet aangekondigd.","Publiek raadt: hoe oud is dit personage? Op grond waarvan?","Evaluatie: wie 'toonde' en wie 'vertelde'? Wat was het verschil in lichaamstaal?"],tg:["karakter","leeftijd","lichaamstaal","houding"],tip:"Spolin: 'Show, don't tell.' Wie een jong personage speelt door met een jojomaak te doen 'vertelt' in plaats van 'toont'. Het echte karakter zit in hoe het lichaam de ruimte inneemt, loopt, ademt.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 69</a>"},
-
-  // ANIMAL IMAGES
-  {b:"karakter",n:"Animal Images (Dierbeelden)",t:"Karakterspel / karakter-exploratie",d:"20–25 min",g:"8–30 p.",o:"Volledig in een dier kruipen — beweging, klank, houding — en dat dan omzetten naar een menselijk karakter in een sociale context.",s:["Iedereen kiest in stilte een dier. Zonder aankondiging: belichaam het volledig — houding, beweging, geluid.","Side coach: verdiep. Voeg de persoonlijkheid van het dier toe — aarzelend, agressief, nieuwsgierig.","Op teken: blijf mens worden, maar behoud de persoonlijkheid en energie van het dier.","Interacteer met anderen. Zet de dierenergie in een menselijke sociale situatie."],tg:["dier","karakter","energie","persoonlijkheid"],tip:"Het doel is niet het dier imiteren maar de essentiële energie van het dier meebrengen als mens. Een dirigent die 'adelaar' heeft gespeeld communiceert anders dan iemand die 'muis' was. Dat is karakterontwerp.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 241</a>"},
-
-  // TRADITIONAL GAMES — RED LIGHT GREEN LIGHT
-  {b:"traditioneel",n:"Red Light / Green Light",t:"Traditioneel spel / ontspanning",d:"10–15 min",g:"8–40 p.",o:"Het klassieke kleurlicht-spel — bewegen bij groen, bevriezen bij rood. Speelplezier zonder druk van winnen of verliezen. Opent de intuïtie.",s:["Één persoon staat vooraan met rug naar de groep. Roept 'Groen licht!' — iedereen loopt naar voren.","'Rood licht!' — de roeper draait zich om. Wie nog beweegt gaat terug.","Doel: als eerste de roeper bereiken zonder betrapt te worden.","Variatie: speel het met bewegingsstijlen — lopen in slow motion, op één been, enz."],tg:["traditioneel","ontspanning","intuïtie","plezier"],tip:"Spolin en Paul Sills begonnen workshops altijd met traditionele kinderspelen — om spelers in een onbevannen, speelse staat te brengen. Wie heeft gelachen is open voor de diepere oefeningen.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 408</a>"},
-
-  // TRADITIONAL GAMES — WHO STARTED THE MOTION
-  {b:"traditioneel",n:"Who Started the Motion?",t:"Traditioneel spel / observatie",d:"10–15 min",g:"8–30 p.",o:"Eén persoon verlaat de kring, de rest kiest een leider die subtle bewegingen initieert — de guesser moet ontdekken wie het is.",s:["Kring. Eén persoon verlaat de ruimte of draait zich om.","De kring kiest een leider. De leider begint een herhalende beweging — de rest volgt zo subtiel mogelijk.","De guesser komt terug: wie is de leider?","De leider wisselt subtiel van beweging — de volgers reageren direct."],tg:["observatie","leider","volgen","subtiliteit"],tip:"Dit spel traint perifeer waarnemen en subtiel volgen — essentiele vaardigheden voor ensemble-muzikanten én voor het lezen van kleine signaaltjes van de dirigent. De kunst is om de leider niet direct aan te kijken.",bron:"<a href=\'bronnen.html#spolin-1999\'>Spolin, 1999, p. 68</a>"},
-
+const D = [
+{
+"b": "oriëntatie",
+"n": "Exposure (Blootstelling)",
+"t": "Oriëntatiegame / podiumvrees",
+"d": "10–15 min",
+"g": "8–30 p.",
+"o": "De ongemakkelijkheid van geobserveerd worden voelen — en ontdekken dat een taak die angst opheft. Direct toepasbaar voor dirigenten en performers die podiumvrees kennen.",
+"s": [
+"Groepen spelers staan voor het publiek. Geen opdracht — gewoon staan en geobserveerd worden.",
+"Na een minuut: geef spelers een simpele taak, bijv. tel de stoelen in de ruimte.",
+"Evaluatie: wie voelde ongemak bij het staan? Wat veranderde er bij de taak?",
+"Bespreek: de aanwezigheid van een focus trekt de aandacht weg van zelfoordeel."
+],
+"tg": [
+"podiumvrees",
+"focus",
+"aanwezigheid",
+"evaluatie"
+],
+"tip": "Dit is het startpunt van bijna elk Spolin-traject. De ontdekking dat een taak podiumvrees opheft is de kern van haar pedagogiek: wie zich richt op de focus, vergeet beoordeeld te worden.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 53</a>",
+"nr": 1
+},
+{
+"b": "oriëntatie",
+"n": "Mirror (Spiegel)",
+"t": "Oriëntatiegame / lichaamsbewustzijn",
+"d": "15–20 min",
+"g": "6–30 p.",
+"o": "De verhouding tussen leiden en volgen ervaren via spiegeling — alle aspecten van de fysieke expressie van de ander overnemen: gebaren, houding, gezichtsuitdrukking.",
+"s": [
+"Tweetallen staan tegenover elkaar. Afspreken wie leider is, wie volger.",
+"De volger spiegelt de leider zo precies mogelijk — alle ledematen, houding, gezichtsexpressie.",
+"Na enkele minuten: rollen wisselen zonder dat de beweging stopt.",
+"Variant: wie leidt en wie volgt wordt onduidelijk — beweging ontstaat simultaan."
+],
+"tg": [
+"leiden",
+"volgen",
+"simultaan",
+"gezichtsexpressie"
+],
+"tip": "De volger loopt altijd net achter de leider — precies zoals muzikanten achter de dirigent aanlopen. Een leider die te snel of te abrupt beweegt verliest de ander. Wie langzaam beweegt ontdekt aandacht voor detail en lichaamsbesef.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 61–63</a>",
+"nr": 2
+},
+{
+"b": "oriëntatie",
+"n": "No Motion Warm-Up",
+"t": "Oriëntatiegame / bewegingsbewustzijn",
+"d": "10–15 min",
+"g": "8–30 p.",
+"o": "Bewegen vanuit het concept 'geen beweging' — denk aan je motie als stilstaande beelden in een duimflipboekje. Bevrijdt spanning en maakt bewegingen moeiteloos.",
+"s": [
+"Iedereen loopt door de ruimte. De side coach roept: 'Focus op de momenten zonder beweging.'",
+"Stel je voor dat je beweging een serie stilstaande foto's is — niet de vloeiende overgang, maar de stilstaande beelden.",
+"Leg de nadruk op elk bevroren moment. Wat voelt er anders?",
+"Nabespreking: welke spanning verdween? Wat werd lichter?"
+],
+"tg": [
+"spanning",
+"moeiteloos",
+"beweging",
+"bewustzijn"
+],
+"tip": "Dit gaat direct over hoe dirigenten leren: wie minder spanning in de arm heeft, communiceert helderder. De 'no motion'-focus heft onbewuste spierspanning op zonder dat je er direct op richt.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 83</a>",
+"nr": 3
+},
+{
+"b": "oriëntatie",
+"n": "Space Walk (Ruimtewandeling)",
+"t": "Oriëntatiegame / fysicalisering",
+"d": "15–20 min",
+"g": "8–30 p.",
+"o": "Bewegen door ruimtes met een andere substantie of sfeer — de verbeelding creëert een weerstand of stemming die het lichaam vanzelf uitdrukt.",
+"s": [
+"Iedereen loopt door de ruimte. Side coach: 'De ruimte is dik en stroperig — als honing.'",
+"Volg de veranderende ruimte: water, magnetische vloer, bevroren lucht, drukke straat.",
+"Variatie: verander niet de substantie maar de sfeer: lopen door de stad na slecht nieuws; door een feestmenigte.",
+"Nabespreking: wat deed het lichaam vanzelf?"
+],
+"tg": [
+"verbeelding",
+"weerstand",
+"expressie",
+"fysicalisering"
+],
+"tip": "Dit is de eerste stap naar fysicalisering van emotie en karakter. Wie door 'honing' loopt hoeft niet te 'acteren' — het lichaam reageert vanzelf. Voor dirigenten: hetzelfde geldt voor hoe je de muziek voelt in je lichaam.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 83–84</a>",
+"nr": 4
+},
+{
+"b": "ruimte",
+"n": "Space Substance Introduction — Handen",
+"t": "Ruimtespel / beginnersniveau",
+"d": "10–15 min",
+"g": "6–30 p.",
+"o": "De ruimte tussen je handpalmen als echte substantie ervaren — en ontdekken dat denkbeeldige voorwerpen echt worden als je ze serieus behandelt.",
+"s": [
+"Sta rechtop. Houd beide handpalmen tegenover elkaar, 20–40 cm uit elkaar.",
+"Focus op de ruimtesubstantie tussen je handen. Wat zit er tussen?",
+"Verander de afstand — groter, kleiner — en observeer hoe de ruimte zich gedraagt.",
+"Laat de hands vanzelf een vorm aannemen. Wat houd je vast?"
+],
+"tg": [
+"ruimtesubstantie",
+"handen",
+"verbeelding",
+"beginners"
+],
+"tip": "Dit is het startpunt voor alle space object-spelen. De ervaring van grootte, gewicht, temperatuur en dichtheid in de denkbeeldige ruimte maakt latere gebaren organisch. Wie dit overslaat gebaard altijd iets hoogs.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 391</a>",
+"nr": 5
+},
+{
+"b": "ruimte",
+"n": "Space Shaping — Solo",
+"t": "Ruimtespel / solo",
+"d": "10–15 min",
+"g": "6–30 p.",
+"o": "De ruimtesubstantie laten uitharden tot een voorwerp — en dat voorwerp vervolgens op alle manieren manipuleren.",
+"s": [
+"Begin vanuit de Space Substance Introduction. Er is een vorm tussen je handen.",
+"Laat de substantie uitvloeien naar de rest van je handen en armen. Wat neem je vast?",
+"Manipuleer het voorwerp: draai het om, verander het formaat, breng het gewicht over.",
+"Wissel van voorwerp. Dezelfde ruimte kan van een groot vel papier een zware steen worden."
+],
+"tg": [
+"ruimtesubstantie",
+"solo",
+"manipulatie",
+"gewicht"
+],
+"tip": "Het gaat erom dat de speler zélf gelooft in het voorwerp — niet dat het publiek het gelooft. Wie het zelf voelt, communiceert het vanzelf. Wie het simuleert, simuleert het ook voor het publiek.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 81–83</a>",
+"nr": 6
+},
+{
+"b": "ruimte",
+"n": "Space Shaping — Ensemble",
+"t": "Ruimtespel / groep",
+"d": "15–20 min",
+"g": "8–30 p.",
+"o": "Denkbeeldige voorwerpen samen creëren en doorgeven — de consistentie van het voorwerp wordt gedeeld door de groep.",
+"s": [
+"Kleine groepjes. Eén speler begint een ruimteobject te creëren en te manipuleren.",
+"Een tweede speler treedt toe en neemt het object over of werkt eraan mee.",
+"Let op: het object moet dezelfde grootte, gewicht en consistentie behouden.",
+"Bouw verder: het object groeit, krimpt, verandert van eigenaar maar nooit van 'werkelijkheid'."
+],
+"tg": [
+"ruimtesubstantie",
+"ensemble",
+"consistentie",
+"samenwerking"
+],
+"tip": "De uitdaging zit in het bijhouden van de 'realiteit' van het voorwerp — als één speler het object groter maakt dan de ander verwacht breekt de illusie. Dat is communicatie, niet magie.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 81–83</a>",
+"nr": 7
+},
+{
+"b": "ruimte",
+"n": "Play Ball",
+"t": "Ruimtespel / interactie",
+"d": "10–15 min",
+"g": "6–25 p.",
+"o": "Een denkbeeldige bal gooien en vangen in tweetallen — de consistentie van de bal vereist nauwkeurig waarnemen en reageren.",
+"s": [
+"Tweetallen. Creëer samen een denkbeeldige bal: welk formaat? Welk gewicht? Welke textuur?",
+"Gooi en vang de bal. Let op: de bal heeft een echte vliegboog — hij stuitert, rolt, valt.",
+"Varieer: kleine tennisbal, grote beachbal, natte zware bal, vluchtige ballon.",
+"Evaluatie: wanneer voelde de bal het meest echt?"
+],
+"tg": [
+"ruimteobject",
+"bal",
+"vangen",
+"gooien"
+],
+"tip": "De vanger geeft het meeste informatie over de realiteit van de bal — reageer op de bal die je ziet aankomen. Wie de bal 'wegklapt' voor hij aankomt gooit het hele spel overboord.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 64</a>",
+"nr": 8
+},
+{
+"b": "ruimte",
+"n": "Tug-of-War (Touwtrekken)",
+"t": "Ruimtespel / spanning en weerstand",
+"d": "10–15 min",
+"g": "8–25 p.",
+"o": "Touwtrekken met een denkbeeldig touw — het lichaam begint vanzelf spanning te tonen: gespannen spieren, gefronst gezicht, zware ademhaling.",
+"s": [
+"Twee teams staan tegenover elkaar. Schets samen de dikte en textuur van het touw.",
+"Trek. Beide teams verzetten zich — gebruik lichaamsgewicht, coördineer in de groep.",
+"Side coach: 'Voel het touw! Voelen jullie de weerstand?'",
+"Na het spel: nabespreking over wat het lichaam vanzelf deed."
+],
+"tg": [
+"weerstand",
+"spanning",
+"lichaam",
+"ensemble"
+],
+"tip": "Dit is een van de krachtigste oefeningen voor lichaamsbewustzijn omdat de weerstand echt voelbaar wordt zonder dat je eraan denkt. De frustratie, de spanning, de uitputting — allemaal authentiek. Precies wat een dirigent nodig heeft bij zware muziek.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 63</a>",
+"nr": 9
+},
+{
+"b": "ruimte",
+"n": "Jump Rope (Springtouw)",
+"t": "Ruimtespel / ritme",
+"d": "10–15 min",
+"g": "6–20 p.",
+"o": "Springtouw draaien en inspringen met een denkbeeldig touw — ritme en timing worden lichaamstaal.",
+"s": [
+"Twee spelers draaien het denkbeeldige touw. Één persoon springt in.",
+"Het touw heeft een consistente snelheid — de draaiers moeten op elkaar zijn afgestemd.",
+"Meer springers kunnen erin. Stel je het gewicht en de snelheid van het touw voor.",
+"Evaluatie: hoe communiceerden de draaiers zonder woorden over de snelheid?"
+],
+"tg": [
+"ritme",
+"timing",
+"samenwerking",
+"ruimteobject"
+],
+"tip": "Het ritme van het touw vraagt subtiele non-verbale communicatie — precies wat dirigenten leren. Wie de snelheid eenzijdig verandert gooit de springers eruit.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 387</a>",
+"nr": 10
+},
+{
+"b": "ruimte",
+"n": "The Where Game",
+"t": "Ruimtespel / scènebouw",
+"d": "15–20 min",
+"g": "6–25 p.",
+"o": "Een omgeving definiëren door ermee te interacteren — het publiek begrijpt 'waar' de scène speelt door wat de spelers doen, niet door wat ze zeggen.",
+"s": [
+"Eén speler betrekt de speelruimte en begint met een ruimteobject te interacteren. Geen woorden over de plek.",
+"Publiek kijkt: waar zijn we? Wat doet de speler precies?",
+"Als andere spelers begrijpen waar de scène speelt, treden ze in en interacteren met eigen ruimteobjecten.",
+"Nabespreking: wanneer was de plek duidelijk? Welke actie maakte het zeker?"
+],
+"tg": [
+"omgeving",
+"scènebouw",
+"ruimteobject",
+"waar"
+],
+"tip": "'Waar' wordt nooit gezegd — alleen gedaan. Wie binnenkomt en vraagt 'Ben je hier de dokter?' vernietigt het spel. De omgeving leeft in de objecten en acties, nergens anders.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 98</a>",
+"nr": 11
+},
+{
+"b": "expressie",
+"n": "Gibberish — Onzinlezing",
+"t": "Expressiespel / non-verbale communicatie",
+"d": "10–15 min",
+"g": "6–25 p.",
+"o": "Een lezing houden in volslagen onzintaal — en toch begrijpelijk maken door actie, expressie en stemtoon. Direct verwant aan dirigeren: de handen moeten spreken, niet de mond.",
+"s": [
+"Één speler houdt een korte lezing over een zelfgekozen onderwerp — volledig in onzintaal.",
+"Het publiek luistert: waarover gaat de lezing? Welk gevoel straalt de spreker uit?",
+"Variatie: één speler spreekt gibberish, een andere tolkt live voor het publiek.",
+"Evaluatie: wanneer begreep het publiek iets? Wat maakte het duidelijk?"
+],
+"tg": [
+"gibberish",
+"non-verbaal",
+"communicatie",
+"expressie"
+],
+"tip": "Wie gibberish spreekt begint vanzelf te gebaren — en die gebaren zijn universeel menselijk. Dat zijn ook de gebaren die een dirigent nodig heeft. Spolin: 'De betekenis van een geluid in gibberish wordt alleen begrepen als de acteur het door actie, expressie of stemtoon overbrengt.'",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 114–118</a>",
+"nr": 12
+},
+{
+"b": "expressie",
+"n": "Gibberish — Scène",
+"t": "Expressiespel / karakter",
+"d": "15–20 min",
+"g": "4–20 p.",
+"o": "Een volledige scène spelen in gibberish — plot, conflict, emotie — zonder ook maar één woord van de eigen taal.",
+"s": [
+"Tweetallen of kleine groepjes. Kies een 'wie' en een 'waar' — maar niet 'hoe'.",
+"Speel de scène volledig in gibberish. Stem, houding, gezichtsexpressie dragen de betekenis.",
+"Publiek evalueert: welk conflict zagen we? Wat voelde elk personage?",
+"Nabespreking: welke momenten waren het helderst? Waarom?"
+],
+"tg": [
+"gibberish",
+"karakter",
+"conflict",
+"scène"
+],
+"tip": "Gibberish-scènes onthullen wat spelers normaal verbergen achter woorden — de lichaamstaal en emotie kunnen niet meer worden gemaskeerd. Dat is zowel de kracht als het ongemak.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, pp. 114–118</a>",
+"nr": 13
+},
+{
+"b": "expressie",
+"n": "Explore and Heighten",
+"t": "Expressiespel / overtraining",
+"d": "20–25 min",
+"g": "4–20 p.",
+"o": "Een aspect van een scène uitvergroten tot het extreme — om daarna te ontdekken dat 'normaal spelen' een veelvoud expressiever is geworden.",
+"s": [
+"Kleine groepjes spelen een simpele scène. Side coach observeert.",
+"Side coach roept: 'Explore and heighten!' — de groep vergroot een aspect tot het absurde: stiltes, objecten, bewegingen, emoties.",
+"Zolang de coach geen stop roept: alles mag groter.",
+"Terug naar normale speel. Evaluatie: wat is er veranderd?"
+],
+"tg": [
+"expressie",
+"overdrijving",
+"overtraining",
+"evaluatie"
+],
+"tip": "Overtraining werkt: wie gewend is om extreem te spelen vindt 'normaal expressief spelen' daarna moeiteloos. Dit is hetzelfde principe als met een zware veer lopen vóór een sprint.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 217</a>",
+"nr": 14
+},
+{
+"b": "karakter",
+"n": "How Old Am I? (Hoe oud ben ik?)",
+"t": "Karakterspel / lichaamstaal",
+"d": "15–20 min",
+"g": "8–30 p.",
+"o": "Een bushalte — iedereen arriveert met een ander leeftijdskarakter. Niet imiteren maar werkelijk belichamen: houding, tempo, gelaatsuitdrukking.",
+"s": [
+"Bouw een bushalte neer (één stoel of punt in de ruimte).",
+"Eén voor één arriveert elk speler als een personage van een specifieke leeftijd — naar eigen keuze, niet aangekondigd.",
+"Publiek raadt: hoe oud is dit personage? Op grond waarvan?",
+"Evaluatie: wie 'toonde' en wie 'vertelde'? Wat was het verschil in lichaamstaal?"
+],
+"tg": [
+"karakter",
+"leeftijd",
+"lichaamstaal",
+"houding"
+],
+"tip": "Spolin: 'Show, don't tell.' Wie een jong personage speelt door met een jojomaak te doen 'vertelt' in plaats van 'toont'. Het echte karakter zit in hoe het lichaam de ruimte inneemt, loopt, ademt.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 69</a>",
+"nr": 15
+},
+{
+"b": "karakter",
+"n": "Animal Images (Dierbeelden)",
+"t": "Karakterspel / karakter-exploratie",
+"d": "20–25 min",
+"g": "8–30 p.",
+"o": "Volledig in een dier kruipen — beweging, klank, houding — en dat dan omzetten naar een menselijk karakter in een sociale context.",
+"s": [
+"Iedereen kiest in stilte een dier. Zonder aankondiging: belichaam het volledig — houding, beweging, geluid.",
+"Side coach: verdiep. Voeg de persoonlijkheid van het dier toe — aarzelend, agressief, nieuwsgierig.",
+"Op teken: blijf mens worden, maar behoud de persoonlijkheid en energie van het dier.",
+"Interacteer met anderen. Zet de dierenergie in een menselijke sociale situatie."
+],
+"tg": [
+"dier",
+"karakter",
+"energie",
+"persoonlijkheid"
+],
+"tip": "Het doel is niet het dier imiteren maar de essentiële energie van het dier meebrengen als mens. Een dirigent die 'adelaar' heeft gespeeld communiceert anders dan iemand die 'muis' was. Dat is karakterontwerp.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 241</a>",
+"nr": 16
+},
+{
+"b": "traditioneel",
+"n": "Red Light / Green Light",
+"t": "Traditioneel spel / ontspanning",
+"d": "10–15 min",
+"g": "8–40 p.",
+"o": "Het klassieke kleurlicht-spel — bewegen bij groen, bevriezen bij rood. Speelplezier zonder druk van winnen of verliezen. Opent de intuïtie.",
+"s": [
+"Één persoon staat vooraan met rug naar de groep. Roept 'Groen licht!' — iedereen loopt naar voren.",
+"'Rood licht!' — de roeper draait zich om. Wie nog beweegt gaat terug.",
+"Doel: als eerste de roeper bereiken zonder betrapt te worden.",
+"Variatie: speel het met bewegingsstijlen — lopen in slow motion, op één been, enz."
+],
+"tg": [
+"traditioneel",
+"ontspanning",
+"intuïtie",
+"plezier"
+],
+"tip": "Spolin en Paul Sills begonnen workshops altijd met traditionele kinderspelen — om spelers in een onbevannen, speelse staat te brengen. Wie heeft gelachen is open voor de diepere oefeningen.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 408</a>",
+"nr": 17
+},
+{
+"b": "traditioneel",
+"n": "Who Started the Motion?",
+"t": "Traditioneel spel / observatie",
+"d": "10–15 min",
+"g": "8–30 p.",
+"o": "Eén persoon verlaat de kring, de rest kiest een leider die subtle bewegingen initieert — de guesser moet ontdekken wie het is.",
+"s": [
+"Kring. Eén persoon verlaat de ruimte of draait zich om.",
+"De kring kiest een leider. De leider begint een herhalende beweging — de rest volgt zo subtiel mogelijk.",
+"De guesser komt terug: wie is de leider?",
+"De leider wisselt subtiel van beweging — de volgers reageren direct."
+],
+"tg": [
+"observatie",
+"leider",
+"volgen",
+"subtiliteit"
+],
+"tip": "Dit spel traint perifeer waarnemen en subtiel volgen — essentiele vaardigheden voor ensemble-muzikanten én voor het lezen van kleine signaaltjes van de dirigent. De kunst is om de leider niet direct aan te kijken.",
+"bron": "<a href='bronnen.html#spolin-1999'>Spolin, 1999, p. 68</a>",
+"nr": 18
+}
 ];
+const CATS = {"oriëntatie": ["Oriëntatie", "#E1F5EE", "#085041"], "ruimte": ["Ruimte & Objecten", "#EDF3F7", "#1a3a4a"], "expressie": ["Expressie", "#FCE4EC", "#880E4F"], "karakter": ["Karakter", "#FFF3E0", "#633806"], "traditioneel": ["Traditioneel", "#FFF8E1", "#5D4037"]};
 
-let gef=[...D],h=0,actief="alle";
-const cats=[["alle","Alle ("+D.length+")"],["oriëntatie","Oriëntatie"],["ruimte","Ruimte & Objecten"],["expressie","Expressie"],["karakter","Karakter"],["traditioneel","Traditioneel"]];
-const fr=document.getElementById("fr");
-cats.forEach(([f,l])=>{
-  const b=document.createElement("button");
-  b.className="fb"+(f==="alle"?" on":"");b.dataset.f=f;b.textContent=l;
-  b.onclick=()=>{actief=f;gef=f==="alle"?[...D]:D.filter(o=>o.b===f);h=0;dots();render();fr.querySelectorAll(".fb").forEach(x=>x.classList.toggle("on",x.dataset.f===f));};
-  fr.appendChild(b);
-});
-
-function badgeClass(b){return b==="oriëntatie"?"tb":b==="ruimte"?"ti":b==="expressie"?"ts":b==="karakter"?"tf":b==="traditioneel"?"tl":"te";}
-function badgeLabel(b){return b==="oriëntatie"?"Oriëntatie":b==="ruimte"?"Ruimte & Objecten":b==="expressie"?"Expressie":b==="karakter"?"Karakter":b==="traditioneel"?"Traditioneel":b;}
-
-function dots(){const ds=document.getElementById("ds");ds.innerHTML="";gef.forEach((_,i)=>{const d=document.createElement("span");d.className="dot"+(i===0?" on":"");d.onclick=()=>{h=i;render();};ds.appendChild(d);});}
-
-function render(){
-  const o=gef[h];
-  document.getElementById("ct").textContent=(h+1)+" / "+gef.length;
-  document.getElementById("pv").disabled=h===0;
-  document.getElementById("nx").disabled=h===gef.length-1;
-  document.querySelectorAll(".dot").forEach((d,i)=>d.className="dot"+(i===h?" on":""));
-  document.getElementById("kw").innerHTML=`<div class="card"><div class="ch"><div class="ct">${o.t}</div><div class="cn">${o.n}</div></div><div class="cm"><div class="cmi"><div class="cml">Duur</div><div class="cmv">${o.d}</div></div><div class="cmi"><div class="cml">Groep</div><div class="cmv">${o.g}</div></div></div><div class="cb"><div class="cs"><div class="csl">Doel</div><div class="cd">${o.o}</div></div><div class="cs"><div class="csl">Stappen</div><div class="steps">${o.s.map((s,i)=>`<div class="step"><span class="snr">${i+1}</span><span class="stx">${s}</span></div>`).join("")}</div></div><div class="cs"><div class="csl">Tags</div><div class="tags">${o.bron?`<span class="tag tbron">${o.bron}</span>`:""}<span class="tag ${badgeClass(o.b)}">${badgeLabel(o.b)}</span>${o.tg.map(t=>`<span class="tag te">${t}</span>`).join("")}</div></div></div><div class="tip"><div class="tipl">Let op voor de Joker / facilitator</div><div class="tipt">${o.tip}</div></div></div>`;
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+function stepList(steps) {
+  return `<div class="stages-head"><span class="stages-lbl">${steps.length} stappen</span></div>
+    <div class="step-list">${steps.map((s, i) => `<div class="step-row"><div class="acc-sn">${i+1}</div><div class="step-txt">${s}</div></div>`).join('')}</div>`;
 }
 
-document.getElementById("pv").onclick=()=>{if(h>0){h--;render();}};
-document.getElementById("nx").onclick=()=>{if(h<gef.length-1){h++;render();}};
-dots();render();
+let actief = 'alle';
+let lijst = D.slice();
+let cur = 0;
+
+function renderCats() {
+  const counts = {};
+  D.forEach(d => counts[d.b] = (counts[d.b] || 0) + 1);
+  const items = [['alle', 'Alle (' + D.length + ')']].concat(Object.keys(CATS).map(k => [k, CATS[k][0] + ' (' + (counts[k] || 0) + ')']));
+  document.getElementById('cats').innerHTML = items.map(([k, l]) =>
+    `<button class="tpill ${k === actief ? 'on' : ''}" onclick="setCat('${k}')">${l}</button>`).join('');
+}
+function setCat(k) {
+  actief = k;
+  lijst = k === 'alle' ? D.slice() : D.filter(d => d.b === k);
+  cur = 0; renderCats(); render();
+}
+
+function render() {
+  const o = lijst[cur];
+  const c = CATS[o.b] || [o.b, '#eee', '#333'];
+  document.getElementById('pills').innerHTML = lijst.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})" title="${x.n.replace(/"/g, '&quot;')}">${x.nr}</button>`).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${lijst.length}`;
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === lijst.length - 1;
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${c[2]}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Oefening ${o.nr} van ${D.length} &nbsp;·&nbsp; ${c[0]}</div>
+            <div class="card-name">${o.n}</div>
+          </div>
+          <div class="head-badges">
+            <span class="badge-cat" style="background:${c[1]};color:${c[2]}">${c[0]}</span>
+          </div>
+        </div>
+        <div class="meta-bar">
+          <span class="meta-item"><strong>Soort</strong>${o.t}</span>
+          <span class="meta-item"><strong>Duur</strong>${o.d}</span>
+          <span class="meta-item"><strong>Groep</strong>${o.g}</span>
+        </div>
+        <div class="card-note">${o.o}</div>
+      </div>
+      ${stepList(o.s)}
+      ${o.tg && o.tg.length ? `<div class="tag-row">${o.tg.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+      <div class="card-tip">
+        <span class="tip-lbl">Jokertip</span>
+        <div class="tip-txt">${o.tip}</div>
+      </div>
+      ${o.bron ? `<div class="card-source"><strong>Bron</strong>${o.bron}</div>` : ''}
+    </div>`;
+}
+
+function goTech(i) { cur = i; render(); }
+function nextTech() { if (cur < lijst.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0) { cur--; render(); } }
+document.getElementById('pv').onclick = prevTech;
+document.getElementById('nx').onclick = nextTech;
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof ArsenaalNav !== 'undefined') ArsenaalNav.init({ horizontal: { next: nextTech, prev: prevTech } });
+});
+
+renderCats();
+render();
+
 </script>
 </body>
 </html>
