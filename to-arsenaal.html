@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="thema.js"></script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#b8803c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
@@ -239,6 +240,38 @@ a.sb-name:hover{text-decoration-color:var(--ink3)}
 
 @keyframes sel-gevonden{from{box-shadow:0 0 0 3px rgba(140,94,42,.45)}to{box-shadow:0 0 0 3px rgba(140,94,42,0)}}
 .sel-gevonden{animation:sel-gevonden 1.6s ease-out}
+
+/* ═══ DONKER SCHERM (zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{
+  --ink:#ece6da;--ink2:#c7bfb1;--ink3:#948b7e;
+  --paper:#1a1713;--paper2:#24201b;--paper3:#2f2a23;--paper4:#3e372e;
+  --amber:#dcaa6a;--amber2:#c8924e;--amber3:#5a4128;--amber4:#2b221a;
+  --rule:rgba(236,230,218,.12);
+  --kaart:#211d18;
+  --boal:#e3968c;--boal3:#5c2d28;--boal4:#2e1c1a;
+}
+html[data-thema="donker"] #srch,html[data-thema="donker"] .chip:not(.on),html[data-thema="donker"] .sel-link,html[data-thema="donker"] .sb-panel,html[data-thema="donker"] .badge-herkomst{background:var(--kaart)}
+html[data-thema="donker"] .card{background:var(--kaart);box-shadow:0 1px 2px rgba(0,0,0,.25),0 3px 14px rgba(0,0,0,.2)}
+html[data-thema="donker"] .cat-stripe{filter:brightness(1.75) saturate(.85)}
+/* gekleurde actieve knoppen: lichte tekst */
+html[data-thema="donker"] .ptab.on:not([data-f="alle"]):not([data-c="alle"]),html[data-thema="donker"] .chip-n1.on,html[data-thema="donker"] .chip-n2.on,html[data-thema="donker"] .chip-n3.on,html[data-thema="donker"] .chip-hoog.on,html[data-thema="donker"] .chip-middel.on,html[data-thema="donker"] .chip-laag.on{color:#f6f1e8}
+html[data-thema="donker"] .ptab[data-f="alle"].on{background:var(--ink)}
+html[data-thema="donker"] .chip-bron.on,html[data-thema="donker"] .sel-link .sel-n.vol,html[data-thema="donker"] .sb-toggle-count{color:var(--paper)}
+html[data-thema="donker"] .tag-bron[class*="tbron-"]{color:#f6f1e8}
+html[data-thema="donker"] .ingang.on .ingang-sub{color:rgba(26,23,19,.72)}
+html[data-thema="donker"] .ingang[data-v="boek"].on{background:#6e2620}
+html[data-thema="donker"] .ingang[data-v="boek"].on .ingang-titel{color:#f6f1e8}
+html[data-thema="donker"] .ingang[data-v="boek"].on .ingang-sub{color:rgba(246,241,232,.7)}
+/* niveau, energie en werkvorm */
+html[data-thema="donker"] .niv1,html[data-thema="donker"] .vorm.groep{background:#1f3326;color:#a3d6b1;border-color:#2f4a37}
+html[data-thema="donker"] .niv2{background:#382a17;color:#e8bb7c;border-color:#54401f}
+html[data-thema="donker"] .niv3,html[data-thema="donker"] .vorm.solo{background:#3b2119;color:#eea895;border-color:#5a3023}
+html[data-thema="donker"] .eng-hoog{background:#3a2618;color:#ebb68c}
+html[data-thema="donker"] .eng-middel{background:#25301e;color:#b6d09e}
+html[data-thema="donker"] .eng-laag,html[data-thema="donker"] .vorm.koppels{background:#1d2638;color:#abbfe9;border-color:#2d3a55}
+html[data-thema="donker"] .sb-rm:hover,html[data-thema="donker"] .card-add-btn.in-sessie:hover{background:#3b2119;border-color:#5a3023;color:#eea895}
+}
 
 /* Joker-tekening in de kop */
 .arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
