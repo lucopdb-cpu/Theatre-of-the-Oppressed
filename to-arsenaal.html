@@ -10,19 +10,19 @@
 <meta name="theme-color" content="#b8803c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <title>TO Arsenaal — 406 oefeningen, met Boals Games for Actors and Non-Actors</title>
-<meta name="description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
+<meta name="description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met een eigen selectie om oefeningen te bewaren.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arsenaal van de Joker">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:title" content="TO Arsenaal — 406 oefeningen, met Boals Games for Actors and Non-Actors">
-<meta property="og:description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
+<meta property="og:description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met een eigen selectie om oefeningen te bewaren.">
 <meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/to-arsenaal.html">
 <meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="2000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TO Arsenaal — 406 oefeningen, met Boals Games for Actors and Non-Actors">
-<meta name="twitter:description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met sessiebouwer.">
+<meta name="twitter:description" content="406 oefeningen uit de Theatre of the Oppressed-traditie, met twee ingangen: de werkplaats (filterbaar op fase, niveau, energie en herkomst) en Boals Games for Actors and Non-Actors in zijn eigen indeling. Met een eigen selectie om oefeningen te bewaren.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -182,54 +182,46 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .ptab[data-f="nabespreking"].on{background:#1e3a5c}
 .ptab[data-f="afsluiting"].on{background:#4a3a1e}
 
-/* ═══ SESSIE-BOUWER ═══ */
-.sb-toggle{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:20px;padding:12px 16px;
-  background:var(--paper2);border:1px solid var(--paper4);
-  border-radius:10px;cursor:pointer;transition:background .15s;
-  user-select:none;
-}
+/* ═══ MIJN SELECTIE ═══ */
+.sel-link{display:inline-flex;align-items:center;gap:6px;padding:10px 12px;border-radius:8px;border:1px solid var(--paper4);background:#fff;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;white-space:nowrap;flex-shrink:0;transition:all .12s}
+.sel-link:hover{background:var(--paper3);color:var(--ink)}
+.sel-link .sel-n{font-family:var(--mono);font-size:10px;background:var(--paper3);color:var(--ink3);border-radius:20px;padding:1px 7px}
+.sel-link .sel-n.vol{background:var(--amber);color:#fff}
+@media (max-width:600px){.sel-link .sel-txt{display:none}.sel-link{padding:10px}}
+
+.sb-toggle{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:12px 16px;background:var(--paper2);border:1px solid var(--paper4);border-radius:10px;cursor:pointer;transition:background .15s;user-select:none;scroll-margin-top:12px}
 .sb-toggle:hover{background:var(--paper3)}
 .sb-toggle-left{display:flex;align-items:center;gap:10px}
 .sb-toggle-title{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink)}
 .sb-toggle-count{font-family:var(--mono);font-size:11px;background:var(--amber);color:#fff;border-radius:20px;padding:2px 9px;font-weight:500}
-.sb-toggle-duur{font-family:var(--mono);font-size:11px;color:var(--ink3)}
 .sb-toggle-icon{font-size:16px;color:var(--ink3);transition:transform .2s}
 .sb-toggle-icon.open{transform:rotate(180deg)}
 
 .sb-panel{display:none;margin-top:4px;background:#fff;border:1px solid var(--paper4);border-radius:12px;overflow:hidden}
 .sb-panel.open{display:block}
-
-.sb-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--paper3)}
-.sb-meta-cell{padding:10px 16px}
-.sb-meta-cell:not(:last-child){border-right:1px solid var(--paper3)}
-.sb-meta-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
-.sb-meta-val{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--ink)}
-.sb-meta-sub{font-size:11px;color:var(--ink3);font-family:var(--sans)}
-
-.sb-arc{display:flex;gap:3px;padding:8px 16px;border-bottom:1px solid var(--paper3);align-items:center;min-height:28px}
-.sb-arc-seg{height:8px;border-radius:4px;opacity:.75;min-width:4px}
-
+.sb-printkop{display:none}
 .sb-list{padding:8px;min-height:60px}
-.sb-empty{padding:20px 16px;text-align:center;font-family:var(--body);font-style:italic;color:var(--ink3);font-size:13px}
+.sb-empty{padding:20px 16px;text-align:center;font-family:var(--body);font-style:italic;color:var(--ink3);font-size:13px;line-height:1.6}
 
-.sb-item{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:4px;border:1px solid var(--paper3);background:var(--paper)}
-.sb-nr{font-family:var(--mono);font-size:10px;font-weight:500;width:18px;height:18px;border-radius:4px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--ink3)}
-.sb-handle{color:var(--ink3);font-size:11px;cursor:grab;flex-shrink:0;padding:2px 1px;line-height:1.4;margin-top:1px;user-select:none}
+.sb-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:4px;border:1px solid var(--paper3);background:var(--paper)}
+.sb-nr{font-family:var(--mono);font-size:10px;font-weight:500;width:20px;height:20px;border-radius:4px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink3)}
+.sb-handle{color:var(--ink3);font-size:11px;cursor:grab;flex-shrink:0;padding:2px 1px;line-height:1.4;user-select:none}
 .sb-handle:active{cursor:grabbing}
-.sb-controls{display:flex;flex-direction:column;gap:1px;margin-right:4px;flex-shrink:0}
-.sb-arrow{width:16px;height:14px;border-radius:3px;border:none;background:var(--paper2);color:var(--ink3);cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center;transition:all .12s;line-height:1;font-weight:bold}
+.sb-controls{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.sb-arrow{width:24px;height:18px;border-radius:4px;border:none;background:var(--paper2);color:var(--ink3);cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center;transition:all .12s;line-height:1;font-weight:bold}
 .sb-arrow:hover{background:var(--paper4);color:var(--ink)}
 .sb-arrow:disabled{opacity:0.3;cursor:not-allowed}
 .sb-arrow:disabled:hover{background:var(--paper2);color:var(--ink3)}
 .sb-info{flex:1;min-width:0}
-.sb-name{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sb-sub{font-size:11px;color:var(--ink3);font-family:var(--sans);display:flex;gap:6px;flex-wrap:wrap}
-.sb-item.dragging{opacity:0.5;transform:rotate(2deg)}
+.sb-name{font-family:var(--serif);font-size:15px;line-height:1.3;color:var(--ink);overflow-wrap:anywhere}
+a.sb-name{text-decoration:underline;text-decoration-color:var(--paper4);text-underline-offset:3px}
+a.sb-name:hover{text-decoration-color:var(--ink3)}
+.sb-sub{font-family:var(--sans);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:2px}
+.sb-item.dragging{opacity:0.5}
 .sb-item.drag-over{border-color:var(--amber);background:var(--amber4)}
-.sb-rm{width:20px;height:20px;border-radius:4px;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;line-height:1}
+.sb-rm{width:28px;height:28px;border-radius:6px;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;line-height:1}
 .sb-rm:hover{background:#fde8e0;color:#5c1e10}
+@media (hover:none){.sb-handle{display:none}.sb-controls{flex-direction:row;gap:4px}.sb-arrow{width:34px;height:34px;font-size:11px}.sb-rm{width:34px;height:34px}}
 
 .sb-actions{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
 .sb-btn{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .12s}
@@ -237,31 +229,16 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .sb-btn-pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .sb-btn-pri:hover{opacity:.85}
 
-/* + knop op kaart */
-.card-add-btn{
-  display:flex;align-items:center;gap:6px;
-  margin:0 26px 20px;padding:9px 14px;
-  border-radius:8px;border:1px solid var(--paper4);
-  background:var(--paper2);cursor:pointer;
-  font-family:var(--sans);font-size:12px;font-weight:500;
-  color:var(--ink2);transition:all .12s;width:calc(100% - 52px);
-  justify-content:center;
-}
-.card-add-btn:hover{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
-.card-add-btn.in-sessie{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
-.card-add-btn.in-sessie:hover{background:#fde8e0;border-color:#e8c0b0;color:#5c1e10}
-
-.sb-actions{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
-.sb-btn{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .12s}
-.sb-btn:hover{background:var(--paper3)}
-.sb-btn-pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.sb-btn-pri:hover{opacity:.85}
+/* knop op de kaart */
 .card-add-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 26px 20px;padding:9px 14px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink2);transition:all .12s;width:calc(100% - 52px)}
 .card-add-btn:hover{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
 .card-add-btn.in-sessie{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
 .card-add-btn.in-sessie:hover{background:#fde8e0;border-color:#e8c0b0;color:#5c1e10}
 .tbron-feldenkrais{background:#2e5c8c}
-@media print{.masthead,.controls-row,.phase-tabs,.sec-filters,.nav-bar,#kw,.kbd-row,.sb-toggle{display:none!important}.sb-panel{display:block!important;border:none!important;margin:0!important}.sb-actions{display:none!important}body{padding:0!important}.page{max-width:100%!important;padding:0 16px!important}}
+@media print{.arsenaal-nav,.masthead,.ingangen,.controls-row,.phase-tabs,.sec-filters,.cat-info,.nav-bar,#kw,.kbd-row,.sb-toggle,.sb-actions,.sb-controls,.sb-handle,.sb-rm{display:none!important}.sb-panel{display:block!important;border:none!important;margin:0!important}.sb-printkop{display:block;padding:0 0 12px;margin-bottom:8px;border-bottom:1px solid #ccc;font-family:var(--serif);font-size:20px}.sb-printkop small{display:block;font-family:var(--sans);font-size:11px;color:#777;margin-top:4px}.sb-item{break-inside:avoid;background:#fff}a.sb-name{text-decoration:none}body{padding:0!important}.page{max-width:100%!important;padding:0 16px!important}}
+
+@keyframes sel-gevonden{from{box-shadow:0 0 0 3px rgba(140,94,42,.45)}to{box-shadow:0 0 0 3px rgba(140,94,42,0)}}
+.sel-gevonden{animation:sel-gevonden 1.6s ease-out}
 
 /* Joker-tekening in de kop */
 .arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
@@ -351,7 +328,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
   <div class="laagregel">Het centrale arsenaal</div>
   <h1 class="app-name">TO <em>Arsenaal</em></h1>
   <div class="app-sub">Gereedschapskist voor de Joker · <span class="total-count" id="hc">406</span> oefeningen</div>
-  <div class="context-note">Twee ingangen tot hetzelfde arsenaal. <b>De werkplaats</b> ordent alle oefeningen naar sessiefase, te filteren op niveau, energie en herkomst. <b>Boals boek</b> volgt <em>Games for Actors and Non-Actors</em> in Boals eigen indeling, met zijn tekst. Op elke kaart zie je waar een oefening vandaan komt; staat ze zowel bij Boal als in de praktijk, dan zie je beide. Onderaan stel je met de sessiebouwer een workshop samen.</div>
+  <div class="context-note">Twee ingangen tot hetzelfde arsenaal. <b>De werkplaats</b> ordent alle oefeningen naar sessiefase, te filteren op niveau, energie en herkomst. <b>Boals boek</b> volgt <em>Games for Actors and Non-Actors</em> in Boals eigen indeling, met zijn tekst. Op elke kaart zie je waar een oefening vandaan komt; staat ze zowel bij Boal als in de praktijk, dan zie je beide. Oefeningen die je wilt onthouden, zet je in <b>Mijn selectie</b>, onderaan de pagina.</div>
 </header>
 
 <div class="ingangen" role="tablist" aria-label="Ingang">
@@ -366,6 +343,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
     <button class="clr" id="clr" onclick="clearSearch()">×</button>
   </div>
   <button class="rnd-btn" onclick="goRandom()">↻ Willekeurig</button>
+  <a class="sel-link" href="#selectie" id="sel-link" title="Naar Mijn selectie" aria-label="Naar Mijn selectie"><svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M1.5 1.5h8v10L5.5 9l-4 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="sel-txt">Mijn selectie</span><span class="sel-n" id="sel-n">0</span></a>
 </div>
 
 <div class="phase-tabs alleen-werkplaats">
@@ -433,40 +411,21 @@ a.badge-herkomst:hover{border-color:var(--boal)}
 <div id="kw"></div>
 <p class="kbd-row"><kbd>←</kbd><kbd>→</kbd> bladeren &nbsp;·&nbsp; <kbd>R</kbd> willekeurig</p>
 
-<!-- SESSIE-BOUWER -->
+<!-- MIJN SELECTIE -->
 <div class="sb-toggle" id="sb-toggle" onclick="toggleSB()">
   <div class="sb-toggle-left">
-    <span class="sb-toggle-title">Sessie bouwen</span>
+    <span class="sb-toggle-title">Mijn selectie</span>
     <span class="sb-toggle-count" id="sb-cnt" style="display:none">0</span>
-    <span class="sb-toggle-duur" id="sb-duur-tog"></span>
   </div>
   <span class="sb-toggle-icon" id="sb-icon">▼</span>
 </div>
 <div class="sb-panel" id="sb-panel">
-  <div class="sb-meta">
-    <div class="sb-meta-cell">
-      <div class="sb-meta-lbl">Totale duur</div>
-      <div class="sb-meta-val" id="sb-tot">0 min</div>
-      <div class="sb-meta-sub" id="sb-uren"></div>
-    </div>
-    <div class="sb-meta-cell">
-      <div class="sb-meta-lbl">Oefeningen</div>
-      <div class="sb-meta-val" id="sb-n">0</div>
-      <div class="sb-meta-sub" id="sb-niv-lbl"></div>
-    </div>
-    <div class="sb-meta-cell">
-      <div class="sb-meta-lbl">Energie-verloop</div>
-      <div class="sb-meta-sub" id="sb-eng-lbl" style="font-size:12px;margin-top:4px">—</div>
-    </div>
-  </div>
-  <div class="sb-arc" id="sb-arc"></div>
-  <div class="sb-list" id="sb-list">
-    <div class="sb-empty">Voeg oefeningen toe via de + knop op elke kaart</div>
-  </div>
+  <div class="sb-printkop">Mijn selectie<small id="sb-printdatum">Arsenaal van de Joker</small></div>
+  <div class="sb-list" id="sb-list"></div>
   <div class="sb-actions">
-    <button class="sb-btn" onclick="wisSessione()">Wis sessie</button>
-    <button class="sb-btn" onclick="window.print()">Print sessie</button>
-    <button class="sb-btn sb-btn-pri" onclick="kopieerSessie()">Kopieer overzicht</button>
+    <button class="sb-btn" onclick="wisSessione()">Wis selectie</button>
+    <button class="sb-btn" onclick="window.print()">Print</button>
+    <button class="sb-btn sb-btn-pri" id="sb-kopieer" onclick="kopieerSessie()">Kopieer lijst</button>
   </div>
 </div>
 
@@ -2671,7 +2630,12 @@ try { sessie = JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch(e)
 var gef = [], h = 0, actFase = 'alle', actNiv = 'alle', actEng = 'alle', actBron = 'alle', zoekQ = '';
 var view = 'werkplaats', actCat = 'alle', actHerk = 'alle';
 
-// ── SESSIE HELPERS ────────────────────────────────────
+// ── MIJN SELECTIE ─────────────────────────────────────
+// Een eigen lijst van oefeningen die je wilt onthouden. Bewaard in de browser onder de
+// sleutel 'to-sessie' (naam van vroeger, zodat bestaande lijsten blijven). Een item:
+// { naam, pagina?, titel?, plek? }; pagina en titel komen mee als de oefening op een
+// carouselpagina is bewaard (zie sessie.js). Oudere items kunnen nog fase, duur enz. hebben.
+var SITE = 'https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/';
 function inSessie(naam) {
   return sessie.some(function(s) { return s.naam === naam; });
 }
@@ -2680,16 +2644,11 @@ function saveSessie() {
   try { localStorage.setItem('to-sessie', JSON.stringify(sessie)); } catch(e) {}
 }
 
-function parseDuur(d) {
-  var nums = (d || '').match(/\d+/);
-  return nums ? parseInt(nums[0]) : 15;
-}
-
 function addToSessie(naam) {
   if (inSessie(naam)) return;
   var o = D.find(function(x) { return x.n === naam; });
   if (!o) return;
-  sessie.push({ naam: o.n, fase: o.fase || '', duur: parseDuur(o.d), eng: o.eng || 'middel', niv: o.niv || 1 });
+  sessie.push({ naam: o.n });
   saveSessie();
   renderSessie();
   renderKaartKnop();
@@ -2699,164 +2658,148 @@ function removeNaam(naam) {
   var i = sessie.findIndex(function(s) { return s.naam === naam; });
   if (i >= 0) { sessie.splice(i, 1); saveSessie(); renderSessie(); renderKaartKnop(); }
 }
+function removeIndex(i) {
+  if (i >= 0 && i < sessie.length) { sessie.splice(i, 1); saveSessie(); renderSessie(); renderKaartKnop(); }
+}
 
 function wisSessione() {
   if (!sessie.length) return;
-  if (confirm('Sessie wissen?')) { sessie = []; saveSessie(); renderSessie(); renderKaartKnop(); }
+  if (confirm('Mijn selectie wissen?')) { sessie = []; saveSessie(); renderSessie(); renderKaartKnop(); }
+}
+
+// Waar staat de oefening: link, en de naam van de plek
+function inArsenaal(naam) { return D.some(function(o) { return o.n === naam; }); }
+function adresDeel(t) { return encodeURIComponent(t).replace(/[()']/g, function(c) { return '%' + c.charCodeAt(0).toString(16).toUpperCase(); }); }
+function selectieAdres(s) {
+  if (s.pagina && s.titel) return s.pagina + '#kaart=' + adresDeel(s.titel);
+  if (inArsenaal(s.naam)) return 'to-arsenaal.html#oefening=' + adresDeel(s.naam);
+  return '';
+}
+function selectiePlek(s) {
+  if (s.plek) return s.plek;
+  return inArsenaal(s.naam) ? 'TO Arsenaal' : '';
 }
 
 function kopieerSessie() {
-  if (!sessie.length) { alert('Sessie is leeg.'); return; }
-  var tot = sessie.reduce(function(a, s) { return a + s.duur; }, 0);
-  var txt = 'SESSIE — TO Archief\nTotale duur: ' + tot + ' min\n\n';
-  sessie.forEach(function(s, i) { txt += (i+1) + '. ' + s.naam + ' (' + s.duur + ' min)\n'; });
-  navigator.clipboard.writeText(txt).then(function() { alert('Gekopieerd!'); });
+  if (!sessie.length) return;
+  var txt = 'Mijn selectie · Arsenaal van de Joker\n\n';
+  sessie.forEach(function(s, i) {
+    var plek = selectiePlek(s), adres = selectieAdres(s);
+    txt += (i+1) + '. ' + s.naam + (plek ? ' (' + plek + ')' : '') + '\n';
+    if (adres) txt += '   ' + SITE + adres + '\n';
+  });
+  var knop = document.getElementById('sb-kopieer');
+  var klaar = function(t) { knop.textContent = t; setTimeout(function(){ knop.textContent = 'Kopieer lijst'; }, 2000); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(function() { klaar('Gekopieerd ✓'); }, function() { klaar('Kopiëren lukte niet'); });
+  } else { klaar('Kopiëren lukte niet'); }
 }
 
+function openSB() {
+  document.getElementById('sb-panel').classList.add('open');
+  document.getElementById('sb-icon').classList.add('open');
+}
 function toggleSB() {
   document.getElementById('sb-panel').classList.toggle('open');
   document.getElementById('sb-icon').classList.toggle('open');
 }
 
-var engKleuren = { hoog: '#b85a1e', middel: '#3a5a2e', laag: '#1e3a7c' };
-var faseKleuren = { opening:'#2e5c3a', opwarming:'#3a4a1e', vertrouwen:'#1e3a5c', verdieping:'#5c2e4a', forum:'#5c3a1e', nabespreking:'#2e3a5c', afsluiting:'#4a3a1e', jokertraining:'#3a1e5c' };
+function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 
 function renderSessie() {
   var list = document.getElementById('sb-list');
   var n = sessie.length;
-  document.getElementById('sb-n').textContent = n;
   var cntEl = document.getElementById('sb-cnt');
   cntEl.textContent = n;
   cntEl.style.display = n ? 'inline' : 'none';
+  var selN = document.getElementById('sel-n');
+  selN.textContent = n;
+  selN.classList.toggle('vol', n > 0);
+  try {
+    document.getElementById('sb-printdatum').textContent = 'Arsenaal van de Joker · ' +
+      new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  } catch (e) {}
 
   if (!n) {
-    list.innerHTML = '<div class="sb-empty">Voeg oefeningen toe via de + knop op elke kaart</div>';
-    document.getElementById('sb-tot').textContent = '0 min';
-    document.getElementById('sb-uren').textContent = '';
-    document.getElementById('sb-duur-tog').textContent = '';
-    document.getElementById('sb-eng-lbl').textContent = '—';
-    document.getElementById('sb-niv-lbl').textContent = '';
-    document.getElementById('sb-arc').innerHTML = '';
+    list.innerHTML = '<div class="sb-empty">Nog niets geselecteerd.<br>Zet oefeningen die je wilt onthouden hier met de knop <b>+ Mijn selectie</b> op een kaart.</div>';
     return;
   }
-
-  var tot = sessie.reduce(function(a, s) { return a + s.duur; }, 0);
-  document.getElementById('sb-tot').textContent = tot + ' min';
-  var u = Math.floor(tot/60), m = tot % 60;
-  document.getElementById('sb-uren').textContent = u > 0 ? u + 'u ' + m + 'm' : '';
-  document.getElementById('sb-duur-tog').textContent = '· ' + tot + ' min';
-
-  var engCount = { hoog:0, middel:0, laag:0 };
-  sessie.forEach(function(s) { engCount[s.eng || 'middel']++; });
-  var dom = Object.keys(engCount).sort(function(a,b){ return engCount[b]-engCount[a]; })[0];
-  var engLabels = { hoog:'Actief', middel:'Gevarieerd', laag:'Rustig' };
-  document.getElementById('sb-eng-lbl').textContent = engLabels[dom] || dom;
-
-  var niv1 = sessie.filter(function(s){ return s.niv === 1; }).length;
-  document.getElementById('sb-niv-lbl').textContent = niv1 === n ? 'Toegankelijk' : 'Gemengd';
-
-  var arc = document.getElementById('sb-arc');
-  arc.innerHTML = '';
-  sessie.forEach(function(s) {
-    var seg = document.createElement('div');
-    seg.className = 'sb-arc-seg';
-    seg.style.background = engKleuren[s.eng] || '#888';
-    seg.style.flex = s.duur;
-    seg.title = s.naam + ' (' + s.duur + ' min)';
-    arc.appendChild(seg);
-  });
 
   list.innerHTML = '';
   sessie.forEach(function(s, i) {
     var el = document.createElement('div');
     el.className = 'sb-item';
-    el.draggable = true;
     el.dataset.index = i;
-    var faseKleur = faseKleuren[s.fase] || '#888';
-    var engKleur = engKleuren[s.eng] || '#888';
-    var engPijl = s.eng === 'hoog' ? '↑' : s.eng === 'laag' ? '↓' : '→';
+    var adres = selectieAdres(s), plek = selectiePlek(s);
+    var naam = adres
+      ? '<a class="sb-name" href="' + esc(adres) + '" draggable="false">' + esc(s.naam) + '</a>'
+      : '<div class="sb-name">' + esc(s.naam) + '</div>';
     el.innerHTML =
       '<div class="sb-nr">' + (i+1) + '</div>' +
       '<div class="sb-handle" title="Sleep om te verplaatsen">⋮⋮</div>' +
       '<div class="sb-controls">' +
-        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', -1)" title="Omhoog" ' + (i === 0 ? 'disabled' : '') + '>▲</button>' +
-        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', 1)" title="Omlaag" ' + (i === sessie.length-1 ? 'disabled' : '') + '>▼</button>' +
+        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', -1)" title="Omhoog" aria-label="Omhoog" ' + (i === 0 ? 'disabled' : '') + '>▲</button>' +
+        '<button class="sb-arrow" onclick="moveSessieItem(' + i + ', 1)" title="Omlaag" aria-label="Omlaag" ' + (i === n-1 ? 'disabled' : '') + '>▼</button>' +
       '</div>' +
-      '<div class="sb-info">' +
-        '<div class="sb-name">' + s.naam + '</div>' +
-        '<div class="sb-sub">' +
-          '<span>' + s.duur + ' min</span>' +
-          '<span style="color:' + faseKleur + '">' + (s.fase || '') + '</span>' +
-          '<span style="color:' + engKleur + '">' + engPijl + ' ' + (s.eng || 'middel') + '</span>' +
-        '</div>' +
-      '</div>' +
-      '<button class="sb-rm" onclick="removeNaam(\'' + s.naam.replace(/'/g,"\\'") + '\')" title="Verwijderen">×</button>';
-    
-    // Drag event listeners
+      '<div class="sb-info">' + naam + (plek ? '<div class="sb-sub">' + esc(plek) + '</div>' : '') + '</div>' +
+      '<button class="sb-rm" onclick="removeIndex(' + i + ')" title="Uit de selectie halen" aria-label="Uit de selectie halen">×</button>';
+
+    // Slepen met de muis, via het handvat
+    var greep = el.querySelector('.sb-handle');
+    greep.addEventListener('mousedown', function() { el.draggable = true; });
     el.addEventListener('dragstart', handleDragStart);
     el.addEventListener('dragover', handleDragOver);
     el.addEventListener('dragleave', handleDragLeave);
     el.addEventListener('drop', handleDrop);
     el.addEventListener('dragend', handleDragEnd);
-    
+
+    // Oefening in het TO Arsenaal: hier ter plekke tonen
+    var a = el.querySelector('a.sb-name');
+    if (a && adres.indexOf('to-arsenaal.html#oefening=') === 0) {
+      a.addEventListener('click', function(e) { e.preventDefault(); toonOefening(s.naam); });
+    }
     list.appendChild(el);
   });
 }
 
-// ── SESSIE HERORDENING ────────────────────────────────────
+// ── VOLGORDE ──────────────────────────────────────────────
 function moveSessieItem(index, direction) {
   var newIndex = index + direction;
   if (newIndex < 0 || newIndex >= sessie.length) return;
-  
   var item = sessie.splice(index, 1)[0];
   sessie.splice(newIndex, 0, item);
   saveSessie();
   renderSessie();
 }
 
-// Drag & Drop state
 var draggedElement = null;
-
 function handleDragStart(e) {
   draggedElement = this;
   this.classList.add('dragging');
   e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.outerHTML);
+  e.dataTransfer.setData('text/plain', this.dataset.index);
 }
-
 function handleDragOver(e) {
-  if (e.preventDefault) e.preventDefault();
+  if (!draggedElement) return;
+  e.preventDefault();
   e.dataTransfer.dropEffect = 'move';
   this.classList.add('drag-over');
-  return false;
 }
-
-function handleDragLeave(e) {
-  this.classList.remove('drag-over');
-}
-
+function handleDragLeave() { this.classList.remove('drag-over'); }
 function handleDrop(e) {
-  if (e.stopPropagation) e.stopPropagation();
-  
-  if (draggedElement !== this) {
-    var draggedIndex = parseInt(draggedElement.dataset.index);
-    var targetIndex = parseInt(this.dataset.index);
-    
-    // Move item in array
-    var item = sessie.splice(draggedIndex, 1)[0];
-    sessie.splice(targetIndex, 0, item);
-    
+  e.preventDefault();
+  if (draggedElement && draggedElement !== this) {
+    var van = parseInt(draggedElement.dataset.index), naar = parseInt(this.dataset.index);
+    var item = sessie.splice(van, 1)[0];
+    sessie.splice(naar, 0, item);
     saveSessie();
     renderSessie();
   }
-  
-  return false;
 }
-
-function handleDragEnd(e) {
-  var items = document.querySelectorAll('.sb-item');
-  items.forEach(function(item) {
+function handleDragEnd() {
+  document.querySelectorAll('.sb-item').forEach(function(item) {
     item.classList.remove('dragging', 'drag-over');
+    item.draggable = false;
   });
   draggedElement = null;
 }
@@ -2864,13 +2807,29 @@ function handleDragEnd(e) {
 function renderKaartKnop() {
   var btn = document.getElementById('sb-kaart-btn');
   if (!btn) return;
-  var naam = btn.dataset.naam;
-  var isIn = inSessie(naam);
+  var isIn = inSessie(btn.dataset.naam);
   btn.classList.toggle('in-sessie', isIn);
-  btn.textContent = isIn ? '− Verwijder uit sessie' : '+ Voeg toe aan sessie';
+  btn.textContent = isIn ? '✓ In mijn selectie · weghalen' : '+ Mijn selectie';
 }
 
-// ── FILTER ────────────────────────────────────────────
+// Eén oefening tonen: werkplaats, alle filters uit, kaart opzoeken
+function toonOefening(naam) {
+  if (view !== 'werkplaats') setView('werkplaats');
+  var klik = function(sel) { var b = document.querySelector(sel); if (b && !b.classList.contains('on')) b.click(); };
+  klik('.phase-tabs.alleen-werkplaats .ptab[data-f="alle"]');
+  klik('#niv-chips .chip[data-n="alle"]');
+  klik('#eng-chips .chip[data-e="alle"]');
+  klik('#herk-chips .chip[data-h="alle"]');
+  if (zoekQ) { srch.value = ''; zoekQ = ''; clr.classList.remove('show'); apply(); }
+  var i = gef.findIndex(function(o) { return o.n === naam; });
+  if (i < 0) return;
+  h = i; render();
+  var kw = document.getElementById('kw');
+  kw.scrollIntoView({ block: 'start' });
+  var kaart = kw.querySelector('.card');
+  if (kaart) { kaart.classList.remove('sel-gevonden'); void kaart.offsetWidth; kaart.classList.add('sel-gevonden'); }
+}
+
 function zoektreffer(o, q) {
   return o.n.toLowerCase().indexOf(q) >= 0 ||
          plat(o.o).indexOf(q) >= 0 ||
@@ -3110,7 +3069,7 @@ function render() {
     (praktijk ? '<div class="card-tags"><span class="tag tag-cat">' + catLbl + '</span>' + tags + '</div>' : '') +
     (praktijk && o.tip ? '<div class="card-tip"><span class="tip-lbl">Jokertip</span><p class="tip-txt">' + o.tip + '</p></div>' : '') +
     '<button class="card-add-btn' + (isIn ? ' in-sessie' : '') + '" id="sb-kaart-btn" data-naam="">' +
-      (isIn ? '− Verwijder uit sessie' : '+ Voeg toe aan sessie') +
+      (isIn ? '✓ In mijn selectie · weghalen' : '+ Mijn selectie') +
     '</button>' +
     '</div>';
 
@@ -3147,7 +3106,7 @@ window.addEventListener('DOMContentLoaded', () => {
 renderSessie();
 apply();
 
-// Sessie opnieuw inlezen als die op een andere pagina (bijv. Boal-oefeningen) is aangevuld
+// Selectie opnieuw inlezen als die op een andere pagina (een carousel) is aangevuld
 function herlaadSessie() {
   try { sessie = JSON.parse(localStorage.getItem('to-sessie') || '[]'); } catch(e) { sessie = []; }
   renderSessie(); renderKaartKnop();
@@ -3156,13 +3115,17 @@ window.addEventListener('storage', function(e) { if (e.key === 'to-sessie') herl
 window.addEventListener('pageshow', function(e) { if (e.persisted) herlaadSessie(); });
 // Voorselectie via het adres: to-arsenaal.html#fase=forum (ook niveau=1..3 en energie=hoog|middel|laag),
 // #boek opent Boals boek, #boek=I een categorie daarin (I, II, III, IV, V, IT, RE)
-// en to-arsenaal.html#sessie opent de sessiebouwer direct
+// to-arsenaal.html#selectie opent Mijn selectie direct (#sessie werkt ook nog, voor oude links)
+// en to-arsenaal.html#oefening=<naam> toont die ene oefening
 function leesAdres() {
   var h = location.hash.replace(/^#/, '');
-  if (h === 'sessie') {
-    document.getElementById('sb-panel').classList.add('open');
-    document.getElementById('sb-icon').classList.add('open');
+  if (h === 'selectie' || h === 'sessie') {
+    openSB();
     document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
+    return;
+  }
+  if (h.indexOf('oefening=') === 0) {
+    try { toonOefening(decodeURIComponent(h.slice(9))); } catch (e) {}
     return;
   }
   if (h === 'boek') { setView('boek'); return; }
@@ -3178,6 +3141,11 @@ function leesAdres() {
 }
 leesAdres();
 window.addEventListener('hashchange', leesAdres);
+document.getElementById('sel-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  openSB();
+  document.getElementById('sb-toggle').scrollIntoView({ block: 'start', behavior: 'smooth' });
+});
 </script>
 </body>
 </html>

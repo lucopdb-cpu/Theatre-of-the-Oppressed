@@ -1,20 +1,18 @@
-/* Arsenaal van de Joker — koppeling met de sessiebouwer
+/* Arsenaal van de Joker — koppeling met Mijn selectie
  *
- * De sessiebouwer staat in to-arsenaal.html en bewaart de sessie in de browser
- * (localStorage, sleutel 'to-sessie'). Dit script laat andere pagina's daar
- * oefeningen aan toevoegen: een knop "+ sessie" op elke oefenkaart en een teller
- * die naar de sessiebouwer linkt.
+ * Mijn selectie staat onderaan to-arsenaal.html: een eigen lijst van oefeningen die je
+ * wilt onthouden, om wat voor reden dan ook. De lijst staat in de browser (localStorage,
+ * sleutel 'to-sessie'; die naam is van vroeger en blijft, zodat bestaande lijsten bewaard blijven).
+ * Dit script geeft de carouselpagina's een knop "+ selectie" op elke oefenkaart, een teller
+ * die naar Mijn selectie linkt, en opent een kaart direct via het adres pagina.html#kaart=<titel>.
  *
  * Gebruik op een pagina:
  *   <script src="sessie.js"></script>
- *   <script>ArsenaalSessie.init({ oefeningen: { "Titel van de kaart": ["fase", duur, "energie", niveau, "naam in sessiebouwer"?] } });</script>
+ *   <script>ArsenaalSessie.init({ oefeningen: { "Titel van de kaart": ["fase", duur, "energie", niveau, "naam in TO Arsenaal"?] } });</script>
  *
- * fase:    opening · opwarming · vertrouwen · verdieping · beeldentheater · repetitie · forum · nabespreking · afsluiting · jokertraining
- * duur:    minuten (getal)
- * energie: hoog · middel · laag
- * niveau:  1 · 2 · 3
- * naam:    optioneel; gebruik de naam uit het TO Arsenaal als de oefening daar al staat,
- *          zodat het één en dezelfde oefening in de sessie blijft.
+ * Alleen de titel en de eventuele naam in het TO Arsenaal worden nog gebruikt. Die naam zorgt
+ * ervoor dat een oefening die ook in het TO Arsenaal staat één en dezelfde oefening in de lijst blijft.
+ * Fase, duur, energie en niveau staan er nog van vroeger in, maar worden niet meer getoond.
  *
  * Kaarten zonder vermelding in 'oefeningen' krijgen geen knop.
  */
@@ -22,6 +20,18 @@
   'use strict';
   var SLEUTEL = 'to-sessie';
   var cfg = null;
+
+  // Leesbare naam van de pagina, zoals hij in Mijn selectie verschijnt
+  var PLEK = {
+    'beeldentheater.html': 'Beeldentheater',
+    'feldenkrais.html': 'Feldenkrais',
+    'impro.html': 'Impro',
+    'introspectief.html': 'Introspectieve technieken',
+    'krantentheater.html': 'Krantentheater',
+    'playback.html': 'Playback Theatre',
+    'prospectief.html': 'Prospectieve technieken',
+    'psychodrama.html': 'Psychodrama'
+  };
 
   var CSS = [
     '.sessie-knop{flex-shrink:0;align-self:flex-start;font-family:var(--mono,"JetBrains Mono",monospace);font-size:10px;line-height:1.4;padding:3px 9px;border-radius:20px;border:1px solid var(--paper4,#ddd4c4);background:var(--paper2,#f2ede4);color:var(--ink3,#9a9790);cursor:pointer;transition:background .12s,border-color .12s,color .12s;white-space:nowrap}',
@@ -34,9 +44,11 @@
     '.sessie-link .sl-n.leeg{background:var(--paper3,#e8e1d4);color:var(--ink3,#9a9790)}',
     '.view-toggle{align-items:center}',
     '.view-toggle .sessie-link{margin-right:auto;padding:1px 10px}',
-    '@media (max-width:600px){.sessie-link .sl-txt{display:none}}'
+    '@keyframes sessie-gevonden{from{box-shadow:0 0 0 3px rgba(140,94,42,.45)}to{box-shadow:0 0 0 3px rgba(140,94,42,0)}}',
+    '.sessie-gevonden{animation:sessie-gevonden 1.6s ease-out}'
   ].join('\n');
 
+  function pagina() { return (location.pathname.split('/').pop() || 'index.html'); }
   function lees() {
     try { var l = JSON.parse(localStorage.getItem(SLEUTEL) || '[]'); return Array.isArray(l) ? l : []; }
     catch (e) { return []; }
@@ -50,7 +62,8 @@
   function item(titel) {
     var d = cfg.oefeningen[titel];
     if (!d) return null;
-    return { naam: d[4] || titel, fase: d[0], duur: d[1], eng: d[2], niv: d[3] };
+    var p = pagina();
+    return { naam: d[4] || titel, titel: titel, pagina: p, plek: PLEK[p] || document.title.split(' — ')[0] };
   }
 
   function toggle(knop) {
@@ -84,9 +97,9 @@
     if (!doel) return;
     var a = document.createElement('a');
     a.className = 'sessie-link';
-    a.href = 'to-arsenaal.html#sessie';
-    a.title = 'Naar de sessiebouwer';
-    a.innerHTML = '<span class="sl-txt">Sessie</span> <span class="sl-n leeg">0</span> <span class="sl-duur"></span>→';
+    a.href = 'to-arsenaal.html#selectie';
+    a.title = 'Naar Mijn selectie';
+    a.innerHTML = '<span class="sl-txt">Mijn selectie</span> <span class="sl-n leeg">0</span> →';
     if (cfg.tellerVooraan) doel.insertBefore(a, doel.firstChild); else doel.appendChild(a);
   }
 
@@ -98,18 +111,37 @@
       var it = item(k.dataset.titel);
       var aan = !!(it && namen[it.naam]);
       k.classList.toggle('in-sessie', aan);
-      var t = aan ? '✓ in sessie' : '+ sessie';
+      var t = aan ? '✓ geselecteerd' : '+ selectie';
       if (k.textContent !== t) k.textContent = t;
-      k.title = aan ? 'Uit de sessie halen' : 'Toevoegen aan de sessiebouwer';
+      k.title = aan ? 'Uit Mijn selectie halen' : 'Bewaren in Mijn selectie';
     });
     var link = document.querySelector('.sessie-link');
     if (link) {
-      var n = lijst.length;
-      var tot = lijst.reduce(function (a, s) { return a + (s.duur || 0); }, 0);
       var nEl = link.querySelector('.sl-n');
-      nEl.textContent = n;
-      nEl.classList.toggle('leeg', !n);
-      link.querySelector('.sl-duur').textContent = n ? tot + ' min ' : '';
+      nEl.textContent = lijst.length;
+      nEl.classList.toggle('leeg', !lijst.length);
+    }
+  }
+
+  // Adres pagina.html#kaart=<titel>: blader de carousel naar die kaart
+  function huidigeTitel() { return tekst(document.querySelector(cfg.kaart + ' ' + cfg.naam)); }
+  function gaNaarKaart() {
+    var m = location.hash.match(/^#kaart=(.+)$/);
+    if (!m) return;
+    var doel;
+    try { doel = decodeURIComponent(m[1]); } catch (e) { return; }
+    if (typeof global.nextTech !== 'function' || typeof global.prevTech !== 'function') return;
+    // Stap voor stap tonen als de pagina een overzicht heeft
+    var stap = document.querySelector('.view-toggle .vt-btn[data-view="step"]');
+    if (stap && !stap.classList.contains('on')) stap.click();
+    var vorige = null, n = 0;
+    while (huidigeTitel() !== vorige && n++ < 500) { vorige = huidigeTitel(); global.prevTech(); }
+    vorige = null; n = 0;
+    while (huidigeTitel() !== doel && huidigeTitel() !== vorige && n++ < 500) { vorige = huidigeTitel(); global.nextTech(); }
+    var kaart = document.querySelector(cfg.kaart);
+    if (kaart && huidigeTitel() === doel) {
+      kaart.scrollIntoView({ block: 'start' });
+      kaart.classList.remove('sessie-gevonden'); void kaart.offsetWidth; kaart.classList.add('sessie-gevonden');
     }
   }
 
@@ -149,6 +181,8 @@
 
     window.addEventListener('storage', function (e) { if (e.key === SLEUTEL) toon(); });
     window.addEventListener('pageshow', toon);
+    window.addEventListener('hashchange', gaNaarKaart);
+    gaNaarKaart();
   }
 
   global.ArsenaalSessie = { init: init, lees: lees };

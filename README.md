@@ -28,7 +28,7 @@ Het arsenaal is werk in uitvoering. Het groeit via onderzoek en praktijk.
 
 ### Het centrale arsenaal
 
-**TO Arsenaal** — ruim 370 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met sessiebouwer om eigen programma's samen te stellen.
+**TO Arsenaal** — ruim 370 oefeningen uit de volledige Theatre of the Oppressed-traditie. Filterbaar op fase, niveau en energie. Met Mijn selectie om oefeningen te bewaren die je wilt onthouden.
 
 **Games for Actors and Non-Actors** — de oefeningen zoals Boal ze zelf ordende, per categorie en met zijn eigen nummering.
 
@@ -80,7 +80,7 @@ Begin op de [homepage](index.html). Van daaruit bereik je alle tools.
 
 Elk tool heeft zijn eigen logica:
 
-* Het **TO Arsenaal** is filterbaar en bevat een sessiebouwer
+* Het **TO Arsenaal** is filterbaar en bevat Mijn selectie, een eigen lijst van oefeningen
 * De **Regenboog-tools** (introspectief & prospectief) zijn per stap navigeerbaar met toetsenbord
 * **Krantentheater** volgt dezelfde stap-voor-stap structuur
 * **Freire**, **Playback**, **Psychodrama**, **Impro** en **Feldenkrais** zijn carousels met categoriefilter
