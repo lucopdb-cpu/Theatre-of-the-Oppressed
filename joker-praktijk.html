@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="thema.js"></script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#4a4f55">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
@@ -28,13 +29,13 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
---paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
---creme:#faf8f4;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
---blue:#4a4f55;--blue2:#5c6169;--blue3:#9ea4ad;--blue4:#dfe0e2;
+--ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+--paper:#f2efe9;--paper2:#ebe3d6;--paper3:#e8e0d4;--paper4:#ddd4c4;
+--creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+--blue:#4a4f55;--blue2:#5c6169;--blue3:#8f959d;--blue4:#dfe0e2;
 --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
---gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#f1f2f4;
---rule:rgba(26,24,20,.1);
+--gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#e7e9ec;
+--rule:rgba(42,40,36,.1);
 --serif:'Playfair Display',Georgia,serif;
 --body:'Source Serif 4',Georgia,serif;
 --mono:'JetBrains Mono','Courier New',monospace;
@@ -67,7 +68,7 @@ body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height
 .nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
 
 /* CARD */
-.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
 @keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* Card head */
@@ -138,20 +139,82 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
 .arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
-.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
 .arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
 
 /* Vaste voettekst, gelijk op alle pagina's */
 .arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
 .arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
-.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(26,24,20,.28);text-underline-offset:2px}
-.arsenaal-footer a:hover{color:#1a1814;text-decoration-color:currentColor}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
-.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
 
 /* Laagregel boven de titel, gelijk op alle pagina's */
 .laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#2e2619;--paper3:#30281c;--paper4:#3c3322;--creme:#201d18;--creme2:#262217;--creme3:#352f1b;--creme4:#4a4431;--blue:#babfc7;--blue2:#adb2bb;--blue3:#838991;--blue4:#292a2c;--rust:#f0a173;--rust2:#e39367;--rust3:#916535;--rust4:#292112;--gray:#9ea6b5;--gray2:#9098a3;--gray3:#565964;--gray4:#212326;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--blue)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--blue)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--blue)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--blue3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--blue)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .card-tip{background:var(--blue4);border-left:3px solid var(--blue2)}
+html[data-thema="donker"] .tip-lbl{color:var(--blue)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--creme2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--blue4)}
+html[data-thema="donker"] .acc-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--blue);color:#161616;border-color:var(--blue2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--blue)}
+html[data-thema="donker"] .all-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .vt-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .footer{border-top:1px solid var(--rule);color:var(--ink3)}
+html[data-thema="donker"] .footer strong{color:var(--ink2)}
+html[data-thema="donker"] .footer em{color:var(--blue2)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
 </style>
 </head>
 <body>

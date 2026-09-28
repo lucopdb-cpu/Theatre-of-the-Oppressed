@@ -92,7 +92,13 @@
     'html[data-thema="donker"] .arsenaal-footer strong{color:#d6cebf}',
     'html[data-thema="donker"] .arsenaal-footer .af-site{color:#8f877a}',
     'html[data-thema="donker"] .laagregel{color:#b3a58f}',
-    'html[data-thema="donker"] .sessie-link{background:#221e19}',
+    'html[data-thema="donker"] img[src$="joker-blauw.png"]{filter:brightness(1.9) saturate(.85)}',
+    'html[data-thema="donker"] .sessie-link{background:#221e19;border-color:#3e372e;color:#c7bfb1}',
+    'html[data-thema="donker"] .sessie-link .sl-n{background:#ece6da;color:#1a1713}',
+    'html[data-thema="donker"] .sessie-link .sl-n.leeg{background:#2f2a23;color:#948b7e}',
+    'html[data-thema="donker"] .sessie-knop{background:#24201b;border-color:#3e372e;color:#948b7e}',
+    'html[data-thema="donker"] .sessie-knop:hover{border-color:#948b7e;color:#ece6da}',
+    'html[data-thema="donker"] .sessie-knop.in-sessie{background:#ece6da;border-color:#ece6da;color:#1a1713}',
     '}'
   ].join('\n');
 

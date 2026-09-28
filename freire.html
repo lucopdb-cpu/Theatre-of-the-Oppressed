@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="thema.js"></script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#5c3d1e">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
@@ -28,10 +29,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
-  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
-  --creme:#faf8f4;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
-  --rule:rgba(26,24,20,.1);
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#ebe3d6;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --rule:rgba(42,40,36,.1);
 
   /* Freire-signatuur: humus-accent */
   --humus:#5c3d1e;--humus2:#3d2a14;--humus3:#a87c4f;--humus4:#f0e4cc;
@@ -86,7 +87,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
 
 /* CARD */
-.card{background:#fff;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
 @keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .empty-state{padding:3rem 1rem;text-align:center;font-family:var(--body);font-style:italic;color:var(--ink3)}
 
@@ -112,8 +113,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .steps{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
 .step{display:flex;gap:12px;align-items:flex-start;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
 .step-num{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--humus3);background:var(--humus4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--creme4)}
-.step-num[data-marker="×"]{color:#8b1a1a;background:#fde8e0;border-color:#e8c0b0}
-.step-num[data-marker="✓"]{color:var(--cat-joker);background:#e8f5df;border-color:#c0dca8}
+.step-num[data-marker="×"]{color:#8b1a1a;background:#fbdcd0;border-color:#e8c0b0}
+.step-num[data-marker="✓"]{color:var(--cat-joker);background:#dbeecd;border-color:#c0dca8}
 .step-para{font-family:var(--body);font-size:12.5px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2);margin:0 0 14px 0}
 .step-para strong{font-style:normal;font-weight:500;color:var(--humus)}
 
@@ -161,34 +162,110 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
 .arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
-.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
 .arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
 
 /* Vaste voettekst, gelijk op alle pagina's */
 .arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
 .arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
-.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(26,24,20,.28);text-underline-offset:2px}
-.arsenaal-footer a:hover{color:#1a1814;text-decoration-color:currentColor}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
-.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
 
 /* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
 .view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
-.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#f2ede4;color:#9a9790;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#ebe3d6;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
 .vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
-.vt-btn:hover:not(.on){border-color:#9a9790;color:#1a1814}
-.ov-card{background:#fff;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
-.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
+.ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#2a2824}
 .ov-list{padding:4px 26px 16px}
 .ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
 .ov-row:last-child{border-bottom:none}
-.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#f2ede4;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
-.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#1a1814}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#ebe3d6;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
 .ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
 
 /* Laagregel boven de titel, gelijk op alle pagina's */
 .laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#2e2619;--paper3:#30281c;--paper4:#3c3322;--creme:#201d18;--creme2:#262217;--creme3:#352f1b;--creme4:#4a4431;--rule:rgba(219,217,211,.1);--humus:#e3bd9b;--humus2:#e9d0b6;--humus3:#b98c5e;--humus4:#2c2516;--cat-voorbereiding:#c3a163;--cat-onderzoek:#e39367;--cat-methode:#e3bd9b;--cat-joker:#86bb67}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--humus)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--humus)}
+html[data-thema="donker"] .eyebrow{color:var(--humus3)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name strong{color:var(--humus)}
+html[data-thema="donker"] .app-name em{color:var(--humus3)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--humus3)}
+html[data-thema="donker"] .filter-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .filter-btn:hover{border-color:var(--humus3);color:var(--humus)}
+html[data-thema="donker"] .filter-btn.active{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--humus)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--humus3);color:var(--humus)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .empty-state{color:var(--ink3)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .card-cat[data-cat="voorbereiding"]{background:rgba(195,161,99,.10);color:var(--cat-voorbereiding)}
+html[data-thema="donker"] .card-cat[data-cat="onderzoek"]{background:rgba(227,147,103,.10);color:var(--cat-onderzoek)}
+html[data-thema="donker"] .card-cat[data-cat="methode"]{background:rgba(227,189,155,.10);color:var(--cat-methode)}
+html[data-thema="donker"] .card-cat[data-cat="joker"]{background:rgba(134,187,103,.12);color:var(--cat-joker)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .card-sub{color:var(--ink2)}
+html[data-thema="donker"] .badge-num{color:var(--humus)}
+html[data-thema="donker"] .card-desc{color:var(--ink)}
+html[data-thema="donker"] .steps-label{color:var(--humus)}
+html[data-thema="donker"] .step{color:var(--ink)}
+html[data-thema="donker"] .step-num{color:var(--humus3);background:var(--humus4);border:1px solid var(--creme4)}
+html[data-thema="donker"] .step-num[data-marker="×"]{color:#ff988c;background:#34231b;border-color:#5c3b2e}
+html[data-thema="donker"] .step-num[data-marker="✓"]{color:var(--cat-joker);background:#1e2915;border-color:#2f401d}
+html[data-thema="donker"] .step-para{color:var(--ink2)}
+html[data-thema="donker"] .step-para strong{color:var(--humus)}
+html[data-thema="donker"] .card-tags{border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .tag{background:var(--creme2);color:var(--ink2);border:1px solid var(--creme3)}
+html[data-thema="donker"] .card-tip{background:var(--humus4);border-left:3px solid var(--humus3)}
+html[data-thema="donker"] .tip-lbl{color:var(--humus)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .card-meta-row{border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .meta-item{border-right:1px solid var(--creme3)}
+html[data-thema="donker"] .meta-lbl{color:var(--ink3)}
+html[data-thema="donker"] .meta-val{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .freire-quote{border-left:3px solid var(--humus);background:var(--creme);color:var(--ink2)}
+html[data-thema="donker"] .freire-quote cite{color:var(--ink3)}
+@media (max-width:640px){html[data-thema="donker"] .meta-item{border-bottom:1px solid var(--creme3)}}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #3c3322;background:#2e2619;color:#96938c}
+html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #30281c;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #30281c}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#2e2619;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-title{color:#dbd9d3}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
 </style>
 </head>
 <body>

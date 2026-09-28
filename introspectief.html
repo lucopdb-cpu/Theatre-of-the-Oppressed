@@ -6,6 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="thema.js"></script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#b8803c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
@@ -28,10 +29,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1814;--ink2:#52504a;--ink3:#9a9790;
-  --paper:#faf8f4;--paper2:#f2ede4;--paper3:#e8e0d4;--paper4:#ddd4c4;
-  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#fdf5e8;
-  --rule:rgba(26,24,20,.1);
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#ebe3d6;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f7ebd8;
+  --rule:rgba(42,40,36,.1);
   --serif:'Playfair Display',Georgia,serif;
   --body:'Source Serif 4',Georgia,serif;
   --mono:'JetBrains Mono','Courier New',monospace;
@@ -60,7 +61,7 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 .nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
 
 /* CARD */
-.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.card{background:#faf7f1;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
 @keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* Card head */
@@ -123,34 +124,97 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
 .arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
-.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
 .arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
 
 /* Vaste voettekst, gelijk op alle pagina's */
 .arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
 .arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
-.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(26,24,20,.28);text-underline-offset:2px}
-.arsenaal-footer a:hover{color:#1a1814;text-decoration-color:currentColor}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
-.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
 
 /* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
 .view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
-.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#f2ede4;color:#9a9790;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#ebe3d6;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
 .vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
-.vt-btn:hover:not(.on){border-color:#9a9790;color:#1a1814}
-.ov-card{background:#fff;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
-.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
+.ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#2a2824}
 .ov-list{padding:4px 26px 16px}
 .ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
 .ov-row:last-child{border-bottom:none}
-.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#f2ede4;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
-.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#1a1814}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#ebe3d6;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
 .ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
 
 /* Laagregel boven de titel, gelijk op alle pagina's */
 .laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#2e2619;--paper3:#30281c;--paper4:#3c3322;--amber:#d3a06d;--amber2:#ba823e;--amber3:#402e0f;--amber4:#291d0a;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--ink)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--amber)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--amber3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--paper4);background:var(--paper2);color:var(--amber)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--paper3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--amber2);color:var(--amber)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .card-tip{background:var(--amber4);border-left:3px solid var(--amber2)}
+html[data-thema="donker"] .tip-lbl{color:var(--amber)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--amber)}
+html[data-thema="donker"] .all-sn{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--paper2);border:1px solid var(--paper4);color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--paper2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--amber4)}
+html[data-thema="donker"] .acc-sn{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--amber);color:#161616;border-color:var(--amber2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-sub-nr{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .acc-sub-txt{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #3c3322;background:#2e2619;color:#96938c}
+html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #30281c;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #30281c}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#2e2619;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-title{color:#dbd9d3}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
 </style>
 </head>
 <body>
