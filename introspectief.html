@@ -30,8 +30,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
-  --paper:#f2efe9;--paper2:#ebe3d6;--paper3:#e8e0d4;--paper4:#ddd4c4;
-  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f7ebd8;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f4ecdf;
   --rule:rgba(42,40,36,.1);
   --serif:'Playfair Display',Georgia,serif;
   --body:'Source Serif 4',Georgia,serif;
@@ -138,7 +138,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 /* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
 .view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
-.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#ebe3d6;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#e9e4db;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
 .vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
 .vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
 .ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
@@ -146,7 +146,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 .ov-list{padding:4px 26px 16px}
 .ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
 .ov-row:last-child{border-bottom:none}
-.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#ebe3d6;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#e9e4db;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
 .ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
 .ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
 
@@ -155,7 +155,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px s
 
 /* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
 @media screen{
-html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#2e2619;--paper3:#30281c;--paper4:#3c3322;--amber:#d3a06d;--amber2:#ba823e;--amber3:#402e0f;--amber4:#291d0a;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--amber:#d3a06d;--amber2:#ba823e;--amber3:#402e0f;--amber4:#231f17;--rule:rgba(219,217,211,.1)}
 html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
 html[data-thema="donker"] .masthead{border-bottom:2px solid var(--ink)}
 html[data-thema="donker"] .app-name{color:var(--ink)}
@@ -204,13 +204,13 @@ html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,
 html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
 html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
 html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
-html[data-thema="donker"] .vt-btn{border:1px solid #3c3322;background:#2e2619;color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #39342a;background:#292621;color:#96938c}
 html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
 html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
-html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #3c3322}
-html[data-thema="donker"] .ov-head{border-bottom:1px solid #30281c;color:#dbd9d3}
-html[data-thema="donker"] .ov-row{border-bottom:1px solid #30281c}
-html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#2e2619;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #39342a}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #2e2922;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #2e2922}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#292621;border:1px solid #39342a}
 html[data-thema="donker"] .ov-title{color:#dbd9d3}
 html[data-thema="donker"] .laagregel{color:#a79a87}
 }

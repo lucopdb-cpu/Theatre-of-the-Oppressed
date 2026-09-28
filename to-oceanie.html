@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1f4860">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<script src="thema.js"></script>
 <script src="nav.js" defer></script>
 <title>TO in Oceania — In welke kamer arriveerde Boal, en wie zat daar al?</title>
 <meta name="description" content="Theatre of the Oppressed in Oceania — vier parallelle tradities, één Boal-expliciete praktijk. Van whare tapere tot yarning circles, van Wan Smolbag tot Raun Raun. Afgesloten met Looser, Hereniko, Royal en Baldwin.">
@@ -28,8 +29,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1f24;--ink2:#4a5260;--ink3:#909aa8;
-  --paper:#f5f6f8;--paper2:#e8ecf0;--paper3:#d8e0e8;--paper4:#b8c4d0;
+  --ink:#262b30;--ink2:#4a5260;--ink3:#818b99;
+  --paper:#ebedf0;--paper2:#dde3e9;--paper3:#d8e0e8;--paper4:#b8c4d0;
   --ocean:#1f4860;--ocean2:#2d5e7a;--ocean3:#8fa8b8;--ocean4:#dde9f0;
   --ocean5:#143042;
   --pounamu:#3d6e5a;--pounamuBg:#dde8e1;--pounamuFg:#234835;
@@ -39,7 +40,7 @@
   --laterite:#9e5e2e;--lateriteBg:#f0dac4;--lateriteFg:#5e361a;
   --plum:#7a4a6e;--plumBg:#e8dce4;--plumFg:#4a2c44;
   --intro:#52504a;--introBg:#e8e6df;--introFg:#3a3833;
-  --rule:rgba(26,31,36,.1);
+  --rule:rgba(38,43,48,.1);
   --serif:'Playfair Display',Georgia,serif;
   --body:'Source Serif 4',Georgia,serif;
   --mono:'JetBrains Mono','Courier New',monospace;
@@ -68,7 +69,7 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 .nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
 
 /* CARD */
-.card{background:#fff;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,31,36,.05),0 3px 12px rgba(26,31,36,.04)}
+.card{background:#faf7f1;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,31,36,.05),0 3px 12px rgba(26,31,36,.04)}
 @keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* Card head */
@@ -134,7 +135,7 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 /* Terug-navigatie bovenaan */
 .back-nav{padding:16px 0 6px;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
 .back-nav .back-link{color:var(--ink3);text-decoration:none;transition:color .15s}
-.back-nav .back-link:hover{color:var(--ink,#1a1814)}
+.back-nav .back-link:hover{color:var(--ink,#2a2824)}
 .back-nav .back-sep{margin:0 8px}
 .card-source a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
 .card-source a:hover{opacity:.7}
@@ -148,34 +149,101 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 .arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
 .arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
-.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#1a1814}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
 .arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
 
 /* Vaste voettekst, gelijk op alle pagina's */
 .arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
 .arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
-.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(26,24,20,.28);text-underline-offset:2px}
-.arsenaal-footer a:hover{color:#1a1814;text-decoration-color:currentColor}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
 .arsenaal-footer strong{font-weight:600;color:#524a40}
 .arsenaal-footer .af-content{margin-bottom:12px}
-.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#9a9790}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
 
 /* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
 .view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
-.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#f2ede4;color:#9a9790;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#e9e4db;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
 .vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
-.vt-btn:hover:not(.on){border-color:#9a9790;color:#1a1814}
-.ov-card{background:#fff;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
-.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
+.ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#2a2824}
 .ov-list{padding:4px 26px 16px}
 .ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
 .ov-row:last-child{border-bottom:none}
-.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#f2ede4;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
-.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#1a1814}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#e9e4db;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
 .ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
 
 /* Laagregel boven de titel, gelijk op alle pagina's */
 .laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#d2d8df;--ink2:#b4bdce;--ink3:#8993a1;--paper:#1e1f22;--paper2:#25292d;--paper3:#272c31;--paper4:#47515c;--ocean:#a1cdea;--ocean2:#8dc0e0;--ocean3:#667e8d;--ocean4:#1f262a;--ocean5:#badbf2;--pounamu:#8bbea7;--pounamuBg:#222824;--pounamuFg:#abd4bd;--terra:#e78d66;--terraBg:#34271d;--terraFg:#f5b292;--bronze:#b8a789;--bronzeBg:#2a261c;--bronzeFg:#d4c6b3;--wave:#6eaed4;--waveBg:#1f262a;--waveFg:#9ecded;--laterite:#d99565;--lateriteBg:#37291c;--lateriteFg:#edbc9d;--plum:#d7a1c9;--plumBg:#2f282d;--plumFg:#e6c0de;--intro:#c0beb7;--introBg:#27251e;--introFg:#d0cdc7;--rule:rgba(210,216,223,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--ink)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--ocean)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--ocean3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--paper4);background:var(--paper2);color:var(--ocean)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--paper3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--ocean2);color:var(--ocean)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .card-name em{color:var(--ocean)}
+html[data-thema="donker"] .badge-form{color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .meta-bar{border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .meta-item{color:var(--ink2);background:var(--paper2);border:1px solid var(--paper3)}
+html[data-thema="donker"] .meta-item strong{color:var(--ink)}
+html[data-thema="donker"] .stages-lbl{color:var(--ocean)}
+html[data-thema="donker"] .card-tip{background:var(--ocean4);border-left:3px solid var(--ocean2)}
+html[data-thema="donker"] .tip-lbl{color:var(--ocean)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .card-source{background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .card-source strong{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--paper2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--ocean4)}
+html[data-thema="donker"] .acc-sn{color:var(--ocean2);background:var(--ocean4);border:1px solid var(--ocean3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--ocean);color:#161616;border-color:var(--ocean2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--ocean2);color:var(--ocean)}
+html[data-thema="donker"] .home-btn{background:var(--ocean);color:#161616}
+html[data-thema="donker"] .home-btn:hover{background:var(--ocean5)}
+html[data-thema="donker"] .back-nav{color:var(--ink3)}
+html[data-thema="donker"] .back-nav .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-nav .back-link:hover{color:var(--ink,#dbd9d3)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #39342a;background:#292621;color:#96938c}
+html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #39342a}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #2e2922;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #2e2922}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#292621;border:1px solid #39342a}
+html[data-thema="donker"] .ov-title{color:#dbd9d3}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
 </style>
 </head>
 <body>

@@ -30,7 +30,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
-  --paper:#f2efe9;--paper2:#ebe3d6;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
   --creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
   --rule:rgba(42,40,36,.1);
 
@@ -113,8 +113,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .steps{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
 .step{display:flex;gap:12px;align-items:flex-start;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
 .step-num{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--humus3);background:var(--humus4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--creme4)}
-.step-num[data-marker="×"]{color:#8b1a1a;background:#fbdcd0;border-color:#e8c0b0}
-.step-num[data-marker="✓"]{color:var(--cat-joker);background:#dbeecd;border-color:#c0dca8}
+.step-num[data-marker="×"]{color:#8b1a1a;background:#f4dfd7;border-color:#e8c0b0}
+.step-num[data-marker="✓"]{color:var(--cat-joker);background:#dfecd6;border-color:#c0dca8}
 .step-para{font-family:var(--body);font-size:12.5px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2);margin:0 0 14px 0}
 .step-para strong{font-style:normal;font-weight:500;color:var(--humus)}
 
@@ -176,7 +176,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 
 /* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
 .view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
-.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#ebe3d6;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#e9e4db;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
 .vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
 .vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
 .ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
@@ -184,7 +184,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 .ov-list{padding:4px 26px 16px}
 .ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
 .ov-row:last-child{border-bottom:none}
-.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#ebe3d6;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#e9e4db;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
 .ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
 .ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
 
@@ -193,7 +193,7 @@ kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px s
 
 /* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
 @media screen{
-html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#2e2619;--paper3:#30281c;--paper4:#3c3322;--creme:#201d18;--creme2:#262217;--creme3:#352f1b;--creme4:#4a4431;--rule:rgba(219,217,211,.1);--humus:#e3bd9b;--humus2:#e9d0b6;--humus3:#b98c5e;--humus4:#2c2516;--cat-voorbereiding:#c3a163;--cat-onderzoek:#e39367;--cat-methode:#e3bd9b;--cat-joker:#86bb67}
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--creme:#201d18;--creme2:#25221b;--creme3:#332f23;--creme4:#4a4431;--rule:rgba(219,217,211,.1);--humus:#e3bd9b;--humus2:#e9d0b6;--humus3:#b98c5e;--humus4:#2c2516;--cat-voorbereiding:#c3a163;--cat-onderzoek:#e39367;--cat-methode:#e3bd9b;--cat-joker:#86bb67}
 html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
 html[data-thema="donker"] .back-link{color:var(--ink3)}
 html[data-thema="donker"] .back-link:hover{color:var(--humus)}
@@ -229,8 +229,8 @@ html[data-thema="donker"] .card-desc{color:var(--ink)}
 html[data-thema="donker"] .steps-label{color:var(--humus)}
 html[data-thema="donker"] .step{color:var(--ink)}
 html[data-thema="donker"] .step-num{color:var(--humus3);background:var(--humus4);border:1px solid var(--creme4)}
-html[data-thema="donker"] .step-num[data-marker="×"]{color:#ff988c;background:#34231b;border-color:#5c3b2e}
-html[data-thema="donker"] .step-num[data-marker="✓"]{color:var(--cat-joker);background:#1e2915;border-color:#2f401d}
+html[data-thema="donker"] .step-num[data-marker="×"]{color:#ff988c;background:#30241f;border-color:#5c3b2e}
+html[data-thema="donker"] .step-num[data-marker="✓"]{color:var(--cat-joker);background:#20271a;border-color:#2f401d}
 html[data-thema="donker"] .step-para{color:var(--ink2)}
 html[data-thema="donker"] .step-para strong{color:var(--humus)}
 html[data-thema="donker"] .card-tags{border-top:1px solid var(--creme3)}
@@ -255,13 +255,13 @@ html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,
 html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
 html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
 html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
-html[data-thema="donker"] .vt-btn{border:1px solid #3c3322;background:#2e2619;color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #39342a;background:#292621;color:#96938c}
 html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
 html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
-html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #3c3322}
-html[data-thema="donker"] .ov-head{border-bottom:1px solid #30281c;color:#dbd9d3}
-html[data-thema="donker"] .ov-row{border-bottom:1px solid #30281c}
-html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#2e2619;border:1px solid #3c3322}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #39342a}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #2e2922;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #2e2922}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#292621;border:1px solid #39342a}
 html[data-thema="donker"] .ov-title{color:#dbd9d3}
 html[data-thema="donker"] .laagregel{color:#a79a87}
 }
