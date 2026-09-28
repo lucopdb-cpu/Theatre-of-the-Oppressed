@@ -24,7 +24,8 @@
 <meta name="twitter:description" content="Theatre of the Oppressed-toolkit voor jokers en facilitators. 406 oefeningen, een eigen selectie en methodieken van Boal, Freire, Spolin en Moreno.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
-  <style>
+  <script src="thema.js"></script>
+<style>
     /* Base reset and variables */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -33,26 +34,26 @@
     }
 
     :root {
-      --ink: #1a1814;
-      --ink2: #52504a;
-      --ink3: #9a9790;
-      --paper: #faf8f4;
-      --paper2: #f2ede4;
-      --paper3: #e8e0d4;
-      --amber: #8c5e2a;
-      --amber-light: #f0d4a8;
-      --red: #8b1a1a;
-      --blue: #2c4a6b;
-      --blue-light: #e6eef7;
-      --green: #0F6E56;
-      --green-light: #E1F5EE;
-      --pink: #993556;
-      --pink-light: #fbe8ee;
-      --purple: #7a2a4f;
-      --purple-light: #FBEAF0;
-      --serif: 'Playfair Display', Georgia, serif;
-      --body: 'Source Serif 4', Georgia, serif;
-      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ink:#2a2824;
+      --ink2:#52504a;
+      --ink3:#8b8881;
+      --paper:#f2efe9;
+      --paper2:#e9e4db;
+      --paper3:#e8e0d4;
+      --amber:#8c5e2a;
+      --amber-light:#f0d4a8;
+      --red:#8b1a1a;
+      --blue:#2c4a6b;
+      --blue-light:#dde5ee;
+      --green:#0F6E56;
+      --green-light:#d8ece5;
+      --pink:#993556;
+      --pink-light:#f2dfe5;
+      --purple:#7a2a4f;
+      --purple-light:#f2e1e7;
+      --serif:'Playfair Display', Georgia, serif;
+      --body:'Source Serif 4', Georgia, serif;
+      --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html {
@@ -62,8 +63,8 @@
 
     body {
       font-family: var(--body);
-      background: var(--paper);
-      color: var(--ink);
+      background:var(--paper);
+      color:var(--ink);
       line-height: 1.6;
       min-height: 100vh;
     }
@@ -86,7 +87,7 @@
       font-family: var(--serif);
       font-size: 2.5rem;
       font-weight: 400;
-      color: var(--ink);
+      color:var(--ink);
       margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
@@ -95,7 +96,7 @@
       font-family: var(--sans);
       font-size: 0.875rem;
       font-weight: 400;
-      color: var(--ink3);
+      color:var(--ink3);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 20px;
@@ -104,7 +105,7 @@
     .header .description {
       font-family: var(--body);
       font-size: 1.125rem;
-      color: var(--ink2);
+      color:var(--ink2);
       max-width: 600px;
       margin: 0 auto;
       font-style: italic;
@@ -132,14 +133,14 @@
       font-family: var(--serif);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--ink);
+      color:var(--ink);
       white-space: nowrap;
     }
 
     .section-line {
       flex: 1;
       height: 1px;
-      background: var(--paper3);
+      background:var(--paper3);
     }
 
     /* Grid */
@@ -152,12 +153,12 @@
     /* Card */
     .card {
       display: block;
-      background: #fff;
+      background:#faf7f1;
       border: 1px solid var(--paper3);
       border-radius: 16px;
       padding: 30px;
-      text-decoration: none;
-      color: inherit;
+      text-decoration:none;
+      color:inherit;
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
@@ -180,7 +181,7 @@
       font-family: var(--serif);
       font-size: 1.375rem;
       font-weight: 400;
-      color: var(--ink);
+      color:var(--ink);
       margin-bottom: 8px;
       line-height: 1.3;
     }
@@ -188,7 +189,7 @@
     .card .meta {
       font-family: var(--sans);
       font-size: 0.75rem;
-      color: var(--ink3);
+      color:var(--ink3);
       margin-bottom: 12px;
       font-weight: 500;
       letter-spacing: 0.02em;
@@ -197,7 +198,7 @@
     .card p {
       font-family: var(--body);
       font-size: 0.875rem;
-      color: var(--ink2);
+      color:var(--ink2);
       line-height: 1.5;
       margin-bottom: 20px;
       font-weight: 300;
@@ -215,14 +216,14 @@
       font-weight: 500;
       padding: 4px 12px;
       border-radius: 20px;
-      background: var(--badge-bg, var(--amber-light));
-      color: var(--badge-color, var(--amber));
+      background:var(--badge-bg, var(--amber-light));
+      color:var(--badge-color, var(--amber));
       border: 1px solid var(--badge-bg, var(--amber-light));
     }
 
     .arrow {
       font-size: 1.25rem;
-      color: var(--accent, var(--amber));
+      color:var(--accent, var(--amber));
       font-weight: 300;
     }
 
@@ -241,7 +242,7 @@
     .footer-text {
       font-family: var(--body);
       font-size: 0.875rem;
-      color: var(--ink2);
+      color:var(--ink2);
       margin-bottom: 16px;
       line-height: 1.5;
     }
@@ -249,14 +250,14 @@
     .footer-license {
       font-family: var(--body);
       font-size: 0.75rem;
-      color: var(--ink3);
+      color:var(--ink3);
       line-height: 1.6;
       font-style: italic;
     }
 
     .footer-license a {
-      color: var(--amber);
-      text-decoration: none;
+      color:var(--amber);
+      text-decoration:none;
       border-bottom: 1px solid var(--amber-light);
       font-style: normal;
       font-weight: 500;
@@ -270,7 +271,7 @@
     /* Placeholder card — in opbouw, nog niet klikbaar */
     .card.placeholder {
       cursor: default;
-      background: var(--paper2);
+      background:var(--paper2);
       border-style: dashed;
       border-color: var(--paper3);
       opacity: 0.88;
@@ -287,8 +288,8 @@
     }
 
     .badge.soon {
-      background: var(--paper3);
-      color: var(--ink2);
+      background:var(--paper3);
+      color:var(--ink2);
       border-color: var(--paper3);
     }
 
@@ -315,6 +316,51 @@
 /* Joker-tekening in de kop */
 .arsenaal-joker{display:block;width:150px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
 @media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--amber:#d3a06d;--amber-light:#402e0f;--red:#ff988c;--blue:#a4c7ee;--blue-light:#23282d;--green:#75c7ab;--green-light:#1c2824;--pink:#fb8dab;--pink-light:#2e2327;--purple:#fda0c5;--purple-light:#2c2226}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .header{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .header h1{color:var(--ink)}
+html[data-thema="donker"] .header .subtitle{color:var(--ink3)}
+html[data-thema="donker"] .header .description{color:var(--ink2)}
+html[data-thema="donker"] .section-title{color:var(--ink)}
+html[data-thema="donker"] .section-line{background:var(--paper3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper3)}
+html[data-thema="donker"] .card:hover{border-color:var(--accent, var(--amber))}
+html[data-thema="donker"] .card h2{color:var(--ink)}
+html[data-thema="donker"] .card .meta{color:var(--ink3)}
+html[data-thema="donker"] .card p{color:var(--ink2)}
+html[data-thema="donker"] .badge{background:var(--badge-bg, var(--amber-light));color:var(--badge-color, var(--amber));border:1px solid var(--badge-bg, var(--amber-light))}
+html[data-thema="donker"] .arrow{color:var(--accent, var(--amber))}
+html[data-thema="donker"] .footer{border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .footer-text{color:var(--ink2)}
+html[data-thema="donker"] .footer-license{color:var(--ink3)}
+html[data-thema="donker"] .footer-license a{color:var(--amber);border-bottom:1px solid var(--amber-light)}
+html[data-thema="donker"] .footer-license a:hover{border-bottom-color:var(--amber)}
+html[data-thema="donker"] .card.placeholder{background:var(--paper2);border-color:var(--paper3)}
+html[data-thema="donker"] .card.placeholder:hover{border-color:var(--paper3)}
+html[data-thema="donker"] .badge.soon{background:var(--paper3);color:var(--ink2);border-color:var(--paper3)}
+html[data-thema="donker"] [style="--accent:#4a4f55; --icon-bg:#dfe0e2; --badge-bg:#dfe0e2; --badge-color:#4a4f55;"]{--accent:#babfc7 !important;--icon-bg:#292a2c !important;--badge-bg:#292a2c !important;--badge-color:#babfc7 !important}
+html[data-thema="donker"] [style="--accent:#5c3d1e; --icon-bg:#f0e4cf; --badge-bg:#f0e4cf; --badge-color:#5c3d1e;"]{--accent:#e3bd9b !important;--icon-bg:#2c2518 !important;--badge-bg:#2c2518 !important;--badge-color:#e3bd9b !important}
+html[data-thema="donker"] [style="--accent:#8c5e2a; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;"]{--accent:#d3a06d !important;--icon-bg:#1e1a12 !important;--badge-bg:#1e1a12 !important;--badge-color:#d3a06d !important}
+html[data-thema="donker"] [style="--accent:#0F6E56; --icon-bg:#E1F5EE; --badge-bg:#E1F5EE; --badge-color:#0F6E56;"]{--accent:#75c7ab !important;--icon-bg:#14201d !important;--badge-bg:#14201d !important;--badge-color:#75c7ab !important}
+html[data-thema="donker"] [style="--accent:#a8321f; --icon-bg:#f7e4df; --badge-bg:#f7e4df; --badge-color:#a8321f;"]{--accent:#ff8870 !important;--icon-bg:#2b201d !important;--badge-bg:#2b201d !important;--badge-color:#ff8870 !important}
+html[data-thema="donker"] [style="--accent:#d97706; --icon-bg:#fef3c7; --badge-bg:#fef3c7; --badge-color:#d97706;"]{--accent:#cc6b00 !important;--icon-bg:#231c00 !important;--badge-bg:#231c00 !important;--badge-color:#cc6b00 !important}
+html[data-thema="donker"] [style="--accent:#8b1a1a; --icon-bg:#fde8e0; --badge-bg:#fde8e0; --badge-color:#8b1a1a;"]{--accent:#ff988c !important;--icon-bg:#281c18 !important;--badge-bg:#281c18 !important;--badge-color:#ff988c !important}
+html[data-thema="donker"] [style="--accent:#2c4a6b; --icon-bg:#e6eef7; --badge-bg:#e6eef7; --badge-color:#2c4a6b;"]{--accent:#a4c7ee !important;--icon-bg:#1b2025 !important;--badge-bg:#1b2025 !important;--badge-color:#a4c7ee !important}
+html[data-thema="donker"] [style="--accent:#1a3a5c; --icon-bg:#dde7f2; --badge-bg:#dde7f2; --badge-color:#1a3a5c;"]{--accent:#acd1fb !important;--icon-bg:#20262d !important;--badge-bg:#20262d !important;--badge-color:#acd1fb !important}
+html[data-thema="donker"] [style="--accent:#8b3a2e; --icon-bg:#f5e5e0; --badge-bg:#f5e5e0; --badge-color:#8b3a2e;"]{--accent:#f99d8d !important;--icon-bg:#29201e !important;--badge-bg:#29201e !important;--badge-color:#f99d8d !important}
+html[data-thema="donker"] [style="--accent:#b8803c; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;"]{--accent:#ba823e !important;--icon-bg:#1e1a12 !important;--badge-bg:#1e1a12 !important;--badge-color:#d3a06d !important}
+html[data-thema="donker"] [style="--accent:#2d5a3e; --icon-bg:#dce8e1; --badge-bg:#dce8e1; --badge-color:#2d5a3e;"]{--accent:#9cccab !important;--icon-bg:#212924 !important;--badge-bg:#212924 !important;--badge-color:#9cccab !important}
+html[data-thema="donker"] [style="--accent:#993556; --icon-bg:#fbe8ee; --badge-bg:#fbe8ee; --badge-color:#993556;"]{--accent:#fb8dab !important;--icon-bg:#261b1f !important;--badge-bg:#261b1f !important;--badge-color:#fb8dab !important}
+html[data-thema="donker"] [style="--accent:#185FA5; --icon-bg:#E6F1FB; --badge-bg:#E6F1FB; --badge-color:#185FA5;"]{--accent:#74b8ff !important;--icon-bg:#181e24 !important;--badge-bg:#181e24 !important;--badge-color:#74b8ff !important}
+html[data-thema="donker"] [style="--accent:#7a2a4f; --icon-bg:#FBEAF0; --badge-bg:#FBEAF0; --badge-color:#7a2a4f;"]{--accent:#fda0c5 !important;--icon-bg:#241b1e !important;--badge-bg:#241b1e !important;--badge-color:#fda0c5 !important}
+html[data-thema="donker"] [style="--accent:#185FA5; --icon-bg:#e6f1fb; --badge-bg:#e6f1fb; --badge-color:#0C447C;"]{--accent:#74b8ff !important;--icon-bg:#181e24 !important;--badge-bg:#181e24 !important;--badge-color:#92caff !important}
+html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-bg:#e8e0d4; --badge-color:#52504a;"]{--accent:#c0beb7 !important;--icon-bg:#2e2922 !important;--badge-bg:#2e2922 !important;--badge-color:#c0beb7 !important}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
 </style>
 </head>
 <body>

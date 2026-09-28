@@ -18,9 +18,9 @@
   var root = document.documentElement;
   var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var PAPIER_DONKER = '#1a1713';
-  // Zolang nog niet alle pagina's een donkere versie hebben: false (alleen de knop schakelt).
-  // Als alles klaar is: true, dan volgt de site de instelling van het toestel.
-  var VOLG_TOESTEL = false;
+  // true: zonder eigen keuze volgt de site de instelling van het toestel (licht of donker).
+  // false: alleen de knop schakelt (gebruikt tijdens de proef, zolang niet alle pagina's klaar waren).
+  var VOLG_TOESTEL = true;
 
   function keuze() { try { return localStorage.getItem(SLEUTEL); } catch (e) { return null; } }
   function toestel() { return VOLG_TOESTEL && mq && mq.matches ? 'donker' : 'licht'; }
@@ -76,7 +76,7 @@
     '.thema-knop:hover{background:rgba(60,45,30,.13);color:#1a1814}',
     '.thema-knop:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}',
     '.thema-knop .tk-zon{display:none}',
-    '.thema-knop.los{position:fixed;top:14px;right:14px;z-index:50}',
+    '.thema-knop.los{position:absolute;top:14px;right:14px;z-index:50}',
     'html.thema-overgang,html.thema-overgang *{transition:background-color .3s,color .3s,border-color .3s!important}',
     '@media print{.thema-knop{display:none!important}}',
     /* donker: gedeelde onderdelen */
