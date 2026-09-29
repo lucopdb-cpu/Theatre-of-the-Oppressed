@@ -50,6 +50,8 @@ Het arsenaal is werk in uitvoering. Het groeit via onderzoek en praktijk.
 
 **Na Boal — Methodologische vernieuwingen** — hoe jokers de TO-methode tijdens en na Boals leven hebben doorontwikkeld binnen specifieke culturele en politieke contexten. Bárbara Santos' Teatro de las Oprimidas (feministische esthetiek, Berlijn), Julian Boal & Geo Britto's Escola de Teatro Popular (structurele dramaturgie, Rio), Sanjoy Ganguly's Jana Sanskriti (rurale systematisering, Calcutta), Katy Rubin's TONYC (#WatchActVote en beleids-Legislatief), Chen Alon's Polarized Model (theater tussen ex-vijanden, Israël/Palestina), James Thompsons applied theatre en zorg (Manchester), Adrian Jacksons Cardboard Citizens (artistieke kwaliteit als erkenning, Londen) en Mamadou Diols Kàddu Yaraax (het forum in de eigen kring, met ecologie als vertrekpunt, Dakar).
 
+**Theater in detentie** — theater met gedetineerden tussen rehabilitatie en weerbaarheid: TIPP en Blagg! (Manchester), Geese Theatre (Birmingham), Boal en het CTO in Braziliaanse gevangenissen, ApsArt in Servië, en de Nederlandse lijn van Formaat.
+
 **Atlas en regionale verdiepingen** — een wereldatlas van TO-praktijken in context, per continent. Vanuit de overzichtspagina bereik je de regionale verdiepingen: Afrika, Azië, Brazilië, Midden-Amerika, Europa, Hispanofoon Zuid-Amerika, MENA, Noord-Amerika en Oceanië. Geen directory, wel een dwarsdoorsnede van hoe de methode zich aan lokale omstandigheden heeft aangepast.
 
 ### Aanvullende methodieken

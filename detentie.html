@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script src="thema.js"></script>
+<script src="nav.js" defer></script>
+<meta name="theme-color" content="#52504a">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>Theater in detentie</title>
+<meta name="description" content="Theater met gedetineerden tussen rehabilitatie en weerbaarheid: TIPP en Blagg!, Geese Theatre, Boal en Brazilië, ApsArt in Servië en de Nederlandse lijn van Formaat. Acht kaarten.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arsenaal van de Joker">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Theater in detentie">
+<meta property="og:description" content="Theater met gedetineerden tussen rehabilitatie en weerbaarheid: TIPP en Blagg!, Geese Theatre, Boal en Brazilië, ApsArt in Servië en de Nederlandse lijn van Formaat. Acht kaarten.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/detentie.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Theater in detentie">
+<meta name="twitter:description" content="Theater met gedetineerden tussen rehabilitatie en weerbaarheid: TIPP en Blagg!, Geese Theatre, Boal en Brazilië, ApsArt in Servië en de Nederlandse lijn van Formaat. Acht kaarten.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#8b3a2e;--blue2:#a54a3c;--blue3:#c49489;--blue4:#f5e5e0;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#e7e9ec;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--creme3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s;font-family:inherit}
+.acc-trigger:hover{background:var(--creme2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.card-src{margin:-8px 26px 22px;font-family:var(--sans);font-size:10.5px;line-height:1.6;color:var(--ink3)}
+.card-src a{color:inherit}
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--creme:#201d18;--creme2:#25221b;--creme3:#332f23;--creme4:#4a4431;--blue:#f99d8d;--blue2:#ef8c7b;--blue3:#9d7065;--blue4:#29201e;--rust:#f0a173;--rust2:#e39367;--rust3:#916535;--rust4:#292112;--gray:#9ea6b5;--gray2:#9098a3;--gray3:#565964;--gray4:#212326;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--blue)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--blue)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--blue)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--blue3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--blue)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .card-tip{background:var(--blue4);border-left:3px solid var(--blue2)}
+html[data-thema="donker"] .tip-lbl{color:var(--blue)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--creme2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--blue4)}
+html[data-thema="donker"] .acc-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--blue);color:#161616;border-color:var(--blue2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--blue)}
+html[data-thema="donker"] .all-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .vt-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .footer{border-top:1px solid var(--rule);color:var(--ink3)}
+html[data-thema="donker"] .footer strong{color:var(--ink2)}
+html[data-thema="donker"] .footer em{color:var(--blue2)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
+
+<!-- Masthead -->
+<div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Theater in detentie</div>
+  <div class="app-name">Theater in <em>detentie</em></div>
+  <div class="app-sub">Gevangenis en reclassering · TIPP · Geese · Brazilië · Servië · Formaat</div>
+  <div class="context-note">
+    Theater met gedetineerden beweegt tussen twee logica’s. De ene wil gedrag veranderen, binnen het strafrechtsysteem en met recidive als maatstaf. De andere wil mensen weerbaar maken, met Boal en Freire als grond. Vaak zitten ze in hetzelfde programma, en soms in dezelfde joker. Deze pagina volgt het werk van Manchester en Birmingham naar São Paulo, Belgrado en Nederland, en de grens waarop het instituut het werk afsluit.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Kader">Kader</div>
+    <div class="tpill" data-cat="Methode">Methode</div>
+    <div class="tpill" data-cat="Reflectie">Reflectie</div>
+    <div class="tpill" data-cat="Praktijk">Praktijk</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">8</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<footer class="arsenaal-footer">
+  <div class="af-content"><strong>Theater in detentie</strong> · TIPP Centre (Manchester) · Geese Theatre Company (Birmingham) · Centro de Teatro do Oprimido en People’s Palace Projects (Brazilië) · ApsArt (Belgrado) · Werkplaats Formaat (Rotterdam)<br>
+  Bronnen: per kaart vermeld onder <strong>Bron</strong>; de volledige vermeldingen staan in de <a href="bronnen.html">bronnenlijst</a>. Zie ook het <a href="https://lucopdb-cpu.github.io/Formaat-1999-2025/">archief Formaat 1999–2025</a>.</div>
+  <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
+</footer>
+
+</div>
+
+<script>
+const T = [
+{"n": 1, "title": "Twee logica’s", "cat": "Kader", "catBg": "#e8e0d4", "catFg": "#52504a", "stripe": "#52504a", "note": "Het gevangenistheater zoals het in Europa groeide, ontstond grotendeels binnen de programma’s voor “offending behaviour”: cognitief-gedragsmatig, gericht op “What Works” en met recidive als maatstaf. Tegelijk werkten dezelfde makers met Boal. Blagg!, het bekendste programma, noemt beide als inspiratie: “participatory drama practitioners such as Augusto Boal and cognitive behaviour theorists Maguire and Priestly” (Hughes, 2003).", "stages": [{"t": "Gedrag veranderen", "body": "In deze logica is de gevangene iemand met een denkfout die gecorrigeerd moet worden. Het theater is een werkvorm binnen een programma, de financier vraagt om bewijs van minder recidive, en het succes wordt gemeten aan het individu."}, {"t": "Weerbaar maken", "body": "In de lijn van Boal en Freire is de gevangene een subject, en is onderdrukking ook een kwestie van structuur: van de gevangenis zelf, van armoede, van geweld in relaties. Woodland (2021) waarschuwt dat de eerste logica makkelijk uitkomt bij “more compliant citizens”."}, {"t": "Eén praktijk, twee lezingen", "body": "In de Engelse vrouwengevangenis Styal zagen de deelneemsters het fictieve personage van Blagg! als slachtoffer. Het aanwezige personeel “refused to accept the analysis of the women”. TIPP concludeerde dat het programma in handen van het personeel “was liable to be used as a means of oppression” (Hughes, 1998, geciteerd in Matthijssen, 2007, p. 16)."}, {"t": "Wat theater kan beloven", "body": "Het onderzoek naar effect is volgens Hughes (z.d.) “short-term, lacking in conceptual and methodological rigour, over-reliant on anecdotal evidence”. Lucas trekt de grens scherp: “Theatre can promote free thinking and empathy, but it is not, in fact, liberation” (Lucas, 2020, geciteerd in Woodland, 2021)."}], "tip": "Wie de poort door gaat, werkt binnen het systeem. De vraag is niet óf, maar wiens vraag je dient. Spreek vooraf met jezelf af wat je niet inlevert.", "source": "<a href='bronnen.html#hughes-2003'>Hughes (2003)</a> · <a href='bronnen.html#hughes-zd'>Hughes (z.d.)</a> · <a href='bronnen.html#matthijssen-2007'>Matthijssen (2007)</a> · <a href='bronnen.html#woodland-2021'>Woodland (2021)</a>"},
+{"n": 2, "title": "Boal in de gevangenis", "cat": "Kader", "catBg": "#e8e0d4", "catFg": "#52504a", "stripe": "#52504a", "note": "In 1971 werd Augusto Boal in São Paulo gearresteerd, gemarteld en daarna verbannen. Het Theater van de Onderdrukten kreeg zijn vorm in ballingschap, maar Boal legde de oorsprong zelf dieper.", "stages": [{"t": "“Nasceu na prisão”", "body": "In zijn memoires schrijft Boal: “Metaforicamente, o Teatro do Oprimido nasceu na prisão” (Boal, 2014, p. 330, geciteerd in Narvaes, 2020)."}, {"t": "Terug naar binnen", "body": "Vanaf de jaren negentig keerde het TO terug in de Braziliaanse gevangenissen, eerst via de Britse regisseur Paul Heritage, daarna met het Centro de Teatro do Oprimido zelf (zie kaart 6)."}, {"t": "Van binnen gezien", "body": "Voor Boal was de gevangenis geen onderwerp dat van buitenaf werd bekeken, maar een ervaring van machteloosheid die het theater wilde omkeren: de toeschouwer die opstaat en ingrijpt."}], "tip": "Wie met TO een gevangenis binnengaat, brengt geen vreemde methode mee. Het werk draagt de ervaring van opsluiting al in zich. Dat vraagt bescheidenheid: de spelers weten van binnenuit wat Boal van binnenuit wist.", "source": "<a href='bronnen.html#narvaes-2020'>Narvaes (2020)</a> · <a href='bronnen.html#boal-2014'>Boal (2014)</a>"},
+{"n": 3, "title": "TIPP en Blagg!: het fictieve personage", "cat": "Methode", "catBg": "#e4e2dc", "catFg": "#52504a", "stripe": "#52504a", "note": "Het TIPP Centre (Theatre in Prisons and Probation) ontstond begin jaren negentig aan de University of Manchester. TIPP noemt 1991, de universiteit 1992. Het bekendste programma, Blagg!, begon volgens James Thompson in 1991 op verzoek van de reclassering van Greater Manchester, aan Paul Heritage en hemzelf. De vormgeving duurde tot 1993 (Thompson, in Formaat, 2005). Formaat vertaalde het als Slimm!.", "stages": [{"t": "Jo, het ontbrekende groepslid", "body": "De groep bouwt samen een fictief personage, Jo: leeftijd, familie, vrienden, dromen. Jo is “the ‘missing member of the group’” (Hughes, 2003). Omdat Jo van iedereen en van niemand is, hoeft niemand over het eigen delict te spreken. “Het fictieve personage creëert een veilige afstand” (Formaat, 2005, p. 18)."}, {"t": "Van het moment naar de keten", "body": "Eén beeld van het precieze moment van het delict. Jo’s gedachten en gevoelens op een groot hoofd. Dan wie er last van heeft: een explosie, of een steen in de vijver, met de mensen dichter bij Jo naarmate het effect groter is. Daarna terug in de tijd: scènes van een uur, een dag, een week eerder, die Jo naar het delict duwen."}, {"t": "De ontsnapping", "body": "De groep speelt de scènes opnieuw, roept “stop” en probeert wat Jo anders had kunnen doen. Het gaat om “realistische kansen die door de groep zelf zijn bedacht en gerepeteerd”, niet om “het ideaalbeeld [...] ingebracht [...] door de begeleiders” (Formaat, 2005, p. 33)."}, {"t": "Een plek die er anders uitziet", "body": "Het decor was een geschilderde vloer en “a 1m high wooden head” (Hughes, 2003). Thompson: “To engage people in an extraordinary act of change – the place also had to look extraordinary.” (Formaat, 2005, p. 4)"}], "tip": "Blagg! draait de forumlogica om: het programma bepaalt wat het probleem is, de groep zoekt de uitweg. Thompson zelf hield het open: Blagg “never knew the story to be told or what the best behaviour for a participant was”. Houd dat open, ook als het programma iets anders vraagt.", "source": "<a href='bronnen.html#hughes-2003'>Hughes (2003)</a> · <a href='bronnen.html#formaat-2005'>Formaat (2005)</a> · <a href='bronnen.html#thompson-1999'>Thompson (1999)</a>"},
+{"n": 4, "title": "Thompsons breuk", "cat": "Reflectie", "catBg": "#ece4dc", "catFg": "#52504a", "stripe": "#52504a", "note": "James Thompson was de eerste directeur van TIPP. In februari 1999 verliet hij het centrum. Twee jaar later beschreef hij hoe het werk ongemerkt de taal van het systeem had overgenomen (Thompson, 2001). Hij werd een van de belangrijkste denkers van het applied theatre.", "stages": [{"t": "De taal overnemen", "body": "“We learnt the language and the practice of offending behaviour group work”. Dat gaf houvast, geld en toegang."}, {"t": "De prijs", "body": "“My anti-poll tax clarity had been translated into a cognitive behavioural clarity about how human behaviour is formed, enacted and relearnt.” En: “However in occupying a certain discursive arena, it often becomes hard to see beyond that arena.”"}, {"t": "Het gevaar", "body": "“The work was in danger of becoming a pale version of what it could be.”"}, {"t": "Voorbij het effect", "body": "In <em>Performance affects</em> (2009) bepleit Thompson dat toegepast theater zich niet alleen rechtvaardigt met meetbare effecten, maar ook met wat het mensen doet: vreugde, schoonheid, aandacht."}], "tip": "De taal van de financier wordt snel de taal van het werk. Luister af en toe naar hoe je zelf over je deelnemers praat.", "source": "<a href='bronnen.html#thompson-2001'>Thompson (2001)</a> · <a href='bronnen.html#thompson-2009'>Thompson (2009)</a>"},
+{"n": 5, "title": "Geese en het masker", "cat": "Methode", "catBg": "#e4e2dc", "catFg": "#52504a", "stripe": "#52504a", "note": "“Geese Theatre Company started in the UK in June 1987. It was formed originally as a sister organisation to Geese Theatre USA, which was founded by John Bergman in 1980.” Geese UK (Clark Baim, Saul Hewish) werkt vanuit Birmingham in gevangenissen, de reclassering en de forensische zorg, en bestaat nog steeds.", "stages": [{"t": "Lift the mask", "body": "Het masker staat voor de “front” die iemand naar buiten toont. Geese werkt met “a specific set of eight masks we call Fragment Masks”, en in de voorstelling kan een personage gevraagd worden om “lift their mask”: dan worden de gedachten en gevoelens erachter zichtbaar. De maskers zijn van Sally Brookes."}, {"t": "Geen therapie", "body": "Op de vraag of het dramatherapie is: “The simple answer to this question is ‘no’.” Geese noemt zich applied theatre, al zijn de wortels therapeutisch: Bergman is dramatherapeut, Baim psychodramatherapeut."}, {"t": "In de geest van Boal", "body": "Bergman beschrijft een vroege voorstelling met gedetineerden als “przykład teatru w duchu Augusto Boala” (theater in de geest van Boal). Het maskerwerk begon in de gevangenis van Joliet, met een gedetineerde die zei: “Po prostu nosisz maskę” (je draagt gewoon een masker) (Bergman, 2019)."}], "tip": "Het masker beschermt en onthult tegelijk. Vraag je af wiens verandering je zoekt: die van de speler, of die van de omstandigheden waarin hij terugkeert.", "source": "<a href='bronnen.html#geese-zd'>Geese Theatre Company (z.d.)</a> · <a href='bronnen.html#bergman-2019'>Bergman (2019)</a> · <a href='bronnen.html#baim-brookes-mountford-2002'>Baim, Brookes &amp; Mountford (2002)</a>"},
+{"n": 6, "title": "Brazilië: het personeel speelt mee", "cat": "Praktijk", "catBg": "#dfe4df", "catFg": "#52504a", "stripe": "#52504a", "note": "In Brazilië ontmoetten TO en gevangenis elkaar op de grootste schaal. Het <em>Projeto Drama</em> begon in 1995 in Campinas en bereikte tot december 2001 34 inrichtingen (Concilio, 2005). In 2001 volgde <em>Staging Human Rights</em>, een samenwerking van FUNAP, het CTO en People’s Palace Projects, in 34 gevangenissen van de staat São Paulo (Heritage, 2004). Van 2001 tot 2006 werkte het CTO in “mais de uma centena de presídios” in tien staten, met geld van het ministerie van Justitie, onder artistieke leiding van Boal en coördinatie van Bárbara Santos (Santos, 2011).", "stages": [{"t": "Vijf dagen en een forum", "body": "Workshops van vijf dagen, gegeven door de eigen onderwijsmedewerkers van FUNAP, eindigden in een forumvoorstelling binnen de muren. Na elke workshop schreven de deelnemers een verklaring over mensenrechten."}, {"t": "Het personeel speelt mee", "body": "“Os servidores são capacitados como multiplicadores do Teatro do Oprimido” (Dall’Orto, 2008): het personeel werd zelf opgeleid als multiplicador. Op het slotforum in december 2001 stonden “prisoners and prison staff on stage with the lawyers and the lawmakers” (Heritage, 2004)."}, {"t": "Van forum naar wet", "body": "In juni 2007 diende het CTO bij de federale Kamer een voorstel in voor een gezondheidspost in elk gevangeniscomplex met meer dan 1200 gedetineerden. Het werd op 5 december 2007 unaniem aangenomen en omgezet in wetsvoorstel PL 2574/2007, dat sindsdien in behandeling is."}], "tip": "Wie het personeel buiten de scène houdt, houdt het ook buiten de verandering. Brazilië nam het personeel op in het spel. Dat vraagt een joker die met beide kanten kan werken, zonder de ene aan de andere uit te leveren.", "source": "<a href='bronnen.html#concilio-2005'>Concilio (2005)</a> · <a href='bronnen.html#heritage-2004'>Heritage (2004)</a> · <a href='bronnen.html#santos-2011'>Santos (2011)</a> · <a href='bronnen.html#dall-orto-2008'>Dall’Orto (2008)</a> · <a href='bronnen.html#camara-2007a'>Câmara dos Deputados (2007a, 2007b)</a>"},
+{"n": 7, "title": "Servië: als het instituut het podium is", "cat": "Praktijk", "catBg": "#dfe4df", "catFg": "#52504a", "stripe": "#52504a", "note": "ApsArt, het Centrum voor Theateronderzoek in Belgrado van regisseur Aleksandra Jelić, begon in 2006 met langdurige dramaprocessen met gedetineerden, vooral in het gevangenisziekenhuis van Belgrado (Karanović, 2021). In 2008 speelden gedetineerden de forumvoorstelling <em>Čiji si ti, Petre?</em>, naar het model van Boal, op het BITEF-festival (Kovačević, 2008).", "stages": [{"t": "Van wetsovertreding naar wetgeving", "body": "In 2013 en 2014 werkte ApsArt aan legislatief theater: <em>Od kršenja do stvaranja zakona</em>. Het project begon in mei 2013 met een vijfdaagse training legislatief theater in Belgrado, gegeven door Luc Opdebeeck van Formaat."}, {"t": "Getuigenissen uit twee gevangenissen", "body": "De voorstelling <em>Banja robija</em> werd gebouwd op de getuigenissen van “više od 300 osuđenih lica” (meer dan 300 veroordeelden) uit de gevangenissen van Novi Sad en Sremska Mitrovica, en gespeeld door “bivših osuđenika i jednog glumca” (ex-gedetineerden en één acteur) (Gligorijević, 2013; ApsArt, z.d.)."}, {"t": "Het podium gaat dicht", "body": "Na de voorstellingen in de gevangenissen werd verdere uitvoering afhankelijk gemaakt van “novom dozvolom” (een nieuwe toestemming) van de gevangenisdirectie (Gligorijević, 2013). Het voorstel dat overbleef, over gezondheidszorg, is volgens ApsArt “nikada” (nooit) in behandeling genomen."}], "tip": "Legislatief theater in een gevangenis stelt de vraag aan hetzelfde instituut dat het podium verleent. Bedenk vooraf wat er met de voorstellen gebeurt als de poort dichtgaat, en wie ze dan nog kan dragen.", "source": "<a href='bronnen.html#karanovic-2021'>Karanović (2021)</a> · <a href='bronnen.html#kovacevic-2008'>Kovačević (2008)</a> · <a href='bronnen.html#gligorijevic-2013'>Gligorijević (2013)</a> · <a href='bronnen.html#apsart-zd'>ApsArt (z.d.)</a> · <a href='https://lucopdb-cpu.github.io/Formaat-1999-2025/'>archief Formaat</a>"},
+{"n": 8, "title": "De Nederlandse lijn: van rehabilitatie naar weerbaarheid", "cat": "Praktijk", "catBg": "#dfe4df", "catFg": "#52504a", "stripe": "#52504a", "note": "Werkplaats Formaat bezocht in 2000 het TIPP Centre in Manchester. Daarna volgden <em>Mooi Verhaal</em> met jonge gedetineerden in PI De Marwei (2002–2004), Slimm!, de Nederlandse bewerking van Blagg!, de forumvoorstelling <em>Vieren</em> in bijna alle jeugdinrichtingen van Nederland (2003–2006), <em>Blagg! Transitions in Prison</em> met vrouwen in PI Ter Peel en de JVA Gelsenkirchen (2006–2007), en beeldentheater in PI Nieuwegein (2007–2008).", "stages": [{"t": "Binnen de logica van het systeem", "body": "<em>Mooi Verhaal</em> moest gedetineerden motiveren voor re-integratietrajecten, in de geest van het programma Terugdringen Recidive. Het rapport benoemt zelf “de paradoxale relatie tussen de beide doelstellingen van detentie, nl. veiligheid en reïntegratie” (Formaat, 2002, p. 14). Een penitentiair inrichtingswerker: “Ik heb menselijkheid gezien”. Een ander: “Bajes blijft bajes”."}, {"t": "Van gedrag naar weerbaarheid", "body": "Bij de vrouwen in Ter Peel en Gelsenkirchen was het uitgangspunt al verschoven: “the primary objective of Blagg! is not behavioural change, but empowerment” (Matthijssen, 2007, p. 7). Twee derde van de vrouwen zei vast te zitten vanwege een man, “reasons ranging from misplaced loyalty to violent coercion” (p. 17). En: “If Blagg! is regarded as a method of ‘soft coercion’ into behavioural change, its seeds will fall on stone.” (p. 30)"}, {"t": "De rechtbankscène", "body": "Een deelnemer vroeg wat er de volgende dag zou gebeuren, als hij voor de rechter moest verschijnen. De joker liet de scène uitspelen. De directie beoordeelde dat als obstructie van de rechtsgang."}, {"t": "Stoppen", "body": "Daarna stopte het detentiewerk van Formaat. De Dienst Justitiële Instellingen wilde niet verder subsidiëren, het effect kon door de privacywetgeving niet worden gemeten, en er kwam weerstand tegen het weerbaar maken van gedetineerden. Formaat concludeerde dat het werk was gegroeid van rehabilitatie naar weerbaarheid, en dat de concessies op de inhoud te groot waren geworden om het op deze manier voort te zetten."}], "tip": "Het Blagg-rapport noemt één voorwaarde die in geen enkel onderzoek voorkomt: een geschikte ruimte, en personeel dat het proces kan dragen. “There are no suitable spaces available in any correctional facility we have seen” (Matthijssen, 2007, p. 19). Onderzoek vooraf niet alleen de brongroep, maar ook het instituut: waar ligt de grens, en wat lever je niet in?", "source": "<a href='bronnen.html#formaat-2002'>Formaat (2002)</a> · <a href='bronnen.html#formaat-2005'>Formaat (2005)</a> · <a href='bronnen.html#matthijssen-2006'>Matthijssen (2006)</a> · <a href='bronnen.html#matthijssen-2007'>Matthijssen (2007)</a> · <a href='https://lucopdb-cpu.github.io/Formaat-1999-2025/'>archief Formaat</a>"}
+];
+
+let cur = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? renderStagesAcc(stages) : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+      ${tech.source ? `<div class="card-src">Bron: ${tech.source}</div>` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle kaarten</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+// Custom shortcuts blijven via aparte listener
+document.addEventListener('keydown', (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+});
+
+// Accordion helpers (stappen binnen één kaart)
+function renderStagesAcc(stages) {
+  const rows = stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--creme3)">
+      <span class="stages-lbl">${stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div>${rows}</div>`;
+}
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>
