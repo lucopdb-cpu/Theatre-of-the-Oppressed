@@ -11,6 +11,9 @@
  *   de donkere kleuren onder  @media screen { html[data-thema="donker"] ... }.
  *   De gedeelde onderdelen (balk bovenaan, voettekst, laagregel, knoppen van sessie.js) staan hieronder.
  * - Printen blijft altijd licht.
+ * - Taal: heeft een pagina in de <head> een <link rel="alternate" hreflang="en|nl" href="…"> naar dezelfde
+ *   pagina in de andere taal, dan komt naast de zon/maan-knop een knop EN of NL die daarheen leidt.
+ *   De teksten van de knoppen volgen <html lang="…">.
  */
 (function () {
   'use strict';
@@ -21,6 +24,7 @@
   // true: zonder eigen keuze volgt de site de instelling van het toestel (licht of donker).
   // false: alleen de knop schakelt (gebruikt tijdens de proef, zolang niet alle pagina's klaar waren).
   var VOLG_TOESTEL = true;
+  var ENGELS = /^en/i.test(root.getAttribute('lang') || '');
 
   function keuze() { try { return localStorage.getItem(SLEUTEL); } catch (e) { return null; } }
   function toestel() { return VOLG_TOESTEL && mq && mq.matches ? 'donker' : 'licht'; }
@@ -51,8 +55,9 @@
     var knop = document.querySelector('.thema-knop');
     if (knop) {
       var naar = t === 'donker' ? 'licht' : 'donker';
-      knop.setAttribute('aria-label', 'Naar ' + naar + ' scherm');
-      knop.title = 'Naar ' + naar + ' scherm';
+      var label = ENGELS ? 'Switch to ' + (naar === 'licht' ? 'light' : 'dark') + ' mode' : 'Naar ' + naar + ' scherm';
+      knop.setAttribute('aria-label', label);
+      knop.title = label;
     }
   }
 
@@ -77,14 +82,21 @@
     '.thema-knop:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}',
     '.thema-knop .tk-zon{display:none}',
     '.thema-knop.los{position:absolute;top:14px;right:14px;z-index:50}',
+    '.taal-knop{display:inline-flex;align-items:center;justify-content:center;height:31px;margin-left:auto;padding:0 11px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-decoration:none;transition:background .15s,color .15s}',
+    '.taal-knop:hover{background:rgba(60,45,30,.13);color:#1a1814}',
+    '.taal-knop:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}',
+    '.arsenaal-nav .taal-knop{padding:0 11px}',
+    '.taal-knop + .thema-knop{margin-left:0}',
+    '.taal-knop.los{position:absolute;top:14px;right:56px;z-index:50}',
+    '@media print{.taal-knop{display:none!important}}',
     'html.thema-overgang,html.thema-overgang *{transition:background-color .3s,color .3s,border-color .3s!important}',
     '@media print{.thema-knop{display:none!important}}',
     /* donker: gedeelde onderdelen */
     '@media screen{',
     'html[data-thema="donker"] .thema-knop .tk-zon{display:block}',
     'html[data-thema="donker"] .thema-knop .tk-maan{display:none}',
-    'html[data-thema="donker"] .thema-knop,html[data-thema="donker"] .arsenaal-nav a{background:rgba(236,230,218,.08);color:#c9c1b3}',
-    'html[data-thema="donker"] .thema-knop:hover,html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(236,230,218,.15);color:#f1ebe0}',
+    'html[data-thema="donker"] .thema-knop,html[data-thema="donker"] .taal-knop,html[data-thema="donker"] .arsenaal-nav a{background:rgba(236,230,218,.08);color:#c9c1b3}',
+    'html[data-thema="donker"] .thema-knop:hover,html[data-thema="donker"] .taal-knop:hover,html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(236,230,218,.15);color:#f1ebe0}',
     'html[data-thema="donker"] .thema-knop:focus-visible,html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline-color:#d9a462}',
     'html[data-thema="donker"] .arsenaal-footer{border-top-color:rgba(236,230,218,.14);color:#a39b8e}',
     'html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(236,230,218,.3)}',
@@ -108,6 +120,29 @@
   stijl.textContent = CSS;
   (document.head || root).appendChild(stijl);
 
+  // Knop naar dezelfde pagina in de andere taal (alleen als de pagina die vertaling aankondigt)
+  function taalKnop() {
+    var eigen = ENGELS ? 'en' : 'nl';
+    var links = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    for (var i = 0; i < links.length; i++) {
+      var tl = (links[i].getAttribute('hreflang') || '').toLowerCase().slice(0, 2);
+      if (tl === eigen || (tl !== 'en' && tl !== 'nl')) continue;
+      var a = document.createElement('a');
+      a.className = 'taal-knop';
+      var doel = links[i].getAttribute('href');
+      a.href = doel;
+      a.addEventListener('click', function () { this.href = this.getAttribute('data-doel') + location.hash; });
+      a.setAttribute('data-doel', doel);
+      a.hreflang = tl;
+      a.lang = tl;
+      a.textContent = tl.toUpperCase();
+      a.title = tl === 'en' ? 'English version' : 'Nederlandse versie';
+      a.setAttribute('aria-label', a.title);
+      return a;
+    }
+    return null;
+  }
+
   function zetKnop() {
     if (document.querySelector('.thema-knop')) return;
     var knop = document.createElement('button');
@@ -116,8 +151,12 @@
     knop.innerHTML = MAAN + ZON;
     knop.addEventListener('click', wissel);
     var nav = document.querySelector('.arsenaal-nav');
-    if (nav) nav.appendChild(knop);
-    else { knop.classList.add('los'); document.body.appendChild(knop); }
+    var taal = taalKnop();
+    if (nav) { if (taal) nav.appendChild(taal); nav.appendChild(knop); }
+    else {
+      if (taal) { taal.classList.add('los'); document.body.appendChild(taal); }
+      knop.classList.add('los'); document.body.appendChild(knop);
+    }
     pas();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', zetKnop);

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#b8803c">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../index.html">
+<link rel="alternate" hreflang="en" href="index.html">
+  <title>The Joker's Arsenal — Theatre of the Oppressed Toolkit</title>
+<meta name="description" content="Theatre of the Oppressed toolkit for Jokers and facilitators. 406 exercises, your own selection, and methods from Boal, Freire, Spolin and Moreno.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="The Joker's Arsenal — Theatre of the Oppressed Toolkit">
+<meta property="og:description" content="Theatre of the Oppressed toolkit for Jokers and facilitators. 406 exercises, your own selection, and methods from Boal, Freire, Spolin and Moreno.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Joker's Arsenal — Theatre of the Oppressed Toolkit">
+<meta name="twitter:description" content="Theatre of the Oppressed toolkit for Jokers and facilitators. 406 exercises, your own selection, and methods from Boal, Freire, Spolin and Moreno.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <script src="../thema.js"></script>
+<style>
+    /* Base reset and variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:#2a2824;
+      --ink2:#52504a;
+      --ink3:#8b8881;
+      --paper:#f2efe9;
+      --paper2:#e9e4db;
+      --paper3:#e8e0d4;
+      --amber:#8c5e2a;
+      --amber-light:#f0d4a8;
+      --red:#8b1a1a;
+      --blue:#2c4a6b;
+      --blue-light:#dde5ee;
+      --green:#0F6E56;
+      --green-light:#d8ece5;
+      --pink:#993556;
+      --pink-light:#f2dfe5;
+      --purple:#7a2a4f;
+      --purple-light:#f2e1e7;
+      --serif:'Playfair Display', Georgia, serif;
+      --body:'Source Serif 4', Georgia, serif;
+      --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--body);
+      background:var(--paper);
+      color:var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--paper3);
+    }
+
+    .header h1 {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color:var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .header .subtitle {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color:var(--ink3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .header .description {
+      font-family: var(--body);
+      font-size: 1.125rem;
+      color:var(--ink2);
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* Main content */
+    .main {
+      padding: 50px 0;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color:var(--ink);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background:var(--paper3);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card */
+    .card {
+      display: block;
+      background:#faf7f1;
+      border: 1px solid var(--paper3);
+      border-radius: 16px;
+      padding: 30px;
+      text-decoration:none;
+      color:inherit;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(26, 24, 20, 0.03);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(26, 24, 20, 0.08);
+      border-color: var(--accent, var(--amber));
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card h2 {
+      font-family: var(--serif);
+      font-size: 1.375rem;
+      font-weight: 400;
+      color:var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .card .meta {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color:var(--ink3);
+      margin-bottom: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .card p {
+      font-family: var(--body);
+      font-size: 0.875rem;
+      color:var(--ink2);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background:var(--badge-bg, var(--amber-light));
+      color:var(--badge-color, var(--amber));
+      border: 1px solid var(--badge-bg, var(--amber-light));
+    }
+
+    .arrow {
+      font-size: 1.25rem;
+      color:var(--accent, var(--amber));
+      font-weight: 300;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--paper3);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      font-family: var(--body);
+      font-size: 0.875rem;
+      color:var(--ink2);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .footer-license {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      color:var(--ink3);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .footer-license a {
+      color:var(--amber);
+      text-decoration:none;
+      border-bottom: 1px solid var(--amber-light);
+      font-style: normal;
+      font-weight: 500;
+      transition: border-color 0.15s ease;
+    }
+
+    .footer-license a:hover {
+      border-bottom-color: var(--amber);
+    }
+
+    /* Placeholder card — in opbouw, nog niet klikbaar */
+    .card.placeholder {
+      cursor: default;
+      background:var(--paper2);
+      border-style: dashed;
+      border-color: var(--paper3);
+      opacity: 0.88;
+    }
+
+    .card.placeholder:hover {
+      transform: none;
+      box-shadow: 0 1px 3px rgba(26, 24, 20, 0.03);
+      border-color: var(--paper3);
+    }
+
+    .card.placeholder .arrow {
+      opacity: 0.3;
+    }
+
+    .badge.soon {
+      background:var(--paper3);
+      color:var(--ink2);
+      border-color: var(--paper3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  
+/* Joker-tekening in de kop */
+.arsenaal-joker{display:block;width:150px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--amber:#d3a06d;--amber-light:#402e0f;--red:#ff988c;--blue:#a4c7ee;--blue-light:#23282d;--green:#75c7ab;--green-light:#1c2824;--pink:#fb8dab;--pink-light:#2e2327;--purple:#fda0c5;--purple-light:#2c2226}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .header{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .header h1{color:var(--ink)}
+html[data-thema="donker"] .header .subtitle{color:var(--ink3)}
+html[data-thema="donker"] .header .description{color:var(--ink2)}
+html[data-thema="donker"] .section-title{color:var(--ink)}
+html[data-thema="donker"] .section-line{background:var(--paper3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper3)}
+html[data-thema="donker"] .card:hover{border-color:var(--accent, var(--amber))}
+html[data-thema="donker"] .card h2{color:var(--ink)}
+html[data-thema="donker"] .card .meta{color:var(--ink3)}
+html[data-thema="donker"] .card p{color:var(--ink2)}
+html[data-thema="donker"] .badge{background:var(--badge-bg, var(--amber-light));color:var(--badge-color, var(--amber));border:1px solid var(--badge-bg, var(--amber-light))}
+html[data-thema="donker"] .arrow{color:var(--accent, var(--amber))}
+html[data-thema="donker"] .footer{border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .footer-text{color:var(--ink2)}
+html[data-thema="donker"] .footer-license{color:var(--ink3)}
+html[data-thema="donker"] .footer-license a{color:var(--amber);border-bottom:1px solid var(--amber-light)}
+html[data-thema="donker"] .footer-license a:hover{border-bottom-color:var(--amber)}
+html[data-thema="donker"] .card.placeholder{background:var(--paper2);border-color:var(--paper3)}
+html[data-thema="donker"] .card.placeholder:hover{border-color:var(--paper3)}
+html[data-thema="donker"] .badge.soon{background:var(--paper3);color:var(--ink2);border-color:var(--paper3)}
+html[data-thema="donker"] [style="--accent:#4a4f55; --icon-bg:#dfe0e2; --badge-bg:#dfe0e2; --badge-color:#4a4f55;"]{--accent:#babfc7 !important;--icon-bg:#292a2c !important;--badge-bg:#292a2c !important;--badge-color:#babfc7 !important}
+html[data-thema="donker"] [style="--accent:#5c3d1e; --icon-bg:#f0e4cf; --badge-bg:#f0e4cf; --badge-color:#5c3d1e;"]{--accent:#e3bd9b !important;--icon-bg:#2c2518 !important;--badge-bg:#2c2518 !important;--badge-color:#e3bd9b !important}
+html[data-thema="donker"] [style="--accent:#8c5e2a; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;"]{--accent:#d3a06d !important;--icon-bg:#1e1a12 !important;--badge-bg:#1e1a12 !important;--badge-color:#d3a06d !important}
+html[data-thema="donker"] [style="--accent:#0F6E56; --icon-bg:#E1F5EE; --badge-bg:#E1F5EE; --badge-color:#0F6E56;"]{--accent:#75c7ab !important;--icon-bg:#14201d !important;--badge-bg:#14201d !important;--badge-color:#75c7ab !important}
+html[data-thema="donker"] [style="--accent:#a8321f; --icon-bg:#f7e4df; --badge-bg:#f7e4df; --badge-color:#a8321f;"]{--accent:#ff8870 !important;--icon-bg:#2b201d !important;--badge-bg:#2b201d !important;--badge-color:#ff8870 !important}
+html[data-thema="donker"] [style="--accent:#d97706; --icon-bg:#fef3c7; --badge-bg:#fef3c7; --badge-color:#d97706;"]{--accent:#cc6b00 !important;--icon-bg:#231c00 !important;--badge-bg:#231c00 !important;--badge-color:#cc6b00 !important}
+html[data-thema="donker"] [style="--accent:#8b1a1a; --icon-bg:#fde8e0; --badge-bg:#fde8e0; --badge-color:#8b1a1a;"]{--accent:#ff988c !important;--icon-bg:#281c18 !important;--badge-bg:#281c18 !important;--badge-color:#ff988c !important}
+html[data-thema="donker"] [style="--accent:#2c4a6b; --icon-bg:#e6eef7; --badge-bg:#e6eef7; --badge-color:#2c4a6b;"]{--accent:#a4c7ee !important;--icon-bg:#1b2025 !important;--badge-bg:#1b2025 !important;--badge-color:#a4c7ee !important}
+html[data-thema="donker"] [style="--accent:#1a3a5c; --icon-bg:#dde7f2; --badge-bg:#dde7f2; --badge-color:#1a3a5c;"]{--accent:#acd1fb !important;--icon-bg:#20262d !important;--badge-bg:#20262d !important;--badge-color:#acd1fb !important}
+html[data-thema="donker"] [style="--accent:#8b3a2e; --icon-bg:#f5e5e0; --badge-bg:#f5e5e0; --badge-color:#8b3a2e;"]{--accent:#f99d8d !important;--icon-bg:#29201e !important;--badge-bg:#29201e !important;--badge-color:#f99d8d !important}
+html[data-thema="donker"] [style="--accent:#b8803c; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;"]{--accent:#ba823e !important;--icon-bg:#1e1a12 !important;--badge-bg:#1e1a12 !important;--badge-color:#d3a06d !important}
+html[data-thema="donker"] [style="--accent:#2d5a3e; --icon-bg:#dce8e1; --badge-bg:#dce8e1; --badge-color:#2d5a3e;"]{--accent:#9cccab !important;--icon-bg:#212924 !important;--badge-bg:#212924 !important;--badge-color:#9cccab !important}
+html[data-thema="donker"] [style="--accent:#993556; --icon-bg:#fbe8ee; --badge-bg:#fbe8ee; --badge-color:#993556;"]{--accent:#fb8dab !important;--icon-bg:#261b1f !important;--badge-bg:#261b1f !important;--badge-color:#fb8dab !important}
+html[data-thema="donker"] [style="--accent:#185FA5; --icon-bg:#E6F1FB; --badge-bg:#E6F1FB; --badge-color:#185FA5;"]{--accent:#74b8ff !important;--icon-bg:#181e24 !important;--badge-bg:#181e24 !important;--badge-color:#74b8ff !important}
+html[data-thema="donker"] [style="--accent:#7a2a4f; --icon-bg:#FBEAF0; --badge-bg:#FBEAF0; --badge-color:#7a2a4f;"]{--accent:#fda0c5 !important;--icon-bg:#241b1e !important;--badge-bg:#241b1e !important;--badge-color:#fda0c5 !important}
+html[data-thema="donker"] [style="--accent:#185FA5; --icon-bg:#e6f1fb; --badge-bg:#e6f1fb; --badge-color:#0C447C;"]{--accent:#74b8ff !important;--icon-bg:#181e24 !important;--badge-bg:#181e24 !important;--badge-color:#92caff !important}
+html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-bg:#e8e0d4; --badge-color:#52504a;"]{--accent:#c0beb7 !important;--icon-bg:#2e2922 !important;--badge-bg:#2e2922 !important;--badge-color:#c0beb7 !important}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+.controle{text-decoration:underline dotted #c08a3e;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.proef-banner{margin:0 0 18px;padding:9px 14px;border:1px dashed #c08a3e;border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;line-height:1.45;color:#6b5a3f;background:rgba(192,138,62,.07);text-align:left}
+.header .taal-noot{margin-top:14px;font-size:13px;font-style:italic;color:var(--ink3,#8c857a)}
+.card .meta .nl-label{font-style:italic;white-space:nowrap}
+@media screen{html[data-thema="donker"] .proef-banner{color:#d9c7a8;background:rgba(220,170,106,.08)}}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="proef-banner">Proefversie van de Engelse vertaling, nog niet online. Een <span class="controle">stippellijn</span> betekent: nog na te kijken in Boal (2002) of in de oorspronkelijke bron.</div>
+    <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+    <h1>The Joker's Arsenal</h1>
+    <div class="subtitle">Theatre of the Oppressed Toolkit</div>
+    <div class="description">
+      Exercises, techniques, methods, attitudes and contexts from the Theatre of the Oppressed tradition. From Freire's pedagogical humus to Boal's classic games and present-day applications. For Jokers, facilitators and anyone who uses theatre for social change.
+    </div>
+    <div class="taal-noot">The English version is a work in progress. The TO Arsenal is available in English; the other sections open in Dutch for now.</div>
+  </header>
+
+  <main class="main">
+
+    <!-- Joker practice -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Joker practice</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../joker-praktijk.html" hreflang="nl" style="--accent:#4a4f55; --icon-bg:#dfe0e2; --badge-bg:#dfe0e2; --badge-color:#4a4f55;">
+          <div class="card-icon">🧭</div>
+          <h2>What does the Joker do — attitudes that carry the work</h2>
+          <div class="meta">6 cards · the act before the tool · <span class="nl-label">in Dutch</span></div>
+          <p>Before the Joker picks up any tools: six attitudes that carry the work. First the question of what you actually <em>do</em> when you are the Joker — not which tools you know, but which act takes place in you. Then Community-Led Research and Action as a research position (the community does its own research, the Joker facilitates). Trauma-informed practice with SAMHSA's four Rs. Consent-based facilitation and brave space (Arao &amp; Clemens, Rohd). Origin and the Joker as guest: what you do when you borrow from traditions you do not come from (Ramose, Smith, correspondence with Arun Naicker of Umtapo Centre). And finally, the position in relation to community arts (ICAF, Mind the Gap, Drama Box, PETA): a related register, a different promise. Not methods but attitudes — the basis on which all the other tools can work.</p>
+          <div class="card-footer">
+            <span class="badge">Attitude</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Humus layer -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Humus layer</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../freire.html" hreflang="nl" style="--accent:#5c3d1e; --icon-bg:#f0e4cf; --badge-bg:#f0e4cf; --badge-color:#5c3d1e;">
+          <div class="card-icon">🌱</div>
+          <h2>Paulo Freire — The suitcase</h2>
+          <div class="meta">9 techniques · Brazil, 1960s · the pedagogical humus · <span class="nl-label">in Dutch</span></div>
+          <p>Freire describes the suitcase in which Boal places his tools. Nine concrete techniques from the literacy campaigns with rural workers — from the listening survey to codification, from limit-situation to decoding. The ground on which Theatre of the Oppressed is built.</p>
+          <div class="card-footer">
+            <span class="badge">Freire</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- TO Arsenal -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">The central arsenal</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="to-arsenaal.html" style="--accent:#8c5e2a; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;">
+          <div class="card-icon">⚒️</div>
+          <h2>TO Arsenal</h2>
+          <div class="meta">406 exercises · two ways in: the Workshop and Boal's <em>Games for Actors and Non-Actors</em> · your own selection</div>
+          <p>The central toolkit. Exercises from the whole Theatre of the Oppressed tradition — from getting acquainted to forum, from body to image. Exercises you want to remember, you keep in My selection.</p>
+          <div class="card-footer">
+            <span class="badge">Main tool</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Image Theatre -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Image Theatre</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../beeldentheater.html" hreflang="nl" style="--accent:#0F6E56; --icon-bg:#E1F5EE; --badge-bg:#E1F5EE; --badge-color:#0F6E56;">
+          <div class="card-icon">🎨</div>
+          <h2>Image Theatre</h2>
+          <div class="meta">24 techniques · Peru 1973 · ALFIN · <span class="controle">synaletics</span> · dynamisation · <span class="nl-label">in Dutch</span></div>
+          <p>The foundation, the three-image architecture, sculpting and dynamisation, canonical exercises, the introspective Rainbow extension, image sequences and applications in research, climate and education — with Joker practice and pitfalls.</p>
+          <div class="card-footer">
+            <span class="badge">Foundation</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Rainbow of Desire -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Rainbow of Desire</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../introspectief.html" hreflang="nl" style="--accent:#8c5e2a; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;">
+          <div class="card-icon">🪞</div>
+          <h2>Introspective techniques</h2>
+          <div class="meta">9 techniques · Paris, 1980s · the cop in the head · <span class="nl-label">in Dutch</span></div>
+          <p>The nine introspective image techniques with which Boal investigates the inner oppressor. Developed in Paris, when he noticed that oppression in Europe lay more inside people's heads than out in the street. Navigable by phase, with Joker's tips and a power framework.</p>
+          <div class="card-footer">
+            <span class="badge">Introspective</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../prospectief.html" hreflang="nl" style="--accent:#0F6E56; --icon-bg:#E1F5EE; --badge-bg:#E1F5EE; --badge-color:#0F6E56;">
+          <div class="card-icon">🔭</div>
+          <h2>Prospective techniques</h2>
+          <div class="meta">15 techniques · future-oriented · the image as rehearsal for change · <span class="nl-label">in Dutch</span></div>
+          <p>Fifteen image techniques that do not question the oppression but explore the desired future. The image becomes a workspace for alternatives — how could it be different, how should it be, what is needed to get there?</p>
+          <div class="card-footer">
+            <span class="badge">Prospective</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Forum Theatre -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Forum Theatre</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../forum.html" hreflang="nl" style="--accent:#a8321f; --icon-bg:#f7e4df; --badge-bg:#f7e4df; --badge-color:#a8321f;">
+          <div class="card-icon">🔥</div>
+          <h2>Forum Theatre — method and practice</h2>
+          <div class="meta">19 cards · foundation · variations in scale · ethics · <span class="nl-label">in Dutch</span></div>
+          <p>The heart of Boal's method in 19 cards: foundation (spect-actor, anti-model, Joker), practice (warm-up, magic solution, analysis), the Curinga origin of the word Joker, variations in scale from a workshop (10–30) to a village square for thousands (Jana Sanskriti), cases from Cardboard Citizens and Shadow Liberation, and ethical pitfalls around catharsis, boundaries and the debrief.</p>
+          <div class="card-footer">
+            <span class="badge">Method</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="to-arsenaal.html#fase=forum" style="--accent:#d97706; --icon-bg:#fef3c7; --badge-bg:#fef3c7; --badge-color:#d97706;">
+          <div class="card-icon">🎭</div>
+          <h2>Forum exercises from the arsenal</h2>
+          <div class="meta">Boal's main technique · spect-actors · <span class="controle">rehearsal for the revolution</span></div>
+          <p>A scene of oppression is played twice. In the second round, the audience stops the performance and replaces the protagonist to try out other solutions. Theatre becomes a laboratory.</p>
+          <div class="card-footer">
+            <span class="badge">Exercises</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Newspaper Theatre -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Newspaper Theatre</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../krantentheater.html" hreflang="nl" style="--accent:#8b1a1a; --icon-bg:#fde8e0; --badge-bg:#fde8e0; --badge-color:#8b1a1a;">
+          <div class="card-icon">📰</div>
+          <h2>Newspaper Theatre</h2>
+          <div class="meta">12 techniques · Boal · the news as theatre material · <span class="nl-label">in Dutch</span></div>
+          <p>Twelve techniques for questioning existing texts — news, policy, law, advertising — through theatre. Not performing the news, but exposing the ideology within it. A direct bridge to Forum Theatre.</p>
+          <div class="card-footer">
+            <span class="badge">Boal</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Theatre in public space -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Theatre in public space</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../onzichtbaar.html" hreflang="nl" style="--accent:#2c4a6b; --icon-bg:#e6eef7; --badge-bg:#e6eef7; --badge-color:#2c4a6b;">
+          <div class="card-icon">👤</div>
+          <h2>Invisible Theatre</h2>
+          <div class="meta">13 cards · protocol + cases + ethics · <span class="nl-label">in Dutch</span></div>
+          <p>Playing theatre in the street without the audience knowing that it is theatre. Born under dictatorship, developed further as an instrument for public dialogue. Including the ethical debate about deception.</p>
+          <div class="card-footer">
+            <span class="badge">Boal</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../legislatief.html" hreflang="nl" style="--accent:#1a3a5c; --icon-bg:#dde7f2; --badge-bg:#dde7f2; --badge-color:#1a3a5c;">
+          <div class="card-icon">🏛️</div>
+          <h2>Legislative Theatre</h2>
+          <div class="meta">13 cards · Rio · NYC · UK · from Forum to law · <span class="nl-label">in Dutch</span></div>
+          <p>Boal's experiment as a city councillor (Rio 1993–96), translated by Katy Rubin and TONYC to the American context and then extended to Greater Manchester, Glasgow and Coventry. The theatrical route to legislation and policy change — with the WATCH-ACT-VOTE architecture, Policy Rangers, and concrete cases from Boal's thirteen laws to UK practice today.</p>
+          <div class="card-footer">
+            <span class="badge">Boal + Rubin</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- After Boal -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">After Boal</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../na-boal.html" hreflang="nl" style="--accent:#8b3a2e; --icon-bg:#f5e5e0; --badge-bg:#f5e5e0; --badge-color:#8b3a2e;">
+          <div class="card-icon">🔥</div>
+          <h2>Methodological innovations</h2>
+          <div class="meta">8 cards · Santos · J. Boal · Ganguly · Rubin · Alon · Thompson · Jackson · Diol · <span class="nl-label">in Dutch</span></div>
+          <p>During Boal's lifetime, and certainly after his death in 2009, Jokers have developed the method further within specific cultural and political contexts: feminist-intersectional practice (Berlin), rural Forum systematisation (Calcutta), structural dramaturgy (Rio), policy-oriented Legislative Theatre (NYC and UK), polarised theatre between former enemies (Israel/Palestine), applied theatre and care (Manchester), artistic quality as recognition (London), and the forum in one's own circle with ecology as its starting point (Dakar).</p>
+          <div class="card-footer">
+            <span class="badge">Further development</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Theateratelier: a Dutch methodological contribution -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Theateratelier</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../theateratelier.html" hreflang="nl" style="--accent:#b8803c; --icon-bg:#fdf5e8; --badge-bg:#fdf5e8; --badge-color:#8c5e2a;">
+          <div class="card-icon">🏠</div>
+          <h2>Participatory drama as long-term group work</h2>
+          <div class="meta">8 cards · Formaat Rotterdam · 1999–2025 · Opdebeeck · <span class="nl-label">in Dutch</span></div>
+          <p>A Dutch contribution to TO: a way of working that Luc Opdebeeck shaped during his artistic leadership at Werkplaats Formaat (a Rotterdam workshop for participatory drama), in which the same group meets weekly for months. Boal's tools in an institutional setting, Freire's pedagogy as the ground, Moreno's logic of action as a forerunner. From Buurtatelier Delfshaven to Maia's in de Stad, with the Movisie method description and the research into quality of life as its foundation.</p>
+          <div class="card-footer">
+            <span class="badge">Dutch practice</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Atlas and regional deep dives (hub) -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Atlas — TO in the world</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../wereld.html" hreflang="nl" style="--accent:#2d5a3e; --icon-bg:#dce8e1; --badge-bg:#dce8e1; --badge-color:#2d5a3e;">
+          <div class="card-icon"><img src="../atlas-icoon.svg" alt="" width="36" height="36" style="display:block;margin:8px 0 23px"></div>
+          <h2>Atlas and regional deep dives</h2>
+          <div class="meta">Atlas · MENA · Asia · Africa · Central America · Brazil · Spanish-speaking South America · Europe · Oceania · North America · <span class="nl-label">in Dutch</span></div>
+          <p>Background and context: how TO takes shape in different regions. The atlas with 12 practices worldwide, plus regional deep dives per continent. Historical and geographical background to the toolkit.</p>
+          <div class="card-footer">
+            <span class="badge">Hub</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Complementary methods -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Complementary methods</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid">
+
+        <a class="card" href="../playback.html" hreflang="nl" style="--accent:#993556; --icon-bg:#fbe8ee; --badge-bg:#fbe8ee; --badge-color:#993556;">
+          <div class="card-icon">🔁</div>
+          <h2>Playback Theatre</h2>
+          <div class="meta">9 core forms · Jonathan Fox &amp; Jo Salas · 1975 · <span class="nl-label">in Dutch</span></div>
+          <p>The nine core techniques of Playback Theatre — from Fluid Sculpture to the full scene. Fox distinguishes three domains that the performer masters: the artistic, the social and the ritual. A chair, a story, an ensemble — the story comes back.</p>
+          <div class="card-footer">
+            <span class="badge">Fox</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../psychodrama.html" hreflang="nl" style="--accent:#185FA5; --icon-bg:#E6F1FB; --badge-bg:#E6F1FB; --badge-color:#185FA5;">
+          <div class="card-icon">🎭</div>
+          <h2>Psychodrama</h2>
+          <div class="meta">Moreno's methods · bridges to TO · <span class="nl-label">in Dutch</span></div>
+          <p>29 cards on the core of Moreno's psychodrama — techniques, roles, phases — with explicit links to Theatre of the Oppressed practice.</p>
+          <div class="card-footer">
+            <span class="badge">Moreno</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../impro.html" hreflang="nl" style="--accent:#7a2a4f; --icon-bg:#FBEAF0; --badge-bg:#FBEAF0; --badge-color:#7a2a4f;">
+          <div class="card-icon">🎲</div>
+          <h2>Impro</h2>
+          <div class="meta">18 cards · Spolin · game-based · presence and contact · <span class="nl-label">in Dutch</span></div>
+          <p>Exercises from Viola Spolin's improvisation tradition — game-based, body-based, focused on presence and contact between players. The methodological forerunner and sister practice of many TO exercises.</p>
+          <div class="card-footer">
+            <span class="badge">Spolin</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../feldenkrais.html" hreflang="nl" style="--accent:#185FA5; --icon-bg:#e6f1fb; --badge-bg:#e6f1fb; --badge-color:#0C447C;">
+          <div class="card-icon">🌊</div>
+          <h2>Feldenkrais</h2>
+          <div class="meta">13 lessons · awareness through movement · somatic education · <span class="nl-label">in Dutch</span></div>
+          <p>Thirteen Awareness Through Movement lessons — each with a link to TO and a Joker's tip. If you can perceive your movement pattern, you can change it. If you can perceive your oppression, you can act against it.</p>
+          <div class="card-footer">
+            <span class="badge">Feldenkrais</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="../detentie.html" hreflang="nl" style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-bg:#e8e0d4; --badge-color:#52504a;">
+          <div class="card-icon">🔒</div>
+          <h2>Theatre in Prison</h2>
+          <div class="meta">6 cards · TIPP · Geese · Brazil · Serbia · Formaat · <span class="nl-label">in Dutch</span></div>
+          <p>Theatre with prisoners between two logics: changing behaviour or making people resilient. From Blagg! and the fictional character in Manchester, the masks of Geese and prison staff as <em>multiplicadores</em> in Brazil, to Legislative Theatre in Serbia and the Dutch line of Formaat, and the boundary at which the institution shuts the work down.</p>
+          <div class="card-footer">
+            <span class="badge">Prison and probation</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">
+      Compiled by <strong>Luc Opdebeeck</strong> for educational, non-commercial use · <a href="../bronnen.html" hreflang="nl" style="color:inherit">Sources</a> (in Dutch)<br>
+      <em>The Joker's Arsenal</em> — work in progress.
+      <br>The Joker drawing is by Augusto Boal: a copy of the drawing he made in the guest book at the opening of Formaat's studio.
+    </div>
+    <div class="footer-license">
+      <em>The Joker's Arsenal</em> by Luc Opdebeeck is licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" target="_blank">CC BY-NC-SA 4.0</a>
+      — you may share and adapt it, with attribution, for non-commercial purposes, under the same licence.
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
