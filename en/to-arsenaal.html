@@ -15,7 +15,7 @@
 <title>TO Arsenal — 406 exercises, with Boal's Games for Actors and Non-Actors</title>
 <meta name="description" content="406 exercises from the Theatre of the Oppressed tradition, with two ways in: the Workshop (filter by phase, level, energy and origin) and Boal's Games for Actors and Non-Actors in his own arrangement. With your own selection to keep exercises.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="The Joker's Arsenal">
+<meta property="og:site_name" content="A Joker's Arsenal">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="TO Arsenal — 406 exercises, with Boal's Games for Actors and Non-Actors">
 <meta property="og:description" content="406 exercises from the Theatre of the Oppressed tradition, with two ways in: the Workshop (filter by phase, level, energy and origin) and Boal's Games for Actors and Non-Actors in his own arrangement. With your own selection to keep exercises.">
@@ -361,7 +361,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
 <body data-view="werkplaats">
 <div class="page">
 
-<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← The Joker's Arsenal</a></nav>
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
 <div class="proef-banner">Proefversie van de Engelse vertaling, nog niet online. Een <span class="controle">stippellijn</span> betekent: nog na te kijken in Boal (2002) of in de oorspronkelijke bron.</div>
 
 <header class="masthead">
@@ -461,7 +461,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
   <span class="sb-toggle-icon" id="sb-icon">▼</span>
 </div>
 <div class="sb-panel" id="sb-panel">
-  <div class="sb-printkop">My selection<small id="sb-printdatum">The Joker's Arsenal</small></div>
+  <div class="sb-printkop">My selection<small id="sb-printdatum">A Joker's Arsenal</small></div>
   <div class="sb-list" id="sb-list"></div>
   <div class="sb-actions">
     <button class="sb-btn" onclick="wisSessione()">Clear selection</button>
@@ -472,7 +472,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
 
 <footer class="arsenaal-footer">
   <div class="af-content">Sources: <a href="../bronnen.html#boal-2002">Boal (2002)</a>, <em>Games for actors and non-actors</em> (the Boal's book way in); the practice of Formaat, the work of Augusto Boal (also <em>The rainbow of desire</em>), Theatre for Living, Spolin, Rohd, Johnstone, Grotowski, Playback Theatre and other workshops; full references are in the <a href="../bronnen.html">list of sources</a> (in Dutch)</div>
-  <div class="af-site">Part of <a href="index.html">The Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
 </footer>
 </div><!-- /page -->
 
@@ -987,7 +987,7 @@ function selectiePlek(s) {
 
 function kopieerSessie() {
   if (!sessie.length) return;
-  var txt = 'My selection · The Joker\'s Arsenal\n\n';
+  var txt = 'My selection · A Joker\'s Arsenal\n\n';
   sessie.forEach(function(s, i) {
     var plek = selectiePlek(s), adres = selectieAdres(s);
     txt += (i+1) + '. ' + s.naam + (plek ? ' (' + plek + ')' : '') + '\n';
@@ -1021,7 +1021,7 @@ function renderSessie() {
   selN.textContent = n;
   selN.classList.toggle('vol', n > 0);
   try {
-    document.getElementById('sb-printdatum').textContent = 'The Joker\'s Arsenal · ' +
+    document.getElementById('sb-printdatum').textContent = 'A Joker\'s Arsenal · ' +
       new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   } catch (e) {}
 
