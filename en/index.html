@@ -319,6 +319,23 @@
 .arsenaal-joker{display:block;width:150px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
 @media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
 
+/* Voorwoord, uitklapbaar in de kop */
+.voorwoord{max-width:600px;margin:22px auto 0;text-align:left}
+.voorwoord summary{cursor:pointer;list-style:none;text-align:center;font-family:var(--sans);font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.voorwoord summary::-webkit-details-marker{display:none}
+.voorwoord summary:hover{color:var(--ink)}
+.voorwoord summary:focus-visible{outline:2px solid var(--amber);outline-offset:4px;border-radius:2px}
+.voorwoord:not([open]) .vw-toggle::after{content:' \25BC';font-size:.7em}
+.voorwoord[open] .vw-toggle::after{content:' \25B2';font-size:.7em}
+.voorwoord[open] .vw-dicht{display:none}
+.voorwoord:not([open]) .vw-open{display:none}
+.vw-tekst{margin-top:22px;padding-left:18px;border-left:3px solid var(--paper3);font-family:var(--body);font-size:1.02rem;line-height:1.7;color:var(--ink2);font-weight:300}
+.vw-boom{display:block;width:100%;max-width:440px;height:auto;margin:4px auto 26px}
+.vw-tekst h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--ink);margin:24px 0 6px}
+.vw-tekst p{margin:0 0 12px}
+.vw-tekst .vw-slot{margin-top:18px;font-style:italic;color:var(--ink3)}
+@media (max-width:600px){.vw-tekst{padding-left:12px;font-size:.98rem}}
+
 /* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
 @media screen{
 html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--amber:#d3a06d;--amber-light:#402e0f;--red:#ff988c;--blue:#a4c7ee;--blue-light:#23282d;--green:#75c7ab;--green-light:#1c2824;--pink:#fb8dab;--pink-light:#2e2327;--purple:#fda0c5;--purple-light:#2c2226}
@@ -380,6 +397,126 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
       Exercises, techniques, methods, attitudes and contexts from the Theatre of the Oppressed tradition. From Freire's pedagogical humus to Boal's classic games and present-day applications. For Jokers, facilitators and anyone who uses theatre for social change.
     </div>
     <div class="taal-noot">The English version is a work in progress. The TO Arsenal is available in English; the other sections open in Dutch for now.</div>
+    <details class="voorwoord">
+      <summary><span class="vw-toggle"><span class="vw-dicht">Read the preface</span><span class="vw-open">Close the preface</span></span></summary>
+      <div class="vw-tekst">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="tb-titel tb-desc" class="to-boom vw-boom">
+          <title id="tb-titel">The tree of the Theatre of the Oppressed</title>
+          <desc id="tb-desc">In the soil: psychology, ethics, sociology, pedagogy, history and humanistic studies. Roots: image, sound and word. At the foot: solidarity and multiplication. On the trunk: the arsenal of games, and above it Image Theatre. In the crown: Legislative Theatre, Newspaper Theatre, Forum Theatre, Invisible Theatre and the Rainbow of Desire. At the top: direct social action.</desc>
+          <style>
+            .to-boom{--tb-ink:var(--ink,#2a2824);--tb-ink2:var(--ink2,#52504a);--tb-ink3:var(--ink3,#8b8881);--tb-paper:var(--paper,#f2efe9);--tb-soil:var(--paper2,#e9e4db);--tb-amber:var(--amber,#8c5e2a);--tb-amber-l:var(--amber-light,#f0d4a8)}
+            .tb-lijn{fill:none;stroke:var(--tb-ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+            .tb-lob{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2.2}
+            .tb-top{fill:var(--tb-amber-l);stroke:var(--tb-amber);stroke-width:2.6}
+            .tb-stam{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2.2;stroke-linejoin:round}
+            .tb-wortel{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2}
+            .tb-grond{fill:var(--tb-soil)}
+            .tb-pijl{fill:none;stroke:var(--tb-amber);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+            .tb-boompje{fill:none;stroke:var(--tb-ink2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+            .to-boom text{font-family:'Playfair Display',Georgia,serif;fill:var(--tb-ink);text-anchor:middle}
+            .tb-kruin{font-size:19px}
+            .tb-actie{font-size:17px;font-weight:700;letter-spacing:.06em;fill:var(--tb-amber)}
+            .tb-arsenaal{font-size:18px;font-style:italic;fill:var(--tb-amber)}
+            .tb-stamtekst{font-size:18px}
+            .tb-zij{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:15px;fill:var(--tb-ink2)}
+            .tb-voet{font-size:18px}
+            .tb-wortelt{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;fill:var(--tb-ink2)}
+            .tb-bodem{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:17px;fill:var(--tb-ink2)}
+          </style>
+          <defs>
+            <filter id="tb-hand" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="1" seed="7"/>
+              <feDisplacementMap in="SourceGraphic" scale="1.8"/>
+            </filter>
+            <path id="tb-w1" d="M122 727 C176 672 228 610 250 552"/>
+            <path id="tb-w2" d="M300 744 L300 556"/>
+            <path id="tb-w3" d="M350 552 C372 610 424 672 478 727"/>
+          </defs>
+
+          <!-- Grond -->
+          <path class="tb-grond" d="M18 548 C120 544 480 552 582 547 L582 800 L18 800 Z"/>
+
+          <g filter="url(#tb-hand)">
+            <!-- Wortels -->
+            <path class="tb-wortel" d="M229 546 C206 606 160 666 110 720 L134 734 C188 678 248 616 274 546 Z"/>
+            <path class="tb-wortel" d="M278 546 C281 620 283 680 286 748 L314 748 C317 680 319 620 322 546 Z"/>
+            <path class="tb-wortel" d="M371 546 C394 606 440 666 490 720 L466 734 C412 678 352 616 326 546 Z"/>
+
+            <!-- Stam -->
+            <path class="tb-stam" d="M262 322 C258 400 254 470 228 548 L374 548 C348 470 342 400 340 322 Z"/>
+
+            <!-- Grondlijn -->
+            <path class="tb-lijn" d="M18 548 C120 544 480 552 582 547"/>
+
+            <!-- Kruin: achterste lobben eerst -->
+            <circle class="tb-lob" cx="188" cy="168" r="84"/>
+            <circle class="tb-lob" cx="412" cy="168" r="84"/>
+            <circle class="tb-lob" cx="182" cy="282" r="74"/>
+            <circle class="tb-lob" cx="418" cy="282" r="78"/>
+            <circle class="tb-lob" cx="300" cy="232" r="84"/>
+            <ellipse class="tb-top" cx="300" cy="86" rx="92" ry="62"/>
+
+            <!-- Pijlen in de stam -->
+            <path class="tb-pijl" d="M300 482 L300 440 M293 450 L300 438 L307 450"/>
+            <path class="tb-pijl" d="M300 378 L300 338 M293 348 L300 336 L307 348"/>
+
+            <!-- Boompjes bij multiplicatie -->
+            <path class="tb-boompje" d="M530 546 L530 512 M530 516 C514 516 510 500 518 494 C516 482 532 476 538 486 C550 484 552 500 544 504 C548 514 538 518 530 516"/>
+            <path class="tb-boompje" d="M562 546 L562 522 M562 524 C552 524 550 514 555 510 C554 502 566 498 569 506 C577 506 577 516 571 519 C572 525 566 526 562 524"/>
+          </g>
+
+          <!-- Teksten (zonder vervorming, voor leesbaarheid) -->
+          <text class="tb-actie" x="300" y="80">DIRECT</text>
+          <text class="tb-actie" x="300" y="102">SOCIAL ACTION</text>
+
+          <text class="tb-kruin" x="168" y="146">Legislative</text>
+          <text class="tb-kruin" x="168" y="170">Theatre</text>
+
+          <text class="tb-kruin" x="432" y="146">Newspaper</text>
+          <text class="tb-kruin" x="432" y="170">Theatre</text>
+
+          <text class="tb-kruin" x="300" y="232">Forum</text>
+          <text class="tb-kruin" x="300" y="256">Theatre</text>
+
+          <text class="tb-kruin" x="160" y="288">Rainbow</text>
+          <text class="tb-kruin" x="160" y="312">of Desire</text>
+
+          <text class="tb-kruin" x="444" y="288">Invisible</text>
+          <text class="tb-kruin" x="444" y="312">Theatre</text>
+
+          <text class="tb-stamtekst" x="300" y="402">Image</text>
+          <text class="tb-stamtekst" x="300" y="422">Theatre</text>
+          <text class="tb-arsenaal" x="300" y="506" font-size="17">Arsenal</text>
+          <text class="tb-arsenaal" x="300" y="526" font-size="17">of games</text>
+
+          <text class="tb-voet" x="118" y="534">Solidarity</text>
+          <text class="tb-voet" x="430" y="534">Multiplication</text>
+
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w1" startOffset="50%">Image</textPath></text>
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w2" startOffset="50%">Sound</textPath></text>
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w3" startOffset="50%">Word</textPath></text>
+
+          <text class="tb-bodem" x="96" y="600">Psychology</text>
+          <text class="tb-bodem" x="64" y="704">Ethics</text>
+          <text class="tb-bodem" x="205" y="780">Sociology</text>
+          <text class="tb-bodem" x="395" y="780">Pedagogy</text>
+          <text class="tb-bodem" x="504" y="600">History</text>
+          <text class="tb-bodem" x="532" y="694">Humanistic</text>
+          <text class="tb-bodem" x="532" y="714">studies</text>
+        </svg>
+        <p>Anyone who draws the tree of the Theatre of the Oppressed starts with the roots: ethics, solidarity, history. From them grow image, sound and word. On the trunk stands the arsenal of games and exercises, and above it Image Theatre. In the crown are the forms many people know: Forum Theatre, Newspaper Theatre, Invisible Theatre, Legislative Theatre, the Rainbow of Desire. And right at the top is what it is all about: direct social action.</p>
+        <p>This Arsenal takes its name from that trunk, but it is never about the exercises themselves. An exercise only makes sense when it sets something in motion, in a group, in a neighbourhood, in policy. As a social worker, I see it as my task to make visible what remains invisible, to put injustice on the agenda, and to return what is experienced as a personal problem to where it belongs: in society. Putting issues on the agenda and politicising them are part of the work. Perhaps they are even its heart.</p>
+        <h3>Multiplication</h3>
+        <p>Knowledge that stays in one studio disappears with that studio. That is why the tree also holds multiplication: what you learn, you pass on, so that new trees can grow elsewhere. That is why this Arsenal is public, and why anyone may use, share and adapt it.</p>
+        <h3>The roots</h3>
+        <p>This content is not mine alone. It grew over twenty-five years at Werkplaats Formaat (a Rotterdam workshop for participatory drama), together with professionals, volunteers and above all the participants of countless workshops, ateliers and performances. They are the roots of this work. The Joker above this page was drawn by Augusto Boal in the guest book at the opening of Formaat's studio. This Arsenal is a gesture of appreciation to everyone who shared this journey.</p>
+        <h3>What it is, and what it is not</h3>
+        <p>This is neither an introduction nor a recipe book, but a deepening for those who already work with groups. An exercise never works the same way everywhere. That depends on the source group, the moment and the conversation afterwards. The Arsenal is also incomplete: a selection, seen through a Dutch and European lens, and with gaps.</p>
+        <h3>A beginning</h3>
+        <p>Whoever reads this is not a spectator. Use what you find here, change it, and pass on what you discovered. The Arsenal will never be finished. No spect-actors, no social action.</p>
+        <p class="vw-slot">Luc Opdebeeck, Rotterdam, first version, October 2026</p>
+      </div>
+    </details>
   </header>
 
   <main class="main">
