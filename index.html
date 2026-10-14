@@ -319,6 +319,22 @@
 .arsenaal-joker{display:block;width:150px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
 @media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
 
+/* Voorwoord, uitklapbaar in de kop */
+.voorwoord{max-width:600px;margin:22px auto 0;text-align:left}
+.voorwoord summary{cursor:pointer;list-style:none;text-align:center;font-family:var(--sans);font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.voorwoord summary::-webkit-details-marker{display:none}
+.voorwoord summary:hover{color:var(--ink)}
+.voorwoord summary:focus-visible{outline:2px solid var(--amber);outline-offset:4px;border-radius:2px}
+.voorwoord:not([open]) .vw-toggle::after{content:' \25BC';font-size:.7em}
+.voorwoord[open] .vw-toggle::after{content:' \25B2';font-size:.7em}
+.voorwoord[open] .vw-dicht{display:none}
+.voorwoord:not([open]) .vw-open{display:none}
+.vw-tekst{margin-top:22px;padding-left:18px;border-left:3px solid var(--paper3);font-family:var(--body);font-size:1.02rem;line-height:1.7;color:var(--ink2);font-weight:300}
+.vw-tekst h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--ink);margin:24px 0 6px}
+.vw-tekst p{margin:0 0 12px}
+.vw-tekst .vw-slot{margin-top:18px;font-style:italic;color:var(--ink3)}
+@media (max-width:600px){.vw-tekst{padding-left:12px;font-size:.98rem}}
+
 /* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
 @media screen{
 html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--amber:#d3a06d;--amber-light:#402e0f;--red:#ff988c;--blue:#a4c7ee;--blue-light:#23282d;--green:#75c7ab;--green-light:#1c2824;--pink:#fb8dab;--pink-light:#2e2327;--purple:#fda0c5;--purple-light:#2c2226}
@@ -377,6 +393,22 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
     <div class="description">
       Oefeningen, technieken, methodes, houdingen en contexten uit de Theatre of the Oppressed-traditie. Van Freires pedagogische humus tot Boals klassieke spellen en hedendaagse toepassingen. Voor jokers, facilitators en iedereen die theater inzet voor sociale verandering.
     </div>
+    <details class="voorwoord">
+      <summary><span class="vw-toggle"><span class="vw-dicht">Voorwoord lezen</span><span class="vw-open">Voorwoord sluiten</span></span></summary>
+      <div class="vw-tekst">
+        <p>Wie de boom van het Theater van de Onderdrukten tekent, begint bij de wortels: ethiek, solidariteit, geschiedenis. Daaruit groeien beeld, geluid en woord. Op de stam staat het arsenaal van spellen en oefeningen, daarboven het beeldentheater. In de kruin staan de vormen die velen kennen: forumtheater, krantentheater, onzichtbaar theater, legislatief theater, de regenboog van verlangens. En helemaal bovenaan staat waar het allemaal om draait: directe sociale actie.</p>
+        <p>Dit Arsenaal draagt de naam van die stam, maar het gaat nooit om de oefeningen zelf. Een oefening heeft pas zin als ze iets in beweging zet, in een groep, in een wijk, in beleid. Als sociaal werker zie ik het als mijn taak om zichtbaar te maken wat onzichtbaar blijft, om onrecht te agenderen en wat als persoonlijk probleem wordt ervaren terug te leggen waar het hoort: in de samenleving. Agenderen en politiseren horen bij het vak. Misschien zijn ze er zelfs de kern van.</p>
+        <h3>Multiplicatie</h3>
+        <p>Kennis die in één werkplaats blijft, verdwijnt met die werkplaats. Daarom staat in de boom ook multiplicatie: wat je leert, geef je door, zodat elders nieuwe bomen kunnen groeien. Daarom is dit Arsenaal openbaar, en mag iedereen het gebruiken, delen en bewerken.</p>
+        <h3>De wortels</h3>
+        <p>Deze inhoud is niet van mij alleen. Ze groeide in vijfentwintig jaar Werkplaats Formaat in Rotterdam, samen met professionals, vrijwilligers en vooral de deelnemers van talloze workshops, ateliers en voorstellingen. Zij zijn de wortels van dit werk. De joker boven deze pagina tekende Augusto Boal in het gastenboek bij de opening van de werkplaats. Dit Arsenaal is een gebaar van waardering aan iedereen die deze reis heeft meegemaakt.</p>
+        <h3>Wat het is, en wat niet</h3>
+        <p>Dit is geen inleiding en geen receptenboek, maar een verdieping voor wie al met groepen werkt. Een oefening werkt nooit overal hetzelfde. Dat hangt af van de brongroep, het moment en het gesprek erna. Ik spreek van brongroep en niet van doelgroep, omdat de mensen met wie je werkt de bron van kennis zijn, niet het doel van een interventie. Het Arsenaal is ook onvolledig: een selectie, gezien met een Nederlandse en Europese blik, en met lacunes.</p>
+        <h3>Een begin</h3>
+        <p>Het Arsenaal zal nooit af zijn. Het is een vertrekpunt voor wat kan uitgroeien tot een gedeeld platform, waar jokers en brongroepen zelf oefeningen, varianten en ervaringen toevoegen. Want hier geldt wat in elke forumvoorstelling geldt: zonder spect-acteurs geen sociale actie.</p>
+        <p class="vw-slot">Luc Opdebeeck, Rotterdam, eerste versie, oktober 2026</p>
+      </div>
+    </details>
   </header>
 
   <main class="main">
