@@ -330,6 +330,7 @@
 .voorwoord[open] .vw-dicht{display:none}
 .voorwoord:not([open]) .vw-open{display:none}
 .vw-tekst{margin-top:22px;padding-left:18px;border-left:3px solid var(--paper3);font-family:var(--body);font-size:1.02rem;line-height:1.7;color:var(--ink2);font-weight:300}
+.vw-boom{display:block;width:100%;max-width:440px;height:auto;margin:4px auto 26px}
 .vw-tekst h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--ink);margin:24px 0 6px}
 .vw-tekst p{margin:0 0 12px}
 .vw-tekst .vw-slot{margin-top:18px;font-style:italic;color:var(--ink3)}
@@ -396,6 +397,109 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
     <details class="voorwoord">
       <summary><span class="vw-toggle"><span class="vw-dicht">Voorwoord lezen</span><span class="vw-open">Voorwoord sluiten</span></span></summary>
       <div class="vw-tekst">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="tb-titel tb-desc" class="to-boom vw-boom">
+          <title id="tb-titel">De boom van het Theater van de Onderdrukten</title>
+          <desc id="tb-desc">In de grond: psychologie, ethiek, sociologie, pedagogie, geschiedenis en humanistiek. Wortels: beeld, geluid en woord. Aan de voet: solidariteit en multiplicatie. Op de stam: het spellen-arsenaal en daarboven beeldentheater. In de kruin: legislatief theater, krantentheater, forumtheater, onzichtbaar theater en rainbow of desire. Bovenaan: directe sociale actie.</desc>
+          <style>
+            .to-boom{--tb-ink:var(--ink,#2a2824);--tb-ink2:var(--ink2,#52504a);--tb-ink3:var(--ink3,#8b8881);--tb-paper:var(--paper,#f2efe9);--tb-soil:var(--paper2,#e9e4db);--tb-amber:var(--amber,#8c5e2a);--tb-amber-l:var(--amber-light,#f0d4a8)}
+            .tb-lijn{fill:none;stroke:var(--tb-ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+            .tb-lob{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2.2}
+            .tb-top{fill:var(--tb-amber-l);stroke:var(--tb-amber);stroke-width:2.6}
+            .tb-stam{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2.2;stroke-linejoin:round}
+            .tb-wortel{fill:var(--tb-paper);stroke:var(--tb-ink);stroke-width:2}
+            .tb-grond{fill:var(--tb-soil)}
+            .tb-pijl{fill:none;stroke:var(--tb-amber);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+            .tb-boompje{fill:none;stroke:var(--tb-ink2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+            .to-boom text{font-family:'Playfair Display',Georgia,serif;fill:var(--tb-ink);text-anchor:middle}
+            .tb-kruin{font-size:19px}
+            .tb-actie{font-size:17px;font-weight:700;letter-spacing:.06em;fill:var(--tb-amber)}
+            .tb-arsenaal{font-size:18px;font-style:italic;fill:var(--tb-amber)}
+            .tb-stamtekst{font-size:18px}
+            .tb-zij{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:15px;fill:var(--tb-ink2)}
+            .tb-voet{font-size:18px}
+            .tb-wortelt{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;fill:var(--tb-ink2)}
+            .tb-bodem{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:17px;fill:var(--tb-ink2)}
+          </style>
+          <defs>
+            <filter id="tb-hand" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="1" seed="7"/>
+              <feDisplacementMap in="SourceGraphic" scale="1.8"/>
+            </filter>
+            <path id="tb-w1" d="M122 727 C176 672 228 610 250 552"/>
+            <path id="tb-w2" d="M300 744 L300 556"/>
+            <path id="tb-w3" d="M350 552 C372 610 424 672 478 727"/>
+          </defs>
+
+          <!-- Grond -->
+          <path class="tb-grond" d="M18 548 C120 544 480 552 582 547 L582 800 L18 800 Z"/>
+
+          <g filter="url(#tb-hand)">
+            <!-- Wortels -->
+            <path class="tb-wortel" d="M226 550 C206 606 160 666 110 720 L134 734 C188 678 248 616 274 552 Z"/>
+            <path class="tb-wortel" d="M278 552 C281 620 283 680 286 748 L314 748 C317 680 319 620 322 552 Z"/>
+            <path class="tb-wortel" d="M374 550 C394 606 440 666 490 720 L466 734 C412 678 352 616 326 552 Z"/>
+
+            <!-- Stam -->
+            <path class="tb-stam" d="M262 322 C258 400 254 470 228 552 L374 552 C348 470 342 400 340 322 Z"/>
+
+            <!-- Grondlijn -->
+            <path class="tb-lijn" d="M18 548 C120 544 480 552 582 547"/>
+
+            <!-- Kruin: achterste lobben eerst -->
+            <circle class="tb-lob" cx="188" cy="168" r="84"/>
+            <circle class="tb-lob" cx="412" cy="168" r="84"/>
+            <circle class="tb-lob" cx="182" cy="282" r="74"/>
+            <circle class="tb-lob" cx="418" cy="282" r="78"/>
+            <circle class="tb-lob" cx="300" cy="232" r="84"/>
+            <ellipse class="tb-top" cx="300" cy="86" rx="92" ry="62"/>
+
+            <!-- Pijlen in de stam -->
+            <path class="tb-pijl" d="M300 482 L300 440 M293 450 L300 438 L307 450"/>
+            <path class="tb-pijl" d="M300 378 L300 338 M293 348 L300 336 L307 348"/>
+
+            <!-- Boompjes bij multiplicatie -->
+            <path class="tb-boompje" d="M530 546 L530 512 M530 516 C514 516 510 500 518 494 C516 482 532 476 538 486 C550 484 552 500 544 504 C548 514 538 518 530 516"/>
+            <path class="tb-boompje" d="M562 546 L562 522 M562 524 C552 524 550 514 555 510 C554 502 566 498 569 506 C577 506 577 516 571 519 C572 525 566 526 562 524"/>
+          </g>
+
+          <!-- Teksten (zonder vervorming, voor leesbaarheid) -->
+          <text class="tb-actie" x="300" y="80">DIRECTE</text>
+          <text class="tb-actie" x="300" y="102">SOCIALE ACTIE!</text>
+
+          <text class="tb-kruin" x="168" y="146">Legislatief</text>
+          <text class="tb-kruin" x="168" y="170">theater</text>
+
+          <text class="tb-kruin" x="432" y="146">Kranten-</text>
+          <text class="tb-kruin" x="432" y="170">theater</text>
+
+          <text class="tb-kruin" x="300" y="232">Forum-</text>
+          <text class="tb-kruin" x="300" y="256">theater</text>
+
+          <text class="tb-kruin" x="160" y="288">Rainbow</text>
+          <text class="tb-kruin" x="160" y="312">of Desire</text>
+
+          <text class="tb-kruin" x="444" y="288">Onzichtbaar</text>
+          <text class="tb-kruin" x="444" y="312">theater</text>
+
+          <text class="tb-stamtekst" x="300" y="402">Beelden-</text>
+          <text class="tb-stamtekst" x="300" y="422">theater</text>
+          <text class="tb-arsenaal" x="300" y="506" font-size="17">Spellen-</text>
+          <text class="tb-arsenaal" x="300" y="526" font-size="17">arsenaal</text>
+
+          <text class="tb-voet" x="118" y="534">Solidariteit</text>
+          <text class="tb-voet" x="430" y="534">Multiplicatie</text>
+
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w1" startOffset="50%">Beeld</textPath></text>
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w2" startOffset="50%">Geluid</textPath></text>
+          <text class="tb-wortelt" dy="4.5"><textPath href="#tb-w3" startOffset="50%">Woord</textPath></text>
+
+          <text class="tb-bodem" x="96" y="600">Psychologie</text>
+          <text class="tb-bodem" x="64" y="704">Ethiek</text>
+          <text class="tb-bodem" x="205" y="780">Sociologie</text>
+          <text class="tb-bodem" x="395" y="780">Pedagogie</text>
+          <text class="tb-bodem" x="504" y="600">Geschiedenis</text>
+          <text class="tb-bodem" x="530" y="704">Humanistiek</text>
+        </svg>
         <p>Wie de boom van het Theater van de Onderdrukten tekent, begint bij de wortels: ethiek, solidariteit, geschiedenis. Daaruit groeien beeld, geluid en woord. Op de stam staat het arsenaal van spellen en oefeningen, daarboven het beeldentheater. In de kruin staan de vormen die velen kennen: forumtheater, krantentheater, onzichtbaar theater, legislatief theater, de regenboog van verlangens. En helemaal bovenaan staat waar het allemaal om draait: directe sociale actie.</p>
         <p>Dit Arsenaal draagt de naam van die stam, maar het gaat nooit om de oefeningen zelf. Een oefening heeft pas zin als ze iets in beweging zet, in een groep, in een wijk, in beleid. Als sociaal werker zie ik het als mijn taak om zichtbaar te maken wat onzichtbaar blijft, om onrecht te agenderen en wat als persoonlijk probleem wordt ervaren terug te leggen waar het hoort: in de samenleving. Agenderen en politiseren horen bij het vak. Misschien zijn ze er zelfs de kern van.</p>
         <h3>Multiplicatie</h3>
