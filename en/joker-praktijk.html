@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<script src="../thema.js"></script>
+<script src="../nav.js" defer></script>
+<meta name="theme-color" content="#4a4f55">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../joker-praktijk.html">
+<link rel="alternate" hreflang="en" href="joker-praktijk.html">
+<title>Joker practice — what does the Joker do</title>
+<meta name="description" content="Six attitudes that carry the work of the Joker, starting with the question of what a Joker actually does. CLRA, trauma-informed practice, consent, origin, community arts. The basis on which the tools can work.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Joker practice — what does the Joker do">
+<meta property="og:description" content="Six attitudes that carry the work of the Joker, starting with the question of what a Joker actually does. CLRA, trauma-informed practice, consent, origin, community arts. The basis on which the tools can work.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/joker-praktijk.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Joker practice — what does the Joker do">
+<meta name="twitter:description" content="Six attitudes that carry the work of the Joker, starting with the question of what a Joker actually does. CLRA, trauma-informed practice, consent, origin, community arts. The basis on which the tools can work.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+--paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+--creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+--blue:#4a4f55;--blue2:#5c6169;--blue3:#8f959d;--blue4:#dfe0e2;
+--rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+--gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#e7e9ec;
+--rule:rgba(42,40,36,.1);
+--serif:'Playfair Display',Georgia,serif;
+--body:'Source Serif 4',Georgia,serif;
+--mono:'JetBrains Mono','Courier New',monospace;
+--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--creme3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s;font-family:inherit}
+.acc-trigger:hover{background:var(--creme2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--creme:#201d18;--creme2:#25221b;--creme3:#332f23;--creme4:#4a4431;--blue:#babfc7;--blue2:#adb2bb;--blue3:#838991;--blue4:#292a2c;--rust:#f0a173;--rust2:#e39367;--rust3:#916535;--rust4:#292112;--gray:#9ea6b5;--gray2:#9098a3;--gray3:#565964;--gray4:#212326;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--blue)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--blue)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--blue)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--blue3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--blue)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .card-tip{background:var(--blue4);border-left:3px solid var(--blue2)}
+html[data-thema="donker"] .tip-lbl{color:var(--blue)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--creme2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--blue4)}
+html[data-thema="donker"] .acc-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--blue);color:#161616;border-color:var(--blue2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--blue)}
+html[data-thema="donker"] .all-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .vt-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .footer{border-top:1px solid var(--rule);color:var(--ink3)}
+html[data-thema="donker"] .footer strong{color:var(--ink2)}
+html[data-thema="donker"] .footer em{color:var(--blue2)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+
+<!-- Masthead -->
+<div class="masthead">
+  <img src="../joker-donker.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Joker practice</div>
+<div class="app-name">Joker <em>practice</em></div>
+<div class="app-sub">foundation · CLRA · trauma-informed · consent-based · origin · community arts</div>
+<div class="context-note">
+Six attitudes about where the Joker stands, even before picking up any tools. First the question of what a Joker actually does — not which techniques they master, but which act takes place in them. Then: Community-Led Research and Action as a research position — the community does its own research and keeps control, the Joker facilitates. Trauma-informed practice as awareness: how do you prevent good intentions from re-traumatising people? Consent-based facilitation and brave space as a principle of form: the space is built, not assumed. Origin as the position of a guest: what does the Joker do when borrowing from traditions they do not come from themselves? Community arts as a related register: when do you work as a Joker within the logic of Forum, and when within the broader community-arts tradition? Not methods but attitudes. The basis on which all the other tools can work.
+</div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+<button class="nav-btn" id="prev">‹</button>
+<div class="tech-pills">
+<div class="tpill on" data-cat="all">All</div>
+<div class="tpill" data-cat="Foundation">Foundation</div>
+<div class="tpill" data-cat="Research position">Research position</div>
+<div class="tpill" data-cat="Attitude">Attitude</div>
+<div class="tpill" data-cat="Origin">Origin</div>
+<div class="tpill" data-cat="Positioning">Positioning</div>
+</div>
+<div class="nav-counter"><span id="current">1</span> / <span id="total">6</span></div>
+<button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+<button class="vt-btn on" data-view="step">Step by step</button>
+<button class="vt-btn" data-view="all">Overview</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+<kbd>←</kbd> <kbd>→</kbd> to navigate · <kbd>space</kbd> for overview
+</div>
+
+<footer class="arsenaal-footer">
+  <div class="af-content"><strong>Joker practice</strong> — Six attitudes that together form the basis of contemporary Joker work. Not methods, not techniques, but epistemological and ethical positions that carry any Forum practice — or undermine it when they are missing.<br>
+Roots: <a href='../bronnen.html#jackson-2009'>Jackson (2009)</a> (foundation) · <a href='../bronnen.html#woensdregt-2023'>Woensdregt, Rwigi &amp; van Stapele (2023)</a>, own practice (CLRA) · SAMHSA trauma-informed care framework, Carello &amp; Butler (trauma-informed) · Arao &amp; Clemens <em>From Safe Spaces to Brave Spaces</em> (2013), Rohd <em>Hope is Vital</em> (1998) (consent &amp; brave space) · Mogobe Ramose <em>African Philosophy Through Ubuntu</em> (1999), Linda Tuhiwai Smith <em>Decolonizing Methodologies</em> (1999/2021), correspondence with Arun Naicker (Umtapo Centre, Durban) (origin) · Eugene van Erven <em>Community Theatre: Global Perspectives</em> (2001), ICAF Rotterdam (since 2001), Sanjoy Ganguly <em>Jana Sanskriti</em> (Routledge 2010), Cecile Guidote-Alvarez/PETA (1967), Kok Heng Leun/Drama Box (1990), Tim Wheeler &amp; Susan Brown/Mind the Gap (1988), Jane Plastow on <em>African Theatre</em>, <a href='../bronnen.html#ngugi-1986'>Ngũgĩ wa Thiong'o (1986)</a> (community arts). Full references in the <a href='../bronnen.html'>list of sources</a> (in Dutch).</div>
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+</div>
+
+<script>
+const T = [
+ {
+  "n": 1,
+  "title": "What does a Joker do",
+  "cat": "Foundation",
+  "catBg": "#d8d4ce",
+  "catFg": "#3a3a3a",
+  "stripe": "#3a3a3a",
+  "note": "Before you take anything on — before you think about CLRA, trauma, consent or origin — there is a question that comes first: what are you actually doing when you are a Joker? Not which tools you know, but which act takes place in you. Boal found the word <em>Joker</em> in the card game: the card that has no suit, that can stand in any suit without belonging to one. That fits the mobile position, but it says nothing yet about direction. Because the Joker stands <em>in between</em>, not <em>outside</em>. Between people, not above them — and yet on one side.",
+  "stages": [
+   {
+    "t": "The Joker card in the game",
+    "body": "Boal did not choose the word by chance. The Joker belongs to no suit, but plays along in every suit. Translated: the Joker is not merged with the players, not merged with the audience, not merged with the commissioner. They stand in between. Mobile, not above, not outside — in between. That is not a neutral position (there is no such thing in Boal), but a movable one."
+   },
+   {
+    "t": "Maieutics",
+    "body": "The Greek word for the art of midwifery, used by Socrates for his own way of working: not teaching, but helping to give birth to what the pupil already carries without knowing it. The Joker does the same. They bring no analysis, no solution, no agenda. They help the group give birth to something that is already present in it but has no form yet. That sounds beautiful and it is also simple — but it demands constant self-restraint, because your analysis, your solution, your agenda force themselves upon you. You have them, you cannot put them away, you can only notice when they start to steer."
+   },
+   {
+    "t": "Partisan on one level, restrained on another",
+    "body": "Boal called theatre a weapon, and weapons are not neutral. The Joker stands on the side of those who are oppressed — not on the side of a political party or programme, but on the side where power is lacking. Adrian Jackson — Boal's translator and founder of Cardboard Citizens, which has worked with homeless people since 1991 — describes Forum Theatre in ‘Provoking intervention’ as a counterweight to the existing power relations that also shape the theatre space. Not a balance, a counterweight.<br><br>At the same time there is a form of restraint within the session itself: the Joker does not impose the solution, does not say which intervention is the right one, does not choose between proposals from the group. This intra-procedural restraint is sometimes called 'impartial', and that word confuses. It should not be confused with political neutrality at a meta level. At the level of <em>who</em> is in the scene, <em>which oppression</em> you show, <em>for whom</em> you make the work: firmly partisan. At the level of <em>what the collective is going to decide tonight</em>: restrained.<br><br>Opponents accuse Jokers of manipulation ('you're steering'). Supporters defend themselves with 'I only facilitate, I have no opinion'. Both responses miss the structure. What is needed: clearly partisan about the direction of the work, restrained about the outcome of a specific intervention. Two attitudes at once, not one."
+   },
+   {
+    "t": "What the Joker is not",
+    "body": "Not a director (who determines form), not a therapist (who heals individuals), not a teacher (who knows what the group must learn), not an activist (who knows which concrete action the group must take), not an entertainer (who gives the group an enjoyable experience), not a neutral facilitator (who gives all positions equal room). Pieces of some of these roles may come into play — sometimes therapeutic alertness is needed, sometimes a dramaturgical eye is indispensable — but none of them is the core. The Joker does not know which way the group should go, but does refuse to pretend that the position the group is in now is tenable. That is the difference from the activist: not knowing, but refusing to pretend that nothing is wrong."
+   },
+   {
+    "t": "The three movements",
+    "body": "There are three things you do all the time: <em>inviting</em> (giving the group room to speak, to move, to choose), <em>condensing</em> (giving back what emerges in a form, so that it becomes visible to the group itself), <em>bringing back</em> (when something threatens to go off the rails or to drown). No order, no recipe — three movements you make at the same time, sometimes within a single second. In TO practice this is called a <em>difficultator</em> instead of a facilitator: not making things easier but making them harder — breaking open what seems too easy so that the real work can begin. A consensus that is too smooth is usually a consensus that does not challenge the existing relations."
+   },
+   {
+    "t": "Why this is a card, not a technique",
+    "body": "You learn Jokering by doing, not by describing. But the description helps you notice when you are doing something else. When you start teaching, you notice it in a slightly impatient tone. When you start playing therapist, you notice it in a focus on one person while the group fades. When you start directing, you notice it in images you have in your head and want to steer towards. When you start neutralising, you notice it in an urge to give everyone 'equal room', even when someone with more power is speaking about someone with less. This card gives no prescription, but words to notice when you are drifting."
+   }
+  ],
+  "tip": "The Joker is not a role you put on, more an attentiveness you practise. On bad days you are it less, on good days more. What helps: talking with other Jokers about what it does in you, and being honest about the moments when you notice yourself drifting — into teaching, steering, solving, or (more subtly) into neutralising. That last drift is the hardest to see in yourself, because it presents itself as professionalism. Someone else has to spot it for you. — Further reading: <a href='../bronnen.html#jackson-2009'>Jackson (2009)</a>, ‘Provoking intervention’."
+ },
+ {
+  "n": 2,
+  "title": "CLRA — Community-Led Research and Action",
+  "cat": "Research position",
+  "catBg": "#dfe0e2",
+  "catFg": "#4a4f55",
+  "stripe": "#4a4f55",
+  "note": "For the Joker, Community-Led Research and Action is a position rather than a method. Within CLRA, members of the community do the research themselves. So the Joker does not do research on a community, and does not need to become a co-researcher either: the Joker facilitates the community members' research process. The direction of the work does not come from you, not from the commissioner, not from the methodology. That is a simple principle that remains complicated in practice. No one works towards it wholly and without fail. But you can learn to step in and out of it consciously, instead of losing it unconsciously.",
+  "stages": [
+   {
+    "t": "Two kinds of Joker work that we confuse",
+    "body": "There are two things that are both called 'Jokering'. The first: directing with your skills — you know dramaturgy, scene building, Forum techniques, Image Theatre, Rainbow. You put those tools at the service of a direction that is fixed in advance: a theme from a commissioner, a methodological framework, a goal you already have in mind yourself. The second: the direction becomes part of what you explore together, and emerges in the process. The skills are the same, the position is different. Most Jokers mix the two — sometimes within a single session. Knowing which of the two you are doing is already a lot."
+   },
+   {
+    "t": "CLRA is not laissez-faire",
+    "body": "It keeps coming up in conversations with colleagues: 'oh, you do CLRA, so that means no steering, just leaving it nice and open?' That is where the misunderstanding lies. CLRA is not the same as laissez-faire facilitation. The misunderstanding comes partly from a good impulse — Jokers who once steered too much want to distance themselves from that, and read 'the community decides' as 'I no longer do anything'. But withdrawal is not the opposite of domination; <em>active guidance in service of the group</em> is. CLRA demands more structure and care, not less. Which responsibilities lie with the community researchers and which with the Joker or other facilitators is something you agree on with the group, and you make that agreement visible. A handhold for starting that conversation:<br><br><strong>With the community researchers:</strong> the theme (what are we looking at), the research question (what do we want to know about it), the priority (what is urgent now), the voice that speaks within the scene, what happens with the results, the evaluation afterwards (did this help us).<br><br><strong>With the Joker or other facilitators:</strong> dramaturgical choices, pace and pauses, managing the space, safety and boundaries, the invitation as a form, bringing things back when they drift off, stopping when it becomes harmful, the structure within which the voice of the community can be heard.<br><br>A test in practice: if your session ends and no one can recount what was being researched, then it was not CLRA, it was an open evening without an anchor. Whoever just leaves things 'open' is not delivering CLRA — they are delivering chaos and calling it space."
+   },
+   {
+    "t": "Who decides the question",
+    "body": "In CLRA you try not to set the question yourself. Not 'we are going to look at homelessness' because there is money for that theme, but rather 'what makes our lives hard right now, and what do we want to look at together?' That sounds simple. In practice you keep running into yourself: you have an idea, you see a direction, you already know where you think it should go. You cannot remove that entirely — you remain the one who asks the questions that shape the conversation. What you can do: notice when you are steering, and then consciously take a step back."
+   },
+   {
+    "t": "Whose knowledge is it?",
+    "body": "The difference between CLRA and extractive research does not lie in giving knowledge back afterwards, but in control and ownership throughout the whole research process. Community researchers do the research themselves, have control over the process and are paid for their work. Whoever says that knowledge 'returns' is actually assuming that this knowledge first became someone else's. That is exactly what Freire and Boal wanted to turn around. For the Joker this shifts the question: not only what happens with the results afterwards, but who decides about them along the way. Sometimes you carry knowledge into a context the community itself has no access to, and that can be useful, as long as the people who did the research have a say in it. When texts about the work appear in which they had no voice, something has gone wrong."
+   },
+   {
+    "t": "Where the term comes from",
+    "body": "CLRA is not a Boal term and does not come from the Theatre of the Oppressed tradition. CLRA emerged around 2010 from the practice of activists in Mathare (Nairobi), via Ghetto Foundation, one of the founders of the Social Justice movement. It was then developed further together by Kenyan activists and researchers in Kenya and the Netherlands. Lise Woensdregt, Edwin Kibui Rwigi and Naomi van Stapele describe that experience in <em>Reflections on using a community-led research and action (CLRA) methodology to explore alternatives in international development</em> (<a href='../bronnen.html#woensdregt-2023'>Woensdregt, Rwigi &amp; van Stapele, 2023</a>). The language and principles of CLRA come first and foremost from the movement itself. They were later also worked out theoretically and academically, but that is something else. There is a kinship with Participatory Action Research (Freire, Fals-Borda), not with Boal.<br><br>But the starting points are exactly the same as those of Freire and Boal: the community determines the theme, the direction, the question, and does the research itself. As a practitioner I have recognised myself in this for years. It is the ideal I have always strived for. My task is maieutic in nature — midwifery, adding nothing that is not already there, but helping to give birth to what the community itself carries. That is what Freire did in Recife, what Boal tried to do when he invented the spect-actor, and what activists in Mathare, out of their own practice, have named more sharply than I could have done myself. That is why this card is here: not because CLRA comes to supplement or correct TO, but because the term names the same thing — and helps me see more sharply what in my own practice sometimes blurs under pressure from commissioners and methodologies."
+   },
+   {
+    "t": "Three principles as a frame",
+    "body": "CLRA works with three principles: <strong>relationality</strong>, <strong>reciprocity</strong> and <strong>reflexivity</strong>. How they have been worked out within CLRA itself goes beyond this card. For the Joker they can serve as three questions you keep asking yourself.<br><br><strong>Relationality:</strong> in which relationships does this research take place, and what do those relationships ask of me?<br><br><strong>Reciprocity:</strong> what do the community researchers get back for what they give, in control, in ownership, in payment? (See 'Whose knowledge is it?')<br><br><strong>Reflexivity:</strong> where am I steering, and do I see it myself, or does someone else have to show me? (See 'Who decides the question' and the tip at the bottom of this card.)"
+   },
+   {
+    "t": "The position is not always granted",
+    "body": "Anyone who tries to work this way runs into pressure. Commissioners want to know in advance what will come out of it. Funders want hypotheses, measurable results, not an open process. Policymakers want evidence in their own form, not lived experience. That pressure is real and works its way into compromises — you sometimes go along with frameworks that do not really fit the position, in order to keep the work possible at all. That is not always a betrayal of the method; sometimes it is the only way to be on the inside, where the work can matter. But it is what it is, and it does not help to pretend that you always work purely."
+   }
+  ],
+  "tip": "This position is not a status you hold, it is something you attempt anew every time. You fail at it regularly — so does the person writing this. What helps is other Jokers who carry the same thing, to look at where you are really steering while you think you are facilitating. You cannot organise that kind of pushback yourself from within your own work. Actively seek it out."
+ },
+ {
+  "n": 3,
+  "title": "Trauma-informed practice",
+  "cat": "Attitude",
+  "catBg": "#e3dfd8",
+  "catFg": "#4a4f55",
+  "stripe": "#4a4f55",
+  "note": "Work with communities going through oppression almost always touches on trauma — personal, collective, intergenerational. Working in a trauma-informed way does not mean you become a therapist or that you only work with kid gloves from now on; it means you think consciously about how the playing affects people and what is needed so that you do not do harm with good intentions. That never fully succeeds. It does get better the more you have an eye for it.",
+  "stages": [
+   {
+    "t": "Four Rs as a frame of thought",
+    "body": "The four-R framework (Realize, Recognize, Respond, Resist re-traumatization) comes from American healthcare via SAMHSA, and has become one of the most usable working definitions. Realize: realising that trauma is widespread and affects how people function in a group. Recognize: recognising signals — freezing, dissociation, anger out of proportion to what is happening. Respond: adapting your way of working in pace, in choices, in space. Resist re-traumatization: trying to avoid situations that are triggers. The framework offers words for what many experienced Jokers were already doing intuitively, and that helps — but it does not replace intuition, it sharpens it."
+   },
+   {
+    "t": "The invitation as a form",
+    "body": "The heart of trauma-aware work may be simple: every exercise is an invitation, not an order. Those who do not want to play, watch. Those who do not want to watch step outside for a while. Those who would rather stand beside the group than in it do just that. In practice this is harder to hold on to than it seems — there is always the temptation to want to get people 'in', because then the exercise works according to plan. But participation that was not chosen carries something other than what you are looking for. Usually you only notice that afterwards, when someone tells you they felt forced. Then you know: next time, differently. That is mainly how you learn it — not in advance, but in the debrief."
+   },
+   {
+    "t": "Where the Joker stops and something else begins",
+    "body": "The Joker is not a therapist. That sounds simple, but in practice you see Jokers crossing that line because there is no one else, or because the situation calls for it. Sometimes that goes well, sometimes not. What is somewhat easier to name: you are not there to 'release' or work through trauma, you are there to hold open a dramatic space in which experience can be explored. When someone is overwhelmed by intense emotion, pushing on with the scene is usually not the right thing — pausing is, giving room, if need be sitting down next to the person or letting them take a moment aside. And then the question: can you refer them on? Is someone available? You do not answer that question in the moment; it has to be arranged beforehand."
+   },
+   {
+    "t": "Infrastructure matters more than intention",
+    "body": "Many well-intentioned projects get into trouble because the mindset was there but the infrastructure was missing. A place where someone can step out of the play. Someone who — Joker or not — pays specific attention to emotional well-being rather than to the dramaturgy. Contact with mental health services to which people can be referred. Preparation and follow-up with time and calm, not just the session itself. These things are not always achievable in the context you work in — budget, time, infrastructure often do not allow it. Then it is up to you to weigh things up honestly: what can responsibly be done in these circumstances, and what must you then not do?"
+   }
+  ],
+  "tip": "The countermovement that trauma-informed work easily ends up in is avoidance: no difficult subjects, no real emotion, no confrontation. That is not what it asks for. Forum remains Forum; otherwise it evaporates into facilitated conversation. What you are trying to do is not to confront less, but to confront more consciously — with more room for choice, more tempo, more care for what comes after. Sometimes that works, sometimes it is clear afterwards that it could have been done better. That is part of it."
+ },
+ {
+  "n": 4,
+  "title": "Consent-based facilitation and brave space",
+  "cat": "Attitude",
+  "catBg": "#e3dfd8",
+  "catFg": "#4a4f55",
+  "stripe": "#4a4f55",
+  "note": "The idea of 'safe space' was revised by Brian Arao and Kristi Clemens in 2013 into 'brave space' — an attempt to name a kind of space that Forum had in fact always needed. Not a place without discomfort (there is no such place), but a place where people can find the courage to stay in discomfort because the foundation is solid. Consent-based facilitation is its practical side: consent as a principle of form. No guarantee, but a direction.",
+  "stages": [
+   {
+    "t": "Safe is not the same as comfortable",
+    "body": "We easily mix up safety and comfort, but they are different. Safety means you are not in danger. Comfort means everything is pleasant. Forum does not work well in complete comfort — it works in the zone where comfort shades into something sharper: insight, recognition, sometimes pain. Brave space acknowledges this and makes it something we can talk about: we do not guarantee a pleasant feeling, but we do guarantee that no one comes into real danger and that there is still room to talk about it if something becomes too heavy. You also have to be able to keep those two promises — otherwise it is an empty formula."
+   },
+   {
+    "t": "Consent as a principle of form",
+    "body": "In consent-based facilitation you ask explicitly where the method used simply to go ahead. 'May I touch your shoulder to change your position?' 'Do you want to play this scene or would you rather watch?' 'Who is willing to start?' That sounds stilted until you experience how it changes the quality of what follows. People who have really chosen to play, play differently. At the same time: you cannot ask about every micro-action without bringing the game to a complete standstill. There is always a balance. It is not a protocol to tick off, it is a sensitivity to develop."
+   },
+   {
+    "t": "You build the space, you don't assume it",
+    "body": "A brave space does not exist by itself; you put it together. Usually that takes a few explicit agreements at the start of a session: every exercise is an invitation, you may pause, you may step out, what is said here stays here, conflict is welcome — violence is not. These agreements are not a formality. When someone breaks them later, you can point back to them; without an agreement you have no anchor point. But they are not magic either. People forget what was agreed, you included. Saying them out loud is a must, even when it seems self-evident."
+   },
+   {
+    "t": "This was already in the tradition",
+    "body": "Much of what is now called 'brave space' and 'consent-based' already existed implicitly in Forum traditions. Michael Rohd's Hope is Vital (1998) already insisted on invitation over instruction. Boal's own work had respect for the rhythm of the group. What has changed over the last fifteen years is that these implicit sensitivities have been given explicit language — and have thereby become transferable. That is a gain: what remains implicit depends on the personal finesse of individual Jokers. What is explicit can be taught and corrected. At the same time there is a risk: that the language comes to replace the sensitivity itself. That does happen in training programmes now and then."
+   }
+  ],
+  "tip": "The opposite risk of brave-space thinking is that it becomes so careful that the edge of Forum evaporates. If you surround every exercise with check-ins and questions of care, you dampen the energy needed to make something really happen on stage. The frame is not the content. The frame makes the content possible. When you notice that care for the form has come to replace the confrontation, something has gone too far. That moment is hard to recognise from the inside; ask someone from outside to watch with you."
+ },
+ {
+  "n": 5,
+  "title": "Origin, and the Joker as guest",
+  "cat": "Origin",
+  "catBg": "#e8dfc8",
+  "catFg": "#6b5a30",
+  "stripe": "#8b7340",
+  "note": "This card is about something that comes before the other three: the question of who you are in relation to the material you work with. Theatre of the Oppressed is used worldwide, but the material we borrow comes from specific traditions with their own history. What does it mean, as a Joker from the Netherlands, to work with an exercise rooted in a Zulu greeting, a Tswana village council or a Brazilian literacy project? No ban on borrowing. But a different attitude to borrowing. The Joker as guest, not as owner.",
+  "stages": [
+   {
+    "t": "What actually happens when we borrow",
+    "body": "An exercise from a distant tradition ends up in your arsenal. You learned it from someone who had learned it somewhere else. In the handing on, context has been worn away — who developed the exercise, where, why, with what intention, for which community. What remains is the form. You can work with it perfectly well; that is not the problem. The problem is that the worn-away context really existed somewhere and still exists. The people who developed and passed on the exercise are not folklore. They are working now, at this very moment, with the same form in the context it comes from. That is the actual situation you are in as a Joker when you borrow. Not worse, not better — different."
+   },
+   {
+    "t": "The difference between harvesting and visiting",
+    "body": "In African Philosophy Through Ubuntu (1999) Mogobe Ramose makes a distinction that is useful here. You can come to a tradition to harvest — what can I do with this, how do I apply it, what works for my group. You can also come to visit — where does this come from, who carries it now, how does my work relate to theirs. Harvesting is not bad, but if it is the only mode, the origin disappears in practice. Linda Tuhiwai Smith (Decolonizing Methodologies, 1999/2021) describes this even more precisely: extractive research is research that takes knowledge away without the community of origin having any say in it or benefit from it. That is not only an academic problem. It happens in Joker work too."
+   },
+   {
+    "t": "Three questions for every borrowed exercise",
+    "body": "When you take on an exercise that comes from elsewhere, it helps to answer three questions explicitly, even if the answers remain incomplete. One: where does this come from, and who carries it now? A name, a place, a year if you have it. Two: what do you name when you introduce it? The source, or only the form? This is a choice, not a reflex. Three: does your use of this exercise stand in a relationship with the community of origin, or is there no such relationship? If there is none, that is possible. But then say so. None of these questions blocks the use. They only prevent the origin from becoming invisible in your work."
+   },
+   {
+    "t": "What we actually do",
+    "body": "In practice it works like this. With Sawubona you say that this is a Zulu greeting, not a generic African ritual, and that the exercise came into Formaat's work through Arun Naicker of Umtapo Centre in Durban. With a lekgotla form you name its Tswana/Sotho origin and Ramose as a source. With the hummingbird story, both its Japanese origin and Wangari Maathai's Kenyan use of it. This need not be long-winded — one or two sentences are enough. The signal is that the exercise did not drop out of nowhere, and that participants may know where it comes from if they want to work with it. Most people do not find this disruptive; some actually latch on to it."
+   },
+   {
+    "t": "This also touches your own material",
+    "body": "The position works both ways. When you as a Joker make work with a community — Dreamers Beyond, people in detention, a specific neighbourhood — material emerges there too. When that material finds its way into presentations, articles or other people's arsenals, the same three questions apply in reverse: is the source named, is there a relationship, what does the community get back? In one piece of work the Joker is a guest, in another a host. That double role is part of the craft. Whoever is only a guest or only a host misses one side."
+   }
+  ],
+  "tip": "This attitude easily slides off in two directions. One: wanting to be so careful that you no longer dare to borrow anything. That is not the aim — Theatre of the Oppressed lives by exchange. Two: dealing with the question so quickly that it no longer makes a difference ('I always name the source'). The question is not a checklist but a sensitivity to position. You cannot tick it off, you can only stay in it. Keep Michael Eze's distinction close: not merging with the tradition you borrow from, not claiming that you continue it — but staying in relation to it. I am a Joker because there are others who are Jokers, not because I am a lineage in myself."
+ },
+ {
+  "n": 6,
+  "title": "Community arts — related register, different promise",
+  "cat": "Positioning",
+  "catBg": "#e8dfd2",
+  "catFg": "#6b5530",
+  "stripe": "#a0562a",
+  "note": "A lot of Joker work touches on or stands alongside community arts — Rotterdam community theatre, the international network that comes together in ICAF, companies such as Mind the Gap, PETA, Jana Sanskriti, Drama Box. Partly the same tools, partly the same ethics, but not the same ultimate question. Incidentally, in <em>A Restless Art</em> (2019) François Matarasso places Boal and Freire not alongside but within community art: as the philosophical core of art that aims at change. The dividing line that matters then runs not between TO and community arts, but between that shared basis in rights and the institutionalised participatory art that grants access without sharing control. This card is about that positioning — what you can promise a group and what you cannot.",
+  "stages": [
+   {
+    "t": "Shared starting point, different ultimate question",
+    "body": "Community arts and TO share the conviction that art belongs to everyone and that people ought to move from the position of audience into the position of maker. They also share the commitment to process over product and the hunch that collective making processes can do something individual art cannot. But the ultimate question differs. Community arts usually asks: have we made something true and beautiful together, and has the community come out of it stronger? TO asks: have we been able to rehearse something we are also going to do in real life? Boal's rehearsal for the revolution is more instrumental, more direct, sometimes rougher than what community theatre or community arts does. Neither is better — they promise something different, and a group deserves to know what you are promising.<br><br>Matarasso distinguishes three intentions behind all participatory art: widening access to art (cultural democratisation), bringing about social change, and promoting cultural democracy. TO stands at the sharp end of the change pole — according to Matarasso, Freire and Boal form the hard philosophical core of art that seeks change by giving people power over their own learning process, as opposed to access programmes that mirror the banking model of education."
+   },
+   {
+    "t": "Four elements as a self-check",
+    "body": "Matarasso defines community art in one sentence with four testable elements. (1) <em>the creation of art as a human right</em> — everyone may do it, without permission or approval (Article 27 of the Universal Declaration). (2) <em>by professional and non-professional artists, co-operating as equals</em> — different roles, the same rights in the process; no one, the professional included, can legitimately impose a vision. (3) <em>for purposes and to standards they set together</em> — only the group that makes the work decides what is good; outsiders have no say in it. (4) <em>whose processes, products and outcomes cannot be known in advance</em> — if you know beforehand what will come out of it, you are working without equality, because then aim and standard were set before the group sat down at the table. Lay these four alongside your own project. Where one of them falls — usually under pressure from a commissioner who wants results in advance — you know exactly where your concession lies. Source: Matarasso, <em>A Restless Art</em>, 2019, p. 51–52."
+   },
+   {
+    "t": "The Dutch tradition",
+    "body": "Rotterdam community theatre stands in a recognisable Dutch line: Werkteater (Amsterdam, 1970s), Proloog (Eindhoven), Rotterdams Wijktheater (founded 1992 by Peter van den Hurk and Annelies Spliethof, both with roots in the radicalised drama schools of the late 1960s), later makers such as Adelheid Roosen, Julius Darmanin, Sanne Clifford. What sets this line apart is the combination of strong dramaturgical craft and long-term anchoring in the neighbourhood. Werkteater's collective creation — spending months with a group, observing, playing back — is almost a method of its own. For you as a Joker: this is a tradition you can borrow from technically, even when you work within TO frameworks. Not to give up the logic of Forum, but to sharpen the artistic care that Boal himself called essential. In Matarasso's periodisation this line falls into place: Werkteater and Proloog in the movement phase (1968–1988), the institutionalisation that followed in the appropriation phase (1988–2008), and what has emerged since the financial crisis in what he calls 'without help, without permission'."
+   },
+   {
+    "t": "ICAF Rotterdam as an international meeting place",
+    "body": "The International Community Arts Festival began in 2001, when Rotterdam was Cultural Capital of Europe. The organisers offered Rotterdams Wijktheater money to set up an international community theatre festival. Eugene van Erven came on board as programmer and opened the festival up to every continent through his research network; Anamaria Cruz became festival producer. In 2011 ICAF took the step to truly worldwide programming. Since then it has been a triennial meeting place where community arts practices from the Philippines, Brazil, South Africa, Argentina, Canada, Northern Ireland and beyond come together. Sometimes there is TO work among them, sometimes not — community arts is broader. For a Joker in Rotterdam, ICAF is one of the few places where you can look outside your own methodological bubble and see how others solve the same problem differently. That is no luxury; it keeps you from confusing technique with tools. Matarasso calls ICAF probably the largest community art event in Europe — <em>A Restless Art</em> (2019, open access) is, alongside Van Erven's <em>Community Art Power</em> (2013), the obvious place to start reading."
+   },
+   {
+    "t": "International companies as points of reference",
+    "body": "A few companies that give direction both within TO and within community arts help you see how broad the field is. Jana Sanskriti in West Bengal (founded 1985, artistic director Sanjoy Ganguly) is regarded as the foremost Forum practice outside Brazil — a national network of village groups that uses Forum against patriarchy and corruption. PETA, the Philippine Educational Theater Association (founded 1967 by Cecile Guidote-Alvarez, a UNESCO-ITI centre since 1971), worked under the Marcos dictatorship as a vehicle for cultural resistance and developed theatre-for-development, with more than three hundred original plays; it received the Ramon Magsaysay Award in 2017. Drama Box in Singapore (founded 1990, artistic director Kok Heng Leun, also an ICAF Hub since 2022) combines Boal with David Diamond's Theatre for Living, and found its own forms for a context in which Forum is politically sensitive. Mind the Gap in Bradford (founded 1988 by Tim Wheeler and Susan Brown) works with learning-disabled and autistic artists and shows how community arts becomes a struggle within the sector — not representing oppression but structurally demanding that the theatre apparatus itself moves along. Different ultimate questions, related commitment."
+   },
+   {
+    "t": "Africa, and a breadth you cannot cover with three names",
+    "body": "The African continent has such diverse traditions that any list misleads. What does help to know: Theatre for Development has become an academic and practice tradition of its own, with roots in Cameroon, Zimbabwe, Tanzania, Kenya, Malawi — often affiliated with universities and NGOs, sometimes read critically because external agendas easily creep in. Amakhosi in Zimbabwe (Bulawayo) was already doing this in the 1980s with explicitly anti-corruption plays. In Kenya the Kamĩrĩĩthũ Community Education and Cultural Centre near Limuru is a key example: in 1977 Ngũgĩ wa Thiong'o and Ngũgĩ wa Mĩriĩ made <em>Ngaahika Ndeenda</em> (<em>I Will Marry When I Want</em>) there together with villagers, in Gĩkũyũ and performed by the villagers themselves. The production was banned after a few weeks, Ngũgĩ wa Thiong'o was detained without trial at the end of 1977, and in 1982 the police demolished the open-air theatre. He describes the work in <a href='../bronnen.html#ngugi-1986'><em>Decolonising the Mind</em> (1986)</a>. In South Africa, the legacy of Athol Fugard, Barney Simon's Market Theatre and post-apartheid community theatre has its own dramaturgy of testimony and healing. For a Joker the lesson is not 'here are the African equivalents of Boal' — that framing is itself problematic — but that different regions have developed their own answers to related questions. ICAF and the academic work of Jane Plastow (Leeds) are good ways in if you want to read further."
+   },
+   {
+    "t": "When do you choose which register",
+    "body": "In practical terms. If you are working with a group that is not yet ready for rehearsal-for-action — where connection, voice and self-confidence first need to grow, where oppression cannot yet be named because naming it is itself a risk — then a community-theatre-like register is often more fitting than strict TO. You borrow the tools, you let go of the Forum logic, you promise the group to make something beautiful and true. If a group has named its own oppression and wants to shift it, it can choose Forum — and then TO is the sharper form, where too much aesthetic care actually becomes a pitfall. The ultimate question then comes from the community, the form stays with the Joker: the same agreement as in the CLRA card — theme, question and priority with the group; dramaturgy, pace and safety with you, and that said out loud together. Many Jokers move from one register to the other within a single project. That is legitimate, provided you make it explicit. What does not work: calling a community arts process TO because it is fundable, or presenting a Forum performance under the banner of community theatre because that sounds less political. In both cases you are lying about what you do, and the group notices."
+   },
+   {
+    "t": "Three risks",
+    "body": "Community arts can put oppression on display without tackling it. A moving performance about poverty that fills a theatre with visitors who take out their handkerchiefs and go home — Boal would call that catharsis in the Aristotelian sense: the emotion purges the audience, the situation stays. That is no reproach to community arts, but a risk built into it if representation is the only thing. Conversely: a Forum without artistic care — flat images, caricatured antagonists, hasty dramaturgy — does not work. Boal knew this, and Julian Boal hammers it home in his lectures: the aesthetic is not decoration, it is the engine. Community arts traditions sometimes guard that artistic care better than purely activist TO practice. You need both sensitivities, even when you work within one register.<br><br>The third risk lies not with the maker but with the funder. Matarasso describes 1988–2008 as the period in which participation was appropriated: governments and funders embraced the practice, but on their terms — proof of impact, measurable outcomes, pressure to evaluate. The philosopher Onora O'Neill warned as early as 2002 that this culture of accountability distorts the real aims of professional work and erodes professional ethos. For the Joker: the risk that your choice of register is no longer determined by the group but by the funding framework."
+   }
+  ],
+  "tip": "The easiest mistake is to think that community arts is 'softer' TO, or that TO is 'more political' community arts. They are not degrees of the same thing — they are different promises to a group. What they share is perhaps more important than what divides them: the conviction that art belongs to everyone, and that collective making processes do something individual art does not. TO does not stand outside the community arts tradition — it is its emancipatory core; the distinction that matters is not TO versus community theatre, but a basis in rights versus participation-as-decoration. A Joker who takes both lines seriously has more tools and less dogmatic baggage. Go to ICAF when you can — not to see TO, but to see how others solve the same questions differently. That puts your own methodological certainties into perspective in a way you cannot manage on your own."
+ }
+];
+
+let cur = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+const container = document.getElementById('card-container');
+if (view === 'all') {
+container.innerHTML = createAllView();
+} else {
+const techIndex = filteredIndices[cur];
+container.innerHTML = createStepView(techIndex);
+}
+updateNav();
+}
+
+function createStepView(techIndex) {
+const tech = T[techIndex];
+const stages = tech.stages;
+const hasStages = stages && stages.length > 0;
+
+return `
+<div class="card">
+<div class="card-head">
+<div class="cat-stripe" style="background: ${tech.stripe}"></div>
+<div class="head-top">
+<div>
+<div class="tech-num">${tech.n} / ${T.length}</div>
+<div class="card-name">${tech.title}</div>
+</div>
+<div class="head-badges">
+<div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+</div>
+</div>
+${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+</div>
+
+${hasStages ? renderStagesAcc(stages) : ''}
+
+${tech.tip ? `
+<div class="card-tip">
+<span class="tip-lbl">Joker's tip</span>
+<div class="tip-txt">${tech.tip}</div>
+</div>
+` : ''}
+</div>
+`;
+}
+
+function createAllView() {
+return `
+<div class="card">
+<div class="card-head">
+<div class="cat-stripe" style="background: var(--blue)"></div>
+<div class="head-top">
+<div>
+<div class="card-name">All cards</div>
+</div>
+<div class="head-badges">
+<div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overview</div>
+</div>
+</div>
+</div>
+<div class="all-stages">
+${filteredIndices.map(i => {
+const tech = T[i];
+return `
+<div class="all-stage-row" data-tech="${i}">
+<div class="all-sn">${tech.n}</div>
+<div class="all-stage-name">${tech.title}</div>
+</div>
+`;
+}).join('')}
+</div>
+</div>
+`;
+}
+
+function updateNav() {
+document.getElementById('current').textContent = cur + 1;
+document.getElementById('total').textContent = filteredIndices.length;
+document.getElementById('prev').disabled = cur === 0;
+document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+if (cur < filteredIndices.length - 1) {
+cur++;
+updateDisplay();
+}
+}
+
+function prevTech() {
+if (cur > 0) {
+cur--;
+updateDisplay();
+}
+}
+
+function filterByCategory(category) {
+if (category === 'all') {
+filteredIndices = Array.from({length: T.length}, (_, i) => i);
+} else {
+filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+}
+cur = 0;
+updateDisplay();
+}
+
+function goToTech(techIndex) {
+const filterIndex = filteredIndices.indexOf(techIndex);
+if (filterIndex !== -1) {
+cur = filterIndex;
+view = 'step';
+updateViewToggle();
+updateDisplay();
+}
+}
+
+function updateViewToggle() {
+document.querySelectorAll('.vt-btn').forEach(btn => {
+btn.classList.toggle('on', btn.dataset.view === view);
+});
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+if (e.target.classList.contains('tpill')) {
+document.querySelectorAll('.tpill').forEach(pill => {
+pill.classList.toggle('on', pill === e.target);
+});
+filterByCategory(e.target.dataset.cat);
+}
+if (e.target.classList.contains('vt-btn')) {
+view = e.target.dataset.view;
+updateViewToggle();
+updateDisplay();
+}
+if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+const techIndex = parseInt(row.dataset.tech);
+goToTech(techIndex);
+}
+});
+
+// Custom shortcuts blijven via aparte listener
+document.addEventListener('keydown', (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.code === 'Space') {
+e.preventDefault();
+view = view === 'step' ? 'all' : 'step';
+updateViewToggle();
+updateDisplay();
+}
+});
+
+// Accordion helpers (stappen binnen één kaart)
+function renderStagesAcc(stages) {
+  const rows = stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--creme3)">
+      <span class="stages-lbl">${stages.length} steps</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Expand all</button>
+    </div>
+    <div>${rows}</div>`;
+}
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+</body>
+</html>
