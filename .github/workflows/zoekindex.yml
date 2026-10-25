@@ -1,0 +1,52 @@
+# Zoekindex van het Arsenaal (Pagefind) bijwerken bij elke wijziging op main.
+# Bouwt de map pagefind/ met hulpmiddelen/zoekindex.mjs en zet die terug in de repository,
+# maar alleen als de doorzoekbare inhoud echt veranderd is.
+name: Zoekindex
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'pagefind/**'
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zoekindex
+  cancel-in-progress: true
+
+jobs:
+  bouwen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Gereedschap installeren
+        run: |
+          npm install --no-save --no-package-lock pagefind@1.5.2 playwright@1.63.0
+          npx playwright install --with-deps chromium
+
+      - name: Zoekindex bouwen
+        run: node hulpmiddelen/zoekindex.mjs
+
+      - name: Index terugzetten als de inhoud veranderd is
+        run: |
+          git add -A pagefind
+          # Alleen de inhoud (fragment/ en index/) telt; filter- en metabestanden krijgen bij elke bouw
+          # een andere naam, ook als er niets veranderd is.
+          if git diff --cached --quiet -- pagefind/fragment pagefind/index pagefind/pagefind.js; then
+            echo "Doorzoekbare inhoud ongewijzigd, niets te doen."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Zoekindex bijgewerkt"
+          git pull --rebase origin main
+          git push

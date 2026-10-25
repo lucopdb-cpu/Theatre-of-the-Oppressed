@@ -8,3 +8,7 @@
 # Editor-bestanden
 *.swp
 *~
+
+# Gereedschap voor de zoekindex (alleen lokaal)
+node_modules/
+package-lock.json

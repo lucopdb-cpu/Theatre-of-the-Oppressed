@@ -14,6 +14,7 @@
  * - Taal: heeft een pagina in de <head> een <link rel="alternate" hreflang="en|nl" href="…"> naar dezelfde
  *   pagina in de andere taal, dan komt naast de zon/maan-knop een knop EN of NL die daarheen leidt.
  *   De teksten van de knoppen volgen <html lang="…">.
+ * - Zoeken: dit script laadt ook zoeken.js (zoeken in de hele site, knop met vergrootglas in dezelfde balk).
  */
 (function () {
   'use strict';
@@ -25,6 +26,15 @@
   // false: alleen de knop schakelt (gebruikt tijdens de proef, zolang niet alle pagina's klaar waren).
   var VOLG_TOESTEL = true;
   var ENGELS = /^en/i.test(root.getAttribute('lang') || '');
+
+  // Zoeken in de hele site: zoeken.js staat naast dit bestand
+  (function () {
+    var src = document.currentScript && document.currentScript.src;
+    if (!src || document.querySelector('script[src*="zoeken.js"]')) return;
+    var s = document.createElement('script');
+    s.src = src.replace(/thema\.js(?:[?#].*)?$/, 'zoeken.js');
+    (document.head || root).appendChild(s);
+  })();
 
   function keuze() { try { return localStorage.getItem(SLEUTEL); } catch (e) { return null; } }
   function toestel() { return VOLG_TOESTEL && mq && mq.matches ? 'donker' : 'licht'; }

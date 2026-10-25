@@ -89,6 +89,8 @@ Elk tool heeft zijn eigen logica:
 * **Games for Actors and Non-Actors** volgt Boals eigen ordening en nummering
 * De **Atlas** is een wereldatlas: vanuit de overzichtspagina open je de regionale verdiepingen per continent
 
+**Zoeken in het hele Arsenaal** kan op elke pagina met het vergrootglas bovenaan (of met de toets `/`). Elke oefening, kaart en bronvermelding is een eigen zoekresultaat dat je direct op de juiste kaart brengt. Je zoekt in de taal van de pagina; wat nog niet vertaald is, komt mee uit de andere taal. De zoekindex (map `pagefind/`, gemaakt met [Pagefind](https://pagefind.app)) wordt bij elke wijziging vanzelf opnieuw gebouwd door `hulpmiddelen/zoekindex.mjs`.
+
 ---
 
 ## Bronnen
