@@ -114,6 +114,10 @@ body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height
 .all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
 .all-stage-row:last-child{border-bottom:none}
 .all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-opbouw-row{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px dashed var(--creme3);cursor:default}
+.all-opbouw-row .all-stage-name{color:var(--ink2)}
+.all-opbouw-row .all-sn{background:transparent;border-style:dashed}
+.badge-opbouw{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:2px 8px;border-radius:20px;white-space:nowrap;color:var(--ink2);border:1px dashed var(--ink3);margin-left:auto}
 .all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
 .all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
 
@@ -233,7 +237,7 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
   <img src="joker-donker.png" alt="" class="arsenaal-joker" aria-hidden="true">
   <div class="laagregel">Atlas</div>
   <div class="app-name">Atlas — <em>praktijken in context</em></div>
-  <div class="app-sub">14 plekken · Rio · Medellín · NYC · Vancouver · Parijs · Londen · Manchester · Berlijn · Rotterdam · Maputo · Dakar · Nairobi · Israël/Palestina · Calcutta</div>
+  <div class="app-sub">14 plekken · Rio · Medellín · NYC · Vancouver · Parijs · Londen · Manchester · Berlijn · Rotterdam · Maputo · Dakar · Nairobi · Israël/Palestina · Calcutta · Kabul (in opbouw)</div>
   <div class="context-note">
     Deze atlas is geen overzicht van bovenaf. Hij is gegroeid uit vijfendertig jaar jokeren in het sociale domein, en uit een nieuwsgierigheid die er vanaf het begin was: wat doen anderen, elders, met dezelfde methode? Toen Google er plotseling was, ging ik meteen zoeken. Bij de start van Formaat in 1999 begonnen Ronald Matthijssen en ik TO-groepen uit de hele wereld te verzamelen in de Yellow Pages op de website van Formaat. Boal nam de Yellow Pages op in de handtekening onder zijn e-mails, en CTO-Rio verwees ernaar in het eerste nummer van <a href="bronnen.html#cto-rio-2001"><em>Metaxis</em> (2001)</a>. Dat zoeken leidde naar ontmoetingen, naar de ITO en naar de plekken op deze kaarten.<br><br>
     De atlas is daarom twee dingen tegelijk: deels veldwerk, deels bureauonderzoek. Elf van de veertien plekken heb ik zelf bezocht; Berlijn, Dakar en Nairobi ken ik alleen uit bronnen. Op elke kaart staat welke van de twee het is. Wat hier staat is gezien vanuit één positie, die van een Rotterdamse joker, en is dus partieel. Dat is geen gebrek dat verborgen moet blijven. Waar het kan, spreken de praktijken zelf, in hun eigen teksten en woorden.<br><br>
@@ -729,6 +733,12 @@ const T = [
  }
 ];
 
+// Plekken in opbouw: alleen naam, nog geen kaart en niet klikbaar
+const OPBOUW = [
+ {"title": "Kabul — AHRDO", "cat": "Azië"}
+];
+let curCat = 'all';
+
 let cur = 0;
 let view = 'step';
 
@@ -807,6 +817,13 @@ function createAllView() {
             </div>
           `;
         }).join('')}
+        ${OPBOUW.filter(p => curCat === 'all' || p.cat === curCat).map(p => `
+            <div class="all-opbouw-row">
+              <div class="all-sn">·</div>
+              <div class="all-stage-name">${p.title}</div>
+              <span class="badge-opbouw">In opbouw</span>
+            </div>
+        `).join('')}
       </div>
     </div>
   `;
@@ -835,6 +852,7 @@ function prevTech() {
 }
 
 function filterByCategory(category) {
+  curCat = category;
   if (category === 'all') {
     filteredIndices = Array.from({length: T.length}, (_, i) => i);
   } else {
