@@ -15,6 +15,7 @@
  *   pagina in de andere taal, dan komt naast de zon/maan-knop een knop EN of NL die daarheen leidt.
  *   De teksten van de knoppen volgen <html lang="…">.
  * - Zoeken: dit script laadt ook zoeken.js (zoeken in de hele site, knop met vergrootglas in dezelfde balk).
+ * - Hoofdstukken: en hoofdstukken.js (knop "Hoofdstukken" naast de terugknop, met een uitklapbare lijst van alle hoofdstukken).
  */
 (function () {
   'use strict';
@@ -33,6 +34,15 @@
     if (!src || document.querySelector('script[src*="zoeken.js"]')) return;
     var s = document.createElement('script');
     s.src = src.replace(/thema\.js(?:[?#].*)?$/, 'zoeken.js');
+    (document.head || root).appendChild(s);
+  })();
+
+  // Menu met alle hoofdstukken: hoofdstukken.js staat naast dit bestand
+  (function () {
+    var src = document.currentScript && document.currentScript.src;
+    if (!src || document.querySelector('script[src*="hoofdstukken.js"]')) return;
+    var s = document.createElement('script');
+    s.src = src.replace(/thema\.js(?:[?#].*)?$/, 'hoofdstukken.js');
     (document.head || root).appendChild(s);
   })();
 
