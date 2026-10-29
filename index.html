@@ -316,6 +316,9 @@
     }
   
 /* Joker-tekening in de kop */
+/* Knoppenbalk bovenaan, uitgelijnd met de inhoud zoals op de andere pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav + .header{padding-top:4px}
 .arsenaal-joker{display:block;width:150px;height:auto;margin:0 auto 16px;pointer-events:none;user-select:none}
 @media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
 
@@ -386,6 +389,7 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
 <body>
 
 <div class="container">
+  <nav class="arsenaal-nav" aria-label="Navigatie"></nav>
 
   <header class="header">
     <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
