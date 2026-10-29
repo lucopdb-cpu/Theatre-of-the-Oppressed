@@ -419,7 +419,7 @@ const T = [
 {
 "num": 4,
 "en": "The Kaleidoscopic Image",
-"nl": "Het kaléidoscopische beeld",
+"nl": "Het caleidoscopische beeld",
 "page": "p. 95",
 "power": [
 "power-over",
@@ -704,7 +704,7 @@ const T = [
 {
 "num": 13,
 "en": "The Image of Transition",
-"nl": "Het transitiebeeld",
+"nl": "Het overgangsbeeld",
 "page": "p. 115",
 "power": [
 "power-to",
@@ -848,7 +848,7 @@ function stagesHtml(t) {
 function render() {
   const t = T[cur];
   document.getElementById('pills').innerHTML = T.map((x, i) =>
-    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})" title="${x.en.replace(/"/g, '&quot;')}">${x.num}</button>`).join('');
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})" title="${(x.nl || x.en).replace(/"/g, '&quot;')}">${x.num}</button>`).join('');
   document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
   document.getElementById('pv').disabled = cur === 0;
   document.getElementById('nx').disabled = cur === T.length - 1;
@@ -860,8 +860,8 @@ function render() {
         <div class="head-top">
           <div>
             <div class="tech-num">Techniek ${t.num} van ${T.length} &nbsp;·&nbsp; ${t.page}</div>
-            <div class="card-name">${t.en}</div>
-            ${t.nl && t.nl !== t.en ? `<div class="card-nl">${t.nl}</div>` : ''}
+            <div class="card-name">${t.nl || t.en}</div>
+            ${t.nl && t.nl !== t.en ? `<div class="card-nl">${t.en}</div>` : ''}
           </div>
           <div class="head-badges">
             <span class="badge-page">${t.page}</span>
@@ -906,7 +906,7 @@ render();
     return T;
   }
   function nr(x, i){ return x.nr != null ? x.nr : (x.num != null ? x.num : (typeof x.n === 'number' ? x.n : i + 1)); }
-  function title(x){ return x.title || x.en || x.n || ''; }
+  function title(x){ return x.title || x.nl || x.en || x.n || ''; }
   let view = 'step';
   function setView(v){
     view = v;
@@ -935,26 +935,35 @@ render();
   });
 })();
 </script>
+<script>
+/* Oude adressen met de Engelse titel (#kaart=The ...) openen de kaart met de Nederlandse titel */
+(function () {
+  var m = location.hash.match(/^#kaart=(.+)$/); if (!m) return;
+  var t; try { t = decodeURIComponent(m[1]); } catch (e) { return; }
+  var x = T.find(function (k) { return k.en === t; });
+  if (x) history.replaceState(null, '', '#kaart=' + encodeURIComponent((x.nl || x.en)));
+})();
+</script>
 <script src="sessie.js"></script>
 <script>
 /* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
    [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
 ArsenaalSessie.init({
   oefeningen: {
-    "The Image of the Images": ["beeldentheater", 60, "laag", 2],
-    "The Image of the Word": ["beeldentheater", 20, "middel", 2, "Beeld van het woord"],
-    "Image and Counter-Image": ["beeldentheater", 20, "middel", 2, "Beeld en tegenbeeld"],
-    "The Kaleidoscopic Image": ["verdieping", 60, "middel", 3],
-    "The Images of the Image": ["beeldentheater", 20, "middel", 2, "De beelden van het beeld"],
-    "The Projected Image": ["beeldentheater", 25, "laag", 2, "Het geprojecteerde beeld"],
-    "The Image of the Hour": ["beeldentheater", 20, "middel", 2, "Het uur-beeld"],
-    "The Ritual Gesture": ["beeldentheater", 20, "middel", 2, "Ritueel gebaar"],
-    "Rituals and Masks": ["beeldentheater", 25, "middel", 2, "Rituelen en maskers"],
-    "The Multiple Image of Oppression": ["forum", 30, "middel", 2, "Meervoudig beeld van onderdrukking"],
-    "Multiple Images of Happiness": ["beeldentheater", 20, "middel", 2, "Meervoudige beelden van geluk"],
-    "The Rotating Image": ["beeldentheater", 20, "middel", 1, "Het roterende beeld"],
-    "The Image of Transition": ["forum", 30, "middel", 3, "Beeld van overgang"],
-    "The Image of the Group": ["beeldentheater", 20, "middel", 1, "Het groepsbeeld"],
+    "Het beeld van de beelden": ["beeldentheater", 60, "laag", 2],
+    "Het beeld van het woord": ["beeldentheater", 20, "middel", 2, "Beeld van het woord"],
+    "Beeld en tegenbeeld": ["beeldentheater", 20, "middel", 2, "Beeld en tegenbeeld"],
+    "Het caleidoscopische beeld": ["verdieping", 60, "middel", 3],
+    "De beelden van het beeld": ["beeldentheater", 20, "middel", 2, "De beelden van het beeld"],
+    "Het geprojecteerde beeld": ["beeldentheater", 25, "laag", 2, "Het geprojecteerde beeld"],
+    "Het beeld van het uur": ["beeldentheater", 20, "middel", 2, "Het uur-beeld"],
+    "Het rituele gebaar": ["beeldentheater", 20, "middel", 2, "Ritueel gebaar"],
+    "Rituelen en maskers": ["beeldentheater", 25, "middel", 2, "Rituelen en maskers"],
+    "Het meervoudige beeld van onderdrukking": ["forum", 30, "middel", 2, "Meervoudig beeld van onderdrukking"],
+    "Meervoudige beelden van geluk": ["beeldentheater", 20, "middel", 2, "Meervoudige beelden van geluk"],
+    "Het roterende beeld": ["beeldentheater", 20, "middel", 1, "Het roterende beeld"],
+    "Het overgangsbeeld": ["forum", 30, "middel", 3, "Beeld van overgang"],
+    "Het groepsbeeld": ["beeldentheater", 20, "middel", 1, "Het groepsbeeld"],
     "Rashomon": ["beeldentheater", 30, "middel", 2]
   }
 });
