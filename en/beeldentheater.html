@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<script src="../thema.js"></script>
+<script src="../nav.js" defer></script>
+<meta name="theme-color" content="#0F6E56">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../beeldentheater.html">
+<link rel="alternate" hreflang="en" href="beeldentheater.html">
+<title>Image Theatre — the language of the body</title>
+<meta name="description" content="24 techniques of Boal's Image Theatre — sculpting, dynamisation, image sequences. From the foundation to applications in research, climate and education.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Image Theatre — the language of the body">
+<meta property="og:description" content="24 techniques of Boal's Image Theatre — sculpting, dynamisation, image sequences. From the foundation to applications in research, climate and education.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/beeldentheater.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Theatre — the language of the body">
+<meta name="twitter:description" content="24 techniques of Boal's Image Theatre — sculpting, dynamisation, image sequences. From the foundation to applications in research, climate and education.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#0F6E56;--blue2:#158669;--blue3:#7fb8a6;--blue4:#d6e7e1;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:640px}
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--creme3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s;font-family:inherit}
+.acc-trigger:hover{background:var(--creme2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s;flex:1}
+.all-cat-tag{font-family:var(--sans);font-size:8px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;flex-shrink:0;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--creme:#201d18;--creme2:#25221b;--creme3:#332f23;--creme4:#4a4431;--blue:#75c7ab;--blue2:#57ba9b;--blue3:#4a8271;--blue4:#212b28;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--blue)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--blue)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--blue)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--blue3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--blue)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .card-tip{background:var(--blue4);border-left:3px solid var(--blue2)}
+html[data-thema="donker"] .tip-lbl{color:var(--blue)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--creme2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--blue4)}
+html[data-thema="donker"] .acc-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--blue);color:#161616;border-color:var(--blue2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--blue)}
+html[data-thema="donker"] .all-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .vt-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .footer{border-top:1px solid var(--rule);color:var(--ink3)}
+html[data-thema="donker"] .footer strong{color:var(--ink2)}
+html[data-thema="donker"] .footer em{color:var(--blue2)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+<div class="masthead">
+  <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Boal's methods</div>
+  <div class="app-name">Image <em>Theatre</em></div>
+  <div class="app-sub">The language of the body · Peru 1973 · Sinaletic · Sculpting · Dynamisation</div>
+  <div class="context-note">
+    Image Theatre came into being in 1973, during Boal's work for the Peruvian literacy campaign ALFIN, when he was working with groups who spoke very different languages and dialects. The fact that the same words did not mean the same thing to everyone became the method: the body as first language, the image as signifier and signified at once. This carousel covers the foundation, the three-image architecture, sculpting and dynamisation, canonical exercises, the introspective Rainbow extension, the image sequence as a methodological addition from Dutch practice, and applications in research, climate and education — with Joker practice and pitfalls.
+  </div>
+</div>
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">All</div>
+    <div class="tpill" data-cat="Foundation">Foundation</div>
+    <div class="tpill" data-cat="Three images">Three images</div>
+    <div class="tpill" data-cat="Sculpting">Sculpting</div>
+    <div class="tpill" data-cat="Canon">Canon</div>
+    <div class="tpill" data-cat="Rainbow">Rainbow</div>
+    <div class="tpill" data-cat="Sequence">Sequence</div>
+    <div class="tpill" data-cat="Practice">Practice</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">24</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Step by step</button>
+  <button class="vt-btn" data-view="all">Overview</button>
+</div>
+<div id="card-container"></div>
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> to navigate · <kbd>↑</kbd> <kbd>↓</kbd> for steps · <kbd>space</kbd> for overview
+</div>
+<footer class="arsenaal-footer">
+  <div class="af-content"><strong>Image Theatre</strong> — method of <em>Augusto Boal</em> (1931–2009), developed during the ALFIN literacy campaign (Peru, 1973), elaborated further in Paris and Rio and reshaped by <em>Bárbara Santos / Kuringa</em> (Berlin), <em>Jana Sanskriti</em> (Sanjoy Ganguly, West Bengal) and <em>David Diamond / Theatre for Living</em> (Vancouver). The image-sequence method in the Sequence category is a methodological addition from Dutch practice — <em>A Joker's Arsenal</em>.<br>
+  <a href="../bronnen.html" hreflang="nl">Sources</a> (in Dutch): <a href="../bronnen.html#boal-1974-1985">Boal (1974/1985)</a> · <a href="../bronnen.html#boal-1995">Boal (1995)</a> · <a href="../bronnen.html#boal-2002">Boal (2002)</a> · <a href="../bronnen.html#boal-2006">Boal (2006)</a> · further reading: <a href="../bronnen.html#wanasek-weinberg-2011">Wanasek &amp; Weinberg (2011)</a> · Santos, <em>Theatre of the Oppressed: Roots and Wings</em> (2019) · Kaptani & Yuval-Davis (2008) · Erel, Reynolds & Kaptani (2017) · Kuringa Berlin · T.O. Philadelphia · Drama Resource</div>
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html" hreflang="nl">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+</div>
+<script>
+const T = [
+ {
+  "n": 1,
+  "title": "What is Image Theatre?",
+  "cat": "Foundation",
+  "catBg": "#dff0ea",
+  "catFg": "#0F6E56",
+  "stripe": "#0F6E56",
+  "note": "Image Theatre is a non-verbal method in which participants use their bodies to sculpt still images of a situation, a feeling or a social reality. Augusto Boal developed it in 1973 within the Peruvian literacy campaign ALFIN — a campaign built on Paulo Freire's pedagogy. Image Theatre is therefore Freirean from birth, long before Boal and Freire shared a stage.",
+  "stages": [
+   {
+    "t": "Boal and Freire around one project",
+    "body": "ALFIN (Operación Alfabetización Integral) began in 1973, under the left-wing military government of Velasco Alvarado. The campaign was directed by Alfonso Lizarzaburu. Its method, Boal writes, was 'of course' derived from Paulo Freire, who had been working for the World Council of Churches in Geneva since 1970. Boal, in exile since 1971, worked on the theatre form within the campaign. So there were three levels: Freire supplied the pedagogy, Lizarzaburu led the Peruvian implementation, and Boal developed the theatre form within that framework. In March 1996 Boal and Freire were both guests at the Pedagogy and Theatre of the Oppressed conference in Omaha, more than twenty years after ALFIN."
+   },
+   {
+    "t": "Born of necessity, not of concept",
+    "body": "Boal worked with participants from very different regions of Peru, Colombia, Mexico and other Latin American countries, with very different cultures and languages. In Peru alone he counted, besides Spanish, at least 41 dialects of Quechua and Aymara. Spanish was the shared language, but nobody's mother tongue, and the same words meant something different to each person (Boal, 2002, p. 174). The method grew out of that experience: where words fall short, bodies speak. Image Theatre was not dreamt up in theory — it came about because it had to. Freire described the suitcase; Boal invented the tools."
+   },
+   {
+    "t": "The body as first language",
+    "body": "Boal argues that the body comes before language. The body is the original medium of perceiving and communicating, and all later language is secondary to it. When a group has to show its reality, it does not need to translate into language and back again — it can sculpt directly what is there. That makes Image Theatre not only practical across language barriers, but methodologically superior when it comes to experiences that are hard or dangerous to put into words."
+   },
+   {
+    "t": "Source of all later TO techniques",
+    "body": "What Boal discovered in Peru — that an image made of bodies can be a political analysis — became the source of everything that followed. Forum Theatre has its anti-model because the image of the oppression is built first. Rainbow of Desire is built on image techniques for the internalised cop. Legislative Theatre uses images as a first diagnosis for policy. Image Theatre is not a subsection — it is the root language in which the whole tree speaks. And the roots themselves reach back to Freire."
+   }
+  ],
+  "tip": "Never open a TO session with a verbal discussion of the theme. The group will have sorted each other into boxes before the image work has even begun. Start with the body — then the word can land later too."
+ },
+ {
+  "n": 2,
+  "title": "The sinaletic language",
+  "cat": "Foundation",
+  "catBg": "#dff0ea",
+  "catFg": "#0F6E56",
+  "stripe": "#0F6E56",
+  "note": "Sinaletic means that signifier and signified coincide. The word 'tree' is not a tree — it is a sound that refers to a tree. But an image of a tree is an image of a tree. In Image Theatre you work not with reference but with direct meaning. The image is what it shows. This principle is the methodological key.",
+  "stages": [
+   {
+    "t": "The image as its own meaning",
+    "body": "Boal calls Image Theatre 'a sinaletic (signalétique) method, not a symbolic one'. In a symbol, signifier and signification are separate: the flag symbolises the Mother Country, but it is not it. In the sinaletic they are the same: 'my look of love, or fear, or preoccupation, or whatever, is not separable from those emotions' (Boal, 2002, p. 175). When someone makes an image of 'power', that image does not stand for power the way the word does. That image is that power, in that room, with those bodies. The participant standing in it experiences it physically. The spectator reads it through the senses."
+   },
+   {
+    "t": "Why explanation weakens the exercise",
+    "body": "As soon as someone says 'what I mean is…', something changes. The image is often reduced to what the maker can put into words — and that is usually less than what the image could show. So the Joker is sparing with the question 'what does it mean?' and gives priority to 'what do you see?' — and lets several readings stand side by side. The image stays open; the meanings become social. Boal also warns against the other extreme: his book of exercises 'is not a recipe book' (Boal, 2002, p. 16). There are moments when a maker wants to add something essential, and the Joker makes room. The discipline is not a ban — it is a hierarchy of opportunities."
+   },
+   {
+    "t": "Several readings as a strength",
+    "body": "When ten participants look at the same image and see ten different things, the image has not failed — it has succeeded. That plurality is what sets an image apart from an explanation. An explanation forces one reading; an image offers a field in which several truths can exist at once. That is why the sinaletic image is more democratic than the word."
+   },
+   {
+    "t": "The challenge for Western habits",
+    "body": "Participants raised in a culture of writing and debate almost always want to explain what they mean. They feel unsafe without words. Here the Joker has a tough job: building the trust that not explaining is not a shortcoming but a discipline. This takes time. In countries without that school culture it often goes faster — there the sinaletic lies closer to the surface."
+   }
+  ],
+  "tip": "If you notice participants reaching for words after an image, deliberately give thirty seconds of silence. Not as a sanction — as room to breathe. In that silence the image lands."
+ },
+ {
+  "n": 3,
+  "title": "Words as trucks",
+  "cat": "Foundation",
+  "catBg": "#dff0ea",
+  "catFg": "#0F6E56",
+  "stripe": "#0F6E56",
+  "note": "Boal: 'Words are like trucks: they carry the loads you put on them' (Boal, 2002, p. 174). In a Democracy Now! interview (2005) he put it like this: 'You can put inside what you want.' Words are neutral containers; only in context do they take on a direction. That makes them versatile, but also open to manipulation. People can hide behind words. The body can do that far less.",
+  "stages": [
+   {
+    "t": "The body does not lie",
+    "body": "The body lies less easily than words. Someone can say 'I am my partner's equal' while her shoulders are already bowed before he has said a word. The image catches the posture before the ideology. This is why Image Theatre is valuable beyond language barriers too: in sensitive communication, where words fall short or conceal, the body lays bare what the mouth covers up."
+   },
+   {
+    "t": "Intended and unintended — both visible",
+    "body": "When someone sculpts an image, they plan certain things consciously. But the bodies they use — their own and other people's — also bring in unintended information. The sculptor may have wanted to show an authoritarian father; the image also shows a fear in the son that the sculptor had not explained. That layer beneath the intention is the richest layer. The Joker helps the group to read it."
+   },
+   {
+    "t": "The political necessity of the non-verbal",
+    "body": "In situations of direct oppression — dictatorship, war, marginalisation — words are often dangerous. Whoever writes can be arrested. Whoever makes images has deniability: this is only an exercise. Boal developed many techniques in exile, in Latin American countries under military regimes. Image Theatre is not a non-verbal form by accident — it is methodically designed for situations in which language becomes a weapon."
+   },
+   {
+    "t": "Valuable in safe contexts too",
+    "body": "Even without direct political danger, words hide more than they show. An employee who says 'yes, I understand' to his manager often says something quite different from what his body would show if he had to sculpt the same scene. That is why Image Theatre works in care training, education, organisational development, therapy — wherever social roles block the direct statement."
+   }
+  ],
+  "tip": "When you notice a group talking itself into a corner with abstractions — systemic pressure, communication problems — ask: make an image of that. The vague words then become sharp bodies."
+ },
+ {
+  "n": 4,
+  "title": "From subjective to social",
+  "cat": "Foundation",
+  "catBg": "#dff0ea",
+  "catFg": "#0F6E56",
+  "stripe": "#0F6E56",
+  "note": "One image is an individual perception — subjective. But when several participants show their image of the same theme at the same time, something else emerges: a multiple social vision. Not the truth of one person, but the field of truths of a community. Boal puts it like this: together the individual images give 'a multiple vision of the subject, in other words an overview, an ‘objective’ vision'; instead of a 'psychological' representation we are given a 'social' vision (Boal, 2002, p. 177).",
+  "stages": [
+   {
+    "t": "First image: the individual",
+    "body": "Each participant, without consulting anyone, makes their own image of the theme. No agreement, no compromise. This first image is inevitably subjective — it carries the biography, the social position and the blind spots of its maker. That is not an objection; it is material."
+   },
+   {
+    "t": "Second image: all at once",
+    "body": "On a signal, all the makers show their images at the same time. What first stood apart becomes a landscape. Now the makers, holding their positions, look at what the others are doing. They see patterns: certain gestures keep coming back, others are exceptions. Some images confirm each other, others contradict each other. This is the first dynamisation — the subjective becomes multiple."
+   },
+   {
+    "t": "Third image: making relations",
+    "body": "Boal then asks participants to relate to each other's images. They may move, make contact, let a figure from one image take part in another. What emerges is one whole image — no longer fifteen parallel visions but one organic social representation. This is the second dynamisation."
+   },
+   {
+    "t": "Third dynamisation: swapping roles",
+    "body": "The most powerful step, and the politically sharpest: whoever first showed one pole of the conflict now shows the other. All the victims take on the role of the perpetrator. Then back again. Boal noticed something remarkable: participants usually show their own oppression in real images, but show their 'enemy' in distorted, almost 'expressionist' images — 'misshapen monsters'. 'Distorted, yes, but not on a whim', because they have experienced this aggression themselves (Boal, 2002, p. 180). That difference helps the Joker to read the thoughts, the emotions and the ideology of the group."
+   }
+  ],
+  "tip": "These three dynamisations complement each other. Stop after the first and you have an exhibition of opinions. Stop after the second and you have a social image. The third often reveals an ideological asymmetry that the first two do not make visible. Whether you take that step depends on group, theme and time — some sessions deliberately stop at the social image."
+ },
+ {
+  "n": 5,
+  "title": "The real image",
+  "cat": "Three images",
+  "catBg": "#dde7ef",
+  "catFg": "#1e5a7a",
+  "stripe": "#1e5a7a",
+  "note": "The first of the three canonical images: the real image. The sculptor shapes reality as he or she experiences it now — not as it should be, not as outsiders see it, but as it feels from the inside. This image is the diagnosis: what is there?",
+  "stages": [
+   {
+    "t": "True to lived experience",
+    "body": "The real image may be raw, unfinished, ugly. Above all it has to be honest. The sculptor is invited not to embellish, not to translate into what others might understand, not to censor in order to be heard more easily. The image carries the truth as it lies in the body — with all its contradictions and discomforts. Boal tells of a literacy worker from the village of Otuzco. She made an image of the village square where the landowners had castrated the leader of a rebellion in front of everyone. Boal calls it a terrible, pessimistic, defeatist image, but also a true reflection of something that had actually happened (Boal, 1974/1985). Not every real image is that raw, but the example sets the tone: a sweetened diagnosis yields no cure."
+   },
+   {
+    "t": "No directing, no compromise",
+    "body": "The Joker does not interfere with the content. He only asks: is this reality as you experience it? If the sculptor hesitates, he may adjust. If others join in, they may set their own real image next to it — but they do not change the first maker's image. Every real image belongs to its maker until it is explicitly released."
+   },
+   {
+    "t": "The sculptor as diagnostician",
+    "body": "Whoever makes their own real image does something remarkable: they step out of the situation and look at it. The oppression that felt inescapable from the inside now stands outside them, as an object. That is the first liberating moment of Image Theatre — not solving, but making visible. What you can see, you can investigate. What you can investigate, you can change."
+   },
+   {
+    "t": "The trap: jumping ahead to the solution",
+    "body": "Many participants want to make the good image straight away. They show the solution instead of the problem. Or they make the problem mild, because it must not look too bad. The Joker watches out for this: if the real image is too optimistic, there is nothing to start from. The protagonist in a scene cannot win if he does not lose first. The same goes for the real image — the defeat must be visible first."
+   }
+  ],
+  "tip": "If someone makes a real image that seems mild to you, do not ask: isn't it worse than that? Ask: was there a moment when you really experienced it like this? — and let them decide for themselves whether to sharpen it."
+ },
+ {
+  "n": 6,
+  "title": "The ideal image",
+  "cat": "Three images",
+  "catBg": "#dde7ef",
+  "catFg": "#1e5a7a",
+  "stripe": "#1e5a7a",
+  "note": "The second image: reality as it should be. Not abstractly happy or just, but concrete: the same people, the same space, but in a configuration that is right. The ideal image is utopia as an analytical tool — it shows what we want, precisely enough to be able to work towards it.",
+  "stages": [
+   {
+    "t": "Utopia as working material",
+    "body": "A vague ideal (everyone is happy) is useless. The ideal image is always specific: this family, at this table, in this relationship. By becoming that concrete, participants come into contact with their own desire — not as a general moral principle but as a configuration that is physically right. That makes the ideal testable: does it feel right in the body? Or does it still feel incomplete?"
+   },
+   {
+    "t": "The same people, different relations",
+    "body": "The ideal image uses the same bodies as the real image. This matters methodologically: we are not making a fantasy in which the people have turned into other people — we are making a future in which the same people relate to each other differently. That does not rule out revolutionary thinking, but it keeps it grounded. The boss remains the boss. The worker remains the worker. But their space, distance, height, contact — all of it is different."
+   },
+   {
+    "t": "Desire tested against the body",
+    "body": "Once the sculptor has built the ideal image, the Joker can ask: how does it feel to stand in this position? Sometimes a participant then says: oh — I thought I wanted this, but it does not feel right. The body unmasks the borrowed ideal. The real desire is what the body recognises, not what the mind prescribes."
+   },
+   {
+    "t": "The trap: the impossible ideal",
+    "body": "Some participants make an ideal so perfect that it can no longer be made. Everyone loves everyone. There is no road leading there. The Joker can then ask: if we have to take one step from the real image — where would we end up? The ideal must feel like an end, but also like the end of a road whose first step starts somewhere."
+   }
+  ],
+  "tip": "If the ideal image becomes too abstract, ask: where are your feet in this image? Anchoring it physically forces concreteness. Feet lie even less than bodies."
+ },
+ {
+  "n": 7,
+  "title": "The image of transition",
+  "cat": "Three images",
+  "catBg": "#dde7ef",
+  "catFg": "#1e5a7a",
+  "stripe": "#1e5a7a",
+  "note": "The third image: the bridge. Between the real and the ideal lies a series of transitions. Which first step is possible? Which second one? The image of transition shows the change itself — not the final destination, but the movement towards it. This is where Image Theatre becomes political instead of only diagnostic.",
+  "stages": [
+   {
+    "t": "The bridge between now and then",
+    "body": "After the real and the ideal image, the Joker asks the group: what step can we imagine to get from here to there? The sculptor makes one in-between image — not the whole way, only the first transition. That transition then becomes a new real image from which the next transition is sought. In this way the group builds a staircase of images which together form a route."
+   },
+   {
+    "t": "What has to change, concretely",
+    "body": "The image of transition forces the concreteness that the ideal image does not deliver. What literally has to move? Who has to come one step closer, who has to take one step back? Whose hand has to open, whose mouth has to close? These small physical changes are the metaphor for the political, psychological or social change that is needed. If the image does not move, reality does not move either."
+   },
+   {
+    "t": "The negotiation makes things visible",
+    "body": "When several participants build an image of transition together, they start to negotiate. This one wants the boss to be completely equal already; that one finds it too fast. The negotiation itself is diagnostic — it shows which steps the group considers feasible and which go too far. This conversation about feasibility is often more important than the resulting image."
+   },
+   {
+    "t": "What the change looks like",
+    "body": "Boal writes that the point is how to carry out the change, the transformation, 'the revolution, or whatever term one wishes to use' (Boal, 1974/1985). The image of transition is not the utopia, not the resistance — it is the concrete action by which the one becomes the other. A movement needs theory and organisation, but it starts with someone who knows which first step to take. The image of transition is the bodily answer to that question."
+   }
+  ],
+  "tip": "If a group gets stuck on the image of transition — it often happens — do not ask what the solution is. Ask: which smallest movement would make the image a little less impossible? Small movements open what great distances close."
+ },
+ {
+  "n": 8,
+  "title": "Sculpting as physical dialogue",
+  "cat": "Sculpting",
+  "catBg": "#e4ecd8",
+  "catFg": "#4a7c3a",
+  "stripe": "#4a7c3a",
+  "note": "Sculpting is the heart of the technique: one person (the sculptor) shapes the body of one or more others (the clay) into an image. There is no talking, no demonstrating — only touch. The rule is simple but the ethics are dense: the sculptor uses someone else's body, and that calls for care.",
+  "stages": [
+   {
+    "t": "Touch as language",
+    "body": "The sculptor places an arm, tilts a head, bends a back — always through direct physical touch. No mirroring (copy what I do), no verbal instructions. Boal makes a deliberate choice here: the sculptor knows the desired image not through the head but through the hands. By sculpting, the sculptor thinks in form. This is a different way of thinking from the verbal — slower, more precise, more physical."
+   },
+   {
+    "t": "The clay is not passive",
+    "body": "The person being sculpted is not a statue — they are a living, feeling body. That body remembers what is done to it. So the sculptor has to be careful: no force, no forcing joints, no holding a position that hurts. The clay can always say no by raising one hand. The power of the exercise depends on that implicit contract: I give you my body, you treat it with care."
+   },
+   {
+    "t": "Consent as an ongoing process",
+    "body": "Explicit consent beforehand is not enough. During sculpting, boundaries can shift — what was fine at the start feels too intimate after ten minutes. At the start the Joker makes the agreements clear: you may always stop, no questions asked. And the Joker observes: on seeing someone freeze up, the Joker stops it. The method only works within clear physical safety. Without that it is no longer theatre; it is crossing boundaries."
+   },
+   {
+    "t": "The body that lets itself be shaped",
+    "body": "There is also a reverse skill: learning to give your body. Some people cannot be sculpted — they help, correct, unconsciously make other choices. The exercise for the clay is: let go of your muscles, add no intention, become the form the sculptor is looking for. That is hard. It takes trust in another person and a willingness to be not-yourself for a while. Often this is the most powerful learning experience for participants."
+   }
+  ],
+  "tip": "Ask before you start: who does not want to be touched today? — and ask again every session. Last week's consent does not count for today. Physical condition, mood and the relationships in the group change."
+ },
+ {
+  "n": 9,
+  "title": "The rule of silence",
+  "cat": "Sculpting",
+  "catBg": "#e4ecd8",
+  "catFg": "#4a7c3a",
+  "stripe": "#4a7c3a",
+  "note": "In Image Theatre nobody talks. Not the sculptor, not the clay, not the spectators. This silence is not an aesthetic choice — it is methodological. As soon as words come in, the image loses its sinaletic power and becomes once again an illustration of an explanation.",
+  "stages": [
+   {
+    "t": "Silence protects the image",
+    "body": "An image without words forces everyone — maker, clay, onlookers — to think in forms. As soon as someone says 'I mean that…', the image is reduced to that one explanation. The rich plurality of possible readings disappears. The silence keeps the field of interpretation open and democratic. Everyone may see what they see, without being corrected by the maker's intention."
+   },
+   {
+    "t": "What the Joker does say",
+    "body": "The Joker is the only one who speaks, and keeps to what is needed: instructions for the exercise (now we make the real image), questions to the spectators (what do you see?), frames for the next step (now we dynamise). No interpretation, no praise, no encouragement. The Joker keeps the process tight but the meaning open."
+   },
+   {
+    "t": "What the Joker prefers not to ask",
+    "body": "The question 'what does your image mean?' is preferably not an opening move. Nor: 'did you mean this or that?' Or: 'wouldn't it be better like this?' These questions tend to force one reading onto an image that can carry several. At most, the Joker asks the maker: 'does this feel right in your body?' — a physical question, not a question of meaning. This is a working preference, not a rule. Sometimes a maker wants to add something crucial; then a good Joker makes room. TO is not a dogma — it is a discipline with exceptions."
+   },
+   {
+    "t": "The discipline of not explaining",
+    "body": "Western participants are trained to explain. They want to justify themselves, show they have understood something, clarify their intention. It takes sessions for a group to build up the discipline of not explaining. The Joker helps by consistently not explaining either, and by gently interrupting when an explanation looms: let's let the image stand. After a while the group tastes the space and no longer wants to fall back into words."
+   }
+  ],
+  "tip": "One word that does work: yet. When someone wants to start explaining, say not yet — not no. That way the silence feels not like a ban but like a postponement."
+ },
+ {
+  "n": 10,
+  "title": "Dynamisation",
+  "cat": "Sculpting",
+  "catBg": "#e4ecd8",
+  "catFg": "#4a7c3a",
+  "stripe": "#4a7c3a",
+  "note": "An image is static, but reality moves. Dynamisation is the art of setting the still image in motion — through sound, rhythm, slow motion, fast forward, or spect-actors who step in. Dynamisation turns the diagnosis into an analysis, and the analysis into a possible prescription.",
+  "stages": [
+   {
+    "t": "Sound and rhythm",
+    "body": "The first and simplest dynamisation: each figure in the image makes the sound that belongs to its position. A sighing rhythm, a running commentary, a cry, silence. The group listens — and often hears something that was not yet visible in the still image. Sounds can drown each other out, confirm each other, contradict each other. The image becomes a score."
+   },
+   {
+    "t": "Movement and repetition",
+    "body": "Second layer: each figure makes the smallest movement that fits its posture, and repeats it. A ritual gesture: the mother who keeps reaching out her hand but never quite gets there; the boss who keeps giving a slight nod. This mechanised repetition reveals the structure — this is not what happens today, this is what happens every day. Ritual makes the systemic visible."
+   },
+   {
+    "t": "Slow motion, fast forward, rewind",
+    "body": "The image can be manipulated in time. In slow motion a quarrel shows how it builds up; in fast forward a happy scene shows how fleeting it is; in rewind a scene shows that it can be reversed. This technique borrows from film but works differently in body work — the body feels time instead of recording it. Participants gain access to what happens between the frames."
+   },
+   {
+    "t": "Spect-actors step in",
+    "body": "Third layer: spectators step into the image. An onlooker who steps into a bullying scene as a bystander and intervenes changes the whole composition. The original figures react and stay in character, but the dynamic shifts. This is the bridge to Forum — the image becomes a space for experimenting with interventions. What can one body do? What changes through one presence?"
+   }
+  ],
+  "tip": "Build dynamisations up in layers as a rule: first silence, then sound, then movement, then intervention. Skip a layer and you often lose information. An image that is not dynamised remains a tableau — sometimes that is exactly what a moment of rest or a closing calls for; for analysis you usually need more movement."
+ },
+ {
+  "n": 11,
+  "title": "Great Game of Power",
+  "cat": "Canon",
+  "catBg": "#f2ead2",
+  "catFg": "#8a6a1e",
+  "stripe": "#8a6a1e",
+  "note": "Six chairs, a table, a bottle — and the question: which chair is the most powerful? One of Boal's best-known exercises, included in Games for Actors and Non-Actors (Boal, 2002, p. 163). In twenty minutes an abstract notion like power becomes tangible, felt, open to discussion. And every time someone arranges the chairs differently, another form of power appears.",
+  "stages": [
+   {
+    "t": "The set-up",
+    "body": "In an open space the Joker puts down six chairs, one table and one bottle. The task for the group is: rearrange everything so that one chair is clearly more powerful than the others. Every object may be moved, but nothing may be removed. One by one, participants come forward to make a new configuration — in silence. Only afterwards does the group talk."
+   },
+   {
+    "t": "Anthropomorphism as analysis",
+    "body": "The group immediately starts to personify the chairs: the one at the front is the boss, the one at the back sees everything, the one in the middle has the bottle. Chairs become people, positions become roles, space becomes hierarchy. This is not projection but recognition — we live in spaces and know what positions mean. The exercise makes that tacit knowledge explicit."
+   },
+   {
+    "t": "Several configurations side by side",
+    "body": "As participants take turns rearranging the chairs, a library of power configurations builds up. The high, lonely position (tyrant); the circle with one in the middle (prison or classroom); the row behind a table (panel); the chaotic pile (disorder). Each configuration carries a political analysis. The group can compare them: which power is strongest? Which most fragile? Which most recognisable?"
+   },
+   {
+    "t": "Extending it with bodies",
+    "body": "In Boal's next step, someone takes up the most powerful position without moving anything. Then others, one by one, try to place themselves in an even more powerful position and take away the power the first person established. Someone who sits next to the tyrant's chair at the same height brings it down. Someone who jumps onto the table undermines the whole configuration. This step turns the exercise from analysis into intervention — and forms the bridge to Forum."
+   }
+  ],
+  "tip": "This exercise works best as the opener of a session on power, hierarchy or institutional context. Do not use too many chairs — six is enough. More makes the images unreadable."
+ },
+ {
+  "n": 12,
+  "title": "Colombian Hypnosis",
+  "cat": "Canon",
+  "catBg": "#f2ead2",
+  "catFg": "#8a6a1e",
+  "stripe": "#8a6a1e",
+  "note": "One of the most widely used Boal exercises in the world. Two people stand facing each other; one holds a hand 20 to 40 cm from the other's face. The other follows that hand as if hypnotised, always keeping the same distance (Boal, 2002, p. 51). Seemingly playful, but in ten minutes this exercise reveals more about power and trust than an hour of discussion.",
+  "stages": [
+   {
+    "t": "One leader, one follower",
+    "body": "The leader slowly moves the hand — up, down, sideways, turning. The follower has to keep the face at exactly the same distance. This forces the follower into awkward positions: bending, squatting, stretching, twisting. The leader discovers how much power they have; the follower discovers how far they are willing to go along. After five minutes, swap."
+   },
+   {
+    "t": "The leader's responsibility",
+    "body": "Boal is subtle here: the exercise is also for the leader, who 'is an ally, not an enemy' (Boal, 2002, p. 54). The leader learns too — because the leader has to make sure the partner can keep following. A leader who moves too fast loses the follower. A leader who keeps putting the follower in painful positions is simply a bully. The art is: to challenge without breaking. This is power with care — and that is more political than power without it."
+   },
+   {
+    "t": "Two hands, several followers",
+    "body": "Variants build up complexity: the leader uses both hands and has two followers; one leader has three followers (two hands, one foot); groups of four, five, more. As the configuration becomes more complicated, it becomes visible how several dependencies work at once — closer to how oppression really functions than one-to-one dynamics."
+   },
+   {
+    "t": "Bridge to Image Theatre",
+    "body": "You can use Colombian Hypnosis as a direct transition to still image work. When the Joker calls 'freeze', all the pairs suddenly stand still — and you get a landscape of power relations. The group analyses: who is in which position, who is in balance, who is suffering? In this way the game becomes a diagnostic image. The movement is stilled for a while, and starts again once the group is done with it."
+   }
+  ],
+  "tip": "Never let this exercise become a competition. The leader who completely wears out the follower has not won — he has only shown that he lacked care. Discuss this explicitly in the debrief."
+ },
+ {
+  "n": 13,
+  "title": "Complete the Image",
+  "cat": "Canon",
+  "catBg": "#f2ead2",
+  "catFg": "#8a6a1e",
+  "stripe": "#8a6a1e",
+  "note": "The quickest way to prove that one image carries countless stories. Two people shake hands and freeze. Then one of them leaves. The one left behind holds the pose. A third person comes in and completes the image — in such a way that a whole new story appears. So the image keeps changing its meaning, without the one left behind changing anything at all.",
+  "stages": [
+   {
+    "t": "The starting point: two people, one image",
+    "body": "Two participants shake hands. They freeze. The Joker asks the group: what do you see? Answers come: a greeting, a farewell, a deal, a first meeting. Already in this first round it is visible that the same image carries several stories. There is no right answer."
+   },
+   {
+    "t": "One leaves, the other stays",
+    "body": "Now one of the two steps out of the image. The other stays exactly as they were — hand held out, body tilted. Their posture is now ambiguous: the context has gone, but the form remains. This moment is crucial — the Joker lets the silence stand. The one left behind is half an image, an unfinished sentence."
+   },
+   {
+    "t": "A new body completes it",
+    "body": "A third person steps in. She takes up a new position that makes a completely different story. Where there was a greeting, there is now a plea. Or a threat. Or an embrace. The first participant has changed nothing — only the relationship has changed, because a new second body has joined. This is Boal's proof: meaning lies in relationship, not in the individual."
+   },
+   {
+    "t": "Repeating in series",
+    "body": "The exercise now runs as a series: the person who has just completed the image stays, the first one steps out. A fourth comes and completes the image with the second. A fifth with the fourth. So the image rolls through the room — each time one new body, each time a completely new story. The speed of these transformations makes concrete what would otherwise remain an abstract claim: one body carries countless meanings."
+   }
+  ],
+  "tip": "Keep the changes quick. If participants think for a long time before stepping in, they start to verbalise. This exercise works precisely on the pre-verbal layer. Rhythm: a new body every ten seconds."
+ },
+ {
+  "n": 14,
+  "title": "Multiple Image of Happiness",
+  "cat": "Canon",
+  "catBg": "#f2ead2",
+  "catFg": "#8a6a1e",
+  "stripe": "#8a6a1e",
+  "note": "An exercise from Boal's Image Theatre (Boal, 2002, p. 189), here with a follow-up step from practice. Do not ask participants about their oppression — it is buried too deep. Ask about their happiness. That they show more easily. And only then ask: who or what stands in the way of this happiness? The answer exposes the oppression more precisely than any direct question could.",
+  "stages": [
+   {
+    "t": "Not abstract but concrete happiness",
+    "body": "The Joker asks each participant: what would you do if you were truly happy? Who would you be with? Where? Not: what is happiness in general? — that produces clichés. But: your happiness, today. The participant sculpts this image with the help of others. A table with family, a book on a terrace, a dance partner, not having to rush — each image is specific to one person."
+   },
+   {
+    "t": "Many images, one society",
+    "body": "When five or six participants show their images of happiness at the same time, a multiple social portrait emerges. Some images resemble each other; others are sharply different. The group sees: happiness is not universal, it is biographical. What is fulfilment for one is captivity for another. That plurality is diagnostic — it shows which forms of happiness are alive in this community. In Boal's own version a game follows: those outside the images take the place of whoever they think is happiest, and then everyone at once looks for an even happier relationship (Boal, 2002, pp. 189–190)."
+   },
+   {
+    "t": "The obstacle question",
+    "body": "The follow-up step from practice: now the Joker asks: who or what stands in the way of this happiness? Each participant sculpts the obstacle — again with the help of bodies. A creditor, an illness, a system, a code of propriety. The obstacle figure stands next to or over the image of happiness. Together the two form the oppression — not abstractly, but as a precise geometric relation between desire and blockage."
+   },
+   {
+    "t": "The structure becomes visible",
+    "body": "The most revealing moment: the group compares the obstacle images. When ten individuals have ten different visions of happiness but keep showing the same kind of obstacle — an employer, a father, a health insurance system, a social norm — that is where the structure lies. The individual experience differs; the structural blockage is shared. That is the political analysis the exercise works towards."
+   }
+  ],
+  "tip": "The power of this exercise lies in the order: first the happiness, then the obstacle. Turn it round and you get complaining. Stick to this order — desire first, then the question of what blocks it."
+ },
+ {
+  "n": 15,
+  "title": "Ritual gesture",
+  "cat": "Canon",
+  "catBg": "#f2ead2",
+  "catFg": "#8a6a1e",
+  "stripe": "#8a6a1e",
+  "note": "An everyday action — greeting your boss, serving customers, a family dinner — is performed as if it were a sacred ritual. By ritualising the ordinary, the underlying codes of power and social conventions suddenly become visible. What seemed self-evident becomes strange — and that strangeness makes analysis possible.",
+  "stages": [
+   {
+    "t": "Choose the everyday",
+    "body": "The Joker invites participants to choose an action they perform every day without thinking about it. Shaking hands at a job interview. Leaving your child in the school playground. Giving money to a street musician. The action must be so ordinary that you normally do not even see it. This is precisely the action that carries the most information about power — what we do not notice works most strongly."
+   },
+   {
+    "t": "Ritualise with formality",
+    "body": "The participant performs the action with the seriousness of a ceremony. Exaggeratedly slow. With full concentration. As if every step were prescribed by religion. The hierarchy is magnified: who speaks first, who bows lower, who waits for the other to sit down. The smallest detail takes on symbolic weight."
+   },
+   {
+    "t": "The codes become readable",
+    "body": "Through the formalisation, the social codes suddenly become visible. The group sees: an ordinary handshake contains seven implicit rules of power. Whoever holds out a hand first sets the status. The firmness of the handshake communicates. The duration communicates. Where people look communicates. In the everyday action this was invisible; in the ritual it is spelled out."
+   },
+   {
+    "t": "Variants reveal more",
+    "body": "Now the exercise can vary: the same action played by people from different social classes, with roles swapped, with masks. Each variant reveals something else. What changes when the labourer greets the boss? When the customer serves the waitress? Once the codes become visible, you can also break them — that is the political gain of this exercise."
+   }
+  ],
+  "tip": "Watch out for parody. Ritualising is not ridiculing — it is enlarging what is really there. If the group starts laughing because it has become a joke, the seriousness has gone. Then ask: do it again, but this time without irony."
+ },
+ {
+  "n": 16,
+  "title": "The internalised oppressor",
+  "cat": "Rainbow",
+  "catBg": "#ebdcef",
+  "catFg": "#6a3d7a",
+  "stripe": "#6a3d7a",
+  "note": "From 1976 Boal worked in Europe and came up against a different kind of oppression. In Latin America oppression was exercised by police and soldiers — external, visible. Not so in Northern Europe: people oppressed themselves. Boal called this internalised oppressor the cop in the head, and developed a whole new family of image techniques to work with it — collected in The Rainbow of Desire (1995).",
+  "stages": [
+   {
+    "t": "The problem of the North",
+    "body": "Boal discovered that in countries without a visible dictatorship people were just as oppressed — only their oppression had been internalised. They censored themselves, did not aspire to what they wanted, stayed in relationships that hollowed them out. They called this being free. The cops were not on the streets — they were in the head. They kept watch with the voices of parents, teachers, media, childhood."
+   },
+   {
+    "t": "The three hypotheses",
+    "body": "In Rainbow of Desire (chapter 3: 'The Three Hypotheses of the Cop in the Head') Boal formulates three working hypotheses that together explain how the internalised oppressor works. (1) Osmosis — the process by which society's ideas, tastes and values creep into us without our noticing; the cops are in our heads, but their headquarters are outside. (2) Metaxis — the participant's ability to exist in two worlds at once: the aesthetic space of the image and lived reality. It is precisely this double presence that makes inner work in the theatre possible. (3) Analogical induction — the personal image of one case turns out to be analogous to those of others; the individual story opens access to a shared pattern. The aim of Image Theatre in this mode: to strengthen the subversive side by making the submissive part visible."
+   },
+   {
+    "t": "Adversarial, not integrative",
+    "body": "Here Boal differs sharply from most therapeutic traditions. Where visualisation therapy often strives to integrate inner parts, Boal's approach is combative: the cop has to be defeated, not loved. The image makes the enemy visible so that it can be fought. This is Image Theatre as therapy, but with a political edge — inner liberation stays linked to external structures."
+   },
+   {
+    "t": "The relation to Forum",
+    "body": "The Rainbow techniques are image-based, not scene-based. They work on the protagonist himself — on his inner struggle — rather than on the protagonist in relation to an external antagonist. That makes them suitable in contexts where direct political confrontation does not work: addiction, depression, questions of identity, paralysis in the face of choices. Boal's translator Adrian Jackson notes that in Boal's older texts therapy was still couched in terms of 'Western bourgeois decadence'; with The Rainbow of Desire, subtitled 'The Boal Method of Theatre and Therapy', Boal built a whole school of work using drama as therapy (Boal, 2002, p. xxix). At the same time he wrote: 'We are theatre artists, not therapists' (Boal, 2002, p. 206)."
+   }
+  ],
+  "tip": "Rainbow work asks more than Image Theatre in group work does. Whoever works with internalised oppression must have the capacity to hold what comes up — in the group and in the Joker. Do not use it without a strong group bond and without a closing exercise at the end."
+ },
+ {
+  "n": 17,
+  "title": "Image of the Antagonist",
+  "cat": "Rainbow",
+  "catBg": "#ebdcef",
+  "catFg": "#6a3d7a",
+  "stripe": "#6a3d7a",
+  "note": "The core technique from the introspective family of Rainbow of Desire ('The image of the antagonist'). The version below is a way of working from practice, with a counter-image related to Boal's technique 'Image and counter-image'. The protagonist sculpts the image of his own antagonist — not an external enemy, but the inner counterforce that blocks him. Alongside it comes the counter-image: the other side of that antagonist, the force within himself that answers back. Between the two, his inner struggle is played out.",
+  "stages": [
+   {
+    "t": "Getting the antagonist out of the head",
+    "body": "The protagonist briefly describes a situation in which he felt blocked. The Joker helps him choose one specific moment — not a whole period but one instant of blockage. With the help of another participant, the protagonist now sculpts the image of the antagonist in that moment. It may be a real person — a father, a teacher — but often it is a voice, a judgement, a memory. The body that represents the antagonist is given a concrete posture, gaze, tension."
+   },
+   {
+    "t": "Making the image tangible",
+    "body": "What was first an inner voice now stands outside the protagonist. He can look at it. He can walk around it. He can compare its height with his own. For the first time the antagonist is something other than himself. This externalisation is liberating in itself — even without further action the protagonist often feels less overwhelmed."
+   },
+   {
+    "t": "Counter-image: one's own counterforce",
+    "body": "Now the protagonist sculpts a second image: his counter-image. This is the force within himself that contradicts the antagonist. Perhaps a child's face he still remembers; perhaps an older self that once said something that helped him. This counter-image is often weaker than the antagonist — which is exactly why the protagonist is blocked. But by sculpting it, he acknowledges that it exists."
+   },
+   {
+    "t": "Exploring the struggle",
+    "body": "The Joker can now ask: what happens between these two images? Can the protagonist himself stand between them? What does he feel? Which of the two is winning now? What would it take to strengthen the counter-image? These questions are not rhetorical — they ask for physical answers. The protagonist moves his own body, his position, his orientation. In this way he rehearses the inner struggle in safety, with the possibility of testing outcomes that were not yet possible in reality."
+   }
+  ],
+  "tip": "This exercise is powerful and can go deep emotionally. Always work with a co-Joker or observer who can support the protagonist. And never end with the antagonist still standing — make sure the protagonist steps out of the image again before you close."
+ },
+ {
+  "n": 18,
+  "title": "The choreographed sequence as anti-model",
+  "cat": "Sequence",
+  "catBg": "#d4e4dc",
+  "catFg": "#1a5240",
+  "stripe": "#1a5240",
+  "note": "A methodological addition from Dutch practice. Instead of the classic Forum anti-model as a narrative scene, the image sequence is a choreographed series of images and movements that shows a social theme from several perspectives at once. The result: an anti-model that follows no single protagonist line but sets out a multiple social map — for themes where it is precisely the simultaneity of forces that forms the problem.",
+  "stages": [
+   {
+    "t": "Why image and movement together",
+    "body": "Narrative theatre demands reduction: there has to be a protagonist, there has to be escalation, there has to be a point of crisis. That works for conflicts that play out within one relationship. It does not work for themes where it is precisely the simultaneity of irreconcilable forces that produces powerlessness. Access to mental health care for young people is not a one-to-one conflict — it is the simultaneous working of care worker, parent, waiting time, social expectation, self-image and funding. The image sequence shows that simultaneity directly."
+   },
+   {
+    "t": "Example: access to mental health care for young people",
+    "body": "A possible sequence: Image 1 — a young person alone in his room, two minutes of stillness, moving slightly. Image 2 — the parent at the kitchen table with a form, hesitating. Image 3 — the GP surrounded by an image of a full waiting room. Image 4 — a phone call that is not answered, in slow motion. Image 5 — classmates taking a group photo without him. Image 6 — a care worker closing a file. Each image is short. Together they form not a story but a landscape. The audience sees not one failing protagonist — it sees a system in which nobody fails alone."
+   },
+   {
+    "t": "Example: the position of women in Suriname",
+    "body": "Another sequence: Image 1 — three generations of women in the kitchen, each doing different work. Image 2 — a woman at the bank with a man's papers. Image 3 — a church service, who stands at the front. Image 4 — a political debate, who speaks. Image 5 — a domestic scene with visible tension. Image 6 — a young woman with a diploma, washing up at home. Again: no single line, but a map. The different layers of society — economy, religion, politics, family, education — show themselves as fields working at the same time. The audience sees the structure, not an incident."
+   },
+   {
+    "t": "The trap: illustration instead of anti-model",
+    "body": "The biggest risk of this form: the sequence becomes illustrative instead of charged with tension. When every image shows the problem, the whole becomes a pamphlet. A good image sequence has tension: images contradict each other, there is humour next to tragedy, an image contains its own counterforce. And — as with the classic anti-model — the sequence usually ends in powerlessness, not in a solution. That openness is what invites the audience to add images of their own; close too early, and there is less to do for those watching."
+   }
+  ],
+  "tip": "Keep the sequence short: six to eight images, each two to three minutes. Any longer and the audience loses the overview. Invest in the transitions — the movements between images often tell more than the images themselves."
+ },
+ {
+  "n": 19,
+  "title": "Additional images from audience groups",
+  "cat": "Sequence",
+  "catBg": "#d4e4dc",
+  "catFg": "#1a5240",
+  "stripe": "#1a5240",
+  "note": "The methodological twist that sets this form apart from classic Forum. After the image sequence has been shown, the audience is not invited to intervene in the scene — it is invited to add to the scene. Which images did the sequence miss? Whose perspective was absent? Audience groups build images of their own that are placed next to the ones shown. The balance of power shifts: the company provides the opening, the audience completes the map.",
+  "stages": [
+   {
+    "t": "After discussion and reflection",
+    "body": "First the group discusses what it has seen. Which images touched people? Which relations stood out? What felt familiar, what felt strange? This round of reflection matters — without it the next phase becomes superficial. But the reflection stays short and focused: no debating solutions, only naming what became visible. The Joker listens for one question: what have we not seen?"
+   },
+   {
+    "t": "Dividing into groups, giving the task",
+    "body": "The audience is divided into small groups of four to six people. Each group gets the same task: make one or two images that are missing from the sequence. That may be a perspective that was not shown (the father who is not involved; the health insurer; the youth worker who was not called). It may also be a moment that is missing (the moment just before the crisis; the silence after the solution that never came). The groups work in their own corner, in silence, with their own bodies."
+   },
+   {
+    "t": "Showing and adding",
+    "body": "Each group shows its additional image. Not as a correction of the sequence — as an extension. Where the original sequence had six images, the gathered session now has twelve or fourteen. The theme has become richer. Nobody has solved the problem — but it is now fuller, more accurate, harder to push away. What was missing was not absent by chance; it was often systematically invisible."
+   },
+   {
+    "t": "Why this is a different balance of power",
+    "body": "In classic Forum the scene belongs to the company; spect-actors come in to change something of the company's. Here the sequence is an invitation; the audience builds its own images next to it. The company is not corrected — it is added to. This asks for trust from the company: you show your work as unfinished, as the beginning of a shared construction. And it gives the audience a creative role, not only an intervening one."
+   }
+  ],
+  "tip": "Never say: what is missing? — that sounds like correction. Ask instead: what would you like to see next to this? The difference in wording decides whether the audience behaves as critic or as co-creator."
+ },
+ {
+  "n": 20,
+  "title": "Joking on fear and desire",
+  "cat": "Sequence",
+  "catBg": "#d4e4dc",
+  "catFg": "#1a5240",
+  "stripe": "#1a5240",
+  "note": "The third phase of the method. Now that all the images — original and added — stand together, every figure in every image becomes available for investigation. The Joker asks each figure two questions: what are you afraid of? And: what do you long for? The body on show answers. In this way an emotional map of colliding desires and fears emerges for each image.",
+  "stages": [
+   {
+    "t": "Why these two questions",
+    "body": "Desire and fear are the two forces that lie beneath political positions. A parent who will not let go of his caring role desires something and is afraid of something. A care worker who sticks rigidly to the rules desires something and is afraid of something. If you only ask for opinions or arguments, you get ideology. If you ask about desire and fear, you get the engine beneath the behaviour. That engine can be investigated. And — crucially — the opponent's engine often turns out to be related to the protagonist's. Both want safety. Both are afraid of loss. That is where political imagination begins."
+   },
+   {
+    "t": "Figure by figure through the image",
+    "body": "The Joker goes past the figures in one image. You, in this posture — what are you afraid of? The player answers in character, not as themselves. I am afraid I am not good enough. Then: and what do you long for? For someone to see who I am. The answers are not evaluated. They are written down or remembered. Every figure gets the same two questions. At the end there is an emotional map for each image."
+   },
+   {
+    "t": "Without psychologising",
+    "body": "The great risk: the exercise turns into individual therapy. Each figure gets an inner world, the group is individualised, the social dimension is forgotten. The Joker prevents this by constantly linking back to the social layer: this fear — does it belong to this person, or does it go with this position? A care worker who is afraid of disciplinary proceedings does not have her own fear — she carries a structural fear that belongs to her position. That distinction keeps the analysis collective."
+   },
+   {
+    "t": "What it yields",
+    "body": "At the end of this phase the sequence has been X-rayed. Each image now carries not only visual information but also an emotional map: who wants what, who fears what, where desires overlap, where they collide. That makes intervention possible that goes further than convincing the wrong party. You can now design: which intervention speaks to the desire of several parties at once? Which reduces the shared fear? This is policy design through images. Here Image Theatre meets Legislative Theatre."
+   }
+  ],
+  "tip": "Write the answers on a large sheet, visible to everyone. Not as bookkeeping but as shared material. At the end someone reads it out loud: this is what we heard together. That moment is often more powerful than any intervention that follows."
+ },
+ {
+  "n": 21,
+  "title": "Image Theatre as research",
+  "cat": "Practice",
+  "catBg": "#dde3dd",
+  "catFg": "#5a6b5a",
+  "stripe": "#5a6b5a",
+  "note": "Participatory theatre — Forum and Playback techniques, including image work — is also used as a research method in the social sciences. Kaptani and Yuval-Davis (2008) described how they used it with four refugee groups in East London (Kosovan, Kurdish, Somali and a mixed group). Erel, Reynolds and Kaptani continued that work with migrant families. The claim: participatory theatre yields embodied, dialogical data that interviews or surveys cannot obtain. Especially valuable in research on trauma, taboo and marginality.",
+  "stages": [
+   {
+    "t": "Why embodied data",
+    "body": "An interview asks respondents to put their experience into words — and those words are often already censored, translated, rationalised. An image built with the body escapes those filters. Researchers gain access to a layer of knowledge that respondents themselves might not have been able to articulate. This is not softer than quantitative work — it is different. Embodied data reveal patterns that language-based methods wash away."
+   },
+   {
+    "t": "Safe distance through fiction",
+    "body": "The methodological strength for sensitive subjects: participants do not have to tell their own story. They work with fictional images and stories that arise on the theatre floor. That fiction creates a safe emotional distance — participants can contribute to shared material without exposing themselves. This makes research possible with groups who would clam up in individual interviews: survivors of violence, refugees, people with complex trauma."
+   },
+   {
+    "t": "Concrete projects",
+    "body": "Kaptani and Yuval-Davis (ESRC project Identity, Performance and Social Action): identity, performance and social action among refugees in London. Erel, Reynolds and Kaptani (2017): participatory theatre for transformative social research. Zip Code Memory Project (Columbia University), Rehearsals for Change (spring 2022): participants put their experience of Covid into images, led by George Emilio Sanchez. Kuringa Berlin: feminist and anti-racist Theatre of the Oppressed. In the research of Kaptani, Yuval-Davis, Erel and Reynolds, the theatre yields qualitative data that has been published in academic journals — not as illustration but as core material."
+   },
+   {
+    "t": "What this means for Jokers",
+    "body": "If your session is embedded in research, your position changes. You are not only a facilitator, you are a co-researcher. That calls for agreements about data — may there be filming, how are images described, who owns the material. Jokers who do not want to facilitate research should make that clear beforehand. Conversely: researchers who want to work with Image Theatre without an experienced Joker often get superficial data. The methodology demands methodological discipline."
+   }
+  ],
+  "tip": "If your session becomes research: draw up a data protocol beforehand. What is written down? Who sees the notes? Can participants withdraw something? Who owns the published images? Do not settle these questions afterwards — settle them beforehand."
+ },
+ {
+  "n": 22,
+  "title": "Image Theatre for climate and crisis",
+  "cat": "Practice",
+  "catBg": "#dde3dd",
+  "catFg": "#5a6b5a",
+  "stripe": "#5a6b5a",
+  "note": "The climate crisis is often described as a crisis of imagination (by Amitav Ghosh, 2016, among others) — an inability to let its scale and consequences into our imagination. Image Theatre is literally imagination on the floor. That makes it exceptionally suited to climate work — and more broadly to any crisis in which the problem is invisible or too big for words.",
+  "stages": [
+   {
+    "t": "Picturing what works invisibly",
+    "body": "Climate change happens on time scales and spatial scales that our senses cannot take in. Systemic oppression works in networks we cannot survey. Illnesses such as depression stay in each person's head and are not shared. All these phenomena have one thing in common: they are at work, but invisible. Image work forces them into physical form. A group cannot melt a glacier, but it can make an image of what loss looks like. These images are not a solution, but they gather what would otherwise stay scattered."
+   },
+   {
+    "t": "From individual fear to shared image",
+    "body": "Climate anxiety is widespread among young people, but it is often carried alone. Image Theatre sessions on climate start with individual images of fear, loss, anger — and dynamise them into a collective landscape. The moment of seeing that your fear is shared is politically liberating. You are not mad, not alone, not out of proportion. You are part of a community that perceives something."
+   },
+   {
+    "t": "Utopian images as rehearsal",
+    "body": "The second movement: what would liberation look like? Groups make images of a post-fossil community, a just transition, a city not dominated by cars. These images are not naive — they are exercises in the collective imagination that is needed to drive political struggle. Chantal Bilodeau (Arts & Climate Initiative) has co-organised Climate Change Theatre Action since 2015, a biennial series of short climate plays performed worldwide and often linked to local action."
+   },
+   {
+    "t": "The trap of eco-melancholy",
+    "body": "The danger: sessions become ritual mourning with no follow-up. The image of loss becomes ever more beautiful, ever sadder, and the group leaves with a heavier heart. Good use of Image Theatre therefore always calls for the full three-image arc: real (what is), ideal (what we want), transition (which step is possible). Stop at the real image and you have played climate psychiatrist. Go on to the transition and you have done a political rehearsal."
+   }
+  ],
+  "tip": "In climate sessions, work with mixed groups — scientists, activists, artists, people from affected areas. Their different kinds of knowledge produce images that correct each other. Homogeneous groups produce images that are too consistent, and consistent images miss what is hardest to see."
+ },
+ {
+  "n": 23,
+  "title": "The image rule: sparing with explanation",
+  "cat": "Practice",
+  "catBg": "#dde3dd",
+  "catFg": "#5a6b5a",
+  "stripe": "#5a6b5a",
+  "note": "One of the most often cited working principles of Image Theatre — and the most often misunderstood. Preferably the Joker asks the onlookers what they see, not the maker what the image means. The temptation to explain is great — for the maker, for the Joker, for the group. But note: this is not a rule to be enforced with an iron hand. Boal himself says his book of exercises 'is not a recipe book' (Boal, 2002, p. 16). The discipline lies in the principle; the art lies in judging when to depart from it.",
+  "stages": [
+   {
+    "t": "Why the principle works",
+    "body": "When makers explain their image straight away, the image often shrinks to that explanation. Everything else that was in the image — the unintended, the ambivalent, what only the onlookers could see — fades into the background. There is one truth instead of a field. The democratic, sinaletic power of the image weakens. After one early explanation the whole group becomes more cautious, less free in what it observes. So the principle protects how the image works — and therefore has a good reason, not a ritual character."
+   },
+   {
+    "t": "What the Joker usually does",
+    "body": "First: what do you see? — to the onlookers. Second: listen to several answers without correcting them. Third, only after that, to the maker: does any of this match what you made? The maker can answer yes, no, or: yes, and there is something else. In this way the image belongs to the group in the first instance. The maker adds to it, not takes away. This is a working habit, not a sacrament."
+   },
+   {
+    "t": "When to depart from the principle",
+    "body": "There are moments when rigid application of the principle works against you. A participant who wants to add something essential is cut off and feels unseen. A culture in which verbal expression is a form of respect feels silenced. A trauma context in which the maker needs space. An experienced group that has already mastered the sinaletic and now wants to move on to shared reflection. In all these cases the Joker deliberately chooses to give more room to words — not out of weakness but out of judgement. That judgement matters more than the rule. TO is a discipline, not a ritual."
+   },
+   {
+    "t": "The trap of the opposite extreme",
+    "body": "Too much room for words brings its own problems. A group that talks about everything loses the sinaletic power on which the method rests. A Joker who lets every maker explain at length turns Image Theatre into an improvisation course. The principle exists because it works; you depart from it with arguments, not out of laziness. A good Joker can do both: hold on when needed, let go when it helps. And can name what she is doing, so that the group learns where the boundaries between method and judgement lie."
+   }
+  ],
+  "tip": "If you notice that you yourself are about to explain — pause. Ask: what do you see? Your urge to explain is often a sign that the image is working. But if someone in the group clearly wants to say something essential that does not fit into the image, do not suppress it on principle. The method serves people, not the other way round."
+ },
+ {
+  "n": 24,
+  "title": "Appropriation and taming",
+  "cat": "Practice",
+  "catBg": "#dde3dd",
+  "catFg": "#5a6b5a",
+  "stripe": "#5a6b5a",
+  "note": "Two critical questions for the Western Joker. (1) Appropriation: is your use of this Latin American liberation method a continuation of its emancipatory project, or a consumption of its aesthetics? (2) Taming: does the method remain a rehearsal for liberation in your hands, or is it turned into a tool for learning to live with oppression? Both questions deserve ongoing attention — not answered once and settled.",
+  "stages": [
+   {
+    "t": "The appropriation question",
+    "body": "Image Theatre was developed by a Brazilian Marxist theatre maker in exile, working with peasants and Indigenous communities in Latin America who were oppressed by the state. When it is used in Dutch office training, British drama lessons or American self-development workshops, that raises questions. Not automatically a problem — the method was explicitly spread openly, and many cultures have grown branches of their own on it (Jana Sanskriti, Kuringa, Cardboard Citizens). But it is worth asking: what do you give back to the tradition you borrow from? Which books do you read, which Jokers do you cite, which networks do you contribute to?"
+   },
+   {
+    "t": "The taming question",
+    "body": "A more widely researched risk; see Boncori, Schwabenland & Lax (2025), 'Taming the radical: Domesticating forum theatre in leadership development'. When Image Theatre is used in leadership development, team cohesion or business strategy, the question arises: where has the oppression gone? Often it is still there — but it is not named, because naming it is unsafe for the client. The work then becomes expressive communication instead of political rehearsal. Boal would say: that is no longer Theatre of the Oppressed, that is activating training with a Boal quote. Nothing wrong with that, but then do not call it the liberation method."
+   },
+   {
+    "t": "When is it still TO?",
+    "body": "A useful test — not absolute, but sharp: does your session serve the liberation of the participants, or the comfort of the client? This question is not rhetorical. Many sessions in fact serve both, or shift between the two, or start with one and move towards the other. Where you draw that line decides whether you practise Image Theatre or a derived technique. Honesty about this, towards yourself and your participants, is part of a Joker's ethics."
+   },
+   {
+    "t": "What you can do",
+    "body": "None of these questions leads to: so stop using this method. They lead to: practise with awareness. Read Boal's own texts, not only summaries. Read Santos, Ganguly, Diamond — voices other than Boal himself. Work pro bono now and then for communities with fewer resources. Refer seriously to the tradition. Acknowledge what you cannot do (you are not a peón, you are not a refugee) and keep within that. The method survives translation — not by denying what is lost in translation, but by being aware of it."
+   }
+  ],
+  "tip": "Do not ask the taming question once before your session, but halfway through. Do you feel the work has become harmless? That is not failure — that is information. Name it in the group: I notice we are staying safe. Do we want to take on something that is not safe? The group decides."
+ }
+];
+
+let cur = 0;
+let view = 'step';
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      ${hasStages ? renderStagesAcc(stages) : ''}
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Joker's tip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">All cards</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overview</div>
+          </div>
+        </div>
+      </div>
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+              <div class="all-cat-tag" style="background:${tech.catBg};color:${tech.catFg}">${tech.cat}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) { cur++; updateDisplay(); }
+}
+function prevTech() {
+  if (cur > 0) { cur--; updateDisplay(); }
+}
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  cur = 0; updateDisplay();
+}
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex; view = 'step';
+    updateViewToggle(); updateDisplay();
+  }
+}
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle(); updateDisplay();
+  }
+  if (e.target.classList.contains('all-stage-row') || (e.target.parentElement && e.target.parentElement.classList.contains('all-stage-row'))) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+// Custom shortcuts blijven via aparte listener
+document.addEventListener('keydown', (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle(); updateDisplay();
+  }
+});
+
+// Accordion helpers (stappen binnen één kaart)
+function renderStagesAcc(stages) {
+  const rows = stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--creme3)">
+      <span class="stages-lbl">${stages.length} steps</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Expand all</button>
+    </div>
+    <div>${rows}</div>`;
+}
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+updateDisplay();
+updateViewToggle();
+</script>
+<script src="../sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in het Engelse TO Arsenal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "The real image": ["beeldentheater", 15, "laag", 1],
+    "The ideal image": ["beeldentheater", 15, "laag", 1],
+    "The image of transition": ["forum", 30, "middel", 3, "Image of transition"],
+    "Dynamisation": ["beeldentheater", 15, "middel", 2],
+    "Great Game of Power": ["beeldentheater", 20, "middel", 2, "The great power test"],
+    "Colombian Hypnosis": ["vertrouwen", 15, "middel", 1, "Colombian hypnosis"],
+    "Complete the Image": ["beeldentheater", 15, "middel", 2, "Complete the image"],
+    "Multiple Image of Happiness": ["beeldentheater", 20, "middel", 2, "Multiple images of happiness"],
+    "Ritual gesture": ["beeldentheater", 20, "middel", 2],
+    "Image of the Antagonist": ["verdieping", 25, "laag", 3, "The image of the antagonist"]
+  }
+});
+</script>
+</body>
+</html>

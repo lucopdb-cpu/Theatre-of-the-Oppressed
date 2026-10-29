@@ -15,11 +15,23 @@
  * Fase, duur, energie en niveau staan er nog van vroeger in, maar worden niet meer getoond.
  *
  * Kaarten zonder vermelding in 'oefeningen' krijgen geen knop.
+ *
+ * Engelse pagina's (html lang="en") gebruiken de Engelse lijst (sleutel 'to-selection-en', zoals
+ * en/to-arsenaal.html) en Engelse knopteksten; de naam in 'oefeningen' is dan de Engelse naam in het TO Arsenal.
  */
 (function (global) {
   'use strict';
-  var SLEUTEL = 'to-sessie';
+  // Engelse pagina's (lang="en", in de map en/) hebben een eigen lijst en Engelse teksten
+  var EN = (document.documentElement.lang || '').slice(0, 2) === 'en';
+  var SLEUTEL = EN ? 'to-selection-en' : 'to-sessie';
   var cfg = null;
+  var TXT = EN ? {
+    aan: '✓ selected', uit: '+ select', weg: 'Remove from My selection', bewaar: 'Save to My selection',
+    naar: 'Go to My selection', lijst: 'My selection', nee: 'not available'
+  } : {
+    aan: '✓ geselecteerd', uit: '+ selectie', weg: 'Uit Mijn selectie halen', bewaar: 'Bewaren in Mijn selectie',
+    naar: 'Naar Mijn selectie', lijst: 'Mijn selectie', nee: 'niet beschikbaar'
+  };
 
   // Leesbare naam van de pagina, zoals hij in Mijn selectie verschijnt
   var PLEK = {
@@ -30,6 +42,16 @@
     'krantentheater.html': 'Krantentheater',
     'playback.html': 'Playback Theatre',
     'prospectief.html': 'Prospectieve technieken',
+    'psychodrama.html': 'Psychodrama'
+  };
+  var PLEK_EN = {
+    'beeldentheater.html': 'Image Theatre',
+    'feldenkrais.html': 'Feldenkrais',
+    'impro.html': 'Impro',
+    'introspectief.html': 'Introspective techniques',
+    'krantentheater.html': 'Newspaper Theatre',
+    'playback.html': 'Playback Theatre',
+    'prospectief.html': 'Prospective techniques',
     'psychodrama.html': 'Psychodrama'
   };
 
@@ -63,7 +85,7 @@
     var d = cfg.oefeningen[titel];
     if (!d) return null;
     var p = pagina();
-    return { naam: d[4] || titel, titel: titel, pagina: p, plek: PLEK[p] || document.title.split(' — ')[0] };
+    return { naam: d[4] || titel, titel: titel, pagina: p, plek: (EN ? PLEK_EN : PLEK)[p] || document.title.split(' — ')[0] };
   }
 
   function toggle(knop) {
@@ -72,7 +94,7 @@
     var lijst = lees();
     var i = lijst.findIndex(function (s) { return s.naam === it.naam; });
     if (i >= 0) lijst.splice(i, 1); else lijst.push(it);
-    if (!schrijf(lijst)) { knop.textContent = 'niet beschikbaar'; return; }
+    if (!schrijf(lijst)) { knop.textContent = TXT.nee; return; }
     toon();
   }
 
@@ -98,8 +120,8 @@
     var a = document.createElement('a');
     a.className = 'sessie-link';
     a.href = 'to-arsenaal.html#selectie';
-    a.title = 'Naar Mijn selectie';
-    a.innerHTML = '<span class="sl-txt">Mijn selectie</span> <span class="sl-n leeg">0</span> →';
+    a.title = TXT.naar;
+    a.innerHTML = '<span class="sl-txt">' + TXT.lijst + '</span> <span class="sl-n leeg">0</span> →';
     if (cfg.tellerVooraan) doel.insertBefore(a, doel.firstChild); else doel.appendChild(a);
   }
 
@@ -111,9 +133,9 @@
       var it = item(k.dataset.titel);
       var aan = !!(it && namen[it.naam]);
       k.classList.toggle('in-sessie', aan);
-      var t = aan ? '✓ geselecteerd' : '+ selectie';
+      var t = aan ? TXT.aan : TXT.uit;
       if (k.textContent !== t) k.textContent = t;
-      k.title = aan ? 'Uit Mijn selectie halen' : 'Bewaren in Mijn selectie';
+      k.title = aan ? TXT.weg : TXT.bewaar;
     });
     var link = document.querySelector('.sessie-link');
     if (link) {
