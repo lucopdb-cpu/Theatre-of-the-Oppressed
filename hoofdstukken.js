@@ -35,7 +35,6 @@
     ['Theater in de publieke ruimte', 'Theatre in public space', [
       ['onzichtbaar.html', 'Onzichtbaar Theater', 'Invisible Theatre', false],
       ['legislatief.html', 'Legislatief Theater', 'Legislative Theatre', false]]],
-    ['Na Boal', 'After Boal', [['na-boal.html', 'Methodologische vernieuwingen', 'Methodological innovations', false]]],
     ['Theateratelier', 'Theateratelier', [['theateratelier.html', 'Theateratelier', 'Theateratelier', false]]],
     ['Atlas — TO in de wereld', 'Atlas — TO in the world', [
       ['wereld.html', 'Atlas en regionale verdiepingen', 'Atlas and regional deep dives', true],
