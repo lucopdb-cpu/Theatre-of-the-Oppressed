@@ -16,6 +16,7 @@
  *   pagina in de andere taal, dan komt naast de zon/maan-knop een knop EN of NL die daarheen leidt.
  *   De teksten van de knoppen volgen <html lang="…">.
  * - Zoeken: dit script laadt ook zoeken.js (zoeken in de hele site, knop met vergrootglas in dezelfde balk).
+ * - Archief Formaat 1999-2025: zolang ARCHIEF_ONLINE false is, zijn links naar het archief gewone tekst.
  * - Hoofdstukken: en hoofdstukken.js (knop "Hoofdstukken" naast de terugknop, met een uitklapbare lijst van alle hoofdstukken).
  */
 (function () {
@@ -139,6 +140,25 @@
     'html[data-thema="donker"] .sessie-knop.in-sessie{background:#ece6da;border-color:#ece6da;color:#1a1713}',
     '}'
   ].join('\n');
+
+  // Archief Formaat 1999-2025: nog in opbouw (Luc, 29 oktober 2026).
+  // Zolang ARCHIEF_ONLINE false is, zijn alle links naar het archief gewone tekst: niet klikbaar,
+  // zonder linkopmaak. De links zelf blijven in de pagina's staan. Archief klaar? Zet op true.
+  var ARCHIEF_ONLINE = false;
+  var ARCHIEF = 'a[href*="Formaat-1999-2025"]';
+  if (!ARCHIEF_ONLINE) {
+    CSS += '\n' + ARCHIEF + '{color:inherit!important;text-decoration:none!important;border-bottom:none!important;cursor:text;pointer-events:none}';
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest && e.target.closest(ARCHIEF);
+      if (a) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+    var archiefUit = function () {
+      var links = document.querySelectorAll(ARCHIEF + ':not([tabindex])');
+      for (var i = 0; i < links.length; i++) { links[i].setAttribute('tabindex', '-1'); links[i].setAttribute('aria-disabled', 'true'); }
+    };
+    if (window.MutationObserver) new MutationObserver(archiefUit).observe(root, { childList: true, subtree: true });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', archiefUit); else archiefUit();
+  }
 
   // Meteen toepassen, nog voor de pagina getekend wordt
   pas();
