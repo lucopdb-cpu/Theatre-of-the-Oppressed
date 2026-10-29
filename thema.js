@@ -5,6 +5,7 @@
  *
  * - Zonder eigen keuze volgt de site de instelling van het toestel (licht of donker).
  * - De knop met zon/maan in de balk bovenaan (.arsenaal-nav) legt een eigen keuze vast.
+ * - De lichte stand is gedimd tot 80% helderheid (zie het begin van CSS hieronder).
  *   Die wordt in de browser onthouden (localStorage 'arsenaal-thema') en geldt op alle pagina's.
  *   Kiest iemand wat het toestel toch al doet, dan wordt de keuze gewist en volgt de site weer het toestel.
  * - Het script zet <html data-thema="licht|donker">. Elke pagina geeft in haar eigen <style>
@@ -96,6 +97,11 @@
   var MAAN = '<svg class="tk-maan" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
 
   var CSS = [
+    /* Lichte stand gedimd tot 80%: het witte papier gaf te veel licht (Luc, 29 oktober 2026).
+       Het filter staat op <html>, zodat vaste elementen (zoekvenster, menu) gewoon blijven werken.
+       Ander percentage? Pas alleen het getal hieronder aan. Bij afdrukken geen filter. */
+    'html[data-thema="licht"]{filter:brightness(.8)}',
+    '@media print{html[data-thema="licht"]{filter:none}}',
     /* knop */
     '.thema-knop{display:inline-flex;align-items:center;justify-content:center;width:34px;height:31px;margin-left:auto;padding:0;border:none;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;cursor:pointer;transition:background .15s,color .15s}',
     '.thema-knop:hover{background:rgba(60,45,30,.13);color:#1a1814}',
