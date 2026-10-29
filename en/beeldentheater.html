@@ -196,6 +196,7 @@ html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
 html[data-thema="donker"] .laagregel{color:#a79a87}
 }
 /* ═══ EINDE DONKER SCHERM ═══ */
+.card-orig{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-style:italic;font-weight:300;opacity:.75;margin-top:3px}
 </style>
 <script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -943,6 +944,7 @@ function createStepView(techIndex) {
           <div>
             <div class="tech-num">${tech.n} / ${T.length}</div>
             <div class="card-name">${tech.title}</div>
+            ${tech.en ? `<div class="card-orig">${tech.en}</div>` : ''}
           </div>
           <div class="head-badges">
             <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
