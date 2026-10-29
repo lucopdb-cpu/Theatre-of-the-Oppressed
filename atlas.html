@@ -57,6 +57,7 @@ body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height
 .app-name em{font-style:italic;color:var(--blue)}
 .app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
 .context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+.context-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--blue3);text-underline-offset:2px}
 
 /* NAV */
 .nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
@@ -82,6 +83,7 @@ body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height
 .head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
 .badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.badge-herkomst{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:2px 8px;border-radius:20px;white-space:nowrap;color:var(--ink2);border:1px solid var(--ink3);background:transparent}
 .card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
 
 .stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
@@ -233,7 +235,9 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
   <div class="app-name">Atlas — <em>praktijken in context</em></div>
   <div class="app-sub">14 plekken · Rio · Medellín · NYC · Vancouver · Parijs · Londen · Manchester · Berlijn · Rotterdam · Maputo · Dakar · Nairobi · Israël/Palestina · Calcutta</div>
   <div class="context-note">
-    Iedere culturele en politieke context vraagt en maakt haar eigen aanpassingen van de methode. Deze atlas brengt 14 praktijken in beeld — geen directory van organisaties, wel een dwarsdoorsnede van wat Theatre of the Oppressed in specifieke gemeenschappen is geworden. Van rurale Forum in Bengalen tot ex-combattant-theater in Colombia, van dakloosheidswerk in Londen tot milieu-Forum in Senegal. Niet volledig. Wel representatief voor de levende veelvormigheid van het werk. Voor de bredere TO-praktijk in het Midden-Oosten en Noord-Afrika komt er een eigen verdieping, TO in MENA (tijdelijk niet beschikbaar).
+    Deze atlas is geen overzicht van bovenaf. Hij is gegroeid uit vijfendertig jaar jokeren in het sociale domein, en uit een nieuwsgierigheid die er vanaf het begin was: wat doen anderen, elders, met dezelfde methode? Toen Google er plotseling was, ging ik meteen zoeken. Bij de start van Formaat in 1999 begonnen Ronald Matthijssen en ik TO-groepen uit de hele wereld te verzamelen in de Yellow Pages op de website van Formaat. Boal nam de Yellow Pages op in de handtekening onder zijn e-mails, en CTO-Rio verwees ernaar in het eerste nummer van <a href="bronnen.html#cto-rio-2001"><em>Metaxis</em> (2001)</a>. Dat zoeken leidde naar ontmoetingen, naar de ITO en naar de plekken op deze kaarten.<br><br>
+    De atlas is daarom twee dingen tegelijk: deels veldwerk, deels bureauonderzoek. Elf van de veertien plekken heb ik zelf bezocht; Berlijn, Dakar en Nairobi ken ik alleen uit bronnen. Op elke kaart staat welke van de twee het is. Wat hier staat is gezien vanuit één positie, die van een Rotterdamse joker, en is dus partieel. Dat is geen gebrek dat verborgen moet blijven. Waar het kan, spreken de praktijken zelf, in hun eigen teksten en woorden.<br><br>
+    Van rurale Forum in Bengalen tot ex-combattant-theater in Colombia, van dakloosheidswerk in Londen tot milieu-Forum in Senegal: iedere culturele en politieke context vraagt en maakt haar eigen aanpassingen van de methode. Voor de bredere TO-praktijk in het Midden-Oosten en Noord-Afrika komt er een eigen verdieping, TO in MENA (tijdelijk niet beschikbaar).
   </div>
 </div>
 
@@ -267,9 +271,9 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
 </div>
 
 <footer class="arsenaal-footer">
-  <div class="af-content"><strong>Atlas — Praktijken in context</strong> — 14 plekken waarin Theatre of the Oppressed zich heeft aangepast aan specifieke culturele, politieke en sociale omstandigheden. Geen directory, wel dwarsdoorsnede.<br>
+  <div class="af-content"><strong>Atlas — Praktijken in context</strong> — 14 plekken waarin Theatre of the Oppressed zich heeft aangepast aan specifieke culturele, politieke en sociale omstandigheden. Deels veldwerk, deels bureauonderzoek, gezien vanuit één joker.<br>
   Bronnen: praktijkwerk van CTO Rio · Reconectando · TONYC · Theatre for Living · CTO-Paris · Cardboard Citizens · In Place of War · KURINGA · Formaat · CTO-Maputo · Kàddu Yaraax · Amani People's Theatre · Combatants for Peace · Jana Sanskriti. Publicaties en persoonlijke veldnotities van jokers die het werk ter plaatse hebben leren kennen.<br>
-  Literatuur bij de kaarten: <a href='bronnen.html#santos-2019'>Santos (2019)</a> · J. Boal, <em>Theatre of the Oppressed and its Times</em> (Routledge, 2023) · Ganguly, <em>Jana Sanskriti: Forum Theatre and Democracy in India</em> (Routledge, 2010) en <em>From Boal to Jana Sanskriti</em> (Routledge, 2017) · LeoNimm, Morgan &amp; Rubin, <em>The Wildcard Workbook</em> (TONYC, 2022) · <a href='bronnen.html#alon-2011'>Alon (2011)</a> · <a href='bronnen.html#matarasso-2017'>Matarasso (2017)</a> · <a href='bronnen.html#quinn-2014'>Quinn (2014)</a> · <a href='bronnen.html#jeune-afrique-zd'>Jeune Afrique (z.d.)</a> · <a href='bronnen.html#aybar-laafou-hidalgo-2024'>Aybar Laafou &amp; Hidalgo (2024)</a> · <a href='bronnen.html#visman-2020'>Visman e.a. (2020)</a> · <a href='bronnen.html#sow-2022'>Sow (2022)</a> · <a href='bronnen.html#joubert-2019'>Joubert (2019)</a> · <a href='bronnen.html#diba-2026'>Diba (2026)</a>.</div>
+  Literatuur bij de kaarten: <a href='bronnen.html#cto-rio-2001'>Centro de Teatro do Oprimido (2001)</a> · <a href='bronnen.html#santos-2019'>Santos (2019)</a> · J. Boal, <em>Theatre of the Oppressed and its Times</em> (Routledge, 2023) · Ganguly, <em>Jana Sanskriti: Forum Theatre and Democracy in India</em> (Routledge, 2010) en <em>From Boal to Jana Sanskriti</em> (Routledge, 2017) · LeoNimm, Morgan &amp; Rubin, <em>The Wildcard Workbook</em> (TONYC, 2022) · <a href='bronnen.html#alon-2011'>Alon (2011)</a> · <a href='bronnen.html#matarasso-2017'>Matarasso (2017)</a> · <a href='bronnen.html#quinn-2014'>Quinn (2014)</a> · <a href='bronnen.html#jeune-afrique-zd'>Jeune Afrique (z.d.)</a> · <a href='bronnen.html#aybar-laafou-hidalgo-2024'>Aybar Laafou &amp; Hidalgo (2024)</a> · <a href='bronnen.html#visman-2020'>Visman e.a. (2020)</a> · <a href='bronnen.html#sow-2022'>Sow (2022)</a> · <a href='bronnen.html#joubert-2019'>Joubert (2019)</a> · <a href='bronnen.html#diba-2026'>Diba (2026)</a>.</div>
   <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
 </footer>
 
@@ -280,6 +284,7 @@ const T = [
  {
   "n": 1,
   "title": "Rio de Janeiro — CTO en de thuisbasis",
+  "herkomst": "veld",
   "cat": "Amerika's",
   "catBg": "#d9ebe0",
   "catFg": "#2d5a3e",
@@ -316,6 +321,7 @@ const T = [
  {
   "n": 2,
   "title": "Medellín — Reconectando en de Waarheidscommissie",
+  "herkomst": "veld",
   "cat": "Amerika's",
   "catBg": "#d9ebe0",
   "catFg": "#2d5a3e",
@@ -344,6 +350,7 @@ const T = [
  {
   "n": 3,
   "title": "New York — TOPLAB, TONYC en het stedelijke Forum",
+  "herkomst": "veld",
   "cat": "Amerika's",
   "catBg": "#d9ebe0",
   "catFg": "#2d5a3e",
@@ -380,6 +387,7 @@ const T = [
  {
   "n": 4,
   "title": "Vancouver — Theatre for Living en inheemse gemeenschappen",
+  "herkomst": "veld",
   "cat": "Amerika's",
   "catBg": "#d9ebe0",
   "catFg": "#2d5a3e",
@@ -408,6 +416,7 @@ const T = [
  {
   "n": 5,
   "title": "Parijs — Céditade, CTO-Paris en de Europese verbreding",
+  "herkomst": "veld",
   "cat": "Europa",
   "catBg": "#d9e4ed",
   "catFg": "#2d5a3e",
@@ -436,6 +445,7 @@ const T = [
  {
   "n": 6,
   "title": "Londen — Cardboard Citizens en het daklozenrepertoire",
+  "herkomst": "veld",
   "cat": "Europa",
   "catBg": "#d9e4ed",
   "catFg": "#2d5a3e",
@@ -472,6 +482,7 @@ const T = [
  {
   "n": 7,
   "title": "Manchester — Thompson, In Place of War en applied theatre",
+  "herkomst": "veld",
   "cat": "Europa",
   "catBg": "#d9e4ed",
   "catFg": "#2d5a3e",
@@ -504,6 +515,7 @@ const T = [
  {
   "n": 8,
   "title": "Berlijn — KURINGA en Madalena-Berlin",
+  "herkomst": "bureau",
   "cat": "Europa",
   "catBg": "#d9e4ed",
   "catFg": "#2d5a3e",
@@ -540,6 +552,7 @@ const T = [
  {
   "n": 9,
   "title": "Rotterdam — Formaat en de Nederlandstalige hub",
+  "herkomst": "veld",
   "cat": "Europa",
   "catBg": "#d9e4ed",
   "catFg": "#2d5a3e",
@@ -568,6 +581,7 @@ const T = [
  {
   "n": 10,
   "title": "Maputo — CTO-Maputo en post-conflict verzoening",
+  "herkomst": "veld",
   "cat": "Afrika",
   "catBg": "#e8e2d4",
   "catFg": "#2d5a3e",
@@ -596,6 +610,7 @@ const T = [
  {
   "n": 11,
   "title": "Dakar — Kàddu Yaraax en milieu-theater",
+  "herkomst": "bureau",
   "cat": "Afrika",
   "catBg": "#e8e2d4",
   "catFg": "#2d5a3e",
@@ -628,6 +643,7 @@ const T = [
  {
   "n": 12,
   "title": "Nairobi — Amani People's Theatre en Oost-Afrikaans conflictwerk",
+  "herkomst": "bureau",
   "cat": "Afrika",
   "catBg": "#e8e2d4",
   "catFg": "#2d5a3e",
@@ -656,6 +672,7 @@ const T = [
  {
   "n": 13,
   "title": "Israël/Palestina — Combatants for Peace en het gepolariseerde model",
+  "herkomst": "veld",
   "cat": "Midden-Oosten",
   "catBg": "#efdfe2",
   "catFg": "#2d5a3e",
@@ -684,6 +701,7 @@ const T = [
  {
   "n": 14,
   "title": "Calcutta — Jana Sanskriti en rurale schaal",
+  "herkomst": "veld",
   "cat": "Azië",
   "catBg": "#ebe2d9",
   "catFg": "#2d5a3e",
@@ -746,6 +764,7 @@ function createStepView(techIndex) {
           </div>
           <div class="head-badges">
             <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+            ${tech.herkomst ? `<div class="badge-herkomst" title="${tech.herkomst === 'veld' ? 'Luc Opdebeeck was hier zelf' : 'Bekend uit bronnen'}">${tech.herkomst === 'veld' ? 'Veldwerk' : 'Bureauonderzoek'}</div>` : ''}
           </div>
         </div>
         ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
