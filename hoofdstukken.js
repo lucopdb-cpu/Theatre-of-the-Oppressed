@@ -10,6 +10,7 @@
  *   (EN hieronder op true); anders naar de Nederlandse pagina, met "NL" erachter.
  * - Hoofdstukken in opbouw of tijdelijk niet beschikbaar staan erin met 🚧 en zijn (nog) niet klikbaar:
  *   zet in plaats van een pagina null en als vijfde element de reden ('opbouw' of 'tijdelijk').
+ * - Knop Mijn selectie (bladwijzer met aantal) in de balk bovenaan, naast het vergrootglas; ook bovenin het menu.
  * - Een nieuw hoofdstuk op de startpagina? Zet het dan ook in H hieronder.
  */
 (function () {
@@ -57,10 +58,12 @@
       [null, 'Shadow Liberation Theatre', 'Shadow Liberation Theatre', false, 'opbouw']]]
   ];
   var T = ENGELS
-    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
-    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
+    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', sel: 'My selection', selNaar: 'Go to My selection', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
+    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', sel: 'Mijn selectie', selNaar: 'Naar Mijn selectie', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
 
   var LIJST = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  var BLADWIJZER = '<svg width="13" height="15" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M1.5 1.5h8v10L5.5 9l-4 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
 
   var CSS = [
     '.hm-knop{display:inline-flex;align-items:center;justify-content:center;width:34px;height:31px;padding:0;border:none;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;cursor:pointer;transition:background .15s,color .15s}',
@@ -87,9 +90,18 @@
     '@media (max-width:520px){.hm-paneel{left:16px!important;right:16px;width:auto}.hm-kolommen{columns:1}}',
     /* Smalle schermen: de knoppen bovenaan op één regel houden. Onder 390px valt "← Arsenaal van de Joker" weg;
        de startpagina staat dan bovenin het menu. */
-    '@media (max-width:420px){.arsenaal-nav{gap:6px}.arsenaal-nav > a:not(.taal-knop){padding-left:10px;padding-right:10px}}',
-    '@media (max-width:389px){.arsenaal-nav > a:not(.taal-knop){display:none}}',
-    '@media print{.hm-knop,.hm-paneel{display:none!important}}',
+    '@media (max-width:420px){.arsenaal-nav{gap:6px}.arsenaal-nav > a:not(.taal-knop):not(.sel-knop){padding-left:10px;padding-right:10px}}',
+    '@media (max-width:389px){.arsenaal-nav > a:not(.taal-knop):not(.sel-knop){display:none}}',
+    /* Knop Mijn selectie in de balk bovenaan */
+    '.sel-knop{position:relative;display:inline-flex;align-items:center;justify-content:center;width:34px;height:31px;margin-left:auto;padding:0;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;line-height:1;transition:background .15s,color .15s}',
+    '.arsenaal-nav a.sel-knop{padding:0;font-size:12px}',
+    '.sel-knop:hover{background:rgba(60,45,30,.13);color:#1a1814}',
+    '.sel-knop:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}',
+    '.sel-knop .sel-knop-n{position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:#8c5e2a;color:#faf7f1;font-size:10px;line-height:1;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #f2efe9}',
+    '.sel-knop .sel-knop-n[hidden]{display:none}',
+    '.sel-knop + .zoek-knop,.sel-knop + .taal-knop,.sel-knop + .thema-knop{margin-left:0}',
+    '.sel-knop.los{position:absolute;top:14px;z-index:50}',
+    '@media print{.hm-knop,.hm-paneel,.sel-knop{display:none!important}}',
     'html[data-thema="donker"] .hm-knop{background:rgba(236,230,218,.08);color:#c9c1b3}',
     'html[data-thema="donker"] .hm-knop:hover,html[data-thema="donker"] .hm-knop[aria-expanded="true"]{background:rgba(236,230,218,.15);color:#f1ebe0}',
     'html[data-thema="donker"] .hm-paneel{background:#211d18;border-color:#3e372e;color:#e6dfd2;box-shadow:0 14px 40px rgba(0,0,0,.5)}',
@@ -102,7 +114,10 @@
     'html[data-thema="donker"] .hm-groep a[aria-current="page"]{background:rgba(217,164,98,.16)}',
     'html[data-thema="donker"] .hm-groep a[aria-current="page"]::before{background:#d9a462}',
     'html[data-thema="donker"] .hm-wip{color:#857d71}',
-    'html[data-thema="donker"] .hm-nl{color:#948b7e;border-color:#3e372e}'
+    'html[data-thema="donker"] .hm-nl{color:#948b7e;border-color:#3e372e}',
+    'html[data-thema="donker"] .sel-knop{background:rgba(236,230,218,.08);color:#c9c1b3}',
+    'html[data-thema="donker"] .sel-knop:hover{background:rgba(236,230,218,.15);color:#f1ebe0}',
+    'html[data-thema="donker"] .sel-knop .sel-knop-n{background:#d9a462;color:#1a1713;box-shadow:0 0 0 2px #1a1713}'
   ].join('\n');
 
   function huidig() {
@@ -110,6 +125,7 @@
     return p;
   }
   function adres(pagina, en) { return SITE + (ENGELS && en ? 'en/' : '') + pagina; }
+  var SELECTIE = adres('to-arsenaal.html#selectie', true);
 
   var knop, paneel;
 
@@ -122,6 +138,7 @@
     paneel.setAttribute('aria-label', T.knop);
     var hier = huidig(), html = '';
     html += '<div class="hm-boven"><a href="' + adres('index.html', true) + '">← ' + T.start + '</a><a href="' + SITE + 'bronnen.html"' + (ENGELS ? ' hreflang="nl"' : '') + '>' + T.bronnen + (ENGELS ? ' <span class="hm-nl">NL</span>' : '') + '</a>' +
+      '<a href="' + SELECTIE + '">' + T.sel + '</a>' +
       '<a href="' + adres('app.html', true) + '"' + (hier === 'app.html' ? ' aria-current="page"' : '') + '>' + T.app + '</a></div>';
     html += '<div class="hm-kolommen">';
     H.forEach(function (g) {
@@ -188,6 +205,55 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dicht(true); }, true);
     window.addEventListener('resize', function () { if (!paneel.hidden) plaats(); });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', zetKnop);
-  else zetKnop();
+  // ── Knop Mijn selectie, in de balk bovenaan op elke pagina ──
+  // Naast het vergrootglas; toont hoeveel oefeningen er in Mijn selectie staan (NL en EN hebben elk een eigen lijst).
+  // Op het TO Arsenaal zelf staat al een eigen knop (#sel-link), daar komt hij niet.
+  var SEL_SLEUTEL = ENGELS ? 'to-selection-en' : 'to-sessie';
+  var selKnop = null;
+  function aantal() {
+    try { var l = JSON.parse(localStorage.getItem(SEL_SLEUTEL) || '[]'); return Array.isArray(l) ? l.length : 0; } catch (e) { return 0; }
+  }
+  function telBij() {
+    if (!selKnop) return;
+    var n = aantal(), el = selKnop.querySelector('.sel-knop-n');
+    el.textContent = n; el.hidden = !n;
+    selKnop.title = T.selNaar + (n ? ' (' + n + ')' : '');
+    selKnop.setAttribute('aria-label', selKnop.title);
+  }
+  function plaatsLos() {
+    // Startpagina zonder balk: links van de andere knoppen rechtsboven
+    var minst = window.innerWidth;
+    document.querySelectorAll('.zoek-knop.los,.taal-knop.los,.thema-knop.los').forEach(function (b) { var r = b.getBoundingClientRect(); if (r.width) minst = Math.min(minst, r.left); });
+    selKnop.style.right = (document.documentElement.clientWidth - minst + 8) + 'px';
+  }
+  function zetSelectie() {
+    if (selKnop || document.getElementById('sel-link')) return;
+    selKnop = document.createElement('a');
+    selKnop.className = 'sel-knop';
+    selKnop.href = SELECTIE;
+    selKnop.innerHTML = BLADWIJZER + '<span class="sel-knop-n" hidden></span>';
+    var nav = document.querySelector('.arsenaal-nav');
+    var buur = document.querySelector('.zoek-knop') || document.querySelector('.taal-knop') || document.querySelector('.thema-knop');
+    if (nav) {
+      if (buur && buur.parentNode === nav) nav.insertBefore(selKnop, buur); else nav.appendChild(selKnop);
+    } else {
+      selKnop.classList.add('los');
+      document.body.appendChild(selKnop);
+      plaatsLos();
+      window.addEventListener('resize', plaatsLos);
+    }
+    telBij();
+    window.addEventListener('storage', function (e) { if (e.key === SEL_SLEUTEL) telBij(); });
+    window.addEventListener('pageshow', telBij);
+    // Op kaartpagina's verandert de lijst via de knoppen "+ selectie" (sessie.js) op dezelfde pagina
+    document.addEventListener('click', function () { setTimeout(telBij, 0); }, true);
+  }
+  function zetAlles() {
+    zetKnop();
+    // Even wachten tot het vergrootglas en de taal- en themaknop er staan, zodat de volgorde altijd gelijk is
+    setTimeout(zetSelectie, 0);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', zetAlles);
+  else zetAlles();
 })();

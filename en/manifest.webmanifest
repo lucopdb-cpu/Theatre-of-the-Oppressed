@@ -20,6 +20,7 @@
   ],
   "shortcuts": [
     { "name": "TO Arsenal: all exercises", "short_name": "Exercises", "url": "./to-arsenaal.html" },
+    { "name": "My selection", "short_name": "My selection", "url": "./to-arsenaal.html#selectie" },
     { "name": "Atlas", "short_name": "Atlas", "url": "./wereld.html" }
   ]
 }
