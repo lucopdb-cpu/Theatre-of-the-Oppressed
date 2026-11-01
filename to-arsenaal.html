@@ -229,7 +229,7 @@ a.sb-name:hover{text-decoration-color:var(--ink3)}
 .sb-rm:hover{background:#fde8e0;color:#5c1e10}
 @media (hover:none){.sb-handle{display:none}.sb-controls{flex-direction:row;gap:4px}.sb-arrow{width:34px;height:34px;font-size:11px}.sb-rm{width:34px;height:34px}}
 
-.sb-actions{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
+.sb-actions{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
 .sb-btn{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .12s}
 .sb-btn:hover{background:var(--paper3)}
 .sb-btn-pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -464,6 +464,7 @@ a.badge-herkomst:hover{border-color:var(--boal)}
   <div class="sb-actions">
     <button class="sb-btn" onclick="wisSessione()">Wis selectie</button>
     <button class="sb-btn" onclick="window.print()">Print</button>
+    <button class="sb-btn" id="sb-deel" onclick="deelSessie()">Deel als link</button>
     <button class="sb-btn sb-btn-pri" id="sb-kopieer" onclick="kopieerSessie()">Kopieer lijst</button>
   </div>
 </div>
@@ -2733,6 +2734,133 @@ function kopieerSessie() {
   } else { klaar('Kopiëren lukte niet'); }
 }
 
+// ── MIJN SELECTIE DELEN ALS LINK ─────────────────────────
+// "Share as link" maakt een adres to-arsenaal.html#gedeeld=<code>. De code is de lijst als JSON in base64url:
+// per item de naam, of [naam, pagina, titel, plek] voor een oefening van een carouselpagina.
+// Wie het adres opent, ziet boven Mijn selectie de gedeelde oefeningen en kan ze (een voor een of allemaal)
+// in de eigen selectie zetten. Er gaat niets via een server: alles staat in het adres zelf.
+var GD_T = { knop: 'Deel als link', titel: 'Mijn selectie · Arsenaal van de Joker', gekopieerd: 'Link gekopieerd ✓', mislukt: 'Kopiëren lukte niet',
+  kop: 'Gedeelde selectie', aantal: function(n) { return n + (n === 1 ? ' oefening' : ' oefeningen'); }, sluit: 'Sluiten',
+  uitleg: 'Iemand heeft deze oefeningen met je gedeeld. Bekijk ze, en zet wat je wilt bewaren in je eigen selectie.',
+  plus: '+ Mijn selectie', al: '✓ In je selectie', alles: 'Alles in Mijn selectie zetten', allesAl: '✓ Alles staat in je selectie' };
+function selectieCode(lijst) {
+  var kort = lijst.map(function(s) { return (s.pagina && s.titel) ? [s.naam, s.pagina, s.titel, s.plek || ''] : s.naam; });
+  var bytes = new TextEncoder().encode(JSON.stringify(kort)), bin = '';
+  bytes.forEach(function(b) { bin += String.fromCharCode(b); });
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function leesSelectieCode(code) {
+  try {
+    var b64 = code.replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    var bin = atob(b64), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var kort = JSON.parse(new TextDecoder().decode(bytes));
+    if (!Array.isArray(kort)) return [];
+    var tekst = function(x) { return typeof x === 'string' && x.length && x.length < 300; };
+    return kort.slice(0, 200).map(function(k) {
+      if (tekst(k)) return { naam: k };
+      if (Array.isArray(k) && tekst(k[0]) && /^[a-z0-9-]+\.html$/.test(k[1] || '') && tekst(k[2])) {
+        return { naam: k[0], pagina: k[1], titel: k[2], plek: tekst(k[3]) ? k[3] : '' };
+      }
+      return null;
+    }).filter(Boolean);
+  } catch (e) { return []; }
+}
+function deelSessie() {
+  if (!sessie.length) return;
+  var adres = SITE + 'to-arsenaal.html#gedeeld=' + selectieCode(sessie);
+  var knop = document.getElementById('sb-deel');
+  var klaar = function(t) { knop.textContent = t; setTimeout(function(){ knop.textContent = GD_T.knop; }, 2000); };
+  if (navigator.share) {
+    navigator.share({ title: GD_T.titel, text: GD_T.titel, url: adres }).catch(function() {});
+  } else if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(adres).then(function() { klaar(GD_T.gekopieerd); }, function() { klaar(GD_T.mislukt); });
+  } else { klaar(GD_T.mislukt); }
+}
+var gedeeld = [];
+function neemOver(s) {
+  if (inSessie(s.naam)) return;
+  if (!s.pagina && !inArsenaal(s.naam)) return;
+  sessie.push(s.pagina ? { naam: s.naam, pagina: s.pagina, titel: s.titel, plek: s.plek } : { naam: s.naam });
+}
+function toonGedeeld(code) {
+  gedeeld = leesSelectieCode(code).filter(function(s) { return s.pagina || inArsenaal(s.naam); });
+  var oud = document.getElementById('gd');
+  if (oud) oud.remove();
+  if (!gedeeld.length) return;
+  if (!document.getElementById('gd-stijl')) {
+    var st = document.createElement('style');
+    st.id = 'gd-stijl';
+    st.textContent =
+      '.gd{margin-top:20px;padding:16px 18px 14px;border:1px solid var(--amber3);border-radius:12px;background:var(--amber4)}' +
+      '.gd-kop{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}' +
+      '.gd-kop strong{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink)}' +
+      '.gd-kop span{font-family:var(--sans);font-size:11px;color:var(--ink3)}' +
+      '.gd-x{margin-left:auto;border:none;background:none;font-size:20px;line-height:1;color:var(--ink3);cursor:pointer;padding:0 2px}' +
+      '.gd-uitleg{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.6;color:var(--ink2);margin:0 0 10px}' +
+      '.gd-lijst{list-style:none;margin:0 0 12px;padding:0;counter-reset:gd}' +
+      '.gd-lijst li{counter-increment:gd;display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--amber3)}' +
+      '.gd-lijst li::before{content:counter(gd);font-family:var(--mono);font-size:10px;color:var(--ink3);width:18px;flex-shrink:0;text-align:right}' +
+      '.gd-info{flex:1;min-width:0}' +
+      '.gd-info a{font-family:var(--serif);font-size:15px;line-height:1.3;color:var(--ink);text-decoration:underline;text-decoration-color:var(--paper4);text-underline-offset:3px;overflow-wrap:anywhere}' +
+      '.gd-info small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-top:2px}' +
+      '.gd-plus{flex-shrink:0;padding:5px 10px;border-radius:7px;border:1px solid var(--paper4);background:var(--kaart,#faf7f1);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;white-space:nowrap}' +
+      '.gd-plus:hover:not([disabled]){border-color:var(--amber);color:var(--amber)}' +
+      '.gd-plus[disabled]{background:none;border-color:transparent;color:var(--amber);cursor:default}' +
+      '.gd-alles{width:100%;padding:9px 14px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer}' +
+      '.gd-alles[disabled]{opacity:.45;cursor:default}' +
+      '@media print{.gd{display:none!important}}';
+    document.head.appendChild(st);
+  }
+  var doos = document.createElement('div');
+  doos.className = 'gd';
+  doos.id = 'gd';
+  var html = '<div class="gd-kop"><strong>' + GD_T.kop + '</strong><span>' + GD_T.aantal(gedeeld.length) + '</span>' +
+    '<button type="button" class="gd-x" title="' + GD_T.sluit + '" aria-label="' + GD_T.sluit + '">×</button></div>' +
+    '<p class="gd-uitleg">' + GD_T.uitleg + '</p><ol class="gd-lijst">';
+  gedeeld.forEach(function(s, i) {
+    var adres = selectieAdres(s), plek = selectiePlek(s);
+    html += '<li><div class="gd-info"><a href="' + esc(adres) + '" data-i="' + i + '">' + esc(s.naam) + '</a>' +
+      (plek ? '<small>' + esc(plek) + '</small>' : '') + '</div>' +
+      '<button type="button" class="gd-plus" data-i="' + i + '"></button></li>';
+  });
+  html += '</ol><button type="button" class="gd-alles">' + GD_T.alles + '</button>';
+  doos.innerHTML = html;
+  var toggle = document.getElementById('sb-toggle');
+  toggle.parentNode.insertBefore(doos, toggle);
+  doos.querySelector('.gd-x').onclick = function() {
+    doos.remove();
+    if (/^#gedeeld=/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+  };
+  doos.querySelectorAll('.gd-info a').forEach(function(a) {
+    var s = gedeeld[+a.dataset.i];
+    if (!s.pagina) a.addEventListener('click', function(e) { e.preventDefault(); toonOefening(s.naam); });
+  });
+  doos.querySelectorAll('.gd-plus').forEach(function(b) {
+    b.onclick = function() { neemOver(gedeeld[+b.dataset.i]); saveSessie(); renderSessie(); renderKaartKnop(); werkGedeeldBij(); };
+  });
+  doos.querySelector('.gd-alles').onclick = function() {
+    gedeeld.forEach(neemOver); saveSessie(); renderSessie(); renderKaartKnop(); werkGedeeldBij(); openSB();
+  };
+  werkGedeeldBij();
+  doos.scrollIntoView({ block: 'start' });
+}
+function werkGedeeldBij() {
+  var doos = document.getElementById('gd');
+  if (!doos) return;
+  var open = 0;
+  doos.querySelectorAll('.gd-plus').forEach(function(b) {
+    var al = inSessie(gedeeld[+b.dataset.i].naam);
+    b.disabled = al;
+    b.textContent = al ? GD_T.al : GD_T.plus;
+    if (!al) open++;
+  });
+  var alles = doos.querySelector('.gd-alles');
+  alles.disabled = !open;
+  alles.textContent = open ? GD_T.alles : GD_T.allesAl;
+}
+
 function openSB() {
   document.getElementById('sb-panel').classList.add('open');
   document.getElementById('sb-icon').classList.add('open');
@@ -2745,6 +2873,7 @@ function toggleSB() {
 function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 
 function renderSessie() {
+  werkGedeeldBij();
   var list = document.getElementById('sb-list');
   var n = sessie.length;
   var cntEl = document.getElementById('sb-cnt');
@@ -3157,6 +3286,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) herlaadSessie
 // en to-arsenaal.html#oefening=<naam> toont die ene oefening
 function leesAdres() {
   var h = location.hash.replace(/^#/, '');
+  if (h.indexOf('gedeeld=') === 0) { openSB(); toonGedeeld(h.slice(8)); return; }
   if (h === 'selectie' || h === 'sessie') {
     openSB();
     document.getElementById('sb-toggle').scrollIntoView({ block: 'start' });
