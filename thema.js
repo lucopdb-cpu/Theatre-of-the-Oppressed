@@ -18,6 +18,7 @@
  * - Zoeken: dit script laadt ook zoeken.js (zoeken in de hele site, knop met vergrootglas in dezelfde balk).
  * - Archief Formaat 1999-2025: zolang ARCHIEF_ONLINE false is, zijn links naar het archief gewone tekst.
  * - App: dit script laadt ook app.js (de site installeren als app en offline gebruiken, zie ook sw.js en app.html).
+ * - Delen: en deel.js (het scherm blijft aan op pagina's met kaarten; knop Delen bij elke kaart en oefening).
  * - Hoofdstukken: en hoofdstukken.js (knop "Hoofdstukken" naast de terugknop, met een uitklapbare lijst van alle hoofdstukken).
  */
 (function () {
@@ -46,6 +47,15 @@
     if (!src || document.querySelector('script[src*="app.js"]')) return;
     var s = document.createElement('script');
     s.src = src.replace(/thema\.js(?:[?#].*)?$/, 'app.js');
+    (document.head || root).appendChild(s);
+  })();
+
+  // Scherm aan houden en kaarten doorsturen: deel.js staat naast dit bestand
+  (function () {
+    var src = document.currentScript && document.currentScript.src;
+    if (!src || document.querySelector('script[src*="deel.js"]')) return;
+    var s = document.createElement('script');
+    s.src = src.replace(/thema\.js(?:[?#].*)?$/, 'deel.js');
     (document.head || root).appendChild(s);
   })();
 
