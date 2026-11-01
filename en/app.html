@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Arsenal">
+<script src="../thema.js"></script>
+<meta name="theme-color" content="#8c5e2a">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../app.html">
+<link rel="alternate" hreflang="en" href="app.html">
+<title>A Joker's Arsenal on your phone</title>
+<meta name="description" content="Put A Joker's Arsenal on your phone or tablet as an app: its own icon, no address bar, and usable without internet. Free, no app store.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="A Joker's Arsenal on your phone">
+<meta property="og:description" content="Put A Joker's Arsenal on your phone or tablet as an app: its own icon, no address bar, and usable without internet.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/app.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Joker's Arsenal on your phone">
+<meta name="twitter:description" content="Put A Joker's Arsenal on your phone or tablet as an app: its own icon, no address bar, and usable without internet.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;--kaart:#faf7f1;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f4ecdf;
+  --nacht:#1a1418;--nacht-tekst:#f2efe9;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:4rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+
+/* Balk bovenaan, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Kop */
+.masthead{display:flow-root;border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:26px}
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+.app-name{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-bottom:10px}
+.app-name em{font-style:italic;color:var(--amber)}
+.context-note{font-size:15px;font-weight:300;color:var(--ink2);line-height:1.65;border-left:3px solid var(--amber3);padding-left:14px;max-width:620px}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}.app-name{font-size:26px}}
+
+/* Melding bovenaan: wat je nu kunt doen */
+.nu{display:flex;gap:16px;align-items:center;background:var(--nacht);color:var(--nacht-tekst);border-radius:16px;padding:18px 20px;margin-bottom:26px}
+.nu[hidden]{display:none}
+.nu img{width:56px;height:56px;border-radius:13px;flex-shrink:0}
+.nu-tekst{flex:1;font-family:var(--sans);font-size:14px;line-height:1.5}
+.nu-tekst strong{display:block;font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:2px}
+.knop{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;border:none;background:var(--amber2);color:#1a1418;cursor:pointer;text-decoration:none;white-space:nowrap}
+.knop:hover{filter:brightness(1.08)}
+.knop:focus-visible{outline:2px solid var(--amber3);outline-offset:2px}
+.knop.stil{background:var(--paper2);color:var(--ink);border:1px solid var(--paper4)}
+.knop[hidden],.stand[hidden]{display:none}
+.knop[disabled]{opacity:.5;cursor:default;filter:none}
+@media (max-width:520px){.nu{flex-wrap:wrap}.nu .knop{width:100%}}
+
+/* Kaarten */
+.kaart{background:var(--kaart);border:1px solid var(--paper4);border-radius:16px;margin-bottom:22px;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04);overflow:hidden}
+.kaart-kop{padding:20px 26px 14px;border-bottom:1px solid var(--paper3)}
+.kaart-nr{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.kaart-titel{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.2}
+.kaart-lijf{padding:18px 26px 22px}
+.kaart-lijf p{font-size:15px;font-weight:300;line-height:1.7;margin-bottom:12px}
+.kaart-lijf p:last-child{margin-bottom:0}
+@media (max-width:600px){.kaart-kop{padding:18px 18px 12px}.kaart-lijf{padding:16px 18px 20px}}
+
+/* Toestellen naast elkaar */
+.toestellen{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.toestel{border:1px solid var(--paper4);border-radius:12px;padding:14px 16px;background:var(--paper)}
+.toestel.dit{border-color:var(--amber2);box-shadow:0 0 0 1px var(--amber2)}
+.stappen strong{font-weight:600}
+.toestel-naam{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.dit-label{font-size:10px;letter-spacing:.04em;text-transform:none;font-weight:600;background:var(--amber2);color:#1a1418;border-radius:999px;padding:1px 8px;display:none}
+.toestel.dit .dit-label{display:inline-block}
+.stappen{list-style:none;counter-reset:stap}
+.stappen li{counter-increment:stap;position:relative;padding-left:31px;font-size:14px;font-weight:300;line-height:1.55;margin-bottom:9px}
+.stappen li:last-child{margin-bottom:0}
+.stappen li::before{content:counter(stap);font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber);background:var(--amber4);border:1px solid var(--amber3);width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:0}
+.teken{display:inline-block;vertical-align:-3px;width:16px;height:16px}
+
+/* Offline */
+.stand{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--paper4);font-family:var(--sans);font-size:13.5px;line-height:1.45;color:var(--ink2)}
+.stand-tekst{flex:1;min-width:200px}
+.balk{height:6px;border-radius:999px;background:var(--paper3);overflow:hidden;margin-top:8px}
+.balk[hidden]{display:none}
+.balk span{display:block;height:100%;width:0;background:var(--amber2);transition:width .2s}
+
+/* Doorgeven */
+.doorgeven{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+.qr{width:184px;flex-shrink:0;text-align:center}
+.qr img{width:184px;height:184px;display:block;border-radius:10px;border:1px solid var(--paper4);background:#fff}
+.qr-adres{font-family:var(--mono);font-size:10px;color:var(--ink3);margin-top:8px;word-break:break-all;line-height:1.4}
+.doorgeven-tekst{flex:1;min-width:220px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.links .knop{font-size:13px;padding:7px 14px}
+.gekopieerd{font-family:var(--sans);font-size:12px;color:var(--amber);margin-left:4px}
+
+/* Goed om te weten */
+.weten{list-style:none}
+.weten li{font-size:14.5px;font-weight:300;line-height:1.65;padding:10px 0;border-bottom:1px solid var(--paper3)}
+.weten li:last-child{border-bottom:none;padding-bottom:0}
+.weten li:first-child{padding-top:0}
+.weten strong{font-weight:600}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+@media print{
+  .arsenaal-nav,.nu,.knop,.links,.arsenaal-footer .af-site{display:none!important}
+  body{background:#fff}
+  .kaart{box-shadow:none;break-inside:avoid}
+}
+
+/* ═══ DONKER SCHERM (zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--kaart:#1c1914;--amber:#d3a06d;--amber2:#c48d4c;--amber3:#5a4220;--amber4:#2a2219;--nacht:#2a231c;--nacht-tekst:#f1ebe0;--rule:rgba(230,227,221,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .nu{border:1px solid #3e372e}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+
+<div class="masthead">
+  <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Taking the Arsenal with you</div>
+  <h1 class="app-name">The Arsenal <em>on your phone</em></h1>
+  <p class="context-note">You can put the Arsenal on your phone or tablet as an app: with its own icon on your home screen, no address bar, and usable where there is no internet, in a sports hall, a community centre or a basement room. No app store is needed and it costs nothing. Whatever changes on the site reaches your app by itself.</p>
+</div>
+
+<div class="nu" id="nu" hidden>
+  <img src="../app-icoon-192.png" alt="">
+  <div class="nu-tekst" id="nu-tekst"></div>
+  <button type="button" class="knop" id="nu-knop" hidden>Install the Arsenal</button>
+</div>
+
+<section class="kaart" id="installeren">
+  <div class="kaart-kop"><div class="kaart-nr">01</div><h2 class="kaart-titel">Installing</h2></div>
+  <div class="kaart-lijf">
+    <p>Open this page on the device where you want the Arsenal. After that it takes a few taps.</p>
+    <div class="toestellen">
+      <div class="toestel" data-toestel="ios">
+        <div class="toestel-naam">iPhone and iPad <span class="dit-label">this device</span></div>
+        <ol class="stappen">
+          <li>Open this page in Safari.</li>
+          <li>Tap the Share button <svg class="teken" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-label="Share button"><path d="M8 1.8v8.4M5.2 4.4 8 1.6l2.8 2.8M5.5 6.5H4.2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-1.3"/></svg> (a square with an arrow pointing up). If you cannot see it, tap the three dots ⋯ first.</li>
+          <li>Choose <strong>Add to Home Screen</strong>. If it is not there straight away, scroll down the list a little.</li>
+          <li>Tap <strong>Add</strong>. The Arsenal icon is now on your home screen.</li>
+        </ol>
+      </div>
+      <div class="toestel" data-toestel="android">
+        <div class="toestel-naam">Android <span class="dit-label">this device</span></div>
+        <ol class="stappen">
+          <li>Open this page in Chrome (Samsung Internet and Edge work too).</li>
+          <li>If the <strong>Install the Arsenal</strong> button appears above, tap it. Done.</li>
+          <li>No button? Tap the ⋮ menu at the top right and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
+        </ol>
+      </div>
+      <div class="toestel" data-toestel="anders">
+        <div class="toestel-naam">Computer <span class="dit-label">this device</span></div>
+        <ol class="stappen">
+          <li>In Chrome or Edge there is a small install icon on the right of the address bar, or use the button above if it appears.</li>
+          <li>The Arsenal then opens in its own window, separate from your browser.</li>
+          <li>On a Mac you can also use Safari: the <strong>File</strong> menu, then <strong>Add to Dock</strong>.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="offline">
+  <div class="kaart-kop"><div class="kaart-nr">02</div><h2 class="kaart-titel">Without internet</h2></div>
+  <div class="kaart-lijf">
+    <p>When you open the Arsenal as an app, it puts the whole site on your device as soon as there is internet, and keeps it up to date. The exercises, the cards, the atlas and search then also work without a connection. It comes to <span id="grootte">about 8 MB</span>, roughly a few photos' worth.</p>
+    <p>Pages you have simply viewed in the browser are also kept for offline use, but only those.</p>
+    <div class="stand" id="stand" hidden>
+      <div class="stand-tekst"><span id="stand-tekst"></span><div class="balk" id="balk" hidden><span id="balk-vulling"></span></div></div>
+      <button type="button" class="knop stil" id="opslaan">Save everything now</button>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="doorgeven">
+  <div class="kaart-kop"><div class="kaart-nr">03</div><h2 class="kaart-titel">Passing it on</h2></div>
+  <div class="kaart-lijf">
+    <div class="doorgeven">
+      <div class="qr">
+        <img src="app-qr.svg" alt="QR code linking to this page">
+        <div class="qr-adres">lucopdb-cpu.github.io/<wbr>Theatre-of-the-Oppressed/<wbr>en/app.html</div>
+      </div>
+      <div class="doorgeven-tekst">
+        <p>Let participants scan this code with their phone camera. They land on this page and see straight away how to install the Arsenal. Put the code on a flip chart, a handout or a slide, and after a training they have the exercises to hand.</p>
+        <div class="links">
+          <button type="button" class="knop stil" id="delen" hidden>Share the link</button>
+          <button type="button" class="knop stil" id="kopieer">Copy the link</button>
+          <a class="knop stil" href="app-qr.png" download="arsenal-qr.png">QR code as image</a>
+          <a class="knop stil" href="app-qr.svg" download="arsenal-qr.svg">QR code for print (SVG)</a>
+          <span class="gekopieerd" id="gekopieerd" role="status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="weten">
+  <div class="kaart-kop"><div class="kaart-nr">04</div><h2 class="kaart-titel">Good to know</h2></div>
+  <div class="kaart-lijf">
+    <ul class="weten">
+      <li><strong>Always the latest version.</strong> With internet, the app always shows the latest version of every page. There is nothing to update.</li>
+      <li><strong>My selection on the iPhone.</strong> On an iPhone or iPad the app has its own memory, separate from Safari. A selection you made in Safari will not appear in the app, so start it again there. On Android and on a computer it is the same selection.</li>
+      <li><strong>No account.</strong> The app asks for no personal details. As on the site, the only thing counted is how many people visit a page, without cookies.</li>
+      <li><strong>Removing it</strong> works like any app: press and hold the icon and choose remove.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="arsenaal-footer">
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var ADRES = 'https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/app.html';
+  var T = {
+    alsApp: ['You are using the Arsenal as an app', 'With internet it updates by itself. Pass it on with the QR code below.'],
+    knop: ['Install the Arsenal', 'One tap, and the Arsenal is an app on this device.'],
+    ios: ['Put the Arsenal on your home screen', 'On iPhone and iPad this is done in Safari, in four taps. See the steps below.'],
+    iosAnders: ['Open this page in Safari', 'On iPhone and iPad you add a website to your home screen from Safari. Copy the link and open it there.'],
+    geinstalleerd: ['The Arsenal is installed', 'You will find the icon on your home screen or among your apps.'],
+    standGeen: 'Not everything is on this device yet.',
+    standApp: 'Not everything is on this device yet. This happens by itself while the app is open.',
+    standKlaar: function (d, n) { return 'The whole Arsenal is on this device (' + n + ' files, updated ' + d + ').'; },
+    bezig: function (k, t) { return t ? 'Saving: ' + k + ' of ' + t + ' files…' : 'Saving…'; },
+    fout: 'Saving did not fully work. Try again later, with internet.',
+    deels: function (n) { return 'Almost everything is on this device; ' + n + ' files failed. Try again later.'; },
+    opnieuw: 'Check again', opslaan: 'Save everything now',
+    mb: function (m) { return 'about ' + m + ' MB'; },
+    gekopieerd: 'Link copied', datum: 'en-GB'
+  };
+
+  function $(id) { return document.getElementById(id); }
+  function wacht(fn, n) { if (window.ArsenaalApp) fn(window.ArsenaalApp); else if ((n || 0) < 100) setTimeout(function () { wacht(fn, (n || 0) + 1); }, 50); }
+
+  wacht(function (A) {
+    var soort = A.toestel();
+    var blok = document.querySelector('.toestel[data-toestel="' + soort + '"]');
+    if (blok) blok.classList.add('dit');
+
+    function melding(tekst, knop) {
+      $('nu').hidden = false;
+      $('nu-tekst').innerHTML = '<strong>' + tekst[0] + '</strong>' + tekst[1];
+      $('nu-knop').hidden = !knop;
+    }
+    function bovenaan() {
+      if (A.alsApp()) return melding(T.alsApp);
+      if (A.kanInstalleren()) return melding(T.knop, true);
+      if (soort === 'ios') return melding(/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent) ? T.iosAnders : T.ios);
+      $('nu').hidden = true;
+    }
+    bovenaan();
+    $('nu-knop').addEventListener('click', function () {
+      A.installeer().then(function (k) { if (k === 'accepted') melding(T.geinstalleerd); else bovenaan(); });
+    });
+
+    // Zonder internet: wat staat er al op dit toestel?
+    // Op de iPhone heeft de app een eigen opslag, los van Safari; opslaan in Safari helpt de app dus niet.
+    var toonStand = A.ondersteund() && (A.alsApp() || soort !== 'ios');
+    if (toonStand) {
+      $('stand').hidden = false;
+      $('stand-tekst').textContent = A.alsApp() ? T.standApp : T.standGeen;
+      A.stand();
+    }
+    $('opslaan').addEventListener('click', function () {
+      $('opslaan').disabled = true;
+      $('stand-tekst').textContent = T.bezig();
+      $('balk').hidden = false;
+      A.opslaan();
+    });
+
+    document.addEventListener('arsenaal-app', function (e) {
+      var d = e.detail || {};
+      if (d.type === 'installeerbaar' || d.type === 'geinstalleerd') {
+        if (d.type === 'geinstalleerd') melding(T.geinstalleerd); else bovenaan();
+      }
+      if (!toonStand) return;
+      if (d.type === 'voortgang') {
+        $('opslaan').disabled = true;
+        $('balk').hidden = false;
+        $('balk-vulling').style.width = (d.totaal ? Math.round(100 * d.klaar / d.totaal) : 100) + '%';
+        $('stand-tekst').textContent = T.bezig(d.klaar, d.totaal);
+      } else if (d.type === 'opgeslagen' || d.type === 'stand') {
+        if (d.type === 'stand' && d.bezig) { $('opslaan').disabled = true; $('stand-tekst').textContent = T.bezig(); return; }
+        $('balk').hidden = true;
+        $('opslaan').disabled = false;
+        if (d.versie) {
+          var datum = new Date(d.datum).toLocaleDateString(T.datum, { day: 'numeric', month: 'long', year: 'numeric' });
+          $('stand-tekst').textContent = T.standKlaar(datum, d.aantal);
+          $('opslaan').textContent = T.opnieuw;
+        } else if (d.type === 'opgeslagen' && d.mislukt) {
+          $('stand-tekst').textContent = T.deels(d.mislukt);
+          $('opslaan').textContent = T.opslaan;
+        } else {
+          $('opslaan').textContent = T.opslaan;
+        }
+      } else if (d.type === 'fout') {
+        $('balk').hidden = true;
+        $('opslaan').disabled = false;
+        $('stand-tekst').textContent = T.fout;
+      }
+    });
+  });
+
+  // Hoe groot is het hele Arsenaal?
+  fetch('../app-bestanden.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (l) {
+    if (l && l.grootte) $('grootte').textContent = T.mb(Math.max(1, Math.round(l.grootte / 1048576)));
+  }).catch(function () {});
+
+  // Doorgeven
+  if (navigator.share) {
+    $('delen').hidden = false;
+    $('delen').addEventListener('click', function () {
+      navigator.share({ title: document.title, url: ADRES }).catch(function () {});
+    });
+  }
+  $('kopieer').addEventListener('click', function () {
+    function klaar() { $('gekopieerd').textContent = T.gekopieerd; setTimeout(function () { $('gekopieerd').textContent = ''; }, 2500); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ADRES).then(klaar, function () { prompt('', ADRES); });
+    else prompt('', ADRES);
+  });
+})();
+</script>
+</body>
+</html>

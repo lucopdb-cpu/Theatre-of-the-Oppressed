@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "A Joker's Arsenal",
+  "short_name": "Arsenal",
+  "description": "Theatre of the Oppressed toolkit for Jokers: exercises, methods and an atlas of practice around the world.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "../",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2efe9",
+  "theme_color": "#1a1418",
+  "categories": ["education", "books"],
+  "icons": [
+    { "src": "../app-icoon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "../app-icoon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "../app-icoon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "../app-icoon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "TO Arsenal: all exercises", "short_name": "Exercises", "url": "./to-arsenaal.html" },
+    { "name": "Atlas", "short_name": "Atlas", "url": "./wereld.html" }
+  ]
+}

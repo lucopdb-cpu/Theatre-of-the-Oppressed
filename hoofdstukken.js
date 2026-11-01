@@ -57,8 +57,8 @@
       [null, 'Shadow Liberation Theatre', 'Shadow Liberation Theatre', false, 'opbouw']]]
   ];
   var T = ENGELS
-    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
-    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
+    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
+    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
 
   var LIJST = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
 
@@ -69,9 +69,10 @@
     '.hm-knop.los{position:absolute;top:14px;left:14px;z-index:60}',
     '.hm-paneel{position:absolute;z-index:70;width:min(640px,calc(100vw - 32px));max-height:min(72vh,640px);overflow:auto;padding:18px 20px 14px;border:1px solid rgba(60,45,30,.14);border-radius:14px;background:#faf7f1;box-shadow:0 14px 40px rgba(40,30,20,.16);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#2a2824}',
     '.hm-paneel[hidden]{display:none}',
-    '.hm-boven{display:flex;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(60,45,30,.12)}',
+    '.hm-boven{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(60,45,30,.12)}',
     '.hm-boven a{font-size:13px;font-weight:500;color:#52504a;text-decoration:none;padding:4px 10px;border-radius:999px;background:rgba(60,45,30,.06)}',
     '.hm-boven a:hover{background:rgba(60,45,30,.12);color:#1a1814}',
+    '.hm-boven a[aria-current="page"]{background:rgba(140,94,42,.16);color:#1a1814}',
     '.hm-kolommen{columns:2 250px;column-gap:28px}',
     '.hm-groep{break-inside:avoid;margin:0 0 12px}',
     '.hm-groep-naam{font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8c6a3a;margin:0 0 3px}',
@@ -94,6 +95,7 @@
     'html[data-thema="donker"] .hm-paneel{background:#211d18;border-color:#3e372e;color:#e6dfd2;box-shadow:0 14px 40px rgba(0,0,0,.5)}',
     'html[data-thema="donker"] .hm-boven{border-color:#3e372e}',
     'html[data-thema="donker"] .hm-boven a{background:rgba(236,230,218,.07);color:#c9c1b3}',
+    'html[data-thema="donker"] .hm-boven a[aria-current="page"]{background:rgba(217,164,98,.18);color:#f1ebe0}',
     'html[data-thema="donker"] .hm-groep-naam{color:#d9a462}',
     'html[data-thema="donker"] .hm-groep a{color:#e6dfd2}',
     'html[data-thema="donker"] .hm-groep a:hover{background:rgba(236,230,218,.08)}',
@@ -119,7 +121,8 @@
     paneel.setAttribute('role', 'navigation');
     paneel.setAttribute('aria-label', T.knop);
     var hier = huidig(), html = '';
-    html += '<div class="hm-boven"><a href="' + adres('index.html', true) + '">← ' + T.start + '</a><a href="' + SITE + 'bronnen.html"' + (ENGELS ? ' hreflang="nl"' : '') + '>' + T.bronnen + (ENGELS ? ' <span class="hm-nl">NL</span>' : '') + '</a></div>';
+    html += '<div class="hm-boven"><a href="' + adres('index.html', true) + '">← ' + T.start + '</a><a href="' + SITE + 'bronnen.html"' + (ENGELS ? ' hreflang="nl"' : '') + '>' + T.bronnen + (ENGELS ? ' <span class="hm-nl">NL</span>' : '') + '</a>' +
+      '<a href="' + adres('app.html', true) + '"' + (hier === 'app.html' ? ' aria-current="page"' : '') + '>' + T.app + '</a></div>';
     html += '<div class="hm-kolommen">';
     H.forEach(function (g) {
       html += '<div class="hm-groep"><div class="hm-groep-naam">' + (ENGELS ? g[1] : g[0]) + '</div>';
