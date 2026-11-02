@@ -34,7 +34,7 @@
       ['to-arsenaal.html#fase=forum', 'Forum-oefeningen uit het arsenaal', 'Forum exercises from the arsenal', true]]],
     ['Krantentheater', 'Newspaper Theatre', [['krantentheater.html', 'Krantentheater', 'Newspaper Theatre', false]]],
     ['Theater in de publieke ruimte', 'Theatre in public space', [
-      ['onzichtbaar.html', 'Onzichtbaar Theater', 'Invisible Theatre', false],
+      ['onzichtbaar.html', 'Onzichtbaar Theater', 'Invisible Theatre', true],
       ['legislatief.html', 'Legislatief Theater', 'Legislative Theatre', true]]],
     ['Theateratelier', 'Theateratelier', [['theateratelier.html', 'Theateratelier', 'Theateratelier', false]]],
     ['Atlas — TO in de wereld', 'Atlas — TO in the world', [

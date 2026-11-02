@@ -9,9 +9,22 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Arsenaal">
 <script src="thema.js"></script>
+<script>
+/* Oude adressen (#kaart=<oude titel>) openen de kaart met de nieuwe titel */
+(function () {
+  var oud = ["Europa: Metro, ferry's en discriminatie", "Rio TV: slavenmarkt op het scherm"];
+  var nieuw = ["Parijs en Stockholm: metro, veerboot, straat", "Rio, 1986: onzichtbaar theater op televisie"];
+  var m = location.hash.match(/^#kaart=(.+)$/); if (!m) return;
+  var t; try { t = decodeURIComponent(m[1]); } catch (e) { return; }
+  var i = oud.indexOf(t);
+  if (i >= 0) history.replaceState(null, '', '#kaart=' + encodeURIComponent(nieuw[i]));
+})();
+</script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#2c4a6b">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="onzichtbaar.html">
+<link rel="alternate" hreflang="en" href="en/onzichtbaar.html">
 <title>Onzichtbaar Theater — Boals Methode voor de Publieke Ruimte</title>
 <meta name="description" content="Onzichtbaar Theater — Boals methode om te spelen zonder dat het publiek weet dat het theater is. Protocol, casussen, en het ethische debat rond misleiding.">
 <meta property="og:type" content="website">
@@ -267,7 +280,7 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
 
 <footer class="arsenaal-footer">
   <div class="af-content"><strong>Onzichtbaar Theater</strong> — methode van <em>Augusto Boal</em> (1931–2009)<br>
-  <a href="bronnen.html">Bronnen</a>: <a href="bronnen.html#boal-1974-1985">Boal (1974/1985)</a> · <a href="bronnen.html#boal-2002">Boal (2002)</a> · <a href="bronnen.html#burstow-2008">Burstow (2008)</a></div>
+  <a href="bronnen.html">Bronnen</a>: <a href="bronnen.html#bishop-2012">Bishop (2012)</a> · <a href="bronnen.html#boal-1974-1985">Boal (1974/1985)</a> · <a href="bronnen.html#boal-2002">Boal (2002)</a> · <a href="bronnen.html#burstow-2008">Burstow (2008)</a> · <a href="bronnen.html#lovett-2019">Lovett (2019)</a> · <a href="bronnen.html#lovett-2021">Lovett (2021)</a></div>
   <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
 </footer>
 
@@ -275,219 +288,402 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
 
 <script>
 const T = [
-
-{n:1, title:"Theater als werkelijkheid",
- cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
- stripe:"#8b4513",
- note:"Onzichtbaar theater is niet hetzelfde als een flashmob, happening of prank. Het is een geplandeen gerepeteerde theatervoorstelling die een politiek punt maakt door echt te lijken.",
- stages:[
-  {t:"Wat het is",
-   body:"Acteurs spelen een geschreven en gerepeteerde scene in een publieke ruimte — restaurant, metro, markt, park. Het publiek denkt dat het echt is en reageert alsof het een echte situatie betreft. Voor de acteurs is het theater, voor het publiek werkelijkheid."},
-  {t:"Wat het niet is", 
-   body:"Geen happening (chaotisch, anarchistisch). Geen flashmob (collectief, choreografisch). Geen prank (voor vermaak). Geen straattheater (publiek weet dat het theater is). Het verbergt bewust zijn theatrale aard."},
-  {t:"De politieke functie",
-   body:"Onzichtbaar theater toont onderdrukking die gewoonlijk onzichtbaar blijft. Door een situatie te creëren waarin mensen spontaan reageren op onrecht, wordt duidelijk hoe sociale mechanismes werken — en hoe ze doorbroken kunnen worden."},
-  {t:"Spect-actoren",
-   body:"Het onwetende publiek wordt 'spect-actoren' — zij kijken en handelen tegelijk. Hun reacties zijn echt, niet gespeeld. Dit maakt hun reacties waardevoller dan die van een traditioneel theaterpubliek dat weet dat het 'maar theater' is."}
+{
+ "n": 1,
+ "title": "Theater als werkelijkheid",
+ "cat": "Fundament",
+ "catBg": "#f5e8d0",
+ "catFg": "#8b4513",
+ "stripe": "#8b4513",
+ "note": "Onzichtbaar theater is niet hetzelfde als een flashmob, happening of prank. Het is een geplande en gerepeteerde theatervoorstelling die een politiek punt maakt door echt te lijken.",
+ "stages": [
+  {
+   "t": "Wat het is",
+   "body": "Acteurs spelen een geschreven en gerepeteerde scène in een publieke ruimte — restaurant, metro, markt, park. Het publiek denkt dat het echt is en reageert alsof het een echte situatie betreft. Voor de acteurs is het theater, voor het publiek werkelijkheid."
+  },
+  {
+   "t": "Wat het niet is",
+   "body": "Geen happening (chaotisch, anarchistisch). Geen flashmob (collectief, choreografisch). Geen prank (voor vermaak). Geen straattheater (publiek weet dat het theater is). Ook geen agitprop: het publiek mag elk standpunt innemen en wordt niet toegesproken (Jackson, in Boal, 2002, p. xxiii). Het verbergt bewust zijn theatrale aard."
+  },
+  {
+   "t": "De politieke functie",
+   "body": "Onzichtbaar theater toont onderdrukking die gewoonlijk onzichtbaar blijft. Door een situatie te creëren waarin mensen spontaan reageren op onrecht, wordt duidelijk hoe sociale mechanismes werken — en hoe ze doorbroken kunnen worden."
+  },
+  {
+   "t": "Spect-actoren",
+   "body": "Het onwetende publiek wordt 'spect-actoren' — zij kijken en handelen tegelijk. Hun reacties zijn echt, niet gespeeld. Meestal weten ze ook achteraf niet dat het theater was (Jackson, in Boal, 2002, p. xxiii). Dit maakt hun reacties waardevoller dan die van een traditioneel theaterpubliek dat weet dat het 'maar theater' is."
+  }
  ],
- tip:"Onzichtbaar theater werkt alleen als het publiek het gelooft. Zodra duidelijk wordt dat het theater is, verandert de dynamiek volledig — van echte reactie naar 'meedoen met het spel'."},
+ "tip": "Onzichtbaar theater werkt alleen als het publiek het gelooft. Zodra duidelijk wordt dat het theater is, verandert de dynamiek volledig — van echte reactie naar 'meedoen met het spel'."
+},
 
-{n:2, title:"Geboren uit dictatuur",
- cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
- stripe:"#8b4513",
- note:"Boal ontwikkelde de techniek tijdens zijn ballingschap in Buenos Aires (1971–1976) als reactie op repressie die open politiek theater onmogelijk maakte.",
- stages:[
-  {t:"De context van censuur",
-   body:"Brazilië en Argentinië leden onder militaire dictaturen. Open politieke voorstellingen werden verboden, theatermakers vervolgd. Boal werd in 1971 gearresteerd, gemarteld en uitgewezen. Hij moest subtielere methoden vinden."},
-  {t:"Theater onder de radar",
-   body:"In Buenos Aires ontwikkelde Boal met studenten een vorm die politieke dialoog kon stimuleren zonder de aandacht van autoriteiten te trekken. Door het theater onzichtbaar te maken, werd het onpakbaar voor censuur."},
-  {t:"Europa: van overleven naar instrument",
-   body:"In Parijs, Stockholm en andere Europese steden ontwikkelde Boal de methode verder. Niet meer als overlevingsstrategie maar als bewust instrument voor maatschappelijke verandering — zelfs in democratische samenlevingen."},
-  {t:"Het blijvende gebruik",
-   body:"Ook na het einde van de dictaturen bleef onzichtbaar theater relevant. Het kan onderdrukking zichtbaar maken die anders onopgemerkt blijft — subtiele discriminatie, sociale ongelijkheid, alledaagse machtsstructuren."}
+{
+ "n": 2,
+ "title": "Geboren uit dictatuur",
+ "cat": "Fundament",
+ "catBg": "#f5e8d0",
+ "catFg": "#8b4513",
+ "stripe": "#8b4513",
+ "note": "Boal maakte de eerste onzichtbare scènes tijdens zijn ballingschap in Argentinië (1971–1976). Volgens zijn eigen terugblik begon dat vóór de verkiezingen van 1973, toen de repressie wat afnam zonder te verdwijnen (Boal, 2002, p. 252).",
+ "stages": [
+  {
+   "t": "De context van censuur",
+   "body": "Vanaf 1971 maakte de dictatuur in Brazilië volkstheater onmogelijk (Boal, 2002, p. 251). Boal werd in 1971 gearresteerd, gemarteld en verbannen. Ook Argentinië had tot 1973 een militair bewind. Open politiek theater op straat was riskant, zeker voor een buitenlander in ballingschap."
+  },
+  {
+   "t": "Restaurant Teatro: 'La Ley' (Buenos Aires, 1972)",
+   "body": "De eerste bekende onzichtbare scène. Boal en een groep acteurs repeteerden een stuk over een wet die, zoals Boal het vertelde, bepaalde dat geen Argentijn van honger mocht sterven: wie honger had, kon in een restaurant eten bestellen. Op straat spelen kon tot arrestatie en uitzetting leiden. Een van de acteurs stelde voor het in een restaurant te spelen, zonder te zeggen dat het theater was. Volgens Boal werd het debat feller dan het op straat zou zijn geweest. Onderzoeker Leah Lovett vond die wet niet terug; vermoedelijk ging het om het rechtsbeginsel van diefstal uit honger (<em>hurto famélico</em>) (Lovett, 2021)."
+  },
+  {
+   "t": "Europa: van overleven naar instrument",
+   "body": "Na 1976 werkte Boal in Europa. In de Parijse metro en tijdens het Skeppsholmfestival in Stockholm (1977) ontwikkelde hij de methode verder (Boal, 2002, pp. 277–288). Niet meer als overlevingsstrategie, maar als bewust instrument voor publiek debat — ook in democratische samenlevingen."
+  },
+  {
+   "t": "Het blijvende gebruik",
+   "body": "Ook na het einde van de dictaturen bleef onzichtbaar theater relevant. Het kan onderdrukking zichtbaar maken die anders onopgemerkt blijft — subtiele discriminatie, sociale ongelijkheid, alledaagse machtsstructuren."
+  }
  ],
- tip:"De oorsprong uit dictatuur betekent niet dat de methode alleen bruikbaar is onder repressieve regimes. Elke samenleving heeft onzichtbare vormen van onderdrukking die met deze techniek onderzocht kunnen worden."},
+ "tip": "De oorsprong uit dictatuur betekent niet dat de methode alleen bruikbaar is onder repressieve regimes. Elke samenleving heeft onzichtbare vormen van onderdrukking die met deze techniek onderzocht kunnen worden."
+},
 
-{n:3, title:"Twee opdrachtgevers",
- cat:"Fundament", catBg:"#f5e8d0", catFg:"#8b4513",
- stripe:"#8b4513",
- note:"Onzichtbaar theater dient twee doelen: repressie omzeilen (historisch) en publieke dialoog forceren over onderdrukking die normaal onzichtbaar blijft (blijvend).",
- stages:[
-  {t:"Doel 1: Censuur ontwijken",
-   body:"Het oorspronkelijke doel was politieke boodschappen over te brengen zonder ontdekt te worden door autoriteiten. Door theater onherkenbaar te maken, kon het toch zijn werk doen — bewustwording creëren zonder represailles."},
-  {t:"Doel 2: Onzichtbare onderdrukking zichtbaar maken",
-   body:"Het tweede doel is structureler: sociale mechanismen blootleggen die gewoonlijk verborgen blijven. Door een situatie te creëren waarin discriminatie, uitbuiting of onrecht plaatsvindt, komt de normale reactie van mensen naar boven."},
-  {t:"De pedagogische kracht",
-   body:"Anders dan regulier theater leert onzichtbaar theater niet door verhalen te vertellen, maar door situaties te creëren. Het publiek leert niet van karakters maar van hun eigen reacties. Ze zien hoe zij zelf reageren op onrecht."},
-  {t:"Bewustwording door handeling",
-   body:"Paulo Freire noemt dit 'praxis' — leren door handelen. Onzichtbaar theater dwingt mensen om te handelen (reageren) voordat ze weten dat ze aan het leren zijn. Pas achteraf kunnen ze reflecteren op hun eigen gedrag."}
+{
+ "n": 3,
+ "title": "Twee opdrachtgevers",
+ "cat": "Fundament",
+ "catBg": "#f5e8d0",
+ "catFg": "#8b4513",
+ "stripe": "#8b4513",
+ "note": "Onzichtbaar theater dient twee doelen: repressie omzeilen (historisch) en publieke dialoog forceren over onderdrukking die normaal onzichtbaar blijft (blijvend).",
+ "stages": [
+  {
+   "t": "Doel 1: Censuur ontwijken",
+   "body": "Het oorspronkelijke doel was politieke boodschappen over te brengen zonder ontdekt te worden door autoriteiten. Door theater onherkenbaar te maken, kon het toch zijn werk doen — bewustwording creëren zonder represailles."
+  },
+  {
+   "t": "Doel 2: Onzichtbare onderdrukking zichtbaar maken",
+   "body": "Het tweede doel is structureler: sociale mechanismen blootleggen die gewoonlijk verborgen blijven. Door een situatie te creëren waarin discriminatie, uitbuiting of onrecht plaatsvindt, komt de normale reactie van mensen naar boven."
+  },
+  {
+   "t": "De pedagogische kracht",
+   "body": "Anders dan regulier theater leert onzichtbaar theater niet door verhalen te vertellen, maar door situaties te creëren. Het publiek leert niet van karakters maar van hun eigen reacties. Ze zien hoe zij zelf reageren op onrecht."
+  },
+  {
+   "t": "Bewustwording door handeling",
+   "body": "Paulo Freire spreekt van 'praxis': handelen en nadenken over de wereld om haar te veranderen. Bij onzichtbaar theater gebeurt dat in het moment zelf: mensen reageren, en in het gesprek dat ontstaat denken ze hardop na over wat ze zien. Achteraf horen ze meestal niet dat het theater was."
+  }
  ],
- tip:"De kracht zit niet in wat acteurs laten zien, maar in wat voorbijgangers spontaan doen. Hun natuurlijke reactie onthult meer over sociale structuren dan elke geschreven tekst."},
+ "tip": "De kracht zit niet in wat acteurs laten zien, maar in wat voorbijgangers spontaan doen. Hun natuurlijke reactie onthult meer over sociale structuren dan elke geschreven tekst."
+},
 
-{n:4, title:"Thema kiezen",
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b",
- note:"Het thema moet herkenbaar, politiek geworteld en open genoeg zijn om diverse reacties mogelijk te maken. Te specifiek en er is geen debat. Te algemeen en het raakt niet.",
- stages:[
-  {t:"Criterium: herkenbaar onrecht",
-   body:"Kies een situatie die mensen herkennen uit hun eigen ervaring — discriminatie op basis van uiterlijk, economische ongelijkheid, machtsmisbruik door autoriteiten, genderongelijkheid. Het moet voelen als 'dit gebeurt echt'."},
-  {t:"Criterium: politieke lading",
-   body:"Het thema moet raken aan machtsverhoudingen in de samenleving. Niet persoonlijke conflicten maar structurele ongelijkheid. Niet 'ruzie tussen buren' maar 'huurbaas die huur verhoogt'. Niet 'verkeersongeluk' maar 'onderhoud wegdek in armere wijken'."},
-  {t:"Criterium: open voor debat",
-   body:"Vermijd thema's waar iedereen hetzelfde over denkt. Zoek kwesties waar mensen genuanceerd over oordelen — waar de 'juiste' reactie niet voor de hand ligt. Dat creëert de ruimte voor echte discussie."},
-  {t:"Test: de kroegtest",
-   body:"Zou dit thema in een café tot discussie leiden? Zouden mensen verschillende meningen hebben over wat de juiste reactie is? Dan heb je waarschijnlijk een goed onderwerp. Zo niet, dan is het te eenduidig of te persoonlijk."}
+{
+ "n": 4,
+ "title": "Thema kiezen",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "Het thema moet herkenbaar, politiek geworteld en open genoeg zijn om diverse reacties mogelijk te maken. Te specifiek en er is geen debat. Te algemeen en het raakt niet.",
+ "stages": [
+  {
+   "t": "Criterium: herkenbaar onrecht",
+   "body": "Kies een situatie die mensen herkennen uit hun eigen ervaring — discriminatie op basis van uiterlijk, economische ongelijkheid, machtsmisbruik door autoriteiten, genderongelijkheid. Het moet voelen als 'dit gebeurt echt'. Boal: een kwestie van brandend belang, waarvan bekend is dat ze de toekomstige spect-actoren diep raakt (Boal, 2002, p. 277)."
+  },
+  {
+   "t": "Criterium: politieke lading",
+   "body": "Het thema moet raken aan machtsverhoudingen in de samenleving. Niet persoonlijke conflicten maar structurele ongelijkheid. Niet 'ruzie tussen buren' maar 'huurbaas die huur verhoogt'. Niet 'verkeersongeluk' maar 'onderhoud wegdek in armere wijken'."
+  },
+  {
+   "t": "Criterium: open voor debat",
+   "body": "Vermijd thema's waar iedereen hetzelfde over denkt. Zoek kwesties waar mensen genuanceerd over oordelen — waar de 'juiste' reactie niet voor de hand ligt. Dat creëert de ruimte voor echte discussie."
+  },
+  {
+   "t": "Test: de kroegtest",
+   "body": "Zou dit thema in een café tot discussie leiden? Zouden mensen verschillende meningen hebben over wat de juiste reactie is? Dan heb je waarschijnlijk een goed onderwerp. Zo niet, dan is het te eenduidig of te persoonlijk."
+  }
  ],
- tip:"Begin bij een onderdrukking die je zelf hebt meegemaakt of gezien. Authentieke ergernis over onrecht is de beste basis voor een krachtige scene."},
+ "tip": "Begin bij een onderdrukking die je zelf hebt meegemaakt of gezien. Authentieke ergernis over onrecht is de beste basis voor een krachtige scène."
+},
 
-{n:5, title:"Script en varianten schrijven",
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b",
- note:"Schrijf niet één script maar een script met vertakkingen. Het publiek reageert onvoorspelbaar — je moet voorbereid zijn op verschillende scenario's.",
- stages:[
-  {t:"Het basis-script",
-   body:"Schrijf een korte scene (5–10 minuten) waarin het conflict duidelijk wordt. Begin subtiel, laat de spanning opbouwen. Zorg dat duidelijk is wie de onderdrukker is en wie de onderdrukte — maar vermijd karikaturen."},
-  {t:"Scenario A: publiek grijpt in",
-   body:"Wat als voorbijgangers de onderdrukte te hulp schieten? Hoe reageren je acteurs? Schrijf dialogen voor deze situatie. De acteurs moeten in karakter blijven maar wel de discussie faciliteren zonder hun theatrale rol te verraden."},
-  {t:"Scenario B: publiek negeert",
-   body:"Wat als niemand reageert? Hoe escaleer je zonder ongeloofwaardig te worden? Schrijf een secundaire interventie — een andere acteur die wel reageert en zo het gesprek op gang brengt."},
-  {t:"Scenario C: publiek steunt onderdrukker",
-   body:"Het lastigste scenario: wat als voorbijgangers de 'verkeerde' kant kiezen? Ook dan moet je scene doorgaan. Schrijf reacties die het conflict verdiepen zonder de spelers in gevaar te brengen."}
+{
+ "n": 5,
+ "title": "Script en varianten schrijven",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "Schrijf niet één script maar een script met vertakkingen. Het publiek reageert onvoorspelbaar — je moet voorbereid zijn op verschillende scenario's.",
+ "stages": [
+  {
+   "t": "Het basis-script",
+   "body": "Boal: onzichtbaar theater heeft een tekst met een geschreven kern, die onvermijdelijk verandert door wat de spect-actoren doen (Boal, 2002, p. 277). Schrijf een korte scène (5–10 minuten) waarin het conflict duidelijk wordt; de veerbootscène in Stockholm duurde zeven minuten, precies de overtocht (p. 282). Begin subtiel, laat de spanning opbouwen. Zorg dat duidelijk is wie de onderdrukker is en wie de onderdrukte — maar vermijd karikaturen."
+  },
+  {
+   "t": "Scenario A: publiek grijpt in",
+   "body": "Wat als voorbijgangers de onderdrukte te hulp schieten? Hoe reageren je acteurs? Schrijf dialogen voor deze situatie. De acteurs moeten in karakter blijven maar wel de discussie faciliteren zonder hun theatrale rol te verraden."
+  },
+  {
+   "t": "Scenario B: publiek negeert",
+   "body": "Wat als niemand reageert? Hoe escaleer je zonder ongeloofwaardig te worden? Schrijf een secundaire interventie — een andere acteur die wel reageert en zo het gesprek op gang brengt."
+  },
+  {
+   "t": "Scenario C: publiek steunt onderdrukker",
+   "body": "Het lastigste scenario: wat als voorbijgangers de 'verkeerde' kant kiezen? Ook dan moet je scène doorgaan. Schrijf reacties die het conflict verdiepen zonder de spelers in gevaar te brengen."
+  }
  ],
- tip:"Repeteer elk scenario tot acteurs soepel kunnen wisselen tussen varianten. De overgangen moeten onmerkbaar zijn — alsof het allemaal 'echt' is. Quasi-joker techniek: voeg een acteur toe die lijkt te mompelen 'in zichzelf' maar eigenlijk joker-vragen stelt: 'Dit kan toch niet...', 'Moet er niet iemand wat doen...'. Zo creëer je de joker-functie zonder het theater zichtbaar te maken."},
+ "tip": "Repeteer elk scenario tot acteurs soepel kunnen wisselen tussen varianten. De overgangen moeten onmerkbaar zijn — alsof het allemaal 'echt' is. Quasi-joker techniek: voeg een acteur toe die lijkt te mompelen 'in zichzelf' maar eigenlijk joker-vragen stelt: 'Dit kan toch niet...', 'Moet er niet iemand wat doen...'. Zo creëer je de joker-functie zonder het theater zichtbaar te maken. Bij Boal mengen ook acteurs zich onder het publiek die uitgesproken en tegengestelde standpunten innemen (Jackson, in Boal, 2002, p. xxiii)."
+},
 
-{n:6, title:"Locatie scouten",
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b", 
- note:"De locatie moet publiek zijn, het thema ondersteunen en voldoende ruimte bieden voor reacties. Een verkeerde plek kan de beste scene verpesten.",
- stages:[
-  {t:"Publieke toegang essentieel",
-   body:"De plek moet openbaar zijn zodat voorbijgangers zich vrij voelen om te reageren. Vermijd private eigendommen waar mensen zich geobserveerd voelen. Stations, pleinen, parken, cafés, winkels en markten werken vaak goed."},
-  {t:"Thematische logica",
-   body:"De locatie moet de scene ondersteunen. Arbeidsconflict op een markt, discriminatie in openbaar vervoer, huisvesting in een wijk. De plek moet voelen als een natuurlijke setting voor het conflict dat je toont."},
-  {t:"Praktische aspecten",
-   body:"Voldoende ruimte voor publiek om te verzamelen zonder het verkeer te blokkeren. Goede akoestiek zodat gesprekken hoorbaar zijn. Vluchtroutes voor als de situatie escaleert. Geen beveiliging die snel ingrijpt."},
-  {t:"Timing observeren",
-   body:"Bezoek de locatie op verschillende tijdstippen. Wanneer is er genoeg publiek? Welk type mensen komt er? Wat is hun stemming? Haastige forenzen reageren anders dan ontspannen café-bezoekers."}
+{
+ "n": 6,
+ "title": "Locatie scouten",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "De locatie moet publiek zijn, het thema ondersteunen en voldoende ruimte bieden voor reacties. Een verkeerde plek kan de beste scène verpesten.",
+ "stages": [
+  {
+   "t": "Publieke toegang essentieel",
+   "body": "De plek moet openbaar zijn zodat voorbijgangers zich vrij voelen om te reageren. Vermijd private eigendommen waar mensen zich geobserveerd voelen. Stations, pleinen, parken, cafés, winkels en markten werken vaak goed."
+  },
+  {
+   "t": "Thematische logica",
+   "body": "De locatie moet de scène ondersteunen. Arbeidsconflict op een markt, discriminatie in openbaar vervoer, huisvesting in een wijk. De plek moet voelen als een natuurlijke setting voor het conflict dat je toont."
+  },
+  {
+   "t": "Praktische aspecten",
+   "body": "Voldoende ruimte voor publiek om te verzamelen zonder het verkeer te blokkeren. Goede akoestiek zodat gesprekken hoorbaar zijn. Vluchtroutes voor als de situatie escaleert. Geen beveiliging die snel ingrijpt. In Stockholm zagen de bewakingscamera's van de politie de picknick op straat; de politie kwam en controleerde spelers én voorbijgangers (Boal, 2002, pp. 286–287)."
+  },
+  {
+   "t": "Timing observeren",
+   "body": "Bezoek de locatie op verschillende tijdstippen. Wanneer is er genoeg publiek? Welk type mensen komt er? Wat is hun stemming? Haastige forenzen reageren anders dan ontspannen café-bezoekers."
+  }
  ],
- tip:"Doe een testrun zonder script — ga gewoon zitten en observeren. Als je er zelf ongemakkelijk bent of opvalt, is het geen goede locatie."},
+ "tip": "Doe een testrun zonder script — ga gewoon zitten en observeren. Als je er zelf ongemakkelijk bent of opvalt, is het geen goede locatie."
+},
 
-{n:7, title:"Rolverdeling",
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b",
- note:"Elk teamlid heeft een specifieke functie. De protagonist en antagonist spelen de scene, catalysatoren stimuleren discussie, getuigen observeren voor de evaluatie.",
- stages:[
-  {t:"Protagonist: de onderdrukte",
-   body:"Speelt het slachtoffer van de onderdrukking. Moet sympathiek en geloofwaardig zijn zonder overdreven te acteren. De rol vereist moed — je staat letterlijk bloot aan de reacties van vreemden."},
-  {t:"Antagonist: de onderdrukker",
-   body:"Speelt de rol van degene die onderdrukking uitoefent. Lastigste rol — moet onrecht bedrijven zonder persoonlijk gehaat te worden. Vereist nuance: niet te cartoonachtig maar wel duidelijk in de fout."},
-  {t:"Catalysator: de aanjager",
-   body:"Lijkt een gewone voorbijganger maar is eigenlijk een acteur. Reageert als eerste op het conflict en stimuleert anderen om ook te reageren. Mag nooit laten merken onderdeel van het team te zijn."},
-  {t:"Getuigen: de observatoren",
-   body:"Lijken ook gewone voorbijgangers maar observeren wat er gebeurt. Onthouden wie wat zegt, hoe mensen reageren, welke argumenten gebruikt worden. Essentieel voor de evaluatie achteraf."}
+{
+ "n": 7,
+ "title": "Rolverdeling",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "Elk teamlid heeft een specifieke functie. De protagonist en antagonist spelen de scène, catalysatoren stimuleren discussie, getuigen observeren voor de evaluatie. Dit zijn werknamen; bij Boal heeft elke scène haar eigen personages.",
+ "stages": [
+  {
+   "t": "Protagonist: de onderdrukte",
+   "body": "Speelt het slachtoffer van de onderdrukking. Moet sympathiek en geloofwaardig zijn zonder overdreven te acteren. De rol vereist moed — je staat letterlijk bloot aan de reacties van vreemden."
+  },
+  {
+   "t": "Antagonist: de onderdrukker",
+   "body": "Speelt de rol van degene die onderdrukking uitoefent. Lastigste rol — moet onrecht bedrijven zonder persoonlijk gehaat te worden. Vereist nuance: niet te cartoonachtig maar wel duidelijk in de fout."
+  },
+  {
+   "t": "Catalysator: de aanjager",
+   "body": "Lijkt een gewone voorbijganger maar is eigenlijk een acteur. Reageert als eerste op het conflict en stimuleert anderen om ook te reageren. Mag nooit laten merken onderdeel van het team te zijn. In de Parijse metro vroeg een 'moeder' haar 'zoon' hardop wat er gebeurde; zijn commentaar was in de hele wagon te horen (Boal, 2002, p. 279)."
+  },
+  {
+   "t": "Getuigen: de observatoren",
+   "body": "Lijken ook gewone voorbijgangers maar observeren wat er gebeurt. Onthouden wie wat zegt, hoe mensen reageren, welke argumenten gebruikt worden. Essentieel voor de evaluatie achteraf. In Parijs bleven spelers na afloop in de wagon om te luisteren en het gesprek voorzichtig te sturen (Boal, 2002, p. 279)."
+  }
  ],
- tip:"Spreek vooraf af hoe jullie elkaar herkennen zonder op te vallen. Een discrete hand-gebaar of codewoord voor noodsituaties. Maar ook voor gewone communicatie tijdens de scene."},
+ "tip": "Spreek vooraf af hoe jullie elkaar herkennen zonder op te vallen. Een onopvallend handgebaar of codewoord voor noodsituaties. Maar ook voor gewone communicatie tijdens de scène."
+},
 
-{n:8, title:"Repeteren op onvoorspelbaarheid", 
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b",
- note:"Het echte publiek reageert anders dan je verwacht. Repeteer niet alleen de scene maar ook omgaan met agressie, verwarring en onverwachte wendingen.",
- stages:[
-  {t:"Basis-scenes inslijpen",
-   body:"Repeteer de kern-scene tot alle acteurs hun tekst en timing perfect beheersen. In een echte situatie is geen ruimte voor aarzelen of tekstproblemen. De basis moet automatisch gaan."},
-  {t:"Improvisatie-oefeningen",
-   body:"Oefen met onverwachte interventies. Laat teamleden beurtelings een onverwachte rol spelen — een agressieve voorbijganger, iemand die het niet begrijpt, een autoriteit die ingrijpt. Hoe blijf je in karakter?"},
-  {t:"Stress-testen",
-   body:"Oefen de scene onder druk. Met tijdsdruk, in verschillende locaties, met afleiding. Acteurs moeten kunnen doorgaan ook als ze nerveus zijn of de situatie chaotisch wordt."},
-  {t:"Veiligheidssignalen",
-   body:"Spreek duidelijke signalen af om te stoppen — een codewoord, gebaar of zin die betekent 'nu ophouden'. Oefen deze signalen tot iedereen ze automatisch herkent, ook in een stressvolle situatie."}
+{
+ "n": 8,
+ "title": "Repeteren op onvoorspelbaarheid",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "Het echte publiek reageert anders dan je verwacht. Repeteer niet alleen de scène maar ook omgaan met agressie, verwarring en onverwachte wendingen.",
+ "stages": [
+  {
+   "t": "Basis-scènes inslijpen",
+   "body": "Repeteer de kern-scène tot alle acteurs hun tekst en timing perfect beheersen. In een echte situatie is geen ruimte voor aarzelen of tekstproblemen. De basis moet automatisch gaan. Boal: de acteurs moeten spelen als echte acteurs, 'ze moeten leven' (Boal, 2002, p. 277)."
+  },
+  {
+   "t": "Improvisatie-oefeningen",
+   "body": "Oefen met onverwachte interventies. Laat teamleden beurtelings een onverwachte rol spelen — een agressieve voorbijganger, iemand die het niet begrijpt, een autoriteit die ingrijpt. Hoe blijf je in karakter?"
+  },
+  {
+   "t": "Het onvoorziene voorzien",
+   "body": "In Parijs stopte de metro door de commotie; de spelers hadden alleen tot het volgende station gerepeteerd en moesten vijf minuten improviseren (Boal, 2002, p. 280). Op de veerboot in Stockholm had de bemanning al een ambulance laten komen voor de 'zwangere' vrouw. De groep had dat voorzien en een auto klaarstaan (p. 282)."
+  },
+  {
+   "t": "Stress-testen",
+   "body": "Oefen de scène onder druk. Met tijdsdruk, in verschillende locaties, met afleiding. Acteurs moeten kunnen doorgaan ook als ze nerveus zijn of de situatie chaotisch wordt."
+  },
+  {
+   "t": "Veiligheidssignalen",
+   "body": "Spreek duidelijke signalen af om te stoppen — een codewoord, gebaar of zin die betekent 'nu ophouden'. Oefen deze signalen tot iedereen ze automatisch herkent, ook in een stressvolle situatie."
+  }
  ],
- tip:"De beste repetitie is oefenen met vreemden. Vraag vrienden die het script niet kennen om toe te kijken en te reageren. Daar leer je het meest van."},
+ "tip": "De beste repetitie is oefenen met vreemden. Vraag vrienden die het script niet kennen om toe te kijken en te reageren. Daar leer je het meest van."
+},
 
-{n:9, title:"Debriefing",
- cat:"Protocol", catBg:"#e6eef7", catFg:"#2c4a6b",
- stripe:"#2c4a6b",
- note:"Direct na afloop evalueren met alle spelers: wat gebeurde er? Wat zei het over de sociale werkelijkheid? Welke reacties verrasten?",
- stages:[
-  {t:"Directe indrukken verzamelen",
-   body:"Kom direct na de scene samen op een rustige plek. Laat iedereen eerst hun directe gevoel beschrijven voordat je analyseert. Hoe voelde het? Wat was anders dan verwacht?"},
-  {t:"Reacties reconstrueren",
-   body:"Laat de getuigen verslag doen. Wie zei wat? Welke argumenten werden gebruikt? Hoe reageerde het publiek op elkaar? Probeer de dialogen zo precies mogelijk te reconstrueren."},
-  {t:"Patronen herkennen",
-   body:"Welke types mensen reageerden hoe? Waren er verschillen tussen mannen en vrouwen, jong en oud, verschillende etnische groepen? Wat zegt dat over de sociale mechanismen die jullie wilden onderzoeken?"},
-  {t:"Leren voor volgende keer",
-   body:"Wat werkte goed? Wat niet? Welke delen van het script moeten aangepast? Welke reacties hadden jullie beter kunnen anticiperen? Hoe kunnen jullie het volgende keer verbeteren?"}
+{
+ "n": 9,
+ "title": "Debriefing",
+ "cat": "Protocol",
+ "catBg": "#e6eef7",
+ "catFg": "#2c4a6b",
+ "stripe": "#2c4a6b",
+ "note": "Direct na afloop evalueren met alle spelers: wat gebeurde er? Wat zei het over de sociale werkelijkheid? Welke reacties verrasten?",
+ "stages": [
+  {
+   "t": "Directe indrukken verzamelen",
+   "body": "Kom direct na de scène samen op een rustige plek. Laat iedereen eerst hun directe gevoel beschrijven voordat je analyseert. Hoe voelde het? Wat was anders dan verwacht?"
+  },
+  {
+   "t": "Reacties reconstrueren",
+   "body": "Laat de getuigen verslag doen. Wie zei wat? Welke argumenten werden gebruikt? Hoe reageerde het publiek op elkaar? Probeer de dialogen zo precies mogelijk te reconstrueren."
+  },
+  {
+   "t": "Patronen herkennen",
+   "body": "Welke types mensen reageerden hoe? Waren er verschillen tussen mannen en vrouwen, jong en oud, verschillende etnische groepen? Wat zegt dat over de sociale mechanismen die jullie wilden onderzoeken?"
+  },
+  {
+   "t": "Leren voor volgende keer",
+   "body": "Wat werkte goed? Wat niet? Welke delen van het script moeten aangepast? Welke reacties hadden jullie beter kunnen anticiperen? Hoe kunnen jullie het volgende keer verbeteren?"
+  }
  ],
- tip:"Schrijf de evaluatie op — niet voor publicatie maar voor jullie eigen geheugen. Deze inzichten zijn waardevoller dan je denkt en anders vergeet je ze weer."},
+ "tip": "Schrijf de evaluatie op — niet voor publicatie maar voor jullie eigen geheugen. Deze inzichten zijn waardevoller dan je denkt en anders vergeet je ze weer."
+},
 
-{n:10, title:"De restaurantscène, Chiclayo 1973",
- cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
- stripe:"#8c5e2a",
- note:"Boals bekendste onzichtbare scène, beschreven in Theatre of the Oppressed. Een hotelrestaurant in Chiclayo (Peru) tijdens de ALFIN-periode. Acteurs aan verschillende tafels, één kan niet betalen. De anatomie van een werkend script: helder conflict, natuurlijke escalatie, ruimte voor publiek om in te grijpen.",
- stages:[
-  {t:"De opzet",
-   body:"Druk restaurant tijdens lunchtijd. Acteurs verspreid over verschillende tafels als gewone gasten. Eén acteur bestelt à la carte, eet normaal, vraagt om de rekening. Niets ongewoons — totdat hij niet kan betalen."},
-  {t:"Het conflict ontstaat",
-   body:"'Ik kan de 70 soles niet betalen,' zegt hij tegen de ober. 'Maar ik kan wel werken. Hoeveel verdient iemand die vuilnis ophaalt hier?' Een simpele vraag die een economische realiteit blootlegt."},
-  {t:"De informatie-cascade",
-   body:"Een acteur aan een andere tafel: 'Een vuilnisophaler verdient 7 soles per uur.' Weer een ander: 'Een tuinman krijgt 10 soles per uur.' Plotseling praten alle gasten over lonen, werk, waardigheid."},
-  {t:"De solidariteit test",
-   body:"Een vierde acteur begint geld op te halen bij de andere gasten. Echte klanten moeten nu kiezen: meedoen of niet? Betalen voor een vreemde? Wat is eerlijk? De scene test hun spontane solidariteit."}
+{
+ "n": 10,
+ "title": "De restaurantscène, Chiclayo 1973",
+ "cat": "Casus",
+ "catBg": "#f0d4a8",
+ "catFg": "#8c5e2a",
+ "stripe": "#8c5e2a",
+ "note": "Boals bekendste onzichtbare scène, beschreven in <em>Theatre of the Oppressed</em> (Boal, 1974/1985). Een groot hotelrestaurant in Chiclayo (Peru), in 1973, toen Boal in Peru werkte voor het alfabetiseringsprogramma ALFIN. Acteurs aan verschillende tafels, één kan niet betalen. Een scène met dezelfde opzet speelde Boal al in 1972 in Buenos Aires; de twee worden vaak door elkaar gehaald (Lovett, 2021). De anatomie van een werkend script: helder conflict, natuurlijke escalatie, ruimte voor publiek om in te grijpen.",
+ "stages": [
+  {
+   "t": "De opzet",
+   "body": "Een druk restaurant. Acteurs zitten verspreid over verschillende tafels als gewone gasten. Eén acteur bestelt à la carte, eet normaal, vraagt om de rekening. Niets ongewoons — totdat hij niet kan betalen."
+  },
+  {
+   "t": "Het conflict ontstaat",
+   "body": "De rekening is 70 soles. Hij zegt tegen de ober dat hij dat geld niet heeft, maar dat hij wel met zijn arbeid wil betalen. Hoeveel verdient iemand die hier het vuilnis ophaalt? Een simpele vraag die een economische realiteit blootlegt."
+  },
+  {
+   "t": "De informatie-cascade",
+   "body": "Acteurs aan andere tafels mengen zich erin: een vuilnisophaler verdient 7 soles per uur, een tuinman 10. Hoeveel uur werk kost dan één maaltijd? Ook echte gasten gaan meepraten over lonen, werk en waardigheid."
+  },
+  {
+   "t": "De solidariteitstest",
+   "body": "Een andere acteur begint geld op te halen bij de gasten om de rekening te betalen. Echte klanten moeten nu kiezen: meedoen of niet? Betalen voor een vreemde? Wat is eerlijk? De scène test hun spontane solidariteit."
+  }
  ],
- tip:"Let op de timing: van gewoon restaurant naar economisch debat in minder dan 10 minuten. Geen moment voelde als 'theater' — tot het achteraf blijkt te zijn."},
+ "tip": "Let op de opbouw: van een gewoon restaurant naar een gesprek over lonen, zonder dat iemand iets van theater merkt."
+},
 
-{n:11, title:"Europa: Metro, ferry's en discriminatie",
- cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
- stripe:"#8c5e2a",
- note:"Late jaren 70: Boal past de methode aan voor Europese steden. Parijse metro, Stockholm ferry's, Siciliaanse pleinen. Andere contexten, dezelfde methode.",
- stages:[
-  {t:"Parijse metro: seksisme zichtbaar maken",
-   body:"Scene over seksuele intimidatie in de metro. Vergelijkbare situaties — een vrouw en een man worden allebei lastiggevallen. Hoe reageert het publiek? Beschermen ze de vrouw anders dan de man? Waarom?"},
-  {t:"Stockholm ferry: zwangerschap en status",
-   body:"Op de veerboot eist een zwangere vrouw dezelfde behandeling als de zwangere koningin. Waarom krijgt de ene zwangere wel een stoel, de andere niet? Een scene over klassenongelijkheid vermomd als hoffelijkheid."},
-  {t:"Raciale discriminatie: de trein-scene",
-   body:"Een witte man eist dat een zwarte vrouw haar plaats afstaat. Als dat lukt, eist hij hetzelfde van Zweedse Europeanen, werklozen, dronken mensen. De escalatie onthult hoe discriminatie werkt: eerst één groep, dan de volgende."},
-  {t:"Stockholm picknick: auto-cultuur bekritiseren",
-   body:"Acteurs picknicken midden op de weg en proberen autobestuurders over te halen mee te doen. Waarom is de straat voor auto's, niet voor mensen? Een ludieke maar effectieve kritiek op stedelijke ruimte-inrichting."}
+{
+ "n": 11,
+ "title": "Parijs en Stockholm: metro, veerboot, straat",
+ "cat": "Casus",
+ "catBg": "#f0d4a8",
+ "catFg": "#8c5e2a",
+ "stripe": "#8c5e2a",
+ "note": "Eind jaren 70. Boal beschrijft zes scènes in <em>Games for Actors and Non-Actors</em> (Boal, 2002, pp. 277–288): in de Parijse metro en, tijdens het Skeppsholmfestival in Stockholm (juli 1977), op veerboten, in restaurants, op straat en zelfs in een zaal. Andere contexten, dezelfde methode.",
+ "stages": [
+  {
+   "t": "Parijse metro: intimidatie",
+   "body": "Op de lijn Vincennes–Neuilly zit een man een jonge vrouw steeds dichter op de huid. Geen enkele passagier komt voor haar op. Even later vallen twee vrouwen een knappe jonge man lastig, en nu grijpen de passagiers wél in, voor de man. De scène toont hoe anders mensen hetzelfde gedrag beoordelen. Ze werd drie keer gespeeld (Boal, 2002, pp. 277–280)."
+  },
+  {
+   "t": "Veerboot: het kind van koningin Silvia",
+   "body": "Een 'zwangere' vrouw krijgt weeën op de veerboot. Ze weigert de hulp van een dokter die de hele nacht bevallingen deed: ze wil een van de vier artsen die al weken klaarstaan voor de bevalling van koningin Silvia. Thema: de Zweedse ziekenhuiszorg. De helft van de passagiers praatte mee, de andere helft volgde het debat aandachtig (Boal, 2002, pp. 280–282)."
+  },
+  {
+   "t": "Restaurant: de Griek",
+   "body": "Op twee terrassen. Een echtpaar maakt ruzie; de man gaat bij zijn minnares zitten, de vrouw nodigt een jonge Griek aan haar tafel. De man wil de Griek wegsturen: niet omdat hij een man is, maar omdat hij Griek is. Thema: vooroordelen tegen buitenlanders (Boal, 2002, pp. 282–283)."
+  },
+  {
+   "t": "Veerboot: de zwarte vrouw",
+   "body": "Een Italiaan eist de zitplaats van een zwarte vrouw op. Een dronken Zweedse vrouw eist daarna zijn plaats op: als dit een land voor witten is, dan voor witte Zweden. Een kantoorman eist vervolgens haar plaats: zij is dronken en onproductief. Ras, nationaliteit, klasse. Aan het eind staan passagiers op uit protest en blijven er op de volle boot lege stoelen over. Volgens Boal de felste scène van het festival (Boal, 2002, pp. 283–285)."
+  },
+  {
+   "t": "Picknick op straat",
+   "body": "Een gezin drinkt thee op de stoep, wordt weggestuurd en zet de tafel midden op de weg. Thema: een stad die gebouwd is voor auto's, niet voor voetgangers. Het verkeer staat vast en de improvisatie loopt een kwartier uit, tot de politie komt. Boal: onzichtbaar theater is geen realisme, het is werkelijkheid (Boal, 2002, pp. 285–287)."
+  },
+  {
+   "t": "Het publiek van de lezing",
+   "body": "Bij Boals laatste lezing op het festival speelden de acteurs een scène over de kinderen in de zaal. Op een teken van Boal kwamen ze aan het eind allemaal op het podium voor een buiging. Zo begreep het publiek wat onzichtbaar theater is. Hier maakt het theater zich wél bekend; vergelijk kaart 13 (Boal, 2002, pp. 287–288)."
+  }
  ],
- tip:"Elk van deze scenes was controversieel en effectief. Ze dwongen mensen om te kiezen — en maakten daardoor zichtbaar welke sociale normen er werkten."},
+ "tip": "Deze scènes dwongen mensen om te kiezen — en maakten daardoor zichtbaar welke sociale normen er werkten. Boal zelf: om een politieke uitwerking te hebben, zouden vijftig groepen een scène als die in de metro vijfhonderd keer moeten spelen (Boal, 2002, p. 280)."
+},
 
-{n:12, title:"Rio TV: slavenmarkt op het scherm",
- cat:"Casus", catBg:"#f0d4a8", catFg:"#8c5e2a",
- stripe:"#8c5e2a",
- note:"1986: Boal terug in Brazilië, maakt wekelijks onzichtbaar theater voor televisie. Een donkere man verkoopt zichzelf als slaaf. De methode onder extreme mediële druk.",
- stages:[
-  {t:"TV als nieuwe publieke ruimte",
-   body:"Na zijn terugkeer in Brazilië krijgt Boal een wekelijks programma op een Rio-zender. Hoe doe je onzichtbaar theater als miljoenen mensen kijken? Het publiek weet dat het TV is — maar de mensen op straat niet."},
-  {t:"De slavenmarkt-scene",
-   body:"Een donkere man gaat naar een markt en biedt zichzelf te koop aan als slaaf. Hij vertelt voorbijgangers dat hij minder verdient dan een 19e-eeuwse slaaf. Reacties variëren van geschok tot cynisme tot woede."},
-  {t:"Economie en ras gekoppeld",
-   body:"De scene toont hoe huidige arbeidsomstandigheden lijken op historische slavernij — maar dan 'vrijwillig'. Voor zwarte Brazilianen is deze vrijheid vaak theoretisch. Het publiek moet reageren op deze pijnlijke waarheid."},
-  {t:"Televisie als pedagogy",
-   body:"Duizenden kijkers zien hoe hun medeburgers reageren op raciale en economische ongelijkheid. Ze leren niet van acteurs maar van echte mensen — hun buren, hun stadsgenoten. Machtiger dan elke documentaire."}
+{
+ "n": 12,
+ "title": "Rio, 1986: onzichtbaar theater op televisie",
+ "cat": "Casus",
+ "catBg": "#f0d4a8",
+ "catFg": "#8c5e2a",
+ "stripe": "#8c5e2a",
+ "note": "In 1986 keerde Boal terug naar Brazilië. Dat jaar maakte hij onzichtbaar theater voor de televisiezender Rede Manchete in Rio de Janeiro (Lovett, 2019). De kijker thuis weet dat het theater is, de mensen op straat niet.",
+ "stages": [
+  {
+   "t": "Televisie als nieuwe publieke ruimte",
+   "body": "Volgens Claire Bishop ging het om een wekelijks programma (Bishop, 2012). De scènes speelden zich af op straat en werden gefilmd. Zo kreeg onzichtbaar theater twee publieken: de onwetende spect-actoren ter plekke en de kijkers thuis."
+  },
+  {
+   "t": "De slavenmarkt",
+   "body": "Een donkere man biedt zichzelf op een markt te koop aan als slaaf. Hij vertelt voorbijgangers dat hij minder verdient dan een slaaf in de negentiende eeuw (Bishop, 2012). De scène legt een verband tussen hedendaagse arbeid en historische slavernij, tussen economie en ras."
+  },
+  {
+   "t": "Andere scènes",
+   "body": "Titels uit dezelfde reeks zijn onder meer <em>Racismo no casal</em> (racisme in een stel) en <em>O homem que queria comprar um vestido</em> (de man die een jurk wilde kopen) (Lovett, 2019). Jackson beschrijft een Braziliaanse scène met die opzet: een man past jurken in een winkel, een acteur in de menigte is verontwaardigd, een ander neemt het voor hem op (Jackson, in Boal, 2002, p. xxiii)."
+  },
+  {
+   "t": "Wat televisie verandert",
+   "body": "Kijkers zien hoe hun stadsgenoten reageren op raciale en economische ongelijkheid — ze leren niet van acteurs maar van echte mensen. Tegelijk komen voorbijgangers in beeld zonder te weten dat ze aan een uitzending meedoen. Dat maakt de vragen van kaart 13 scherper."
+  }
  ],
- tip:"TV brengt risico's: meer bekendheid, maar ook meer kans dat acteurs herkend worden. Boal moest constant nieuwe gezichten vinden — échte onbekenden."},
+ "tip": "Op televisie wordt een voorbijganger zonder het te weten een personage in een uitzending. Bespreek vooraf met de groep wat jullie wel en niet laten zien."
+},
 
-{n:13, title:"Misleiding en toestemming: het ethische debat",
- cat:"Ethiek", catBg:"#f1f2f4", catFg:"#6b7280",
- stripe:"#6b7280",
- note:"Onzichtbaar theater misleidt mensen bewust. Is dat ethisch verdedigbaar? Bonnie Burstow (2008) stelt deze vraag scherp en dwingt de theater-wereld tot reflectie.",
- stages:[
-  {t:"Burstow's kernkritiek",
-   body:"Ondanks Boals ethische intenties gebruikt onzichtbaar theater misleiding en kan het gevaar opleveren voor deelnemers. Het is onverenigbaar met Freires principe van 'non-manipulatie' — de basis van kritische pedagogie."},
-  {t:"Het consent-probleem",
-   body:"Voorbijgangers stemmen nooit in met deelname. Ze worden unknowingly deel van een theater-experiment. Zelfs als de intentie goed is — bewustwording, solidariteit — is dit een inbreuk op hun autonomie."},
-  {t:"Risico's voor deelnemers",
-   body:"Mensen kunnen getriggerd worden door de thema's. Kunnen emotioneel beschadigd raken. Kunnen in conflict komen met anderen. Kunnen juridische consequenties ondervinden (als ze bijvoorbeeld iemand aanraken tijdens de scene)."},
-  {t:"Naar ethische alternatieven",
-   body:"Burstow stelt voor: minimale misleiding, duidelijke exit-opties, meer transparantie over het proces. Sommigen suggereren het theater aan het einde te 'outen' — anderen vinden dat de kracht wegneemt."},
-  {t:"De verdedigingslinie",
-   body:"Voorstanders stellen dat het grotere onrecht — de onderdrukking zelf — de kleine misleiding rechtvaardigt. Dat mensen leren van hun spontane reacties op manieren die anders onmogelijk zijn. Dat consent soms belemmerend werkt."},
-  {t:"Praktische richtlijnen 2020+",
-   body:"Hedendaagse practitioners: kies lage-risico scenario's, vermijd trauma-triggers, zorg voor veilige exit-routes, respecteer culturele normen, evalueer altijd met het team, wees transparant over doelen en methoden."}
+{
+ "n": 13,
+ "title": "Misleiding en toestemming: het ethische debat",
+ "cat": "Ethiek",
+ "catBg": "#f1f2f4",
+ "catFg": "#6b7280",
+ "stripe": "#6b7280",
+ "note": "Onzichtbaar theater misleidt mensen bewust. Is dat ethisch verdedigbaar? Bonnie Burstow (2008) stelt deze vraag scherp en dwingt de theaterwereld tot reflectie.",
+ "stages": [
+  {
+   "t": "Burstows kernkritiek",
+   "body": "Burstow toetst Boals eigen rechtvaardigingen aan concrete scènes en vindt ze zwak. Onzichtbaar theater werkt met misleiding en kan risico's opleveren voor de mensen die erbij betrokken raken. Dat staat op gespannen voet met Freires principe om niet te manipuleren — de basis van kritische pedagogiek."
+  },
+  {
+   "t": "Het toestemmingsprobleem",
+   "body": "Voorbijgangers stemmen nooit in met deelname. Ze worden zonder het te weten deel van een theaterexperiment. Zelfs als de intentie goed is — bewustwording, solidariteit — is dit een inbreuk op hun autonomie."
+  },
+  {
+   "t": "Risico's voor deelnemers",
+   "body": "Mensen kunnen getriggerd worden door de thema's. Kunnen emotioneel beschadigd raken. Kunnen in conflict komen met anderen. Kunnen juridische consequenties ondervinden (als ze bijvoorbeeld iemand aanraken tijdens de scène). Boal noemt veiligheid zelf het grote probleem: zonder de rituelen van het gewone theater wordt de fictie werkelijkheid (Boal, 2002, p. 286)."
+  },
+  {
+   "t": "Naar ethische alternatieven",
+   "body": "Burstow stelt voor: minimale misleiding als norm, het conflict beperken, het 'ondoorzichtige' verkennen, en de regel heroverwegen dat onzichtbaar theater zich nooit bekend mag maken. Die regel is van Boal: leg het publiek nooit uit dat het theater was, anders verliest het zijn kracht (Boal, 2002, p. 287). Toch maakte hij zich in Stockholm aan het eind van een scène wél bekend (kaart 11)."
+  },
+  {
+   "t": "De verdedigingslinie",
+   "body": "Voorstanders stellen dat het grotere onrecht — de onderdrukking zelf — de kleine misleiding rechtvaardigt. Dat mensen leren van hun spontane reacties op manieren die anders onmogelijk zijn. Dat toestemming vragen soms belemmerend werkt."
+  },
+  {
+   "t": "Praktische richtlijnen voor nu",
+   "body": "Hedendaagse practitioners: kies lage-risico scenario's, vermijd trauma-triggers, zorg voor veilige exit-routes, respecteer culturele normen, evalueer altijd met het team, wees transparant over doelen en methoden."
+  }
  ],
- tip:"Dit debat is niet academisch — het raakt de kern van wat Theater of the Oppressed wil zijn. Een methode die mensen manipuleert kan geen tool zijn voor bevrijding. Bron: Burstow, B. (2008). Invisible theatre, ethics, and the adult educator. International Journal of Lifelong Education, 27(3), 273-288."}
-
+ "tip": "Dit debat is niet academisch — het raakt de kern van wat Theater van de Onderdrukten wil zijn. Een methode die mensen manipuleert kan geen instrument zijn voor bevrijding. Bron: Burstow, B. (2008). Invisible theatre, ethics, and the adult educator. <em>International Journal of Lifelong Education, 27</em>(3), 273–288."
+}
 ];
 
 let cur = 0;
