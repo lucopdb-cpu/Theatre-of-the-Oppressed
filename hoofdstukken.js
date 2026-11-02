@@ -27,8 +27,8 @@
     ['Het centrale arsenaal', 'The central arsenal', [['to-arsenaal.html', 'TO Arsenaal', 'TO Arsenal', true]]],
     ['Beeldentheater', 'Image Theatre', [['beeldentheater.html', 'Beeldentheater', 'Image Theatre', true]]],
     ['Regenboog van het Verlangen', 'Rainbow of Desire', [
-      ['introspectief.html', 'Introspectieve technieken', 'Introspective techniques', false],
-      ['prospectief.html', 'Prospectieve technieken', 'Prospective techniques', false]]],
+      ['introspectief.html', 'Introspectieve technieken', 'Introspective techniques', true],
+      ['prospectief.html', 'Prospectieve technieken', 'Prospective techniques', true]]],
     ['Forumtheater', 'Forum Theatre', [
       ['forum.html', 'Forumtheater', 'Forum Theatre', true],
       ['to-arsenaal.html#fase=forum', 'Forum-oefeningen uit het arsenaal', 'Forum exercises from the arsenal', true]]],
