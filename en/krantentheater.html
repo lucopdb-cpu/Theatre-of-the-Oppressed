@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Arsenal">
+<script src="../thema.js"></script>
+<script src="../nav.js" defer></script>
+<meta name="theme-color" content="#8b1a1a">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../krantentheater.html">
+<link rel="alternate" hreflang="en" href="krantentheater.html">
+<title>Newspaper Theatre — Boal's techniques</title>
+<meta name="description" content="Boal's techniques for questioning existing texts — news, policy, law, advertising — through theatre, with variants of this Arsenal's own. Boal's direct bridge to Forum Theatre.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Newspaper Theatre — Boal's techniques">
+<meta property="og:description" content="Boal's techniques for questioning existing texts — news, policy, law, advertising — through theatre, with variants of this Arsenal's own. Boal's direct bridge to Forum Theatre.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/krantentheater.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newspaper Theatre — Boal's techniques">
+<meta name="twitter:description" content="Boal's techniques for questioning existing texts — news, policy, law, advertising — through theatre, with variants of this Arsenal's own. Boal's direct bridge to Forum Theatre.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f4ecdf;
+  --red:#8b1a1a;--red2:#b83c3c;--red3:#f0a8a8;--red4:#f4e7e7;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--red)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--red3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--red2);color:var(--red)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#faf7f1;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-orig{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-style:italic;font-weight:300;opacity:.75;margin-top:3px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--red4);border-left:3px solid var(--red2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--paper3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--red)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--red2);background:var(--red4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--red3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--red4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--red2);background:var(--red4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--red3)}
+.acc-trigger.open .acc-sn{background:var(--red);color:#fff;border-color:var(--red2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-subs{display:flex;flex-direction:column;gap:8px}
+.acc-sub{display:flex;gap:10px;align-items:flex-start}
+.acc-sub-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--red2);background:var(--red4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--red3)}
+.acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--red2);color:var(--red)}
+
+/* Back link */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--ink3);text-decoration:none;margin-bottom:16px;letter-spacing:.04em}
+.back-link:hover{color:var(--red)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#e9e4db;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
+.ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#2a2824}
+.ov-list{padding:4px 26px 16px}
+.ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
+.ov-row:last-child{border-bottom:none}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#e9e4db;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
+.ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--amber:#d3a06d;--amber2:#ba823e;--amber3:#402e0f;--amber4:#231f17;--red:#ff988c;--red2:#fd7b75;--red3:#804244;--red4:#271f1f;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--ink)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--red)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--red3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--paper4);background:var(--paper2);color:var(--red)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--paper3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--red2);color:var(--red)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .card-tip{background:var(--red4);border-left:3px solid var(--red2)}
+html[data-thema="donker"] .tip-lbl{color:var(--red)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--red)}
+html[data-thema="donker"] .all-sn{color:var(--red2);background:var(--red4);border:1px solid var(--red3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--paper2);border:1px solid var(--paper4);color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--paper2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--red4)}
+html[data-thema="donker"] .acc-sn{color:var(--red2);background:var(--red4);border:1px solid var(--red3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--red);color:#161616;border-color:var(--red2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-sub-nr{color:var(--red2);background:var(--red4);border:1px solid var(--red3)}
+html[data-thema="donker"] .acc-sub-txt{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--red2);color:var(--red)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--red)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #39342a;background:#292621;color:#96938c}
+html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #39342a}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #2e2922;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #2e2922}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#292621;border:1px solid #39342a}
+html[data-thema="donker"] .ov-title{color:#dbd9d3}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+
+<div class="masthead">
+  <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Boal's methods</div>
+  <div class="app-name">Newspaper Theatre — <em>Boal's techniques</em></div>
+  <div class="app-sub">Augusto Boal · Theatre of the Oppressed · 1974/1985</div>
+  <div class="context-note">Ten techniques that Boal describes in <em>Theatre of the Oppressed</em>, with five cards of this Arsenal's own. Newspaper Theatre began at the Teatro de Arena in São Paulo, when the dictatorship in Brazil made popular theatre impossible: forms that people could make themselves (Boal, 2002, pp. 251–252). Not performing the news, but questioning it. Every article carries an ideology. The technique makes it visible.</div>
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div class="view-toggle" role="group" aria-label="View"><button class="vt-btn on" data-view="step">Step by step</button><button class="vt-btn" data-view="all">Overview</button></div>
+
+
+<div id="overzicht" hidden></div>
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> techniques &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> steps &nbsp;·&nbsp; <kbd>space</kbd> overview
+</div>
+
+<footer class="arsenaal-footer">
+  <div class="af-content">Sources: <a href="../bronnen.html#boal-1974-1985" hreflang="nl">Boal (1974/1985)</a>, <em>Theatre of the oppressed</em>, the Newspaper Theatre techniques · <a href="../bronnen.html#boal-2002" hreflang="nl">Boal (2002)</a>, <em>Games for actors and non-actors</em>, on its origins. Cards 11 to 15 are additions of this Arsenal.</div>
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html" hreflang="nl">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+</div>
+
+<script>
+const T = [
+{
+ "n": 1,
+ "title": "Simple reading",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "The most basic technique — and often the most powerful. The news item is read aloud, detached from the newspaper: without the headline, the layout and the place on the page that steer it (Boal, 1974/1985). The text itself is the theatre.",
+ "stages": [
+  {
+   "t": "Choose the text",
+   "body": "Choose a newspaper article, a policy text, an official form or a political statement. Preferably texts that are about the source group but not written by them. The text speaks about them — now they speak the text."
+  },
+  {
+   "t": "Read it aloud",
+   "body": "One person reads the text to the group — as neutrally as possible, without comment, without emphasis. The others listen."
+  },
+  {
+   "t": "Read it again with emphasis",
+   "body": "Second reading: the reader may now put the stress wherever they like. Which words are loaded? Which sentences change when you say them differently?"
+  },
+  {
+   "t": "Discuss",
+   "body": "What picture is built of the people the text is about? Which voices are missing? What does it say literally? What does it really say?"
+  }
+ ],
+ "tip": "Always start with the literal reading before any interpretation. Whoever jumps to meaning too fast misses what is actually there."
+},
+
+{
+ "n": 2,
+ "title": "Crossed reading",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "Two news items are read alternately, so that one throws light on the other and gives it a new dimension (Boal, 1974/1985).",
+ "stages": [
+  {
+   "t": "Choose two items",
+   "body": "Look for two news items that contradict each other or are connected: a company's profits and a round of redundancies, a festive opening here and a closure there, a story from the business pages and one from the local pages."
+  },
+  {
+   "t": "Cut them into pieces",
+   "body": "Divide both texts into short pieces: a sentence or a paragraph."
+  },
+  {
+   "t": "Read them alternately",
+   "body": "Two readers take turns: a piece of one item, then a piece of the other. Without comment."
+  },
+  {
+   "t": "Discuss",
+   "body": "What do you see now that you did not see in each item on its own? Who wins, who pays? Why were these items not side by side in the paper?"
+  }
+ ],
+ "tip": "Give the group a pile of newspapers: participants often find the pairs themselves, and that choice is already an analysis."
+},
+
+{
+ "n": 3,
+ "title": "Complementary reading",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "Information that newspapers usually leave out is added to the news item (Boal, 1974/1985). What is missing is filled in aloud.",
+ "stages": [
+  {
+   "t": "Read the item",
+   "body": "First read the item as it is, without comment."
+  },
+  {
+   "t": "Find what is missing",
+   "body": "What does the group know that is not in it? From their own experience, from other sources, from figures the paper does not mention. Who knows the situation from the inside?"
+  },
+  {
+   "t": "Read it again, completed",
+   "body": "Read the item again. Wherever something is missing, someone steps forward and adds the missing information."
+  },
+  {
+   "t": "Discuss",
+   "body": "How does the story change? Who benefits from leaving this out?"
+  }
+ ],
+ "tip": "Here the knowledge of the source group is the material: what people live through themselves is often exactly what the item leaves out. See also The missing voice (card 14)."
+},
+
+{
+ "n": 4,
+ "title": "Rhythmical reading",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "The news item is read or sung to a rhythm. Boal mentions samba, tango and Gregorian chant; the rhythm works as a critical filter that lets you hear what the newspaper hides (Boal, 1974/1985). The waltz makes it ridiculous, the march makes it dangerous, the tango makes it seductive.",
+ "stages": [
+  {
+   "t": "Choose the text and the rhythms",
+   "body": "Choose an article on a political or social subject. Choose three rhythms: a march, a waltz, a tango — or three other strongly contrasting musical structures."
+  },
+  {
+   "t": "Read it to a march",
+   "body": "Read the text to the rhythm of a march — literally, with the cadence of marching feet. What changes in the message?"
+  },
+  {
+   "t": "Read it to a waltz",
+   "body": "Read the same text in waltz time. Which sentences become ridiculous? Which become awkwardly funny?"
+  },
+  {
+   "t": "Read it to a tango",
+   "body": "Read it to a tango rhythm. What becomes seductive? What becomes dangerous?"
+  },
+  {
+   "t": "Discuss the filters",
+   "body": "Which rhythm made the content most visible? Which rhythm revealed the most? Let the group choose — and discuss why they chose what they chose."
+  }
+ ],
+ "tip": "Do not choose the rhythm at random. Let the group choose — the choice itself is already an opinion about the text."
+},
+
+{
+ "n": 5,
+ "title": "Parallel action",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "While the news item is read, actors mime the real context in which it happened (Boal, 1974/1985). The language of the news and the physical reality behind it are presented at the same time. The gap between them is the theatre.",
+ "stages": [
+  {
+   "t": "Choose the text and the situation",
+   "body": "Choose a news item — preferably one that presents the facts neutrally but describes a painful reality: a statistic about poverty, a report about refugees, a press release about working conditions."
+  },
+  {
+   "t": "Share out the roles",
+   "body": "One person reads the text — calmly, neutrally, like a newsreader. At the same time other players show what really happened — without words, with the body alone."
+  },
+  {
+   "t": "Play in parallel",
+   "body": "Text and image at once. The reader keeps reading while the players show the reality behind the words. The audience sees both at the same time."
+  },
+  {
+   "t": "Discuss the gap",
+   "body": "What did the image say that the text kept quiet? What did the text say that the image contradicted? Where is the ideology?"
+  }
+ ],
+ "tip": "The power lies in the contrast. Choose an article in which the official tone and the physical reality are as far apart as possible."
+},
+
+{
+ "n": 6,
+ "title": "Improvisation",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "The news item is improvised on stage to explore all its variants and possibilities (Boal, 1974/1985). That makes it the bridge from Newspaper Theatre to Forum Theatre: the news item becomes material for a scene — and that scene the starting point for Forum.",
+ "stages": [
+  {
+   "t": "Choose a concrete item",
+   "body": "Choose an article about a concrete situation with recognisable characters: a dismissal, an eviction, a conflict at work, care refused. Not an abstract analysis — a human story."
+  },
+  {
+   "t": "Play in small groups",
+   "body": "Small groups of three or four play the scene spontaneously — without preparation. Each in their own way, with their own reading of the characters."
+  },
+  {
+   "t": "Vary the ending",
+   "body": "Each group plays a different variant: a different ending, a different protagonist, a different choice at the decisive moment."
+  },
+  {
+   "t": "Plenary discussion and Forum",
+   "body": "In plenary: which variants are there? Which is the most realistic? Which the most desirable? If one variant strikes a particular chord — that is the material for Forum Theatre."
+  }
+ ],
+ "tip": "This is the direct bridge to Forum. When someone says 'but that's not how it works' or 'that's what I would do' — that is the Forum moment."
+},
+
+{
+ "n": 7,
+ "title": "Historical reading",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "Alongside the news item, facts or scenes are read or played that show the same event at another time, in another country or under another social system (Boal, 1974/1985). What is presented as news is rarely new: structures repeat themselves.",
+ "stages": [
+  {
+   "t": "Read the current item",
+   "body": "Read out a current news item — as recent as possible. Make sure the group hears it well."
+  },
+  {
+   "t": "Look for parallels",
+   "body": "The group searches its memory and knowledge: when has this happened before? In which country, which time, which context? Let several suggestions come forward."
+  },
+  {
+   "t": "Play the present and the past side by side",
+   "body": "Two groups play at the same time: the present item and the historical moment that resembles it. The group watches both at once."
+  },
+  {
+   "t": "Discuss the repetition",
+   "body": "What does the repetition teach us? What changes over time — and what does not? What does the resemblance say about structures of power?"
+  }
+ ],
+ "tip": "Historical reading is not an intellectual exercise — it is a way of activating collective memory. Let the group make the connections itself."
+},
+
+{
+ "n": 8,
+ "title": "Reinforcement",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "The news item is read or sung with slides, jingles, songs or advertising material (Boal, 1974/1985). The same text with a different song underneath sounds like something else: music can reinforce the message or undermine it.",
+ "stages": [
+  {
+   "t": "Choose the text and the song",
+   "body": "Choose an article. Also choose a song, a jingle or an advertising image — commercial, nationalist, or a protest song. Two rounds: one in which the song reinforces the message, one in which it undermines it."
+  },
+  {
+   "t": "First round: reinforcement",
+   "body": "Read the text while the song plays or is sung. The song supports the message — reinforces the ideology, makes it more plausible."
+  },
+  {
+   "t": "Second round: undermining",
+   "body": "The same text, a different song — one that contradicts the message, undermines it or makes it ridiculous. Which song works? What changes?"
+  },
+  {
+   "t": "Discuss the choice",
+   "body": "Which combination reveals more? The choice of song is a political choice — who chooses what, and why?"
+  }
+ ],
+ "tip": "Let the group choose the songs — the discussion about which song fits is already a political conversation."
+},
+
+{
+ "n": 9,
+ "title": "Concretion of the abstract",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "What the news item hides in abstract information is made concrete on stage: torture, hunger, unemployment, with images that are real or symbolic (Boal, 1974/1985).",
+ "stages": [
+  {
+   "t": "Find the abstract words",
+   "body": "'Unemployment rose by 0.3 per cent', 'cuts in care', 'food insecurity'. Which words stand for something people experience in their own bodies?"
+  },
+  {
+   "t": "Make it concrete",
+   "body": "Find a concrete image for each word: a body, an object, an action. What does 0.3 per cent mean in this room, in this street?"
+  },
+  {
+   "t": "Play during the reading",
+   "body": "Read the item. At the abstract word, the concrete image appears."
+  },
+  {
+   "t": "Discuss",
+   "body": "What does the abstract language do to us? What becomes tangible when it is made concrete?"
+  }
+ ],
+ "tip": "Choose images the group knows itself. Redefinition (card 13) works with the same veiled language, but with words instead of images."
+},
+
+{
+ "n": 10,
+ "title": "Text out of context",
+ "cat": "Boal",
+ "catBg": "#fde8e0",
+ "catFg": "#5c1e10",
+ "stripe": "#8b1a1a",
+ "note": "The news item is presented outside the context in which it was published. Boal's example: an actor gives the Minister of the Economy's speech about austerity while devouring an enormous dinner (Boal, 1974/1985). The context is a frame — change the frame and the meaning shifts with it.",
+ "stages": [
+  {
+   "t": "Choose the text and the new context",
+   "body": "Choose a text: a political speech, an article of the constitution, an advertisement, an employment contract. Then choose a new context: as wedding vows, as a child's prayer, as an obituary, as a love letter."
+  },
+  {
+   "t": "Introduce it",
+   "body": "The reader introduces the new context — without naming the text. 'We are gathered here for the wedding of...' or 'And now the death notice of...'"
+  },
+  {
+   "t": "Read the text in the new context",
+   "body": "The text is read as if it had been written for that context — as seriously as possible, without comment."
+  },
+  {
+   "t": "Discuss what it reveals",
+   "body": "What does the new context reveal that the original one hid? Which human costs become visible in the abstract language? Which power speaks through the text?"
+  }
+ ],
+ "tip": "This works best with texts that take themselves seriously. A legal text read as a love letter reveals the human cost of abstract language."
+},
+
+{
+ "n": 11,
+ "title": "Contrasting activity",
+ "cat": "Arsenal addition",
+ "catBg": "#faeeda",
+ "catFg": "#633806",
+ "stripe": "#854F0B",
+ "note": "A variant of this Arsenal's own, related to Text out of context. An activity that has nothing to do with the text is carried out while the text is read. The contrast reveals what the text hides.",
+ "stages": [
+  {
+   "t": "Choose the text and the activity",
+   "body": "Choose a text — preferably a serious one: a political speech, a poverty report, a war report. Then choose an activity that on the surface has nothing to do with it: eating, partying, sport, shopping."
+  },
+  {
+   "t": "Do the activity during the reading",
+   "body": "One or more players carry out the activity while someone else reads the text. The activity simply carries on — as if the text were not there."
+  },
+  {
+   "t": "Observe the contrast",
+   "body": "The group watches. What does it mean to hear this while seeing that? Who is doing the activity? Who wrote the text? For whom?"
+  },
+  {
+   "t": "Swap",
+   "body": "Other participants try other activities with the same text. Some combinations are uncomfortable, some ridiculous, some revealing. Discuss which one tells you the most."
+  }
+ ],
+ "tip": "The activity is not a joke. It is a political act. If the group laughs, that is information too — who laughs, and why?"
+},
+
+{
+ "n": 12,
+ "title": "Mimed reading",
+ "cat": "Arsenal addition",
+ "catBg": "#faeeda",
+ "catFg": "#633806",
+ "stripe": "#854F0B",
+ "note": "This Arsenal's own elaboration of Boal's example for Text out of context. The gap between what is said and who says it. A serious text, a frivolous presentation — or the other way round. The contrast is the technique.",
+ "stages": [
+  {
+   "t": "Choose the text and the image",
+   "body": "Choose a serious article: about crisis, poverty, war, cuts. Choose an image that runs against it: someone enjoying luxury, a lavish party, someone eating without a care."
+  },
+  {
+   "t": "Read while the image is played",
+   "body": "One person reads the text. Another player sits at a table full of food, laughs, enjoys it — while the text is read. Or: a speech about thrift is given from a luxurious armchair."
+  },
+  {
+   "t": "Vary the combinations",
+   "body": "Try the reverse as well: a cheerful text read while a gloomy image is played. Or two players: one poor, one rich, the same text."
+  },
+  {
+   "t": "Discuss the contrast",
+   "body": "Who is really sitting in that chair? Who speaks this text? Who was it written for? What does the serious tone hide?"
+  }
+ ],
+ "tip": "The mime is not a joke — it is a political act. If the group laughs, that is information: who laughs at what?"
+},
+
+{
+ "n": 13,
+ "title": "Redefinition",
+ "cat": "Arsenal addition",
+ "catBg": "#faeeda",
+ "catFg": "#633806",
+ "stripe": "#854F0B",
+ "note": "A variant of this Arsenal's own, related to Concretion of the abstract. Euphemisms are weapons. They make pain invisible and power neutral. Redefinition makes them visible again.",
+ "stages": [
+  {
+   "t": "Mark the euphemisms",
+   "body": "Read an article. Together, mark the euphemisms and veiled language: 'reception centre', 'adjustment', 'voluntary departure', 'collateral damage', 'flexible labour market', 'structural measure'."
+  },
+  {
+   "t": "Write the real definitions",
+   "body": "For each marked word the group writes the real definition — without veiling, as precise and concrete as possible. Write them down."
+  },
+  {
+   "t": "Read the text again",
+   "body": "Read the article again, but replace each euphemism with the real definition the group has written."
+  },
+  {
+   "t": "Discuss the transformation",
+   "body": "How does the meaning of the article change? What was made invisible? Who benefits from the veiling? Who pays the price?"
+  }
+ ],
+ "tip": "This is the most analytical of the Newspaper Theatre techniques. It works best as preparation for a Forum session on the same subject."
+},
+
+{
+ "n": 14,
+ "title": "The missing voice",
+ "cat": "Arsenal addition",
+ "catBg": "#faeeda",
+ "catFg": "#633806",
+ "stripe": "#854F0B",
+ "note": "A variant of this Arsenal's own, related to Boal's complementary reading (card 3). Every news item is made by someone, for someone, from a point of view. The missing voice is the one the article did not quote — but whose life it is about.",
+ "stages": [
+  {
+   "t": "Read the article",
+   "body": "Read an article about a disaster, a decision, a statistic, a policy plan. Note who gets to speak and who does not."
+  },
+  {
+   "t": "Name the absent voice",
+   "body": "The group establishes: who is not in this article? Whose feelings, whose life, whose opinion is missing? Whose story is told without them speaking themselves?"
+  },
+  {
+   "t": "Play the missing voice",
+   "body": "Play that voice: a monologue, a letter, a physical image of the person who was not quoted. Not an interpretation of what they 'would say' — but what the body knows."
+  },
+  {
+   "t": "Discuss the shift",
+   "body": "What changes in our understanding of the situation now that this voice is there? What does it say about the article that this voice was not in it?"
+  }
+ ],
+ "tip": "This is the most human of the Newspaper Theatre techniques. It can go unexpectedly deep — especially if someone in the group is personally affected. As Joker, stay alert."
+},
+
+{
+ "n": 15,
+ "title": "Newspaper Theatre as a whole",
+ "cat": "Arsenal addition",
+ "catBg": "#faeeda",
+ "catFg": "#633806",
+ "stripe": "#854F0B",
+ "note": "All the techniques can be combined in one session — as a many-voiced analysis of the same article or the same theme. This is Newspaper Theatre as a complete working tool.",
+ "stages": [
+  {
+   "t": "Choose one central article or theme",
+   "body": "Choose an article or theme that touches the group directly. All the techniques are applied to the same material — creating a layered enquiry."
+  },
+  {
+   "t": "Simple reading + redefinition",
+   "body": "Start with the simple reading. Then mark the euphemisms and restore the definitions. The group now has a shared understanding of what it literally says."
+  },
+  {
+   "t": "Parallel action + the missing voice",
+   "body": "Play the reality behind the text while the text is read. Then add the missing voice. Two layers of what the article keeps quiet become visible."
+  },
+  {
+   "t": "Improvisation + Forum",
+   "body": "Turn the article into a scene. Play variants. Choose the one that strikes the strongest chord — and open the Forum. Newspaper Theatre flows into Forum Theatre."
+  }
+ ],
+ "tip": "Newspaper Theatre is not a warm-up for Forum — it already is Forum, but with a text as the protagonist. The text is the oppressor. The group is the spect-actor."
+}
+];
+
+let cur = 0;
+function render() {
+  const t = T[cur];
+
+  document.getElementById('pills').innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})">${x.n}</button>`
+  ).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  const stagesHtml = renderAll(t);
+
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Technique ${t.n} of ${T.length}</div>
+            <div class="card-name">${t.title}</div>
+            ${t.en ? `<div class="card-orig">${t.en}</div>` : ''}
+          </div>
+          <div class="head-badges">
+            <span class="badge-cat" style="background:${t.catBg};color:${t.catFg}">${t.cat}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker's tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => {
+    const bodyHtml = s.subs
+      ? `<div class="acc-subs">${s.subs.map((sub, j) =>
+          `<div class="acc-sub"><div class="acc-sub-nr">${j+1}</div><div class="acc-sub-txt">${sub}</div></div>`
+        ).join('')}</div>`
+      : `<div class="acc-text">${s.body}</div>`;
+    return `
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-sn">${i+1}</div>
+          <div class="acc-title">${s.t}</div>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">${bodyHtml}</div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} steps</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Expand all</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}
+
+function goTech(i) { cur = i; render(); }
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+render();
+</script>
+
+<script>
+/* Schakelaar Stap voor stap / Overzicht */
+(function(){
+  const wrap = document.getElementById('card-wrap');
+  const ov = document.getElementById('overzicht');
+  const GO = typeof goTech === 'function' ? 'goTech' : 'goTo';
+  function items(){
+    if (typeof filtered === 'function') return filtered();
+    if (typeof lijst !== 'undefined') return lijst;
+    return T;
+  }
+  function nr(x, i){ return x.nr != null ? x.nr : (x.num != null ? x.num : (typeof x.n === 'number' ? x.n : i + 1)); }
+  function title(x){ return x.title || x.en || x.n || ''; }
+  let view = 'step';
+  function setView(v){
+    view = v;
+    document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+    if (v === 'all') {
+      ov.innerHTML = `<div class="ov-card"><div class="ov-head">Overview</div><div class="ov-list">${
+        items().map((x, i) => `<button class="ov-row" data-i="${i}"><span class="ov-nr">${nr(x, i)}</span><span class="ov-title">${title(x)}</span></button>`).join('')
+      }</div></div>`;
+      ov.hidden = false; wrap.hidden = true;
+    } else {
+      ov.hidden = true; wrap.hidden = false;
+    }
+  }
+  ov.addEventListener('click', e => {
+    const r = e.target.closest('.ov-row'); if (!r) return;
+    window[GO](parseInt(r.dataset.i, 10));
+    window.scrollTo({ top: Math.max(0, document.querySelector('.view-toggle').getBoundingClientRect().top + window.scrollY - 120), behavior: 'smooth' });
+  });
+  document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+  const _render = render;
+  render = function(){ const out = _render.apply(this, arguments); if (view !== 'step') setView('step'); return out; };
+  document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.altKey || e.ctrlKey || e.metaKey) return;
+    const t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA' || t === 'BUTTON' || t === 'SELECT') return;
+    e.preventDefault(); setView(view === 'step' ? 'all' : 'step');
+  });
+})();
+</script>
+<script src="../sessie.js"></script>
+<script>
+/* Exercises that can be put in My selection (TO Arsenal).
+   [fase, duur in min, energie, niveau, naam in TO Arsenaal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "Simple reading": ["verdieping", 10, "laag", 1],
+    "Crossed reading": ["verdieping", 10, "laag", 1],
+    "Complementary reading": ["verdieping", 15, "laag", 1],
+    "Rhythmical reading": ["verdieping", 15, "hoog", 1],
+    "Parallel action": ["verdieping", 10, "middel", 2],
+    "Improvisation": ["verdieping", 20, "middel", 2, "Improvisation on the news"],
+    "Historical reading": ["verdieping", 15, "laag", 2, "Historicisation"],
+    "Reinforcement": ["verdieping", 10, "middel", 2],
+    "Concretion of the abstract": ["verdieping", 15, "middel", 2],
+    "Text out of context": ["verdieping", 10, "laag", 1],
+    "Contrasting activity": ["verdieping", 15, "middel", 1],
+    "Mimed reading": ["verdieping", 10, "middel", 2],
+    "Redefinition": ["verdieping", 15, "laag", 2],
+    "The missing voice": ["verdieping", 20, "middel", 2]
+  }
+});
+</script>
+</body>
+</html>

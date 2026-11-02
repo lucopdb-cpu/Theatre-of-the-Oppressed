@@ -32,7 +32,7 @@
     ['Forumtheater', 'Forum Theatre', [
       ['forum.html', 'Forumtheater', 'Forum Theatre', true],
       ['to-arsenaal.html#fase=forum', 'Forum-oefeningen uit het arsenaal', 'Forum exercises from the arsenal', true]]],
-    ['Krantentheater', 'Newspaper Theatre', [['krantentheater.html', 'Krantentheater', 'Newspaper Theatre', false]]],
+    ['Krantentheater', 'Newspaper Theatre', [['krantentheater.html', 'Krantentheater', 'Newspaper Theatre', true]]],
     ['Theater in de publieke ruimte', 'Theatre in public space', [
       ['onzichtbaar.html', 'Onzichtbaar Theater', 'Invisible Theatre', true],
       ['legislatief.html', 'Legislatief Theater', 'Legislative Theatre', true]]],
