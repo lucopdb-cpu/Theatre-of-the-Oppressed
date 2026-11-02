@@ -12,8 +12,8 @@
 <script>
 /* Oude adressen (#kaart=<oude titel>) openen de kaart met de nieuwe titel */
 (function () {
-  var oud = ["Europa: Metro, ferry's en discriminatie", "Rio TV: slavenmarkt op het scherm"];
-  var nieuw = ["Parijs en Stockholm: metro, veerboot, straat", "Rio, 1986: onzichtbaar theater op televisie"];
+  var oud = ["Europa: Metro, ferry's en discriminatie", "Rio TV: slavenmarkt op het scherm", "Twee opdrachtgevers"];
+  var nieuw = ["Parijs en Stockholm: metro, veerboot, straat", "Rio, 1986: onzichtbaar theater op televisie", "Twee doelen"];
   var m = location.hash.match(/^#kaart=(.+)$/); if (!m) return;
   var t; try { t = decodeURIComponent(m[1]); } catch (e) { return; }
   var i = oud.indexOf(t);
@@ -348,7 +348,7 @@ const T = [
 
 {
  "n": 3,
- "title": "Twee opdrachtgevers",
+ "title": "Twee doelen",
  "cat": "Fundament",
  "catBg": "#f5e8d0",
  "catFg": "#8b4513",
