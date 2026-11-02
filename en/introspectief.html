@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Arsenal">
+<script src="../thema.js"></script>
+<script src="../nav.js" defer></script>
+<meta name="theme-color" content="#b8803c">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../introspectief.html">
+<link rel="alternate" hreflang="en" href="introspectief.html">
+<title>Rainbow of Desire — Introspective Techniques</title>
+<meta name="description" content="The nine introspective image techniques from Boal's The Rainbow of Desire — for making the inner oppressor (the 'cop in the head') visible.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Rainbow of Desire — Introspective Techniques">
+<meta property="og:description" content="The nine introspective image techniques from Boal's The Rainbow of Desire — for making the inner oppressor (the 'cop in the head') visible.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/introspectief.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rainbow of Desire — Introspective Techniques">
+<meta name="twitter:description" content="The nine introspective image techniques from Boal's The Rainbow of Desire — for making the inner oppressor (the 'cop in the head') visible.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f4ecdf;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--amber)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--amber3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);cursor:pointer;font-size:16px;color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--paper3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--amber2);color:var(--amber)}
+.tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#faf7f1;border:1px solid var(--paper4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--paper3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-power{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
+
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--amber4);border-left:3px solid var(--amber2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* All stages overview */
+
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--paper3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--amber)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--amber3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--paper3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px 11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s}
+.acc-trigger:hover{background:var(--paper2)}
+.acc-trigger.open{background:var(--amber4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--amber3)}
+.acc-trigger.open .acc-sn{background:var(--amber);color:#fff;border-color:var(--amber2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 26px 14px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-subs{display:flex;flex-direction:column;gap:8px}
+.acc-sub{display:flex;gap:10px;align-items:flex-start}
+.acc-sub-nr{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber2);background:var(--amber4);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border:1px solid var(--amber3)}
+.acc-sub-txt{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.65;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Schakelaar Stap voor stap / Overzicht, gelijk op alle carrousels */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin:-10px 0 14px}
+.vt-btn{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;padding:4px 12px;border:1px solid #ddd4c4;background:#e9e4db;color:#8b8881;cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:#1a1814;color:#faf8f4;border-color:#1a1814}
+.vt-btn:hover:not(.on){border-color:#9a9790;color:#2a2824}
+.ov-card{background:#faf7f1;border:1px solid #ddd4c4;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+.ov-head{padding:18px 26px 12px;border-bottom:1px solid #e8e0d4;font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#2a2824}
+.ov-list{padding:4px 26px 16px}
+.ov-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #e8e0d4;padding:9px 0;cursor:pointer;font:inherit}
+.ov-row:last-child{border-bottom:none}
+.ov-nr{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:500;color:#52504a;background:#e9e4db;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid #ddd4c4}
+.ov-title{font-family:'Source Serif 4',Georgia,serif;font-size:13px;font-weight:300;line-height:1.5;color:#2a2824}
+.ov-row:hover .ov-title{text-decoration:underline;text-underline-offset:2px}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--amber:#d3a06d;--amber2:#ba823e;--amber3:#402e0f;--amber4:#231f17;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--ink)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--amber)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--amber3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--paper4);background:var(--paper2);color:var(--amber)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--paper3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--amber2);color:var(--amber)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+.card-orig{font-family:var(--body);font-size:13px;font-style:italic;font-weight:300;color:var(--ink2);margin-top:3px}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--paper3)}
+html[data-thema="donker"] .card-tip{background:var(--amber4);border-left:3px solid var(--amber2)}
+html[data-thema="donker"] .tip-lbl{color:var(--amber)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--amber)}
+html[data-thema="donker"] .all-sn{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--paper2);border:1px solid var(--paper4);color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--paper3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--paper2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--amber4)}
+html[data-thema="donker"] .acc-sn{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--amber);color:#161616;border-color:var(--amber2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-sub-nr{color:var(--amber2);background:var(--amber4);border:1px solid var(--amber3)}
+html[data-thema="donker"] .acc-sub-txt{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--paper4);background:var(--paper2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--amber2);color:var(--amber)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .vt-btn{border:1px solid #39342a;background:#292621;color:#96938c}
+html[data-thema="donker"] .vt-btn.on{background:#e6e3dd;color:#1b1915;border-color:#e6e3dd}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:#88857e;color:#dbd9d3}
+html[data-thema="donker"] .ov-card{background:#1c1914;border:1px solid #39342a}
+html[data-thema="donker"] .ov-head{border-bottom:1px solid #2e2922;color:#dbd9d3}
+html[data-thema="donker"] .ov-row{border-bottom:1px solid #2e2922}
+html[data-thema="donker"] .ov-nr{color:#c0beb7;background:#292621;border:1px solid #39342a}
+html[data-thema="donker"] .ov-title{color:#dbd9d3}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+
+<div class="masthead">
+  <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Boal's methods</div>
+  <div class="app-name">Rainbow of Desire — <em>Introspective Techniques</em></div>
+  <div class="app-sub">Augusto Boal · The Rainbow of Desire · Routledge 1995 · p. 118–173</div>
+  <div class="context-note">Nine techniques for making internalised oppression visible. Not the cop on the street — but the cop in the head. Use them intuitively; not every step has to be carried out.</div>
+</div>
+
+<div class="nav-row">
+  <button class="nav-btn" id="pv">&#8592;</button>
+  <div class="tech-pills" id="pills"></div>
+  <span class="nav-counter" id="ctr"></span>
+  <button class="nav-btn" id="nx">&#8594;</button>
+</div>
+
+<div class="view-toggle" role="group" aria-label="View"><button class="vt-btn on" data-view="step">Step by step</button><button class="vt-btn" data-view="all">Overview</button></div>
+
+
+<div id="overzicht" hidden></div>
+<div id="card-wrap"></div>
+
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> techniques &nbsp;·&nbsp; <kbd>↑</kbd> <kbd>↓</kbd> steps &nbsp;·&nbsp; <kbd>space</kbd> overview
+</div>
+
+<footer class="arsenaal-footer">
+  <div class="af-content">Source (in Dutch): <a href="../bronnen.html#boal-1995" hreflang="nl">Boal (1995)</a>, <em>The rainbow of desire</em>, the introspective techniques</div>
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html" hreflang="nl">Sources</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+
+</div>
+
+<script>
+const T = [
+ {
+  "n": 1,
+  "title": "The image of the antagonist",
+  "page": "p. 118",
+  "power": "Power over",
+  "powerBg": "#fde8e0",
+  "powerFg": "#5c1e10",
+  "stripe": "#b8803c",
+  "note": "Only for studying a relationship between two people. Focus every interrelation on the main conflict: protagonist versus antagonist.",
+  "stages": [
+   {
+    "t": "The image of oneself",
+    "body": "Participants stand in a circle facing outwards and think of a concrete social fear — a confrontation with a real person. They turn that fear into a bodily image of themselves in the presence of their antagonist. All the images are shown at the same time."
+   },
+   {
+    "t": "Forming families of images",
+    "body": "Participants move towards images that resemble their own. This produces three to five 'families' — each one a synthesis of the group's fears at that moment."
+   },
+   {
+    "t": "Choosing the images",
+    "body": "From each family the group chooses the one image that best contains the others. A subjective choice, guided by the group's sensibility."
+   },
+   {
+    "t": "Dynamisation",
+    "subs": [
+     "The images take up position in front of the group — observations and comments are limited to facts.",
+     "Each image adds a repeated movement that amplifies the fear: a rhythm, slow or fast.",
+     "Each image adds a sentence — the thought of that character at that moment. First round all at once, then one by one.",
+     "Each protagonist slowly transforms into the image of her antagonist.",
+     "Each antagonist image acquires its own rhythm and its own phrase."
+    ]
+   },
+   {
+    "t": "Identification or recognition",
+    "body": "The Joker asks who in the group identifies with, or recognises, one of the antagonist images. That person takes the actor's place. The protagonist returns to her own image."
+   },
+   {
+    "t": "Improvisations in two modes",
+    "body": "The pairs face each other. Four instructions: 'Image!', 'Rhythm!', 'Sentence!', 'Action!' — all at once, in normal mode and in softly softly mode."
+   },
+   {
+    "t": "Second improvisation",
+    "body": "The Joker stops the action and asks other participants to replace the antagonists, bringing in new forms of oppression. A third and fourth round are possible as long as participants recognise other characteristics."
+   },
+   {
+    "t": "Exchange of ideas",
+    "body": "The Joker leads the discussion — a recap of everything the participants felt. The task is to see what is there, not to interpret."
+   }
+  ],
+  "tip": "No technique has to finish once all the steps have been done, and not every step has to be done. The technique adapts to the person, not the other way round."
+ },
+ {
+  "n": 2,
+  "title": "The analytical image",
+  "page": "p. 125",
+  "power": "Power over",
+  "powerBg": "#fde8e0",
+  "powerFg": "#5c1e10",
+  "stripe": "#b8803c",
+  "note": "The most intense and complex technique. Do not use it unless the protagonist is really ready for it. Most effective for situations with only two characters, or when the protagonist does not understand what is happening or what she wants.",
+  "stages": [
+   {
+    "t": "Improvisation",
+    "body": "An ordinary improvisation. The protagonist chooses the actors and briefs them on the essential elements of their characters."
+   },
+   {
+    "t": "Forming the images",
+    "body": "At the end of the improvisation the spect-actors make images of what they experienced — first of the protagonist (making her vulnerabilities visible), then of the antagonist (revealing his weapons). The images may be metaphorical, expressionist, surrealist — but they must be real, true, felt."
+   },
+   {
+    "t": "Forming pairs",
+    "body": "Each image looks for its complement in the other group. The pairs are formed by feeling, not by logic — more from the heart than from the head."
+   },
+   {
+    "t": "Re-improvisations",
+    "body": "Each pair plays the scene again from the position of its image. The images act as a filter: all information is seen and distorted through the image. The voice, too, must be the voice of the mask."
+   },
+   {
+    "t": "The protagonist takes on the images",
+    "body": "The protagonist embodies each image of herself, one by one."
+   },
+   {
+    "t": "The protagonist against all the antagonist images",
+    "body": "The protagonist sets herself against all the images of the antagonist at once."
+   },
+   {
+    "t": "The antagonist against all the protagonist images",
+    "body": "The antagonist confronts all the images of the protagonist at the same time."
+   },
+   {
+    "t": "Further improvisation",
+    "body": "A new round, using the new insights that have emerged."
+   },
+   {
+    "t": "Exchange of ideas",
+    "body": "The Joker coordinates the discussion without interpreting or looking for the truth. In the theatre, even lies are true."
+   }
+  ],
+  "tip": "The images do not have to be 'true' — all that counts is that they show what the participant honestly felt while watching."
+ },
+ {
+  "n": 3,
+  "title": "The circuit of rituals and masks",
+  "page": "p. 133",
+  "power": "Power over",
+  "powerBg": "#fde8e0",
+  "powerFg": "#5c1e10",
+  "stripe": "#854F0B",
+  "note": "Four or five scenes is the ideal number — fewer makes the technique less effective, more makes it confusing. Each scene is 'placed' in a different part of the room.",
+  "stages": [
+   {
+    "t": "Ritualised improvisations",
+    "body": "The protagonist builds four or five different scenes from daily life, each in a different space. She plays herself and directs the other actors. Each scene contains a different mask of the protagonist. After each scene the Joker asks the group: what was the most striking mask?"
+   },
+   {
+    "t": "Amplifying the mask",
+    "body": "The Joker lists the masks per scene. The protagonist runs through the sequence again and enlarges her most striking features in each scene: where she was tolerant, she becomes more tolerant still; where she was intolerant, she pushes it to the extreme."
+   },
+   {
+    "t": "Conflict of masks and rituals",
+    "body": "The Joker asks the protagonist to play one scene again with the amplified mask, and then to take that mask into the other scenes — where it will probably be out of place or unusual. Which masks work against her? Which work unexpectedly well?"
+   }
+  ],
+  "tip": "This technique shows that one person is many. We keep transforming ourselves to fit the rituals that confine us. To change that, we first have to be able to see it theatrically, aesthetically."
+ },
+ {
+  "n": 4,
+  "title": "The image of chaos",
+  "page": "p. 135",
+  "power": "Power over",
+  "powerBg": "#fde8e0",
+  "powerFg": "#5c1e10",
+  "stripe": "#854F0B",
+  "note": "Closely related to the circuit of rituals and masks. Works best straight after 'the image of the hour'. Here we see the protagonist at different moments of the day, with varying attention, energy and clarity.",
+  "stages": [
+   {
+    "t": "Forming the images",
+    "body": "The protagonist shows five (or more) images of herself in five different situations during the day — each with different behaviour, a different direction, a different kind of energy. Each situation is immediately taken over by other actors while the protagonist moves on to the next scene. All five scenes are improvised at the same time, in softly softly mode."
+   },
+   {
+    "t": "The fair",
+    "body": "The protagonist walks between the scenes being improvised at the same time. After each round she gives instructions to adjust the behaviour — to bring her image into harmony across the different scenes. In the last round she can also replace the actor-protagonists, in a lightning forum."
+   },
+   {
+    "t": "Discussion",
+    "body": "The discussion focuses on what happened during the rounds, and in particular on how engaged the protagonist was in each of the scenes — where was the energy greatest?"
+   }
+  ],
+  "tip": "The protagonist tries to see the disparity and to correct what she thinks needs adjusting. If things get confusing, use softly softly mode."
+ },
+ {
+  "n": 5,
+  "title": "The image of the 'cops in the head' and their antibodies",
+  "page": "p. 136",
+  "power": "Power over → Power to",
+  "powerBg": "#e8e0f8",
+  "powerFg": "#26215C",
+  "stripe": "#534AB7",
+  "note": "Most suitable for scenes in which the protagonist wants to do something but — for reasons she may not understand herself — does not do it. Not the concrete cop on the street, but the cop in the head.",
+  "stages": [
+   {
+    "t": "Improvisation",
+    "body": "The protagonist improvises the original scene with the actors she needs."
+   },
+   {
+    "t": "Forming the images",
+    "body": "The Joker asks the protagonist to sculpt images of the 'cops' that were present in her memory or imagination during the improvisation. Concrete people, real acquaintances — not abstractions such as 'the family' but the father, the mother, the aunt, the priest. The protagonist has the right to accept or refuse images: a cop has to call up a precise memory of a concrete person."
+   },
+   {
+    "t": "Setting up the constellation",
+    "body": "The protagonist arranges the images in a constellation, with herself at the centre. How far away is each image? Is it facing her or turned away? Are they high or low? Do the cops see each other? Are there conflicts, or are they united?"
+   },
+   {
+    "t": "In-formation of the images",
+    "body": "The protagonist goes up to each image and tells it, slowly and quietly, something that refers to their shared past. Each 'conversation' begins with 'Do you remember…' and ends with 'And that is why…'. The actor in the image does not react — he stays still, as in a waxworks museum. The protagonist projects her memories and emotions onto him."
+   },
+   {
+    "t": "Re-improvisation with the images",
+    "body": "The scene is improvised again. The cops may move and speak in a surrealist style — but they cannot move from their place on their own. Only the protagonist can move them. The cops have a built-in tendency to return to their starting position. Two levels at once: realistic (protagonist and antagonist) and surrealist (protagonist and cops)."
+   },
+   {
+    "t": "Lightning forum",
+    "body": "The Joker organises a lightning forum — participants line up and replace the protagonist one by one, for a minute at most. The protagonist watches and sees a range of more or less successful solutions."
+   },
+   {
+    "t": "Creating the antibodies",
+    "body": "The protagonist shows how each cop can be disarmed. As soon as someone understands the approach, they take the protagonist's place opposite that cop — so that the protagonist can move on to the next. In this way each cop gets its antibody."
+   },
+   {
+    "t": "The fair",
+    "body": "All the pairs (cop + antibody) improvise at the same time, in fair mode. The protagonist walks around and watches. The Joker heightens the tension. The protagonist's movements are a 'writing' that the group reads."
+   },
+   {
+    "t": "Discussion",
+    "body": "The Joker and the whole group exchange ideas — without trying to reach consensus or win arguments. It is just as important that the protagonist can be astonished at herself amid all of this."
+   }
+  ],
+  "tip": "The cop is not necessarily an image with a gun. He can also appear seductive. We call a 'cop' anything present in our head at a moment of action that obliges us to do what we do not want to do — or stops us doing what we do want."
+ },
+ {
+  "n": 6,
+  "title": "The image of the 'cops in the heads' of the spectators",
+  "page": "p. 150",
+  "power": "Power over / Power with",
+  "powerBg": "#e8e0f8",
+  "powerFg": "#26215C",
+  "stripe": "#534AB7",
+  "note": "Identical to technique 5, with one fundamental difference: from the very start the spect-actors build images of their own cops in the head — not those of the protagonist.",
+  "stages": [
+   {
+    "t": "Same set-up as technique 5",
+    "body": "Follow the same nine steps as technique 5 (the image of the cops in the head), with this difference: the spect-actors intervene from the start and build images of their own cops in the head."
+   },
+   {
+    "t": "Resonance as a gateway",
+    "body": "The projections come about through identification, recognition or resonance. The protagonist almost always recognises the other participants' images as her own — simply because sympathy almost always arises."
+   },
+   {
+    "t": "From personal to collective",
+    "body": "What looked like a personal problem turns out to be a collective pattern. Internalised power is not only personal — its headquarters are outside."
+   }
+  ],
+  "tip": "Almost without exception the protagonist recognises the images shown by other participants as her own. The cops in our heads have their headquarters outside."
+ },
+ {
+  "n": 7,
+  "title": "The image of the rainbow of desire",
+  "page": "p. 150",
+  "power": "Power over → Power to",
+  "powerBg": "#e1f5ee",
+  "powerFg": "#085041",
+  "stripe": "#1D9E75",
+  "note": "No sensation, emotion or desire exists in a pure state. What appears on the surface is only the 'dominant' force. The order is not fixed; not every step has to be done.",
+  "stages": [
+   {
+    "t": "Improvisation",
+    "body": "The technique opens with an improvisation 'scripted' and 'directed' by the protagonist. So we have a person-personality who lives the role of protagonist, and person-characters who bring the antagonists to life."
+   },
+   {
+    "t": "The rainbow",
+    "body": "The Joker asks the protagonist to create images of her desires, moods, loves and hates, fears and courage — all the forces she feels at that moment. The protagonist shows them with her own body. Others who identify with an image, or feel a strong resonance, reproduce it. The protagonist can accept or refuse images — the aim is to reveal characteristics of the protagonist, not her cops in the head."
+   },
+   {
+    "t": "The short monologues, the confidences",
+    "body": "The images stand to one side. The protagonist gives each image a short, confidential monologue, starting with 'I am like this because…' or 'That is not how I would like to be, but I recognise it because…'. The actor-images use this information for the improvisations that follow."
+   },
+   {
+    "t": "The part takes over the whole",
+    "body": "The antagonist returns. The protagonist sends the images to the antagonist one by one — each for about a minute — as if that single image were, on its own, the whole protagonist. The antagonist reacts as if dealing with a constantly changing character."
+   },
+   {
+    "t": "The whole rainbow",
+    "body": "The protagonist sends all the images onto the floor at once and arranges them in a constellation around the antagonist at the centre. The antagonist confronts all the images as if they were one person. Variation: the protagonist can make two constellations — the rainbow as she perceives it (status quo) and the rainbow as she would like it to be (ideal)."
+   },
+   {
+    "t": "Will versus desire",
+    "body": "The protagonist moves from image to image and has a one-to-one dialogue with each. She begins: 'I would like to be more like this, because…' or 'I would rather be less like this, because…'. The desires are amoral forces — whatever the protagonist asks, they always grow stronger in this phase. Her choices and their order are themselves a 'writing' that the group reads."
+   },
+   {
+    "t": "The protagonist takes the antagonist's place",
+    "body": "Once the protagonist has 'charged' each desire, she goes to stand on the antagonist's side. Now she sees what her rainbow looks like from the antagonist's point of view — how her words and actions are received."
+   },
+   {
+    "t": "The agora of desires",
+    "body": "The Joker asks the protagonist to leave the playing area. The images begin the agora of desires: each desire first looks for its complement — the most contradictory desire — to struggle with. At least three rounds of pairing. The protagonist circulates freely and watches the alternatives and solutions."
+   },
+   {
+    "t": "Re-improvisation",
+    "body": "The desires leave and the original scene is played again. The protagonist is told to let her will prevail. The outcome may be different — but it need not be."
+   },
+   {
+    "t": "Discussion",
+    "body": "All the actors say what they felt or noticed from inside the scene. The other participants say what they saw. The Joker coordinates — pointing out the original moments and the aesthetic aspects (the signifiers) — without interpreting."
+   }
+  ],
+  "tip": "The rainbow works like a prism: just as all the colours lie hidden in white light, several desires lie beneath people's behaviour. Which desires we get to see depends on the situation that arises."
+ },
+ {
+  "n": 8,
+  "title": "The screen-image",
+  "page": "p. 167",
+  "power": "Power over → Power to",
+  "powerBg": "#e1f5ee",
+  "powerFg": "#085041",
+  "stripe": "#1D9E75",
+  "note": "Especially recommended for studying relationships between two people. The results are even better if both are present. The screen-image is at once a filter, a screen and a shield.",
+  "stages": [
+   {
+    "t": "Improvisation",
+    "body": "An ordinary improvisation. The protagonist chooses one participant as antagonist. One or more spect-actors are chosen as 'witnesses', whose task is to note down everything that happens."
+   },
+   {
+    "t": "Forming the screen-images",
+    "body": "With the help of a spect-actor, each of the two actors sculpts, for the opposite partner, the image they project onto that other person. So in front of the protagonist stands his image as projected by the antagonist, and vice versa — neither of them can see the other. This is exactly what happens in real life."
+   },
+   {
+    "t": "Improvisation with the screen-images",
+    "body": "The actors improvise again: whenever one of them wants to say something, he has to ask the image the other has projected onto him to say it. 'Tell him that…' The screen-image then says out loud what was asked — but keeps its own characteristics and so filters the message. Even the voice must be the voice of the mask."
+   },
+   {
+    "t": "The images become autonomous",
+    "body": "The Joker signals the screen-images to become autonomous. Protagonist and antagonist step back and watch. Everything the screen-images say or do must be taken on board when the actors come back."
+   },
+   {
+    "t": "Protagonist and antagonist return",
+    "body": "The Joker signals both to take their places behind their screen-images. First they echo the masks — physically and vocally. Then the Joker asks the images to withdraw: for the first time protagonist and antagonist really face each other. The scene continues until the damage done by the screen-images has been repaired — if that is ever possible."
+   },
+   {
+    "t": "The rotating image (optional)",
+    "body": "Three participants in turn take the protagonist's place, each offering 'advice'. Three new images of the antagonist are offered. Four rotations: P vs. Ai · Ai vs. P · Pi vs. A · A vs. Pi. Then: exchange of ideas by witnesses and participants."
+   }
+  ],
+  "tip": "In early editions of Games for Actors and Non-Actors, a translation error attached the title 'Screen Image' to a technique that should have been called 'Projected Image'. (Translator's note, A.J.)"
+ },
+ {
+  "n": 9,
+  "title": "Contradictory images of the same people in the same story",
+  "page": "p. 171",
+  "power": "Power over — multiperspectiviteit",
+  "powerBg": "#e6f1fb",
+  "powerFg": "#0C447C",
+  "stripe": "#185FA5",
+  "note": "When we are in dialogue with another person, even face to face, our dialogue is inhabited by other people — living or dead. Each of these people is always double. The phase before the improvisation is extremely important.",
+  "stages": [
+   {
+    "t": "Sensitising the actor who plays the antagonist",
+    "body": "Not necessary if the pair is studying a shared experience. But if the protagonist is the only one who lived through the situation: give the actor playing the antagonist enough time to understand everything — not only to understand the scene, but to live it. The actor can and must ask questions. Only when he feels intensely and fully sensitised can the improvisation begin."
+   },
+   {
+    "t": "Improvisation",
+    "body": "An ordinary improvisation."
+   },
+   {
+    "t": "The images",
+    "body": "The Joker asks the two actors to create contradictory images of every person present in the dialogue, whether they were mentioned or not. The Joker names these people one by one. Without watching each other, the two actors sculpt images of these people, using the whole stage. All the images are placed in the same space, without dividing it up. When the double constellation is ready, the Joker makes observations and invites participants to speak freely about everything they have seen: similarities and differences, distances, facial expressions. The contradictions must be absolutely respected."
+   }
+  ],
+  "tip": "See also Rashomon — an image and rehearsal technique that explores similar ground. We think we are saying the same things about the same people, but in reality we are saying different things about different people."
+ }
+];
+
+let cur = 0;
+let view = 'step'; // 'step' or 'all'
+
+function render() {
+  const t = T[cur];
+
+  // Pills
+  document.getElementById('pills').innerHTML = T.map((x, i) =>
+    `<button class="tpill ${i === cur ? 'on' : ''}" onclick="goTech(${i})">${x.n}</button>`
+  ).join('');
+  document.getElementById('ctr').textContent = `${cur + 1} / ${T.length}`;
+
+  // Nav buttons
+  document.getElementById('pv').disabled = cur === 0;
+  document.getElementById('nx').disabled = cur === T.length - 1;
+
+  // Card
+  const stagesHtml = renderAll(t);
+  document.getElementById('card-wrap').innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background:${t.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">Technique ${t.n} of 9 &nbsp;·&nbsp; ${t.page}</div>
+            <div class="card-name">${t.title}</div>
+            
+          </div>
+          <div class="head-badges">
+            <span class="badge-page">${t.page}</span>
+            <span class="badge-power" style="background:${t.powerBg};color:${t.powerFg}">${t.power}</span>
+          </div>
+        </div>
+        <div class="card-note">${t.note}</div>
+      </div>
+      ${stagesHtml}
+      <div class="card-tip">
+        <span class="tip-lbl">Joker's tip</span>
+        <div class="tip-txt">${t.tip}</div>
+      </div>
+    </div>`;
+}
+
+function renderAll(t) {
+  const rows = t.stages.map((s, i) => {
+    const bodyHtml = s.subs
+      ? `<div class="acc-subs">${s.subs.map((sub, j) =>
+          `<div class="acc-sub"><div class="acc-sub-nr">${j+1}</div><div class="acc-sub-txt">${sub}</div></div>`
+        ).join('')}</div>`
+      : `<div class="acc-text">${s.body}</div>`;
+    return `
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-sn">${i+1}</div>
+          <div class="acc-title">${s.t}</div>
+          <span class="acc-arrow">&#9660;</span>
+        </button>
+        <div class="acc-body">${bodyHtml}</div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--paper3)">
+      <span class="stages-lbl">${t.stages.length} steps</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Expand all</button>
+    </div>
+    <div class="acc-list">${rows}</div>`;
+}
+
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}
+
+function goTech(i) { cur = i; render(); }
+document.getElementById('pv').onclick = () => { if (cur > 0) { cur--; render(); } };
+document.getElementById('nx').onclick = () => { if (cur < T.length - 1) { cur++; render(); } };
+
+function nextTech() { if (cur < T.length - 1) { cur++; render(); } }
+function prevTech() { if (cur > 0)              { cur--; render(); } }
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+render();
+</script>
+
+<script>
+/* Schakelaar Stap voor stap / Overzicht */
+(function(){
+  const wrap = document.getElementById('card-wrap');
+  const ov = document.getElementById('overzicht');
+  const GO = typeof goTech === 'function' ? 'goTech' : 'goTo';
+  function items(){
+    if (typeof filtered === 'function') return filtered();
+    if (typeof lijst !== 'undefined') return lijst;
+    return T;
+  }
+  function nr(x, i){ return x.nr != null ? x.nr : (x.num != null ? x.num : (typeof x.n === 'number' ? x.n : i + 1)); }
+  function title(x){ return x.title || x.en || x.n || ''; }
+  let view = 'step';
+  function setView(v){
+    view = v;
+    document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+    if (v === 'all') {
+      ov.innerHTML = `<div class="ov-card"><div class="ov-head">Overview</div><div class="ov-list">${
+        items().map((x, i) => `<button class="ov-row" data-i="${i}"><span class="ov-nr">${nr(x, i)}</span><span class="ov-title">${title(x)}</span></button>`).join('')
+      }</div></div>`;
+      ov.hidden = false; wrap.hidden = true;
+    } else {
+      ov.hidden = true; wrap.hidden = false;
+    }
+  }
+  ov.addEventListener('click', e => {
+    const r = e.target.closest('.ov-row'); if (!r) return;
+    window[GO](parseInt(r.dataset.i, 10));
+    window.scrollTo({ top: Math.max(0, document.querySelector('.view-toggle').getBoundingClientRect().top + window.scrollY - 120), behavior: 'smooth' });
+  });
+  document.querySelectorAll('.view-toggle .vt-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+  const _render = render;
+  render = function(){ const out = _render.apply(this, arguments); if (view !== 'step') setView('step'); return out; };
+  document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.altKey || e.ctrlKey || e.metaKey) return;
+    const t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA' || t === 'BUTTON' || t === 'SELECT') return;
+    e.preventDefault(); setView(view === 'step' ? 'all' : 'step');
+  });
+})();
+</script>
+<script src="../sessie.js"></script>
+<script>
+/* Oefeningen die in de sessiebouwer (TO Arsenaal) gezet kunnen worden.
+   [fase, duur in min, energie, niveau, naam in het Engelse TO Arsenal als die afwijkt]. Uitleg: zie sessie.js */
+ArsenaalSessie.init({
+  oefeningen: {
+    "The image of the antagonist": ["verdieping", 25, "laag", 3],
+    "The analytical image": ["verdieping", 30, "laag", 3],
+    "The circuit of rituals and masks": ["verdieping", 30, "laag", 3],
+    "The image of chaos": ["verdieping", 20, "laag", 3],
+    "The image of the 'cops in the head' and their antibodies": ["verdieping", 30, "laag", 3, "The cops in the head"],
+    "The image of the 'cops in the heads' of the spectators": ["verdieping", 30, "middel", 3, "The agents in other people's heads"],
+    "The image of the rainbow of desire": ["verdieping", 45, "laag", 3],
+    "The screen-image": ["verdieping", 20, "middel", 3, "The screen image"],
+    "Contradictory images of the same people in the same story": ["verdieping", 45, "laag", 3]
+  }
+});
+</script>
+</body>
+</html>
