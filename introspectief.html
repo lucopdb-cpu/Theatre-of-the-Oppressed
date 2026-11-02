@@ -76,7 +76,6 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 .card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
 .head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
-.badge-power{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
 .card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
 
 /* Tip */
@@ -263,7 +262,6 @@ html[data-thema="donker"] .laagregel{color:#a79a87}
 <script>
 const T = [
 {n:1, title:"Het beeld van de antagonist", en:"The image of the antagonist", page:"p. 118",
- power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
  stripe:"#b8803c",
  note:"Alleen van toepassing op de studie van een relatie tussen twee personen. Concentreer alle interrelaties op het hoofdconflict: protagonist versus antagonist.",
  stages:[
@@ -287,7 +285,6 @@ const T = [
  tip:"Geen techniek hoeft te eindigen wanneer alle stappen zijn uitgevoerd, en niet alle stappen hoeven uitgevoerd te worden. De techniek past zich aan aan de persoon, niet andersom."},
 
 {n:2, title:"Het analytische beeld", en:"The analytical image", page:"p. 125",
- power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
  stripe:"#b8803c",
  note:"De meest intense en complexe techniek. Gebruik haar niet als de protagonist er niet werkelijk klaar voor is. Meest effectief bij situaties met slechts twee personages, of als de protagonist niet begrijpt wat er gebeurt of wat ze wil.",
  stages:[
@@ -313,7 +310,6 @@ const T = [
  tip:"De beelden hoeven niet 'waar' te zijn — het enige dat telt is dat ze weergeven wat de deelnemer oprecht voelde tijdens het kijken."},
 
 {n:3, title:"Het circuit van rituelen en maskers", en:"The circuit of rituals and masks", page:"p. 133",
- power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
  stripe:"#854F0B",
  note:"Vier tot vijf scenes is het ideale aantal — minder maakt de techniek minder effectief, meer maakt het verwarrend. Elke scene wordt in een andere ruimte in de zaal 'geplaatst'.",
  stages:[
@@ -327,7 +323,6 @@ const T = [
  tip:"Deze techniek toont dat één persoon meerdere is. We transformeren onszelf voortdurend om ons aan te passen aan rituelen die ons beperken. Om dat te veranderen, moeten we het eerst theatraal, esthetisch kunnen zien."},
 
 {n:4, title:"Het beeld van de chaos", en:"The image of chaos", page:"p. 135",
- power:"Power over", powerBg:"#fde8e0", powerFg:"#5c1e10",
  stripe:"#854F0B",
  note:"Nauw verwant aan het Circuit van Rituelen en Maskers. Werkt het beste direct na 'The image of the hour'. Hier zien we de protagonist op verschillende momenten van de dag, met wisselende aandacht, energie en helderheid.",
  stages:[
@@ -341,7 +336,6 @@ const T = [
  tip:"De protagonist probeert de dispariteit te zien en te corrigeren wat naar zijn mening aanpassing behoeft. Gebruik bij verwarring de softly softly mode."},
 
 {n:5, title:"Het beeld van de 'agenten in het hoofd' en hun antistoffen", en:"The image of the 'cops in the head' and their antibodies", page:"p. 136",
- power:"Power over → Power to", powerBg:"#e8e0f8", powerFg:"#26215C",
  stripe:"#534AB7",
  note:"Meest toepasselijk op scenes waar de protagonist iets wil doen maar het — om redenen die hij misschien zelf niet begrijpt — toch nalaat. Niet de concrete cop op straat, maar de cop in het hoofd.",
  stages:[
@@ -367,7 +361,6 @@ const T = [
  tip:"De cop is niet noodzakelijk een beeld met een geweer. Hij kan ook verleidelijk verschijnen. We definiëren als 'cop' alles wat aanwezig is in ons hoofd op een moment van handelen, dat ons verplicht te doen wat we niet willen — of verhindert te doen wat we wel willen."},
 
 {n:6, title:"Het beeld van de 'agenten in het hoofd' van de toeschouwers", en:"The image of the 'cops in the heads' of the spectators", page:"p. 150",
- power:"Power over / Power with", powerBg:"#e8e0f8", powerFg:"#26215C",
  stripe:"#534AB7",
  note:"Identiek aan techniek 5, met één fundamenteel verschil: de spect-actoren construeren vanaf het begin beelden van hun eigen cops in the head — niet die van de protagonist.",
  stages:[
@@ -381,7 +374,6 @@ const T = [
  tip:"Bijna zonder uitzondering erkent de protagonist de beelden die door andere deelnemers worden getoond als zijn eigen beelden. De cops in ons hoofd hebben hun hoofdkwartier buiten."},
 
 {n:7, title:"Het beeld van de regenboog van het verlangen", en:"The image of the rainbow of desire", page:"p. 150",
- power:"Power over → Power to", powerBg:"#e1f5ee", powerFg:"#085041",
  stripe:"#1D9E75",
  note:"Geen sensatie, emotie of verlangen bestaat in pure staat. Wat aan de oppervlakte verschijnt is slechts de 'dominante' kracht. De volgorde is niet onveranderlijk; niet elke stap hoeft te worden uitgevoerd.",
  stages:[
@@ -409,7 +401,6 @@ const T = [
  tip:"De regenboog werkt als een prisma: zoals in wit licht alle kleuren verborgen liggen, liggen aan het gedrag van mensen meerdere verlangens ten grondslag. Welke verlangens we te zien krijgen hangt af van welke situatie zich voordoet."},
 
 {n:8, title:"Het schermbeeld", en:"The screen-image", page:"p. 167",
- power:"Power over → Power to", powerBg:"#e1f5ee", powerFg:"#085041",
  stripe:"#1D9E75",
  note:"Bijzonder aanbevolen voor de studie van relaties tussen twee personen. Resultaten zijn nog beter als beiden aanwezig zijn. Het screen-image is tegelijk een filter, een scherm en een schild.",
  stages:[
@@ -429,7 +420,6 @@ const T = [
  tip:"In vroege edities van Games for Actors and Non-Actors werd de titel 'Screen Image' door een vertaalfout toegeschreven aan een techniek die eigenlijk 'Projected Image' had moeten heten. (Noot vertaler A.J.)"},
 
 {n:9, title:"Tegenstrijdige beelden van dezelfde mensen in hetzelfde verhaal", en:"Contradictory images of the same people in the same story", page:"p. 171",
- power:"Power over — multiperspectiviteit", powerBg:"#e6f1fb", powerFg:"#0C447C",
  stripe:"#185FA5",
  note:"Wanneer we in dialoog zijn met een andere persoon, zelfs van aangesicht tot aangesicht, wordt onze dialoog bewoond door andere mensen — levend of dood. Elk van deze mensen is altijd dubbel. De fase vóór de improvisatie is extreem belangrijk.",
  stages:[
@@ -473,7 +463,6 @@ function render() {
           </div>
           <div class="head-badges">
             <span class="badge-page">${t.page}</span>
-            <span class="badge-power" style="background:${t.powerBg};color:${t.powerFg}">${t.power}</span>
           </div>
         </div>
         <div class="card-note">${t.note}</div>
