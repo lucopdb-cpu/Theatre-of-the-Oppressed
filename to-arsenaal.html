@@ -895,7 +895,7 @@ const D=[
 
   {b:"geheugen",n:"Concretisering van het abstracte",t:"Krantentheater / techniek",d:"15–20 min",g:"6–20 p.",o:"Wat een bericht in abstracte taal verbergt — honger, werkloosheid, marteling — op het toneel concreet maken, met echte of symbolische beelden.",s:["Zoek in het bericht de abstracte woorden: 'de werkloosheid steeg met 0,3 procent', 'bezuinigingen in de zorg'.", "Zoek voor elk woord een concreet beeld: een lichaam, een voorwerp, een handeling.", "Lees het bericht. Bij het abstracte woord verschijnt het concrete beeld.", "Bespreek: wat doet de abstracte taal met ons? Wat wordt voelbaar als het concreet wordt?"],tg:["krantentheater", "media", "taal", "onderdrukking"],tip:"Kies beelden die de groep zelf kent. Verwant aan Herdefiniëring, dat met dezelfde verhullende taal werkt, maar met woorden.",bron:"Boal",fase:"verdieping",niv:2,eng:"middel"},
 
-  {b:"geheugen",n:"Contrasterende activiteit",t:"Krantentheater / techniek",d:"10–15 min",g:"6–20 p.",o:"Een activiteit uitvoeren die niets met de tekst te maken heeft terwijl de tekst wordt gelezen — het contrast onthult wat de tekst verbergt.",s:["Kies een serieuze tekst: een politieke toespraak, een armoederapport, een oorlogsbericht.", "Kies een activiteit die er oppervlakkig niets mee te maken heeft: eten, feesten, sporten, winkelen.", "Eén of meer spelers voeren de activiteit uit terwijl een ander de tekst voorleest. De activiteit gaat gewoon door.", "Bespreek: wie doet de activiteit? Wie schreef de tekst? Voor wie? Probeer andere activiteiten bij dezelfde tekst."],tg:["krantentheater", "media", "macht"],tip:"De activiteit is geen grap. Ze is een politieke daad. Als de groep erom lacht, is dat ook informatie — wie lacht, en waarom?",bron:"Formaat",fase:"verdieping",niv:1,eng:"middel"},
+  {b:"geheugen",n:"Contrasterende activiteit",t:"Krantentheater / techniek",d:"10–15 min",g:"6–20 p.",o:"Een activiteit uitvoeren die niets met de tekst te maken heeft terwijl de tekst wordt gelezen — het contrast onthult wat de tekst verbergt.",s:["Kies een serieuze tekst: een politieke toespraak, een armoederapport, een oorlogsbericht.", "Kies een activiteit die er oppervlakkig niets mee te maken heeft: eten, feesten, sporten, winkelen.", "Eén of meer spelers voeren de activiteit uit terwijl een ander de tekst voorleest. De activiteit gaat gewoon door.", "Bespreek: wie doet de activiteit? Wie schreef de tekst? Voor wie? Probeer andere activiteiten bij dezelfde tekst."],tg:["krantentheater", "media", "macht"],tip:"De activiteit is geen grap. Ze is een politieke daad. Als de groep erom lacht, is dat ook informatie — wie lacht, en waarom?",fase:"verdieping",niv:1,eng:"middel"},
 
   // ── DAVID DIAMOND / THEATRE FOR LIVING ────────────────────
   {b:"lichaam",n:"Snelle Gebaren",t:"Theatre for Living / lichaamswerk",d:"15–20 min",g:"6–20 p.",o:"Van non-verbaal naar gesproken theater via gefaseerde opbouw — perfect voor mensen die 'blokkeren' bij spreken.",s:["Groep in een rij aan één kant van de ruimte. Persoon A komt naar het midden en biedt een open-ended gebaar aan. Drie keer herhalen vanuit neutraal.","Eén voor één: persoon B rent naar binnen, A maakt gebaar, B reageert met ander gebaar, A reageert, B rent weg. Snelheid is essentieel.","Nieuwe A, nieuw gebaar. Tweede laag: gebaar + enkele woorden die direct uit de beweging ontstaan.","Derde laag: improvisatie — gebaar met woorden uitbouwen tot er een volledig gesprek ontstaat."],tg:["lichaam","improvisatie","taal","vertrouwen"],tip:"Het werkt omdat gesproken taal evolutionair uit lichaamsgebaar ontstond. Wie vastloopt in spreken kan via het lichaam de weg terug vinden. Hou het snel en onoordolend.",bron:"Theatre for Living",fase:"opwarming",niv:2,eng:"middel"},
@@ -3116,7 +3116,7 @@ function praktijkDeel(o, metKop) {
   var stappen = o.s.map(function(x, i) {
     return '<div class="step"><span class="step-nr">' + (i+1) + '</span><span class="step-txt">' + x + '</span></div>';
   }).join('');
-  var html = metKop ? '<div class="deel-kop"><span>In de praktijk</span><span>' + o.bron + '</span></div>' : '';
+  var html = metKop ? '<div class="deel-kop"><span>In de praktijk</span><span>' + (o.bron || '') + '</span></div>' : '';
   html += '<div class="section"><span class="section-lbl">Doel</span><p class="doel">' + o.o + '</p></div>';
   if (stappen) html += '<div class="section"><span class="section-lbl">Stappen</span><div class="steps">' + stappen + '</div></div>';
   return '<div class="deel">' + html + '</div>';
@@ -3213,7 +3213,7 @@ function render() {
   var t = o.boal, praktijk = !o._alleenBoek;
 
   var herkomst = (t ? '<a class="badge-herkomst boal" href="bronnen.html#boal-2002" title="Boal (2002), Games for Actors and Non-Actors">Boal · Games · ' + boekPlaats(t) + '</a>' : '') +
-                 (praktijk ? '<span class="badge-herkomst" title="Herkomst in de praktijk">' + o.bron + '</span>' : '');
+                 (praktijk && o.bron ? '<span class="badge-herkomst" title="Herkomst in de praktijk">' + o.bron + '</span>' : '');
   var badges = boek
     ? '<span class="badge-cat">' + catKort[t.cat] + '</span>' + t.vorm.map(function(v){ return '<span class="vorm ' + v.c + '">' + v.t + '</span>'; }).join('') + herkomst
     : '<span class="badge-fase">' + faseLbl + '</span>' + nivBadge(o.niv) + engBadge(o.eng) + herkomst;
