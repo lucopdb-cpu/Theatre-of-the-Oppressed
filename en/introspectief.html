@@ -76,7 +76,6 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height
 .card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
 .head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper2);border:1px solid var(--paper4);border-radius:4px;padding:2px 7px;white-space:nowrap}
-.badge-power{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
 .card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--paper3)}
 
 /* Tip */
@@ -266,9 +265,6 @@ const T = [
   "n": 1,
   "title": "The image of the antagonist",
   "page": "p. 118",
-  "power": "Power over",
-  "powerBg": "#fde8e0",
-  "powerFg": "#5c1e10",
   "stripe": "#b8803c",
   "note": "Only for studying a relationship between two people. Focus every interrelation on the main conflict: protagonist versus antagonist.",
   "stages": [
@@ -317,9 +313,6 @@ const T = [
   "n": 2,
   "title": "The analytical image",
   "page": "p. 125",
-  "power": "Power over",
-  "powerBg": "#fde8e0",
-  "powerFg": "#5c1e10",
   "stripe": "#b8803c",
   "note": "The most intense and complex technique. Do not use it unless the protagonist is really ready for it. Most effective for situations with only two characters, or when the protagonist does not understand what is happening or what she wants.",
   "stages": [
@@ -366,9 +359,6 @@ const T = [
   "n": 3,
   "title": "The circuit of rituals and masks",
   "page": "p. 133",
-  "power": "Power over",
-  "powerBg": "#fde8e0",
-  "powerFg": "#5c1e10",
   "stripe": "#854F0B",
   "note": "Four or five scenes is the ideal number — fewer makes the technique less effective, more makes it confusing. Each scene is 'placed' in a different part of the room.",
   "stages": [
@@ -391,9 +381,6 @@ const T = [
   "n": 4,
   "title": "The image of chaos",
   "page": "p. 135",
-  "power": "Power over",
-  "powerBg": "#fde8e0",
-  "powerFg": "#5c1e10",
   "stripe": "#854F0B",
   "note": "Closely related to the circuit of rituals and masks. Works best straight after 'the image of the hour'. Here we see the protagonist at different moments of the day, with varying attention, energy and clarity.",
   "stages": [
@@ -416,9 +403,6 @@ const T = [
   "n": 5,
   "title": "The image of the 'cops in the head' and their antibodies",
   "page": "p. 136",
-  "power": "Power over → Power to",
-  "powerBg": "#e8e0f8",
-  "powerFg": "#26215C",
   "stripe": "#534AB7",
   "note": "Most suitable for scenes in which the protagonist wants to do something but — for reasons she may not understand herself — does not do it. Not the concrete cop on the street, but the cop in the head.",
   "stages": [
@@ -465,9 +449,6 @@ const T = [
   "n": 6,
   "title": "The image of the 'cops in the heads' of the spectators",
   "page": "p. 150",
-  "power": "Power over / Power with",
-  "powerBg": "#e8e0f8",
-  "powerFg": "#26215C",
   "stripe": "#534AB7",
   "note": "Identical to technique 5, with one fundamental difference: from the very start the spect-actors build images of their own cops in the head — not those of the protagonist.",
   "stages": [
@@ -490,9 +471,6 @@ const T = [
   "n": 7,
   "title": "The image of the rainbow of desire",
   "page": "p. 150",
-  "power": "Power over → Power to",
-  "powerBg": "#e1f5ee",
-  "powerFg": "#085041",
   "stripe": "#1D9E75",
   "note": "No sensation, emotion or desire exists in a pure state. What appears on the surface is only the 'dominant' force. The order is not fixed; not every step has to be done.",
   "stages": [
@@ -543,9 +521,6 @@ const T = [
   "n": 8,
   "title": "The screen-image",
   "page": "p. 167",
-  "power": "Power over → Power to",
-  "powerBg": "#e1f5ee",
-  "powerFg": "#085041",
   "stripe": "#1D9E75",
   "note": "Especially recommended for studying relationships between two people. The results are even better if both are present. The screen-image is at once a filter, a screen and a shield.",
   "stages": [
@@ -580,9 +555,6 @@ const T = [
   "n": 9,
   "title": "Contradictory images of the same people in the same story",
   "page": "p. 171",
-  "power": "Power over — multiperspectiviteit",
-  "powerBg": "#e6f1fb",
-  "powerFg": "#0C447C",
   "stripe": "#185FA5",
   "note": "When we are in dialogue with another person, even face to face, our dialogue is inhabited by other people — living or dead. Each of these people is always double. The phase before the improvisation is extremely important.",
   "stages": [
@@ -633,7 +605,6 @@ function render() {
           </div>
           <div class="head-badges">
             <span class="badge-page">${t.page}</span>
-            <span class="badge-power" style="background:${t.powerBg};color:${t.powerFg}">${t.power}</span>
           </div>
         </div>
         <div class="card-note">${t.note}</div>
