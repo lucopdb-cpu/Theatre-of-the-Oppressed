@@ -27,10 +27,10 @@
   var cfg = null;
   var TXT = EN ? {
     aan: '✓ selected', uit: '+ select', weg: 'Remove from My selection', bewaar: 'Save to My selection',
-    naar: 'Go to My selection', lijst: 'My selection', nee: 'not available'
+    naar: 'My selection: put your workshop together', lijst: 'My selection', nee: 'not available'
   } : {
     aan: '✓ geselecteerd', uit: '+ selectie', weg: 'Uit Mijn selectie halen', bewaar: 'Bewaren in Mijn selectie',
-    naar: 'Naar Mijn selectie', lijst: 'Mijn selectie', nee: 'niet beschikbaar'
+    naar: 'Mijn selectie: stel je workshop samen', lijst: 'Mijn selectie', nee: 'niet beschikbaar'
   };
 
   // Leesbare naam van de pagina, zoals hij in Mijn selectie verschijnt

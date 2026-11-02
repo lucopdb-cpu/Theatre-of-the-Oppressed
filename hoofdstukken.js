@@ -58,8 +58,8 @@
       [null, 'Shadow Liberation Theatre', 'Shadow Liberation Theatre', false, 'opbouw']]]
   ];
   var T = ENGELS
-    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', sel: 'My selection', selNaar: 'Go to My selection', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
-    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', sel: 'Mijn selectie', selNaar: 'Naar Mijn selectie', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
+    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', sel: 'My selection', selNaar: 'My selection: put your workshop together', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
+    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', sel: 'Mijn selectie', selNaar: 'Mijn selectie: stel je workshop samen', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
 
   var LIJST = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
 

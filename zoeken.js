@@ -282,7 +282,7 @@
     knop.type = 'button';
     knop.className = 'zoek-knop';
     knop.innerHTML = VERGROOTGLAS;
-    knop.title = T.knop + ' (/)';
+    knop.title = T.knop;
     knop.setAttribute('aria-label', T.knop);
     knop.setAttribute('aria-haspopup', 'dialog');
     knop.addEventListener('click', open);
