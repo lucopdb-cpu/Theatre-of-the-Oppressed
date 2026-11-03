@@ -24,7 +24,7 @@
   var H = [
     ['Joker-praktijk', 'Joker practice', [['joker-praktijk.html', 'Joker-praktijk', 'Joker practice', true]]],
     ['Humuslaag', 'Humus layer', [['freire.html', 'Paulo Freire — De koffer', 'Paulo Freire — The suitcase', true],
-      ['theaterlijnen.html', 'Theaterlijnen', 'Theatre lines', false]]],
+      [null, 'Theaterlijnen', 'Theatre lines', false, 'opbouw']]],
     ['Het centrale arsenaal', 'The central arsenal', [['to-arsenaal.html', 'TO Arsenaal', 'TO Arsenal', true]]],
     ['Beeldentheater', 'Image Theatre', [['beeldentheater.html', 'Beeldentheater', 'Image Theatre', true]]],
     ['Regenboog van het Verlangen', 'Rainbow of Desire', [
