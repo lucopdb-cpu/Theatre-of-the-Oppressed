@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Arsenaal">
+<script src="thema.js"></script>
+<script src="nav.js" defer></script>
+<meta name="theme-color" content="#52504a">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>Theaterlijnen</title>
+<meta name="description" content="Voelen, denken, handelen: Boal in gesprek met Stanislavski, Brecht en de leerstukken, Arena en de Joker, Piscator, Grotowski en Artaud, Latijns-Amerika, Fo en Rame, en de verwanten.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arsenaal van de Joker">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Theaterlijnen">
+<meta property="og:description" content="Voelen, denken, handelen: Boal in gesprek met Stanislavski, Brecht en de leerstukken, Arena en de Joker, Piscator, Grotowski en Artaud, Latijns-Amerika, Fo en Rame, en de verwanten.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/theaterlijnen.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Theaterlijnen">
+<meta name="twitter:description" content="Voelen, denken, handelen: Boal in gesprek met Stanislavski, Brecht en de leerstukken, Arena en de Joker, Piscator, Grotowski en Artaud, Latijns-Amerika, Fo en Rame, en de verwanten.">
+<meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;
+  --creme:#f2efe9;--creme2:#ede9dd;--creme3:#e0dbc8;--creme4:#d1cab4;
+  --blue:#8b3a2e;--blue2:#a54a3c;--blue3:#c49489;--blue4:#f5e5e0;
+  --rust:#8b4513;--rust2:#a0562a;--rust3:#d4a574;--rust4:#f5e8d0;
+  --gray:#6b7280;--gray2:#7d8590;--gray3:#b8bcc8;--gray4:#e7e9ec;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--creme);color:var(--ink);min-height:100vh;padding-bottom:5rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+
+/* BACK LINK */
+.back-link{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-decoration:none;padding:16px 0 6px;transition:color .15s}
+.back-link:hover{color:var(--blue)}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--blue);padding:28px 0 18px;margin-bottom:24px}
+.app-name{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4px}
+.app-name em{font-style:italic;color:var(--blue)}
+.app-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.context-note{font-family:var(--body);font-size:13px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;border-left:3px solid var(--blue3);padding-left:14px;max-width:600px}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:22px}
+.nav-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--creme4);background:var(--creme2);cursor:pointer;font-size:16px;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.nav-btn:hover:not(:disabled){background:var(--creme3)}
+.nav-btn:disabled{opacity:.25;cursor:default}
+.tech-pills{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tpill{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:20px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpill:hover{border-color:var(--blue2);color:var(--blue)}
+.tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.nav-counter{font-family:var(--mono);font-size:11px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+
+/* CARD */
+.card{background:#faf7f1;border:1px solid var(--creme4);border-radius:16px;overflow:hidden;animation:enter .2s ease;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04)}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card head */
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--creme3);position:relative;padding-left:34px}
+.cat-stripe{position:absolute;top:0;left:0;width:8px;height:100%}
+.head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.tech-num{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.head-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.badge-page{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:2px 7px;white-space:nowrap}
+.badge-cat{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap;text-align:right}
+.card-note{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--creme3)}
+
+.stages-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+/* Tip */
+.card-tip{margin:18px 26px 22px;padding:12px 15px;background:var(--blue4);border-left:3px solid var(--blue2);border-radius:0 7px 7px 0}
+.tip-lbl{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tip-txt{font-family:var(--body);font-size:12px;font-weight:300;font-style:italic;line-height:1.65;color:var(--ink2)}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid var(--creme3)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{display:flex;align-items:center;gap:10px;padding:11px 26px;cursor:pointer;background:none;border:none;width:100%;text-align:left;transition:background .1s;font-family:inherit}
+.acc-trigger:hover{background:var(--creme2)}
+.acc-trigger.open{background:var(--blue4)}
+.acc-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--blue3)}
+.acc-trigger.open .acc-sn{background:var(--blue);color:#fff;border-color:var(--blue2)}
+.acc-title{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink);flex:1;line-height:1.4}
+.acc-arrow{font-size:11px;color:var(--ink3);flex-shrink:0;transition:transform .2s;line-height:1}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:12px 26px 16px 58px}
+.acc-body.open{display:block}
+.acc-text{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.75;color:var(--ink)}
+.acc-expand-all{font-family:var(--sans);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;transition:all .12s;margin-left:auto}
+.acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+
+/* All stages overview */
+.all-stages{padding:0 26px 20px}
+.all-stage-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--creme3);cursor:pointer;transition:background .1s}
+.all-stage-row:last-child{border-bottom:none}
+.all-stage-row:hover .all-stage-name{color:var(--blue)}
+.all-sn{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blue2);background:var(--blue4);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid var(--blue3)}
+.all-stage-name{font-family:var(--body);font-size:13px;font-weight:300;line-height:1.5;color:var(--ink);transition:color .12s}
+
+/* Kbd */
+.card-src{margin:-8px 26px 22px;font-family:var(--sans);font-size:10.5px;line-height:1.6;color:var(--ink3)}
+.card-src a{color:inherit}
+.kbd-row{text-align:center;margin-top:14px;font-family:var(--sans);font-size:11px;color:var(--ink3)}
+kbd{font-family:var(--mono);font-size:10px;background:var(--creme2);border:1px solid var(--creme4);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+
+/* View toggle */
+.view-toggle{display:flex;gap:6px;justify-content:flex-end;margin-bottom:14px}
+.vt-btn{font-family:var(--mono);font-size:10px;padding:4px 12px;border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3);cursor:pointer;border-radius:6px;transition:all .15s}
+.vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+.vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+
+/* Footer */
+.footer{margin-top:60px;padding:20px 0 40px;border-top:1px solid var(--rule);text-align:center;font-family:var(--body);font-size:12px;color:var(--ink3);line-height:1.6}
+.footer strong{color:var(--ink2)}
+.footer em{font-style:italic;color:var(--blue2)}
+
+/* Joker-tekening in de kop */
+.masthead{display:flow-root}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}}
+
+/* Mobiel: zijmarge gelijk op alle pagina's */
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+/* Vaste navigatie terug, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav.is-edge{padding-left:16px;padding-right:16px}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer.is-edge{max-width:1200px;margin:44px auto 28px;padding:16px 24px 0}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer strong{font-weight:600;color:#524a40}
+.arsenaal-footer .af-content{margin-bottom:12px}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+/* Laagregel boven de titel, gelijk op alle pagina's */
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+
+/* ═══ DONKER SCHERM (gegenereerd, zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--creme:#201d18;--creme2:#25221b;--creme3:#332f23;--creme4:#4a4431;--blue:#f99d8d;--blue2:#ef8c7b;--blue3:#9d7065;--blue4:#29201e;--rust:#f0a173;--rust2:#e39367;--rust3:#916535;--rust4:#292112;--gray:#9ea6b5;--gray2:#9098a3;--gray3:#565964;--gray4:#212326;--rule:rgba(219,217,211,.1)}
+html[data-thema="donker"] body{background:var(--creme);color:var(--ink)}
+html[data-thema="donker"] .back-link{color:var(--ink3)}
+html[data-thema="donker"] .back-link:hover{color:var(--blue)}
+html[data-thema="donker"] .masthead{border-bottom:2px solid var(--blue)}
+html[data-thema="donker"] .app-name{color:var(--ink)}
+html[data-thema="donker"] .app-name em{color:var(--blue)}
+html[data-thema="donker"] .app-sub{color:var(--ink3)}
+html[data-thema="donker"] .context-note{color:var(--ink2);border-left:3px solid var(--blue3)}
+html[data-thema="donker"] .nav-row{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+html[data-thema="donker"] .nav-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--blue)}
+html[data-thema="donker"] .nav-btn:hover:not(:disabled){background:var(--creme3)}
+html[data-thema="donker"] .tpill{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .tpill:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .tpill.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .nav-counter{color:var(--ink3)}
+html[data-thema="donker"] .card{background:#1c1914;border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-head{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .tech-num{color:var(--ink3)}
+html[data-thema="donker"] .card-name{color:var(--ink)}
+html[data-thema="donker"] .badge-page{color:var(--ink3);background:var(--creme2);border:1px solid var(--creme4)}
+html[data-thema="donker"] .card-note{color:var(--ink2);border-top:1px solid var(--creme3)}
+html[data-thema="donker"] .stages-lbl{color:var(--blue)}
+html[data-thema="donker"] .card-tip{background:var(--blue4);border-left:3px solid var(--blue2)}
+html[data-thema="donker"] .tip-lbl{color:var(--blue)}
+html[data-thema="donker"] .tip-txt{color:var(--ink2)}
+html[data-thema="donker"] .acc-item{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .acc-trigger:hover{background:var(--creme2)}
+html[data-thema="donker"] .acc-trigger.open{background:var(--blue4)}
+html[data-thema="donker"] .acc-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .acc-trigger.open .acc-sn{background:var(--blue);color:#161616;border-color:var(--blue2)}
+html[data-thema="donker"] .acc-title{color:var(--ink)}
+html[data-thema="donker"] .acc-arrow{color:var(--ink3)}
+html[data-thema="donker"] .acc-text{color:var(--ink)}
+html[data-thema="donker"] .acc-expand-all{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .acc-expand-all:hover{border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .all-stage-row{border-bottom:1px solid var(--creme3)}
+html[data-thema="donker"] .all-stage-row:hover .all-stage-name{color:var(--blue)}
+html[data-thema="donker"] .all-sn{color:var(--blue2);background:var(--blue4);border:1px solid var(--blue3)}
+html[data-thema="donker"] .all-stage-name{color:var(--ink)}
+html[data-thema="donker"] .kbd-row{color:var(--ink3)}
+html[data-thema="donker"] kbd{background:var(--creme2);border:1px solid var(--creme4);color:var(--ink2)}
+html[data-thema="donker"] .vt-btn{border:1px solid var(--creme4);background:var(--creme2);color:var(--ink3)}
+html[data-thema="donker"] .vt-btn.on{background:var(--ink);color:var(--creme);border-color:var(--ink)}
+html[data-thema="donker"] .vt-btn:hover:not(.on){border-color:var(--blue2);color:var(--blue)}
+html[data-thema="donker"] .footer{border-top:1px solid var(--rule);color:var(--ink3)}
+html[data-thema="donker"] .footer strong{color:var(--ink2)}
+html[data-thema="donker"] .footer em{color:var(--blue2)}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer strong{color:#c9bfb4}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+.lezing{font-size:.85em;font-style:italic;opacity:.7}
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Terug"><a href="index.html">← Arsenaal van de Joker</a></nav>
+
+<!-- Masthead -->
+<div class="masthead">
+  <img src="joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Theaterlijnen</div>
+  <div class="app-name">Theater<em>lijnen</em></div>
+  <div class="app-sub">Voelen, denken, handelen · Stanislavski · Brecht · Boal</div>
+  <div class="context-note">
+    Stanislavski vroeg de acteur te voelen wat het personage voelt. Brecht vroeg de toeschouwer na te denken over wat hij ziet, en te begrijpen dat het ook anders kan. Boal liet de toeschouwer opstaan en het zelf doen: "Theater is handeling!" Voelen, denken, handelen: in die beweging staat het Theater van de Onderdrukten.<br><br>Het is geen trap waarop de ene trede de vorige vervangt. "Die tegenstelling Stanislavski tegenover Brecht heeft nooit bestaan," schreef Boal, en: "Emotie is deel van het kennen." Bij het Teatro de Arena in São Paulo richtte hij in 1956 een laboratorium op om Stanislavski methodisch te bestuderen. Zijn eerste Brecht-regie deed hij rond 1960 met metaalarbeiders, en daar begon hij na te denken over de niet-acteur. In het forum komt alles samen: wie instapt, voelt de situatie, denkt na over wat anders kan, en probeert het uit. <span class="lezing">(lezing)</span><br><br>Formaat begon in 1999 met hetzelfde leerstuk van Brecht als Boal, gespeeld als forum. Zo staat ook dit Arsenaal in die beweging.<br><br>"Meestal komt alles van daar," zei Boal in 2007, "Stanislavski, Brecht, Grotowski, Artaud." Het Theater van de Onderdrukten noemde hij de eerste methode uit het zuiden die in het noorden wordt beoefend. Deze pagina volgt hoe hij met de makers van daar in gesprek bleef. Sommige lijnen zijn stevig gedocumenteerd, andere zijn kort of kritisch, en bij een paar makers is er geen lijn, alleen verwantschap. Dat onderscheid staat op elke kaart.
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prev">‹</button>
+  <div class="tech-pills">
+    <div class="tpill on" data-cat="all">Alle</div>
+    <div class="tpill" data-cat="Bij Boal zelf">Bij Boal zelf</div>
+    <div class="tpill" data-cat="Gekruist">Gekruist</div>
+    <div class="tpill" data-cat="Verwant">Verwant</div>
+  </div>
+  <div class="nav-counter"><span id="current">1</span> / <span id="total">11</span></div>
+  <button class="nav-btn" id="next">›</button>
+</div>
+
+<!-- View toggle -->
+<div class="view-toggle">
+  <button class="vt-btn on" data-view="step">Stap voor stap</button>
+  <button class="vt-btn" data-view="all">Overzicht</button>
+</div>
+
+<!-- Card container -->
+<div id="card-container"></div>
+
+<!-- Keyboard hint -->
+<div class="kbd-row">
+  <kbd>←</kbd> <kbd>→</kbd> om te navigeren · <kbd>spatie</kbd> voor overzicht
+</div>
+
+<footer class="arsenaal-footer">
+  <div class="af-content"><strong>Theaterlijnen</strong> · Boal in gesprek met het theater van zijn eeuw<br>
+  Bronnen: per kaart vermeld onder <strong>Bron</strong>; inleiding: <a href='bronnen.html#boal-2008'>Boal (2008)</a>; <a href='bronnen.html#boal-2002-juegos'>Boal (2002)</a>; <a href='bronnen.html#boal-zd-brecht'>Boal (z.d.)</a>; <a href='bronnen.html#leal-gomes-2009'>Leal &amp; Gomes (2009)</a>. De volledige vermeldingen staan in de <a href="bronnen.html">bronnenlijst</a>.</div>
+  <div class="af-site">Onderdeel van het <a href="index.html">Arsenaal van de Joker</a>, samengesteld door Luc Opdebeeck · <a href="bronnen.html">Bronnen</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Jokertekening: Augusto Boal</div>
+</footer>
+
+</div>
+
+<script>
+const T = [
+{"n": 1, "title": "Stanislavski: eerst voelen", "cat": "Bij Boal zelf", "catBg": "#f1e2d6", "catFg": "#7a3b2e", "stripe": "#7a3b2e", "note": "Toen Boal in 1956 bij het Teatro de Arena in São Paulo begon, richtte hij een laboratorium op om Stanislavski te bestuderen, \"methodisch\", schreef hij later, want die was in Brazilië \"vrijwel onbekend\". Hij kende hem al uit lessen in Rio, bij Luiza Barreto Leite en Sadi Cabral, en had in New York lessen van het Actors Studio bijgewoond, als toehoorder. Het Arsenaal van Boal begint niet bij Brecht, maar hier.", "stages": [{"t": "Emotie voorop", "body": "\"Ons eerste voorstel was de emotie te waarderen, haar essentieel en voorrangs te maken.\" Bij Arena werden emotie-oefeningen dagelijkse routine; elke acteur deed er minstens twee of drie per dag. Het emotioneel geheugen noemt Boal uitdrukkelijk dat van Stanislavski."}, {"t": "De poelen van emotie", "body": "Achteraf was Boal kritisch: \"We schiepen poelen van emotie, diepe emotionele poelen.\" Bij acteurs uit het Actors Studio zag hij een \"overmatige subjectiviteit\". Een intense oefening met het emotioneel geheugen noemt hij \"erg gevaarlijk\" als er niet achteraf een rationalisering volgt."}, {"t": "Wat hij meenam", "body": "Niet \"wie is het personage?\" maar \"wat wil het?\": de wil en de tegenwil, die Boal koppelt aan Stanislavski's overkoepelende taak. Het arsenaal van <em>Games</em> begint met de eenheid van lichaam en geest, met een verwijzing naar Stanislavski's werk over de fysieke handelingen. En Onzichtbaar Theater moet volgens Boal gespeeld worden \"zo veel mogelijk volgens de methode van Stanislavski\"."}, {"t": "Realisme als functie", "body": "In het Joker-systeem van Arena kreeg één speler de \"protagonistfunctie\", te spelen \"volgens Stanislavski, in zijn meest orthodoxe vorm\". Realisme werd een gereedschap: daar waar het echt moet lijken, niet overal."}], "tip": "Bij het bouwen van een anti-model: vraag elke speler, ook wie de onderdrukker speelt, \"wat wil je?\" en \"wat houdt je tegen?\". Een onderdrukker met een eigen wil en tegenwil is spelbaarder en eerlijker dan een karikatuur. En na een oefening met herinneringen: altijd terug naar het denken, en eindigen met fysiek spel.", "source": "<a href='bronnen.html#boal-2002-juegos'>Boal (2002)</a>, Juegos para actores y no actores, scan-pp. 22, 50–61, 68; <a href='bronnen.html#boal-2008'>Boal (2008)</a>, pp. 140, 157 (vertaling); <a href='bronnen.html#betti-2015'>Betti (2015)</a>."},
+{"n": 2, "title": "Brecht: denken is nog geen handelen", "cat": "Bij Boal zelf", "catBg": "#f1e2d6", "catFg": "#7a3b2e", "stripe": "#7a3b2e", "note": "Boal en Brecht hebben elkaar nooit ontmoet: Brecht stierf in 1956, \"in hetzelfde jaar, en bijna dezelfde maand\" waarin Boal begon te regisseren. Toch is Brecht de maker over wie Boal het meest schreef, met een heel hoofdstuk in <em>Theatre of the Oppressed</em> en een eigen tekst met de titel \"Brecht en, bescheiden, ik!\".", "stages": [{"t": "De niet-acteur begint hier", "body": "Boals eerste Brecht-regie was <em>De uitzondering en de regel</em>, \"ik geloof in 1960\", bij de metaalbond van het ABC bij São Paulo, met alleen arbeiders als spelers en als publiek. \"In die ervaring met Brecht begon ik erover na te denken om bij niet-acteurs alle acteursmogelijkheden te ontwikkelen die wij allemaal hebben.\""}, {"t": "De verlichte voorhoede", "body": "Boals breukformule: bij Brecht laat de toeschouwer de personages niet meer in zijn plaats denken, \"maar hij laat ze nog wel in zijn plaats handelen\". Het is \"een ervaring die onthult op het niveau van het bewustzijn, maar niet op het niveau van de handeling\". In TO \"bevrijdt de toeschouwer zichzelf; hij denkt en handelt zelf. Theater is handeling!\""}, {"t": "Twee slotten", "body": "Boal vergelijkt het forumtheater zelf met Brechts <em>Der Jasager</em> en <em>Der Neinsager</em>: \"het bestaan van die twee slotten toont dat niets uitsluitend het gevolg is van het noodlot\". In het forum zoekt de zaal het derde slot."}, {"t": "Geen tegenstelling met het voelen", "body": "\"Die tegenstelling Stanislavski tegenover Brecht heeft nooit bestaan.\" En: \"Emotie is deel van het kennen, en Brecht heeft nooit tegen emotie gesproken.\""}], "tip": "Speel het model, en daarna één keer de versie waarin het personage \"nee\" zegt. Vraag pas dan wie het anders wil proberen. Twee slotten laten zien dat er keuze is; het forum laat de zaal ontdekken wat die keuze kost.", "source": "<a href='bronnen.html#boal-zd-brecht'>Boal (z.d.)</a>, Brecht e, modestamente, eu! (vertaling); <a href='bronnen.html#boal-2008'>Boal (2008)</a>, hoofdstuk 3 en slot van hoofdstuk 4 (vertaling)."},
+{"n": 3, "title": "De leerstukken: spelen om te leren", "cat": "Bij Boal zelf", "catBg": "#f1e2d6", "catFg": "#7a3b2e", "stripe": "#7a3b2e", "note": "Rond 1929–1930 schreef Brecht een reeks leerstukken: stukken die niet voor een zaal bedoeld waren, maar voor de spelers zelf. <em>De uitzondering en de regel</em> is er een van. Een koopman trekt met een gids en een koelie door de woestijn. Als de koelie hem het laatste water aanbiedt, denkt de koopman dat hij wordt aangevallen en schiet hem dood. De rechter spreekt hem vrij. Met dit stuk begon Boal zijn werk met Brecht, en met dit stuk begon Formaat.", "stages": [{"t": "Spelen, niet kijken", "body": "\"Het leerstuk leert doordat het gespeeld wordt, niet doordat het bekeken wordt,\" schreef Brecht. Wie leert, staat op de vloer. In het latere leerstukspel van Reiner Steinweg zijn de spelers de lerenden, en is een publiek niet nodig."}, {"t": "Boal, 1960", "body": "Boals eerste Brecht-regie was <em>De uitzondering en de regel</em>, \"ik geloof in 1960\", bij de metaalbond van het ABC bij São Paulo, met alleen arbeiders. \"In die ervaring met Brecht begon ik erover na te denken om bij niet-acteurs alle acteursmogelijkheden te ontwikkelen die wij allemaal hebben.\""}, {"t": "Formaat, 1999", "body": "Formaat begon in 1999 met hetzelfde stuk. We wisten toen niet dat Boal er ook mee begonnen was. Professionele acteurs speelden het als forum voor middelbare scholieren, met regie en jokeren door Luc Opdebeeck. De klas was de lerende. De koelie en de gids waren vervangbaar: leerlingen konden hun plaats innemen."}, {"t": "Leerstuk en forum", "body": "Wrentschur ziet in forum de \"vaste versies\" van het leerstukspel terug: dezelfde scène, die steeds opnieuw met andere houdingen en handelingen wordt geconfronteerd. Toch verschillen ze. Bij het leerstuk leren de spelers zonder publiek, bij het forum grijpt een zaal in. In Rotterdam kwam dat in 1999 samen: de klas zat als publiek in de zaal, en werd lerend door in te stappen. <span class=\"lezing\">(lezing)</span>"}], "tip": "Kijk in het model niet alleen naar de onderdrukte. Vraag ook wat de gids had kunnen doen: wie naast de onderdrukte staat, heeft soms meer ruimte dan die zelf.", "source": "Brecht (ca. 1937/38), via <a href='bronnen.html#steinweg-2003'>Steinweg (2003)</a> (vertaling); <a href='bronnen.html#boal-zd-brecht'>Boal (z.d.)</a>, Brecht e, modestamente, eu! (vertaling); <a href='bronnen.html#wrentschur-2003'>Wrentschur (2003)</a> (vertaling); praktijk Formaat 1999, Luc Opdebeeck."},
+{"n": 4, "title": "Arena: het Joker-systeem", "cat": "Bij Boal zelf", "catBg": "#f1e2d6", "catFg": "#7a3b2e", "stripe": "#7a3b2e", "note": "De joker heeft een voorgeschiedenis die ouder is dan het forum. In 1966 schreef Boal voor <em>Arena conta Tiradentes</em> een reeks teksten over een nieuw theatersysteem met een figuur die hij Coringa noemde, de Joker. Het systeem moest alles samenbrengen wat Arena in tien jaar had geleerd. Het werd maar één keer helemaal toegepast.", "stages": [{"t": "Eerst de chaos", "body": "Met <em>Arena conta Zumbi</em> (1965) speelden alle acteurs alle personages, als collectieve vertellers. Boal noemde dat de fase van de \"vernietiging\" van het theater: nodig om het oude af te breken, maar nog geen nieuw systeem. Het Joker-systeem kwam pas met <em>Tiradentes</em> (1967)."}, {"t": "Functies in plaats van rollen", "body": "\"Aan de acteurs worden geen personages maar functies verdeeld.\" De protagonist speelt realistisch, met inleving. De Joker is er \"het exacte tegendeel\" van: hij kan elke rol spelen, legt uit, en \"is alwetend\". Daarnaast twee koren, elk met een eigen koorleider."}, {"t": "Zeven delen", "body": "Elke voorstelling had dezelfde opbouw: opdracht, uitleg, episode, scène, commentaar, interview en aansporing. In de uitleg mocht de Joker scènes \"ongedaan maken\" om ze te corrigeren, en die uitleg moest veranderen met de stad en de dag van de voorstelling."}, {"t": "Het interview", "body": "De Joker legt de actie stil, en het personage geeft zijn redenen, in de rol. Boals voorbeeld: de onderkoning die in een monoloog sympathiek zou lijken, laat in een interview \"de koelheid van zijn denken\" zien."}], "tip": "Het interview werkt ook in een forummodel: leg na de eerste keer spelen de onderdrukker stil en laat de zaal hem vragen stellen, terwijl hij in de rol blijft. Zo wordt de logica van de macht zichtbaar zonder dat hij sympathiek wordt.", "source": "<a href='bronnen.html#boal-2008'>Boal (2008)</a>, pp. 136–168 (vertaling); <a href='bronnen.html#anderson-1996'>Anderson (1996)</a>."},
+{"n": 5, "title": "Van Coringa naar joker", "cat": "Bij Boal zelf", "catBg": "#f1e2d6", "catFg": "#7a3b2e", "stripe": "#7a3b2e", "note": "Dezelfde naam, bijna het omgekeerde. De Joker van Arena wist alles; de joker van het forum beslist niets alleen. Wie zich joker noemt, draagt beide in zich. <span class=\"lezing\">(lezing)</span>", "stages": [{"t": "Wat doorloopt", "body": "De plek tussen scène en zaal: Boal wilde al in 1966 een Joker die \"tijdgenoot en buur van de toeschouwer\" is. De uitleg vooraf: bij Arena een lezing over de techniek en de noodzaak het theater te vernieuwen, in het forum \"tien à vijftien minuten\" uitleg over de spelregels. En het stilleggen van de actie."}, {"t": "Wat breekt: kennis", "body": "De Arena-Joker \"is alwetend\" en heeft de blik van de auteur. De forumjoker \"moet elke vorm van manipulatie en sturing van de toeschouwer vermijden\" en \"beslist niets op eigen houtje: hij stelt de spelregels, maar moet daarna zelfs aanvaarden dat het publiek ze verandert\"."}, {"t": "Wat breekt: magie", "body": "De Arena-Joker \"schept\" een magische werkelijkheid. De forumjoker moet letten op magische oplossingen, maar \"mag niet verordenen dat iets magisch is; hij moet het publiek bevragen\". Boal vertelt hierbij zijn eigen vergissing, bij een forum voor het syndicaat van rechters."}, {"t": "Van aansporen naar laten vinden", "body": "Arena eindigde met een aansporing aan het publiek. Het forum eindigt met de vraag of een oplossing werkelijk werkt. Boal spreekt van \"de maieutische houding van de joker\"."}], "tip": "Merk je dat je aan het eind van een forum een conclusie wilt geven, dan spreekt de Arena-Joker in je. Geef de vraag terug: \"Wat zien jullie? Zou dit werken, morgen, bij jullie?\"", "source": "<a href='bronnen.html#boal-2008'>Boal (2008)</a>, pp. 152, 159, 162, 164 (vertaling); <a href='bronnen.html#boal-2002-juegos'>Boal (2002)</a>, Juegos para actores y no actores, \"La conducta del comodín o animador del foro\" (vertaling)."},
+{"n": 6, "title": "Piscator: het document op de scène", "cat": "Gekruist", "catBg": "#ece4d8", "catFg": "#6b5a3e", "stripe": "#6b5a3e", "note": "Piscator maakte in het Berlijn van de jaren twintig van het toneel een politiek tribunaal, met film, projecties en cijfers. Boal heeft hem niet ontmoet: Piscator vertrok in 1951 uit New York, Boal kwam er in 1953. De lijn loopt via Boals docent John Gassner, die volgens Geo Britto Piscators \"rechterhand\" was in de Dramatic Workshop.", "stages": [{"t": "Een ander episch", "body": "In zijn hoofdstuk over Hegel en Brecht noemt Boal Piscator een tijdgenoot van Brecht met \"een totaal ander begrip van episch\": hij gebruikte \"als eerste in een voorstelling film, dia's en grafieken\"."}, {"t": "Niet over de Grieken", "body": "Boals voorbeeld is <em>De vliegen</em> van Sartre in New York: het publiek mocht niet denken dat het over Griekenland ging; het ging over het bezette Frankrijk."}, {"t": "Meer Piscator dan Brecht", "body": "In een interview uit 1980 kondigde Boal ooit \"een poging tot niet-emotioneel theater\" aan, \"verwant aan het werk van Piscator, meer dan aan dat van Brecht\", met filmschermen op de scène. Over welk project het ging, is niet vastgesteld."}, {"t": "Het krantentheater", "body": "Onderzoekers leggen een lijn van de Russische agitprop via de Living Newspaper van het Amerikaanse Federal Theatre Project (1935–1939) naar het Krantentheater van Arena (1970 of 1971). Een uitspraak van Boal zelf hierover is niet gevonden. <span class=\"lezing\">(lezing van onderzoekers)</span>"}], "tip": "Hang tijdens een forum één feit uit de wereld van de brongroep zichtbaar op: een cijfer, een zin uit een beleidstekst. Vraag na een interventie: verandert dit iets aan dat feit? <span class=\"lezing\">(lezing)</span>", "source": "<a href='bronnen.html#boal-2008'>Boal (2008)</a>, hoofdstuk 3; <a href='bronnen.html#britto-2023'>Britto (2023)</a>, pp. 3, 12 (vertaling); <a href='bronnen.html#mullan-bartley-2024'>Mullan &amp; Bartley (2024)</a>."},
+{"n": 7, "title": "Grotowski en Artaud: getuige of protagonist", "cat": "Gekruist", "catBg": "#ece4d8", "catFg": "#6b5a3e", "stripe": "#6b5a3e", "note": "In 1968, midden in de Braziliaanse dictatuur, zag Boal in het Braziliaanse theater \"provinciale wreedheid, gekopieerd van Grotowski en het Living Theatre\". Het woord wreedheid komt van Artaud. Later schreef hij rustiger over Grotowski, en precies daar ligt de breuk.", "stages": [{"t": "Ingevoerde wreedheid", "body": "Voor Boal was dit theater een import dat het publiek aanvalt \"in het gezegde, niet in het onderwerp\": het schokt, maar raakt de structuur niet. Hij was in dezelfde tekst ook kritisch over zijn eigen Arena."}, {"t": "Getuige", "body": "In <em>Games</em> haalt Boal Grotowski aan: de toeschouwers moeten \"getuige zijn van iets dat gebeurt\", zoals de monnik die zich in Vietnam in brand stak. Dat past, schrijft Boal, bij theater waarin de toeschouwer getuige is. \"In het Theater van de Onderdrukten is de toeschouwer, verre van getuige, de protagonist van de dramatische actie, of moet hij oefenen om dat te worden.\""}, {"t": "Twee lichamen", "body": "De onderzoeker Philip Auslander noemt het lichaam bij Boal \"uiteindelijk zo goed als het tegendeel van het lichaam bij Grotowski\": bij Grotowski is het geneutraliseerde lichaam een doel op zich, bij Boal in wezen een middel. Boal wil dat spelers leren zien hoe hun dagelijks leven zich in hun lichaam heeft vastgezet. <span class=\"lezing\">(lezing, na Auslander)</span>"}, {"t": "Artaud in Brazilië", "body": "Artauds theater van de wreedheid kwam via José Celso en het Teatro Oficina in Brazilië binnen, met <em>Roda Viva</em> (1968). Boal en Grotowski hebben elkaar, voor zover bekend, nooit ontmoet."}], "tip": "Grotowski's training kan een lichaam openen, maar het doel verschilt. Vraag na een lichaamsoefening niet alleen \"wat voelde je?\" maar ook \"waar zit je werk, je buurt, je verleden in je lichaam?\". Dan wordt het lichaam een bron in plaats van een eindpunt.", "source": "<a href='bronnen.html#boal-1970'>Boal (1970)</a>, pp. 45–53 (vertaling); <a href='bronnen.html#boal-2002-juegos'>Boal (2002)</a>, Juegos para actores y no actores, scan-p. 193 (vertaling); <a href='bronnen.html#auslander-1994'>Auslander (1994)</a>, p. 131 (vertaling); <a href='bronnen.html#gomes-costa-2014'>Gomes &amp; Costa (2014)</a>."},
+{"n": 8, "title": "Het continent: de productiemiddelen", "cat": "Gekruist", "catBg": "#ece4d8", "catFg": "#6b5a3e", "stripe": "#6b5a3e", "note": "Boal werkte niet alleen in gesprek met Europa. In de ballingschap reisde hij langs de festivals van Latijns-Amerika, waar groepen als het Teatro Experimental de Cali van Enrique Buenaventura hun eigen methoden ontwikkelden. Daar formuleerde hij een van zijn scherpste zinnen: wat gepopulariseerd moet worden, is niet het afgewerkte product, maar de productiemiddelen.", "stages": [{"t": "De jonge toneelschrijver", "body": "Al in de jaren vijftig schreef Boal stukken voor het Teatro Experimental do Negro van Abdias do Nascimento, waaronder <em>Laio se matou</em>, Oedipus in een candomblé-huis in Rio. Een lijn van het TEN naar de methode van TO is niet gevonden."}, {"t": "Samen in de jury", "body": "Op het festival van Quito (1972) vormden Boal, Atahualpa del Cioppo en Buenaventura een collectief van \"begeleidende juryleden\", in plaats van een wedstrijd. Buenaventura en Jacqueline Vidal ontwikkelden de collectieve creatie (<em>creación colectiva</em>) zelfstandig, al vanaf de jaren zestig."}, {"t": "Kritiek op de mythe", "body": "In Mexico (1974) zei Boal over het Teatro Campesino van Luis Valdez: \"Een groep die vasthoudt aan La Raza, aan Aztlán, aan de mythen, gebruikt de meest anti-dialectische redenering die er is.\" Bij <em>Tiradentes</em> had hij al geschreven: \"Niet de mythe moet vernietigd worden, maar de mystificatie.\""}, {"t": "Vier soorten volkstheater", "body": "In <em>Técnicas latinoamericanas de teatro popular</em> (1975) onderscheidt Boal theater uit het perspectief van het volk voor het volk, voor een ander publiek, en tegen het volk, en een vierde soort: het volk maakt zelf het spektakel. [via secundaire bronnen; het boek is nog niet zelf ingezien]"}], "tip": "Gebruik Boals vier soorten als zelftoets: wie maakt hier het theater, voor wie, en vanuit wiens blik? En als een brongroep kracht haalt uit geloof of afkomst: wanneer is dat kracht, en wanneer verhult het de onderdrukking? Boals oordeel van 1974 is één stem in dat gesprek, geen uitkomst.", "source": "<a href='bronnen.html#villas-boas-estevam-2020'>Villas Bôas &amp; Estevam (2020)</a>, p. 14 (vertaling); <a href='bronnen.html#castillo-1974'>Castillo (1974)</a>, pp. 76–77 (vertaling); <a href='bronnen.html#boal-2008'>Boal (2008)</a>, p. 168 (vertaling); <a href='bronnen.html#vaz-2025'>Vaz (2025)</a> (vertaling); <a href='bronnen.html#lemes-2019'>Lemes (2019)</a>, p. 25; <a href='bronnen.html#marceles-daconte-1977'>Márceles Daconte (1977)</a>."},
+{"n": 9, "title": "Fo en Rame: het antwoord en de vraag", "cat": "Gekruist", "catBg": "#ece4d8", "catFg": "#6b5a3e", "stripe": "#6b5a3e", "note": "Dario Fo en Franca Rame verlieten in 1968 het officiële theatercircuit en speelden in volkshuizen en, met hun collectief La Comune, in een bezet gebouw in Milaan. Na de voorstelling volgde een debat met de zaal, soms tot diep in de nacht. Boal en Fo hebben elkaar, voor zover bekend, nooit ontmoet. Toch helpt het hun werk naast elkaar te leggen.", "stages": [{"t": "Dichtbij", "body": "De netwerken raakten elkaar. Boal regisseerde in 1977–78 in Lissabon bij A Barraca, waarvan regisseur Hélder Costa in 1980 Fo regisseerde in Rio. Gianfrancesco Guarnieri, Boals collega bij Arena, regisseerde Fo in São Paulo. Fo en Rame speelden in 1988 of 1989 in Rio, waar Boal toen woonde."}, {"t": "Satire als antwoord", "body": "De Italiaanse TO-practicus Roberto Mazzini zegt het zo: Boal ging na \"het agitprop- en satiretheater, zeg maar à la Dario Fo\" op weg naar \"een theater van de vraag, meer dan van het antwoord\"."}, {"t": "De meester blijft op het toneel", "body": "Fo zocht geen inleving, maar \"bleef altijd de hoofdspeler, een positie die zijn theater nooit ter discussie stelde\" (Santucci). In TO speelt de brongroep zelf."}, {"t": "Praten of spelen", "body": "Het debat na Fo's voorstellingen is praten óver de scène. Het forum is handelen ín de scène. Het is hetzelfde onderscheid dat Boal tussen Brecht en zijn eigen theater maakte. <span class=\"lezing\">(lezing)</span>"}], "tip": "Een gesprek na het forum kan het spel afronden, maar laat het geen vervanging worden. Wie in het gesprek zegt \"ik zou het anders doen\", mag dat eerst laten zien.", "source": "<a href='bronnen.html#mazzolani-2016'>Mazzolani (2016)</a> (vertaling); <a href='bronnen.html#santucci-2016'>Santucci (2016)</a> (vertaling); <a href='bronnen.html#patriota-2014'>Patriota (2014)</a>; <a href='bronnen.html#lemes-2019'>Lemes (2019)</a>."},
+{"n": 10, "title": "Tsjechov en Meyerhold: het lichaam dat wil", "cat": "Verwant", "catBg": "#e6e6e0", "catFg": "#52504a", "stripe": "#8a8780", "note": "Twee leerlingen van Stanislavski die elk een andere kant op gingen. Michael Tsjechov zocht de verbeelding, Vsevolod Meyerhold de precisie van het getrainde lichaam. Een gedocumenteerde lijn naar Boal is er niet: Boal noemt geen van beiden. Wat hier staat, is verwantschap. <span class=\"lezing\">(lezing)</span>", "stages": [{"t": "Het psychologisch gebaar", "body": "Tsjechov liet acteurs de kern van een personage uitdrukken in één groot, herhaald gebaar, dat daarna in het spel verinnerlijkt wordt (<em>To the Actor</em>, 1953). Het sluit aan bij Boals vraag \"wat wil het personage?\" en bij het lichaamsbeeld van het Beeldentheater."}, {"t": "Atmosfeer", "body": "Bij Tsjechov vult een groep de ruimte met een atmosfeer voordat er een scène gespeeld wordt. Zo kan een onderdrukkende plek voelbaar worden zonder dat er al personages zijn."}, {"t": "De cyclus van de biomechanica", "body": "Meyerhold trainde acteurs in een vaste cyclus: aanloop, uitvoering, stilstand. Dat helpt bij het dynamiseren van beelden: van beeld naar beweging en terug naar beeld."}, {"t": "Een omweg", "body": "Een van Boals docenten in New York, Norris Houghton, had in 1934 in Moskou repetities bijgewoond, ook bij Meyerhold, en schreef daar een boek over. Dat Boal daar iets van meekreeg, is niet bekend."}], "tip": "Laat de speler van de onderdrukker zijn kernwil eerst als één groot gebaar maken (\"ik wil dat jij klein blijft\"), en speel daarna de scène met dat gebaar van binnen. Het maakt de onderdrukker scherper zonder hem karikaturaal te maken.", "source": "<a href='bronnen.html#chekhov-2002'>Chekhov (2002)</a>; <a href='bronnen.html#pitches-2007'>Pitches (2007)</a>; <a href='bronnen.html#andrade-2021'>Andrade (2021)</a>; <a href='bronnen.html#britto-2023'>Britto (2023)</a>, p. 3."},
+{"n": 11, "title": "Brook, Barba en Lecoq: buren zonder gesprek", "cat": "Verwant", "catBg": "#e6e6e0", "catFg": "#52504a", "stripe": "#8a8780", "note": "Boal woonde van 1978 tot 1986 in Parijs, de stad van Peter Brook en Jacques Lecoq. Eugenio Barba werkte met zijn Odin Teatret in Denemarken. Een gedocumenteerd gesprek met een van hen is er niet. Alleen Brook staat bij de mensen die in 1971 opkwamen voor Boals vrijlating, met Sartre, Arthur Miller en Ariane Mnouchkine. <span class=\"lezing\">(lezing, behalve de campagne van 1971)</span>", "stages": [{"t": "De lege ruimte", "body": "\"Een man loopt door deze lege ruimte terwijl iemand anders naar hem kijkt, en meer is niet nodig om theater te laten ontstaan\" (Brook, 1968). In het forum is die kijker de mogelijke spect-acteur."}, {"t": "Het tapijt", "body": "In 1972–73 reisde Brook met zijn groep door Afrika, legde een tapijt neer en improviseerde voor dorpspubliek. Theater vóór een publiek, niet dóór het publiek: precies het verschil met het forum."}, {"t": "Ruilhandel", "body": "Barba's Odin Teatret ontwikkelde in 1974 in Zuid-Italië de ruilhandel (<em>baratto</em>): de groep laat iets zien, de gemeenschap antwoordt met liederen en dansen uit de eigen traditie. Een vorm om eerst gelijkwaardig te ontmoeten voordat onderdrukking op tafel komt."}, {"t": "Het neutrale masker", "body": "Lecoq liet spelers met een neutraal masker wakker worden \"als voor de eerste keer\". Het Arsenaal kent al oefeningen in deze lijn. Bij Boal laat je het sociale masker juist zien; bij Lecoq probeer je er even voorbij te gaan. <span class=\"lezing\">(lezing)</span>"}], "tip": "Begin een traject in een wijk niet met de vraag naar onderdrukking. Laat eerst iets zien, en vraag de buurt iets terug te laten zien. Wie eerst gelijk heeft mogen geven, vertelt later makkelijker wat schuurt.", "source": "<a href='bronnen.html#coudray-2023'>Coudray (2023)</a>; <a href='bronnen.html#lowy-2021'>Löwy (2021)</a>; <a href='bronnen.html#brook-1968'>Brook (1968)</a> (vertaling); <a href='bronnen.html#turner-campbell-2021'>Turner &amp; Campbell (2021)</a>; <a href='bronnen.html#lecoq-2000'>Lecoq (2000)</a>, p. 39, via <a href='bronnen.html#pinchin-2019'>Pinchin (2019)</a> (vertaling)."}
+];
+
+let cur = 0;
+let view = 'step';
+
+// Filter state
+let filteredIndices = Array.from({length: T.length}, (_, i) => i);
+
+function updateDisplay() {
+  const container = document.getElementById('card-container');
+  
+  if (view === 'all') {
+    container.innerHTML = createAllView();
+  } else {
+    const techIndex = filteredIndices[cur];
+    container.innerHTML = createStepView(techIndex);
+  }
+  
+  updateNav();
+}
+
+function createStepView(techIndex) {
+  const tech = T[techIndex];
+  const stages = tech.stages;
+  const hasStages = stages && stages.length > 0;
+  
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: ${tech.stripe}"></div>
+        <div class="head-top">
+          <div>
+            <div class="tech-num">${tech.n} / ${T.length}</div>
+            <div class="card-name">${tech.title}</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: ${tech.catBg}; color: ${tech.catFg}">${tech.cat}</div>
+          </div>
+        </div>
+        ${tech.note ? `<div class="card-note">${tech.note}</div>` : ''}
+      </div>
+      
+      ${hasStages ? renderStagesAcc(stages) : ''}
+      
+      ${tech.tip ? `
+        <div class="card-tip">
+          <span class="tip-lbl">Jokertip</span>
+          <div class="tip-txt">${tech.tip}</div>
+        </div>
+      ` : ''}
+      ${tech.source ? `<div class="card-src">Bron: ${tech.source}</div>` : ''}
+    </div>
+  `;
+}
+
+function createAllView() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div class="cat-stripe" style="background: var(--blue)"></div>
+        <div class="head-top">
+          <div>
+            <div class="card-name">Alle kaarten</div>
+          </div>
+          <div class="head-badges">
+            <div class="badge-cat" style="background: var(--blue4); color: var(--blue)">Overzicht</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="all-stages">
+        ${filteredIndices.map(i => {
+          const tech = T[i];
+          return `
+            <div class="all-stage-row" data-tech="${i}">
+              <div class="all-sn">${tech.n}</div>
+              <div class="all-stage-name">${tech.title}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function updateNav() {
+  document.getElementById('current').textContent = cur + 1;
+  document.getElementById('total').textContent = filteredIndices.length;
+  
+  document.getElementById('prev').disabled = cur === 0;
+  document.getElementById('next').disabled = cur === filteredIndices.length - 1;
+}
+
+function nextTech() {
+  if (cur < filteredIndices.length - 1) {
+    cur++;
+    updateDisplay();
+  }
+}
+
+function prevTech() {
+  if (cur > 0) {
+    cur--;
+    updateDisplay();
+  }
+}
+
+function filterByCategory(category) {
+  if (category === 'all') {
+    filteredIndices = Array.from({length: T.length}, (_, i) => i);
+  } else {
+    filteredIndices = T.map((tech, i) => tech.cat === category ? i : -1).filter(i => i !== -1);
+  }
+  
+  cur = 0;
+  updateDisplay();
+}
+
+function goToTech(techIndex) {
+  const filterIndex = filteredIndices.indexOf(techIndex);
+  if (filterIndex !== -1) {
+    cur = filterIndex;
+    view = 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+}
+
+function updateViewToggle() {
+  document.querySelectorAll('.vt-btn').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.view === view);
+  });
+}
+
+// Event listeners
+document.getElementById('prev').addEventListener('click', prevTech);
+document.getElementById('next').addEventListener('click', nextTech);
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('tpill')) {
+    document.querySelectorAll('.tpill').forEach(pill => {
+      pill.classList.toggle('on', pill === e.target);
+    });
+    filterByCategory(e.target.dataset.cat);
+  }
+  
+  if (e.target.classList.contains('vt-btn')) {
+    view = e.target.dataset.view;
+    updateViewToggle();
+    updateDisplay();
+  }
+  
+  if (e.target.classList.contains('all-stage-row') || e.target.parentElement.classList.contains('all-stage-row')) {
+    const row = e.target.classList.contains('all-stage-row') ? e.target : e.target.parentElement;
+    const techIndex = parseInt(row.dataset.tech);
+    goToTech(techIndex);
+  }
+});
+
+// Custom shortcuts blijven via aparte listener
+document.addEventListener('keydown', (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.code === 'Space') {
+    e.preventDefault();
+    view = view === 'step' ? 'all' : 'step';
+    updateViewToggle();
+    updateDisplay();
+  }
+});
+
+// Accordion helpers (stappen binnen één kaart)
+function renderStagesAcc(stages) {
+  const rows = stages.map((s, i) => `
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-sn">${i+1}</div>
+        <div class="acc-title">${s.t}</div>
+        <span class="acc-arrow">&#9660;</span>
+      </button>
+      <div class="acc-body"><div class="acc-text">${s.body}</div></div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;align-items:center;padding:10px 26px 8px;border-bottom:1px solid var(--creme3)">
+      <span class="stages-lbl">${stages.length} stappen</span>
+      <button class="acc-expand-all" onclick="toggleAllAcc(this)">Alles uitklappen</button>
+    </div>
+    <div>${rows}</div>`;
+}
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+function toggleAllAcc(btn) {
+  const card = btn.closest('.card');
+  const triggers = card.querySelectorAll('.acc-trigger');
+  const bodies = card.querySelectorAll('.acc-body');
+  const anyOpen = [...bodies].some(b => b.classList.contains('open'));
+  triggers.forEach(t => t.classList.toggle('open', !anyOpen));
+  bodies.forEach(b => b.classList.toggle('open', !anyOpen));
+  btn.textContent = anyOpen ? 'Alles uitklappen' : 'Alles inklappen';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  ArsenaalNav.init({
+    horizontal: { next: nextTech,  prev: prevTech  }
+  });
+});
+
+// Initialize
+updateDisplay();
+updateViewToggle();
+</script>
+
+</body>
+</html>
