@@ -445,6 +445,7 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
           .tb-link:focus{outline:none}
           .tb-link:focus-visible .tb-hit{stroke:var(--tb-amber);stroke-width:2}
           .tb-link text{fill:var(--tb-amber)}
+          .tb-bomen .tb-boompje{stroke:var(--tb-amber)}
           .tb-link .tb-pijltje{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px}
         </style>
         <defs>
@@ -484,11 +485,13 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
           <path class="tb-pijl" d="M300 482 L300 440 M293 450 L300 438 L307 450"/>
           <path class="tb-pijl" d="M300 378 L300 338 M293 348 L300 336 L307 348"/>
 
-          <!-- Boompjes bij multiplicatie -->
-          <path class="tb-boompje" d="M530 546 L530 512 M530 516 C514 516 510 500 518 494 C516 482 532 476 538 486 C550 484 552 500 544 504 C548 514 538 518 530 516"/>
-          <path class="tb-boompje" d="M562 546 L562 522 M562 524 C552 524 550 514 555 510 C554 502 566 498 569 506 C577 506 577 516 571 519 C572 525 566 526 562 524"/>
         </g>
 
+        <!-- Boompjes bij multiplicatie: de andere bomen, de Atlas -->
+        <a class="tb-link tb-bomen" href="atlas.html" aria-label="De andere bomen: Atlas, TO in de wereld"><rect class="tb-hit" x="504" y="470" width="82" height="80" rx="16"/><g filter="url(#tb-hand)">
+          <path class="tb-boompje" d="M530 546 L530 512 M530 516 C514 516 510 500 518 494 C516 482 532 476 538 486 C550 484 552 500 544 504 C548 514 538 518 530 516"/>
+          <path class="tb-boompje" d="M562 546 L562 522 M562 524 C552 524 550 514 555 510 C554 502 566 498 569 506 C577 506 577 516 571 519 C572 525 566 526 562 524"/>
+        </g></a>
         <!-- Teksten (zonder vervorming, voor leesbaarheid) -->
         <text class="tb-actie" x="300" y="80">DIRECTE</text>
         <text class="tb-actie" x="300" y="102">SOCIALE ACTIE</text>
@@ -559,7 +562,6 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
     </figure>
     <nav class="rondom" aria-label="Rondom de boom">
       <span class="rondom-titel">Rondom de boom</span>
-      <a href="atlas.html">Atlas</a>
       <a href="theateratelier.html">Theateratelier</a>
       <a href="#verwant">Verwante methodieken</a>
       <a href="#hoofdstukken">Alle hoofdstukken ↓</a>
