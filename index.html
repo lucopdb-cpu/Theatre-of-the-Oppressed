@@ -325,6 +325,11 @@
 @media (max-width:600px){.arsenaal-joker{width:108px;margin-bottom:12px}}
 
 /* Voorwoord, uitklapbaar in de kop */
+.wegwijzer-link{display:inline-block;margin:18px auto 0;font-family:var(--sans);font-size:.85rem;color:var(--ink2);text-decoration:none;border:1px solid var(--paper4,rgba(60,45,30,.2));border-radius:999px;padding:6px 16px;transition:border-color .15s,color .15s}
+.wegwijzer-link:hover{border-color:var(--amber);color:var(--ink)}
+.wegwijzer-link:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.wegwijzer-link span{color:var(--amber)}
+html[data-thema="donker"] .wegwijzer-link{border-color:rgba(236,230,218,.2)}
 .voorwoord{max-width:600px;margin:22px auto 0;text-align:left}
 .voorwoord summary{cursor:pointer;list-style:none;text-align:center;font-family:var(--sans);font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
 .voorwoord summary::-webkit-details-marker{display:none}
@@ -400,6 +405,7 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
     <div class="description">
       Oefeningen, technieken, methodes, houdingen en contexten uit de Theatre of the Oppressed-traditie. Van Freires pedagogische humus tot Boals klassieke spellen en hedendaagse toepassingen. Voor jokers, facilitators en iedereen die theater inzet voor sociale verandering.
     </div>
+    <a class="wegwijzer-link" href="wegwijzer.html">Nieuw hier? <span>Zo vind je je weg →</span></a>
     <details class="voorwoord">
       <summary><span class="vw-toggle"><span class="vw-dicht">Voorwoord lezen</span><span class="vw-open">Voorwoord sluiten</span></span></summary>
       <div class="vw-tekst">
@@ -643,7 +649,7 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
           <div class="card-icon">🪞</div>
           <h2>Introspectieve technieken</h2>
           <div class="meta">9 technieken · Parijs jaren '80 · de cop in the head</div>
-          <p>De negen introspectieve beeldentechnieken waarmee Boal de innerlijke onderdrukker onderzoekt. Ontwikkeld in Parijs toen hij merkte dat Europese onderdrukking meer binnen de hoofden van mensen zat dan op straat. Per fase navigeerbaar, met jokertips en power-framework.</p>
+          <p>De negen introspectieve beeldentechnieken waarmee Boal de innerlijke onderdrukker onderzoekt. Ontwikkeld in Parijs toen hij merkte dat Europese onderdrukking meer binnen de hoofden van mensen zat dan op straat. Per fase navigeerbaar, met jokertips.</p>
           <div class="card-footer">
             <span class="badge">Introspectief</span>
             <span class="arrow">→</span>
@@ -881,7 +887,7 @@ html[data-thema="donker"] [style="--accent:#52504a; --icon-bg:#e8e0d4; --badge-b
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-text">
-      Samengesteld door <strong>Luc Opdebeeck</strong> voor educatief, niet-commercieel gebruik · <a href="bronnen.html" style="color:inherit">Bronnen</a> · <a href="app.html" style="color:inherit">Het Arsenaal op je telefoon</a><br>
+      Samengesteld door <strong>Luc Opdebeeck</strong> voor educatief, niet-commercieel gebruik · <a href="bronnen.html" style="color:inherit">Bronnen</a> · <a href="wegwijzer.html" style="color:inherit">Wegwijzer</a> · <a href="app.html" style="color:inherit">Het Arsenaal op je telefoon</a><br>
       <em>Arsenaal van de Joker</em> — werk in uitvoering.
       <br>De jokertekening is van Augusto Boal: een kopie van de tekening die hij maakte in het gastenboek bij de opening van de werkplaats van Formaat.
     </div>

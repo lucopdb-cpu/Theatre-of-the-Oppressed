@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Arsenal">
+<script src="../thema.js"></script>
+<meta name="theme-color" content="#8c5e2a">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" hreflang="nl" href="../wegwijzer.html">
+<link rel="alternate" hreflang="en" href="wegwijzer.html">
+<title>Finding your way — A Joker's Arsenal</title>
+<meta name="description" content="How to find your way in A Joker's Arsenal: start from your question, see how the whole is built, and what the site's tools do.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Joker's Arsenal">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Finding your way">
+<meta property="og:description" content="How to find your way in A Joker's Arsenal.">
+<meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/wegwijzer.html">
+<meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#2a2824;--ink2:#52504a;--ink3:#8b8881;
+  --paper:#f2efe9;--paper2:#e9e4db;--paper3:#e8e0d4;--paper4:#ddd4c4;--kaart:#faf7f1;
+  --amber:#8c5e2a;--amber2:#b8803c;--amber3:#f0d4a8;--amber4:#f4ecdf;
+  --rule:rgba(42,40,36,.1);
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh;padding-bottom:4rem}
+.page{max-width:820px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.page{padding-left:16px;padding-right:16px}}
+a{color:inherit}
+
+/* Balk bovenaan, gelijk op alle pagina's */
+.arsenaal-nav{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.arsenaal-nav a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:.01em;transition:background .15s,color .15s}
+.arsenaal-nav a:hover{background:rgba(60,45,30,.13);color:#2a2824}
+.arsenaal-nav a:focus-visible{outline:2px solid #8c5e2a;outline-offset:2px}
+
+/* Kop */
+.masthead{display:flow-root;border-bottom:2px solid var(--ink);padding:28px 0 18px;margin-bottom:26px}
+.laagregel{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#8a7d6b;margin-bottom:6px}
+.app-name{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-bottom:10px;text-wrap:balance}
+.app-name em{font-style:italic;color:var(--amber)}
+.context-note{font-size:15px;font-weight:300;color:var(--ink2);line-height:1.65;border-left:3px solid var(--amber3);padding-left:14px;max-width:620px}
+.arsenaal-joker{float:right;width:88px;height:auto;margin:0 0 10px 20px;pointer-events:none;user-select:none}
+@media (max-width:600px){.arsenaal-joker{width:58px;margin-left:12px}.app-name{font-size:26px}}
+
+/* Inhoud van deze pagina */
+.inhoud{display:flex;flex-wrap:wrap;gap:6px 8px;margin:-6px 0 26px;font-family:var(--sans);font-size:12.5px}
+.inhoud a{text-decoration:none;color:var(--ink2);border:1px solid var(--paper4);border-radius:999px;padding:4px 12px;background:var(--kaart)}
+.inhoud a:hover{border-color:var(--amber2);color:var(--ink)}
+
+/* Kaarten */
+.kaart{background:var(--kaart);border:1px solid var(--paper4);border-radius:16px;margin-bottom:22px;box-shadow:0 1px 2px rgba(26,24,20,.05),0 3px 12px rgba(26,24,20,.04);overflow:hidden;scroll-margin-top:16px}
+.kaart-kop{padding:20px 26px 14px;border-bottom:1px solid var(--paper3)}
+.kaart-titel{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.2}
+.kaart-sub{font-size:14px;font-weight:300;color:var(--ink2);margin-top:4px;line-height:1.55}
+.kaart-lijf{padding:18px 26px 22px}
+.kaart-lijf p{font-size:15px;font-weight:300;line-height:1.7;margin-bottom:12px}
+.kaart-lijf p:last-child{margin-bottom:0}
+@media (max-width:600px){.kaart-kop{padding:18px 18px 12px}.kaart-lijf{padding:16px 18px 20px}}
+
+/* Ingangen vanuit je vraag */
+.vragen{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.vraag{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px solid var(--paper4);border-radius:12px;padding:14px 16px 13px;background:var(--paper);transition:border-color .15s,background .15s}
+.vraag:hover{border-color:var(--amber2);background:var(--amber4)}
+.vraag:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.vraag-zin{font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--ink)}
+.vraag-naar{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--amber)}
+.vraag-uitleg{font-size:13.5px;font-weight:300;line-height:1.5;color:var(--ink2)}
+
+/* Opbouw */
+.lagen{list-style:none;display:flex;flex-direction:column;gap:0}
+.laag{display:grid;grid-template-columns:118px 1fr;gap:4px 18px;padding:13px 0;border-bottom:1px solid var(--paper3)}
+.laag:first-child{padding-top:0}
+.laag:last-child{border-bottom:none;padding-bottom:0}
+.laag-naam{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);padding-top:3px}
+.laag-tekst{font-size:14.5px;font-weight:300;line-height:1.6;min-width:0}
+.laag-tekst a{text-decoration:underline;text-decoration-color:var(--amber3);text-underline-offset:2px;font-weight:400}
+.laag-tekst a:hover{text-decoration-color:var(--amber)}
+@media (max-width:520px){.laag{grid-template-columns:1fr}}
+
+/* Gereedschap */
+.gereedschap{list-style:none}
+.gereedschap li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:14.5px;font-weight:300;line-height:1.6;padding:11px 0;border-bottom:1px solid var(--paper3)}
+.gereedschap li:first-child{padding-top:0}
+.gereedschap li:last-child{border-bottom:none;padding-bottom:0}
+.gereedschap strong{font-weight:600}
+.teken{width:30px;height:30px;border-radius:50%;background:var(--paper2);color:var(--ink2);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:11px;font-weight:600}
+.teken svg{width:15px;height:15px}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--paper4);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--paper)}
+
+/* Vaste voettekst, gelijk op alle pagina's */
+.arsenaal-footer{margin:44px 0 28px;padding-top:16px;border-top:1px solid rgba(26,24,20,.13);font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.65;color:#7d776d;text-align:left}
+.arsenaal-footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,40,36,.28);text-underline-offset:2px}
+.arsenaal-footer a:hover{color:#2a2824;text-decoration-color:currentColor}
+.arsenaal-footer .af-site{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.01em;color:#8b8881}
+
+@media print{
+  .arsenaal-nav,.inhoud,.arsenaal-footer .af-site{display:none!important}
+  body{background:#fff}
+  .kaart{box-shadow:none;break-inside:avoid}
+}
+
+/* ═══ DONKER SCHERM (zie thema.js) ═══ */
+@media screen{
+html[data-thema="donker"]{--ink:#dbd9d3;--ink2:#c0beb7;--ink3:#96938c;--paper:#201d18;--paper2:#292621;--paper3:#2e2922;--paper4:#39342a;--kaart:#1c1914;--amber:#d3a06d;--amber2:#c48d4c;--amber3:#5a4220;--amber4:#2a2219;--rule:rgba(230,227,221,.1)}
+html[data-thema="donker"] body{background:var(--paper);color:var(--ink)}
+html[data-thema="donker"] .laagregel{color:#a79a87}
+html[data-thema="donker"] .arsenaal-nav a{background:rgba(227,207,189,.07);color:#c0beb7}
+html[data-thema="donker"] .arsenaal-nav a:hover{background:rgba(227,207,189,.13);color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-nav a:focus-visible{outline:2px solid #d3a06d}
+html[data-thema="donker"] .arsenaal-footer{border-top:1px solid rgba(230,227,221,.13);color:#a7a096}
+html[data-thema="donker"] .arsenaal-footer a{text-decoration-color:rgba(219,217,211,.28)}
+html[data-thema="donker"] .arsenaal-footer a:hover{color:#dbd9d3}
+html[data-thema="donker"] .arsenaal-footer .af-site{color:#96938c}
+}
+/* ═══ EINDE DONKER SCHERM ═══ */
+</style>
+<script data-goatcounter="https://arsenaal-joker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="page">
+
+<nav class="arsenaal-nav" aria-label="Back"><a href="index.html">← A Joker's Arsenal</a></nav>
+
+<div class="masthead">
+  <img src="../joker-amber.png" alt="" class="arsenaal-joker" aria-hidden="true">
+  <div class="laagregel">Wayfinding</div>
+  <h1 class="app-name">Finding your way <em>in the Arsenal</em></h1>
+  <p class="context-note">The Arsenal is large: more than 460 exercises and some twenty chapters. You don't need to read it from front to back. Start from the question you bring with you, and take what you can use.</p>
+</div>
+
+<nav class="inhoud" aria-label="On this page">
+  <a href="#vraag">Start from your question</a>
+  <a href="#opbouw">How it fits together</a>
+  <a href="#hoofdstuk">Reading a chapter</a>
+  <a href="#gereedschap">What the buttons do</a>
+</nav>
+
+<section class="kaart" id="vraag">
+  <div class="kaart-kop">
+    <h2 class="kaart-titel">Start from your question</h2>
+    <p class="kaart-sub">Six ways in. Choose the question closest to yours.</p>
+  </div>
+  <div class="kaart-lijf">
+    <div class="vragen">
+      <a class="vraag" href="to-arsenaal.html">
+        <span class="vraag-zin">I'm looking for an exercise for my group</span>
+        <span class="vraag-naar">TO Arsenal →</span>
+        <span class="vraag-uitleg">All exercises in one place. Choose a phase of the workshop, search for a word, or let chance decide.</span>
+      </a>
+      <a class="vraag" href="forum.html">
+        <span class="vraag-zin">I want to get to know one of Boal's forms</span>
+        <span class="vraag-naar">Forum Theatre and more →</span>
+        <span class="vraag-uitleg">Each form has its own chapter. For many people Forum Theatre is the beginning; you'll find the others in the menu.</span>
+      </a>
+      <a class="vraag" href="joker-praktijk.html">
+        <span class="vraag-zin">What am I actually doing as a Joker?</span>
+        <span class="vraag-naar">Joker practice →</span>
+        <span class="vraag-uitleg">Six attitudes that carry the work, before you pick up any tool.</span>
+      </a>
+      <a class="vraag" href="freire.html">
+        <span class="vraag-zin">Where does it come from?</span>
+        <span class="vraag-naar">Paulo Freire →</span>
+        <span class="vraag-uitleg">The pedagogical ground Boal built on. A chapter on Boal and the theatre of his century is under construction.</span>
+      </a>
+      <a class="vraag" href="atlas.html">
+        <span class="vraag-zin">How do others work with it?</span>
+        <span class="vraag-naar">Atlas →</span>
+        <span class="vraag-uitleg">Practices from Rio to Dakar and Rotterdam, with what Jokers in each place added to the method.</span>
+      </a>
+      <a class="vraag" href="../bronnen.html" hreflang="nl">
+        <span class="vraag-zin">Where does this come from, and who says so?</span>
+        <span class="vraag-naar">Sources (in Dutch) →</span>
+        <span class="vraag-uitleg">The books, articles and conversations the Arsenal rests on.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="opbouw">
+  <div class="kaart-kop">
+    <h2 class="kaart-titel">How it fits together</h2>
+    <p class="kaart-sub">The home page roughly follows the tree of the Theatre of the Oppressed: from the soil to the crown, and what grows around it.</p>
+  </div>
+  <div class="kaart-lijf">
+    <ul class="lagen">
+      <li class="laag">
+        <div class="laag-naam">Attitude</div>
+        <div class="laag-tekst"><a href="joker-praktijk.html">Joker practice</a>: what you do as a Joker, and how you relate to a group and to traditions you don't come from.</div>
+      </li>
+      <li class="laag">
+        <div class="laag-naam">Soil</div>
+        <div class="laag-tekst"><a href="freire.html">Paulo Freire</a>: the pedagogy Boal's work grew from. Theatre lines, on Boal and the theatre of his century, is under construction.</div>
+      </li>
+      <li class="laag">
+        <div class="laag-naam">Trunk</div>
+        <div class="laag-tekst">The <a href="to-arsenaal.html">TO Arsenal</a>: all exercises, with two ways in. <em>The Workshop</em> orders them by phase of a workshop; <em>Boal's book</em> follows <em>Games for Actors and Non-Actors</em>. Above it, <a href="beeldentheater.html">Image Theatre</a>, the basis of many other forms.</div>
+      </li>
+      <li class="laag">
+        <div class="laag-naam">Crown</div>
+        <div class="laag-tekst">The forms many people know: <a href="forum.html">Forum Theatre</a>, the Rainbow of Desire (<a href="introspectief.html">introspective</a> and <a href="prospectief.html">prospective</a>), <a href="krantentheater.html">Newspaper Theatre</a>, <a href="onzichtbaar.html">Invisible Theatre</a> and <a href="legislatief.html">Legislative Theatre</a>.</div>
+      </li>
+      <li class="laag">
+        <div class="laag-naam">Practice</div>
+        <div class="laag-tekst">The <a href="../theateratelier.html" hreflang="nl">Theateratelier</a> (in Dutch) of Formaat in Rotterdam, and the <a href="atlas.html">Atlas</a> with practices and regional deep dives worldwide.</div>
+      </li>
+      <li class="laag">
+        <div class="laag-naam">Related</div>
+        <div class="laag-tekst">Methods alongside TO, for now in Dutch: <a href="../playback.html" hreflang="nl">Playback Theatre</a>, <a href="../psychodrama.html" hreflang="nl">Psychodrama</a>, <a href="../impro.html" hreflang="nl">Impro</a>, <a href="../feldenkrais.html" hreflang="nl">Feldenkrais</a>, and <a href="../detentie.html" hreflang="nl">Theatre in Prison</a>.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="kaart" id="hoofdstuk">
+  <div class="kaart-kop">
+    <h2 class="kaart-titel">Reading a chapter</h2>
+  </div>
+  <div class="kaart-lijf">
+    <p>A chapter is a series of cards. With <strong>Step by step</strong> you see one card at a time; move on with the arrows, the arrow keys, or by swiping on your phone. With <strong>Overview</strong> you see all cards in a row and choose where to start.</p>
+    <p>The buttons above the cards show a part of them, in Forum Theatre for instance only the cards on the Joker or on ethics. At the bottom you'll find where the content comes from.</p>
+    <p>Every card and every exercise has its own address. Whatever you share or save opens later in exactly that place.</p>
+  </div>
+</section>
+
+<section class="kaart" id="gereedschap">
+  <div class="kaart-kop">
+    <h2 class="kaart-titel">What the buttons do</h2>
+    <p class="kaart-sub">At the top of every page, and on the cards themselves.</p>
+  </div>
+  <div class="kaart-lijf">
+    <ul class="gereedschap">
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></span>
+        <span><strong>Chapters.</strong> The three lines at the top left open a menu with all chapters, in the order of the home page.</span></li>
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5 14 14"/></svg></span>
+        <span><strong>Search.</strong> The magnifying glass searches the whole site: exercises, cards and sources. Shortcut <kbd>/</kbd>.</span></li>
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 2.5h8v11L8 10.8 4 13.5z"/></svg></span>
+        <span><strong>My selection.</strong> With <em>+ select</em> you keep an exercise or card in your own list. You can reorder that list, print it, copy it or send it as a link to a colleague. It stays on your own device; nobody else sees it.</span></li>
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.8v8.4M5.2 4.4 8 1.6l2.8 2.8M5.5 6.5H4.2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-1.3"/></svg></span>
+        <span><strong>Share.</strong> Sends the link to a single card or exercise, for instance to your co-Joker.</span></li>
+      <li><span class="teken" aria-hidden="true">↻</span>
+        <span><strong>Random.</strong> In the TO Arsenal: let chance pick an exercise. Shortcut <kbd>R</kbd>.</span></li>
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/></svg></span>
+        <span><strong>Light or dark.</strong> The sun and moon switch the screen. Without a choice of your own, the site follows your device.</span></li>
+      <li><span class="teken" aria-hidden="true">NL</span>
+        <span><strong>Nederlands.</strong> The NL button takes you to the Dutch version of the page.</span></li>
+      <li><span class="teken" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.4h2" stroke-linecap="round"/></svg></span>
+        <span><strong>On your phone.</strong> Put the Arsenal on your home screen as an app, usable without internet in a gym or community centre. <a href="app.html">How it works</a>.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="kaart" id="niet">
+  <div class="kaart-kop">
+    <h2 class="kaart-titel">What the Arsenal is not</h2>
+  </div>
+  <div class="kaart-lijf">
+    <p>Not a recipe book and not a script. An exercise never works the same everywhere; that depends on the source group, the moment and the conversation afterwards. The site offers, the Joker chooses.</p>
+    <p>The Arsenal is also unfinished, and it looks with a Dutch and European eye. More about the why is in the foreword on the <a href="index.html">home page</a>.</p>
+  </div>
+</section>
+
+<footer class="arsenaal-footer">
+  <div class="af-site">Part of <a href="index.html">A Joker's Arsenal</a>, compiled by Luc Opdebeeck · <a href="../bronnen.html" hreflang="nl">Sources</a> (in Dutch) · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · Joker drawing: Augusto Boal</div>
+</footer>
+
+</div>
+</body>
+</html>

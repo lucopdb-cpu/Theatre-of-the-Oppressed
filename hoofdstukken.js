@@ -10,6 +10,7 @@
  *   (EN hieronder op true); anders naar de Nederlandse pagina, met "NL" erachter.
  * - Hoofdstukken in opbouw of tijdelijk niet beschikbaar staan erin met 🚧 en zijn (nog) niet klikbaar:
  *   zet in plaats van een pagina null en als vijfde element de reden ('opbouw' of 'tijdelijk').
+ * - Bovenin het menu ook de Wegwijzer (wegwijzer.html, NL en EN).
  * - Knop Mijn selectie (bladwijzer met aantal) in de balk bovenaan, naast het vergrootglas; ook bovenin het menu.
  * - Een nieuw hoofdstuk op de startpagina? Zet het dan ook in H hieronder.
  */
@@ -59,8 +60,8 @@
       [null, 'Shadow Liberation Theatre', 'Shadow Liberation Theatre', false, 'opbouw']]]
   ];
   var T = ENGELS
-    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', sel: 'My selection', selNaar: 'My selection: put your workshop together', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
-    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', sel: 'Mijn selectie', selNaar: 'Mijn selectie: stel je workshop samen', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
+    ? { knop: 'Chapters', start: 'Home page', bronnen: 'Sources', app: 'On your phone', weg: 'Finding your way', sel: 'My selection', selNaar: 'My selection: put your workshop together', opbouw: 'Under construction', tijdelijk: 'Temporarily unavailable' }
+    : { knop: 'Hoofdstukken', start: 'Startpagina', bronnen: 'Bronnen', app: 'Op je telefoon', weg: 'Wegwijzer', sel: 'Mijn selectie', selNaar: 'Mijn selectie: stel je workshop samen', opbouw: 'In opbouw', tijdelijk: 'Tijdelijk niet beschikbaar' };
 
   var LIJST = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
 
@@ -139,6 +140,7 @@
     paneel.setAttribute('aria-label', T.knop);
     var hier = huidig(), html = '';
     html += '<div class="hm-boven"><a href="' + adres('index.html', true) + '">← ' + T.start + '</a><a href="' + SITE + 'bronnen.html"' + (ENGELS ? ' hreflang="nl"' : '') + '>' + T.bronnen + (ENGELS ? ' <span class="hm-nl">NL</span>' : '') + '</a>' +
+      '<a href="' + adres('wegwijzer.html', true) + '"' + (hier === 'wegwijzer.html' ? ' aria-current="page"' : '') + '>' + T.weg + '</a>' +
       '<a href="' + SELECTIE + '">' + T.sel + '</a>' +
       '<a href="' + adres('app.html', true) + '"' + (hier === 'app.html' ? ' aria-current="page"' : '') + '>' + T.app + '</a></div>';
     html += '<div class="hm-kolommen">';
