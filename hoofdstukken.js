@@ -90,10 +90,10 @@
     '.hm-wip .hm-teken{font-size:12px;align-self:center}',
     '.hm-nl{font-size:10px;font-weight:600;letter-spacing:.06em;color:#9a9790;border:1px solid rgba(60,45,30,.18);border-radius:4px;padding:0 4px}',
     '@media (max-width:520px){.hm-paneel{left:16px!important;right:16px;width:auto}.hm-kolommen{columns:1}}',
-    /* Smalle schermen: de knoppen bovenaan op één regel houden. Onder 390px valt "← Arsenaal van de Joker" weg;
+    /* Smalle schermen: de knoppen bovenaan op één regel houden. Onder 480px (telefoons) valt "← Arsenaal van de Joker" weg;
        de startpagina staat dan bovenin het menu. */
     '@media (max-width:420px){.arsenaal-nav{gap:6px}.arsenaal-nav > a:not(.taal-knop):not(.sel-knop){padding-left:10px;padding-right:10px}}',
-    '@media (max-width:389px){.arsenaal-nav > a:not(.taal-knop):not(.sel-knop){display:none}}',
+    '@media (max-width:479px){.arsenaal-nav > a:not(.taal-knop):not(.sel-knop){display:none}}',
     /* Knop Mijn selectie in de balk bovenaan */
     '.sel-knop{position:relative;display:inline-flex;align-items:center;justify-content:center;width:34px;height:31px;margin-left:auto;padding:0;border-radius:999px;background:rgba(60,45,30,.07);color:#52504a;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;line-height:1;transition:background .15s,color .15s}',
     '.arsenaal-nav a.sel-knop{padding:0;font-size:12px}',
@@ -210,15 +210,28 @@
   }
   // ── Knop Mijn selectie, in de balk bovenaan op elke pagina ──
   // Naast het vergrootglas; toont hoeveel oefeningen er in Mijn selectie staan (NL en EN hebben elk een eigen lijst).
-  // Op het TO Arsenaal zelf staat al een eigen knop (#sel-link), daar komt hij niet.
+  // Ook op het TO Arsenaal zelf (naast de eigen knop #sel-link verderop): wie via het zoeken op een oefening
+  // landt, ziet de lijst daar anders niet meer bovenin. Daar opent de knop Mijn selectie op dezelfde pagina.
   var SEL_SLEUTEL = ENGELS ? 'to-selection-en' : 'to-sessie';
   var selKnop = null;
   function aantal() {
     try { var l = JSON.parse(localStorage.getItem(SEL_SLEUTEL) || '[]'); return Array.isArray(l) ? l.length : 0; } catch (e) { return 0; }
   }
+  // Staat er iets in Mijn selectie, dan de browser vragen de opslag van deze site niet vanzelf op te ruimen
+  // (Safari wist anders sitegegevens na een tijd zonder bezoek). Helpt niet als iemand zelf de browsergegevens wist.
+  // Niet in Firefox: daar verschijnt bij deze vraag een melding.
+  var bewaarGevraagd = false;
+  function vraagBewaren(n) {
+    if (bewaarGevraagd || !n || /Firefox\//.test(navigator.userAgent)) return;
+    bewaarGevraagd = true;
+    try {
+      if (navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(function (al) { if (!al) navigator.storage.persist(); }).catch(function () {});
+    } catch (e) {}
+  }
   function telBij() {
     if (!selKnop) return;
     var n = aantal(), el = selKnop.querySelector('.sel-knop-n');
+    vraagBewaren(n);
     el.textContent = n; el.hidden = !n;
     selKnop.title = T.selNaar + (n ? ' (' + n + ')' : '');
     selKnop.setAttribute('aria-label', selKnop.title);
@@ -230,11 +243,13 @@
     selKnop.style.right = (document.documentElement.clientWidth - minst + 8) + 'px';
   }
   function zetSelectie() {
-    if (selKnop || document.getElementById('sel-link')) return;
+    if (selKnop) return;
     selKnop = document.createElement('a');
     selKnop.className = 'sel-knop';
     selKnop.href = SELECTIE;
     selKnop.innerHTML = BLADWIJZER + '<span class="sel-knop-n" hidden></span>';
+    var eigen = document.getElementById('sel-link');
+    if (eigen) selKnop.addEventListener('click', function (e) { e.preventDefault(); eigen.click(); });
     var nav = document.querySelector('.arsenaal-nav');
     var buur = document.querySelector('.zoek-knop') || document.querySelector('.taal-knop') || document.querySelector('.thema-knop');
     if (nav) {

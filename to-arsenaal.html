@@ -232,6 +232,8 @@ a.sb-name:hover{text-decoration-color:var(--ink3)}
 .sb-rm:hover{background:#fde8e0;color:#5c1e10}
 @media (hover:none){.sb-handle{display:none}.sb-controls{flex-direction:row;gap:4px}.sb-arrow{width:34px;height:34px;font-size:11px}.sb-rm{width:34px;height:34px}}
 
+.sb-bewaar{margin:0;padding:10px 14px 0;font-family:var(--sans);font-size:11.5px;line-height:1.55;color:var(--ink3)}
+.sb-bewaar strong{font-weight:500;color:var(--ink2)}
 .sb-actions{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-top:1px solid var(--paper3)}
 .sb-btn{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--paper4);background:var(--paper2);font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .12s}
 .sb-btn:hover{background:var(--paper3)}
@@ -244,7 +246,7 @@ a.sb-name:hover{text-decoration-color:var(--ink3)}
 .card-add-btn.in-sessie{background:var(--amber4);border-color:var(--amber3);color:var(--amber)}
 .card-add-btn.in-sessie:hover{background:#fde8e0;border-color:#e8c0b0;color:#5c1e10}
 .tbron-feldenkrais{background:#2e5c8c}
-@media print{.arsenaal-nav,.masthead,.ingangen,.controls-row,.phase-tabs,.sec-filters,.cat-info,.nav-bar,#kw,.kbd-row,.sb-toggle,.sb-actions,.sb-controls,.sb-handle,.sb-rm{display:none!important}.sb-panel{display:block!important;border:none!important;margin:0!important}.sb-printkop{display:block;padding:0 0 12px;margin-bottom:8px;border-bottom:1px solid #ccc;font-family:var(--serif);font-size:20px}.sb-printkop small{display:block;font-family:var(--sans);font-size:11px;color:#777;margin-top:4px}.sb-item{break-inside:avoid;background:#fff}a.sb-name{text-decoration:none}body{padding:0!important}.page{max-width:100%!important;padding:0 16px!important}}
+@media print{.arsenaal-nav,.masthead,.ingangen,.controls-row,.phase-tabs,.sec-filters,.cat-info,.nav-bar,#kw,.kbd-row,.sb-toggle,.sb-bewaar,.sb-actions,.sb-controls,.sb-handle,.sb-rm{display:none!important}.sb-panel{display:block!important;border:none!important;margin:0!important}.sb-printkop{display:block;padding:0 0 12px;margin-bottom:8px;border-bottom:1px solid #ccc;font-family:var(--serif);font-size:20px}.sb-printkop small{display:block;font-family:var(--sans);font-size:11px;color:#777;margin-top:4px}.sb-item{break-inside:avoid;background:#fff}a.sb-name{text-decoration:none}body{padding:0!important}.page{max-width:100%!important;padding:0 16px!important}}
 
 @keyframes sel-gevonden{from{box-shadow:0 0 0 3px rgba(140,94,42,.45)}to{box-shadow:0 0 0 3px rgba(140,94,42,0)}}
 .sel-gevonden{animation:sel-gevonden 1.6s ease-out}
@@ -460,10 +462,11 @@ a.badge-herkomst:hover{border-color:var(--boal)}
 <div class="sb-panel" id="sb-panel">
   <div class="sb-printkop">Mijn selectie<small id="sb-printdatum">Arsenaal van de Joker</small></div>
   <div class="sb-list" id="sb-list"></div>
+  <p class="sb-bewaar" id="sb-bewaar" hidden>Je selectie staat alleen in deze browser. Wis je je browsergegevens, dan is ze weg. Bewaar haar met <strong>Bewaar of deel als link</strong>: mail de link naar jezelf of zet hem bij je bladwijzers. Met die link haal je de oefeningen later terug.</p>
   <div class="sb-actions">
     <button class="sb-btn" onclick="wisSessione()">Wis selectie</button>
     <button class="sb-btn" onclick="window.print()">Print</button>
-    <button class="sb-btn" id="sb-deel" onclick="deelSessie()">Deel als link</button>
+    <button class="sb-btn" id="sb-deel" onclick="deelSessie()">Bewaar of deel als link</button>
     <button class="sb-btn sb-btn-pri" id="sb-kopieer" onclick="kopieerSessie()">Kopieer lijst</button>
   </div>
 </div>
@@ -2859,13 +2862,13 @@ function kopieerSessie() {
 }
 
 // ── MIJN SELECTIE DELEN ALS LINK ─────────────────────────
-// "Share as link" maakt een adres to-arsenaal.html#gedeeld=<code>. De code is de lijst als JSON in base64url:
+// "Bewaar of deel als link" maakt een adres to-arsenaal.html#gedeeld=<code>. De code is de lijst als JSON in base64url:
 // per item de naam, of [naam, pagina, titel, plek] voor een oefening van een carouselpagina.
 // Wie het adres opent, ziet boven Mijn selectie de gedeelde oefeningen en kan ze (een voor een of allemaal)
 // in de eigen selectie zetten. Er gaat niets via een server: alles staat in het adres zelf.
-var GD_T = { knop: 'Deel als link', titel: 'Mijn selectie · Arsenaal van de Joker', gekopieerd: 'Link gekopieerd ✓', mislukt: 'Kopiëren lukte niet',
+var GD_T = { knop: 'Bewaar of deel als link', titel: 'Mijn selectie · Arsenaal van de Joker', gekopieerd: 'Link gekopieerd ✓', mislukt: 'Kopiëren lukte niet',
   kop: 'Gedeelde selectie', aantal: function(n) { return n + (n === 1 ? ' oefening' : ' oefeningen'); }, sluit: 'Sluiten',
-  uitleg: 'Iemand heeft deze oefeningen met je gedeeld. Bekijk ze, en zet wat je wilt bewaren in je eigen selectie.',
+  uitleg: 'Deze oefeningen zijn met je gedeeld, of je hebt ze eerder zelf bewaard. Bekijk ze, en zet wat je wilt houden in je eigen selectie.',
   plus: '+ Mijn selectie', al: '✓ In je selectie', alles: 'Alles in Mijn selectie zetten', allesAl: '✓ Alles staat in je selectie' };
 function selectieCode(lijst) {
   var kort = lijst.map(function(s) { return (s.pagina && s.titel) ? [s.naam, s.pagina, s.titel, s.plek || ''] : s.naam; });
@@ -3006,6 +3009,7 @@ function renderSessie() {
   var selN = document.getElementById('sel-n');
   selN.textContent = n;
   selN.classList.toggle('vol', n > 0);
+  document.getElementById('sb-bewaar').hidden = !n;
   try {
     document.getElementById('sb-printdatum').textContent = 'Arsenaal van de Joker · ' +
       new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -3121,11 +3125,24 @@ function toonOefening(naam) {
   if (kaart) { kaart.classList.remove('sel-gevonden'); void kaart.offsetWidth; kaart.classList.add('sel-gevonden'); }
 }
 
+// Zoeken in het arsenaal: elk woord van de zoekvraag moet voorkomen, in een vereenvoudigde vorm
+// (zonder accenten, zonder gangbare uitgangen), zodat "kennismaken" ook "kennismaking" vindt.
+var UITGANGEN = ['ingen','ing','en','e','s'];
+function zoekvorm(x) { return (x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+function zoekstam(w) {
+  for (var i = 0; i < UITGANGEN.length; i++) {
+    var u = UITGANGEN[i];
+    if (w.length - u.length >= 4 && w.slice(-u.length) === u) return w.slice(0, -u.length);
+  }
+  return w;
+}
+function zoekhooiberg(o) {
+  if (o._zh === undefined) o._zh = zoekvorm([o.n, plat(o.o), (o.tg || []).map(function(t){ return t; }).join(' '), o._zb || ''].join(' '));
+  return o._zh;
+}
 function zoektreffer(o, q) {
-  return o.n.toLowerCase().indexOf(q) >= 0 ||
-         plat(o.o).indexOf(q) >= 0 ||
-         (o.tg && o.tg.some(function(t){ return t.toLowerCase().indexOf(q) >= 0; })) ||
-         (o._zb && o._zb.indexOf(q) >= 0);
+  var hb = zoekhooiberg(o);
+  return zoekvorm(q).split(/[\s,;]+/).filter(Boolean).every(function(w) { return hb.indexOf(zoekstam(w)) >= 0; });
 }
 function filterData() {
   var q = zoekQ.toLowerCase();
