@@ -9,25 +9,36 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Arsenaal">
 <script src="thema.js"></script>
+<script>
+/* Oude adressen (#kaart=<oude titel>) openen de kaart met de nieuwe titel */
+(function () {
+  var oud = ["VOTE — voorstellen, debat, commitments"];
+  var nieuw = ["PROPOSE & VOTE — voorstellen, debat, commitments"];
+  var m = location.hash.match(/^#kaart=(.+)$/); if (!m) return;
+  var t; try { t = decodeURIComponent(m[1]); } catch (e) { return; }
+  var i = oud.indexOf(t);
+  if (i >= 0) history.replaceState(null, '', '#kaart=' + encodeURIComponent(nieuw[i]));
+})();
+</script>
 <script src="nav.js" defer></script>
 <meta name="theme-color" content="#1a3a5c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <link rel="alternate" hreflang="nl" href="legislatief.html">
 <link rel="alternate" hreflang="en" href="en/legislatief.html">
 <title>Legislatief Theater — Van Forum naar Wet</title>
-<meta name="description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
+<meta name="description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-PROPOSE-VOTE en Policy Rangers.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arsenaal van de Joker">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:title" content="Legislatief Theater — Van Forum naar Wet">
-<meta property="og:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
+<meta property="og:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-PROPOSE-VOTE en Policy Rangers.">
 <meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/legislatief.html">
 <meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="2000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Legislatief Theater — Van Forum naar Wet">
-<meta name="twitter:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-VOTE en Policy Rangers.">
+<meta name="twitter:description" content="Legislatief Theater — de theatrale route naar wetgeving. Van Boal in Rio (1993–96) tot Rubin in de VS en UK, met WATCH-ACT-PROPOSE-VOTE en Policy Rangers.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -290,8 +301,8 @@ const T = [
    body:"Het werkboek van TONYC is duidelijk: het gaat niet alleen over wetgeving. Regels, praktijken en ongeschreven normen die mensenlevens raken staan allemaal op tafel: HR-richtlijnen in een bedrijf, trainingen voor transportpersoneel, handhavingsprotocollen. Alles wat bestaat als regel kan worden gecreëerd, afgeschaft of alsnog afgedwongen."},
   {t:"Transitieve democratie",
    body:"Boal noemt dit 'transitieve democratie' (Boal, 1998, hoofdstuk 2) — niet de directe democratie van het oude Athene, niet de gedelegeerde democratie van het parlement, maar een tussenvorm. Zo gelezen zijn kiezers geen passieve toeschouwers maar spect-actoren in het wetgevingsproces, en ontmoeten kiezer en gekozene elkaar in een creatieve, open ruimte."},
-  {t:"Een vaste drieslag — #WatchActVote",
-   body:"Toen TONYC in 2013 met Legislatief Theater begon te experimenteren, bedacht het de tagline #WatchActVote: Watch (kijk naar de voorstelling), Act (speel alternatieven uit), Vote (stem op beleidsvoorstellen) (LeoNimm, Morgan &amp; Rubin, 2022, p. 134). Katy Rubin nam die opbouw mee naar haar werk in het Verenigd Koninkrijk, sinds 2019. Haar organisatie The People Act beschrijft inmiddels vier stappen: Watch, Act, Propose (voorstellen uitwerken, bespreken en amenderen) en Vote."}
+  {t:"Vier stappen — Watch, Act, Propose, Vote",
+   body:"Toen TONYC in 2013 met Legislatief Theater begon te experimenteren, bedacht het de tagline #WatchActVote: Watch (kijk naar de voorstelling), Act (speel alternatieven uit), Vote (stem op beleidsvoorstellen) (LeoNimm, Morgan &amp; Rubin, 2022, p. 134). Katy Rubin nam die opbouw mee naar haar werk in het Verenigd Koninkrijk, sinds 2019. Haar organisatie The People Act beschrijft inmiddels vier stappen: Watch, Act, Propose (voorstellen uitwerken, bespreken en amenderen) en Vote. Dit hoofdstuk volgt die vier stappen; Propose en Vote staan samen op één kaart."}
  ],
  tip:"Benoem LT niet als 'Forum Theater plus een politicus in de zaal'. Het is een andere methode met andere voorbereiding, andere scène-eisen en een andere groepssamenstelling. Wie dit onderscheid vervaagt, belooft beleidsimpact die de vorm niet kan waarmaken."},
 
@@ -333,27 +344,27 @@ const T = [
  note:"Niet elke Forum-voorstelling leent zich voor de LT-vorm. Het werkboek geeft een concrete checklist die de troep samen met de joker kan doorlopen aan het einde van de repetitieperiode.",
  stages:[
   {t:"Volgen de antagonisten regels?",
-   body:"Eerste check: volgen de gatekeepers in het verhaal bewust of onbewust een regel, protocol of beleid? Niet alleen 'slecht gedrag' maar een systeem dat hen toelaat of dwingt zo te handelen? Als het antwoord ja is, is er materiaal voor LT."},
+   body:"Eerste check: volgen de gatekeepers in het verhaal bewust of onbewust een regel, protocol of beleid? Niet alleen 'slecht gedrag' maar een systeem dat hen toelaat of dwingt zo te handelen? Die regels zijn niet toevallig: ze zijn gevormd door, en ontworpen binnen, systemen van macht en onderdrukking. Dat is een van de manieren waarop LT verschilt van andere vormen van participatieve democratie, zoals burgerberaden, die niet uitdrukkelijk vanuit macht denken. Als het antwoord ja is, is er materiaal voor LT."},
   {t:"Worden ook de protagonisten begrensd door regels?",
    body:"Tweede check: is de protagonist niet alleen persoonlijk gedwarsboomd, maar ingeklemd tussen regels — geen papieren, geen toegangsrecht, de verkeerde status, het verkeerde adres? Als de obstakels structureel zijn, is LT de juiste vorm."},
   {t:"Kunnen we de power chain in beeld brengen?",
    body:"Derde check: wie staat er boven de antagonist? Wie maakt de regel waaraan de antagonist zich houdt? Welke krachten werken op de antagonist? Als de troep die bovenlaag kan benoemen (of het ontbreken ervan kan laten zien als probleem op zich), is de scène rijp voor LT."},
   {t:"Consent van de troep",
-   body:"Vierde check, misschien de belangrijkste: wil de troep zelf LT doen? Lokale politiek kan intimideren, frustreren, of voelen als verspilde tijd. Voor sommigen is het opwindend, voor anderen pijnlijk. Het werkboek is expliciet: zonder instemming van iedereen in de troep start het proces niet."}
+   body:"Vierde check, misschien de belangrijkste: wil de troep zelf LT doen? Politiek, lokaal, landelijk of binnen een organisatie, kan intimideren, frustreren, of voelen als verspilde tijd. Voor sommigen is het opwindend, voor anderen pijnlijk. Het werkboek is expliciet: zonder instemming van iedereen in de troep start het proces niet."}
  ],
  tip:"Als de troep drie van de vier vragen kan beantwoorden, is de voorstelling klaar voor LT. Twijfelt de troep bij de laatste — de consent-vraag — wacht dan. Een gedwongen LT-voorstelling levert een broze avond op."},
 
 {n:5, title:"Research en coalitie",
  cat:"Voorbereiding", catBg:"#f5e8d0", catFg:"#8b4513",
  stripe:"#8b4513",
- note:"LT is groepswerk in drie richtingen tegelijk: inhoudelijk onderzoek in de troep, coalitieopbouw naar advocates en beleidsmakers, en logistieke voorbereiding op een avond die uit drie publieken bestaat. Onderschat geen van drieën.",
+ note:"LT is groepswerk in drie richtingen tegelijk: onderzoek en spelontwikkeling met de troep, coalitieopbouw naar advocates en beleidsmakers, en logistieke voorbereiding op een avond die uit drie publieken bestaat. Onderschat geen van drieën.",
  stages:[
-  {t:"Collectief research door de troep",
-   body:"De troep onderzoekt samen de bureaucratie van de instelling waar de scène zich afspeelt. Internet, gesprekken met medewerkers, contact met decision makers. Bij elke repetitie worden vragen geformuleerd: hoe en waarom gebeurt dit? Als de informatie niet vindbaar is, is dat gebrek aan transparantie zelf een beleidsprobleem en kan in de scène verschijnen."},
+  {t:"Onderzoeken en spelen met de troep",
+   body:"De troep onderzoekt samen de bureaucratie van de instelling waar de scène zich afspeelt. Internet, gesprekken met medewerkers, contact met decision makers. Bij elke repetitie worden vragen geformuleerd: hoe en waarom gebeurt dit? Als de informatie niet vindbaar is, is dat gebrek aan transparantie zelf een beleidsprobleem en kan in de scène verschijnen. Onderzoek en spel lopen door elkaar: wat de troep uitzoekt voedt de scène, en wat de scène oproept levert nieuwe vragen op."},
   {t:"Social justice experts als partners",
    body:"Nodig advocates en organizers uit voor de repetities — niet pas voor de voorstelling. Een jurist die het thema kent kan de troep helpen de juridische werkelijkheid te zien achter de persoonlijke ervaring. Een bestaande campagne rond het thema kan de LT-voorstelling verankeren in een grotere beweging."},
   {t:"Drie publieken uitnodigen",
-   body:"De zaal moet op de avond zelf uit drie groepen bestaan. Mensen met geleefde ervaring van wat op de scène gebeurt — zij leveren de interventies met gezag. Organizers en advocacy-groepen die het thema al bewerken — zij vertalen ideeën naar campagnedruk. Beleidsmakers die concreet kunnen veranderen — raadsleden, ambtenaren, directieleden. Eén van drie ontbreekt? Dan wordt het geen LT."},
+   body:"De zaal moet op de avond zelf uit drie groepen bestaan. Mensen met geleefde ervaring van wat op de scène gebeurt — zij leveren de interventies met gezag. Organizers en advocacy-groepen die het thema al bewerken — zij vertalen ideeën naar campagnedruk. Beleidsmakers die concreet kunnen veranderen — raadsleden, ambtenaren, directieleden. Die rollen overlappen soms: ook een belangenbehartiger of politicus kan zelf ervaring hebben met wat er op het toneel gebeurt. Eén van drie ontbreekt? Dan wordt het geen LT."},
   {t:"Follow-up plan vóór de show",
    body:"Het werkboek waarschuwt: ideeën verdampen zonder plan. Maak vóór de voorstelling afspraken over wat er daarna gebeurt met de gekozen proposals. Beleidsgesprekken met aanwezige beslissers? Aansluiting bij bestaande campagnes? Social media-druk? Een workshop participatieve democratie? Zonder follow-up-plan geen blijvende impact."}
  ],
@@ -362,10 +373,10 @@ const T = [
 {n:6, title:"WATCH — de voorstelling",
  cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
  stripe:"#0F6E56",
- note:"De eerste beweging van de drieslag. Het publiek kijkt naar een Forum-voorstelling gebouwd uit geleefde ervaring, maar met expliciete bureaucratische lagen. De scène eindigt op het conflictpunt — zoals bij Forum — maar bevat meer dan alleen een interpersoonlijk drama.",
+ note:"De eerste van de vier stappen. Het publiek kijkt naar een Forum-voorstelling gebouwd uit geleefde ervaring, maar met expliciete bureaucratische lagen. De scène eindigt op het conflictpunt — zoals bij Forum — maar bevat meer dan alleen een interpersoonlijk drama.",
  stages:[
-  {t:"De protagonist met geleefde ervaring",
-   body:"De voorstelling gaat over een hoofdpersoon die ergens recht op heeft of iets nodig heeft, en die dat niet krijgt door de manier waarop het systeem is ingericht. De acteurs spelen vanuit eigen ervaring — niet vanuit research alleen. Het werkboek citeert Freire: degenen die de onderdrukking ervaren moeten centraal staan in het veranderen ervan."},
+  {t:"Protagonisten met geleefde ervaring",
+   body:"De voorstelling gaat over een hoofdpersoon die ergens recht op heeft of iets nodig heeft, en die dat niet krijgt door de manier waarop het systeem is ingericht. De acteurs spelen vanuit eigen ervaring — niet vanuit research alleen. Het werkboek citeert Freire: degenen die de onderdrukking ervaren moeten centraal staan in het veranderen ervan. Er kunnen ook meerdere protagonisten zijn. Vaak is het sterker te laten zien dat dit veel mensen overkomt, op verschillende manieren."},
   {t:"Gatekeepers met hun eigen druk",
    body:"De antagonisten zijn vaak 'frontline' — verpleegkundigen, uitkeringsambtenaren, conducteurs. Ze worden niet gespeeld als eenvoudige boosdoeners. Op de scène wordt voelbaar dat ook zij onder druk staan: hun eigen leidinggevenden, hun regels, hun protocollen. Dit maakt het publiek wakker voor het systeem."},
   {t:"De power chain in beeld",
@@ -378,23 +389,23 @@ const T = [
 {n:7, title:"ACT — de interventies",
  cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
  stripe:"#0F6E56",
- note:"De tweede beweging. Spect-actoren uit het publiek komen het podium op en spelen alternatieven. Waar Forum-interventies gericht zijn op individuele oplossingen, dwingt de joker in LT de focus naar systemische vragen.",
+ note:"De tweede stap. Spect-actoren uit het publiek komen het podium op en spelen alternatieven. Waar Forum-interventies gericht zijn op individuele oplossingen, dwingt de joker in LT de focus naar systemische vragen.",
  stages:[
   {t:"De klassieke Forum-opening",
    body:"Zoals bij Forum: de joker biedt de scène opnieuw aan en vraagt wie een ander pad wil proberen. De spect-actor vervangt de protagonist en speelt een alternatief; de acteurs reageren realistisch op wat de spect-actor probeert. De joker bevraagt na elke interventie: werkte het? Voor wie? Onder welke voorwaarden?"},
   {t:"De systemische wending",
-   body:"Hier wijkt LT af. Na een paar interventies stelt de joker de fundamentele vraag: 'Waarom is dit de regel?' Of: 'Wie profiteert hiervan?' Of: 'Moet deze regel er überhaupt zijn?' Op dat moment verschuift het gesprek van individueel gedrag naar beleidsontwerp."},
+   body:"Hier wijkt LT af. Na een paar interventies stelt de joker de fundamentele vraag: 'Waarom is dit de regel?' Of: 'Wie profiteert hiervan?' Of: 'Moet deze regel er überhaupt zijn?' Op dat moment verschuift het gesprek van individueel gedrag naar beleidsontwerp. De joker vraagt ook: wat zou er verder nodig zijn om dit nieuwe idee voor iedereen te laten werken? Zo laten de obstakels van een idee zien welke nieuwe ontwerpen of regels nodig zijn om de impact te krijgen die we willen."},
   {t:"Spect-actors als policy analysts",
    body:"Katy Rubin noemt dit 'every citizen is a policy analyst' (Rubin, 2024). De mensen die de regel dagelijks voelen, zien de gaten erin als eerste. Hun interventies zijn geen naïeve ideeën — ze zijn ontwerpvoorstellen vanuit veldwerk dat beleidsmakers niet hebben gedaan."},
   {t:"Joker als brug",
    body:"De joker is tijdens ACT meer dan alleen Forum-facilitator. Ze moet interventies live hercontextualiseren: 'Wat jullie hier zagen, is niet één persoon die anders handelde — dat is een ander protocol dat zou kunnen bestaan.' Die vertaalslag is de eigenlijke kunst van LT-jokeren."}
  ],
- tip:"Houd de ACT-fase niet te lang. Drie tot vijf goede interventies geven genoeg materiaal voor de VOTE-fase. Wie te veel laat spelen verliest de energie en de beleidsmakers in de zaal raken overweldigd door losse ideeën zonder dat ze gesorteerd zijn."},
+ tip:"Houd de ACT-fase niet te lang. Drie tot vijf goede interventies geven genoeg materiaal voor PROPOSE en VOTE. Wie te veel laat spelen verliest de energie en de beleidsmakers in de zaal raken overweldigd door losse ideeën zonder dat ze gesorteerd zijn."},
 
-{n:8, title:"VOTE — voorstellen, debat, commitments",
+{n:8, title:"PROPOSE & VOTE — voorstellen, debat, commitments",
  cat:"Proces", catBg:"#E1F5EE", catFg:"#0F6E56",
  stripe:"#0F6E56",
- note:"De derde beweging. De creatieve energie van de interventies wordt gecondenseerd tot concrete beleidsvoorstellen, waarover openlijk wordt gedebatteerd en gestemd. Aanwezige beleidsmakers verbinden zich publiekelijk aan vervolgstappen.",
+ note:"De derde en vierde stap. De creatieve energie van de interventies wordt gecondenseerd tot concrete beleidsvoorstellen, waarover openlijk wordt gedebatteerd en gestemd. Aanwezige beleidsmakers verbinden zich publiekelijk aan vervolgstappen.",
  stages:[
   {t:"Beleidsideeën op kaartjes",
    body:"Na de laatste interventie krijgt het publiek papieren kaartjes. Iedereen schrijft ideeën op voor concrete regelveranderingen die de situatie op scène zouden veranderen. De beleidsmakers lezen, sorteren en verwerken die kaartjes nog tijdens de avond tot hoogstens drie voorstellen (LeoNimm, Morgan &amp; Rubin, 2022, p. 134)."},
@@ -421,12 +432,12 @@ const T = [
   {t:"Joker als lerende",
    body:"Het werkboek is daar duidelijk over: 'Stop! We are all biased!' Omdat we allemaal in systemen van onderdrukking zitten, zijn ook onze vooroordelen daardoor gevormd. Wie denkt anderen over onderdrukking te leren, zet zichzelf als expert in het midden; in Freires lijn is ieder in de ruimte expert. De joker is nooit uitgeleerd. Dit is bijzonder belangrijk in LT, waar de joker live politieke dynamieken modereert — veel kan misgaan."}
  ],
- tip:"Een solo-joker bij een LT-voorstelling loopt zichzelf voorbij. Naast de co-joker is er minimaal één Policy Ranger nodig die de beleidskant doet, en een productie-manager voor de logistiek. Vier à vijf rollen worden gemakkelijk verward met één persoon die alles doet."},
+ tip:"Een solo-joker bij een LT-voorstelling loopt zichzelf voorbij. Naast de co-joker heb je in het facilitatieteam iemand nodig die met de Policy Rangers werkt, de beleidsmakers in de zaal: hen voorbereidt, tijdens de avond bij de les houdt en daarna aanspreekt op wat ze beloofden. En een productieleider voor de logistiek. Die rollen worden gemakkelijk verward met één persoon die alles doet."},
 
 {n:10, title:"Policy Rangers en beleidsmakers in de zaal",
  cat:"Structuur", catBg:"#fdf5e8", catFg:"#8c5e2a",
  stripe:"#8c5e2a",
- note:"De TONYC-innovatie die LT onderscheidt van Rio 1990s: specialisten die tijdens de voorstelling de improvisaties live vertalen naar haalbaar beleid, en de verplichte aanwezigheid van decision makers als actieve deelnemers.",
+ note:"De TONYC-innovatie die LT onderscheidt van Rio 1990s: de beleidsmakers in de zaal, de Policy Rangers, die tijdens de voorstelling live reageren op wat haalbaar is, als actieve deelnemers en niet als gasten.",
  stages:[
   {t:"Policy Rangers",
    body:"Op TONYC-avonden heten de beleidsmakers en belangenbehartigers die meedoen Policy Rangers: in 2018 bijvoorbeeld de commissaris van de NYC Department of Probation en mensen van Survived and Punished NY (BK Reader, 2018). Ze spreken over de haalbaarheid van de voorstellen uit de zaal en vertellen welke wetten al in de maak zijn. Ze werken in de taal van beleid — kunnen zeggen wat haalbaar is, wat bestaat, wat ontbreekt."},
@@ -477,13 +488,13 @@ const T = [
  note:"Katy Rubin, oprichtend directeur van TONYC, deed daar Legislatief Theater van 2013 tot 2018. Sinds 2019 werkt ze in het Verenigd Koninkrijk, met regionale en lokale overheden; haar organisatie The People Act is een knooppunt voor Legislatief Theater en creatieve burgerparticipatie, en ontwikkelt de praktijk in het VK en wereldwijd. Op haar overzicht van projecten, gemaakt met het Legislative Theatre Centre of Poland, staan voorbeelden van Krakau tot Zimbabwe — en ook Circus Pa Meijer.",
  stages:[
   {t:"Manchester Homelessness Strategy (2020–2021)",
-   body:"Vanaf juli 2020 werkte Rubin met de Greater Manchester Combined Authority, het Greater Manchester Homelessness Action Network en mensen met ervaring van dakloosheid aan de Greater Manchester Homelessness Prevention Strategy (2021–2026). Het project won in 2022 de Best Practice in Citizen Participation Award van het International Observatory on Participatory Democracy (IOPD)."},
+   body:"Vanaf juli 2020 werkte Rubin met de Greater Manchester Combined Authority, het Greater Manchester Homelessness Action Network en mensen met ervaring van dakloosheid aan de Greater Manchester Homelessness Prevention Strategy (2021–2026). Het project won in 2022 de Best Practice in Citizen Participation Award van het International Observatory on Participatory Democracy (IOPD). Alle 23 voorstellen uit het LT-proces zijn opgenomen in de uiteindelijke vijfjarenstrategie (K. Rubin, persoonlijke communicatie, 18 november 2026)."},
   {t:"Glasgow (2021)",
    body:"In aanloop naar de klimaatconferentie COP26 (september 2021) werkte Glasgow City Council, met steun van Nesta's Democracy Pioneers, met jongeren aan een LT-project over duurzaam vervoer. Volgens Rubin leidde het tot betere toegankelijkheid in de vervoersplannen van de stad."},
   {t:"Coventry Rough Sleeper Strategy (2021–2022)",
    body:"In het najaar van 2021, tijdens Coventry City of Culture, leidde een samenwerking tussen Arts and Homelessness International, Coventry City Council en Katy Rubin tot een LT-proces rond de Rough Sleeper Strategy van de stad, die een half jaar later verscheen. Volgens het rapport van de University of Warwick 'bevorderde het een niet-hiërarchische structuur en maakte het inclusieve, dialogische en open besluitvorming mogelijk'."},
   {t:"Manchester, Right to the Streets (2023)",
-   body:"GM Moving en Trafford Council maakten met Katy Rubin een LT-proces over intimidatie van vrouwen en meisjes op straat en in het openbaar vervoer. Transport for Greater Manchester ging na hoe het training voor omstanders verder onder het personeel kon verspreiden; er kwamen posters in het hele vervoersnet en de campagne 'Is This OK'."}
+   body:"GM Moving en Trafford Council maakten met Katy Rubin een LT-proces over intimidatie van vrouwen en meisjes op straat en in het openbaar vervoer. Binnen het eerste jaar leidde het tot training voor omstanders (active bystander training) voor al het vervoerspersoneel, en die loopt nog steeds (K. Rubin, persoonlijke communicatie, 18 november 2026). Er kwamen ook posters in het hele vervoersnet en de campagne 'Is This OK'."}
  ],
  tip:"Wat opvalt aan het UK-werk: de koppeling aan een bestaand beleidsproces dat toch al zou plaatsvinden — een strategie die geschreven moest worden, een conferentie die eraan kwam. LT is in deze casussen geen autonoom project maar een inclusieve co-creatieve input binnen een beleidsplanning. Dat maakt het voor overheden makkelijker om mee te doen, en voor de uitkomsten om daadwerkelijk te landen in uitvoering."},
 

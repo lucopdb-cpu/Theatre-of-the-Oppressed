@@ -9,25 +9,36 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Arsenal">
 <script src="../thema.js"></script>
+<script>
+/* Oude adressen (#kaart=<oude titel>) openen de kaart met de nieuwe titel */
+(function () {
+  var oud = ["VOTE — proposals, debate, commitments", "Nucleus and co-Joking"];
+  var nieuw = ["PROPOSE & VOTE — proposals, debate, commitments", "Nucleus and co-Jokering"];
+  var m = location.hash.match(/^#kaart=(.+)$/); if (!m) return;
+  var t; try { t = decodeURIComponent(m[1]); } catch (e) { return; }
+  var i = oud.indexOf(t);
+  if (i >= 0) history.replaceState(null, '', '#kaart=' + encodeURIComponent(nieuw[i]));
+})();
+</script>
 <script src="../nav.js" defer></script>
 <meta name="theme-color" content="#1a3a5c">
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <link rel="alternate" hreflang="nl" href="../legislatief.html">
 <link rel="alternate" hreflang="en" href="legislatief.html">
 <title>Legislative Theatre — from Forum to law</title>
-<meta name="description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-VOTE and Policy Rangers.">
+<meta name="description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-PROPOSE-VOTE and Policy Rangers.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="A Joker's Arsenal">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="Legislative Theatre — from Forum to law">
-<meta property="og:description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-VOTE and Policy Rangers.">
+<meta property="og:description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-PROPOSE-VOTE and Policy Rangers.">
 <meta property="og:url" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/en/legislatief.html">
 <meta property="og:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="2000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Legislative Theatre — from Forum to law">
-<meta name="twitter:description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-VOTE and Policy Rangers.">
+<meta name="twitter:description" content="Legislative Theatre — the theatrical route to legislation. From Boal in Rio (1993–96) to Rubin in the US and UK, with WATCH-ACT-PROPOSE-VOTE and Policy Rangers.">
 <meta name="twitter:image" content="https://lucopdb-cpu.github.io/Theatre-of-the-Oppressed/joker-amber.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -300,8 +311,8 @@ const T = [
     "body": "Boal calls this 'transitive democracy' (Boal, 1998, chapter 2) — not the direct democracy of ancient Athens, not the delegated democracy of parliament, but an in-between form. Read this way, voters are not passive spectators but spect-actors in the legislative process, and voter and elected representative meet in a creative, open space."
    },
    {
-    "t": "A fixed triad — #WatchActVote",
-    "body": "When TONYC started experimenting with Legislative Theatre in 2013, it created the tagline #WatchActVote: Watch (watch the performance), Act (play out alternatives), Vote (vote on policy proposals) (LeoNimm, Morgan &amp; Rubin, 2022, p. 134). Katy Rubin took that structure with her into her work in the UK, since 2019. Her organisation The People Act now describes four steps: Watch, Act, Propose (shaping, debating and amending proposals) and Vote."
+    "t": "Four steps — Watch, Act, Propose, Vote",
+    "body": "When TONYC started experimenting with Legislative Theatre in 2013, it created the tagline #WatchActVote: Watch (watch the performance), Act (play out alternatives), Vote (vote on policy proposals) (LeoNimm, Morgan &amp; Rubin, 2022, p. 134). Katy Rubin took that structure with her into her work in the UK, since 2019. Her organisation The People Act now describes four steps: Watch, Act, Propose (shaping, debating and amending proposals) and Vote. This chapter follows those four steps; Propose and Vote share one card."
    }
   ],
   "tip": "Do not describe LT as 'Forum Theatre plus a politician in the room'. It is a different method, with different preparation, different demands on the scene and a different mix of people. Whoever blurs this distinction promises a policy impact the form cannot deliver."
@@ -373,7 +384,7 @@ const T = [
   "stages": [
    {
     "t": "Do the antagonists follow rules?",
-    "body": "First check: do the gatekeepers in the story follow a rule, protocol or policy, consciously or not? Not just 'bad behaviour' but a system that allows or forces them to act this way? If the answer is yes, there is material for LT."
+    "body": "First check: do the gatekeepers in the story follow a rule, protocol or policy, consciously or not? Not just 'bad behaviour' but a system that allows or forces them to act this way? These rules are not random: they are shaped by, and designed within, systems of power and oppression. This is one of the ways LT differs from other participatory democracy practices, such as citizens' assemblies, which are not explicitly power-informed. If the answer is yes, there is material for LT."
    },
    {
     "t": "Are the protagonists also limited by rules?",
@@ -385,7 +396,7 @@ const T = [
    },
    {
     "t": "The troupe's consent",
-    "body": "Fourth check, perhaps the most important: does the troupe itself want to do LT? Local politics can intimidate, frustrate, or feel like wasted time. For some it is exciting, for others painful. The workbook is explicit: without the consent of everyone in the troupe, the process does not start."
+    "body": "Fourth check, perhaps the most important: does the troupe itself want to do LT? Politics, whether local, national or within an organisation, can intimidate, frustrate, or feel like wasted time. For some it is exciting, for others painful. The workbook is explicit: without the consent of everyone in the troupe, the process does not start."
    }
   ],
   "tip": "If the troupe can answer three of the four questions, the performance is ready for LT. If the troupe hesitates on the last one — the question of consent — then wait. A forced LT performance makes for a brittle evening."
@@ -397,11 +408,11 @@ const T = [
   "catBg": "#f5e8d0",
   "catFg": "#8b4513",
   "stripe": "#8b4513",
-  "note": "LT is group work in three directions at once: research on the content within the troupe, building a coalition with advocates and policymakers, and practical preparation for an evening with three audiences. Underestimate none of the three.",
+  "note": "LT is group work in three directions at once: research and creative play development with the troupe, building a coalition with advocates and policymakers, and practical preparation for an evening with three audiences. Underestimate none of the three.",
   "stages": [
    {
-    "t": "Collective research by the troupe",
-    "body": "Together the troupe investigates the bureaucracy of the institution where the scene takes place. The internet, conversations with staff, contact with decision makers. At every rehearsal questions are formulated: how and why does this happen? If the information cannot be found, that lack of transparency is itself a policy problem and can appear in the scene."
+    "t": "Research and play-making with the troupe",
+    "body": "Together the troupe investigates the bureaucracy of the institution where the scene takes place. The internet, conversations with staff, contact with decision makers. At every rehearsal questions are formulated: how and why does this happen? If the information cannot be found, that lack of transparency is itself a policy problem and can appear in the scene. Research and play develop together: what the troupe finds out feeds the scene, and what the scene brings up raises new questions."
    },
    {
     "t": "Social justice experts as partners",
@@ -409,7 +420,7 @@ const T = [
    },
    {
     "t": "Inviting three audiences",
-    "body": "On the night itself the room has to consist of three groups. People with lived experience of what happens on stage — they provide the interventions with authority. Organisers and advocacy groups already working on the issue — they translate ideas into campaign pressure. Policymakers who can make concrete changes — councillors, civil servants, board members. One of the three missing? Then it is not LT."
+    "body": "On the night itself the room has to consist of three groups. People with lived experience of what happens on stage — they provide the interventions with authority. Organisers and advocacy groups already working on the issue — they translate ideas into campaign pressure. Policymakers who can make concrete changes — councillors, civil servants, board members. These identities sometimes overlap: advocates or politicians can be people with lived experience too. One of the three missing? Then it is not LT."
    },
    {
     "t": "A follow-up plan before the show",
@@ -425,11 +436,11 @@ const T = [
   "catBg": "#E1F5EE",
   "catFg": "#0F6E56",
   "stripe": "#0F6E56",
-  "note": "The first movement of the triad. The audience watches a Forum performance built from lived experience, but with explicit bureaucratic layers. The scene ends at the point of conflict — as in Forum — but contains more than an interpersonal drama.",
+  "note": "The first of the four steps. The audience watches a Forum performance built from lived experience, but with explicit bureaucratic layers. The scene ends at the point of conflict — as in Forum — but contains more than an interpersonal drama.",
   "stages": [
    {
-    "t": "The protagonist with lived experience",
-    "body": "The performance is about a main character who is entitled to something or needs something, and does not get it because of the way the system is set up. The actors play from their own experience — not from research alone. The workbook quotes Freire: those who experience the oppression must be at the centre of changing it."
+    "t": "Protagonists with lived experience",
+    "body": "The performance is about a main character who is entitled to something or needs something, and does not get it because of the way the system is set up. The actors play from their own experience — not from research alone. The workbook quotes Freire: those who experience the oppression must be at the centre of changing it. There can be several protagonists. It is often stronger to show that this is happening to many people, in a variety of ways."
    },
    {
     "t": "Gatekeepers under their own pressure",
@@ -453,7 +464,7 @@ const T = [
   "catBg": "#E1F5EE",
   "catFg": "#0F6E56",
   "stripe": "#0F6E56",
-  "note": "The second movement. Spect-actors from the audience come on stage and play alternatives. Where Forum interventions aim at individual solutions, in LT the Joker steers the focus towards systemic questions.",
+  "note": "The second step. Spect-actors from the audience come on stage and play alternatives. Where Forum interventions aim at individual solutions, in LT the Joker steers the focus towards systemic questions.",
   "stages": [
    {
     "t": "The classic Forum opening",
@@ -461,7 +472,7 @@ const T = [
    },
    {
     "t": "The systemic turn",
-    "body": "This is where LT differs. After a few interventions the Joker asks the fundamental question: 'Why is this the rule?' Or: 'Who benefits from this?' Or: 'Should this rule exist at all?' At that moment the conversation shifts from individual behaviour to policy design."
+    "body": "This is where LT differs. After a few interventions the Joker asks the fundamental question: 'Why is this the rule?' Or: 'Who benefits from this?' Or: 'Should this rule exist at all?' At that moment the conversation shifts from individual behaviour to policy design. The Joker also asks: what else would we need in place to make this new idea work for everyone? Seeing the challenges then helps us see the new designs or rules we would need for the idea to have the impact we want."
    },
    {
     "t": "Spect-actors as policy analysts",
@@ -472,16 +483,16 @@ const T = [
     "body": "During ACT the Joker is more than a Forum facilitator. They have to recontextualise interventions live: 'What you saw here is not one person acting differently — it is a different protocol that could exist.' That translation is the real art of Joking in LT."
    }
   ],
-  "tip": "Do not let the ACT phase run too long. Three to five good interventions give enough material for the VOTE phase. Let too many be played and the energy drains away, and the policymakers in the room get overwhelmed by loose ideas that have not been sorted."
+  "tip": "Do not let the ACT phase run too long. Three to five good interventions give enough material for PROPOSE and VOTE. Let too many be played and the energy drains away, and the policymakers in the room get overwhelmed by loose ideas that have not been sorted."
  },
  {
   "n": 8,
-  "title": "VOTE — proposals, debate, commitments",
+  "title": "PROPOSE & VOTE — proposals, debate, commitments",
   "cat": "Process",
   "catBg": "#E1F5EE",
   "catFg": "#0F6E56",
   "stripe": "#0F6E56",
-  "note": "The third movement. The creative energy of the interventions is condensed into concrete policy proposals, which are openly debated and voted on. The policymakers present commit publicly to next steps.",
+  "note": "The third and fourth steps. The creative energy of the interventions is condensed into concrete policy proposals, which are openly debated and voted on. The policymakers present commit publicly to next steps.",
   "stages": [
    {
     "t": "Policy ideas on cards",
@@ -504,7 +515,7 @@ const T = [
  },
  {
   "n": 9,
-  "title": "Nucleus and co-Joking",
+  "title": "Nucleus and co-Jokering",
   "cat": "Structure",
   "catBg": "#fdf5e8",
   "catFg": "#8c5e2a",
@@ -528,7 +539,7 @@ const T = [
     "body": "The workbook is clear about it: 'Stop! We are all biased!' Because we are all embedded in systems of oppression, our biases are shaped by them too. Whoever thinks they will teach people about oppression is centring themselves as the expert; in Freire's line, every person in the room is an expert. A Joker is never done learning. This matters especially in LT, where the Joker moderates political dynamics live — a lot can go wrong."
    }
   ],
-  "tip": "A solo Joker at an LT performance will overreach. Besides the co-Joker you need at least one Policy Ranger to handle the policy side, and a production manager for the logistics. Four or five roles are easily confused with one person who does everything."
+  "tip": "A solo Joker at an LT performance will overreach. Besides the co-Joker, you need someone in the facilitation team who works with the Policy Rangers, the policymakers in the room: preparing them, keeping them on track during the evening and holding them accountable afterwards. And a production manager for the logistics. These roles are easily confused with one person who does everything."
  },
  {
   "n": 10,
@@ -537,7 +548,7 @@ const T = [
   "catBg": "#fdf5e8",
   "catFg": "#8c5e2a",
   "stripe": "#8c5e2a",
-  "note": "The TONYC innovation that sets LT apart from Rio in the 1990s: specialists who translate the improvisations live into feasible policy during the performance, and the required presence of decision makers as active participants.",
+  "note": "The TONYC innovation that sets LT apart from Rio in the 1990s: the policymakers in the room, the Policy Rangers, who respond live during the performance to what is feasible, as active participants rather than guests.",
   "stages": [
    {
     "t": "Policy Rangers",
@@ -625,7 +636,7 @@ const T = [
   "stages": [
    {
     "t": "Manchester Homelessness Strategy (2020–2021)",
-    "body": "From July 2020 Rubin worked with the Greater Manchester Combined Authority, the Greater Manchester Homelessness Action Network and people with experience of homelessness on the Greater Manchester Homelessness Prevention Strategy (2021–2026). In 2022 the project won the Best Practice in Citizen Participation Award of the International Observatory on Participatory Democracy (IOPD)."
+    "body": "From July 2020 Rubin worked with the Greater Manchester Combined Authority, the Greater Manchester Homelessness Action Network and people with experience of homelessness on the Greater Manchester Homelessness Prevention Strategy (2021–2026). In 2022 the project won the Best Practice in Citizen Participation Award of the International Observatory on Participatory Democracy (IOPD). All 23 proposals from the LT process were included in the final five-year strategy (K. Rubin, personal communication, 18 November 2026)."
    },
    {
     "t": "Glasgow (2021)",
@@ -637,7 +648,7 @@ const T = [
    },
    {
     "t": "Manchester, Right to the Streets (2023)",
-    "body": "GM Moving and Trafford Council worked with Katy Rubin on an LT process about the harassment of women and girls on the street and on public transport. Transport for Greater Manchester looked at how to spread active bystander training further across its workforce; posters went up across the transport network, along with the 'Is This OK' campaign."
+    "body": "GM Moving and Trafford Council worked with Katy Rubin on an LT process about the harassment of women and girls on the street and on public transport. Within the first year it led to active bystander training for all transport staff, which is still ongoing (K. Rubin, personal communication, 18 November 2026). Posters also went up across the transport network, along with the 'Is This OK' campaign."
    }
   ],
   "tip": "What stands out in the UK work: the link to a policy process that was going to take place anyway — a strategy that had to be written, a conference that was coming. In these cases LT is not an autonomous project but an inclusive, co-creative input within policy planning. That makes it easier for governments to take part, and for the outcomes to actually land in practice."
